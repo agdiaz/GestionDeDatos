@@ -1,0 +1,20 @@
+Pasos para crear el ABML de una entidad del negocio.
+
+1) Crear la entidad:
+	Nueva clase en FrbaBus.Common.Entidades con los atributos de la tabla para esa entidad.
+2) Crear el DAO:
+	Nueva clase en FrbaBus.DAO con el nombre EntidadDAO, esta clase implementa IEntidadDAO<Entidad>
+	Escribir el código SQL de los cuatro métodos.
+	Asignarle un AccesoDB en el getter de la propiedad.
+
+3) Crear el manager de la entidad:
+	Nueva clase en FrbaBus.Manager con el nombre "EntidadManager". En esta clase crear los métodos de:
+		Alta(params necesarios)
+		Baja(params necesarios)
+		Modificacion(params necesarios)
+		Listado(params necesarios)
+	En cada metodo hay generar un objeto Entidad (el creado en el punto 1)
+	Cada método invoca al EntidadDAO
+4) Ejecución del SQL:
+	El acceso a datos recibe el query y lo ejecuta.
+4) Desde el formulario, crear un EntidadManager y completar los parametros de los metodos con los valores de los textboxs
