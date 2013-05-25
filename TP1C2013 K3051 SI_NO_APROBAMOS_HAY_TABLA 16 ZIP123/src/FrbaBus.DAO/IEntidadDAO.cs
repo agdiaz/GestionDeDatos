@@ -8,7 +8,7 @@ namespace FrbaBus.DAO
 {
     public interface IEntidadDAO<T>
     {
-        IAccesoBD accesoBD { get; set; }
+        IAccesoBD accesoBD { get; }
 
         void Alta(T entidad);
         void Baja(T entidad);

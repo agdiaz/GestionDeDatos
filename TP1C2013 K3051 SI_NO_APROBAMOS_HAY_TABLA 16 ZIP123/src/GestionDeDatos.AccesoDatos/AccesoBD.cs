@@ -12,9 +12,10 @@ namespace GestionDeDatos.AccesoDatos
     {
         public string ConnectionString { get; set; }
 
-        public AccesoBD(string connectionString)
+        public AccesoBD()
         {
-            this.ConnectionString = ConfigurationManager.AppSettings["conexíonBD"];
+            //this.ConnectionString = ConfigurationManager.AppSettings["conexíonBD"];
+            this.ConnectionString = @"User ID=gd;Password=gd2013;Initial Catalog=PRUEBAS;Data Source=(local)\SQLSERVER2008;Integrated Security=False";
         }
 
         public DataSet RealizarConsulta(string consulta)
@@ -28,6 +29,8 @@ namespace GestionDeDatos.AccesoDatos
             SqlConnection sqlConnection = new SqlConnection(ConnectionString);
             using (SqlCommand sqlCommand = new SqlCommand(consulta))
             {
+
+                sqlCommand.Connection = sqlConnection;
                 foreach (KeyValuePair<string, string> item in parametros)
 	            {
                     sqlCommand.Parameters.AddWithValue(item.Key, item.Value);
@@ -51,6 +54,7 @@ namespace GestionDeDatos.AccesoDatos
 
             using (SqlCommand sqlCommand = new SqlCommand(comando))
             {
+                sqlCommand.Connection = sqlConnection;
                 foreach (KeyValuePair<string, string> item in parametros)
                 {
                     sqlCommand.Parameters.AddWithValue(item.Key, item.Value);
