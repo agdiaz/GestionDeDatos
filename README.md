@@ -8,8 +8,8 @@ Facultad Regional Buenos Aires
 Ingeniería En Sistemas de Información
 
 Cátedra:  Gestión de datos
-Profesor: Ing. Juan Zaffaroni
-Curso: K3051
+Profesor: Ing. Juan Zaffaroni (K3051) - Ing. Enrique Reinosa
+
 Nombre del Grupo: SI_NO_APROBAMOS_HAY_TABLA
 
 Integrantes del Grupo:
