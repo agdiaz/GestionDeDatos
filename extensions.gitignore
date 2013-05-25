@@ -1,0 +1,9 @@
+bin
+obj
+*.suo
+*.csproj.user
+*.vbproj.user
+*.csproj.webinfo
+*.vbproj.webinfo
+*.exe
+*.pdb
