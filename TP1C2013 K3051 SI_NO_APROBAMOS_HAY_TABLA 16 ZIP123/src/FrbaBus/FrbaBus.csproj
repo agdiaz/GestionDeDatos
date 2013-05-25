@@ -196,6 +196,16 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FrbaBus.Common\FrbaBus.Common.csproj">
+      <Project>{DFB845C4-0A5B-4712-A374-A61C0C8678FB}</Project>
+      <Name>FrbaBus.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FrbaBus.Manager\FrbaBus.Manager.csproj">
+      <Project>{BEEF1DE2-CB66-4363-848E-FA6E8455D733}</Project>
+      <Name>FrbaBus.Manager</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

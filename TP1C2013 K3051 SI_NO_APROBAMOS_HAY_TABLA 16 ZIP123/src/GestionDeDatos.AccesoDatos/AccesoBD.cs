@@ -29,7 +29,7 @@ namespace GestionDeDatos.AccesoDatos
             {
                 foreach (KeyValuePair<string, string> item in parametros)
 	            {
-                    sqlCommand.Parameters.Add(item.Key, item.Value);
+                    sqlCommand.Parameters.AddWithValue(item.Key, item.Value);
 	            }
                 SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand);
                 adapter.Fill(ds);
@@ -52,7 +52,7 @@ namespace GestionDeDatos.AccesoDatos
             {
                 foreach (KeyValuePair<string, string> item in parametros)
                 {
-                    sqlCommand.Parameters.Add(item.Key, item.Value);
+                    sqlCommand.Parameters.AddWithValue(item.Key, item.Value);
                 }
 
                 rowsAffected = sqlCommand.ExecuteNonQuery();
