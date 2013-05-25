@@ -13,10 +13,10 @@ Curso: K3051
 Nombre del Grupo: SI_NO_APROBAMOS_HAY_TABLA
 
 Integrantes del Grupo:
-  * Dawid, Demian     => 
+  * Dawid, Demian     => 124.520/0
   * Diaz, Adrián      => 137.080/7
-  * Gómez, Florencia  => 
-  * Rojas, Cristian   => 
+  * Gómez, Florencia  => 133.831/6
+  * Rojas, Cristian   => 137.589/1
 
 Cuatrimestre: Primer cuatrimestre
 Año: 2013
