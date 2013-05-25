@@ -1,0 +1,13 @@
+DireccionMail: gestiondedatos.entrega@gmail.com
+Titulo: tp1c2013 K3051 SI_NO_APROBAMOS_HAY_TABLA
+
+Adjunto: TP1C2013 K3051 SI_NO_APROBAMOS_HAY_TABLA.zip123
+
+Mensaje:
+GRUPO: SI_NO_APROBAMOS_HAY_TABLA
+GRUPO: K3051
+INTEGRANTES: 
+	Dawid, Demian - 124.520/0
+	Diaz, Adrián - 137.080/7
+	Gómez, Florencia - 133.831/6
+ 	Rojas, Cristian - 137.589/1
