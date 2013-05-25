@@ -1,5 +1,5 @@
 CURSO: K3051
-Número de GRUPO: 
+Número de GRUPO: 16
 Nombre y legajo de los integrantes:
 	* Dawid, Demian - 124.520/0
 	* Diaz, Adrián - 137.080/7
