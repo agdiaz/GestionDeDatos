@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace GestionDeDatos.AccesoDatos
 {
@@ -13,7 +14,7 @@ namespace GestionDeDatos.AccesoDatos
 
         public AccesoBD(string connectionString)
         {
-            this.ConnectionString = connectionString;
+            this.ConnectionString = ConfigurationManager.AppSettings["conexíonBD"];
         }
 
         public DataSet RealizarConsulta(string consulta)
