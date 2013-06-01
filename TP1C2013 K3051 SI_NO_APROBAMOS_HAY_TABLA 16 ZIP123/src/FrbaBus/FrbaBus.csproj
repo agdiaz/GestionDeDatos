@@ -69,6 +69,18 @@
     <Compile Include="Abm Micro\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Micro\MicroAlta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Micro\MicroAlta.Designer.cs">
+      <DependentUpon>MicroAlta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Micro\MicroListado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Micro\MicroListado.Designer.cs">
+      <DependentUpon>MicroListado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Permisos\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
