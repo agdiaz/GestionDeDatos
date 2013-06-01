@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using GestionDeDatos.AccesoDatos;
+using System.Data;
 
 namespace FrbaBus.DAO
 {
@@ -14,6 +15,7 @@ namespace FrbaBus.DAO
         void Baja(T entidad);
         void Modificacion(T entidad);
         IList<T> Listar();
+        DataSet ObtenerRegistros();
 
     }
 }
