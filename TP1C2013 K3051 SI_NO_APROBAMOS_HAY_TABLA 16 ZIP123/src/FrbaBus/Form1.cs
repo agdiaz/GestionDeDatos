@@ -29,7 +29,7 @@ namespace FrbaBus
 
         private void tsmMicroListado_Click(object sender, EventArgs e)
         {
-            new MicroAlta().ShowDialog(this);
+            new MicroListado().ShowDialog(this);
         }
 
         private void tsmPasajero_Click(object sender, EventArgs e)
@@ -40,6 +40,11 @@ namespace FrbaBus
         private void top5ToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void tsmMicroAlta_Click(object sender, EventArgs e)
+        {
+            new MicroAlta().ShowDialog(this);
         }
     }
 }

@@ -14,6 +14,14 @@ namespace FrbaBus.Abm_Micro
         public MicroAlta()
         {
             InitializeComponent();
+
+            cbbMicroAltaTipoEmpresa.Items.Add("Chevallier");
+            cbbMicroAltaTipoEmpresa.Items.Add("Flecha Bus");
+        }
+
+        private void cbbMicroAltaTipoEmpresa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
