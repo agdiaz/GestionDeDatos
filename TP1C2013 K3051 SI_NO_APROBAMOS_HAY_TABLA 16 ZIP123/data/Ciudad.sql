@@ -35,9 +35,9 @@ insert into SI_NO_APROBAMOS_HAY_TABLA.Ciudad (nombre)
 	from
 	(
 		select distinct(t1.Recorrido_Ciudad_Destino) as Ciudad
-		from gd_esquema.Maestra2 t1
+		from gd_esquema.Maestra t1
 		union
 		select distinct(t2.Recorrido_Ciudad_Origen) as Ciudad
-		from gd_esquema.Maestra2 t2
+		from gd_esquema.Maestra t2
 	) as aut
 ) 
