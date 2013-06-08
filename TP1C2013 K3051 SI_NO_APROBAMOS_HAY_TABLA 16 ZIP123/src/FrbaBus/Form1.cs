@@ -68,6 +68,12 @@ namespace FrbaBus
         private void tsmArchivoSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+            Application.Exit();
+        }
+
+        private void altaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ClienteAlta().ShowDialog(this);
         }
 
         private void tsmAltaCliente_Click(object sender, EventArgs e)
