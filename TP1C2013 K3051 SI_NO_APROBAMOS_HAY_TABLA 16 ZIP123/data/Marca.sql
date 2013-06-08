@@ -10,7 +10,7 @@ GO
 
 SET ANSI_PADDING ON
 GO
-CREATE TABLE [gd_esquema].[Marca](
+CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Marca](
 	[id_marca] [int] IDENTITY(1,1) NOT NULL,
 	[nombre] [varchar](50) NOT NULL,
  CONSTRAINT [PK_Marca] PRIMARY KEY CLUSTERED 
@@ -24,7 +24,7 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-insert into dbo.Marca (nombre)
+insert into SI_NO_APROBAMOS_HAY_TABLA.Marca (nombre)
 (
 	select distinct m.Micro_Marca
 	from gd_esquema.Maestra m
