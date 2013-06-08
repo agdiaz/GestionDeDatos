@@ -11,7 +11,7 @@ GO
 SET ANSI_PADDING ON
 GO
 
-CREATE TABLE [dbo].[Cliente](
+CREATE TABLE [gd_esquema].[Cliente](
 	[dni] [int] NOT NULL,
 	[nombre] [nvarchar](255) NOT NULL,
 	[apellido] [nvarchar](255) NOT NULL,

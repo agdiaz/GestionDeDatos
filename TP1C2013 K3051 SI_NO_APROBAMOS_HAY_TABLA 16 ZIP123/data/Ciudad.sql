@@ -15,7 +15,7 @@ GO
 SET ANSI_PADDING ON
 GO
 
-CREATE TABLE [dbo].[Ciudad](
+CREATE TABLE [gd_esquema].[Ciudad](
 	[id_ciudad] [int] IDENTITY(1,1) NOT NULL,
 	[nombre] [varchar](50) NOT NULL,
  CONSTRAINT [PK_Ciudad] PRIMARY KEY CLUSTERED 
