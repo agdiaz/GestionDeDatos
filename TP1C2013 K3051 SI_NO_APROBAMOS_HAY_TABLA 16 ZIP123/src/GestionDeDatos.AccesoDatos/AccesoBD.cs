@@ -15,7 +15,7 @@ namespace GestionDeDatos.AccesoDatos
         public AccesoBD()
         {
             //this.ConnectionString = ConfigurationManager.AppSettings["conexíonBD"];
-            this.ConnectionString = @"User ID=gd;Password=gd2013;Initial Catalog=PRUEBAS;Data Source=(local)\SQLSERVER2008;Integrated Security=False";
+            this.ConnectionString = @"User ID=gd;Password=gd2013;Initial Catalog=GD1C2013;Data Source=(local)\SQLSERVER2008;Integrated Security=False";
         }
 
         public DataSet RealizarConsulta(string consulta)

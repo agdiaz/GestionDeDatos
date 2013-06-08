@@ -48,25 +48,27 @@
             this.btnCiudadAltaLimpiar.Location = new System.Drawing.Point(13, 116);
             this.btnCiudadAltaLimpiar.Name = "btnCiudadAltaLimpiar";
             this.btnCiudadAltaLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnCiudadAltaLimpiar.TabIndex = 2;
+            this.btnCiudadAltaLimpiar.TabIndex = 1;
             this.btnCiudadAltaLimpiar.Text = "Limpiar";
             this.btnCiudadAltaLimpiar.UseVisualStyleBackColor = true;
+            this.btnCiudadAltaLimpiar.Click += new System.EventHandler(this.btnCiudadAltaLimpiar_Click);
             // 
             // btnCiudadAltaGuardar
             // 
             this.btnCiudadAltaGuardar.Location = new System.Drawing.Point(551, 116);
             this.btnCiudadAltaGuardar.Name = "btnCiudadAltaGuardar";
             this.btnCiudadAltaGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnCiudadAltaGuardar.TabIndex = 3;
+            this.btnCiudadAltaGuardar.TabIndex = 2;
             this.btnCiudadAltaGuardar.Text = "Guardar";
             this.btnCiudadAltaGuardar.UseVisualStyleBackColor = true;
+            this.btnCiudadAltaGuardar.Click += new System.EventHandler(this.btnCiudadAltaGuardar_Click);
             // 
             // tbCiudadAltaCiudad
             // 
             this.tbCiudadAltaCiudad.Location = new System.Drawing.Point(138, 25);
             this.tbCiudadAltaCiudad.Name = "tbCiudadAltaCiudad";
             this.tbCiudadAltaCiudad.Size = new System.Drawing.Size(153, 20);
-            this.tbCiudadAltaCiudad.TabIndex = 4;
+            this.tbCiudadAltaCiudad.TabIndex = 0;
             // 
             // CiudadAlta
             // 
@@ -77,7 +79,11 @@
             this.Controls.Add(this.btnCiudadAltaGuardar);
             this.Controls.Add(this.btnCiudadAltaLimpiar);
             this.Controls.Add(this.lblCiudadAltaCiudad);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CiudadAlta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alta ciudad";
             this.ResumeLayout(false);
             this.PerformLayout();

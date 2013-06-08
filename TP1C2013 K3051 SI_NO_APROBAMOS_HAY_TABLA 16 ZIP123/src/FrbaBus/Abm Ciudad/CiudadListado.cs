@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using FrbaBus.Manager;
 
 namespace FrbaBus.Abm_Ciudad
 {
@@ -14,6 +15,24 @@ namespace FrbaBus.Abm_Ciudad
         public CiudadListado()
         {
             InitializeComponent();
+
+        }
+
+        private void btnCiudadListadoBuscar_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void CiudadListado_Load(object sender, EventArgs e)
+        {
+            CiudadManager cm = new CiudadManager();
+            DataSet ciudades = cm.Listar();
+            this.dgvCiudadListado.DataSource = ciudades.Tables[0];
+        }
+
+        private void btnCiudadListadoLimpiar_Click(object sender, EventArgs e)
+        {
+            tbCiudadListadoCiudad.Text = "";
         }
     }
 }

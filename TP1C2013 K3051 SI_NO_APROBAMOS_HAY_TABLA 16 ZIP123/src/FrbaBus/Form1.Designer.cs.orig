@@ -221,9 +221,13 @@
             // 
             this.tsmCliente.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmClienteListado,
+<<<<<<< HEAD
             this.tsmAltaCliente,
+            this.pasajeroFrecuenteToolStripMenuItem});
+=======
             this.pasajeroFrecuenteToolStripMenuItem,
             this.altaToolStripMenuItem});
+>>>>>>> 31affd2fdee93d4f6c90d5b9c915be32d4494080
             this.tsmCliente.Name = "tsmCliente";
             this.tsmCliente.Size = new System.Drawing.Size(56, 20);
             this.tsmCliente.Text = "Cliente";
@@ -427,8 +431,11 @@
         private System.Windows.Forms.ToolStripMenuItem tsmPremios;
         private System.Windows.Forms.ToolStripMenuItem tsmPremiosListado;
         private System.Windows.Forms.ToolStripMenuItem tsmPremiosAlta;
+<<<<<<< HEAD
         private System.Windows.Forms.ToolStripMenuItem tsmAltaCliente;
+=======
         private System.Windows.Forms.ToolStripMenuItem altaToolStripMenuItem;
+>>>>>>> 31affd2fdee93d4f6c90d5b9c915be32d4494080
     }
 }
 

@@ -153,6 +153,7 @@
     <Compile Include="GenerarViaje\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\MensajeDeError.cs" />
     <Compile Include="Login\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Ciudad\CiudadListado.resx">
       <DependentUpon>CiudadListado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Clientes\ClienteListado.resx">
+      <DependentUpon>ClienteListado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Micro\MicroAlta.resx">
       <DependentUpon>MicroAlta.cs</DependentUpon>

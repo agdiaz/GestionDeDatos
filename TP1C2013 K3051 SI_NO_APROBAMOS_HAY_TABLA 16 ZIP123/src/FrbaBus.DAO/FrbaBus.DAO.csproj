@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CiudadDAO.cs" />
+    <Compile Include="ClienteDAO.cs" />
     <Compile Include="IEntidadDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
