@@ -64,10 +64,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abm Clientes\ClienteAlta.cs">
+    <Compile Include="Abm Ciudad\CiudadAlta.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Abm Clientes\ClienteAlta.Designer.cs">
       <DependentUpon>ClienteAlta.cs</DependentUpon>
+    <Compile Include="Abm Ciudad\CiudadAlta.Designer.cs">
+      <DependentUpon>CiudadAlta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Ciudad\CiudadListado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Ciudad\CiudadListado.Designer.cs">
+      <DependentUpon>CiudadListado.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm Micro\Form1.cs">
       <SubType>Form</SubType>
@@ -145,6 +154,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Abm Clientes\ClienteAlta.resx">
       <DependentUpon>ClienteAlta.cs</DependentUpon>
+    <EmbeddedResource Include="Abm Ciudad\CiudadAlta.resx">
+      <DependentUpon>CiudadAlta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Ciudad\CiudadListado.resx">
+      <DependentUpon>CiudadListado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Micro\MicroAlta.resx">
       <DependentUpon>MicroAlta.cs</DependentUpon>
@@ -162,6 +176,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Rol\RolAlta.resx">
+      <DependentUpon>RolAlta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Rol\RolListado.resx">
+      <DependentUpon>RolListado.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -181,6 +201,18 @@
     </Compile>
     <Compile Include="Registrar LLegada Micro\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Rol\RolAlta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Rol\RolAlta.Designer.cs">
+      <DependentUpon>RolAlta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Rol\RolListado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Rol\RolListado.Designer.cs">
+      <DependentUpon>RolListado.cs</DependentUpon>
     </Compile>
     <Compile Include="Top Clientes\Form1.cs">
       <SubType>Form</SubType>

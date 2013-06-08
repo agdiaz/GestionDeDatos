@@ -10,7 +10,7 @@ GO
 
 SET ANSI_PADDING ON
 GO
-CREATE TABLE [dbo].[Marca](
+CREATE TABLE [gd_esquema].[Marca](
 	[id_marca] [int] IDENTITY(1,1) NOT NULL,
 	[nombre] [varchar](50) NOT NULL,
  CONSTRAINT [PK_Marca] PRIMARY KEY CLUSTERED 

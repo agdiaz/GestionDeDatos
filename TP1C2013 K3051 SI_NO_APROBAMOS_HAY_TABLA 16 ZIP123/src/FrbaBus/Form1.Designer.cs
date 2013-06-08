@@ -99,7 +99,7 @@
             // tsmArchivoSalir
             // 
             this.tsmArchivoSalir.Name = "tsmArchivoSalir";
-            this.tsmArchivoSalir.Size = new System.Drawing.Size(152, 22);
+            this.tsmArchivoSalir.Size = new System.Drawing.Size(96, 22);
             this.tsmArchivoSalir.Text = "Salir";
             // 
             // tsmRol
@@ -114,15 +114,16 @@
             // tsmRolListado
             // 
             this.tsmRolListado.Name = "tsmRolListado";
-            this.tsmRolListado.Size = new System.Drawing.Size(152, 22);
+            this.tsmRolListado.Size = new System.Drawing.Size(112, 22);
             this.tsmRolListado.Text = "Listado";
             this.tsmRolListado.Click += new System.EventHandler(this.tsmRolListado_Click);
             // 
             // tsmRolAlta
             // 
             this.tsmRolAlta.Name = "tsmRolAlta";
-            this.tsmRolAlta.Size = new System.Drawing.Size(152, 22);
+            this.tsmRolAlta.Size = new System.Drawing.Size(112, 22);
             this.tsmRolAlta.Text = "Alta";
+            this.tsmRolAlta.Click += new System.EventHandler(this.tsmRolAlta_Click);
             // 
             // tsmCiudad
             // 
@@ -136,14 +137,16 @@
             // tsmCiudadListado
             // 
             this.tsmCiudadListado.Name = "tsmCiudadListado";
-            this.tsmCiudadListado.Size = new System.Drawing.Size(112, 22);
+            this.tsmCiudadListado.Size = new System.Drawing.Size(152, 22);
             this.tsmCiudadListado.Text = "Listado";
+            this.tsmCiudadListado.Click += new System.EventHandler(this.tsmCiudadListado_Click);
             // 
             // tsmCiudadAlta
             // 
             this.tsmCiudadAlta.Name = "tsmCiudadAlta";
-            this.tsmCiudadAlta.Size = new System.Drawing.Size(112, 22);
+            this.tsmCiudadAlta.Size = new System.Drawing.Size(152, 22);
             this.tsmCiudadAlta.Text = "Alta";
+            this.tsmCiudadAlta.Click += new System.EventHandler(this.tsmCiudadAlta_Click);
             // 
             // tsmRecorrido
             // 
