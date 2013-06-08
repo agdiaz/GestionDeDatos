@@ -99,8 +99,9 @@
             // tsmArchivoSalir
             // 
             this.tsmArchivoSalir.Name = "tsmArchivoSalir";
-            this.tsmArchivoSalir.Size = new System.Drawing.Size(96, 22);
+            this.tsmArchivoSalir.Size = new System.Drawing.Size(152, 22);
             this.tsmArchivoSalir.Text = "Salir";
+            this.tsmArchivoSalir.Click += new System.EventHandler(this.tsmArchivoSalir_Click);
             // 
             // tsmRol
             // 

@@ -63,5 +63,10 @@ namespace FrbaBus
         {
             new CiudadAlta().ShowDialog(this);
         }
+
+        private void tsmArchivoSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
