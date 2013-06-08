@@ -30,7 +30,7 @@
         {
             this.gbCiudadListado = new System.Windows.Forms.GroupBox();
             this.lblCiudadListadoCiudad = new System.Windows.Forms.Label();
-            this.cbbCiudadListadoCiudad = new System.Windows.Forms.TextBox();
+            this.tbCiudadListadoCiudad = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnCiudadListadoLimpiar = new System.Windows.Forms.Button();
             this.btnCiudadListadoBuscar = new System.Windows.Forms.Button();
@@ -41,7 +41,7 @@
             // 
             // gbCiudadListado
             // 
-            this.gbCiudadListado.Controls.Add(this.cbbCiudadListadoCiudad);
+            this.gbCiudadListado.Controls.Add(this.tbCiudadListadoCiudad);
             this.gbCiudadListado.Controls.Add(this.lblCiudadListadoCiudad);
             this.gbCiudadListado.Location = new System.Drawing.Point(51, 36);
             this.gbCiudadListado.Name = "gbCiudadListado";
@@ -59,12 +59,12 @@
             this.lblCiudadListadoCiudad.TabIndex = 0;
             this.lblCiudadListadoCiudad.Text = "Ciudad";
             // 
-            // cbbCiudadListadoCiudad
+            // tbCiudadListadoCiudad
             // 
-            this.cbbCiudadListadoCiudad.Location = new System.Drawing.Point(107, 25);
-            this.cbbCiudadListadoCiudad.Name = "cbbCiudadListadoCiudad";
-            this.cbbCiudadListadoCiudad.Size = new System.Drawing.Size(100, 20);
-            this.cbbCiudadListadoCiudad.TabIndex = 1;
+            this.tbCiudadListadoCiudad.Location = new System.Drawing.Point(107, 25);
+            this.tbCiudadListadoCiudad.Name = "tbCiudadListadoCiudad";
+            this.tbCiudadListadoCiudad.Size = new System.Drawing.Size(100, 20);
+            this.tbCiudadListadoCiudad.TabIndex = 1;
             // 
             // dataGridView1
             // 
@@ -124,7 +124,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gbCiudadListado;
-        private System.Windows.Forms.TextBox cbbCiudadListadoCiudad;
+        private System.Windows.Forms.TextBox tbCiudadListadoCiudad;
         private System.Windows.Forms.Label lblCiudadListadoCiudad;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnCiudadListadoLimpiar;

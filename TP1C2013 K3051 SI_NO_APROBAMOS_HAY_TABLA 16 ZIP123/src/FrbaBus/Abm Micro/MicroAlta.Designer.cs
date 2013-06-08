@@ -31,15 +31,15 @@
             this.cbbMicroAltaTipoServicio = new System.Windows.Forms.ComboBox();
             this.lblMicroAltaTipoServicio = new System.Windows.Forms.Label();
             this.lblMicroAltaCantidadButacas = new System.Windows.Forms.Label();
-            this.tbMicroAltaCantidadButacas = new System.Windows.Forms.TextBox();
             this.lblMicroAltaTipoEmpresa = new System.Windows.Forms.Label();
             this.cbbMicroAltaTipoEmpresa = new System.Windows.Forms.ComboBox();
             this.lblMicroAltaKgsEncomiendas = new System.Windows.Forms.Label();
-            this.tbMicroAltaKgsEncomiendas = new System.Windows.Forms.TextBox();
             this.btnMicroAltaGuardar = new System.Windows.Forms.Button();
             this.btnMicroAltaLimpiar = new System.Windows.Forms.Button();
             this.lblMicroAltaModelo = new System.Windows.Forms.Label();
             this.cbbMicroAltaTipoModelo = new System.Windows.Forms.ComboBox();
+            this.mtbMicroAltaCantidadButacas = new System.Windows.Forms.MaskedTextBox();
+            this.mtbMicroAltaKgsEncomiendas = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // cbbMicroAltaTipoServicio
@@ -68,13 +68,6 @@
             this.lblMicroAltaCantidadButacas.TabIndex = 2;
             this.lblMicroAltaCantidadButacas.Text = "Cantidad de butacas";
             // 
-            // tbMicroAltaCantidadButacas
-            // 
-            this.tbMicroAltaCantidadButacas.Location = new System.Drawing.Point(288, 147);
-            this.tbMicroAltaCantidadButacas.Name = "tbMicroAltaCantidadButacas";
-            this.tbMicroAltaCantidadButacas.Size = new System.Drawing.Size(121, 20);
-            this.tbMicroAltaCantidadButacas.TabIndex = 3;
-            // 
             // lblMicroAltaTipoEmpresa
             // 
             this.lblMicroAltaTipoEmpresa.AutoSize = true;
@@ -101,13 +94,6 @@
             this.lblMicroAltaKgsEncomiendas.Size = new System.Drawing.Size(170, 13);
             this.lblMicroAltaKgsEncomiendas.TabIndex = 6;
             this.lblMicroAltaKgsEncomiendas.Text = "Kgs disponibles para encomiendas";
-            // 
-            // tbMicroAltaKgsEncomiendas
-            // 
-            this.tbMicroAltaKgsEncomiendas.Location = new System.Drawing.Point(288, 181);
-            this.tbMicroAltaKgsEncomiendas.Name = "tbMicroAltaKgsEncomiendas";
-            this.tbMicroAltaKgsEncomiendas.Size = new System.Drawing.Size(121, 20);
-            this.tbMicroAltaKgsEncomiendas.TabIndex = 7;
             // 
             // btnMicroAltaGuardar
             // 
@@ -145,20 +131,38 @@
             this.cbbMicroAltaTipoModelo.Size = new System.Drawing.Size(121, 21);
             this.cbbMicroAltaTipoModelo.TabIndex = 11;
             // 
+            // mtbMicroAltaCantidadButacas
+            // 
+            this.mtbMicroAltaCantidadButacas.Location = new System.Drawing.Point(288, 147);
+            this.mtbMicroAltaCantidadButacas.Mask = "99999";
+            this.mtbMicroAltaCantidadButacas.Name = "mtbMicroAltaCantidadButacas";
+            this.mtbMicroAltaCantidadButacas.Size = new System.Drawing.Size(121, 20);
+            this.mtbMicroAltaCantidadButacas.TabIndex = 12;
+            this.mtbMicroAltaCantidadButacas.ValidatingType = typeof(int);
+            // 
+            // mtbMicroAltaKgsEncomiendas
+            // 
+            this.mtbMicroAltaKgsEncomiendas.Location = new System.Drawing.Point(288, 185);
+            this.mtbMicroAltaKgsEncomiendas.Mask = "99999";
+            this.mtbMicroAltaKgsEncomiendas.Name = "mtbMicroAltaKgsEncomiendas";
+            this.mtbMicroAltaKgsEncomiendas.Size = new System.Drawing.Size(121, 20);
+            this.mtbMicroAltaKgsEncomiendas.TabIndex = 13;
+            this.mtbMicroAltaKgsEncomiendas.ValidatingType = typeof(int);
+            // 
             // MicroAlta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(526, 272);
+            this.Controls.Add(this.mtbMicroAltaKgsEncomiendas);
+            this.Controls.Add(this.mtbMicroAltaCantidadButacas);
             this.Controls.Add(this.cbbMicroAltaTipoModelo);
             this.Controls.Add(this.lblMicroAltaModelo);
             this.Controls.Add(this.btnMicroAltaLimpiar);
             this.Controls.Add(this.btnMicroAltaGuardar);
-            this.Controls.Add(this.tbMicroAltaKgsEncomiendas);
             this.Controls.Add(this.lblMicroAltaKgsEncomiendas);
             this.Controls.Add(this.cbbMicroAltaTipoEmpresa);
             this.Controls.Add(this.lblMicroAltaTipoEmpresa);
-            this.Controls.Add(this.tbMicroAltaCantidadButacas);
             this.Controls.Add(this.lblMicroAltaCantidadButacas);
             this.Controls.Add(this.lblMicroAltaTipoServicio);
             this.Controls.Add(this.cbbMicroAltaTipoServicio);
@@ -174,14 +178,14 @@
         private System.Windows.Forms.ComboBox cbbMicroAltaTipoServicio;
         private System.Windows.Forms.Label lblMicroAltaTipoServicio;
         private System.Windows.Forms.Label lblMicroAltaCantidadButacas;
-        private System.Windows.Forms.TextBox tbMicroAltaCantidadButacas;
         private System.Windows.Forms.Label lblMicroAltaTipoEmpresa;
         private System.Windows.Forms.ComboBox cbbMicroAltaTipoEmpresa;
         private System.Windows.Forms.Label lblMicroAltaKgsEncomiendas;
-        private System.Windows.Forms.TextBox tbMicroAltaKgsEncomiendas;
         private System.Windows.Forms.Button btnMicroAltaGuardar;
         private System.Windows.Forms.Button btnMicroAltaLimpiar;
         private System.Windows.Forms.Label lblMicroAltaModelo;
         private System.Windows.Forms.ComboBox cbbMicroAltaTipoModelo;
+        private System.Windows.Forms.MaskedTextBox mtbMicroAltaCantidadButacas;
+        private System.Windows.Forms.MaskedTextBox mtbMicroAltaKgsEncomiendas;
     }
 }

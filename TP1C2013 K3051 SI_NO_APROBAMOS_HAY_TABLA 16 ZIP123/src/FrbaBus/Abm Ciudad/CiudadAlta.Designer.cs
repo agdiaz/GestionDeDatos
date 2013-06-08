@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.lblCiudadAltaCiudad = new System.Windows.Forms.Label();
-            this.tbCiudadAltaCiudad = new System.Windows.Forms.TextBox();
             this.btnCiudadAltaLimpiar = new System.Windows.Forms.Button();
             this.btnCiudadAltaGuardar = new System.Windows.Forms.Button();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // lblCiudadAltaCiudad
@@ -42,13 +42,6 @@
             this.lblCiudadAltaCiudad.Size = new System.Drawing.Size(40, 13);
             this.lblCiudadAltaCiudad.TabIndex = 0;
             this.lblCiudadAltaCiudad.Text = "Ciudad";
-            // 
-            // tbCiudadAltaCiudad
-            // 
-            this.tbCiudadAltaCiudad.Location = new System.Drawing.Point(143, 30);
-            this.tbCiudadAltaCiudad.Name = "tbCiudadAltaCiudad";
-            this.tbCiudadAltaCiudad.Size = new System.Drawing.Size(100, 20);
-            this.tbCiudadAltaCiudad.TabIndex = 1;
             // 
             // btnCiudadAltaLimpiar
             // 
@@ -68,14 +61,22 @@
             this.btnCiudadAltaGuardar.Text = "Guardar";
             this.btnCiudadAltaGuardar.UseVisualStyleBackColor = true;
             // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(152, 33);
+            this.maskedTextBox1.Mask = "[a-zA-Z]?";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
+            this.maskedTextBox1.TabIndex = 4;
+            // 
             // CiudadAlta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(638, 151);
+            this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.btnCiudadAltaGuardar);
             this.Controls.Add(this.btnCiudadAltaLimpiar);
-            this.Controls.Add(this.tbCiudadAltaCiudad);
             this.Controls.Add(this.lblCiudadAltaCiudad);
             this.Name = "CiudadAlta";
             this.Text = "Alta ciudad";
@@ -87,8 +88,8 @@
         #endregion
 
         private System.Windows.Forms.Label lblCiudadAltaCiudad;
-        private System.Windows.Forms.TextBox tbCiudadAltaCiudad;
         private System.Windows.Forms.Button btnCiudadAltaLimpiar;
         private System.Windows.Forms.Button btnCiudadAltaGuardar;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
     }
 }
