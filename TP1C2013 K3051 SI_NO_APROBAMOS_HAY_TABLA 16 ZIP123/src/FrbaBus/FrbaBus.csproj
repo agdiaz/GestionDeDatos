@@ -81,6 +81,12 @@
     <Compile Include="Abm Ciudad\CiudadListado.Designer.cs">
       <DependentUpon>CiudadListado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Clientes\ClienteListado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Clientes\ClienteListado.Designer.cs">
+      <DependentUpon>ClienteListado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Micro\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
