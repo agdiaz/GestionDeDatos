@@ -39,7 +39,7 @@
             this.dtpClienteFechaNac = new System.Windows.Forms.DateTimePicker();
             this.cbClienteEsDiscapacitado = new System.Windows.Forms.CheckBox();
             this.rbClienteHombre = new System.Windows.Forms.RadioButton();
-            this.rnClienteMujer = new System.Windows.Forms.RadioButton();
+            this.rbClienteMujer = new System.Windows.Forms.RadioButton();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.mtbClienteDNI = new System.Windows.Forms.MaskedTextBox();
@@ -128,7 +128,7 @@
             this.dtpClienteFechaNac.Location = new System.Drawing.Point(114, 169);
             this.dtpClienteFechaNac.Name = "dtpClienteFechaNac";
             this.dtpClienteFechaNac.Size = new System.Drawing.Size(324, 20);
-            this.dtpClienteFechaNac.TabIndex = 15;
+            this.dtpClienteFechaNac.TabIndex = 6;
             // 
             // cbClienteEsDiscapacitado
             // 
@@ -136,7 +136,7 @@
             this.cbClienteEsDiscapacitado.Location = new System.Drawing.Point(12, 196);
             this.cbClienteEsDiscapacitado.Name = "cbClienteEsDiscapacitado";
             this.cbClienteEsDiscapacitado.Size = new System.Drawing.Size(107, 17);
-            this.cbClienteEsDiscapacitado.TabIndex = 16;
+            this.cbClienteEsDiscapacitado.TabIndex = 7;
             this.cbClienteEsDiscapacitado.Text = "Es discapacitado";
             this.cbClienteEsDiscapacitado.UseVisualStyleBackColor = true;
             // 
@@ -146,39 +146,41 @@
             this.rbClienteHombre.Location = new System.Drawing.Point(129, 217);
             this.rbClienteHombre.Name = "rbClienteHombre";
             this.rbClienteHombre.Size = new System.Drawing.Size(62, 17);
-            this.rbClienteHombre.TabIndex = 17;
+            this.rbClienteHombre.TabIndex = 8;
             this.rbClienteHombre.TabStop = true;
             this.rbClienteHombre.Text = "Hombre\r\n";
             this.rbClienteHombre.UseVisualStyleBackColor = true;
             // 
-            // rnClienteMujer
+            // rbClienteMujer
             // 
-            this.rnClienteMujer.AutoSize = true;
-            this.rnClienteMujer.Location = new System.Drawing.Point(129, 233);
-            this.rnClienteMujer.Name = "rnClienteMujer";
-            this.rnClienteMujer.Size = new System.Drawing.Size(51, 17);
-            this.rnClienteMujer.TabIndex = 18;
-            this.rnClienteMujer.TabStop = true;
-            this.rnClienteMujer.Text = "Mujer";
-            this.rnClienteMujer.UseVisualStyleBackColor = true;
+            this.rbClienteMujer.AutoSize = true;
+            this.rbClienteMujer.Location = new System.Drawing.Point(129, 233);
+            this.rbClienteMujer.Name = "rbClienteMujer";
+            this.rbClienteMujer.Size = new System.Drawing.Size(51, 17);
+            this.rbClienteMujer.TabIndex = 9;
+            this.rbClienteMujer.TabStop = true;
+            this.rbClienteMujer.Text = "Mujer";
+            this.rbClienteMujer.UseVisualStyleBackColor = true;
             // 
             // btnGuardar
             // 
             this.btnGuardar.Location = new System.Drawing.Point(377, 259);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 19;
+            this.btnGuardar.TabIndex = 11;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnLimpiar
             // 
             this.btnLimpiar.Location = new System.Drawing.Point(12, 259);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 20;
+            this.btnLimpiar.TabIndex = 10;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // mtbClienteDNI
             // 
@@ -186,7 +188,7 @@
             this.mtbClienteDNI.Mask = "99999999";
             this.mtbClienteDNI.Name = "mtbClienteDNI";
             this.mtbClienteDNI.Size = new System.Drawing.Size(100, 20);
-            this.mtbClienteDNI.TabIndex = 21;
+            this.mtbClienteDNI.TabIndex = 0;
             // 
             // mtbClienteTelefono
             // 
@@ -194,35 +196,35 @@
             this.mtbClienteTelefono.Mask = "000000000000";
             this.mtbClienteTelefono.Name = "mtbClienteTelefono";
             this.mtbClienteTelefono.Size = new System.Drawing.Size(236, 20);
-            this.mtbClienteTelefono.TabIndex = 25;
+            this.mtbClienteTelefono.TabIndex = 4;
             // 
             // tbClienteMail
             // 
             this.tbClienteMail.Location = new System.Drawing.Point(114, 143);
             this.tbClienteMail.Name = "tbClienteMail";
             this.tbClienteMail.Size = new System.Drawing.Size(324, 20);
-            this.tbClienteMail.TabIndex = 26;
+            this.tbClienteMail.TabIndex = 5;
             // 
             // tbClienteNombre
             // 
             this.tbClienteNombre.Location = new System.Drawing.Point(114, 31);
             this.tbClienteNombre.Name = "tbClienteNombre";
             this.tbClienteNombre.Size = new System.Drawing.Size(324, 20);
-            this.tbClienteNombre.TabIndex = 27;
+            this.tbClienteNombre.TabIndex = 1;
             // 
             // tbClienteApellido
             // 
             this.tbClienteApellido.Location = new System.Drawing.Point(114, 57);
             this.tbClienteApellido.Name = "tbClienteApellido";
             this.tbClienteApellido.Size = new System.Drawing.Size(324, 20);
-            this.tbClienteApellido.TabIndex = 28;
+            this.tbClienteApellido.TabIndex = 2;
             // 
             // tbClienteDireccion
             // 
             this.tbClienteDireccion.Location = new System.Drawing.Point(114, 83);
             this.tbClienteDireccion.Name = "tbClienteDireccion";
             this.tbClienteDireccion.Size = new System.Drawing.Size(324, 20);
-            this.tbClienteDireccion.TabIndex = 29;
+            this.tbClienteDireccion.TabIndex = 3;
             // 
             // ClienteAlta
             // 
@@ -237,7 +239,7 @@
             this.Controls.Add(this.mtbClienteDNI);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.rnClienteMujer);
+            this.Controls.Add(this.rbClienteMujer);
             this.Controls.Add(this.rbClienteHombre);
             this.Controls.Add(this.cbClienteEsDiscapacitado);
             this.Controls.Add(this.dtpClienteFechaNac);
@@ -249,7 +251,11 @@
             this.Controls.Add(this.lblClienteApellido);
             this.Controls.Add(this.lblClienteNombre);
             this.Controls.Add(this.lblClienteDNI);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ClienteAlta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alta cliente";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -269,7 +275,7 @@
         private System.Windows.Forms.DateTimePicker dtpClienteFechaNac;
         private System.Windows.Forms.CheckBox cbClienteEsDiscapacitado;
         private System.Windows.Forms.RadioButton rbClienteHombre;
-        private System.Windows.Forms.RadioButton rnClienteMujer;
+        private System.Windows.Forms.RadioButton rbClienteMujer;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.MaskedTextBox mtbClienteDNI;
