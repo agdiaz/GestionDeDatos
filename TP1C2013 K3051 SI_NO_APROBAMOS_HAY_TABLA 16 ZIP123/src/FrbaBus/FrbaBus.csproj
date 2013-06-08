@@ -63,6 +63,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abm Clientes\ClienteAlta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Clientes\ClienteAlta.Designer.cs">
+      <DependentUpon>ClienteAlta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Micro\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Abm Clientes\ClienteAlta.resx">
+      <DependentUpon>ClienteAlta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Abm Micro\MicroAlta.resx">
       <DependentUpon>MicroAlta.cs</DependentUpon>
     </EmbeddedResource>
