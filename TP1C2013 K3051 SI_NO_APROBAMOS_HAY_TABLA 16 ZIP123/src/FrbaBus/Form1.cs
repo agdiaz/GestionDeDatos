@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using FrbaBus.Abm_Micro;
+using FrbaBus.Rol;
+using FrbaBus.Abm_Ciudad;
 
 namespace FrbaBus
 {
@@ -19,7 +21,7 @@ namespace FrbaBus
 
         private void tsmRolListado_Click(object sender, EventArgs e)
         {
-
+            new RolListado().ShowDialog(this);
         }
 
         private void tsmMicros_Click(object sender, EventArgs e)
@@ -45,6 +47,21 @@ namespace FrbaBus
         private void tsmMicroAlta_Click(object sender, EventArgs e)
         {
             new MicroAlta().ShowDialog(this);
+        }
+
+        private void tsmRolAlta_Click(object sender, EventArgs e)
+        {
+            new RolAlta().ShowDialog(this);
+        }
+
+        private void tsmCiudadListado_Click(object sender, EventArgs e)
+        {
+            new CiudadListado().ShowDialog(this);
+        }
+
+        private void tsmCiudadAlta_Click(object sender, EventArgs e)
+        {
+            new CiudadAlta().ShowDialog(this);
         }
     }
 }
