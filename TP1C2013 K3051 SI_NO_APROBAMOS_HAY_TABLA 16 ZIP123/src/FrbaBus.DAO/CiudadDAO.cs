@@ -22,13 +22,13 @@ namespace FrbaBus.DAO
 
         public void Alta(Ciudad entidad)
         {
-            string consulta = "INSERT INTO [PRUEBAS].[dbo].[Ciudad]([descripcion])VALUES('"+entidad.Descripcion+"')";
+            string consulta = "INSERT INTO [SI_NO_APROBAMOS_HAY_TABLA].[Ciudad]([nombre])VALUES('"+entidad.Descripcion+"')";
             this.accesoBD.EjecutarComando(consulta);
         }
 
         public void Baja(Ciudad entidad)
         {
-            string consulta = "DELETE FROM [PRUEBAS].[dbo].[Ciudad] WHERE '"+entidad.Descripcion+"'=descripcion";
+            string consulta = "DELETE FROM [SI_NO_APROBAMOS_HAY_TABLA].[Ciudad] WHERE '" + entidad.Descripcion + "'=descripcion";
             this.accesoBD.EjecutarComando(consulta);
         }
 
@@ -56,7 +56,7 @@ namespace FrbaBus.DAO
 
         public DataSet ObtenerRegistros()
         {
-            string consulta = "SELECT * FROM [PRUEBAS].[dbo].[Ciudad]";
+            string consulta = "SELECT * FROM [SI_NO_APROBAMOS_HAY_TABLA].[Ciudad]";
             DataSet ciudades = this.accesoBD.RealizarConsulta(consulta);
             return ciudades;
         }

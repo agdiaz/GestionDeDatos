@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using FrbaBus.Abm_Micro;
 using FrbaBus.Rol;
 using FrbaBus.Abm_Ciudad;
+using FrbaBus.Abm_Clientes;
 
 namespace FrbaBus
 {
@@ -67,6 +68,12 @@ namespace FrbaBus
         private void tsmArchivoSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+            Application.Exit();
+        }
+
+        private void altaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ClienteAlta().ShowDialog(this);
         }
     }
 }

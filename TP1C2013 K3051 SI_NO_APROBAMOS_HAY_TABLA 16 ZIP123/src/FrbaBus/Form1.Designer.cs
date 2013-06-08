@@ -65,6 +65,7 @@
             this.tsmPremios = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPremiosListado = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPremiosAlta = new System.Windows.Forms.ToolStripMenuItem();
+            this.altaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,7 +100,7 @@
             // tsmArchivoSalir
             // 
             this.tsmArchivoSalir.Name = "tsmArchivoSalir";
-            this.tsmArchivoSalir.Size = new System.Drawing.Size(152, 22);
+            this.tsmArchivoSalir.Size = new System.Drawing.Size(96, 22);
             this.tsmArchivoSalir.Text = "Salir";
             this.tsmArchivoSalir.Click += new System.EventHandler(this.tsmArchivoSalir_Click);
             // 
@@ -138,14 +139,14 @@
             // tsmCiudadListado
             // 
             this.tsmCiudadListado.Name = "tsmCiudadListado";
-            this.tsmCiudadListado.Size = new System.Drawing.Size(152, 22);
+            this.tsmCiudadListado.Size = new System.Drawing.Size(112, 22);
             this.tsmCiudadListado.Text = "Listado";
             this.tsmCiudadListado.Click += new System.EventHandler(this.tsmCiudadListado_Click);
             // 
             // tsmCiudadAlta
             // 
             this.tsmCiudadAlta.Name = "tsmCiudadAlta";
-            this.tsmCiudadAlta.Size = new System.Drawing.Size(152, 22);
+            this.tsmCiudadAlta.Size = new System.Drawing.Size(112, 22);
             this.tsmCiudadAlta.Text = "Alta";
             this.tsmCiudadAlta.Click += new System.EventHandler(this.tsmCiudadAlta_Click);
             // 
@@ -183,14 +184,14 @@
             // tsmMicroListado
             // 
             this.tsmMicroListado.Name = "tsmMicroListado";
-            this.tsmMicroListado.Size = new System.Drawing.Size(152, 22);
+            this.tsmMicroListado.Size = new System.Drawing.Size(112, 22);
             this.tsmMicroListado.Text = "Listado";
             this.tsmMicroListado.Click += new System.EventHandler(this.tsmMicroListado_Click);
             // 
             // tsmMicroAlta
             // 
             this.tsmMicroAlta.Name = "tsmMicroAlta";
-            this.tsmMicroAlta.Size = new System.Drawing.Size(152, 22);
+            this.tsmMicroAlta.Size = new System.Drawing.Size(112, 22);
             this.tsmMicroAlta.Text = "Alta";
             this.tsmMicroAlta.Click += new System.EventHandler(this.tsmMicroAlta_Click);
             // 
@@ -219,7 +220,8 @@
             // 
             this.tsmCliente.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmClienteListado,
-            this.pasajeroFrecuenteToolStripMenuItem});
+            this.pasajeroFrecuenteToolStripMenuItem,
+            this.altaToolStripMenuItem});
             this.tsmCliente.Name = "tsmCliente";
             this.tsmCliente.Size = new System.Drawing.Size(56, 20);
             this.tsmCliente.Text = "Cliente";
@@ -257,13 +259,13 @@
             // tsmPasajeListado
             // 
             this.tsmPasajeListado.Name = "tsmPasajeListado";
-            this.tsmPasajeListado.Size = new System.Drawing.Size(112, 22);
+            this.tsmPasajeListado.Size = new System.Drawing.Size(152, 22);
             this.tsmPasajeListado.Text = "Listado";
             // 
             // tsmPasajeAlta
             // 
             this.tsmPasajeAlta.Name = "tsmPasajeAlta";
-            this.tsmPasajeAlta.Size = new System.Drawing.Size(112, 22);
+            this.tsmPasajeAlta.Size = new System.Drawing.Size(152, 22);
             this.tsmPasajeAlta.Text = "Alta";
             // 
             // tsmEncomienda
@@ -351,6 +353,13 @@
             this.tsmPremiosAlta.Size = new System.Drawing.Size(112, 22);
             this.tsmPremiosAlta.Text = "Alta";
             // 
+            // altaToolStripMenuItem
+            // 
+            this.altaToolStripMenuItem.Name = "altaToolStripMenuItem";
+            this.altaToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.altaToolStripMenuItem.Text = "Alta";
+            this.altaToolStripMenuItem.Click += new System.EventHandler(this.altaToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -408,6 +417,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmPremios;
         private System.Windows.Forms.ToolStripMenuItem tsmPremiosListado;
         private System.Windows.Forms.ToolStripMenuItem tsmPremiosAlta;
+        private System.Windows.Forms.ToolStripMenuItem altaToolStripMenuItem;
     }
 }
 
