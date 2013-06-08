@@ -11,7 +11,7 @@ GO
 SET ANSI_PADDING ON
 GO
 
-CREATE TABLE [gd_esquema].[Cliente](
+CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Cliente](
 	[dni] [int] NOT NULL,
 	[nombre] [nvarchar](255) NOT NULL,
 	[apellido] [nvarchar](255) NOT NULL,
@@ -32,7 +32,7 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-insert into dbo.Cliente (dni, nombre, apellido, direccion, telefono, mail, fecha_nacimiento)
+insert into SI_NO_APROBAMOS_HAY_TABLA.Cliente (dni, nombre, apellido, direccion, telefono, mail, fecha_nacimiento)
 (
 	select distinct m.Cli_Dni as dni, m.Cli_Nombre as nombre, m.Cli_Apellido as apellido, 
 			m.Cli_Dir as direccion, m.Cli_Telefono as telefono, m.Cli_Mail as mail,

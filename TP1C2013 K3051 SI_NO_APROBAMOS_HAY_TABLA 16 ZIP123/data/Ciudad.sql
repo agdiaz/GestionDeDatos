@@ -15,7 +15,7 @@ GO
 SET ANSI_PADDING ON
 GO
 
-CREATE TABLE [gd_esquema].[Ciudad](
+CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Ciudad](
 	[id_ciudad] [int] IDENTITY(1,1) NOT NULL,
 	[nombre] [varchar](50) NOT NULL,
  CONSTRAINT [PK_Ciudad] PRIMARY KEY CLUSTERED 
@@ -29,7 +29,7 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-insert into dbo.Ciudad (nombre)
+insert into SI_NO_APROBAMOS_HAY_TABLA.Ciudad (nombre)
 (
 	select aut.Ciudad 
 	from
