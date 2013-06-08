@@ -64,11 +64,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abm Clientes\ClienteAlta.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Abm Ciudad\CiudadAlta.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Abm Clientes\ClienteAlta.Designer.cs">
       <DependentUpon>ClienteAlta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Ciudad\CiudadAlta.Designer.cs">
       <DependentUpon>CiudadAlta.cs</DependentUpon>
     </Compile>
@@ -154,6 +157,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Abm Clientes\ClienteAlta.resx">
       <DependentUpon>ClienteAlta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Abm Ciudad\CiudadAlta.resx">
       <DependentUpon>CiudadAlta.cs</DependentUpon>
     </EmbeddedResource>
