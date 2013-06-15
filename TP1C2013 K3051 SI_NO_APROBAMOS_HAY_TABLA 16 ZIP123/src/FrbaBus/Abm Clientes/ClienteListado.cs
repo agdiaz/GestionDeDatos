@@ -27,7 +27,7 @@ namespace FrbaBus.Abm_Clientes
             var NameField = new DataColumn();
 
             NameField.ColumnName = "Name";
-            NameField. = "name";
+            //NameField. = "name";
             GridView1.Columns.Add(NameField);
         }
     }
