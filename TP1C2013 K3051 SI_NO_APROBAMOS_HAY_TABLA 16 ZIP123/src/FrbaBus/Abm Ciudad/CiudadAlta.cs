@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using FrbaBus.Manager;
+using FrbaBus.Helpers;
 
 namespace FrbaBus.Abm_Ciudad
 {
@@ -35,7 +36,7 @@ namespace FrbaBus.Abm_Ciudad
         {
             if (String.IsNullOrEmpty(this.tbCiudadAltaCiudad.Text))
             {
-                MessageBox.Show("Completar nombre de ciudad");
+                MensajeDeError.MostrarError(lblCiudadAltaCiudad);
                 return false;
             }
             return true;
