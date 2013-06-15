@@ -10,6 +10,8 @@ using FrbaBus.Abm_Micro;
 using FrbaBus.Rol;
 using FrbaBus.Abm_Ciudad;
 using FrbaBus.Abm_Clientes;
+using FrbaBus.Abm_encomienda;
+using FrbaBus.Abm_Recorrido;
 
 namespace FrbaBus
 {
@@ -84,6 +86,26 @@ namespace FrbaBus
         private void tsmClienteListado_Click(object sender, EventArgs e)
         {
             new ClienteListado().ShowDialog(this);
+        }
+
+        private void tsmEncomiendaAlta_Click(object sender, EventArgs e)
+        {
+            new EncomiendaAlta().ShowDialog(this);
+        }
+
+        private void tsmEncomiendaListado_Click(object sender, EventArgs e)
+        {
+            new EncomiendaListado().ShowDialog(this);
+        }
+
+        private void tsmRecorridoAlta_Click(object sender, EventArgs e)
+        {
+            new RecorridoAlta().ShowDialog(this);
+        }
+
+        private void tsmRecorridoListado_Click(object sender, EventArgs e)
+        {
+            new RecorridoListado().ShowDialog(this);
         }
     }
 }
