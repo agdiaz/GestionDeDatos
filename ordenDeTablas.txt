@@ -5,3 +5,4 @@ Servicio
 Recorrido
 Micros
 Butacas
+Viaje
