@@ -13,6 +13,7 @@ using FrbaBus.Abm_Clientes;
 using FrbaBus.Abm_encomienda;
 using FrbaBus.Abm_Recorrido;
 using FrbaBus.Abm_Viaje;
+using FrbaBus.Common.Entidades;
 
 namespace FrbaBus
 {
@@ -26,7 +27,14 @@ namespace FrbaBus
 
         public void RegistrarPermisos()
         {
-            
+            this.ActualizarStatusBar();
+        }
+
+        private void ActualizarStatusBar()
+        {
+            this.tssUsuarioValor.Text = Program.ContextoActual.UsuarioActual.Username;
+            this.tssRolValor.Text = Program.ContextoActual.UsuarioActual.RolAsignado.Nombre;
+            this.tssSesion.Text = Program.ContextoActual.ConSesionIniciada ? "(Sesión iniciada)" : "(Sesión no iniciada)";
         }
 
         private void tsmRolListado_Click(object sender, EventArgs e)
@@ -127,8 +135,36 @@ namespace FrbaBus
 
         private void tsmSesionIniciar_Click(object sender, EventArgs e)
         {
-            Login.Login formLogin = new Login.Login();
-            formLogin.Show(this);
+            Usuario u = null;
+            using (Login.Login formLogin = new Login.Login())
+            {
+                formLogin.ShowDialog(this);
+                u = formLogin.UsuarioIniciado;
+            }
+
+            if (u != null && Program.ContextoActual.UsuarioActual != u)
+            {
+                Program.ContextoActual.RegistrarUsuario(u);
+                this.RegistrarPermisos();
+            }
+        }
+
+        private void tsmSesionCerrar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(this, "¿Está seguro que desea cerrar su sesión?", 
+                    "Cerrar sesión", 
+                    MessageBoxButtons.OKCancel, 
+                    MessageBoxIcon.Hand) 
+                == DialogResult.OK)
+            {
+                Program.ContextoActual.Limpiar();
+                this.RegistrarPermisos();
+            }
+        }
+
+        private void tsmArchivo_DropDownOpened(object sender, EventArgs e)
+        {
+            tsmSesionCerrar.Enabled = Program.ContextoActual.ConSesionIniciada;
         }
     }
 }

@@ -68,6 +68,10 @@
             this.tsmPremiosAlta = new System.Windows.Forms.ToolStripMenuItem();
             this.ssStatusMain = new System.Windows.Forms.StatusStrip();
             this.tssUserRol = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tssUsuario = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tssUsuarioValor = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tssRolValor = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tssSesion = new System.Windows.Forms.ToolStripStatusLabel();
             this.mnsMain.SuspendLayout();
             this.ssStatusMain.SuspendLayout();
             this.SuspendLayout();
@@ -99,6 +103,7 @@
             this.tsmArchivo.Name = "tsmArchivo";
             this.tsmArchivo.Size = new System.Drawing.Size(60, 20);
             this.tsmArchivo.Text = "Archivo";
+            this.tsmArchivo.DropDownOpened += new System.EventHandler(this.tsmArchivo_DropDownOpened);
             // 
             // tsmSesion
             // 
@@ -106,26 +111,27 @@
             this.tsmSesionIniciar,
             this.tsmSesionCerrar});
             this.tsmSesion.Name = "tsmSesion";
-            this.tsmSesion.Size = new System.Drawing.Size(108, 22);
+            this.tsmSesion.Size = new System.Drawing.Size(152, 22);
             this.tsmSesion.Text = "Sesión";
             // 
             // tsmSesionIniciar
             // 
             this.tsmSesionIniciar.Name = "tsmSesionIniciar";
-            this.tsmSesionIniciar.Size = new System.Drawing.Size(143, 22);
+            this.tsmSesionIniciar.Size = new System.Drawing.Size(152, 22);
             this.tsmSesionIniciar.Text = "Iniciar Sesión";
             this.tsmSesionIniciar.Click += new System.EventHandler(this.tsmSesionIniciar_Click);
             // 
             // tsmSesionCerrar
             // 
             this.tsmSesionCerrar.Name = "tsmSesionCerrar";
-            this.tsmSesionCerrar.Size = new System.Drawing.Size(143, 22);
+            this.tsmSesionCerrar.Size = new System.Drawing.Size(152, 22);
             this.tsmSesionCerrar.Text = "Cerrar Sesión";
+            this.tsmSesionCerrar.Click += new System.EventHandler(this.tsmSesionCerrar_Click);
             // 
             // tsmArchivoSalir
             // 
             this.tsmArchivoSalir.Name = "tsmArchivoSalir";
-            this.tsmArchivoSalir.Size = new System.Drawing.Size(108, 22);
+            this.tsmArchivoSalir.Size = new System.Drawing.Size(152, 22);
             this.tsmArchivoSalir.Text = "Salir";
             this.tsmArchivoSalir.Click += new System.EventHandler(this.tsmArchivoSalir_Click);
             // 
@@ -296,14 +302,14 @@
             // tsmEncomiendaListado
             // 
             this.tsmEncomiendaListado.Name = "tsmEncomiendaListado";
-            this.tsmEncomiendaListado.Size = new System.Drawing.Size(152, 22);
+            this.tsmEncomiendaListado.Size = new System.Drawing.Size(121, 22);
             this.tsmEncomiendaListado.Text = "Comprar";
             this.tsmEncomiendaListado.Click += new System.EventHandler(this.tsmEncomiendaListado_Click);
             // 
             // tsmEncomiendaAlta
             // 
             this.tsmEncomiendaAlta.Name = "tsmEncomiendaAlta";
-            this.tsmEncomiendaAlta.Size = new System.Drawing.Size(152, 22);
+            this.tsmEncomiendaAlta.Size = new System.Drawing.Size(121, 22);
             this.tsmEncomiendaAlta.Text = "Cancelar";
             this.tsmEncomiendaAlta.Click += new System.EventHandler(this.tsmEncomiendaAlta_Click);
             // 
@@ -374,7 +380,11 @@
             // ssStatusMain
             // 
             this.ssStatusMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tssUserRol});
+            this.tssUsuario,
+            this.tssUsuarioValor,
+            this.tssUserRol,
+            this.tssRolValor,
+            this.tssSesion});
             this.ssStatusMain.Location = new System.Drawing.Point(0, 540);
             this.ssStatusMain.Name = "ssStatusMain";
             this.ssStatusMain.Size = new System.Drawing.Size(784, 22);
@@ -385,6 +395,31 @@
             this.tssUserRol.Name = "tssUserRol";
             this.tssUserRol.Size = new System.Drawing.Size(27, 17);
             this.tssUserRol.Text = "Rol:";
+            // 
+            // tssUsuario
+            // 
+            this.tssUsuario.Name = "tssUsuario";
+            this.tssUsuario.Size = new System.Drawing.Size(50, 17);
+            this.tssUsuario.Text = "Usuario:";
+            // 
+            // tssUsuarioValor
+            // 
+            this.tssUsuarioValor.Name = "tssUsuarioValor";
+            this.tssUsuarioValor.Size = new System.Drawing.Size(63, 17);
+            this.tssUsuarioValor.Text = "<Usuario>";
+            // 
+            // tssRolValor
+            // 
+            this.tssRolValor.Name = "tssRolValor";
+            this.tssRolValor.Size = new System.Drawing.Size(40, 17);
+            this.tssRolValor.Text = "<Rol>";
+            // 
+            // tssSesion
+            // 
+            this.tssSesion.AutoSize = false;
+            this.tssSesion.Name = "tssSesion";
+            this.tssSesion.Size = new System.Drawing.Size(118, 17);
+            this.tssSesion.Text = "(Sesion no iniciada)";
             // 
             // Form1
             // 
@@ -449,6 +484,10 @@
         private System.Windows.Forms.ToolStripMenuItem tsmSesion;
         private System.Windows.Forms.ToolStripMenuItem tsmSesionIniciar;
         private System.Windows.Forms.ToolStripMenuItem tsmSesionCerrar;
+        private System.Windows.Forms.ToolStripStatusLabel tssUsuario;
+        private System.Windows.Forms.ToolStripStatusLabel tssUsuarioValor;
+        private System.Windows.Forms.ToolStripStatusLabel tssRolValor;
+        private System.Windows.Forms.ToolStripStatusLabel tssSesion;
     }
 }
 

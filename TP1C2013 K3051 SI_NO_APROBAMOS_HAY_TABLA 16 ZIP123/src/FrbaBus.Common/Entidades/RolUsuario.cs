@@ -5,8 +5,14 @@ using System.Text;
 
 namespace FrbaBus.Common.Entidades
 {
-    public class Rol
+    public class RolUsuario
     {
+        public string Nombre { get; set; }
         public IList<Funcionalidad> Funcionalidades { get; set; }
+
+        public RolUsuario()
+        {
+            this.Nombre = "En blanco";
+        }
     }
 }

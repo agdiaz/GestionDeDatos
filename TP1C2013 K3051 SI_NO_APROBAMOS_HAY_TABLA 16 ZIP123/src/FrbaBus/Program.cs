@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using FrbaBus.Common;
+using FrbaBus.Common.Entidades;
 
 namespace FrbaBus
 {
@@ -16,11 +17,20 @@ namespace FrbaBus
         [STAThread]
         static void Main()
         {
-            ContextoActual = new Contexto();
+            ConfigurarUsuarioInicial();
+            LanzarPantallaPrincipal();
+        }
 
+        private static void LanzarPantallaPrincipal()
+        {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+        }
+
+        private static void ConfigurarUsuarioInicial()
+        {
+            ContextoActual = new Contexto();
         }
     }
 }
