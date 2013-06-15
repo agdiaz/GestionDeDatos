@@ -224,8 +224,7 @@
             this.tsmCliente.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmClienteListado,
             this.tsmAltaCliente,
-            this.pasajeroFrecuenteToolStripMenuItem,
-            this.altaToolStripMenuItem});
+            this.pasajeroFrecuenteToolStripMenuItem});
             this.tsmCliente.Name = "tsmCliente";
             this.tsmCliente.Size = new System.Drawing.Size(56, 20);
             this.tsmCliente.Text = "Cliente";
@@ -432,7 +431,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsmPremiosListado;
         private System.Windows.Forms.ToolStripMenuItem tsmPremiosAlta;
         private System.Windows.Forms.ToolStripMenuItem tsmAltaCliente;
-        private System.Windows.Forms.ToolStripMenuItem altaToolStripMenuItem;
     }
 }
 
