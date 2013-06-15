@@ -12,7 +12,7 @@ SET ANSI_PADDING ON
 GO
 
 CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Cliente](
-	[dni] [int] NOT NULL,
+	[dni] [numeric](18, 0) NOT NULL,
 	[nombre] [nvarchar](255) NOT NULL,
 	[apellido] [nvarchar](255) NOT NULL,
 	[direccion] [nvarchar](255) NOT NULL,
