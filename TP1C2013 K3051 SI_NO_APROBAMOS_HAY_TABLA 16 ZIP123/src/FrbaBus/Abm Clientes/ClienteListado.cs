@@ -21,7 +21,14 @@ namespace FrbaBus.Abm_Clientes
         {
             ClienteManager manager = new ClienteManager();
             DataSet clientes = manager.Listar();
+            this.dgvClienteListado.AutoGenerateColumns = false;
             this.dgvClienteListado.DataSource = clientes.Tables[0];
+
+            var NameField = new DataColumn();
+
+            NameField.ColumnName = "Name";
+            NameField. = "name";
+            GridView1.Columns.Add(NameField);
         }
     }
 }

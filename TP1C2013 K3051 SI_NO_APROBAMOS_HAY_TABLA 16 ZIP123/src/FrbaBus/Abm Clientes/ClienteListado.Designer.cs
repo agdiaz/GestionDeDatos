@@ -31,20 +31,31 @@
             this.dgvClienteListado = new System.Windows.Forms.DataGridView();
             this.btnDarBaja = new System.Windows.Forms.Button();
             this.gbFiltros = new System.Windows.Forms.GroupBox();
-            this.btnLimpiar = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.clienteDNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clienteNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClienteListado)).BeginInit();
             this.gbFiltros.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvClienteListado
             // 
+            this.dgvClienteListado.AllowUserToDeleteRows = false;
+            this.dgvClienteListado.AllowUserToOrderColumns = true;
+            this.dgvClienteListado.AllowUserToResizeRows = false;
             this.dgvClienteListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClienteListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clienteDNI,
+            this.clienteNombre});
             this.dgvClienteListado.Location = new System.Drawing.Point(12, 142);
+            this.dgvClienteListado.MultiSelect = false;
             this.dgvClienteListado.Name = "dgvClienteListado";
+            this.dgvClienteListado.RowHeadersVisible = false;
+            this.dgvClienteListado.ShowEditingIcon = false;
             this.dgvClienteListado.Size = new System.Drawing.Size(957, 257);
             this.dgvClienteListado.TabIndex = 0;
             // 
@@ -71,32 +82,14 @@
             this.gbFiltros.TabStop = false;
             this.gbFiltros.Text = "Filtros de búsqueda";
             // 
-            // btnLimpiar
+            // label3
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(6, 94);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 0;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(874, 94);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 1;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "D.N.I.:";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 69);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Apellido";
             // 
             // label2
             // 
@@ -107,14 +100,42 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Nombre";
             // 
-            // label3
+            // label1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 69);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Apellido";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "D.N.I.:";
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(874, 94);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.TabIndex = 1;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Location = new System.Drawing.Point(6, 94);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpiar.TabIndex = 0;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            // 
+            // clienteDNI
+            // 
+            this.clienteDNI.HeaderText = "D.N.I.";
+            this.clienteDNI.Name = "clienteDNI";
+            // 
+            // clienteNombre
+            // 
+            this.clienteNombre.HeaderText = "Nombre";
+            this.clienteNombre.Name = "clienteNombre";
             // 
             // ClienteListado
             // 
@@ -136,7 +157,6 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvClienteListado;
         private System.Windows.Forms.Button btnDarBaja;
         private System.Windows.Forms.GroupBox gbFiltros;
         private System.Windows.Forms.Button btnLimpiar;
@@ -144,5 +164,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dgvClienteListado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clienteDNI;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clienteNombre;
     }
 }
