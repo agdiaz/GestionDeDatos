@@ -6,3 +6,4 @@ Recorrido
 Micros
 Butacas
 Viaje
+Rol
