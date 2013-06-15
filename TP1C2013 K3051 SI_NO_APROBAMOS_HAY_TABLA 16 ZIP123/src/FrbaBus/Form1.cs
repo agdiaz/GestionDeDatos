@@ -12,6 +12,7 @@ using FrbaBus.Abm_Ciudad;
 using FrbaBus.Abm_Clientes;
 using FrbaBus.Abm_encomienda;
 using FrbaBus.Abm_Recorrido;
+using FrbaBus.Abm_Viaje;
 
 namespace FrbaBus
 {
@@ -106,6 +107,16 @@ namespace FrbaBus
         private void tsmRecorridoListado_Click(object sender, EventArgs e)
         {
             new RecorridoListado().ShowDialog(this);
+        }
+
+        private void tsmViajeAlta_Click(object sender, EventArgs e)
+        {
+            new ViajeAlta().ShowDialog(this);
+        }
+
+        private void tsmViajeListado_Click(object sender, EventArgs e)
+        {
+            new ViajeListado().ShowDialog(this);
         }
     }
 }
