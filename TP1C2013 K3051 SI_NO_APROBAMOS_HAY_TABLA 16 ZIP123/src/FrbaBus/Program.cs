@@ -30,7 +30,7 @@ namespace FrbaBus
 
         private static void ConfigurarUsuarioInicial()
         {
-            ContextoActual = new Contexto();
+            ContextoActual = new Contexto().Limpiar();
         }
     }
 }

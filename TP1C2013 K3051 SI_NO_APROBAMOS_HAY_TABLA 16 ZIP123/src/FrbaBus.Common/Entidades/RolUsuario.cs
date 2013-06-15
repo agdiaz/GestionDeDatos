@@ -13,6 +13,13 @@ namespace FrbaBus.Common.Entidades
         public RolUsuario()
         {
             this.Nombre = "En blanco";
+            this.Funcionalidades = new List<Funcionalidad>();
+        }
+
+        public virtual bool PermiteFuncionalidad(string nombre)
+        {
+            var cantidad = Funcionalidades.Where(f => (f.Nombre == nombre)).Count();
+            return cantidad > 0;
         }
     }
 }

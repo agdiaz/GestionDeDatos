@@ -51,12 +51,12 @@
             this.tsmViajeAlta = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmClienteListado = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmAltaCliente = new System.Windows.Forms.ToolStripMenuItem();
-            this.pasajeroFrecuenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmClienteAlta = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmClientePasajeroFrecuente = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmClientePasajeroFrecuenteConsultar = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmEncomienda = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmEncomiendaListado = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmEncomiendaAlta = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmPasajeEncomiendaAlta = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmPasajeEncomiendaCancelar = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmEstadisticas = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmEstadisticasT5DestMasVendidos = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmEstadisticasT5DestMasMicrosVacios = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,9 +67,9 @@
             this.tsmPremiosListado = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPremiosAlta = new System.Windows.Forms.ToolStripMenuItem();
             this.ssStatusMain = new System.Windows.Forms.StatusStrip();
-            this.tssUserRol = new System.Windows.Forms.ToolStripStatusLabel();
             this.tssUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.tssUsuarioValor = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tssUserRol = new System.Windows.Forms.ToolStripStatusLabel();
             this.tssRolValor = new System.Windows.Forms.ToolStripStatusLabel();
             this.tssSesion = new System.Windows.Forms.ToolStripStatusLabel();
             this.mnsMain.SuspendLayout();
@@ -147,14 +147,14 @@
             // tsmRolListado
             // 
             this.tsmRolListado.Name = "tsmRolListado";
-            this.tsmRolListado.Size = new System.Drawing.Size(112, 22);
+            this.tsmRolListado.Size = new System.Drawing.Size(152, 22);
             this.tsmRolListado.Text = "Listado";
             this.tsmRolListado.Click += new System.EventHandler(this.tsmRolListado_Click);
             // 
             // tsmRolAlta
             // 
             this.tsmRolAlta.Name = "tsmRolAlta";
-            this.tsmRolAlta.Size = new System.Drawing.Size(112, 22);
+            this.tsmRolAlta.Size = new System.Drawing.Size(152, 22);
             this.tsmRolAlta.Text = "Alta";
             this.tsmRolAlta.Click += new System.EventHandler(this.tsmRolAlta_Click);
             // 
@@ -255,8 +255,8 @@
             // 
             this.tsmCliente.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmClienteListado,
-            this.tsmAltaCliente,
-            this.pasajeroFrecuenteToolStripMenuItem});
+            this.tsmClienteAlta,
+            this.tsmClientePasajeroFrecuente});
             this.tsmCliente.Name = "tsmCliente";
             this.tsmCliente.Size = new System.Drawing.Size(56, 20);
             this.tsmCliente.Text = "Cliente";
@@ -269,49 +269,49 @@
             this.tsmClienteListado.Text = "Listado";
             this.tsmClienteListado.Click += new System.EventHandler(this.tsmClienteListado_Click);
             // 
-            // tsmAltaCliente
+            // tsmClienteAlta
             // 
-            this.tsmAltaCliente.Name = "tsmAltaCliente";
-            this.tsmAltaCliente.Size = new System.Drawing.Size(171, 22);
-            this.tsmAltaCliente.Text = "Alta";
-            this.tsmAltaCliente.Click += new System.EventHandler(this.tsmAltaCliente_Click);
+            this.tsmClienteAlta.Name = "tsmClienteAlta";
+            this.tsmClienteAlta.Size = new System.Drawing.Size(171, 22);
+            this.tsmClienteAlta.Text = "Alta";
+            this.tsmClienteAlta.Click += new System.EventHandler(this.tsmAltaCliente_Click);
             // 
-            // pasajeroFrecuenteToolStripMenuItem
+            // tsmClientePasajeroFrecuente
             // 
-            this.pasajeroFrecuenteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.consultarToolStripMenuItem});
-            this.pasajeroFrecuenteToolStripMenuItem.Name = "pasajeroFrecuenteToolStripMenuItem";
-            this.pasajeroFrecuenteToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.pasajeroFrecuenteToolStripMenuItem.Text = "Pasajero frecuente";
+            this.tsmClientePasajeroFrecuente.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmClientePasajeroFrecuenteConsultar});
+            this.tsmClientePasajeroFrecuente.Name = "tsmClientePasajeroFrecuente";
+            this.tsmClientePasajeroFrecuente.Size = new System.Drawing.Size(171, 22);
+            this.tsmClientePasajeroFrecuente.Text = "Pasajero frecuente";
             // 
-            // consultarToolStripMenuItem
+            // tsmClientePasajeroFrecuenteConsultar
             // 
-            this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
-            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
-            this.consultarToolStripMenuItem.Text = "Consultar";
+            this.tsmClientePasajeroFrecuenteConsultar.Name = "tsmClientePasajeroFrecuenteConsultar";
+            this.tsmClientePasajeroFrecuenteConsultar.Size = new System.Drawing.Size(152, 22);
+            this.tsmClientePasajeroFrecuenteConsultar.Text = "Consultar";
             // 
             // tsmEncomienda
             // 
             this.tsmEncomienda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmEncomiendaListado,
-            this.tsmEncomiendaAlta});
+            this.tsmPasajeEncomiendaAlta,
+            this.tsmPasajeEncomiendaCancelar});
             this.tsmEncomienda.Name = "tsmEncomienda";
             this.tsmEncomienda.Size = new System.Drawing.Size(123, 20);
             this.tsmEncomienda.Text = "Pasaje/Encomienda";
             // 
-            // tsmEncomiendaListado
+            // tsmPasajeEncomiendaAlta
             // 
-            this.tsmEncomiendaListado.Name = "tsmEncomiendaListado";
-            this.tsmEncomiendaListado.Size = new System.Drawing.Size(121, 22);
-            this.tsmEncomiendaListado.Text = "Comprar";
-            this.tsmEncomiendaListado.Click += new System.EventHandler(this.tsmEncomiendaListado_Click);
+            this.tsmPasajeEncomiendaAlta.Name = "tsmPasajeEncomiendaAlta";
+            this.tsmPasajeEncomiendaAlta.Size = new System.Drawing.Size(152, 22);
+            this.tsmPasajeEncomiendaAlta.Text = "Comprar";
+            this.tsmPasajeEncomiendaAlta.Click += new System.EventHandler(this.tsmPasajeEncomiendaComprar_Click);
             // 
-            // tsmEncomiendaAlta
+            // tsmPasajeEncomiendaCancelar
             // 
-            this.tsmEncomiendaAlta.Name = "tsmEncomiendaAlta";
-            this.tsmEncomiendaAlta.Size = new System.Drawing.Size(121, 22);
-            this.tsmEncomiendaAlta.Text = "Cancelar";
-            this.tsmEncomiendaAlta.Click += new System.EventHandler(this.tsmEncomiendaAlta_Click);
+            this.tsmPasajeEncomiendaCancelar.Name = "tsmPasajeEncomiendaCancelar";
+            this.tsmPasajeEncomiendaCancelar.Size = new System.Drawing.Size(152, 22);
+            this.tsmPasajeEncomiendaCancelar.Text = "Cancelar";
+            this.tsmPasajeEncomiendaCancelar.Click += new System.EventHandler(this.tsmPasajeEncomiendaCancelar_Click);
             // 
             // tsmEstadisticas
             // 
@@ -390,12 +390,6 @@
             this.ssStatusMain.Size = new System.Drawing.Size(784, 22);
             this.ssStatusMain.TabIndex = 1;
             // 
-            // tssUserRol
-            // 
-            this.tssUserRol.Name = "tssUserRol";
-            this.tssUserRol.Size = new System.Drawing.Size(27, 17);
-            this.tssUserRol.Text = "Rol:";
-            // 
             // tssUsuario
             // 
             this.tssUsuario.Name = "tssUsuario";
@@ -407,6 +401,12 @@
             this.tssUsuarioValor.Name = "tssUsuarioValor";
             this.tssUsuarioValor.Size = new System.Drawing.Size(63, 17);
             this.tssUsuarioValor.Text = "<Usuario>";
+            // 
+            // tssUserRol
+            // 
+            this.tssUserRol.Name = "tssUserRol";
+            this.tssUserRol.Size = new System.Drawing.Size(27, 17);
+            this.tssUserRol.Text = "Rol:";
             // 
             // tssRolValor
             // 
@@ -465,20 +465,20 @@
         private System.Windows.Forms.ToolStripMenuItem tsmCliente;
         private System.Windows.Forms.ToolStripMenuItem tsmClienteListado;
         private System.Windows.Forms.ToolStripMenuItem tsmEncomienda;
-        private System.Windows.Forms.ToolStripMenuItem tsmEncomiendaListado;
-        private System.Windows.Forms.ToolStripMenuItem tsmEncomiendaAlta;
+        private System.Windows.Forms.ToolStripMenuItem tsmPasajeEncomiendaAlta;
+        private System.Windows.Forms.ToolStripMenuItem tsmPasajeEncomiendaCancelar;
         private System.Windows.Forms.ToolStripMenuItem tsmEstadisticas;
         private System.Windows.Forms.ToolStripMenuItem tsmEstadisticasT5DestMasVendidos;
         private System.Windows.Forms.ToolStripMenuItem tsmEstadisticasT5DestMasMicrosVacios;
         private System.Windows.Forms.ToolStripMenuItem tsmEstadisticasT5ClientesMasPuntos;
         private System.Windows.Forms.ToolStripMenuItem tsmEstadisticasT5DestMasCancelados;
         private System.Windows.Forms.ToolStripMenuItem tsmEstadisticasT5MicrosMasDiasFueraDeServicio;
-        private System.Windows.Forms.ToolStripMenuItem pasajeroFrecuenteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmClientePasajeroFrecuente;
+        private System.Windows.Forms.ToolStripMenuItem tsmClientePasajeroFrecuenteConsultar;
         private System.Windows.Forms.ToolStripMenuItem tsmPremios;
         private System.Windows.Forms.ToolStripMenuItem tsmPremiosListado;
         private System.Windows.Forms.ToolStripMenuItem tsmPremiosAlta;
-        private System.Windows.Forms.ToolStripMenuItem tsmAltaCliente;
+        private System.Windows.Forms.ToolStripMenuItem tsmClienteAlta;
         private System.Windows.Forms.StatusStrip ssStatusMain;
         private System.Windows.Forms.ToolStripStatusLabel tssUserRol;
         private System.Windows.Forms.ToolStripMenuItem tsmSesion;

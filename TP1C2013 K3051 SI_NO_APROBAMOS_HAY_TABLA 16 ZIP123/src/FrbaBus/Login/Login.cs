@@ -32,7 +32,7 @@ namespace FrbaBus.Login
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            this._usuarioIniciado = new Usuario() { Username = this.txtUsuario.Text, RolAsignado = new RolUsuario() };
+            this._usuarioIniciado = new Usuario() { Username = this.txtUsuario.Text, RolAsignado = new RolUsuarioAdministrativo() };
             this.Close();
         }
         private void btnCancelar_Click(object sender, EventArgs e)

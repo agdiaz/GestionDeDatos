@@ -15,8 +15,8 @@ namespace FrbaBus.Common
 
         public Contexto()
         {
-            this.Limpiar();
         }
+
         public void RegistrarUsuario(Usuario u)
         {
             this._usuarioActual = u;
@@ -25,19 +25,19 @@ namespace FrbaBus.Common
         /// <summary>
         /// Quita el usuario actual para que se use el genérico con rol de cliente
         /// </summary>
-        public void Limpiar()
+        public Contexto Limpiar()
         {
             RegistrarUsuario(
 
             new Usuario()
             {
-                RolAsignado = new RolUsuario()
+                RolAsignado = new RolUsuarioBasico()
                 {
-
                 }
             });
 
             ConSesionIniciada = false;
+            return this;
         }
     }
 }

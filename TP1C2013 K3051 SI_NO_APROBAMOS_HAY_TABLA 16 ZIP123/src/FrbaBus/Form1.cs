@@ -28,6 +28,66 @@ namespace FrbaBus
         public void RegistrarPermisos()
         {
             this.ActualizarStatusBar();
+            this.RegistrarFuncionalidades();
+        }
+
+        private void RegistrarFuncionalidades()
+        {
+            //Menú Rol:
+            tsmRolAlta.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmRolAlta");
+            tsmRolListado.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmRolListado");
+            tsmRol.Enabled = tsmRolAlta.Enabled || tsmRolListado.Enabled;
+
+            //Menú Ciudad:
+            tsmCiudadAlta.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmCiudadAlta");
+            tsmCiudadListado.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmCiudadListado");
+            tsmCiudad.Enabled = tsmCiudadAlta.Enabled || tsmCiudadListado.Enabled;
+            
+            //Menú Recorrido:
+            tsmRecorridoAlta.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmRecorridoAlta");
+            tsmRecorridoListado.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmRecorridoListado");
+            tsmRecorrido.Enabled = tsmRecorridoAlta.Enabled || tsmRecorridoListado.Enabled;
+
+            //Menú Micro:
+            tsmMicroAlta.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmMicroAlta");
+            tsmMicroListado.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmMicroListado");
+            tsmMicro.Enabled = tsmMicroAlta.Enabled || tsmMicroListado.Enabled;
+
+            //Menú Viaje:
+            tsmViajeAlta.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmViajeAlta");
+            tsmViajeListado.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmViajeListado");
+            tsmViaje.Enabled = tsmViajeAlta.Enabled || tsmViajeListado.Enabled;
+
+            //Menú Cliente:
+            tsmClienteListado.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmClienteListado");
+            tsmClienteAlta.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmClienteAlta");
+            
+            tsmClientePasajeroFrecuenteConsultar.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmClientePasajeroFrecuenteConsultar");
+            tsmClientePasajeroFrecuente.Enabled = tsmClientePasajeroFrecuenteConsultar.Enabled;
+            tsmCliente.Enabled = tsmClienteListado.Enabled || tsmClienteAlta.Enabled || tsmClientePasajeroFrecuente.Enabled;
+
+            //Menú Viaje:
+            tsmViajeAlta.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmViajeAlta");
+            tsmViajeListado.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmViajeListado");
+            tsmViaje.Enabled = tsmViajeAlta.Enabled || tsmViajeListado.Enabled;
+
+            //Menú Pasaje/Encomienda:
+            tsmPasajeEncomiendaAlta.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmEncomiendaAlta");
+            tsmPasajeEncomiendaCancelar.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmEncomiendaCancelar");
+            tsmEncomienda.Enabled = tsmPasajeEncomiendaCancelar.Enabled || tsmPasajeEncomiendaAlta.Enabled;
+
+            //Menú Estadísticas:
+            tsmEstadisticasT5ClientesMasPuntos.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmEstadisticasT5ClientesMasPuntos");
+            tsmEstadisticasT5DestMasCancelados.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmEstadisticasT5DestMasCancelados");
+            tsmEstadisticasT5DestMasMicrosVacios.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmEstadisticasT5DestMasMicrosVacios");
+            tsmEstadisticasT5DestMasVendidos.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmEstadisticasT5DestMasVendidos");
+            tsmEstadisticasT5MicrosMasDiasFueraDeServicio.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmEstadisticasT5MicrosMasDiasFueraDeServicio");
+            tsmEstadisticas.Enabled = tsmEstadisticasT5ClientesMasPuntos.Enabled || tsmEstadisticasT5DestMasCancelados.Enabled || tsmEstadisticasT5DestMasMicrosVacios.Enabled || tsmEstadisticasT5DestMasVendidos.Enabled || tsmEstadisticasT5MicrosMasDiasFueraDeServicio.Enabled;
+            
+            //Menú Premios:
+            tsmPremiosAlta.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmPremiosAlta");
+            tsmPremiosListado.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmPremiosListado");
+            tsmPremios.Enabled = tsmPremiosAlta.Enabled || tsmPremiosListado.Enabled;
         }
 
         private void ActualizarStatusBar()
@@ -103,14 +163,14 @@ namespace FrbaBus
             new ClienteListado().ShowDialog(this);
         }
 
-        private void tsmEncomiendaAlta_Click(object sender, EventArgs e)
+        private void tsmPasajeEncomiendaCancelar_Click(object sender, EventArgs e)
         {
             new EncomiendaAlta().ShowDialog(this);
         }
 
-        private void tsmEncomiendaListado_Click(object sender, EventArgs e)
+        private void tsmPasajeEncomiendaComprar_Click(object sender, EventArgs e)
         {
-            new EncomiendaListado().ShowDialog(this);
+            new EncomiendaAlta().ShowDialog(this);
         }
 
         private void tsmRecorridoAlta_Click(object sender, EventArgs e)
