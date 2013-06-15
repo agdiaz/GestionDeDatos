@@ -7,3 +7,4 @@ Micros
 Butacas
 Viaje
 Rol
+Usuario
