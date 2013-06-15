@@ -51,7 +51,6 @@
             this.tsmAltaCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.pasajeroFrecuenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            //this.altaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPasaje = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPasajeListado = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPasajeAlta = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,7 +66,13 @@
             this.tsmPremios = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPremiosListado = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPremiosAlta = new System.Windows.Forms.ToolStripMenuItem();
+            this.ssStatusMain = new System.Windows.Forms.StatusStrip();
+            this.tssUserRol = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsmSesion = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmSesionIniciar = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmSesionCerrar = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsMain.SuspendLayout();
+            this.ssStatusMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnsMain
@@ -93,6 +98,7 @@
             // tsmArchivo
             // 
             this.tsmArchivo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmSesion,
             this.tsmArchivoSalir});
             this.tsmArchivo.Name = "tsmArchivo";
             this.tsmArchivo.Size = new System.Drawing.Size(60, 20);
@@ -101,7 +107,7 @@
             // tsmArchivoSalir
             // 
             this.tsmArchivoSalir.Name = "tsmArchivoSalir";
-            this.tsmArchivoSalir.Size = new System.Drawing.Size(96, 22);
+            this.tsmArchivoSalir.Size = new System.Drawing.Size(152, 22);
             this.tsmArchivoSalir.Text = "Salir";
             this.tsmArchivoSalir.Click += new System.EventHandler(this.tsmArchivoSalir_Click);
             // 
@@ -210,14 +216,14 @@
             // tsmViajeListado
             // 
             this.tsmViajeListado.Name = "tsmViajeListado";
-            this.tsmViajeListado.Size = new System.Drawing.Size(152, 22);
+            this.tsmViajeListado.Size = new System.Drawing.Size(112, 22);
             this.tsmViajeListado.Text = "Listado";
             this.tsmViajeListado.Click += new System.EventHandler(this.tsmViajeListado_Click);
             // 
             // tsmViajeAlta
             // 
             this.tsmViajeAlta.Name = "tsmViajeAlta";
-            this.tsmViajeAlta.Size = new System.Drawing.Size(152, 22);
+            this.tsmViajeAlta.Size = new System.Drawing.Size(112, 22);
             this.tsmViajeAlta.Text = "Alta";
             this.tsmViajeAlta.Click += new System.EventHandler(this.tsmViajeAlta_Click);
             // 
@@ -260,13 +266,6 @@
             this.consultarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.consultarToolStripMenuItem.Text = "Consultar";
             // 
-            // altaToolStripMenuItem
-            // 
-            /*this.altaToolStripMenuItem.Name = "altaToolStripMenuItem";
-            this.altaToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.altaToolStripMenuItem.Text = "Alta";
-            this.altaToolStripMenuItem.Click += new System.EventHandler(this.altaToolStripMenuItem_Click);*/
-            // 
             // tsmPasaje
             // 
             this.tsmPasaje.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -279,13 +278,13 @@
             // tsmPasajeListado
             // 
             this.tsmPasajeListado.Name = "tsmPasajeListado";
-            this.tsmPasajeListado.Size = new System.Drawing.Size(152, 22);
+            this.tsmPasajeListado.Size = new System.Drawing.Size(112, 22);
             this.tsmPasajeListado.Text = "Listado";
             // 
             // tsmPasajeAlta
             // 
             this.tsmPasajeAlta.Name = "tsmPasajeAlta";
-            this.tsmPasajeAlta.Size = new System.Drawing.Size(152, 22);
+            this.tsmPasajeAlta.Size = new System.Drawing.Size(112, 22);
             this.tsmPasajeAlta.Text = "Alta";
             // 
             // tsmEncomienda
@@ -375,11 +374,49 @@
             this.tsmPremiosAlta.Size = new System.Drawing.Size(112, 22);
             this.tsmPremiosAlta.Text = "Alta";
             // 
+            // ssStatusMain
+            // 
+            this.ssStatusMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tssUserRol});
+            this.ssStatusMain.Location = new System.Drawing.Point(0, 540);
+            this.ssStatusMain.Name = "ssStatusMain";
+            this.ssStatusMain.Size = new System.Drawing.Size(784, 22);
+            this.ssStatusMain.TabIndex = 1;
+            // 
+            // tssUserRol
+            // 
+            this.tssUserRol.Name = "tssUserRol";
+            this.tssUserRol.Size = new System.Drawing.Size(27, 17);
+            this.tssUserRol.Text = "Rol:";
+            // 
+            // tsmSesion
+            // 
+            this.tsmSesion.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmSesionIniciar,
+            this.tsmSesionCerrar});
+            this.tsmSesion.Name = "tsmSesion";
+            this.tsmSesion.Size = new System.Drawing.Size(152, 22);
+            this.tsmSesion.Text = "Sesión";
+            // 
+            // tsmSesionIniciar
+            // 
+            this.tsmSesionIniciar.Name = "tsmSesionIniciar";
+            this.tsmSesionIniciar.Size = new System.Drawing.Size(152, 22);
+            this.tsmSesionIniciar.Text = "Iniciar Sesión";
+            this.tsmSesionIniciar.Click += new System.EventHandler(this.tsmSesionIniciar_Click);
+            // 
+            // tsmSesionCerrar
+            // 
+            this.tsmSesionCerrar.Name = "tsmSesionCerrar";
+            this.tsmSesionCerrar.Size = new System.Drawing.Size(152, 22);
+            this.tsmSesionCerrar.Text = "Cerrar Sesión";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 562);
+            this.Controls.Add(this.ssStatusMain);
             this.Controls.Add(this.mnsMain);
             this.MainMenuStrip = this.mnsMain;
             this.Name = "Form1";
@@ -388,6 +425,8 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.mnsMain.ResumeLayout(false);
             this.mnsMain.PerformLayout();
+            this.ssStatusMain.ResumeLayout(false);
+            this.ssStatusMain.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -433,6 +472,11 @@
         private System.Windows.Forms.ToolStripMenuItem tsmPremiosListado;
         private System.Windows.Forms.ToolStripMenuItem tsmPremiosAlta;
         private System.Windows.Forms.ToolStripMenuItem tsmAltaCliente;
+        private System.Windows.Forms.StatusStrip ssStatusMain;
+        private System.Windows.Forms.ToolStripStatusLabel tssUserRol;
+        private System.Windows.Forms.ToolStripMenuItem tsmSesion;
+        private System.Windows.Forms.ToolStripMenuItem tsmSesionIniciar;
+        private System.Windows.Forms.ToolStripMenuItem tsmSesionCerrar;
     }
 }
 

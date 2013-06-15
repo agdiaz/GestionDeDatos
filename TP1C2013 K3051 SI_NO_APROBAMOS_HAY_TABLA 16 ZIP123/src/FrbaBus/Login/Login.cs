@@ -6,11 +6,14 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using FrbaBus.Common.Helpers;
 
 namespace FrbaBus.Login
 {
     public partial class Login : Form
     {
+        private bool ModoCliente;
+
         public Login()
         {
             InitializeComponent();
@@ -32,6 +35,21 @@ namespace FrbaBus.Login
         private bool ValidarUsuario()
         {
             return this.txtUsuario.Text == "admin" && this.txtContrasena.Text == "admin";
+        }
+
+        private void txtContrasena_TextChanged(object sender, EventArgs e)
+        {
+        
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
