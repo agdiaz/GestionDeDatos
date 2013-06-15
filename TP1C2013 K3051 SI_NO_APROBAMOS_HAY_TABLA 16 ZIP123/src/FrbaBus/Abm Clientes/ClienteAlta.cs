@@ -55,6 +55,8 @@ namespace FrbaBus.Abm_Clientes
                     this.dtpClienteFechaNac.Value,
                     this.cbClienteEsDiscapacitado.Checked,
                     sexo);
+
+                MessageBox.Show(this, "Cliente dado de alta", "El cliente fue dado de alta correctamente.", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
