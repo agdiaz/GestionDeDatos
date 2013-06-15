@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Entidades\Ciudad.cs" />
     <Compile Include="Entidades\Cliente.cs" />
+    <Compile Include="Helpers\PasswordHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

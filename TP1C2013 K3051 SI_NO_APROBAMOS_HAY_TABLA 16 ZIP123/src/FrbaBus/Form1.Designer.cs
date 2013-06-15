@@ -51,7 +51,7 @@
             this.tsmAltaCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.pasajeroFrecuenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.altaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            //this.altaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPasaje = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPasajeListado = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPasajeAlta = new System.Windows.Forms.ToolStripMenuItem();
@@ -262,10 +262,10 @@
             // 
             // altaToolStripMenuItem
             // 
-            this.altaToolStripMenuItem.Name = "altaToolStripMenuItem";
+            /*this.altaToolStripMenuItem.Name = "altaToolStripMenuItem";
             this.altaToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.altaToolStripMenuItem.Text = "Alta";
-            this.altaToolStripMenuItem.Click += new System.EventHandler(this.altaToolStripMenuItem_Click);
+            this.altaToolStripMenuItem.Click += new System.EventHandler(this.altaToolStripMenuItem_Click);*/
             // 
             // tsmPasaje
             // 
