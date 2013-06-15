@@ -1,6 +1,6 @@
 ﻿namespace FrbaBus.Abm_encomienda
 {
-    partial class EncomiendaAlta
+    partial class EncomiendaListado
     {
         /// <summary>
         /// Variable del diseñador requerida.
@@ -28,9 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // EncomiendaListado
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "EncomiendaAlta";
+            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Name = "EncomiendaListado";
+            this.Text = "Cancelar Pasaje/Encomienda";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

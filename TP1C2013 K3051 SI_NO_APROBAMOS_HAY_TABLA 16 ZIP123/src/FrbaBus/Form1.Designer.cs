@@ -30,6 +30,9 @@
         {
             this.mnsMain = new System.Windows.Forms.MenuStrip();
             this.tsmArchivo = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmSesion = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmSesionIniciar = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmSesionCerrar = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmArchivoSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmRol = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmRolListado = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,9 +54,6 @@
             this.tsmAltaCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.pasajeroFrecuenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmPasaje = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmPasajeListado = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmPasajeAlta = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmEncomienda = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmEncomiendaListado = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmEncomiendaAlta = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,9 +68,6 @@
             this.tsmPremiosAlta = new System.Windows.Forms.ToolStripMenuItem();
             this.ssStatusMain = new System.Windows.Forms.StatusStrip();
             this.tssUserRol = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tsmSesion = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmSesionIniciar = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmSesionCerrar = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsMain.SuspendLayout();
             this.ssStatusMain.SuspendLayout();
             this.SuspendLayout();
@@ -85,7 +82,6 @@
             this.tsmMicro,
             this.tsmViaje,
             this.tsmCliente,
-            this.tsmPasaje,
             this.tsmEncomienda,
             this.tsmEstadisticas,
             this.tsmPremios});
@@ -104,10 +100,32 @@
             this.tsmArchivo.Size = new System.Drawing.Size(60, 20);
             this.tsmArchivo.Text = "Archivo";
             // 
+            // tsmSesion
+            // 
+            this.tsmSesion.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmSesionIniciar,
+            this.tsmSesionCerrar});
+            this.tsmSesion.Name = "tsmSesion";
+            this.tsmSesion.Size = new System.Drawing.Size(108, 22);
+            this.tsmSesion.Text = "Sesión";
+            // 
+            // tsmSesionIniciar
+            // 
+            this.tsmSesionIniciar.Name = "tsmSesionIniciar";
+            this.tsmSesionIniciar.Size = new System.Drawing.Size(143, 22);
+            this.tsmSesionIniciar.Text = "Iniciar Sesión";
+            this.tsmSesionIniciar.Click += new System.EventHandler(this.tsmSesionIniciar_Click);
+            // 
+            // tsmSesionCerrar
+            // 
+            this.tsmSesionCerrar.Name = "tsmSesionCerrar";
+            this.tsmSesionCerrar.Size = new System.Drawing.Size(143, 22);
+            this.tsmSesionCerrar.Text = "Cerrar Sesión";
+            // 
             // tsmArchivoSalir
             // 
             this.tsmArchivoSalir.Name = "tsmArchivoSalir";
-            this.tsmArchivoSalir.Size = new System.Drawing.Size(152, 22);
+            this.tsmArchivoSalir.Size = new System.Drawing.Size(108, 22);
             this.tsmArchivoSalir.Text = "Salir";
             this.tsmArchivoSalir.Click += new System.EventHandler(this.tsmArchivoSalir_Click);
             // 
@@ -266,48 +284,27 @@
             this.consultarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.consultarToolStripMenuItem.Text = "Consultar";
             // 
-            // tsmPasaje
-            // 
-            this.tsmPasaje.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmPasajeListado,
-            this.tsmPasajeAlta});
-            this.tsmPasaje.Name = "tsmPasaje";
-            this.tsmPasaje.Size = new System.Drawing.Size(52, 20);
-            this.tsmPasaje.Text = "Pasaje";
-            // 
-            // tsmPasajeListado
-            // 
-            this.tsmPasajeListado.Name = "tsmPasajeListado";
-            this.tsmPasajeListado.Size = new System.Drawing.Size(112, 22);
-            this.tsmPasajeListado.Text = "Listado";
-            // 
-            // tsmPasajeAlta
-            // 
-            this.tsmPasajeAlta.Name = "tsmPasajeAlta";
-            this.tsmPasajeAlta.Size = new System.Drawing.Size(112, 22);
-            this.tsmPasajeAlta.Text = "Alta";
-            // 
             // tsmEncomienda
             // 
             this.tsmEncomienda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmEncomiendaListado,
             this.tsmEncomiendaAlta});
             this.tsmEncomienda.Name = "tsmEncomienda";
-            this.tsmEncomienda.Size = new System.Drawing.Size(85, 20);
-            this.tsmEncomienda.Text = "Encomienda";
+            this.tsmEncomienda.Size = new System.Drawing.Size(123, 20);
+            this.tsmEncomienda.Text = "Pasaje/Encomienda";
             // 
             // tsmEncomiendaListado
             // 
             this.tsmEncomiendaListado.Name = "tsmEncomiendaListado";
-            this.tsmEncomiendaListado.Size = new System.Drawing.Size(112, 22);
-            this.tsmEncomiendaListado.Text = "Listado";
+            this.tsmEncomiendaListado.Size = new System.Drawing.Size(152, 22);
+            this.tsmEncomiendaListado.Text = "Comprar";
             this.tsmEncomiendaListado.Click += new System.EventHandler(this.tsmEncomiendaListado_Click);
             // 
             // tsmEncomiendaAlta
             // 
             this.tsmEncomiendaAlta.Name = "tsmEncomiendaAlta";
-            this.tsmEncomiendaAlta.Size = new System.Drawing.Size(112, 22);
-            this.tsmEncomiendaAlta.Text = "Alta";
+            this.tsmEncomiendaAlta.Size = new System.Drawing.Size(152, 22);
+            this.tsmEncomiendaAlta.Text = "Cancelar";
             this.tsmEncomiendaAlta.Click += new System.EventHandler(this.tsmEncomiendaAlta_Click);
             // 
             // tsmEstadisticas
@@ -389,28 +386,6 @@
             this.tssUserRol.Size = new System.Drawing.Size(27, 17);
             this.tssUserRol.Text = "Rol:";
             // 
-            // tsmSesion
-            // 
-            this.tsmSesion.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmSesionIniciar,
-            this.tsmSesionCerrar});
-            this.tsmSesion.Name = "tsmSesion";
-            this.tsmSesion.Size = new System.Drawing.Size(152, 22);
-            this.tsmSesion.Text = "Sesión";
-            // 
-            // tsmSesionIniciar
-            // 
-            this.tsmSesionIniciar.Name = "tsmSesionIniciar";
-            this.tsmSesionIniciar.Size = new System.Drawing.Size(152, 22);
-            this.tsmSesionIniciar.Text = "Iniciar Sesión";
-            this.tsmSesionIniciar.Click += new System.EventHandler(this.tsmSesionIniciar_Click);
-            // 
-            // tsmSesionCerrar
-            // 
-            this.tsmSesionCerrar.Name = "tsmSesionCerrar";
-            this.tsmSesionCerrar.Size = new System.Drawing.Size(152, 22);
-            this.tsmSesionCerrar.Text = "Cerrar Sesión";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -454,9 +429,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsmViajeAlta;
         private System.Windows.Forms.ToolStripMenuItem tsmCliente;
         private System.Windows.Forms.ToolStripMenuItem tsmClienteListado;
-        private System.Windows.Forms.ToolStripMenuItem tsmPasaje;
-        private System.Windows.Forms.ToolStripMenuItem tsmPasajeListado;
-        private System.Windows.Forms.ToolStripMenuItem tsmPasajeAlta;
         private System.Windows.Forms.ToolStripMenuItem tsmEncomienda;
         private System.Windows.Forms.ToolStripMenuItem tsmEncomiendaListado;
         private System.Windows.Forms.ToolStripMenuItem tsmEncomiendaAlta;

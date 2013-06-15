@@ -87,17 +87,17 @@
     <Compile Include="Abm Clientes\ClienteListado.Designer.cs">
       <DependentUpon>ClienteListado.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm encomienda\EncomiendaAlta.cs">
+    <Compile Include="Abm pasaje_encomienda\Comprar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm encomienda\EncomiendaAlta.Designer.cs">
-      <DependentUpon>EncomiendaAlta.cs</DependentUpon>
+    <Compile Include="Abm pasaje_encomienda\Comprar.Designer.cs">
+      <DependentUpon>Comprar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm encomienda\EncomiendaListado.cs">
+    <Compile Include="Abm pasaje_encomienda\Cancelar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm encomienda\EncomiendaListado.Designer.cs">
-      <DependentUpon>EncomiendaListado.cs</DependentUpon>
+    <Compile Include="Abm pasaje_encomienda\Cancelar.Designer.cs">
+      <DependentUpon>Cancelar.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm Micro\Form1.cs">
       <SubType>Form</SubType>
@@ -209,6 +209,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Micro\MicroListado.resx">
       <DependentUpon>MicroListado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm pasaje_encomienda\Cancelar.resx">
+      <DependentUpon>Cancelar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm pasaje_encomienda\Comprar.resx">
+      <DependentUpon>Comprar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Recorrido\RecorridoAlta.resx">
       <DependentUpon>RecorridoAlta.cs</DependentUpon>

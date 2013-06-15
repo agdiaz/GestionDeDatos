@@ -38,7 +38,9 @@
             this.dtpViajeAltaFechaLlegadaEstimada = new System.Windows.Forms.DateTimePicker();
             this.btnViajeAltaGuardar = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnViajeAltaBuscar = new System.Windows.Forms.Button();
+            this.btnViajeAltaBuscarMicro = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnViajeAltaBuscarRecorrido = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblViajeAltaFechaSalida
@@ -80,7 +82,7 @@
             // lblViajeAltaRecorrido
             // 
             this.lblViajeAltaRecorrido.AutoSize = true;
-            this.lblViajeAltaRecorrido.Location = new System.Drawing.Point(12, 113);
+            this.lblViajeAltaRecorrido.Location = new System.Drawing.Point(12, 118);
             this.lblViajeAltaRecorrido.Name = "lblViajeAltaRecorrido";
             this.lblViajeAltaRecorrido.Size = new System.Drawing.Size(53, 13);
             this.lblViajeAltaRecorrido.TabIndex = 4;
@@ -120,24 +122,47 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(144, 87);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(119, 20);
             this.textBox1.TabIndex = 10;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // btnViajeAltaBuscar
+            // btnViajeAltaBuscarMicro
             // 
-            this.btnViajeAltaBuscar.Location = new System.Drawing.Point(269, 85);
-            this.btnViajeAltaBuscar.Name = "btnViajeAltaBuscar";
-            this.btnViajeAltaBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnViajeAltaBuscar.TabIndex = 11;
-            this.btnViajeAltaBuscar.Text = "Buscar";
-            this.btnViajeAltaBuscar.UseVisualStyleBackColor = true;
+            this.btnViajeAltaBuscarMicro.Location = new System.Drawing.Point(269, 85);
+            this.btnViajeAltaBuscarMicro.Name = "btnViajeAltaBuscarMicro";
+            this.btnViajeAltaBuscarMicro.Size = new System.Drawing.Size(75, 23);
+            this.btnViajeAltaBuscarMicro.TabIndex = 11;
+            this.btnViajeAltaBuscarMicro.Text = "Buscar";
+            this.btnViajeAltaBuscarMicro.UseVisualStyleBackColor = true;
+            this.btnViajeAltaBuscarMicro.Click += new System.EventHandler(this.btnViajeAltaBuscarMicro_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(144, 115);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(119, 20);
+            this.textBox2.TabIndex = 12;
+            // 
+            // btnViajeAltaBuscarRecorrido
+            // 
+            this.btnViajeAltaBuscarRecorrido.Location = new System.Drawing.Point(270, 118);
+            this.btnViajeAltaBuscarRecorrido.Name = "btnViajeAltaBuscarRecorrido";
+            this.btnViajeAltaBuscarRecorrido.Size = new System.Drawing.Size(75, 23);
+            this.btnViajeAltaBuscarRecorrido.TabIndex = 13;
+            this.btnViajeAltaBuscarRecorrido.Text = "Buscar";
+            this.btnViajeAltaBuscarRecorrido.UseVisualStyleBackColor = true;
+            this.btnViajeAltaBuscarRecorrido.Click += new System.EventHandler(this.btnViajeAltaBuscarRecorrido_Click);
             // 
             // ViajeAlta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(465, 262);
-            this.Controls.Add(this.btnViajeAltaBuscar);
+            this.Controls.Add(this.btnViajeAltaBuscarRecorrido);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.btnViajeAltaBuscarMicro);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnViajeAltaGuardar);
             this.Controls.Add(this.dtpViajeAltaFechaLlegadaEstimada);
@@ -168,6 +193,8 @@
         private System.Windows.Forms.DateTimePicker dtpViajeAltaFechaLlegadaEstimada;
         private System.Windows.Forms.Button btnViajeAltaGuardar;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button btnViajeAltaBuscar;
+        private System.Windows.Forms.Button btnViajeAltaBuscarMicro;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button btnViajeAltaBuscarRecorrido;
     }
 }
