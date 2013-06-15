@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace FrbaBus.Abm_Recorrido
+namespace FrbaBus.Abm_encomienda
 {
-    public partial class Form1 : Form
+    public partial class EncomiendaAlta : Form
     {
-        public Form1()
+        public EncomiendaAlta()
         {
             InitializeComponent();
         }

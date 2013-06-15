@@ -163,14 +163,14 @@
             // tsmRecorridoListado
             // 
             this.tsmRecorridoListado.Name = "tsmRecorridoListado";
-            this.tsmRecorridoListado.Size = new System.Drawing.Size(152, 22);
+            this.tsmRecorridoListado.Size = new System.Drawing.Size(112, 22);
             this.tsmRecorridoListado.Text = "Listado";
             this.tsmRecorridoListado.Click += new System.EventHandler(this.tsmRecorridoListado_Click);
             // 
             // tsmRecorridoAlta
             // 
             this.tsmRecorridoAlta.Name = "tsmRecorridoAlta";
-            this.tsmRecorridoAlta.Size = new System.Drawing.Size(152, 22);
+            this.tsmRecorridoAlta.Size = new System.Drawing.Size(112, 22);
             this.tsmRecorridoAlta.Text = "Alta";
             this.tsmRecorridoAlta.Click += new System.EventHandler(this.tsmRecorridoAlta_Click);
             // 
@@ -210,14 +210,16 @@
             // tsmViajeListado
             // 
             this.tsmViajeListado.Name = "tsmViajeListado";
-            this.tsmViajeListado.Size = new System.Drawing.Size(112, 22);
+            this.tsmViajeListado.Size = new System.Drawing.Size(152, 22);
             this.tsmViajeListado.Text = "Listado";
+            this.tsmViajeListado.Click += new System.EventHandler(this.tsmViajeListado_Click);
             // 
             // tsmViajeAlta
             // 
             this.tsmViajeAlta.Name = "tsmViajeAlta";
-            this.tsmViajeAlta.Size = new System.Drawing.Size(112, 22);
+            this.tsmViajeAlta.Size = new System.Drawing.Size(152, 22);
             this.tsmViajeAlta.Text = "Alta";
+            this.tsmViajeAlta.Click += new System.EventHandler(this.tsmViajeAlta_Click);
             // 
             // tsmCliente
             // 
@@ -277,13 +279,13 @@
             // tsmPasajeListado
             // 
             this.tsmPasajeListado.Name = "tsmPasajeListado";
-            this.tsmPasajeListado.Size = new System.Drawing.Size(112, 22);
+            this.tsmPasajeListado.Size = new System.Drawing.Size(152, 22);
             this.tsmPasajeListado.Text = "Listado";
             // 
             // tsmPasajeAlta
             // 
             this.tsmPasajeAlta.Name = "tsmPasajeAlta";
-            this.tsmPasajeAlta.Size = new System.Drawing.Size(112, 22);
+            this.tsmPasajeAlta.Size = new System.Drawing.Size(152, 22);
             this.tsmPasajeAlta.Text = "Alta";
             // 
             // tsmEncomienda
@@ -298,14 +300,14 @@
             // tsmEncomiendaListado
             // 
             this.tsmEncomiendaListado.Name = "tsmEncomiendaListado";
-            this.tsmEncomiendaListado.Size = new System.Drawing.Size(152, 22);
+            this.tsmEncomiendaListado.Size = new System.Drawing.Size(112, 22);
             this.tsmEncomiendaListado.Text = "Listado";
             this.tsmEncomiendaListado.Click += new System.EventHandler(this.tsmEncomiendaListado_Click);
             // 
             // tsmEncomiendaAlta
             // 
             this.tsmEncomiendaAlta.Name = "tsmEncomiendaAlta";
-            this.tsmEncomiendaAlta.Size = new System.Drawing.Size(152, 22);
+            this.tsmEncomiendaAlta.Size = new System.Drawing.Size(112, 22);
             this.tsmEncomiendaAlta.Text = "Alta";
             this.tsmEncomiendaAlta.Click += new System.EventHandler(this.tsmEncomiendaAlta_Click);
             // 

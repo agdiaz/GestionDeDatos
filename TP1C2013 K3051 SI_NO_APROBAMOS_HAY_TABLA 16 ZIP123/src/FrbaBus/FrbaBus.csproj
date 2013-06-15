@@ -135,6 +135,18 @@
     <Compile Include="Abm Recorrido\RecorridoListado.Designer.cs">
       <DependentUpon>RecorridoListado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Viaje\ViajeAlta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Viaje\ViajeAlta.Designer.cs">
+      <DependentUpon>ViajeAlta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Viaje\ViajeListado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Viaje\ViajeListado.Designer.cs">
+      <DependentUpon>ViajeListado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cancelar Viaje\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +215,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Recorrido\RecorridoListado.resx">
       <DependentUpon>RecorridoListado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Viaje\ViajeAlta.resx">
+      <DependentUpon>ViajeAlta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Viaje\ViajeListado.resx">
+      <DependentUpon>ViajeListado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
