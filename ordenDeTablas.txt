@@ -8,3 +8,5 @@ Butacas
 Viaje
 Rol
 Usuario
+Funcionalidad
+Rol_Funcionalidad
