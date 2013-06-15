@@ -51,6 +51,7 @@
             this.tsmAltaCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.pasajeroFrecuenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.altaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPasaje = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPasajeListado = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPasajeAlta = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,7 +67,6 @@
             this.tsmPremios = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPremiosListado = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPremiosAlta = new System.Windows.Forms.ToolStripMenuItem();
-            this.altaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -163,14 +163,16 @@
             // tsmRecorridoListado
             // 
             this.tsmRecorridoListado.Name = "tsmRecorridoListado";
-            this.tsmRecorridoListado.Size = new System.Drawing.Size(112, 22);
+            this.tsmRecorridoListado.Size = new System.Drawing.Size(152, 22);
             this.tsmRecorridoListado.Text = "Listado";
+            this.tsmRecorridoListado.Click += new System.EventHandler(this.tsmRecorridoListado_Click);
             // 
             // tsmRecorridoAlta
             // 
             this.tsmRecorridoAlta.Name = "tsmRecorridoAlta";
-            this.tsmRecorridoAlta.Size = new System.Drawing.Size(112, 22);
+            this.tsmRecorridoAlta.Size = new System.Drawing.Size(152, 22);
             this.tsmRecorridoAlta.Text = "Alta";
+            this.tsmRecorridoAlta.Click += new System.EventHandler(this.tsmRecorridoAlta_Click);
             // 
             // tsmMicro
             // 
@@ -208,13 +210,13 @@
             // tsmViajeListado
             // 
             this.tsmViajeListado.Name = "tsmViajeListado";
-            this.tsmViajeListado.Size = new System.Drawing.Size(152, 22);
+            this.tsmViajeListado.Size = new System.Drawing.Size(112, 22);
             this.tsmViajeListado.Text = "Listado";
             // 
             // tsmViajeAlta
             // 
             this.tsmViajeAlta.Name = "tsmViajeAlta";
-            this.tsmViajeAlta.Size = new System.Drawing.Size(152, 22);
+            this.tsmViajeAlta.Size = new System.Drawing.Size(112, 22);
             this.tsmViajeAlta.Text = "Alta";
             // 
             // tsmCliente
@@ -257,6 +259,13 @@
             this.consultarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.consultarToolStripMenuItem.Text = "Consultar";
             // 
+            // altaToolStripMenuItem
+            // 
+            this.altaToolStripMenuItem.Name = "altaToolStripMenuItem";
+            this.altaToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.altaToolStripMenuItem.Text = "Alta";
+            this.altaToolStripMenuItem.Click += new System.EventHandler(this.altaToolStripMenuItem_Click);
+            // 
             // tsmPasaje
             // 
             this.tsmPasaje.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -269,13 +278,13 @@
             // tsmPasajeListado
             // 
             this.tsmPasajeListado.Name = "tsmPasajeListado";
-            this.tsmPasajeListado.Size = new System.Drawing.Size(152, 22);
+            this.tsmPasajeListado.Size = new System.Drawing.Size(112, 22);
             this.tsmPasajeListado.Text = "Listado";
             // 
             // tsmPasajeAlta
             // 
             this.tsmPasajeAlta.Name = "tsmPasajeAlta";
-            this.tsmPasajeAlta.Size = new System.Drawing.Size(152, 22);
+            this.tsmPasajeAlta.Size = new System.Drawing.Size(112, 22);
             this.tsmPasajeAlta.Text = "Alta";
             // 
             // tsmEncomienda
@@ -290,14 +299,16 @@
             // tsmEncomiendaListado
             // 
             this.tsmEncomiendaListado.Name = "tsmEncomiendaListado";
-            this.tsmEncomiendaListado.Size = new System.Drawing.Size(112, 22);
+            this.tsmEncomiendaListado.Size = new System.Drawing.Size(152, 22);
             this.tsmEncomiendaListado.Text = "Listado";
+            this.tsmEncomiendaListado.Click += new System.EventHandler(this.tsmEncomiendaListado_Click);
             // 
             // tsmEncomiendaAlta
             // 
             this.tsmEncomiendaAlta.Name = "tsmEncomiendaAlta";
-            this.tsmEncomiendaAlta.Size = new System.Drawing.Size(112, 22);
+            this.tsmEncomiendaAlta.Size = new System.Drawing.Size(152, 22);
             this.tsmEncomiendaAlta.Text = "Alta";
+            this.tsmEncomiendaAlta.Click += new System.EventHandler(this.tsmEncomiendaAlta_Click);
             // 
             // tsmEstadisticas
             // 
@@ -362,13 +373,6 @@
             this.tsmPremiosAlta.Name = "tsmPremiosAlta";
             this.tsmPremiosAlta.Size = new System.Drawing.Size(112, 22);
             this.tsmPremiosAlta.Text = "Alta";
-            // 
-            // altaToolStripMenuItem
-            // 
-            this.altaToolStripMenuItem.Name = "altaToolStripMenuItem";
-            this.altaToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.altaToolStripMenuItem.Text = "Alta";
-            this.altaToolStripMenuItem.Click += new System.EventHandler(this.altaToolStripMenuItem_Click);
             // 
             // Form1
             // 

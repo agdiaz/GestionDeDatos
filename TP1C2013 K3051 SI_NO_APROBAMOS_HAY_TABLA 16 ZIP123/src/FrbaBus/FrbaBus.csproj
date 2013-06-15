@@ -87,6 +87,18 @@
     <Compile Include="Abm Clientes\ClienteListado.Designer.cs">
       <DependentUpon>ClienteListado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm encomienda\EncomiendaAlta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm encomienda\EncomiendaAlta.Designer.cs">
+      <DependentUpon>EncomiendaAlta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm encomienda\EncomiendaListado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm encomienda\EncomiendaListado.Designer.cs">
+      <DependentUpon>EncomiendaListado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Micro\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,11 +123,17 @@
     <Compile Include="Abm Permisos\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Recorrido\Form1.cs">
+    <Compile Include="Abm Recorrido\RecorridoAlta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm Recorrido\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Abm Recorrido\RecorridoAlta.Designer.cs">
+      <DependentUpon>RecorridoAlta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Recorrido\RecorridoListado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Recorrido\RecorridoListado.Designer.cs">
+      <DependentUpon>RecorridoListado.cs</DependentUpon>
     </Compile>
     <Compile Include="Cancelar Viaje\Form1.cs">
       <SubType>Form</SubType>
@@ -179,6 +197,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Micro\MicroListado.resx">
       <DependentUpon>MicroListado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Recorrido\RecorridoAlta.resx">
+      <DependentUpon>RecorridoAlta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Recorrido\RecorridoListado.resx">
+      <DependentUpon>RecorridoListado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
