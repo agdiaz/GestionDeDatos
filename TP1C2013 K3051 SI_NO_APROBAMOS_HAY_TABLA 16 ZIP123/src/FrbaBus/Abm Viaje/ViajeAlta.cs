@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using FrbaBus.Abm_Micro;
+using FrbaBus.Abm_Recorrido;
 
 namespace FrbaBus.Abm_Viaje
 {
@@ -14,10 +16,10 @@ namespace FrbaBus.Abm_Viaje
         public ViajeAlta()
         {
             InitializeComponent();
-            SetearCustomFormat();
+            SetearCustomFormatDataTimePicker();
         }
 
-        private void SetearCustomFormat()
+        private void SetearCustomFormatDataTimePicker()
         {
             dtpViajeAltaFechaSalida.Format = DateTimePickerFormat.Custom;
             dtpViajeAltaFechaSalida.CustomFormat = "MMMM dd, yyyy - HH:mm:ss";
@@ -30,6 +32,21 @@ namespace FrbaBus.Abm_Viaje
         private void ViajeAlta_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnViajeAltaBuscarMicro_Click(object sender, EventArgs e)
+        {
+            new MicroListado().ShowDialog(this);
+        }
+
+        private void btnViajeAltaBuscarRecorrido_Click(object sender, EventArgs e)
+        {
+            new RecorridoListado().ShowDialog(this);
         }
     }
 }

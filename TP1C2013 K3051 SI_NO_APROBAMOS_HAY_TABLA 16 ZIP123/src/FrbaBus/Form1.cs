@@ -21,6 +21,12 @@ namespace FrbaBus
         public Form1()
         {
             InitializeComponent();
+            this.RegistrarPermisos();
+        }
+
+        public void RegistrarPermisos()
+        {
+            
         }
 
         private void tsmRolListado_Click(object sender, EventArgs e)
@@ -117,6 +123,12 @@ namespace FrbaBus
         private void tsmViajeListado_Click(object sender, EventArgs e)
         {
             new ViajeListado().ShowDialog(this);
+        }
+
+        private void tsmSesionIniciar_Click(object sender, EventArgs e)
+        {
+            Login.Login formLogin = new Login.Login();
+            formLogin.Show(this);
         }
     }
 }
