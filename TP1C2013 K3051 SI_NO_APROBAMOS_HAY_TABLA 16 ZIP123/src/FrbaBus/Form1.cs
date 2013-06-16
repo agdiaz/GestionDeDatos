@@ -165,12 +165,12 @@ namespace FrbaBus
 
         private void tsmPasajeEncomiendaCancelar_Click(object sender, EventArgs e)
         {
-            new EncomiendaAlta().ShowDialog(this);
+            new Cancelar().ShowDialog(this);
         }
 
         private void tsmPasajeEncomiendaComprar_Click(object sender, EventArgs e)
         {
-            new EncomiendaAlta().ShowDialog(this);
+            new Comprar().ShowDialog(this);
         }
 
         private void tsmRecorridoAlta_Click(object sender, EventArgs e)
