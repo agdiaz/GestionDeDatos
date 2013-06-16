@@ -8,7 +8,36 @@ namespace FrbaBus.Common
 {
     public class Contexto
     {
-        public Usuario UsuarioActual { get; set; }
+        private Usuario _usuarioActual;
 
+        public bool ConSesionIniciada { get; set; }
+        public Usuario UsuarioActual { get { return _usuarioActual; } }
+
+        public Contexto()
+        {
+        }
+
+        public void RegistrarUsuario(Usuario u)
+        {
+            this._usuarioActual = u;
+            this.ConSesionIniciada = true;
+        }
+        /// <summary>
+        /// Quita el usuario actual para que se use el genérico con rol de cliente
+        /// </summary>
+        public Contexto Limpiar()
+        {
+            RegistrarUsuario(
+
+            new Usuario()
+            {
+                RolAsignado = new RolUsuarioBasico()
+                {
+                }
+            });
+
+            ConSesionIniciada = false;
+            return this;
+        }
     }
 }

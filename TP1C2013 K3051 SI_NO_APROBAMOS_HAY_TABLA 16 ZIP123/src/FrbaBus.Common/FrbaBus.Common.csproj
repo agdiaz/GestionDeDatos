@@ -49,7 +49,9 @@
     <Compile Include="Entidades\Ciudad.cs" />
     <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\Funcionalidad.cs" />
-    <Compile Include="Entidades\Rol.cs" />
+    <Compile Include="Entidades\RolUsuario.cs" />
+    <Compile Include="Entidades\RolUsuarioAdministrativo.cs" />
+    <Compile Include="Entidades\RolUsuarioBasico.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Helpers\PasswordHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

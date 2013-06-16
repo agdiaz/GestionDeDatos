@@ -163,14 +163,24 @@ namespace FrbaBus
             new ClienteListado().ShowDialog(this);
         }
 
+<<<<<<< HEAD
+        private void tsmPasajeEncomiendaComprar_Click(object sender, EventArgs e)
+=======
         private void tsmPasajeEncomiendaCancelar_Click(object sender, EventArgs e)
+>>>>>>> f955184c1f26e3782612b825fbc9c5a4b6a304ad
         {
-            new EncomiendaAlta().ShowDialog(this);
+            new Cancelar().ShowDialog(this);
         }
 
+<<<<<<< HEAD
+        private void tsmPasajeEncomiendaCancelar_Click(object sender, EventArgs e)
+        {
+            new Comprar().ShowDialog(this);
+=======
         private void tsmPasajeEncomiendaComprar_Click(object sender, EventArgs e)
         {
             new EncomiendaAlta().ShowDialog(this);
+>>>>>>> f955184c1f26e3782612b825fbc9c5a4b6a304ad
         }
 
         private void tsmRecorridoAlta_Click(object sender, EventArgs e)

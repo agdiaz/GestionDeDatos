@@ -91,7 +91,6 @@
             this.txtContrasena.Size = new System.Drawing.Size(369, 20);
             this.txtContrasena.TabIndex = 1;
             this.txtContrasena.Text = "admin";
-            this.txtContrasena.TextChanged += new System.EventHandler(this.txtContrasena_TextChanged);
             // 
             // lblTitulo
             // 
