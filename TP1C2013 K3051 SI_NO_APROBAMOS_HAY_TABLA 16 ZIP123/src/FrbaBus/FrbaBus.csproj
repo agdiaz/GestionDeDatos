@@ -87,16 +87,16 @@
     <Compile Include="Abm Clientes\ClienteListado.Designer.cs">
       <DependentUpon>ClienteListado.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm pasaje_encomienda\Comprar.cs">
+    <Compile Include="Abm Pasaje_encomienda\Comprar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm pasaje_encomienda\Comprar.Designer.cs">
+    <Compile Include="Abm Pasaje_encomienda\Comprar.Designer.cs">
       <DependentUpon>Comprar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm pasaje_encomienda\Cancelar.cs">
+    <Compile Include="Abm Pasaje_encomienda\Cancelar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm pasaje_encomienda\Cancelar.Designer.cs">
+    <Compile Include="Abm Pasaje_encomienda\Cancelar.Designer.cs">
       <DependentUpon>Cancelar.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm Micro\Form1.cs">
@@ -116,6 +116,12 @@
     </Compile>
     <Compile Include="Abm Micro\MicroListado.Designer.cs">
       <DependentUpon>MicroListado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Pasaje_encomienda\RegistrarCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Pasaje_encomienda\RegistrarCompra.Designer.cs">
+      <DependentUpon>RegistrarCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm Permisos\Form1.cs">
       <SubType>Form</SubType>
@@ -210,11 +216,14 @@
     <EmbeddedResource Include="Abm Micro\MicroListado.resx">
       <DependentUpon>MicroListado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Abm pasaje_encomienda\Cancelar.resx">
+    <EmbeddedResource Include="Abm Pasaje_encomienda\Cancelar.resx">
       <DependentUpon>Cancelar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Abm pasaje_encomienda\Comprar.resx">
+    <EmbeddedResource Include="Abm Pasaje_encomienda\Comprar.resx">
       <DependentUpon>Comprar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Pasaje_encomienda\RegistrarCompra.resx">
+      <DependentUpon>RegistrarCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Recorrido\RecorridoAlta.resx">
       <DependentUpon>RecorridoAlta.cs</DependentUpon>

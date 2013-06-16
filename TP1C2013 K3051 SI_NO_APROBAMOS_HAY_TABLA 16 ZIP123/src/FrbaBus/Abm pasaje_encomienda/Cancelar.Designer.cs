@@ -1,6 +1,6 @@
 ﻿namespace FrbaBus.Abm_encomienda
 {
-    partial class EncomiendaListado
+    partial class Cancelar
     {
         /// <summary>
         /// Variable del diseñador requerida.
@@ -37,6 +37,7 @@
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.Name = "EncomiendaListado";
             this.Text = "Cancelar Pasaje/Encomienda";
+            this.Load += new System.EventHandler(this.EncomiendaListado_Load);
             this.ResumeLayout(false);
 
         }

@@ -298,14 +298,14 @@
             this.tsmEncomiendaListado.Name = "tsmEncomiendaListado";
             this.tsmEncomiendaListado.Size = new System.Drawing.Size(152, 22);
             this.tsmEncomiendaListado.Text = "Comprar";
-            this.tsmEncomiendaListado.Click += new System.EventHandler(this.tsmEncomiendaListado_Click);
+            this.tsmEncomiendaListado.Click += new System.EventHandler(this.tsmPasajeEncomiendaCancelar_Click);
             // 
             // tsmEncomiendaAlta
             // 
             this.tsmEncomiendaAlta.Name = "tsmEncomiendaAlta";
             this.tsmEncomiendaAlta.Size = new System.Drawing.Size(152, 22);
             this.tsmEncomiendaAlta.Text = "Cancelar";
-            this.tsmEncomiendaAlta.Click += new System.EventHandler(this.tsmEncomiendaAlta_Click);
+            this.tsmEncomiendaAlta.Click += new System.EventHandler(this.tsmPasajeEncomiendaComprar_Click);
             // 
             // tsmEstadisticas
             // 

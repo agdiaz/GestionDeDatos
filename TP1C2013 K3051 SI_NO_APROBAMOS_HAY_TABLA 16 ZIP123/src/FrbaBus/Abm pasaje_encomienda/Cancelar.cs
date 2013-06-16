@@ -9,11 +9,16 @@ using System.Windows.Forms;
 
 namespace FrbaBus.Abm_encomienda
 {
-    public partial class EncomiendaListado : Form
+    public partial class Cancelar : Form
     {
-        public EncomiendaListado()
+        public Cancelar()
         {
             InitializeComponent();
+        }
+
+        private void EncomiendaListado_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
