@@ -23,11 +23,11 @@ namespace FrbaBus.DAO
         {
             int resultado = 1;
             Dictionary<string, object> parametros = new Dictionary<string, object>();
-            parametros.Add("userName", username);
-            parametros.Add("passwordHash", hash);
-            parametros.Add("resultado", resultado);
+            parametros.Add("@userName", username);
+            parametros.Add("@passwordHash", hash);
+            parametros.Add("@resultado", resultado);
 
-            accesoBD.RealizarConsulta("SI_NO_APROBAMOS_HAY_TABLA.realizar_identificacion", parametros);
+            accesoBD.EjecutarComando("[GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[realizar_identificacion]", parametros);
 
             return resultado;
         }

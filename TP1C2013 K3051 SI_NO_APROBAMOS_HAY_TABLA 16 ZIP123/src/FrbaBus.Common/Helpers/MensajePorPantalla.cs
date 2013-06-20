@@ -30,6 +30,8 @@ namespace FrbaBus.Common.Helpers
                 mensaje += "\tValor: " + item.Value.ToString();
             }
 
+            mensaje += "Mensaje interno del error:\n" + ex.InnerException.Message;
+
             return MessageBox.Show(formulario, mensaje, "FrbaBus - Problemas con la Base de datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
