@@ -24,9 +24,9 @@ BEGIN
 	SELECT top 1 @dniLoco = c.dni
 	FROM SI_NO_APROBAMOS_HAY_TABLA.Cliente c
 	
-	INSERT INTO SI_NO_APROBAMOS_HAY_TABLA.Usuario
-	(id_rol, dni, username, hash_password)
-	VALUES
-	(@idAdmin, @dniLoco, @userName, @passwordHash)
+	UPDATE SI_NO_APROBAMOS_HAY_TABLA.Usuario
+	SET id_rol = @idAdmin
+	WHERE dni = @dniLoco
+	
 END
 GO
