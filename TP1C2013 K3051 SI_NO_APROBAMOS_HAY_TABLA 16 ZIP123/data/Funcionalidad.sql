@@ -21,7 +21,7 @@ CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](
 
 GO
 
-ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] ADD  CONSTRAINT [DF_Funcionalidad_activa]  DEFAULT ((0)) FOR [activa]
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] ADD  CONSTRAINT [DF_Funcionalidad_activa]  DEFAULT ((1)) FOR [activa]
 GO
 
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] ADD  CONSTRAINT [DF_Funcionalidad_baja]  DEFAULT ((0)) FOR [baja]
