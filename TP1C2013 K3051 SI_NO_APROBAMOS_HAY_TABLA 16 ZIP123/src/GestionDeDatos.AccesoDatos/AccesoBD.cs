@@ -21,9 +21,9 @@ namespace GestionDeDatos.AccesoDatos
 
         public DataSet RealizarConsulta(string consulta)
         {
-            return this.RealizarConsulta(consulta, new Dictionary<string, object>());
+            return this.RealizarConsulta(consulta, new Dictionary<SqlParameter, object>());
         }
-        public DataSet RealizarConsulta(string consulta, Dictionary<string, object> parametros)
+        public DataSet RealizarConsulta(string consulta, Dictionary<SqlParameter, object> parametros)
         {
             try
             {
@@ -34,10 +34,10 @@ namespace GestionDeDatos.AccesoDatos
                 {
 
                     sqlCommand.Connection = sqlConnection;
-                    foreach (KeyValuePair<string, object> item in parametros)
-                    {
-                        sqlCommand.Parameters.AddWithValue(item.Key, item.Value);
-                    }
+                    sqlCommand.CommandType = CommandType.TableDirect;
+                    
+                    AgregarParametros(parametros, sqlCommand);
+
                     SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand);
                     adapter.Fill(ds);
                 }
@@ -52,9 +52,9 @@ namespace GestionDeDatos.AccesoDatos
 
         public int EjecutarComando(string comando)
         {
-            return this.EjecutarComando(comando, new Dictionary<string, object>());
+            return this.EjecutarComando(comando, new Dictionary<SqlParameter, object>());
         }
-        public int EjecutarComando(string comando, Dictionary<string, object> parametros)
+        public int EjecutarComando(string comando, Dictionary<SqlParameter, object> parametros)
         {
             try
             {
@@ -65,10 +65,10 @@ namespace GestionDeDatos.AccesoDatos
                 using (SqlCommand sqlCommand = new SqlCommand(comando))
                 {
                     sqlCommand.Connection = sqlConnection;
-                    foreach (KeyValuePair<string, object> item in parametros)
-                    {
-                        sqlCommand.Parameters.AddWithValue(item.Key, item.Value);
-                    }
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.UpdatedRowSource = UpdateRowSource.OutputParameters;
+
+                    AgregarParametros(parametros, sqlCommand);
 
                     rowsAffected = sqlCommand.ExecuteNonQuery();
                 }
@@ -82,7 +82,7 @@ namespace GestionDeDatos.AccesoDatos
             }
         }
 
-        public DataSet RealizarConsultaAlmacenada(string nombreSP, Dictionary<string, object> parametros)
+        public DataSet RealizarConsultaAlmacenada(string nombreSP, Dictionary<SqlParameter, object> parametros)
         {
             try
             {
@@ -91,12 +91,12 @@ namespace GestionDeDatos.AccesoDatos
                 SqlConnection sqlConnection = new SqlConnection(ConnectionString);
                 using (SqlCommand sqlCommand = new SqlCommand(nombreSP))
                 {
-
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
                     sqlCommand.Connection = sqlConnection;
-                    foreach (KeyValuePair<string, object> item in parametros)
-                    {
-                        sqlCommand.Parameters.AddWithValue(item.Key, item.Value);
-                    }
+                    sqlCommand.UpdatedRowSource = UpdateRowSource.OutputParameters;
+
+                    AgregarParametros(parametros, sqlCommand);
+
                     SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand);
                     adapter.Fill(ds);
                 }
@@ -106,6 +106,15 @@ namespace GestionDeDatos.AccesoDatos
             catch (Exception ex)
             {
                 throw new AccesoBDException(nombreSP, parametros, ex);
+            }
+        }
+
+        private static void AgregarParametros(Dictionary<SqlParameter, object> parametros, SqlCommand sqlCommand)
+        {
+            foreach (KeyValuePair<SqlParameter, object> item in parametros)
+            {
+                item.Key.Value = item.Value;
+                sqlCommand.Parameters.Add(item.Key);
             }
         }
     }

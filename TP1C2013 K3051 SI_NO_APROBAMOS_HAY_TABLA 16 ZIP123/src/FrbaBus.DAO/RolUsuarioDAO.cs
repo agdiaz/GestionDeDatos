@@ -5,6 +5,7 @@ using System.Text;
 using FrbaBus.Common.Entidades;
 using System.Data;
 using GestionDeDatos.AccesoDatos;
+using System.Data.SqlClient;
 
 namespace FrbaBus.DAO
 {
@@ -21,21 +22,26 @@ namespace FrbaBus.DAO
         }
         public int RealizarIdentificacion(string username, byte[] hash)
         {
-            int resultado = 1;
-            Dictionary<string, object> parametros = new Dictionary<string, object>();
-            parametros.Add("@userName", username);
-            parametros.Add("@passwordHash", hash);
-            parametros.Add("@resultado", resultado);
+            int resultado = -3 ;
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+
+            parametros.Add(new SqlParameter("@userName", SqlDbType.VarChar, 50, "userName"), username);
+            parametros.Add(new SqlParameter("@passwordHash", SqlDbType.VarBinary, 32, "passwordHash"), hash);
+            
+            var parametroResultado = new SqlParameter("@resultado", SqlDbType.Int, 4, "resultado");
+            parametroResultado.Direction = ParameterDirection.Output;
+            parametros.Add(parametroResultado, 0);
 
             accesoBD.EjecutarComando("[GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[realizar_identificacion]", parametros);
-
+            
+            resultado = (int)parametroResultado.Value;
             return resultado;
         }
         public RolUsuario ObtenerRolAsociado(Usuario u)
         {
-            Dictionary<string, object> parametros = new Dictionary<string, object>();
-            parametros.Add("userName", u.Username);
-
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+            parametros.Add(new SqlParameter("@userName", SqlDbType.VarChar, 50, "userName"), u.Username);
+        
             DataSet ds = accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.obtener_rol", parametros);
             DataRow row = ds.Tables[0].Rows[0];
 
@@ -43,8 +49,8 @@ namespace FrbaBus.DAO
         }
         public IList<Funcionalidad> ObtenerFuncionalidadesAsociadas(RolUsuario rolUsuario)
         {
-            Dictionary<string, object> parametros = new Dictionary<string, object>();
-            parametros.Add("nombre_rol", rolUsuario.Nombre);
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+            parametros.Add(new SqlParameter("@nombre_rol", SqlDbType.VarChar, 50, "nombre_rol"), rolUsuario.Nombre);
 
             DataSet ds = accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.obtener_funcionalidades_rol", parametros);
 
