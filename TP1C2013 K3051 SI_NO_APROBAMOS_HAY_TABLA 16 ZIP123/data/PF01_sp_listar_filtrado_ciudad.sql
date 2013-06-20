@@ -1,5 +1,5 @@
 
-ALTER PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_filtrado_ciudad 
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_filtrado_ciudad 
 	@p_ciudad varchar(50) = NULL
 AS
 BEGIN
