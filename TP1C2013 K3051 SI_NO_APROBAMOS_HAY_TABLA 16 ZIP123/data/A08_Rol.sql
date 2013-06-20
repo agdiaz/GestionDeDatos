@@ -22,6 +22,3 @@ GO
 
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Rol] ADD  CONSTRAINT [DF_Rol_inhabilitado]  DEFAULT ((0)) FOR [inhabilitado]
 GO
-
-insert into SI_NO_APROBAMOS_HAY_TABLA.Rol (nombre) VALUES ('Administrativo')
-insert into SI_NO_APROBAMOS_HAY_TABLA.Rol (nombre) VALUES ('Cliente')
