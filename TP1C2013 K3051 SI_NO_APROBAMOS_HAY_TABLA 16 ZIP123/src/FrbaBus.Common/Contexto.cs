@@ -17,10 +17,16 @@ namespace FrbaBus.Common
         {
         }
 
-        public void RegistrarUsuario(Usuario u)
+        public void RegistrarUsuario(Usuario u, bool esGenerico)
         {
             this._usuarioActual = u;
-            this.ConSesionIniciada = true;
+            this.ConSesionIniciada = !esGenerico;
+        }
+
+
+        public void RegistrarUsuario(Usuario u)
+        {
+            RegistrarUsuario(u, false);
         }
         /// <summary>
         /// Quita el usuario actual para que se use el genérico con rol de cliente

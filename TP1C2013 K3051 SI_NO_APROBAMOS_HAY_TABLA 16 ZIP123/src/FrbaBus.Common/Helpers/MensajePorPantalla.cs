@@ -21,18 +21,7 @@ namespace FrbaBus.Common.Helpers
 
         public static DialogResult MensajeExceptionBD(IWin32Window formulario, AccesoBDException ex)
         {
-            string mensaje = ex.Message;
-            mensaje += "\nConsulta realizada: " + ex.Consulta;
-            mensaje += "\nParametros usados: ";
-            foreach (var item in ex.ParametrosUsados)
-            {
-                mensaje += "\n\tNombre: " + item.Key;
-                mensaje += "\tValor: " + item.Value.ToString();
-            }
-
-            mensaje += "\nMensaje interno del error:\n" + ex.InnerException.Message;
-
-            return MessageBox.Show(formulario, mensaje, "FrbaBus - Problemas con la Base de datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return MessageBox.Show(formulario, ex.Message, "FrbaBus - Problemas con la Base de datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

@@ -100,6 +100,14 @@ namespace FrbaBus.DAO
 
         #endregion
 
-        
+        public void InsertarUsuario(string username, byte[] hashPassword)
+        {
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+
+            parametros.Add(new SqlParameter("@userName", SqlDbType.VarChar, 50, "userName"), username);
+            parametros.Add(new SqlParameter("@passwordHash", SqlDbType.VarBinary, 32, "passwordHash"), hashPassword);
+
+            this.accesoBD.EjecutarComando("SI_NO_APROBAMOS_HAY_TABLA.InsertarUsuario", parametros);
+        }
     }
 }

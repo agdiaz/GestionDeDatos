@@ -13,6 +13,8 @@ namespace FrbaBus.Manager
 
         public ResultadoLoginEnum RealizarIdentificacion(string username, string password)
         {
+            //this.Insertar("admin", "w23e");
+
             byte[] hashPassword = PasswordHelper.GetSHA256Value(password);
 
             ResultadoLoginEnum resultadoIdentificacion;
@@ -44,6 +46,27 @@ namespace FrbaBus.Manager
             u.RolAsignado.Funcionalidades = new RolUsuarioDAO().ObtenerFuncionalidadesAsociadas(u.RolAsignado);
 
             return u;
+        }
+
+        public void Insertar(string username, string password)
+        {
+            byte[] hashPassword = PasswordHelper.GetSHA256Value(password);
+
+            new RolUsuarioDAO().InsertarUsuario(username, hashPassword);
+        }
+
+        public Usuario ObtenerUsuarioGenerico()
+        {
+            Usuario u = new Usuario("Sin identificación");
+            u.RolAsignado = this.ObtenerRol("cliente");
+            return u;
+        }
+
+        public RolUsuario ObtenerRol(string nombreRol)
+        {
+            RolUsuario ru = new RolUsuario(nombreRol);
+            ru.Funcionalidades =  new RolUsuarioDAO().ObtenerFuncionalidadesAsociadas(ru);
+            return ru;
         }
     }
 }
