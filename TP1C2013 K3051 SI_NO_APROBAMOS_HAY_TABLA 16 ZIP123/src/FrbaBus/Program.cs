@@ -54,9 +54,8 @@ namespace FrbaBus
         private static void ConfigurarUsuarioInicial()
         {
             UsuarioManager uManager = new UsuarioManager();
-            
             ContextoActual = new Contexto().Limpiar();
-            //ContextoActual.RegistrarUsuario(uManager.ObtenerUsuarioGenerico());
+            ContextoActual.RegistrarUsuario(uManager.ObtenerUsuarioGenerico(), true);
         }
     }
 }

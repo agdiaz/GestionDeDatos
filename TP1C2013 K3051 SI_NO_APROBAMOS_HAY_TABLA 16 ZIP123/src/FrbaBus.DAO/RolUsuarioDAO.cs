@@ -58,7 +58,7 @@ namespace FrbaBus.DAO
 
             DataSet ds = accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.obtener_funcionalidades_rol", parametros);
 
-            IList<Funcionalidad> funcionalidades = null;
+            IList<Funcionalidad> funcionalidades = new List<Funcionalidad>(ds.Tables[0].Rows.Count);
             foreach (DataRow row in ds.Tables[0].Rows)
             {
                 funcionalidades.Add(this.BuildFuncionalidad(row));

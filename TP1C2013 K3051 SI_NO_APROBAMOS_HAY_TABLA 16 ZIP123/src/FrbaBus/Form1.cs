@@ -14,6 +14,7 @@ using FrbaBus.Abm_encomienda;
 using FrbaBus.Abm_Recorrido;
 using FrbaBus.Abm_Viaje;
 using FrbaBus.Common.Entidades;
+using FrbaBus.Manager;
 
 namespace FrbaBus
 {
@@ -33,6 +34,9 @@ namespace FrbaBus
 
         private void RegistrarFuncionalidades()
         {
+            //Menú Archivo:
+            tsmSesionIniciar.Enabled = !Program.ContextoActual.ConSesionIniciada;
+
             //Menú Rol:
             tsmRolAlta.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmRolAlta");
             tsmRolListado.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmRolListado");
@@ -218,6 +222,7 @@ namespace FrbaBus
                 == DialogResult.OK)
             {
                 Program.ContextoActual.Limpiar();
+                Program.ContextoActual.RegistrarUsuario(new UsuarioManager().ObtenerUsuarioGenerico());
                 this.RegistrarPermisos();
             }
         }
