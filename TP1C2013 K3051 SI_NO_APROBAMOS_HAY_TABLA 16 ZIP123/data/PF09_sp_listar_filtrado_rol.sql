@@ -8,6 +8,7 @@ BEGIN
 	left join [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].Rol_Funcionalidad rf
 		on r.id_rol = rf.id_rol
 	left join [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].Funcionalidad f
-		on rf.id_funcionalidad = f.id_funcionalidad	and f.funcionalidad = @p_funcionalidad
-	where r.nombre = @p_rol	
+		on rf.id_funcionalidad = f.id_funcionalidad
+	where ((@p_rol IS NULL) OR (r.nombre = @p_rol))
+	and ((@p_funcionalidad IS NULL) OR (f.funcionalidad = @p_funcionalidad))
 END
