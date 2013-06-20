@@ -15,7 +15,7 @@ CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Usuario](
 	[id_usuario] [int] IDENTITY(1,1) NOT NULL,
 	[id_rol] [int] NOT NULL,
 	[dni] [numeric](18, 0) NOT NULL,
-	[username] [nvarchar](50) NOT NULL,
+	[username] [nvarchar](50) NOT NULL UNIQUE,
 	[hash_password] [varbinary](32) NULL,
 	[cant_intentos_fallidos] [int] NOT NULL,
  CONSTRAINT [PK_Usuario] PRIMARY KEY CLUSTERED 
