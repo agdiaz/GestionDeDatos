@@ -56,7 +56,7 @@ namespace FrbaBus
             UsuarioManager uManager = new UsuarioManager();
             
             ContextoActual = new Contexto().Limpiar();
-            ContextoActual.RegistrarUsuario(uManager.ObtenerUsuarioGenerico());
+            //ContextoActual.RegistrarUsuario(uManager.ObtenerUsuarioGenerico());
         }
     }
 }

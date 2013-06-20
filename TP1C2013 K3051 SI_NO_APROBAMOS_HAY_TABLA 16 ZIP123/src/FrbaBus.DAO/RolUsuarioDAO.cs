@@ -41,11 +41,15 @@ namespace FrbaBus.DAO
         {
             Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
             parametros.Add(new SqlParameter("@userName", SqlDbType.VarChar, 50, "userName"), u.Username);
-        
-            DataSet ds = accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.obtener_rol", parametros);
-            DataRow row = ds.Tables[0].Rows[0];
 
-            return new RolUsuario(row["nombre"].ToString());
+            SqlParameter rolParameter = new SqlParameter("@rol", SqlDbType.VarChar, 50, "rol");
+            rolParameter.Direction = ParameterDirection.Output;
+            parametros.Add(rolParameter, string.Empty);
+
+            accesoBD.EjecutarComando("SI_NO_APROBAMOS_HAY_TABLA.obtener_rol", parametros);
+
+            var rolNombre = rolParameter.Value.ToString();
+            return new RolUsuario(rolNombre);
         }
         public IList<Funcionalidad> ObtenerFuncionalidadesAsociadas(RolUsuario rolUsuario)
         {
@@ -66,8 +70,8 @@ namespace FrbaBus.DAO
         {
             Funcionalidad f = new Funcionalidad()
             {
-                Activa = row["activa"].ToString() == "1" ? true : false,
-                Nombre = row["nombre"].ToString()
+                //Activa = row["activa"].ToString() == "1" ? true : false,
+                Nombre = row["funcionalidad"].ToString()
             };
             return f;
         }
@@ -107,7 +111,7 @@ namespace FrbaBus.DAO
             parametros.Add(new SqlParameter("@userName", SqlDbType.VarChar, 50, "userName"), username);
             parametros.Add(new SqlParameter("@passwordHash", SqlDbType.VarBinary, 32, "passwordHash"), hashPassword);
 
-            this.accesoBD.EjecutarComando("SI_NO_APROBAMOS_HAY_TABLA.InsertarUsuario", parametros);
+            this.accesoBD.EjecutarComando("SI_NO_APROBAMOS_HAY_TABLA.insertar_usuario_admin", parametros);
         }
     }
 }
