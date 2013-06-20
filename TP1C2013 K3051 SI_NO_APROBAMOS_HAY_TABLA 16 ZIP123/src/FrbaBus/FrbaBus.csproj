@@ -177,6 +177,36 @@
     <Compile Include="Consulta Puntos Adquiridos\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Estadisticas\EstadisticasClientesConMasPuntos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estadisticas\EstadisticasClientesConMasPuntos.Designer.cs">
+      <DependentUpon>EstadisticasClientesConMasPuntos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticas\EstadisticasDestinosConMasMicrosVacios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estadisticas\EstadisticasDestinosConMasMicrosVacios.Designer.cs">
+      <DependentUpon>EstadisticasDestinosConMasMicrosVacios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticas\EstadisticasDestinosMasCancelados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estadisticas\EstadisticasDestinosMasCancelados.Designer.cs">
+      <DependentUpon>EstadisticasDestinosMasCancelados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticas\EstadisticasDestinosMasVendidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estadisticas\EstadisticasDestinosMasVendidos.Designer.cs">
+      <DependentUpon>EstadisticasDestinosMasVendidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticas\EstadisticasMicrosConMasDiasFueraDeServicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estadisticas\EstadisticasMicrosConMasDiasFueraDeServicio.Designer.cs">
+      <DependentUpon>EstadisticasMicrosConMasDiasFueraDeServicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
