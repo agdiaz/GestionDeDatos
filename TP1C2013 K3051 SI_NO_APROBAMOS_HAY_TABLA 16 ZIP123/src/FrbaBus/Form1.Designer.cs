@@ -111,27 +111,27 @@
             this.tsmSesionIniciar,
             this.tsmSesionCerrar});
             this.tsmSesion.Name = "tsmSesion";
-            this.tsmSesion.Size = new System.Drawing.Size(152, 22);
+            this.tsmSesion.Size = new System.Drawing.Size(108, 22);
             this.tsmSesion.Text = "Sesión";
             // 
             // tsmSesionIniciar
             // 
             this.tsmSesionIniciar.Name = "tsmSesionIniciar";
-            this.tsmSesionIniciar.Size = new System.Drawing.Size(152, 22);
+            this.tsmSesionIniciar.Size = new System.Drawing.Size(143, 22);
             this.tsmSesionIniciar.Text = "Iniciar Sesión";
             this.tsmSesionIniciar.Click += new System.EventHandler(this.tsmSesionIniciar_Click);
             // 
             // tsmSesionCerrar
             // 
             this.tsmSesionCerrar.Name = "tsmSesionCerrar";
-            this.tsmSesionCerrar.Size = new System.Drawing.Size(152, 22);
+            this.tsmSesionCerrar.Size = new System.Drawing.Size(143, 22);
             this.tsmSesionCerrar.Text = "Cerrar Sesión";
             this.tsmSesionCerrar.Click += new System.EventHandler(this.tsmSesionCerrar_Click);
             // 
             // tsmArchivoSalir
             // 
             this.tsmArchivoSalir.Name = "tsmArchivoSalir";
-            this.tsmArchivoSalir.Size = new System.Drawing.Size(152, 22);
+            this.tsmArchivoSalir.Size = new System.Drawing.Size(108, 22);
             this.tsmArchivoSalir.Text = "Salir";
             this.tsmArchivoSalir.Click += new System.EventHandler(this.tsmArchivoSalir_Click);
             // 
@@ -147,14 +147,14 @@
             // tsmRolListado
             // 
             this.tsmRolListado.Name = "tsmRolListado";
-            this.tsmRolListado.Size = new System.Drawing.Size(152, 22);
+            this.tsmRolListado.Size = new System.Drawing.Size(112, 22);
             this.tsmRolListado.Text = "Listado";
             this.tsmRolListado.Click += new System.EventHandler(this.tsmRolListado_Click);
             // 
             // tsmRolAlta
             // 
             this.tsmRolAlta.Name = "tsmRolAlta";
-            this.tsmRolAlta.Size = new System.Drawing.Size(152, 22);
+            this.tsmRolAlta.Size = new System.Drawing.Size(112, 22);
             this.tsmRolAlta.Text = "Alta";
             this.tsmRolAlta.Click += new System.EventHandler(this.tsmRolAlta_Click);
             // 
@@ -287,7 +287,7 @@
             // tsmClientePasajeroFrecuenteConsultar
             // 
             this.tsmClientePasajeroFrecuenteConsultar.Name = "tsmClientePasajeroFrecuenteConsultar";
-            this.tsmClientePasajeroFrecuenteConsultar.Size = new System.Drawing.Size(152, 22);
+            this.tsmClientePasajeroFrecuenteConsultar.Size = new System.Drawing.Size(125, 22);
             this.tsmClientePasajeroFrecuenteConsultar.Text = "Consultar";
             // 
             // tsmEncomienda
@@ -302,14 +302,14 @@
             // tsmPasajeEncomiendaAlta
             // 
             this.tsmPasajeEncomiendaAlta.Name = "tsmPasajeEncomiendaAlta";
-            this.tsmPasajeEncomiendaAlta.Size = new System.Drawing.Size(152, 22);
+            this.tsmPasajeEncomiendaAlta.Size = new System.Drawing.Size(121, 22);
             this.tsmPasajeEncomiendaAlta.Text = "Comprar";
             this.tsmPasajeEncomiendaAlta.Click += new System.EventHandler(this.tsmPasajeEncomiendaComprar_Click);
             // 
             // tsmPasajeEncomiendaCancelar
             // 
             this.tsmPasajeEncomiendaCancelar.Name = "tsmPasajeEncomiendaCancelar";
-            this.tsmPasajeEncomiendaCancelar.Size = new System.Drawing.Size(152, 22);
+            this.tsmPasajeEncomiendaCancelar.Size = new System.Drawing.Size(121, 22);
             this.tsmPasajeEncomiendaCancelar.Text = "Cancelar";
             this.tsmPasajeEncomiendaCancelar.Click += new System.EventHandler(this.tsmPasajeEncomiendaCancelar_Click);
             // 
@@ -330,31 +330,35 @@
             this.tsmEstadisticasT5DestMasVendidos.Name = "tsmEstadisticasT5DestMasVendidos";
             this.tsmEstadisticasT5DestMasVendidos.Size = new System.Drawing.Size(304, 22);
             this.tsmEstadisticasT5DestMasVendidos.Text = "Top 5 destinos más vendidos";
-            this.tsmEstadisticasT5DestMasVendidos.Click += new System.EventHandler(this.top5ToolStripMenuItem_Click);
+            this.tsmEstadisticasT5DestMasVendidos.Click += new System.EventHandler(this.tsmEstadisticasT5DestMasVendidos_Click);
             // 
             // tsmEstadisticasT5DestMasMicrosVacios
             // 
             this.tsmEstadisticasT5DestMasMicrosVacios.Name = "tsmEstadisticasT5DestMasMicrosVacios";
             this.tsmEstadisticasT5DestMasMicrosVacios.Size = new System.Drawing.Size(304, 22);
             this.tsmEstadisticasT5DestMasMicrosVacios.Text = "Top 5 destinos con más micros vacíos";
+            this.tsmEstadisticasT5DestMasMicrosVacios.Click += new System.EventHandler(this.tsmEstadisticasT5DestMasMicrosVacios_Click);
             // 
             // tsmEstadisticasT5ClientesMasPuntos
             // 
             this.tsmEstadisticasT5ClientesMasPuntos.Name = "tsmEstadisticasT5ClientesMasPuntos";
             this.tsmEstadisticasT5ClientesMasPuntos.Size = new System.Drawing.Size(304, 22);
             this.tsmEstadisticasT5ClientesMasPuntos.Text = "Top 5 clientes con más puntos";
+            this.tsmEstadisticasT5ClientesMasPuntos.Click += new System.EventHandler(this.tsmEstadisticasT5ClientesMasPuntos_Click);
             // 
             // tsmEstadisticasT5DestMasCancelados
             // 
             this.tsmEstadisticasT5DestMasCancelados.Name = "tsmEstadisticasT5DestMasCancelados";
             this.tsmEstadisticasT5DestMasCancelados.Size = new System.Drawing.Size(304, 22);
             this.tsmEstadisticasT5DestMasCancelados.Text = "Top 5 destinos más cancelados ";
+            this.tsmEstadisticasT5DestMasCancelados.Click += new System.EventHandler(this.tsmEstadisticasT5DestMasCancelados_Click);
             // 
             // tsmEstadisticasT5MicrosMasDiasFueraDeServicio
             // 
             this.tsmEstadisticasT5MicrosMasDiasFueraDeServicio.Name = "tsmEstadisticasT5MicrosMasDiasFueraDeServicio";
             this.tsmEstadisticasT5MicrosMasDiasFueraDeServicio.Size = new System.Drawing.Size(304, 22);
             this.tsmEstadisticasT5MicrosMasDiasFueraDeServicio.Text = "Top 5 micros con más días fuera de servicio";
+            this.tsmEstadisticasT5MicrosMasDiasFueraDeServicio.Click += new System.EventHandler(this.tsmEstadisticasT5MicrosMasDiasFueraDeServicio_Click);
             // 
             // tsmPremios
             // 

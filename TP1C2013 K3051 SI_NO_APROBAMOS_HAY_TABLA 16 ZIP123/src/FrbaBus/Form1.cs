@@ -226,5 +226,30 @@ namespace FrbaBus
         {
             tsmSesionCerrar.Enabled = Program.ContextoActual.ConSesionIniciada;
         }
+
+        private void tsmEstadisticasT5DestMasVendidos_Click(object sender, EventArgs e)
+        {
+            new Estadisticas.EstadisticasDestinosMasVendidos().ShowDialog(this);
+        }
+
+        private void tsmEstadisticasT5DestMasMicrosVacios_Click(object sender, EventArgs e)
+        {
+            new Estadisticas.EstadisticasDestinosConMasMicrosVacios().ShowDialog(this);
+        }
+
+        private void tsmEstadisticasT5ClientesMasPuntos_Click(object sender, EventArgs e)
+        {
+            new Estadisticas.EstadisticasClientesConMasPuntos().ShowDialog(this);
+        }
+
+        private void tsmEstadisticasT5DestMasCancelados_Click(object sender, EventArgs e)
+        {
+            new Estadisticas.EstadisticasDestinosMasCancelados().ShowDialog(this);
+        }
+
+        private void tsmEstadisticasT5MicrosMasDiasFueraDeServicio_Click(object sender, EventArgs e)
+        {
+            new Estadisticas.EstadisticasMicrosConMasDiasFueraDeServicio().ShowDialog(this);
+        }
     }
 }
