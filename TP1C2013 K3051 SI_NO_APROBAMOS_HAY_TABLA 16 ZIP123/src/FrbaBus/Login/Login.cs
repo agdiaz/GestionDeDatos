@@ -8,32 +8,50 @@ using System.Text;
 using System.Windows.Forms;
 using FrbaBus.Common.Helpers;
 using FrbaBus.Common.Entidades;
+using FrbaBus.Manager;
+using FrbaBus.Common.Excepciones;
 
 namespace FrbaBus.Login
 {
     public partial class Login : Form
     {
         private Usuario _usuarioIniciado;
-        public Usuario UsuarioIniciado { get { return _usuarioIniciado; } }
+        private UsuarioManager _manager;
 
+        public Usuario UsuarioIniciado { get { return _usuarioIniciado; } }
+        
         public Login()
         {
             InitializeComponent();
+            this._manager = new UsuarioManager();
         }
 
-        private bool ValidarUsuario()
-        {
-            return this.txtUsuario.Text == "admin" && this.txtContrasena.Text == "admin";
-        }
         private void Login_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            this._usuarioIniciado = new Usuario() { Username = this.txtUsuario.Text, RolAsignado = new RolUsuarioAdministrativo() };
-            this.Close();
+            try
+            {
+                ResultadoLoginEnum resultado = _manager.RealizarIdentificacion(this.txtUsuario.Text, this.txtContrasena.Text);
+
+                if (ResultadoLogin.IdentificacionExitosa(resultado))
+                {
+                    this._usuarioIniciado = _manager.Obtener(this.txtUsuario.Text);
+                }
+                else
+                {
+                    MensajePorPantalla.MensajeError(this, ResultadoLogin.Mensaje(resultado));
+                    this._usuarioIniciado = null;
+                }
+                this.Close();
+            }
+            catch (AccesoBDException ex)
+            {
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
+            }
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {

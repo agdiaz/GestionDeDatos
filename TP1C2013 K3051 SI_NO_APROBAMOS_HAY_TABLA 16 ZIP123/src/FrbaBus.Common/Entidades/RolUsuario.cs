@@ -16,6 +16,12 @@ namespace FrbaBus.Common.Entidades
             this.Funcionalidades = new List<Funcionalidad>();
         }
 
+        public RolUsuario(string nombre)
+        {
+            this.Nombre = nombre;
+            this.Funcionalidades = new List<Funcionalidad>();
+        }
+
         public virtual bool PermiteFuncionalidad(string nombre)
         {
             var cantidad = Funcionalidades.Where(f => (f.Nombre == nombre)).Count();

@@ -14,6 +14,11 @@ namespace FrbaBus.Common.Entidades
         {
             this.Username = "En blanco";
         }
+
+        public Usuario(string username)
+        {
+            this.Username = username;
+        }
     }
 
 }

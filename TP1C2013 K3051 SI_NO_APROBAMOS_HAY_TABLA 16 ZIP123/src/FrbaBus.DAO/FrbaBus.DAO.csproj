@@ -49,6 +49,7 @@
     <Compile Include="ClienteDAO.cs" />
     <Compile Include="IEntidadDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RolUsuarioDAO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FrbaBus.Common\FrbaBus.Common.csproj">

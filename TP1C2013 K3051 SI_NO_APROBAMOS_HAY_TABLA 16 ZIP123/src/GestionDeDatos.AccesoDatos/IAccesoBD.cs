@@ -11,8 +11,9 @@ namespace GestionDeDatos.AccesoDatos
         string ConnectionString { get; }
 
         DataSet RealizarConsulta(string consulta);
-        DataSet RealizarConsulta(string consulta, Dictionary<string, string> parametros);
+        DataSet RealizarConsulta(string consulta, Dictionary<string, object> parametros);
         int EjecutarComando(string comando);
-        int EjecutarComando(string comando, Dictionary<string, string> parametros);
+        int EjecutarComando(string comando, Dictionary<string, object> parametros);
+        DataSet RealizarConsultaAlmacenada(string comando, Dictionary<string, object> parametros);
     }
 }
