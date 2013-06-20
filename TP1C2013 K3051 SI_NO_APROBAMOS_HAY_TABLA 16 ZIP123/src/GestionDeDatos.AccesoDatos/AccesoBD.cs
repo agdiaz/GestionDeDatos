@@ -34,7 +34,6 @@ namespace GestionDeDatos.AccesoDatos
                 {
 
                     sqlCommand.Connection = sqlConnection;
-                    sqlCommand.CommandType = CommandType.TableDirect;
                     
                     AgregarParametros(parametros, sqlCommand);
 

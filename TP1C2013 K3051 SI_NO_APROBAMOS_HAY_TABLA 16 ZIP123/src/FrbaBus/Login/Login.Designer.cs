@@ -81,7 +81,7 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(369, 20);
             this.txtUsuario.TabIndex = 0;
-            this.txtUsuario.Text = "admin";
+            this.txtUsuario.Text = "admin2";
             // 
             // txtContrasena
             // 
@@ -90,7 +90,7 @@
             this.txtContrasena.PasswordChar = '*';
             this.txtContrasena.Size = new System.Drawing.Size(369, 20);
             this.txtContrasena.TabIndex = 1;
-            this.txtContrasena.Text = "admin";
+            this.txtContrasena.Text = "w23e";
             // 
             // lblTitulo
             // 
@@ -98,9 +98,9 @@
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(32, 9);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(447, 37);
+            this.lblTitulo.Size = new System.Drawing.Size(432, 37);
             this.lblTitulo.TabIndex = 6;
-            this.lblTitulo.Text = "Administradores del sistema";
+            this.lblTitulo.Text = "Administrativos del sistema";
             // 
             // Login
             // 

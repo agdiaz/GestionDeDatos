@@ -58,7 +58,7 @@ namespace FrbaBus.Manager
         public Usuario ObtenerUsuarioGenerico()
         {
             Usuario u = new Usuario("Sin identificación");
-            u.RolAsignado = this.ObtenerRol("cliente");
+            u.RolAsignado = this.ObtenerRol("Cliente");
             return u;
         }
 
