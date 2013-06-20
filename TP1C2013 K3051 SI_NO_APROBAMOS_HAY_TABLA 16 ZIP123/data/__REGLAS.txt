@@ -1,0 +1,4 @@
+A => Create Table
+B => Insert into
+C => Create Views
+P => Procedures
