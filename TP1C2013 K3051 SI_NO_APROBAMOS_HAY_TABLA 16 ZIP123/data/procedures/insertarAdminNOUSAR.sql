@@ -25,7 +25,9 @@ BEGIN
 	FROM SI_NO_APROBAMOS_HAY_TABLA.Cliente c
 	
 	UPDATE SI_NO_APROBAMOS_HAY_TABLA.Usuario
-	SET id_rol = @idAdmin
+	SET id_rol = @idAdmin,
+	hash_password = @passwordHash,
+	username = @userName
 	WHERE dni = @dniLoco
 	
 END
