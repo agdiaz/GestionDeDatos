@@ -51,9 +51,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="GestionDeDatos.AccesoDatos.dll.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\FrbaBus.Common\FrbaBus.Common.csproj">
       <Project>{DFB845C4-0A5B-4712-A374-A61C0C8678FB}</Project>
       <Name>FrbaBus.Common</Name>
