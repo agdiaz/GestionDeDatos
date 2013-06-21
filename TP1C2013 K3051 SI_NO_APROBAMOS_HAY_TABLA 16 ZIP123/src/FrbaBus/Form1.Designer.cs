@@ -83,9 +83,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.gbMicros = new System.Windows.Forms.GroupBox();
             this.btnElegirMicro = new System.Windows.Forms.Button();
-            this.cbbTipoServicio = new System.Windows.Forms.TextBox();
-            this.cbbKgsDisp = new System.Windows.Forms.TextBox();
-            this.cbbButacasLibres = new System.Windows.Forms.TextBox();
+            this.txtTipoServicio = new System.Windows.Forms.TextBox();
+            this.txtKgsDisp = new System.Windows.Forms.TextBox();
+            this.txtButacasLibres = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -563,9 +563,9 @@
             // gbMicros
             // 
             this.gbMicros.Controls.Add(this.btnElegirMicro);
-            this.gbMicros.Controls.Add(this.cbbTipoServicio);
-            this.gbMicros.Controls.Add(this.cbbKgsDisp);
-            this.gbMicros.Controls.Add(this.cbbButacasLibres);
+            this.gbMicros.Controls.Add(this.txtTipoServicio);
+            this.gbMicros.Controls.Add(this.txtKgsDisp);
+            this.gbMicros.Controls.Add(this.txtButacasLibres);
             this.gbMicros.Controls.Add(this.label8);
             this.gbMicros.Controls.Add(this.label7);
             this.gbMicros.Controls.Add(this.label6);
@@ -591,26 +591,29 @@
             this.btnElegirMicro.UseVisualStyleBackColor = true;
             this.btnElegirMicro.Click += new System.EventHandler(this.btnElegirMicro_Click);
             // 
-            // cbbTipoServicio
+            // txtTipoServicio
             // 
-            this.cbbTipoServicio.Location = new System.Drawing.Point(105, 119);
-            this.cbbTipoServicio.Name = "cbbTipoServicio";
-            this.cbbTipoServicio.Size = new System.Drawing.Size(100, 21);
-            this.cbbTipoServicio.TabIndex = 8;
+            this.txtTipoServicio.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTipoServicio.Location = new System.Drawing.Point(105, 119);
+            this.txtTipoServicio.Name = "txtTipoServicio";
+            this.txtTipoServicio.Size = new System.Drawing.Size(100, 21);
+            this.txtTipoServicio.TabIndex = 8;
             // 
-            // cbbKgsDisp
+            // txtKgsDisp
             // 
-            this.cbbKgsDisp.Location = new System.Drawing.Point(105, 85);
-            this.cbbKgsDisp.Name = "cbbKgsDisp";
-            this.cbbKgsDisp.Size = new System.Drawing.Size(100, 21);
-            this.cbbKgsDisp.TabIndex = 7;
+            this.txtKgsDisp.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtKgsDisp.Location = new System.Drawing.Point(105, 85);
+            this.txtKgsDisp.Name = "txtKgsDisp";
+            this.txtKgsDisp.Size = new System.Drawing.Size(100, 21);
+            this.txtKgsDisp.TabIndex = 7;
             // 
-            // cbbButacasLibres
+            // txtButacasLibres
             // 
-            this.cbbButacasLibres.Location = new System.Drawing.Point(105, 54);
-            this.cbbButacasLibres.Name = "cbbButacasLibres";
-            this.cbbButacasLibres.Size = new System.Drawing.Size(100, 21);
-            this.cbbButacasLibres.TabIndex = 6;
+            this.txtButacasLibres.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtButacasLibres.Location = new System.Drawing.Point(105, 54);
+            this.txtButacasLibres.Name = "txtButacasLibres";
+            this.txtButacasLibres.Size = new System.Drawing.Size(100, 21);
+            this.txtButacasLibres.TabIndex = 6;
             // 
             // label8
             // 
@@ -654,11 +657,13 @@
             // 
             // cbbMicro
             // 
+            this.cbbMicro.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbMicro.FormattingEnabled = true;
             this.cbbMicro.Location = new System.Drawing.Point(105, 20);
             this.cbbMicro.Name = "cbbMicro";
             this.cbbMicro.Size = new System.Drawing.Size(100, 21);
             this.cbbMicro.TabIndex = 0;
+            this.cbbMicro.SelectedIndexChanged += new System.EventHandler(this.cbbMicro_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -766,10 +771,12 @@
             // 
             // txtCantPasajes
             // 
+            this.txtCantPasajes.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCantPasajes.Location = new System.Drawing.Point(124, 20);
             this.txtCantPasajes.Name = "txtCantPasajes";
             this.txtCantPasajes.Size = new System.Drawing.Size(100, 21);
             this.txtCantPasajes.TabIndex = 11;
+            this.txtCantPasajes.Leave += new System.EventHandler(this.txtCantPasajes_Leave);
             // 
             // btnModificarPasajero
             // 
@@ -934,9 +941,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnElegirMicro;
-        private System.Windows.Forms.TextBox cbbTipoServicio;
-        private System.Windows.Forms.TextBox cbbKgsDisp;
-        private System.Windows.Forms.TextBox cbbButacasLibres;
+        private System.Windows.Forms.TextBox txtTipoServicio;
+        private System.Windows.Forms.TextBox txtKgsDisp;
+        private System.Windows.Forms.TextBox txtButacasLibres;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox gbDetalles;
         private System.Windows.Forms.TextBox txtCantPasajes;

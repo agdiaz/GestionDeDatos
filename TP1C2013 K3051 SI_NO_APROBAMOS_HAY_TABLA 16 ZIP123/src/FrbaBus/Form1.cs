@@ -279,9 +279,19 @@ namespace FrbaBus
             IList<Micro> microsDisponibles = new MicroManager().ObtenerMicrosDisponibles(origen, destino, this.dtpFechaSalida.Value);
 
             this.cbbMicro.DataSource = microsDisponibles;
-            cbbMicro.DisplayMember = "Nombre";
+            cbbMicro.DisplayMember = "Marca";
             cbbMicro.ValueMember = "Id";
 
+            if (microsDisponibles.Count > 0)
+            {
+                var Micro = cbbMicro.SelectedValue as Micro;
+                if (Micro != null)
+                {
+                    txtButacasLibres.Text = Micro.ButacasDisponibles.ToString();
+                    txtKgsDisp.Text = Micro.KgsDisponibles.ToString();
+                    txtTipoServicio.Text = Micro.Servicio.ToString();
+                }
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -331,6 +341,31 @@ namespace FrbaBus
         private void gbDetalles_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbbMicro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var Micro = cbbMicro.SelectedValue as Micro;
+            if (Micro != null)
+            {
+
+                txtButacasLibres.Text = Micro.ButacasDisponibles.ToString();
+                txtKgsDisp.Text = Micro.KgsDisponibles.ToString();
+                txtTipoServicio.Text = Micro.Servicio.ToString();
+            }
+        }
+
+        private void txtCantPasajes_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtButacasLibres.Text))
+            { 
+                var cantDisp = Convert.ToInt32(txtButacasLibres.Text);
+                var cantSeleccionada = Convert.ToInt32(txtCantPasajes.Text);
+                if (cantSeleccionada > cantDisp)
+                {
+                    txtCantPasajes.Text = txtButacasLibres.Text;
+                }
+            }
         }
     }
 }
