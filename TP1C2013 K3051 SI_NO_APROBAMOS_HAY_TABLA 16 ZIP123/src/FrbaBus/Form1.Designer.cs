@@ -729,6 +729,7 @@
             // 
             // lbEncomiendas
             // 
+            this.lbEncomiendas.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbEncomiendas.FormattingEnabled = true;
             this.lbEncomiendas.Location = new System.Drawing.Point(8, 32);
             this.lbEncomiendas.Name = "lbEncomiendas";
@@ -780,6 +781,7 @@
             // 
             // lbPasajeros
             // 
+            this.lbPasajeros.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPasajeros.FormattingEnabled = true;
             this.lbPasajeros.Location = new System.Drawing.Point(6, 56);
             this.lbPasajeros.Name = "lbPasajeros";
