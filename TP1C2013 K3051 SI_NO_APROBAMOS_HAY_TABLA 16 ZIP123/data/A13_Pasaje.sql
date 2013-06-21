@@ -1,7 +1,7 @@
 USE [GD1C2013]
 GO
 
-/****** Object:  Table [SI_NO_APROBAMOS_HAY_TABLA].[Pasaje]    Script Date: 06/20/2013 21:27:39 ******/
+/****** Object:  Table [SI_NO_APROBAMOS_HAY_TABLA].[Pasaje]    Script Date: 06/21/2013 01:48:03 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -11,6 +11,7 @@ GO
 CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Pasaje](
 	[id_pasaje] [numeric](18, 0) NOT NULL,
 	[id_compra] [int] NOT NULL,
+	[nro_butaca] [numeric](18,0) NOT NULL,
 	[dni] [numeric](18, 0) NOT NULL,
 	[pre_pasaje] [numeric](18, 2) NOT NULL,
 	[disponible] [bit] NOT NULL,
@@ -57,6 +58,7 @@ GO
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Pasaje] ADD  CONSTRAINT [DF_Pasaje_baja]  DEFAULT ((0)) FOR [baja]
 GO
 
+
 SET xact_abort on
 BEGIN TRANSACTION comprasPasajes
 SET IDENTITY_INSERT SI_NO_APROBAMOS_HAY_TABLA.Compra ON
@@ -71,7 +73,8 @@ CREATE TABLE #tmpPasajes(
 	codPasaje			numeric(18,0),
 	prePasaje			numeric(18,0),
 	fechaCompra			datetime,
-	idRecorrido			numeric(18,0)
+	idRecorrido			numeric(18,0),
+	butaca_nro			numeric(18,0)
 )
 
 INSERT INTO #tmpPasajes
@@ -84,7 +87,8 @@ SELECT	m.Cli_Dni,
 		m.Pasaje_Codigo,
 		m.Pasaje_Precio,
 		m.Pasaje_FechaCompra,
-		m.Recorrido_Codigo
+		m.Recorrido_Codigo,
+		m.Butaca_Nro
 FROM gd_esquema.Maestra m
 WHERE m.Pasaje_Codigo <> 0
 
@@ -100,10 +104,11 @@ INSERT INTO SI_NO_APROBAMOS_HAY_TABLA.Compra
 )
 
 INSERT INTO SI_NO_APROBAMOS_HAY_TABLA.Pasaje
-(id_pasaje, id_compra, dni, pre_pasaje, id_viaje)
+(id_pasaje, id_compra, nro_butaca, dni, pre_pasaje, id_viaje)
 (
 	select	m.codPasaje		as id_pasaje,
 			m.ident			as id_compra,
+			m.butaca_nro	as nro_butaca,
 			m.dni			as dni,
 			m.prePasaje		as pre_pasaje,
 			v.id_viaje		as id_viaje
