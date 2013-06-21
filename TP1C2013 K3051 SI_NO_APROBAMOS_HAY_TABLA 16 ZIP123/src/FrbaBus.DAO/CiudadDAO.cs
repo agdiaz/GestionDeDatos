@@ -5,6 +5,7 @@ using System.Text;
 using GestionDeDatos.AccesoDatos;
 using FrbaBus.Common.Entidades;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace FrbaBus.DAO
 {
@@ -22,9 +23,17 @@ namespace FrbaBus.DAO
 
         public int Alta(Ciudad entidad)
         {
-            string consulta = "INSERT INTO [SI_NO_APROBAMOS_HAY_TABLA].[Ciudad]([nombre])VALUES('"+entidad.Descripcion+"')";
-            this.accesoBD.EjecutarComando(consulta);
-            return -1;
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+
+            SqlParameter pNombre = new SqlParameter("@nombre", SqlDbType.VarChar, 50, "nombre");
+            parametros.Add(pNombre, entidad.Descripcion);
+
+            SqlParameter pId = new SqlParameter("@p_id", SqlDbType.Int, 4, "p_id");
+            pId.Direction = ParameterDirection.Output;
+            parametros.Add(pId, 0);
+
+            this.accesoBD.EjecutarComando("[SI_NO_APROBAMOS_HAY_TABLA].sp_insert_ciudad", parametros);
+            return Convert.ToInt32(pId.Value);
         }
 
         public void Baja(Ciudad entidad)

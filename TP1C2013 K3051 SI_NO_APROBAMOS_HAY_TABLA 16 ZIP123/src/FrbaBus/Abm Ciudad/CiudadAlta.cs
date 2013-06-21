@@ -29,6 +29,7 @@ namespace FrbaBus.Abm_Ciudad
             {
                 CiudadManager cm = new CiudadManager();
                 cm.Alta(this.tbCiudadAltaCiudad.Text);
+                this.Close();
             }
         }
 
