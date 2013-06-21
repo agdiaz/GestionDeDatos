@@ -40,11 +40,13 @@ namespace FrbaBus.Rol
             RolUsuario rol = new RolUsuario(this.tbRolAltaNuevoRol.Text);
             new UsuarioManager().AltaRolUsuario(rol);
 
-            foreach (var funcObj in this.clbFuncionalidades.SelectedItems)
+            foreach (var funcObj in this.clbFuncionalidades.CheckedItems)
             {
                 Funcionalidad f = (Funcionalidad)funcObj;
                 new UsuarioManager().AltaRolFuncionalidad(rol, f.Id);
             }
+
+            this.Close();
         }
     }
 }
