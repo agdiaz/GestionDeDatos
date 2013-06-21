@@ -1,0 +1,7 @@
+
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_ciudad 
+AS
+BEGIN
+	SELECT [id_ciudad],[nombre]
+	FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Ciudad]
+END

@@ -5,11 +5,56 @@ using System.Text;
 using FrbaBus.Common.Entidades;
 using FrbaBus.DAO;
 using FrbaBus.Common.Helpers;
+using System.Data;
 
 namespace FrbaBus.Manager
 {
     public class UsuarioManager
     {
+        public void AltaRolUsuario(RolUsuario entidad)
+        {
+            new RolUsuarioDAO().Alta(entidad);
+        }
+
+        public void BajaRolUsuario(RolUsuario entidad)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ModificacionRolUsuario(RolUsuario entidad)
+        {
+            throw new NotImplementedException();
+        }
+
+        public DataSet ObtenerRegistrosRolUsuario()
+        {
+            return new RolUsuarioDAO().ObtenerRegistros();
+        }
+
+        public void AltaFuncionalidad(Funcionalidad entidad)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void BajaFuncionalidad(Funcionalidad entidad)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ModificacionFuncionalidad(Funcionalidad entidad)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<Funcionalidad> ListarFuncionalidad()
+        {
+            return new FuncionalidadDAO().Listar();
+        }
+
+        public DataSet ObtenerRegistrosFuncionalidad()
+        {
+            throw new NotImplementedException();
+        }
 
         public ResultadoLoginEnum RealizarIdentificacion(string username, string password)
         {
@@ -67,6 +112,16 @@ namespace FrbaBus.Manager
             RolUsuario ru = new RolUsuario(nombreRol);
             ru.Funcionalidades =  new RolUsuarioDAO().ObtenerFuncionalidadesAsociadas(ru);
             return ru;
+        }
+
+        public DataSet ObtenerRegistrosRolUsuario(string nombreRol, string nombreFuncionalidad)
+        {
+            return new RolUsuarioDAO().ObtenerRegistrosRolUsuario(nombreRol, nombreFuncionalidad);
+        }
+
+        public void AltaRolFuncionalidad(RolUsuario rol, int idFuncionalidad)
+        {
+            new FuncionalidadDAO().AltaRolFuncionalidad(rol, idFuncionalidad);
         }
     }
 }

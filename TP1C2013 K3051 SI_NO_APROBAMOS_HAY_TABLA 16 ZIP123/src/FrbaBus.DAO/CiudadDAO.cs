@@ -20,10 +20,11 @@ namespace FrbaBus.DAO
             }
         }
 
-        public void Alta(Ciudad entidad)
+        public int Alta(Ciudad entidad)
         {
             string consulta = "INSERT INTO [SI_NO_APROBAMOS_HAY_TABLA].[Ciudad]([nombre])VALUES('"+entidad.Descripcion+"')";
             this.accesoBD.EjecutarComando(consulta);
+            return -1;
         }
 
         public void Baja(Ciudad entidad)
