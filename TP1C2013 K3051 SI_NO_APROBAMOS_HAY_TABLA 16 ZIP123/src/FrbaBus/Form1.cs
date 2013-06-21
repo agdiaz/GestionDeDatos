@@ -256,5 +256,55 @@ namespace FrbaBus
         {
             new Estadisticas.EstadisticasMicrosConMasDiasFueraDeServicio().ShowDialog(this);
         }
+
+        private void cbPasajes_CheckedChanged(object sender, EventArgs e)
+        {
+            gbPasajeros.Enabled = (cbPasajes.Checked);
+        }
+
+        private void btnElegirMicro_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnBuscarMicros_Click(object sender, EventArgs e)
+        {
+            gbMicros.Enabled = true;
+            gbDetalles.Enabled = true;
+            gbMedioDePago.Enabled = true;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            gbPasajeros.Enabled = (cbPasajes.Checked);
+            gbEncomiendas.Enabled = (cbPasajes.Checked);
+
+            IList<Ciudad> ciudadesOrigen = new CiudadManager().ObtenerListado();
+            IList<Ciudad> ciudadesDestino = new CiudadManager().ObtenerListado();
+
+            this.cbbCiudadOrigen.DataSource = ciudadesOrigen;
+            this.cbbCiudadOrigen.DisplayMember = "Descripcion";
+            this.cbbCiudadOrigen.ValueMember = "Id";
+
+            this.cbbCiudadDestino.DataSource = ciudadesDestino;
+            this.cbbCiudadDestino.DisplayMember = "Descripcion";
+            this.cbbCiudadDestino.ValueMember = "Id";
+
+        }
+
+        private void lbEncomiendas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbEncomiendas_CheckedChanged(object sender, EventArgs e)
+        {
+            gbEncomiendas.Enabled = (cbEncomiendas.Checked);
+        }
+
+        private void btnAgregarPasajero_Click(object sender, EventArgs e)
+        {
+            new ClienteAlta().ShowDialog(this);
+        }
     }
 }

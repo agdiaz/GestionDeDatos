@@ -41,13 +41,24 @@ namespace FrbaBus.DAO
 
         public IList<Ciudad> Listar()
         {
-            string consulta = "SELECT * FROM [PRUEBAS].[dbo].[Ciudad]";
-            DataSet ciudades = this.accesoBD.RealizarConsulta(consulta);
-            foreach (DataRow theRow in ciudades.Tables["Ciudad"].Rows)
+            IList<Ciudad> ciudades = new List<Ciudad>();
+
+            DataSet ds = this.ObtenerRegistros();
+            foreach (DataRow theRow in ds.Tables[0].Rows)
             {
-                Console.WriteLine(theRow["id"] + "\t" + theRow["descripcion"]);
+                ciudades.Add(this.BuilderCiudad(theRow));
             }
-            return null;
+
+            return ciudades;
+        }
+
+        private Ciudad BuilderCiudad(DataRow theRow)
+        {
+            return new Ciudad()
+            {
+                Descripcion = theRow["nombre"].ToString(),
+                Id = Convert.ToInt32(theRow["id_ciudad"])
+            };
         }
 
         #endregion
@@ -57,8 +68,7 @@ namespace FrbaBus.DAO
 
         public DataSet ObtenerRegistros()
         {
-            string consulta = "SELECT * FROM [SI_NO_APROBAMOS_HAY_TABLA].[Ciudad]";
-            DataSet ciudades = this.accesoBD.RealizarConsulta(consulta);
+            DataSet ciudades = this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_listar_ciudad", new Dictionary<System.Data.SqlClient.SqlParameter,object>());
             return ciudades;
         }
 

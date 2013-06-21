@@ -42,19 +42,21 @@
             // gbCiudadListado
             // 
             this.gbCiudadListado.Controls.Add(this.tbCiudadListadoCiudad);
+            this.gbCiudadListado.Controls.Add(this.btnCiudadListadoBuscar);
             this.gbCiudadListado.Controls.Add(this.lblCiudadListadoCiudad);
-            this.gbCiudadListado.Location = new System.Drawing.Point(51, 36);
+            this.gbCiudadListado.Controls.Add(this.btnCiudadListadoLimpiar);
+            this.gbCiudadListado.Location = new System.Drawing.Point(12, 12);
             this.gbCiudadListado.Name = "gbCiudadListado";
-            this.gbCiudadListado.Size = new System.Drawing.Size(472, 68);
+            this.gbCiudadListado.Size = new System.Drawing.Size(472, 83);
             this.gbCiudadListado.TabIndex = 0;
             this.gbCiudadListado.TabStop = false;
             this.gbCiudadListado.Text = "Filtros de busqueda";
             // 
             // tbCiudadListadoCiudad
             // 
-            this.tbCiudadListadoCiudad.Location = new System.Drawing.Point(107, 25);
+            this.tbCiudadListadoCiudad.Location = new System.Drawing.Point(82, 25);
             this.tbCiudadListadoCiudad.Name = "tbCiudadListadoCiudad";
-            this.tbCiudadListadoCiudad.Size = new System.Drawing.Size(100, 20);
+            this.tbCiudadListadoCiudad.Size = new System.Drawing.Size(278, 20);
             this.tbCiudadListadoCiudad.TabIndex = 1;
             // 
             // lblCiudadListadoCiudad
@@ -69,14 +71,14 @@
             // dgvCiudadListado
             // 
             this.dgvCiudadListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCiudadListado.Location = new System.Drawing.Point(51, 166);
+            this.dgvCiudadListado.Location = new System.Drawing.Point(12, 101);
             this.dgvCiudadListado.Name = "dgvCiudadListado";
-            this.dgvCiudadListado.Size = new System.Drawing.Size(472, 150);
+            this.dgvCiudadListado.Size = new System.Drawing.Size(472, 290);
             this.dgvCiudadListado.TabIndex = 1;
             // 
             // btnCiudadListadoLimpiar
             // 
-            this.btnCiudadListadoLimpiar.Location = new System.Drawing.Point(13, 122);
+            this.btnCiudadListadoLimpiar.Location = new System.Drawing.Point(391, 47);
             this.btnCiudadListadoLimpiar.Name = "btnCiudadListadoLimpiar";
             this.btnCiudadListadoLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnCiudadListadoLimpiar.TabIndex = 2;
@@ -86,7 +88,7 @@
             // 
             // btnCiudadListadoBuscar
             // 
-            this.btnCiudadListadoBuscar.Location = new System.Drawing.Point(532, 122);
+            this.btnCiudadListadoBuscar.Location = new System.Drawing.Point(391, 18);
             this.btnCiudadListadoBuscar.Name = "btnCiudadListadoBuscar";
             this.btnCiudadListadoBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnCiudadListadoBuscar.TabIndex = 3;
@@ -97,7 +99,7 @@
             // btnCiudadListadoDarBaja
             // 
             this.btnCiudadListadoDarBaja.Enabled = false;
-            this.btnCiudadListadoDarBaja.Location = new System.Drawing.Point(531, 343);
+            this.btnCiudadListadoDarBaja.Location = new System.Drawing.Point(12, 397);
             this.btnCiudadListadoDarBaja.Name = "btnCiudadListadoDarBaja";
             this.btnCiudadListadoDarBaja.Size = new System.Drawing.Size(75, 23);
             this.btnCiudadListadoDarBaja.TabIndex = 4;
@@ -108,14 +110,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(619, 378);
+            this.ClientSize = new System.Drawing.Size(499, 432);
             this.Controls.Add(this.btnCiudadListadoDarBaja);
-            this.Controls.Add(this.btnCiudadListadoBuscar);
-            this.Controls.Add(this.btnCiudadListadoLimpiar);
             this.Controls.Add(this.dgvCiudadListado);
             this.Controls.Add(this.gbCiudadListado);
             this.Name = "CiudadListado";
-            this.Text = "Listado ciudades";
+            this.Text = "FrbaBus - Ciudades :: Listado";
             this.Load += new System.EventHandler(this.CiudadListado_Load);
             this.gbCiudadListado.ResumeLayout(false);
             this.gbCiudadListado.PerformLayout();

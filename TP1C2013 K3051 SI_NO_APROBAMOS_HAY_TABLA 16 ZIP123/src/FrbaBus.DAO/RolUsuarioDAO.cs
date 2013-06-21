@@ -80,16 +80,19 @@ namespace FrbaBus.DAO
         public int Alta(RolUsuario entidad)
         {
             Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+
             SqlParameter pNombre = new SqlParameter("@nombre", SqlDbType.NVarChar, 50, "nombre");
             parametros.Add(pNombre, entidad.Nombre);
-            parametros.Add(pNombre, entidad.Nombre);
 
-            SqlParameter pId = new SqlParameter("@id_rol", SqlDbType.NVarChar, 50, "id_rol");
+            SqlParameter pInhabilitados = new SqlParameter("@inhabilitado", SqlDbType.Bit, 1, "inhabilitado");
+            parametros.Add(pInhabilitados, 0);
+
+            SqlParameter pId = new SqlParameter("@p_id", SqlDbType.NVarChar, 50, "p_id");
             pId.Direction = ParameterDirection.Output;
             parametros.Add(pId, 0);
-            
-            this.accesoBD.RealizarConsultaAlmacenada("sp_insert_rol", parametros);
-            return (int)pId.Value;
+
+            this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_insert_rol", parametros);
+            return Convert.ToInt32(pId.Value);
         }
 
         public void Baja(RolUsuario entidad)

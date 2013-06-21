@@ -28,7 +28,7 @@ namespace FrbaBus.Login
 
         private void Login_Load(object sender, EventArgs e)
         {
-            
+            this.btnIngresar.Focus();
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
