@@ -73,9 +73,9 @@
             this.lblMicroAltaTipoEmpresa.AutoSize = true;
             this.lblMicroAltaTipoEmpresa.Location = new System.Drawing.Point(85, 41);
             this.lblMicroAltaTipoEmpresa.Name = "lblMicroAltaTipoEmpresa";
-            this.lblMicroAltaTipoEmpresa.Size = new System.Drawing.Size(48, 13);
+            this.lblMicroAltaTipoEmpresa.Size = new System.Drawing.Size(37, 13);
             this.lblMicroAltaTipoEmpresa.TabIndex = 4;
-            this.lblMicroAltaTipoEmpresa.Text = "Empresa";
+            this.lblMicroAltaTipoEmpresa.Text = "Marca";
             // 
             // cbbMicroAltaTipoEmpresa
             // 

@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblMicroListadoTipoEmpresa = new System.Windows.Forms.Label();
-            this.cbbMicroListadoTipoEmpresa = new System.Windows.Forms.ComboBox();
-            this.lblMicroListadoTipoModelo = new System.Windows.Forms.Label();
-            this.lblMicroListadoTipoServicio = new System.Windows.Forms.Label();
-            this.cbbMicroListadoTipoModelo = new System.Windows.Forms.ComboBox();
-            this.cbbMicroListadoTipoServicio = new System.Windows.Forms.ComboBox();
-            this.lblMicroListadoPatente = new System.Windows.Forms.Label();
-            this.lblMicroListadoNumeroMicro = new System.Windows.Forms.Label();
-            this.lblMicroListadoKgsEncomiendas = new System.Windows.Forms.Label();
-            this.tbMicroListadoPatente = new System.Windows.Forms.TextBox();
-            this.tbMicroListadoNumeroPatente = new System.Windows.Forms.TextBox();
             this.tbMicroListadoKgsEncomiendas = new System.Windows.Forms.TextBox();
+            this.tbMicroListadoNumeroPatente = new System.Windows.Forms.TextBox();
+            this.tbMicroListadoPatente = new System.Windows.Forms.TextBox();
+            this.lblMicroListadoKgsEncomiendas = new System.Windows.Forms.Label();
+            this.lblMicroListadoNumeroMicro = new System.Windows.Forms.Label();
+            this.lblMicroListadoPatente = new System.Windows.Forms.Label();
+            this.cbbMicroListadoTipoServicio = new System.Windows.Forms.ComboBox();
+            this.cbbMicroListadoTipoModelo = new System.Windows.Forms.ComboBox();
+            this.lblMicroListadoTipoServicio = new System.Windows.Forms.Label();
+            this.lblMicroListadoTipoModelo = new System.Windows.Forms.Label();
+            this.cbbMicroListadoTipoEmpresa = new System.Windows.Forms.ComboBox();
+            this.lblMicroListadoTipoEmpresa = new System.Windows.Forms.Label();
             this.btnMicroListadoLimpiar = new System.Windows.Forms.Button();
             this.btnMicroListadoBuscar = new System.Windows.Forms.Button();
             this.dgvMicroListado = new System.Windows.Forms.DataGridView();
@@ -72,69 +72,36 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros de busqueda";
             // 
-            // lblMicroListadoTipoEmpresa
+            // tbMicroListadoKgsEncomiendas
             // 
-            this.lblMicroListadoTipoEmpresa.AutoSize = true;
-            this.lblMicroListadoTipoEmpresa.ForeColor = System.Drawing.Color.Black;
-            this.lblMicroListadoTipoEmpresa.Location = new System.Drawing.Point(7, 20);
-            this.lblMicroListadoTipoEmpresa.Name = "lblMicroListadoTipoEmpresa";
-            this.lblMicroListadoTipoEmpresa.Size = new System.Drawing.Size(48, 13);
-            this.lblMicroListadoTipoEmpresa.TabIndex = 0;
-            this.lblMicroListadoTipoEmpresa.Text = "Empresa";
+            this.tbMicroListadoKgsEncomiendas.Location = new System.Drawing.Point(427, 81);
+            this.tbMicroListadoKgsEncomiendas.Name = "tbMicroListadoKgsEncomiendas";
+            this.tbMicroListadoKgsEncomiendas.Size = new System.Drawing.Size(100, 20);
+            this.tbMicroListadoKgsEncomiendas.TabIndex = 11;
             // 
-            // cbbMicroListadoTipoEmpresa
+            // tbMicroListadoNumeroPatente
             // 
-            this.cbbMicroListadoTipoEmpresa.FormattingEnabled = true;
-            this.cbbMicroListadoTipoEmpresa.Location = new System.Drawing.Point(134, 17);
-            this.cbbMicroListadoTipoEmpresa.Name = "cbbMicroListadoTipoEmpresa";
-            this.cbbMicroListadoTipoEmpresa.Size = new System.Drawing.Size(121, 21);
-            this.cbbMicroListadoTipoEmpresa.TabIndex = 1;
+            this.tbMicroListadoNumeroPatente.Location = new System.Drawing.Point(427, 51);
+            this.tbMicroListadoNumeroPatente.Name = "tbMicroListadoNumeroPatente";
+            this.tbMicroListadoNumeroPatente.Size = new System.Drawing.Size(100, 20);
+            this.tbMicroListadoNumeroPatente.TabIndex = 10;
             // 
-            // lblMicroListadoTipoModelo
+            // tbMicroListadoPatente
             // 
-            this.lblMicroListadoTipoModelo.AutoSize = true;
-            this.lblMicroListadoTipoModelo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblMicroListadoTipoModelo.Location = new System.Drawing.Point(7, 51);
-            this.lblMicroListadoTipoModelo.Name = "lblMicroListadoTipoModelo";
-            this.lblMicroListadoTipoModelo.Size = new System.Drawing.Size(42, 13);
-            this.lblMicroListadoTipoModelo.TabIndex = 2;
-            this.lblMicroListadoTipoModelo.Text = "Modelo";
+            this.tbMicroListadoPatente.Location = new System.Drawing.Point(427, 17);
+            this.tbMicroListadoPatente.Name = "tbMicroListadoPatente";
+            this.tbMicroListadoPatente.Size = new System.Drawing.Size(100, 20);
+            this.tbMicroListadoPatente.TabIndex = 9;
             // 
-            // lblMicroListadoTipoServicio
+            // lblMicroListadoKgsEncomiendas
             // 
-            this.lblMicroListadoTipoServicio.AutoSize = true;
-            this.lblMicroListadoTipoServicio.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblMicroListadoTipoServicio.Location = new System.Drawing.Point(7, 81);
-            this.lblMicroListadoTipoServicio.Name = "lblMicroListadoTipoServicio";
-            this.lblMicroListadoTipoServicio.Size = new System.Drawing.Size(82, 13);
-            this.lblMicroListadoTipoServicio.TabIndex = 3;
-            this.lblMicroListadoTipoServicio.Text = "Tipo de servicio";
-            // 
-            // cbbMicroListadoTipoModelo
-            // 
-            this.cbbMicroListadoTipoModelo.FormattingEnabled = true;
-            this.cbbMicroListadoTipoModelo.Location = new System.Drawing.Point(134, 51);
-            this.cbbMicroListadoTipoModelo.Name = "cbbMicroListadoTipoModelo";
-            this.cbbMicroListadoTipoModelo.Size = new System.Drawing.Size(121, 21);
-            this.cbbMicroListadoTipoModelo.TabIndex = 4;
-            // 
-            // cbbMicroListadoTipoServicio
-            // 
-            this.cbbMicroListadoTipoServicio.FormattingEnabled = true;
-            this.cbbMicroListadoTipoServicio.Location = new System.Drawing.Point(134, 81);
-            this.cbbMicroListadoTipoServicio.Name = "cbbMicroListadoTipoServicio";
-            this.cbbMicroListadoTipoServicio.Size = new System.Drawing.Size(121, 21);
-            this.cbbMicroListadoTipoServicio.TabIndex = 5;
-            // 
-            // lblMicroListadoPatente
-            // 
-            this.lblMicroListadoPatente.AutoSize = true;
-            this.lblMicroListadoPatente.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblMicroListadoPatente.Location = new System.Drawing.Point(317, 20);
-            this.lblMicroListadoPatente.Name = "lblMicroListadoPatente";
-            this.lblMicroListadoPatente.Size = new System.Drawing.Size(44, 13);
-            this.lblMicroListadoPatente.TabIndex = 6;
-            this.lblMicroListadoPatente.Text = "Patente";
+            this.lblMicroListadoKgsEncomiendas.AutoSize = true;
+            this.lblMicroListadoKgsEncomiendas.ForeColor = System.Drawing.Color.Black;
+            this.lblMicroListadoKgsEncomiendas.Location = new System.Drawing.Point(317, 81);
+            this.lblMicroListadoKgsEncomiendas.Name = "lblMicroListadoKgsEncomiendas";
+            this.lblMicroListadoKgsEncomiendas.Size = new System.Drawing.Size(86, 13);
+            this.lblMicroListadoKgsEncomiendas.TabIndex = 8;
+            this.lblMicroListadoKgsEncomiendas.Text = "Kgs encomienda";
             // 
             // lblMicroListadoNumeroMicro
             // 
@@ -146,36 +113,69 @@
             this.lblMicroListadoNumeroMicro.TabIndex = 7;
             this.lblMicroListadoNumeroMicro.Text = "Numero de micro";
             // 
-            // lblMicroListadoKgsEncomiendas
+            // lblMicroListadoPatente
             // 
-            this.lblMicroListadoKgsEncomiendas.AutoSize = true;
-            this.lblMicroListadoKgsEncomiendas.ForeColor = System.Drawing.Color.Black;
-            this.lblMicroListadoKgsEncomiendas.Location = new System.Drawing.Point(317, 81);
-            this.lblMicroListadoKgsEncomiendas.Name = "lblMicroListadoKgsEncomiendas";
-            this.lblMicroListadoKgsEncomiendas.Size = new System.Drawing.Size(91, 13);
-            this.lblMicroListadoKgsEncomiendas.TabIndex = 8;
-            this.lblMicroListadoKgsEncomiendas.Text = "Kgs encomiendas";
+            this.lblMicroListadoPatente.AutoSize = true;
+            this.lblMicroListadoPatente.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblMicroListadoPatente.Location = new System.Drawing.Point(317, 20);
+            this.lblMicroListadoPatente.Name = "lblMicroListadoPatente";
+            this.lblMicroListadoPatente.Size = new System.Drawing.Size(44, 13);
+            this.lblMicroListadoPatente.TabIndex = 6;
+            this.lblMicroListadoPatente.Text = "Patente";
             // 
-            // tbMicroListadoPatente
+            // cbbMicroListadoTipoServicio
             // 
-            this.tbMicroListadoPatente.Location = new System.Drawing.Point(427, 17);
-            this.tbMicroListadoPatente.Name = "tbMicroListadoPatente";
-            this.tbMicroListadoPatente.Size = new System.Drawing.Size(100, 20);
-            this.tbMicroListadoPatente.TabIndex = 9;
+            this.cbbMicroListadoTipoServicio.FormattingEnabled = true;
+            this.cbbMicroListadoTipoServicio.Location = new System.Drawing.Point(134, 81);
+            this.cbbMicroListadoTipoServicio.Name = "cbbMicroListadoTipoServicio";
+            this.cbbMicroListadoTipoServicio.Size = new System.Drawing.Size(121, 21);
+            this.cbbMicroListadoTipoServicio.TabIndex = 5;
             // 
-            // tbMicroListadoNumeroPatente
+            // cbbMicroListadoTipoModelo
             // 
-            this.tbMicroListadoNumeroPatente.Location = new System.Drawing.Point(427, 51);
-            this.tbMicroListadoNumeroPatente.Name = "tbMicroListadoNumeroPatente";
-            this.tbMicroListadoNumeroPatente.Size = new System.Drawing.Size(100, 20);
-            this.tbMicroListadoNumeroPatente.TabIndex = 10;
+            this.cbbMicroListadoTipoModelo.FormattingEnabled = true;
+            this.cbbMicroListadoTipoModelo.Location = new System.Drawing.Point(134, 51);
+            this.cbbMicroListadoTipoModelo.Name = "cbbMicroListadoTipoModelo";
+            this.cbbMicroListadoTipoModelo.Size = new System.Drawing.Size(121, 21);
+            this.cbbMicroListadoTipoModelo.TabIndex = 4;
             // 
-            // tbMicroListadoKgsEncomiendas
+            // lblMicroListadoTipoServicio
             // 
-            this.tbMicroListadoKgsEncomiendas.Location = new System.Drawing.Point(427, 81);
-            this.tbMicroListadoKgsEncomiendas.Name = "tbMicroListadoKgsEncomiendas";
-            this.tbMicroListadoKgsEncomiendas.Size = new System.Drawing.Size(100, 20);
-            this.tbMicroListadoKgsEncomiendas.TabIndex = 11;
+            this.lblMicroListadoTipoServicio.AutoSize = true;
+            this.lblMicroListadoTipoServicio.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblMicroListadoTipoServicio.Location = new System.Drawing.Point(7, 81);
+            this.lblMicroListadoTipoServicio.Name = "lblMicroListadoTipoServicio";
+            this.lblMicroListadoTipoServicio.Size = new System.Drawing.Size(82, 13);
+            this.lblMicroListadoTipoServicio.TabIndex = 3;
+            this.lblMicroListadoTipoServicio.Text = "Tipo de servicio";
+            // 
+            // lblMicroListadoTipoModelo
+            // 
+            this.lblMicroListadoTipoModelo.AutoSize = true;
+            this.lblMicroListadoTipoModelo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblMicroListadoTipoModelo.Location = new System.Drawing.Point(7, 51);
+            this.lblMicroListadoTipoModelo.Name = "lblMicroListadoTipoModelo";
+            this.lblMicroListadoTipoModelo.Size = new System.Drawing.Size(42, 13);
+            this.lblMicroListadoTipoModelo.TabIndex = 2;
+            this.lblMicroListadoTipoModelo.Text = "Modelo";
+            // 
+            // cbbMicroListadoTipoEmpresa
+            // 
+            this.cbbMicroListadoTipoEmpresa.FormattingEnabled = true;
+            this.cbbMicroListadoTipoEmpresa.Location = new System.Drawing.Point(134, 17);
+            this.cbbMicroListadoTipoEmpresa.Name = "cbbMicroListadoTipoEmpresa";
+            this.cbbMicroListadoTipoEmpresa.Size = new System.Drawing.Size(121, 21);
+            this.cbbMicroListadoTipoEmpresa.TabIndex = 1;
+            // 
+            // lblMicroListadoTipoEmpresa
+            // 
+            this.lblMicroListadoTipoEmpresa.AutoSize = true;
+            this.lblMicroListadoTipoEmpresa.ForeColor = System.Drawing.Color.Black;
+            this.lblMicroListadoTipoEmpresa.Location = new System.Drawing.Point(7, 20);
+            this.lblMicroListadoTipoEmpresa.Name = "lblMicroListadoTipoEmpresa";
+            this.lblMicroListadoTipoEmpresa.Size = new System.Drawing.Size(37, 13);
+            this.lblMicroListadoTipoEmpresa.TabIndex = 0;
+            this.lblMicroListadoTipoEmpresa.Text = "Marca";
             // 
             // btnMicroListadoLimpiar
             // 

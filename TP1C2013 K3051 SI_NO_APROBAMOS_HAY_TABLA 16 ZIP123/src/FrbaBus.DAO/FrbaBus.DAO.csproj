@@ -48,6 +48,7 @@
     <Compile Include="CiudadDAO.cs" />
     <Compile Include="ClienteDAO.cs" />
     <Compile Include="EstadisticasDAO.cs" />
+    <Compile Include="FuncionalidadDAO.cs" />
     <Compile Include="IEntidadDAO.cs" />
     <Compile Include="MicroDAO.cs" />
     <Compile Include="PasajesDAO.cs" />

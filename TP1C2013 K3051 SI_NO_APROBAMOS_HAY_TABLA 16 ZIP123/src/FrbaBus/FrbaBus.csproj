@@ -99,12 +99,6 @@
     <Compile Include="Abm Pasaje_encomienda\Cancelar.Designer.cs">
       <DependentUpon>Cancelar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm Micro\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Abm Micro\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Abm Micro\MicroAlta.cs">
       <SubType>Form</SubType>
     </Compile>

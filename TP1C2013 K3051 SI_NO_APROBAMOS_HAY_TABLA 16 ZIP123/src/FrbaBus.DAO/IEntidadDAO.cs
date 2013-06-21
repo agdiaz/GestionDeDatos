@@ -11,7 +11,7 @@ namespace FrbaBus.DAO
     {
         IAccesoBD accesoBD { get; }
 
-        void Alta(T entidad);
+        int Alta(T entidad);
         void Baja(T entidad);
         void Modificacion(T entidad);
         IList<T> Listar();
