@@ -77,9 +77,19 @@ namespace FrbaBus.DAO
         }
 
 
-        public void Alta(RolUsuario entidad)
+        public int Alta(RolUsuario entidad)
         {
-            throw new NotImplementedException();
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+            SqlParameter pNombre = new SqlParameter("@nombre", SqlDbType.NVarChar, 50, "nombre");
+            parametros.Add(pNombre, entidad.Nombre);
+            parametros.Add(pNombre, entidad.Nombre);
+
+            SqlParameter pId = new SqlParameter("@id_rol", SqlDbType.NVarChar, 50, "id_rol");
+            pId.Direction = ParameterDirection.Output;
+            parametros.Add(pId, 0);
+            
+            this.accesoBD.RealizarConsultaAlmacenada("sp_insert_rol", parametros);
+            return (int)pId.Value;
         }
 
         public void Baja(RolUsuario entidad)
@@ -99,7 +109,7 @@ namespace FrbaBus.DAO
 
         public DataSet ObtenerRegistros()
         {
-            throw new NotImplementedException();
+            return this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_listar_rol", new Dictionary<SqlParameter, object>());
         }
 
         #endregion
@@ -113,5 +123,23 @@ namespace FrbaBus.DAO
 
             this.accesoBD.EjecutarComando("SI_NO_APROBAMOS_HAY_TABLA.insertar_usuario_admin", parametros);
         }
+
+        public DataSet ObtenerRegistrosRolUsuario(string nombreRol, string nombreFuncionalidad)
+        {
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+
+            if (!string.IsNullOrEmpty(nombreRol))
+            {
+                SqlParameter pNombreRol = new SqlParameter("@p_rol", SqlDbType.NVarChar, 50, "p_rol");
+                parametros.Add(pNombreRol, nombreRol);
+            }
+            if (!string.IsNullOrEmpty(nombreFuncionalidad))
+            {
+                SqlParameter pNombreFuncionalidad = new SqlParameter("@p_funcionalidad", SqlDbType.NVarChar, 50, "p_funcionalidad");
+                parametros.Add(pNombreFuncionalidad, nombreFuncionalidad);
+            }
+            return this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_listar_filtrado_rol", parametros );
+        }
+
     }
 }

@@ -7,6 +7,7 @@ namespace FrbaBus.Common.Entidades
 {
     public class RolUsuario
     {
+        public int IdRol { get; set; }
         public string Nombre { get; set; }
         public IList<Funcionalidad> Funcionalidades { get; set; }
 

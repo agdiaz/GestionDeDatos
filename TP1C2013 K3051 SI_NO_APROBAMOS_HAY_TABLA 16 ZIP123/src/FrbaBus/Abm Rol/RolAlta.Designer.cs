@@ -31,77 +31,93 @@
             this.lblRolAltaNuevoRol = new System.Windows.Forms.Label();
             this.tbRolAltaNuevoRol = new System.Windows.Forms.TextBox();
             this.lblRolAltaFuncionalidades = new System.Windows.Forms.Label();
-            this.cbbRolAltaFuncionalidades = new System.Windows.Forms.ComboBox();
             this.btnRolAltaGuardar = new System.Windows.Forms.Button();
             this.btnRolAltaLimpiar = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.clbFuncionalidades = new System.Windows.Forms.CheckedListBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblRolAltaNuevoRol
             // 
             this.lblRolAltaNuevoRol.AutoSize = true;
-            this.lblRolAltaNuevoRol.Location = new System.Drawing.Point(27, 29);
+            this.lblRolAltaNuevoRol.Location = new System.Drawing.Point(6, 30);
             this.lblRolAltaNuevoRol.Name = "lblRolAltaNuevoRol";
-            this.lblRolAltaNuevoRol.Size = new System.Drawing.Size(58, 13);
+            this.lblRolAltaNuevoRol.Size = new System.Drawing.Size(44, 13);
             this.lblRolAltaNuevoRol.TabIndex = 0;
-            this.lblRolAltaNuevoRol.Text = "Nuevo Rol";
+            this.lblRolAltaNuevoRol.Text = "Nombre";
             // 
             // tbRolAltaNuevoRol
             // 
-            this.tbRolAltaNuevoRol.Location = new System.Drawing.Point(164, 26);
+            this.tbRolAltaNuevoRol.Location = new System.Drawing.Point(56, 27);
             this.tbRolAltaNuevoRol.Name = "tbRolAltaNuevoRol";
-            this.tbRolAltaNuevoRol.Size = new System.Drawing.Size(121, 20);
+            this.tbRolAltaNuevoRol.Size = new System.Drawing.Size(223, 20);
             this.tbRolAltaNuevoRol.TabIndex = 1;
             // 
             // lblRolAltaFuncionalidades
             // 
             this.lblRolAltaFuncionalidades.AutoSize = true;
-            this.lblRolAltaFuncionalidades.Location = new System.Drawing.Point(27, 71);
+            this.lblRolAltaFuncionalidades.Location = new System.Drawing.Point(6, 58);
             this.lblRolAltaFuncionalidades.Name = "lblRolAltaFuncionalidades";
             this.lblRolAltaFuncionalidades.Size = new System.Drawing.Size(84, 13);
             this.lblRolAltaFuncionalidades.TabIndex = 2;
             this.lblRolAltaFuncionalidades.Text = "Funcionalidades";
             // 
-            // cbbRolAltaFuncionalidades
-            // 
-            this.cbbRolAltaFuncionalidades.FormattingEnabled = true;
-            this.cbbRolAltaFuncionalidades.Location = new System.Drawing.Point(164, 68);
-            this.cbbRolAltaFuncionalidades.Name = "cbbRolAltaFuncionalidades";
-            this.cbbRolAltaFuncionalidades.Size = new System.Drawing.Size(121, 21);
-            this.cbbRolAltaFuncionalidades.TabIndex = 3;
-            // 
             // btnRolAltaGuardar
             // 
-            this.btnRolAltaGuardar.Location = new System.Drawing.Point(573, 227);
+            this.btnRolAltaGuardar.Location = new System.Drawing.Point(222, 449);
             this.btnRolAltaGuardar.Name = "btnRolAltaGuardar";
             this.btnRolAltaGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnRolAltaGuardar.TabIndex = 4;
             this.btnRolAltaGuardar.Text = "Guardar";
             this.btnRolAltaGuardar.UseVisualStyleBackColor = true;
+            this.btnRolAltaGuardar.Click += new System.EventHandler(this.btnRolAltaGuardar_Click);
             // 
             // btnRolAltaLimpiar
             // 
-            this.btnRolAltaLimpiar.Location = new System.Drawing.Point(13, 227);
+            this.btnRolAltaLimpiar.Location = new System.Drawing.Point(137, 449);
             this.btnRolAltaLimpiar.Name = "btnRolAltaLimpiar";
             this.btnRolAltaLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnRolAltaLimpiar.TabIndex = 5;
             this.btnRolAltaLimpiar.Text = "Limpiar";
             this.btnRolAltaLimpiar.UseVisualStyleBackColor = true;
+            this.btnRolAltaLimpiar.Click += new System.EventHandler(this.btnRolAltaLimpiar_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.clbFuncionalidades);
+            this.groupBox1.Controls.Add(this.lblRolAltaNuevoRol);
+            this.groupBox1.Controls.Add(this.lblRolAltaFuncionalidades);
+            this.groupBox1.Controls.Add(this.tbRolAltaNuevoRol);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(285, 431);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Nuevo Rol";
+            // 
+            // clbFuncionalidades
+            // 
+            this.clbFuncionalidades.FormattingEnabled = true;
+            this.clbFuncionalidades.Location = new System.Drawing.Point(9, 74);
+            this.clbFuncionalidades.Name = "clbFuncionalidades";
+            this.clbFuncionalidades.Size = new System.Drawing.Size(270, 334);
+            this.clbFuncionalidades.TabIndex = 3;
             // 
             // RolAlta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(660, 262);
+            this.ClientSize = new System.Drawing.Size(309, 484);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnRolAltaLimpiar);
             this.Controls.Add(this.btnRolAltaGuardar);
-            this.Controls.Add(this.cbbRolAltaFuncionalidades);
-            this.Controls.Add(this.lblRolAltaFuncionalidades);
-            this.Controls.Add(this.tbRolAltaNuevoRol);
-            this.Controls.Add(this.lblRolAltaNuevoRol);
             this.Name = "RolAlta";
-            this.Text = "RolAlta";
+            this.Text = "FrbaBus - Roles :: Alta";
+            this.Load += new System.EventHandler(this.RolAlta_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -110,8 +126,9 @@
         private System.Windows.Forms.Label lblRolAltaNuevoRol;
         private System.Windows.Forms.TextBox tbRolAltaNuevoRol;
         private System.Windows.Forms.Label lblRolAltaFuncionalidades;
-        private System.Windows.Forms.ComboBox cbbRolAltaFuncionalidades;
         private System.Windows.Forms.Button btnRolAltaGuardar;
         private System.Windows.Forms.Button btnRolAltaLimpiar;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckedListBox clbFuncionalidades;
     }
 }
