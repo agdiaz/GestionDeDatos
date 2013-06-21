@@ -279,6 +279,16 @@ namespace FrbaBus
             gbPasajeros.Enabled = (cbPasajes.Checked);
             gbEncomiendas.Enabled = (cbPasajes.Checked);
 
+            IList<Ciudad> ciudadesOrigen = new CiudadManager().ObtenerListado();
+            IList<Ciudad> ciudadesDestino = new CiudadManager().ObtenerListado();
+
+            this.cbbCiudadOrigen.DataSource = ciudadesOrigen;
+            this.cbbCiudadOrigen.DisplayMember = "Descripcion";
+            this.cbbCiudadOrigen.ValueMember = "Id";
+
+            this.cbbCiudadDestino.DataSource = ciudadesOrigen;
+            this.cbbCiudadDestino.DisplayMember = "Descripcion";
+            this.cbbCiudadDestino.ValueMember = "Id";
 
         }
 

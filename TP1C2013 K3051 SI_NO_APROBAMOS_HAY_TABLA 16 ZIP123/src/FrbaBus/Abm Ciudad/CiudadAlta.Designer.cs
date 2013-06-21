@@ -37,7 +37,7 @@
             // lblCiudadAltaCiudad
             // 
             this.lblCiudadAltaCiudad.AutoSize = true;
-            this.lblCiudadAltaCiudad.Location = new System.Drawing.Point(37, 33);
+            this.lblCiudadAltaCiudad.Location = new System.Drawing.Point(12, 9);
             this.lblCiudadAltaCiudad.Name = "lblCiudadAltaCiudad";
             this.lblCiudadAltaCiudad.Size = new System.Drawing.Size(40, 13);
             this.lblCiudadAltaCiudad.TabIndex = 0;
@@ -45,7 +45,7 @@
             // 
             // btnCiudadAltaLimpiar
             // 
-            this.btnCiudadAltaLimpiar.Location = new System.Drawing.Point(13, 116);
+            this.btnCiudadAltaLimpiar.Location = new System.Drawing.Point(297, 32);
             this.btnCiudadAltaLimpiar.Name = "btnCiudadAltaLimpiar";
             this.btnCiudadAltaLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnCiudadAltaLimpiar.TabIndex = 1;
@@ -55,7 +55,7 @@
             // 
             // btnCiudadAltaGuardar
             // 
-            this.btnCiudadAltaGuardar.Location = new System.Drawing.Point(551, 116);
+            this.btnCiudadAltaGuardar.Location = new System.Drawing.Point(216, 32);
             this.btnCiudadAltaGuardar.Name = "btnCiudadAltaGuardar";
             this.btnCiudadAltaGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnCiudadAltaGuardar.TabIndex = 2;
@@ -65,26 +65,25 @@
             // 
             // tbCiudadAltaCiudad
             // 
-            this.tbCiudadAltaCiudad.Location = new System.Drawing.Point(138, 25);
+            this.tbCiudadAltaCiudad.Location = new System.Drawing.Point(71, 6);
             this.tbCiudadAltaCiudad.Name = "tbCiudadAltaCiudad";
-            this.tbCiudadAltaCiudad.Size = new System.Drawing.Size(153, 20);
+            this.tbCiudadAltaCiudad.Size = new System.Drawing.Size(301, 20);
             this.tbCiudadAltaCiudad.TabIndex = 0;
             // 
             // CiudadAlta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(638, 151);
+            this.ClientSize = new System.Drawing.Size(384, 62);
             this.Controls.Add(this.tbCiudadAltaCiudad);
             this.Controls.Add(this.btnCiudadAltaGuardar);
             this.Controls.Add(this.btnCiudadAltaLimpiar);
             this.Controls.Add(this.lblCiudadAltaCiudad);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CiudadAlta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Alta ciudad";
+            this.Text = "FrbaBus - Ciudades :: Alta";
             this.ResumeLayout(false);
             this.PerformLayout();
 
