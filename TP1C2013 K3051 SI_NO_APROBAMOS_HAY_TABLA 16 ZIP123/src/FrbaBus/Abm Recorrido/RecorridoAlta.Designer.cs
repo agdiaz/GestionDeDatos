@@ -36,6 +36,10 @@
             this.cbbRecorridoAltaTipoServicio = new System.Windows.Forms.ComboBox();
             this.btnRecorridoAltaLimpiar = new System.Windows.Forms.Button();
             this.btnRecorridoAltaGuardar = new System.Windows.Forms.Button();
+            this.lblRecorridoAltaPrecioBasePorKgs = new System.Windows.Forms.Label();
+            this.lblRecorridoAltaPrecioBasePorPasaje = new System.Windows.Forms.Label();
+            this.tbRecorridoAltaPrecioBasePorKgs = new System.Windows.Forms.TextBox();
+            this.tbRecorridoAltaPrecioBasePorPasaje = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblRecorridoAltaCiudadOrigen
@@ -67,14 +71,14 @@
             // 
             // tbRecorridoAltaCiudadOrigen
             // 
-            this.tbRecorridoAltaCiudadOrigen.Location = new System.Drawing.Point(130, 26);
+            this.tbRecorridoAltaCiudadOrigen.Location = new System.Drawing.Point(162, 26);
             this.tbRecorridoAltaCiudadOrigen.Name = "tbRecorridoAltaCiudadOrigen";
             this.tbRecorridoAltaCiudadOrigen.Size = new System.Drawing.Size(121, 20);
             this.tbRecorridoAltaCiudadOrigen.TabIndex = 3;
             // 
             // tbRecorridoAltaCiudadDestino
             // 
-            this.tbRecorridoAltaCiudadDestino.Location = new System.Drawing.Point(130, 53);
+            this.tbRecorridoAltaCiudadDestino.Location = new System.Drawing.Point(162, 53);
             this.tbRecorridoAltaCiudadDestino.Name = "tbRecorridoAltaCiudadDestino";
             this.tbRecorridoAltaCiudadDestino.Size = new System.Drawing.Size(121, 20);
             this.tbRecorridoAltaCiudadDestino.TabIndex = 4;
@@ -82,14 +86,14 @@
             // cbbRecorridoAltaTipoServicio
             // 
             this.cbbRecorridoAltaTipoServicio.FormattingEnabled = true;
-            this.cbbRecorridoAltaTipoServicio.Location = new System.Drawing.Point(130, 80);
+            this.cbbRecorridoAltaTipoServicio.Location = new System.Drawing.Point(162, 80);
             this.cbbRecorridoAltaTipoServicio.Name = "cbbRecorridoAltaTipoServicio";
             this.cbbRecorridoAltaTipoServicio.Size = new System.Drawing.Size(121, 21);
             this.cbbRecorridoAltaTipoServicio.TabIndex = 5;
             // 
             // btnRecorridoAltaLimpiar
             // 
-            this.btnRecorridoAltaLimpiar.Location = new System.Drawing.Point(12, 114);
+            this.btnRecorridoAltaLimpiar.Location = new System.Drawing.Point(12, 175);
             this.btnRecorridoAltaLimpiar.Name = "btnRecorridoAltaLimpiar";
             this.btnRecorridoAltaLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnRecorridoAltaLimpiar.TabIndex = 6;
@@ -98,18 +102,54 @@
             // 
             // btnRecorridoAltaGuardar
             // 
-            this.btnRecorridoAltaGuardar.Location = new System.Drawing.Point(388, 114);
+            this.btnRecorridoAltaGuardar.Location = new System.Drawing.Point(388, 175);
             this.btnRecorridoAltaGuardar.Name = "btnRecorridoAltaGuardar";
             this.btnRecorridoAltaGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnRecorridoAltaGuardar.TabIndex = 7;
             this.btnRecorridoAltaGuardar.Text = "Guardar";
             this.btnRecorridoAltaGuardar.UseVisualStyleBackColor = true;
             // 
+            // lblRecorridoAltaPrecioBasePorKgs
+            // 
+            this.lblRecorridoAltaPrecioBasePorKgs.AutoSize = true;
+            this.lblRecorridoAltaPrecioBasePorKgs.Location = new System.Drawing.Point(37, 113);
+            this.lblRecorridoAltaPrecioBasePorKgs.Name = "lblRecorridoAltaPrecioBasePorKgs";
+            this.lblRecorridoAltaPrecioBasePorKgs.Size = new System.Drawing.Size(102, 13);
+            this.lblRecorridoAltaPrecioBasePorKgs.TabIndex = 8;
+            this.lblRecorridoAltaPrecioBasePorKgs.Text = "Precio base por Kgs";
+            // 
+            // lblRecorridoAltaPrecioBasePorPasaje
+            // 
+            this.lblRecorridoAltaPrecioBasePorPasaje.AutoSize = true;
+            this.lblRecorridoAltaPrecioBasePorPasaje.Location = new System.Drawing.Point(37, 142);
+            this.lblRecorridoAltaPrecioBasePorPasaje.Name = "lblRecorridoAltaPrecioBasePorPasaje";
+            this.lblRecorridoAltaPrecioBasePorPasaje.Size = new System.Drawing.Size(115, 13);
+            this.lblRecorridoAltaPrecioBasePorPasaje.TabIndex = 9;
+            this.lblRecorridoAltaPrecioBasePorPasaje.Text = "Precio base por pasaje";
+            // 
+            // tbRecorridoAltaPrecioBasePorKgs
+            // 
+            this.tbRecorridoAltaPrecioBasePorKgs.Location = new System.Drawing.Point(162, 110);
+            this.tbRecorridoAltaPrecioBasePorKgs.Name = "tbRecorridoAltaPrecioBasePorKgs";
+            this.tbRecorridoAltaPrecioBasePorKgs.Size = new System.Drawing.Size(121, 20);
+            this.tbRecorridoAltaPrecioBasePorKgs.TabIndex = 10;
+            // 
+            // tbRecorridoAltaPrecioBasePorPasaje
+            // 
+            this.tbRecorridoAltaPrecioBasePorPasaje.Location = new System.Drawing.Point(162, 139);
+            this.tbRecorridoAltaPrecioBasePorPasaje.Name = "tbRecorridoAltaPrecioBasePorPasaje";
+            this.tbRecorridoAltaPrecioBasePorPasaje.Size = new System.Drawing.Size(121, 20);
+            this.tbRecorridoAltaPrecioBasePorPasaje.TabIndex = 11;
+            // 
             // RecorridoAlta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(475, 146);
+            this.ClientSize = new System.Drawing.Size(475, 210);
+            this.Controls.Add(this.tbRecorridoAltaPrecioBasePorPasaje);
+            this.Controls.Add(this.tbRecorridoAltaPrecioBasePorKgs);
+            this.Controls.Add(this.lblRecorridoAltaPrecioBasePorPasaje);
+            this.Controls.Add(this.lblRecorridoAltaPrecioBasePorKgs);
             this.Controls.Add(this.btnRecorridoAltaGuardar);
             this.Controls.Add(this.btnRecorridoAltaLimpiar);
             this.Controls.Add(this.cbbRecorridoAltaTipoServicio);
@@ -136,5 +176,9 @@
         private System.Windows.Forms.ComboBox cbbRecorridoAltaTipoServicio;
         private System.Windows.Forms.Button btnRecorridoAltaLimpiar;
         private System.Windows.Forms.Button btnRecorridoAltaGuardar;
+        private System.Windows.Forms.Label lblRecorridoAltaPrecioBasePorKgs;
+        private System.Windows.Forms.Label lblRecorridoAltaPrecioBasePorPasaje;
+        private System.Windows.Forms.TextBox tbRecorridoAltaPrecioBasePorKgs;
+        private System.Windows.Forms.TextBox tbRecorridoAltaPrecioBasePorPasaje;
     }
 }
