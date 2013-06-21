@@ -13,7 +13,8 @@ namespace FrbaBus.Manager
     {
         public void AltaRolUsuario(RolUsuario entidad)
         {
-            new RolUsuarioDAO().Alta(entidad);
+            int id = new RolUsuarioDAO().Alta(entidad);
+            entidad.IdRol = id;
         }
 
         public void BajaRolUsuario(RolUsuario entidad)
