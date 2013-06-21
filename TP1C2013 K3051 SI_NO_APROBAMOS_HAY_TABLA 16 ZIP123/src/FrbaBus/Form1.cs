@@ -286,7 +286,7 @@ namespace FrbaBus
             this.cbbCiudadOrigen.DisplayMember = "Descripcion";
             this.cbbCiudadOrigen.ValueMember = "Id";
 
-            this.cbbCiudadDestino.DataSource = ciudadesOrigen;
+            this.cbbCiudadDestino.DataSource = ciudadesDestino;
             this.cbbCiudadDestino.DisplayMember = "Descripcion";
             this.cbbCiudadDestino.ValueMember = "Id";
 

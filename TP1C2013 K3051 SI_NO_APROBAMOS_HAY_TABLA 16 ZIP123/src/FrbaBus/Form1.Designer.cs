@@ -525,6 +525,7 @@
             // 
             // cbbCiudadDestino
             // 
+            this.cbbCiudadDestino.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbCiudadDestino.FormattingEnabled = true;
             this.cbbCiudadDestino.Location = new System.Drawing.Point(106, 101);
             this.cbbCiudadDestino.Name = "cbbCiudadDestino";
@@ -533,6 +534,7 @@
             // 
             // cbbCiudadOrigen
             // 
+            this.cbbCiudadOrigen.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbCiudadOrigen.FormattingEnabled = true;
             this.cbbCiudadOrigen.Location = new System.Drawing.Point(106, 67);
             this.cbbCiudadOrigen.Name = "cbbCiudadOrigen";
