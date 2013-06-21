@@ -34,7 +34,10 @@ namespace FrbaBus.Rol
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            DataSet dsRoles = _manager.ObtenerRegistrosRolUsuario(this.tbRolListadoRol.Text, this.cbbRolListadoFuncionalidades.SelectedItem.ToString());
+            string funcionalidadElegida = string.Empty;
+            if (this.cbbRolListadoFuncionalidades.SelectedItem != null)
+                funcionalidadElegida = this.cbbRolListadoFuncionalidades.SelectedItem.ToString();
+            DataSet dsRoles = _manager.ObtenerRegistrosRolUsuario(this.tbRolListadoRol.Text, funcionalidadElegida);
             this.dgvRolListado.DataSource = dsRoles.Tables[0];
         }
 
