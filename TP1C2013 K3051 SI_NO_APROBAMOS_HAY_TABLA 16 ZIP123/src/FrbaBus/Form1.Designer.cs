@@ -79,7 +79,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cbbCiudadDestino = new System.Windows.Forms.ComboBox();
             this.cbbCiudadOrigen = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaSalida = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.gbMicros = new System.Windows.Forms.GroupBox();
             this.btnElegirMicro = new System.Windows.Forms.Button();
@@ -280,14 +280,14 @@
             // tsmViajeListado
             // 
             this.tsmViajeListado.Name = "tsmViajeListado";
-            this.tsmViajeListado.Size = new System.Drawing.Size(112, 22);
+            this.tsmViajeListado.Size = new System.Drawing.Size(152, 22);
             this.tsmViajeListado.Text = "Listado";
             this.tsmViajeListado.Click += new System.EventHandler(this.tsmViajeListado_Click);
             // 
             // tsmViajeAlta
             // 
             this.tsmViajeAlta.Name = "tsmViajeAlta";
-            this.tsmViajeAlta.Size = new System.Drawing.Size(112, 22);
+            this.tsmViajeAlta.Size = new System.Drawing.Size(152, 22);
             this.tsmViajeAlta.Text = "Alta";
             this.tsmViajeAlta.Click += new System.EventHandler(this.tsmViajeAlta_Click);
             // 
@@ -473,7 +473,7 @@
             this.gbViaje.Controls.Add(this.label2);
             this.gbViaje.Controls.Add(this.cbbCiudadDestino);
             this.gbViaje.Controls.Add(this.cbbCiudadOrigen);
-            this.gbViaje.Controls.Add(this.dateTimePicker1);
+            this.gbViaje.Controls.Add(this.dtpFechaSalida);
             this.gbViaje.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbViaje.Location = new System.Drawing.Point(12, 89);
             this.gbViaje.Name = "gbViaje";
@@ -541,13 +541,14 @@
             this.cbbCiudadOrigen.Size = new System.Drawing.Size(121, 21);
             this.cbbCiudadOrigen.TabIndex = 1;
             // 
-            // dateTimePicker1
+            // dtpFechaSalida
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(106, 33);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 21);
-            this.dateTimePicker1.TabIndex = 0;
+            this.dtpFechaSalida.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaSalida.Location = new System.Drawing.Point(106, 33);
+            this.dtpFechaSalida.Name = "dtpFechaSalida";
+            this.dtpFechaSalida.Size = new System.Drawing.Size(200, 21);
+            this.dtpFechaSalida.TabIndex = 0;
+            this.dtpFechaSalida.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label1
             // 
@@ -683,6 +684,7 @@
             this.gbDetalles.TabIndex = 7;
             this.gbDetalles.TabStop = false;
             this.gbDetalles.Text = "Detalles de la compra";
+            this.gbDetalles.Enter += new System.EventHandler(this.gbDetalles_Enter);
             // 
             // gbEncomiendas
             // 
@@ -920,7 +922,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbbCiudadDestino;
         private System.Windows.Forms.ComboBox cbbCiudadOrigen;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpFechaSalida;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;

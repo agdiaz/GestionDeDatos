@@ -24,6 +24,7 @@ namespace FrbaBus
         {
             InitializeComponent();
             this.RegistrarPermisos();
+            SetearCustomFormatDataTimePicker();
         }
 
         public void RegistrarPermisos()
@@ -305,6 +306,22 @@ namespace FrbaBus
         private void btnAgregarPasajero_Click(object sender, EventArgs e)
         {
             new ClienteAlta().ShowDialog(this);
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SetearCustomFormatDataTimePicker()
+        {
+            dtpFechaSalida.Format = DateTimePickerFormat.Custom;
+            dtpFechaSalida.CustomFormat = "MMMM dd, yyyy - HH:mm:ss";
+        }
+
+        private void gbDetalles_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
