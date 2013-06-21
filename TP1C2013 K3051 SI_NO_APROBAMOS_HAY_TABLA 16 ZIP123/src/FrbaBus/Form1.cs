@@ -273,6 +273,15 @@ namespace FrbaBus
             gbMicros.Enabled = true;
             gbDetalles.Enabled = true;
             gbMedioDePago.Enabled = true;
+            var origen = Convert.ToInt32(this.cbbCiudadOrigen.SelectedValue.ToString());
+            var destino = Convert.ToInt32(this.cbbCiudadDestino.SelectedValue.ToString());
+
+            IList<Micro> microsDisponibles = new MicroManager().ObtenerMicrosDisponibles(origen, destino, this.dtpFechaSalida.Value);
+
+            this.cbbMicro.DataSource = microsDisponibles;
+            cbbMicro.DisplayMember = "Nombre";
+            cbbMicro.ValueMember = "Id";
+
         }
 
         private void Form1_Load(object sender, EventArgs e)

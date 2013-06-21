@@ -50,6 +50,7 @@
     <Compile Include="Entidades\Ciudad.cs" />
     <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\Funcionalidad.cs" />
+    <Compile Include="Entidades\Micro.cs" />
     <Compile Include="Entidades\RolUsuario.cs" />
     <Compile Include="Entidades\RolUsuarioAdministrativo.cs" />
     <Compile Include="Entidades\RolUsuarioBasico.cs" />
