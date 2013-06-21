@@ -51,7 +51,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="GestionDeDatos.AccesoDatos.dll.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FrbaBus.Common\FrbaBus.Common.csproj">
