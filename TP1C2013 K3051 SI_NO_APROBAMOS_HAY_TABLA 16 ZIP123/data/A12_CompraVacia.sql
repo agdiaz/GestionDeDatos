@@ -1,0 +1,40 @@
+USE [GD1C2013]
+GO
+
+/****** Object:  Table [SI_NO_APROBAMOS_HAY_TABLA].[Compra]    Script Date: 06/20/2013 21:24:58 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Compra](
+	[id_compra] [int] IDENTITY(1,1) NOT NULL,
+	[id_usuario] [int] NOT NULL,
+	[fecha_compra] [datetime] NOT NULL,
+	[cancel] [bit] NOT NULL,
+	[fecha_cancel] [datetime] NULL,
+	[motivo_cancel] [nvarchar](200) NULL,
+	[baja] [bit] NOT NULL,
+ CONSTRAINT [PK_Compra] PRIMARY KEY CLUSTERED 
+(
+	[id_compra] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Compra]  WITH CHECK ADD  CONSTRAINT [FK_Compra_Usuario] FOREIGN KEY([id_usuario])
+REFERENCES [SI_NO_APROBAMOS_HAY_TABLA].[Usuario] ([id_usuario])
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Compra] CHECK CONSTRAINT [FK_Compra_Usuario]
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Compra] ADD  CONSTRAINT [DF_Compra_cancel]  DEFAULT ((0)) FOR [cancel]
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Compra] ADD  CONSTRAINT [DF_Compra_baja]  DEFAULT ((0)) FOR [baja]
+GO
+
+
