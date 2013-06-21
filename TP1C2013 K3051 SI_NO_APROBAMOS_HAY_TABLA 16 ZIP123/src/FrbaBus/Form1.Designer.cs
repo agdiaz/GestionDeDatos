@@ -72,8 +72,48 @@
             this.tssUserRol = new System.Windows.Forms.ToolStripStatusLabel();
             this.tssRolValor = new System.Windows.Forms.ToolStripStatusLabel();
             this.tssSesion = new System.Windows.Forms.ToolStripStatusLabel();
+            this.gbViaje = new System.Windows.Forms.GroupBox();
+            this.btnBuscarMicros = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbbCiudadDestino = new System.Windows.Forms.ComboBox();
+            this.cbbCiudadOrigen = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.gbMicros = new System.Windows.Forms.GroupBox();
+            this.btnElegirMicro = new System.Windows.Forms.Button();
+            this.cbbTipoServicio = new System.Windows.Forms.TextBox();
+            this.cbbKgsDisp = new System.Windows.Forms.TextBox();
+            this.cbbButacasLibres = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbbMicro = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.gbDetalles = new System.Windows.Forms.GroupBox();
+            this.gbEncomiendas = new System.Windows.Forms.GroupBox();
+            this.btnQuitarEnco = new System.Windows.Forms.Button();
+            this.btnModificarEnco = new System.Windows.Forms.Button();
+            this.btnAgregarEnco = new System.Windows.Forms.Button();
+            this.lbEncomiendas = new System.Windows.Forms.ListBox();
+            this.gbPasajeros = new System.Windows.Forms.GroupBox();
+            this.btnQuitarPasajero = new System.Windows.Forms.Button();
+            this.txtCantPasajes = new System.Windows.Forms.TextBox();
+            this.btnModificarPasajero = new System.Windows.Forms.Button();
+            this.lbPasajeros = new System.Windows.Forms.ListBox();
+            this.btnAgregarPasajero = new System.Windows.Forms.Button();
+            this.cbEncomiendas = new System.Windows.Forms.CheckBox();
+            this.cbPasajes = new System.Windows.Forms.CheckBox();
+            this.gbMedioDePago = new System.Windows.Forms.GroupBox();
             this.mnsMain.SuspendLayout();
             this.ssStatusMain.SuspendLayout();
+            this.gbViaje.SuspendLayout();
+            this.gbMicros.SuspendLayout();
+            this.gbDetalles.SuspendLayout();
+            this.gbEncomiendas.SuspendLayout();
+            this.gbPasajeros.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnsMain
@@ -91,7 +131,7 @@
             this.tsmPremios});
             this.mnsMain.Location = new System.Drawing.Point(0, 0);
             this.mnsMain.Name = "mnsMain";
-            this.mnsMain.Size = new System.Drawing.Size(784, 24);
+            this.mnsMain.Size = new System.Drawing.Size(1030, 24);
             this.mnsMain.TabIndex = 0;
             this.mnsMain.Text = "menuStrip1";
             // 
@@ -389,9 +429,9 @@
             this.tssUserRol,
             this.tssRolValor,
             this.tssSesion});
-            this.ssStatusMain.Location = new System.Drawing.Point(0, 540);
+            this.ssStatusMain.Location = new System.Drawing.Point(0, 639);
             this.ssStatusMain.Name = "ssStatusMain";
-            this.ssStatusMain.Size = new System.Drawing.Size(784, 22);
+            this.ssStatusMain.Size = new System.Drawing.Size(1030, 22);
             this.ssStatusMain.TabIndex = 1;
             // 
             // tssUsuario
@@ -425,11 +465,381 @@
             this.tssSesion.Size = new System.Drawing.Size(118, 17);
             this.tssSesion.Text = "(Sesion no iniciada)";
             // 
+            // gbViaje
+            // 
+            this.gbViaje.Controls.Add(this.btnBuscarMicros);
+            this.gbViaje.Controls.Add(this.label4);
+            this.gbViaje.Controls.Add(this.label3);
+            this.gbViaje.Controls.Add(this.label2);
+            this.gbViaje.Controls.Add(this.cbbCiudadDestino);
+            this.gbViaje.Controls.Add(this.cbbCiudadOrigen);
+            this.gbViaje.Controls.Add(this.dateTimePicker1);
+            this.gbViaje.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbViaje.Location = new System.Drawing.Point(12, 89);
+            this.gbViaje.Name = "gbViaje";
+            this.gbViaje.Size = new System.Drawing.Size(352, 141);
+            this.gbViaje.TabIndex = 2;
+            this.gbViaje.TabStop = false;
+            this.gbViaje.Text = "Viaje";
+            // 
+            // btnBuscarMicros
+            // 
+            this.btnBuscarMicros.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarMicros.Location = new System.Drawing.Point(259, 92);
+            this.btnBuscarMicros.Name = "btnBuscarMicros";
+            this.btnBuscarMicros.Size = new System.Drawing.Size(72, 36);
+            this.btnBuscarMicros.TabIndex = 6;
+            this.btnBuscarMicros.Text = "Buscar micros";
+            this.btnBuscarMicros.UseVisualStyleBackColor = true;
+            this.btnBuscarMicros.Click += new System.EventHandler(this.btnBuscarMicros_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(10, 101);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(78, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Ciudad destino";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(10, 67);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(73, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Ciudad origen";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(10, 33);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Fecha de salida";
+            // 
+            // cbbCiudadDestino
+            // 
+            this.cbbCiudadDestino.FormattingEnabled = true;
+            this.cbbCiudadDestino.Location = new System.Drawing.Point(106, 101);
+            this.cbbCiudadDestino.Name = "cbbCiudadDestino";
+            this.cbbCiudadDestino.Size = new System.Drawing.Size(121, 21);
+            this.cbbCiudadDestino.TabIndex = 2;
+            // 
+            // cbbCiudadOrigen
+            // 
+            this.cbbCiudadOrigen.FormattingEnabled = true;
+            this.cbbCiudadOrigen.Location = new System.Drawing.Point(106, 67);
+            this.cbbCiudadOrigen.Name = "cbbCiudadOrigen";
+            this.cbbCiudadOrigen.Size = new System.Drawing.Size(121, 21);
+            this.cbbCiudadOrigen.TabIndex = 1;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(106, 33);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 21);
+            this.dateTimePicker1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(19, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(135, 33);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Compras";
+            // 
+            // gbMicros
+            // 
+            this.gbMicros.Controls.Add(this.btnElegirMicro);
+            this.gbMicros.Controls.Add(this.cbbTipoServicio);
+            this.gbMicros.Controls.Add(this.cbbKgsDisp);
+            this.gbMicros.Controls.Add(this.cbbButacasLibres);
+            this.gbMicros.Controls.Add(this.label8);
+            this.gbMicros.Controls.Add(this.label7);
+            this.gbMicros.Controls.Add(this.label6);
+            this.gbMicros.Controls.Add(this.label5);
+            this.gbMicros.Controls.Add(this.cbbMicro);
+            this.gbMicros.Enabled = false;
+            this.gbMicros.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbMicros.Location = new System.Drawing.Point(13, 237);
+            this.gbMicros.Name = "gbMicros";
+            this.gbMicros.Size = new System.Drawing.Size(351, 151);
+            this.gbMicros.TabIndex = 4;
+            this.gbMicros.TabStop = false;
+            this.gbMicros.Text = "Micros";
+            // 
+            // btnElegirMicro
+            // 
+            this.btnElegirMicro.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnElegirMicro.Location = new System.Drawing.Point(258, 99);
+            this.btnElegirMicro.Name = "btnElegirMicro";
+            this.btnElegirMicro.Size = new System.Drawing.Size(72, 36);
+            this.btnElegirMicro.TabIndex = 9;
+            this.btnElegirMicro.Text = "Elegir micro";
+            this.btnElegirMicro.UseVisualStyleBackColor = true;
+            this.btnElegirMicro.Click += new System.EventHandler(this.btnElegirMicro_Click);
+            // 
+            // cbbTipoServicio
+            // 
+            this.cbbTipoServicio.Location = new System.Drawing.Point(105, 119);
+            this.cbbTipoServicio.Name = "cbbTipoServicio";
+            this.cbbTipoServicio.Size = new System.Drawing.Size(100, 21);
+            this.cbbTipoServicio.TabIndex = 8;
+            // 
+            // cbbKgsDisp
+            // 
+            this.cbbKgsDisp.Location = new System.Drawing.Point(105, 85);
+            this.cbbKgsDisp.Name = "cbbKgsDisp";
+            this.cbbKgsDisp.Size = new System.Drawing.Size(100, 21);
+            this.cbbKgsDisp.TabIndex = 7;
+            // 
+            // cbbButacasLibres
+            // 
+            this.cbbButacasLibres.Location = new System.Drawing.Point(105, 54);
+            this.cbbButacasLibres.Name = "cbbButacasLibres";
+            this.cbbButacasLibres.Size = new System.Drawing.Size(100, 21);
+            this.cbbButacasLibres.TabIndex = 6;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(11, 122);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(81, 13);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Tipo de servicio";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(9, 88);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(79, 13);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Kgs disponibles";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(11, 57);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 13);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Butacas libres";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(11, 23);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(32, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Micro";
+            // 
+            // cbbMicro
+            // 
+            this.cbbMicro.FormattingEnabled = true;
+            this.cbbMicro.Location = new System.Drawing.Point(105, 20);
+            this.cbbMicro.Name = "cbbMicro";
+            this.cbbMicro.Size = new System.Drawing.Size(100, 21);
+            this.cbbMicro.TabIndex = 0;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(6, 28);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(105, 13);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Cantidad de pasajes";
+            // 
+            // gbDetalles
+            // 
+            this.gbDetalles.Controls.Add(this.gbEncomiendas);
+            this.gbDetalles.Controls.Add(this.gbPasajeros);
+            this.gbDetalles.Controls.Add(this.cbEncomiendas);
+            this.gbDetalles.Controls.Add(this.cbPasajes);
+            this.gbDetalles.Enabled = false;
+            this.gbDetalles.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbDetalles.Location = new System.Drawing.Point(389, 89);
+            this.gbDetalles.Name = "gbDetalles";
+            this.gbDetalles.Size = new System.Drawing.Size(629, 537);
+            this.gbDetalles.TabIndex = 7;
+            this.gbDetalles.TabStop = false;
+            this.gbDetalles.Text = "Detalles de la compra";
+            // 
+            // gbEncomiendas
+            // 
+            this.gbEncomiendas.Controls.Add(this.btnQuitarEnco);
+            this.gbEncomiendas.Controls.Add(this.btnModificarEnco);
+            this.gbEncomiendas.Controls.Add(this.btnAgregarEnco);
+            this.gbEncomiendas.Controls.Add(this.lbEncomiendas);
+            this.gbEncomiendas.Location = new System.Drawing.Point(7, 290);
+            this.gbEncomiendas.Name = "gbEncomiendas";
+            this.gbEncomiendas.Size = new System.Drawing.Size(348, 241);
+            this.gbEncomiendas.TabIndex = 15;
+            this.gbEncomiendas.TabStop = false;
+            this.gbEncomiendas.Text = "Encomiendas";
+            // 
+            // btnQuitarEnco
+            // 
+            this.btnQuitarEnco.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuitarEnco.Location = new System.Drawing.Point(258, 134);
+            this.btnQuitarEnco.Name = "btnQuitarEnco";
+            this.btnQuitarEnco.Size = new System.Drawing.Size(74, 21);
+            this.btnQuitarEnco.TabIndex = 3;
+            this.btnQuitarEnco.Text = "Quitar";
+            this.btnQuitarEnco.UseVisualStyleBackColor = true;
+            // 
+            // btnModificarEnco
+            // 
+            this.btnModificarEnco.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarEnco.Location = new System.Drawing.Point(258, 90);
+            this.btnModificarEnco.Name = "btnModificarEnco";
+            this.btnModificarEnco.Size = new System.Drawing.Size(74, 21);
+            this.btnModificarEnco.TabIndex = 2;
+            this.btnModificarEnco.Text = "Modificar";
+            this.btnModificarEnco.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregarEnco
+            // 
+            this.btnAgregarEnco.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarEnco.Location = new System.Drawing.Point(258, 46);
+            this.btnAgregarEnco.Name = "btnAgregarEnco";
+            this.btnAgregarEnco.Size = new System.Drawing.Size(74, 21);
+            this.btnAgregarEnco.TabIndex = 1;
+            this.btnAgregarEnco.Text = "Agregar";
+            this.btnAgregarEnco.UseVisualStyleBackColor = true;
+            // 
+            // lbEncomiendas
+            // 
+            this.lbEncomiendas.FormattingEnabled = true;
+            this.lbEncomiendas.Location = new System.Drawing.Point(8, 32);
+            this.lbEncomiendas.Name = "lbEncomiendas";
+            this.lbEncomiendas.Size = new System.Drawing.Size(231, 160);
+            this.lbEncomiendas.TabIndex = 0;
+            this.lbEncomiendas.SelectedIndexChanged += new System.EventHandler(this.lbEncomiendas_SelectedIndexChanged);
+            // 
+            // gbPasajeros
+            // 
+            this.gbPasajeros.Controls.Add(this.btnQuitarPasajero);
+            this.gbPasajeros.Controls.Add(this.txtCantPasajes);
+            this.gbPasajeros.Controls.Add(this.btnModificarPasajero);
+            this.gbPasajeros.Controls.Add(this.lbPasajeros);
+            this.gbPasajeros.Controls.Add(this.btnAgregarPasajero);
+            this.gbPasajeros.Controls.Add(this.label9);
+            this.gbPasajeros.Location = new System.Drawing.Point(6, 67);
+            this.gbPasajeros.Name = "gbPasajeros";
+            this.gbPasajeros.Size = new System.Drawing.Size(349, 216);
+            this.gbPasajeros.TabIndex = 14;
+            this.gbPasajeros.TabStop = false;
+            this.gbPasajeros.Text = "Pasajeros";
+            // 
+            // btnQuitarPasajero
+            // 
+            this.btnQuitarPasajero.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuitarPasajero.Location = new System.Drawing.Point(260, 146);
+            this.btnQuitarPasajero.Name = "btnQuitarPasajero";
+            this.btnQuitarPasajero.Size = new System.Drawing.Size(74, 21);
+            this.btnQuitarPasajero.TabIndex = 15;
+            this.btnQuitarPasajero.Text = "Quitar";
+            this.btnQuitarPasajero.UseVisualStyleBackColor = true;
+            // 
+            // txtCantPasajes
+            // 
+            this.txtCantPasajes.Location = new System.Drawing.Point(124, 20);
+            this.txtCantPasajes.Name = "txtCantPasajes";
+            this.txtCantPasajes.Size = new System.Drawing.Size(100, 21);
+            this.txtCantPasajes.TabIndex = 11;
+            // 
+            // btnModificarPasajero
+            // 
+            this.btnModificarPasajero.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarPasajero.Location = new System.Drawing.Point(260, 101);
+            this.btnModificarPasajero.Name = "btnModificarPasajero";
+            this.btnModificarPasajero.Size = new System.Drawing.Size(74, 21);
+            this.btnModificarPasajero.TabIndex = 14;
+            this.btnModificarPasajero.Text = "Modificar";
+            this.btnModificarPasajero.UseVisualStyleBackColor = true;
+            // 
+            // lbPasajeros
+            // 
+            this.lbPasajeros.FormattingEnabled = true;
+            this.lbPasajeros.Location = new System.Drawing.Point(6, 56);
+            this.lbPasajeros.Name = "lbPasajeros";
+            this.lbPasajeros.Size = new System.Drawing.Size(234, 147);
+            this.lbPasajeros.TabIndex = 12;
+            // 
+            // btnAgregarPasajero
+            // 
+            this.btnAgregarPasajero.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarPasajero.Location = new System.Drawing.Point(259, 56);
+            this.btnAgregarPasajero.Name = "btnAgregarPasajero";
+            this.btnAgregarPasajero.Size = new System.Drawing.Size(74, 21);
+            this.btnAgregarPasajero.TabIndex = 13;
+            this.btnAgregarPasajero.Text = "Agregar";
+            this.btnAgregarPasajero.UseVisualStyleBackColor = true;
+            this.btnAgregarPasajero.Click += new System.EventHandler(this.btnAgregarPasajero_Click);
+            // 
+            // cbEncomiendas
+            // 
+            this.cbEncomiendas.AutoSize = true;
+            this.cbEncomiendas.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbEncomiendas.Location = new System.Drawing.Point(104, 33);
+            this.cbEncomiendas.Name = "cbEncomiendas";
+            this.cbEncomiendas.Size = new System.Drawing.Size(88, 17);
+            this.cbEncomiendas.TabIndex = 10;
+            this.cbEncomiendas.Text = "Encomiendas";
+            this.cbEncomiendas.UseVisualStyleBackColor = true;
+            this.cbEncomiendas.CheckedChanged += new System.EventHandler(this.cbEncomiendas_CheckedChanged);
+            // 
+            // cbPasajes
+            // 
+            this.cbPasajes.AutoSize = true;
+            this.cbPasajes.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbPasajes.Location = new System.Drawing.Point(22, 32);
+            this.cbPasajes.Name = "cbPasajes";
+            this.cbPasajes.Size = new System.Drawing.Size(63, 17);
+            this.cbPasajes.TabIndex = 9;
+            this.cbPasajes.Text = "Pasajes";
+            this.cbPasajes.UseVisualStyleBackColor = true;
+            this.cbPasajes.CheckedChanged += new System.EventHandler(this.cbPasajes_CheckedChanged);
+            // 
+            // gbMedioDePago
+            // 
+            this.gbMedioDePago.Enabled = false;
+            this.gbMedioDePago.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbMedioDePago.Location = new System.Drawing.Point(13, 411);
+            this.gbMedioDePago.Name = "gbMedioDePago";
+            this.gbMedioDePago.Size = new System.Drawing.Size(351, 99);
+            this.gbMedioDePago.TabIndex = 8;
+            this.gbMedioDePago.TabStop = false;
+            this.gbMedioDePago.Text = "Medio de pago";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 562);
+            this.ClientSize = new System.Drawing.Size(1030, 661);
+            this.Controls.Add(this.gbMedioDePago);
+            this.Controls.Add(this.gbDetalles);
+            this.Controls.Add(this.gbMicros);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.gbViaje);
             this.Controls.Add(this.ssStatusMain);
             this.Controls.Add(this.mnsMain);
             this.MainMenuStrip = this.mnsMain;
@@ -437,10 +847,20 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrbaBus - Pantalla Principal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.mnsMain.ResumeLayout(false);
             this.mnsMain.PerformLayout();
             this.ssStatusMain.ResumeLayout(false);
             this.ssStatusMain.PerformLayout();
+            this.gbViaje.ResumeLayout(false);
+            this.gbViaje.PerformLayout();
+            this.gbMicros.ResumeLayout(false);
+            this.gbMicros.PerformLayout();
+            this.gbDetalles.ResumeLayout(false);
+            this.gbDetalles.PerformLayout();
+            this.gbEncomiendas.ResumeLayout(false);
+            this.gbPasajeros.ResumeLayout(false);
+            this.gbPasajeros.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -492,6 +912,41 @@
         private System.Windows.Forms.ToolStripStatusLabel tssUsuarioValor;
         private System.Windows.Forms.ToolStripStatusLabel tssRolValor;
         private System.Windows.Forms.ToolStripStatusLabel tssSesion;
+        private System.Windows.Forms.GroupBox gbViaje;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cbbCiudadDestino;
+        private System.Windows.Forms.ComboBox cbbCiudadOrigen;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnBuscarMicros;
+        private System.Windows.Forms.GroupBox gbMicros;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cbbMicro;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnElegirMicro;
+        private System.Windows.Forms.TextBox cbbTipoServicio;
+        private System.Windows.Forms.TextBox cbbKgsDisp;
+        private System.Windows.Forms.TextBox cbbButacasLibres;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.GroupBox gbDetalles;
+        private System.Windows.Forms.TextBox txtCantPasajes;
+        private System.Windows.Forms.CheckBox cbEncomiendas;
+        private System.Windows.Forms.CheckBox cbPasajes;
+        private System.Windows.Forms.GroupBox gbMedioDePago;
+        private System.Windows.Forms.GroupBox gbPasajeros;
+        private System.Windows.Forms.Button btnModificarPasajero;
+        private System.Windows.Forms.ListBox lbPasajeros;
+        private System.Windows.Forms.Button btnAgregarPasajero;
+        private System.Windows.Forms.Button btnQuitarPasajero;
+        private System.Windows.Forms.GroupBox gbEncomiendas;
+        private System.Windows.Forms.Button btnQuitarEnco;
+        private System.Windows.Forms.Button btnModificarEnco;
+        private System.Windows.Forms.Button btnAgregarEnco;
+        private System.Windows.Forms.ListBox lbEncomiendas;
     }
 }
 
