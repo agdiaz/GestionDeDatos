@@ -27,9 +27,9 @@ namespace FrbaBus
             }
             catch (Exception ex)
             {
-                var path = Path.Combine(Application.StartupPath, "fatal_error_" + DateTime.Now.ToString("yyyyMMddhhmmss"));
+                var path = Path.Combine(Application.StartupPath, "fatal_error_" + DateTime.Now.ToString("yyyyMMddhhmmss") + ".log");
                 
-                MessageBox.Show("El programa se cerrará.\nRevise el siguiente path para ver el problema: " + path, "Error fatal", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("El programa se cerrará.\nRevise el siguiente path para ver el problema: " + path, "Error fatal al iniciar", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 StreamWriter f = File.CreateText(path);
 
                 f.WriteLine("Error fatal al intentar iniciar la aplicación. Revise la siguiente excepción");
@@ -48,7 +48,26 @@ namespace FrbaBus
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            try
+            {
+                Application.Run(new Form1());
+            }
+            catch (Exception ex)
+            {
+                var path = Path.Combine(Application.StartupPath, "fatal_error_" + DateTime.Now.ToString("yyyyMMddhhmmss") + ".log");
+
+                MessageBox.Show("El programa se cerrará.\nRevise el siguiente path para ver el problema: " + path, "Error fatal en tiempo de ejecución", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                StreamWriter f = File.CreateText(path);
+
+                f.WriteLine("Error fatal al intentar iniciar la aplicación. Revise la siguiente excepción");
+                f.WriteLine(ex.Message);
+                f.WriteLine(ex.StackTrace);
+
+                f.Close();
+
+                return; ;
+            }
+            
         }
 
         private static void ConfigurarUsuarioInicial()
