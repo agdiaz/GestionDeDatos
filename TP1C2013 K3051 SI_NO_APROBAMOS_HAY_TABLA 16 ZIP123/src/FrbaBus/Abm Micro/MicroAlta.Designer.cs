@@ -45,15 +45,15 @@
             // cbbMicroAltaTipoServicio
             // 
             this.cbbMicroAltaTipoServicio.FormattingEnabled = true;
-            this.cbbMicroAltaTipoServicio.Location = new System.Drawing.Point(288, 108);
+            this.cbbMicroAltaTipoServicio.Location = new System.Drawing.Point(192, 61);
             this.cbbMicroAltaTipoServicio.Name = "cbbMicroAltaTipoServicio";
-            this.cbbMicroAltaTipoServicio.Size = new System.Drawing.Size(121, 21);
+            this.cbbMicroAltaTipoServicio.Size = new System.Drawing.Size(217, 21);
             this.cbbMicroAltaTipoServicio.TabIndex = 0;
             // 
             // lblMicroAltaTipoServicio
             // 
             this.lblMicroAltaTipoServicio.AutoSize = true;
-            this.lblMicroAltaTipoServicio.Location = new System.Drawing.Point(85, 116);
+            this.lblMicroAltaTipoServicio.Location = new System.Drawing.Point(12, 64);
             this.lblMicroAltaTipoServicio.Name = "lblMicroAltaTipoServicio";
             this.lblMicroAltaTipoServicio.Size = new System.Drawing.Size(82, 13);
             this.lblMicroAltaTipoServicio.TabIndex = 1;
@@ -62,7 +62,7 @@
             // lblMicroAltaCantidadButacas
             // 
             this.lblMicroAltaCantidadButacas.AutoSize = true;
-            this.lblMicroAltaCantidadButacas.Location = new System.Drawing.Point(85, 150);
+            this.lblMicroAltaCantidadButacas.Location = new System.Drawing.Point(12, 91);
             this.lblMicroAltaCantidadButacas.Name = "lblMicroAltaCantidadButacas";
             this.lblMicroAltaCantidadButacas.Size = new System.Drawing.Size(105, 13);
             this.lblMicroAltaCantidadButacas.TabIndex = 2;
@@ -71,7 +71,7 @@
             // lblMicroAltaTipoEmpresa
             // 
             this.lblMicroAltaTipoEmpresa.AutoSize = true;
-            this.lblMicroAltaTipoEmpresa.Location = new System.Drawing.Point(85, 41);
+            this.lblMicroAltaTipoEmpresa.Location = new System.Drawing.Point(12, 9);
             this.lblMicroAltaTipoEmpresa.Name = "lblMicroAltaTipoEmpresa";
             this.lblMicroAltaTipoEmpresa.Size = new System.Drawing.Size(37, 13);
             this.lblMicroAltaTipoEmpresa.TabIndex = 4;
@@ -80,16 +80,16 @@
             // cbbMicroAltaTipoEmpresa
             // 
             this.cbbMicroAltaTipoEmpresa.FormattingEnabled = true;
-            this.cbbMicroAltaTipoEmpresa.Location = new System.Drawing.Point(288, 33);
+            this.cbbMicroAltaTipoEmpresa.Location = new System.Drawing.Point(192, 6);
             this.cbbMicroAltaTipoEmpresa.Name = "cbbMicroAltaTipoEmpresa";
-            this.cbbMicroAltaTipoEmpresa.Size = new System.Drawing.Size(121, 21);
+            this.cbbMicroAltaTipoEmpresa.Size = new System.Drawing.Size(217, 21);
             this.cbbMicroAltaTipoEmpresa.TabIndex = 5;
             this.cbbMicroAltaTipoEmpresa.SelectedIndexChanged += new System.EventHandler(this.cbbMicroAltaTipoEmpresa_SelectedIndexChanged);
             // 
             // lblMicroAltaKgsEncomiendas
             // 
             this.lblMicroAltaKgsEncomiendas.AutoSize = true;
-            this.lblMicroAltaKgsEncomiendas.Location = new System.Drawing.Point(85, 188);
+            this.lblMicroAltaKgsEncomiendas.Location = new System.Drawing.Point(12, 114);
             this.lblMicroAltaKgsEncomiendas.Name = "lblMicroAltaKgsEncomiendas";
             this.lblMicroAltaKgsEncomiendas.Size = new System.Drawing.Size(170, 13);
             this.lblMicroAltaKgsEncomiendas.TabIndex = 6;
@@ -98,7 +98,7 @@
             // btnMicroAltaGuardar
             // 
             this.btnMicroAltaGuardar.Enabled = false;
-            this.btnMicroAltaGuardar.Location = new System.Drawing.Point(439, 237);
+            this.btnMicroAltaGuardar.Location = new System.Drawing.Point(338, 163);
             this.btnMicroAltaGuardar.Name = "btnMicroAltaGuardar";
             this.btnMicroAltaGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnMicroAltaGuardar.TabIndex = 8;
@@ -107,17 +107,18 @@
             // 
             // btnMicroAltaLimpiar
             // 
-            this.btnMicroAltaLimpiar.Location = new System.Drawing.Point(12, 237);
+            this.btnMicroAltaLimpiar.Location = new System.Drawing.Point(12, 163);
             this.btnMicroAltaLimpiar.Name = "btnMicroAltaLimpiar";
             this.btnMicroAltaLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnMicroAltaLimpiar.TabIndex = 9;
             this.btnMicroAltaLimpiar.Text = "Limpiar";
             this.btnMicroAltaLimpiar.UseVisualStyleBackColor = true;
+            this.btnMicroAltaLimpiar.Click += new System.EventHandler(this.btnMicroAltaLimpiar_Click);
             // 
             // lblMicroAltaModelo
             // 
             this.lblMicroAltaModelo.AutoSize = true;
-            this.lblMicroAltaModelo.Location = new System.Drawing.Point(88, 80);
+            this.lblMicroAltaModelo.Location = new System.Drawing.Point(12, 37);
             this.lblMicroAltaModelo.Name = "lblMicroAltaModelo";
             this.lblMicroAltaModelo.Size = new System.Drawing.Size(42, 13);
             this.lblMicroAltaModelo.TabIndex = 10;
@@ -126,26 +127,26 @@
             // cbbMicroAltaTipoModelo
             // 
             this.cbbMicroAltaTipoModelo.FormattingEnabled = true;
-            this.cbbMicroAltaTipoModelo.Location = new System.Drawing.Point(288, 71);
+            this.cbbMicroAltaTipoModelo.Location = new System.Drawing.Point(192, 34);
             this.cbbMicroAltaTipoModelo.Name = "cbbMicroAltaTipoModelo";
-            this.cbbMicroAltaTipoModelo.Size = new System.Drawing.Size(121, 21);
+            this.cbbMicroAltaTipoModelo.Size = new System.Drawing.Size(217, 21);
             this.cbbMicroAltaTipoModelo.TabIndex = 11;
             // 
             // mtbMicroAltaCantidadButacas
             // 
-            this.mtbMicroAltaCantidadButacas.Location = new System.Drawing.Point(288, 147);
+            this.mtbMicroAltaCantidadButacas.Location = new System.Drawing.Point(192, 88);
             this.mtbMicroAltaCantidadButacas.Mask = "99999";
             this.mtbMicroAltaCantidadButacas.Name = "mtbMicroAltaCantidadButacas";
-            this.mtbMicroAltaCantidadButacas.Size = new System.Drawing.Size(121, 20);
+            this.mtbMicroAltaCantidadButacas.Size = new System.Drawing.Size(42, 20);
             this.mtbMicroAltaCantidadButacas.TabIndex = 12;
             this.mtbMicroAltaCantidadButacas.ValidatingType = typeof(int);
             // 
             // mtbMicroAltaKgsEncomiendas
             // 
-            this.mtbMicroAltaKgsEncomiendas.Location = new System.Drawing.Point(288, 185);
+            this.mtbMicroAltaKgsEncomiendas.Location = new System.Drawing.Point(192, 114);
             this.mtbMicroAltaKgsEncomiendas.Mask = "99999";
             this.mtbMicroAltaKgsEncomiendas.Name = "mtbMicroAltaKgsEncomiendas";
-            this.mtbMicroAltaKgsEncomiendas.Size = new System.Drawing.Size(121, 20);
+            this.mtbMicroAltaKgsEncomiendas.Size = new System.Drawing.Size(42, 20);
             this.mtbMicroAltaKgsEncomiendas.TabIndex = 13;
             this.mtbMicroAltaKgsEncomiendas.ValidatingType = typeof(int);
             // 
@@ -153,7 +154,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(526, 272);
+            this.ClientSize = new System.Drawing.Size(425, 198);
             this.Controls.Add(this.mtbMicroAltaKgsEncomiendas);
             this.Controls.Add(this.mtbMicroAltaCantidadButacas);
             this.Controls.Add(this.cbbMicroAltaTipoModelo);
@@ -167,7 +168,8 @@
             this.Controls.Add(this.lblMicroAltaTipoServicio);
             this.Controls.Add(this.cbbMicroAltaTipoServicio);
             this.Name = "MicroAlta";
-            this.Text = "MicroAlta";
+            this.Text = "FrbaBus - Micros :: Alta";
+            this.Load += new System.EventHandler(this.MicroAlta_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -26,5 +26,10 @@ namespace FrbaBus.Abm_Viaje
         {
 
         }
+
+        private void ViajeListado_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

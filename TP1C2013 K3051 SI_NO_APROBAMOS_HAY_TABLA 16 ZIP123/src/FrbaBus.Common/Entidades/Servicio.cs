@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace FrbaBus.Common.Entidades
+{
+    public class Servicio
+    {
+        public int Id { get; set; }
+        public string TipoServicio { get; set; }
+        public decimal Adicional { get; set; }
+    }
+}

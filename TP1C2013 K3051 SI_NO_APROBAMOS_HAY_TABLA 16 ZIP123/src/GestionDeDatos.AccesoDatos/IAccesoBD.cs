@@ -15,6 +15,7 @@ namespace GestionDeDatos.AccesoDatos
         DataSet RealizarConsulta(string consulta, Dictionary<SqlParameter, object> parametros);
         int EjecutarComando(string comando);
         int EjecutarComando(string comando, Dictionary<SqlParameter, object> parametros);
+        DataSet RealizarConsultaAlmacenada(string comando);
         DataSet RealizarConsultaAlmacenada(string comando, Dictionary<SqlParameter, object> parametros);
     }
 }

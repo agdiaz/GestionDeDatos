@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="CiudadDAO.cs" />
     <Compile Include="ClienteDAO.cs" />
+    <Compile Include="EmpresaDAO.cs" />
     <Compile Include="EstadisticasDAO.cs" />
     <Compile Include="FuncionalidadDAO.cs" />
     <Compile Include="IEntidadDAO.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="PasajesDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RolUsuarioDAO.cs" />
+    <Compile Include="ServicioDAO.cs" />
     <Compile Include="ViajeDAO.cs" />
   </ItemGroup>
   <ItemGroup>

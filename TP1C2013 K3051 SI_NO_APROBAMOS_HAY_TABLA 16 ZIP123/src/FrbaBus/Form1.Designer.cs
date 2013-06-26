@@ -151,7 +151,7 @@
             this.tsmSesionIniciar,
             this.tsmSesionCerrar});
             this.tsmSesion.Name = "tsmSesion";
-            this.tsmSesion.Size = new System.Drawing.Size(108, 22);
+            this.tsmSesion.Size = new System.Drawing.Size(152, 22);
             this.tsmSesion.Text = "Sesión";
             // 
             // tsmSesionIniciar
@@ -171,7 +171,7 @@
             // tsmArchivoSalir
             // 
             this.tsmArchivoSalir.Name = "tsmArchivoSalir";
-            this.tsmArchivoSalir.Size = new System.Drawing.Size(108, 22);
+            this.tsmArchivoSalir.Size = new System.Drawing.Size(152, 22);
             this.tsmArchivoSalir.Text = "Salir";
             this.tsmArchivoSalir.Click += new System.EventHandler(this.tsmArchivoSalir_Click);
             // 
@@ -187,14 +187,14 @@
             // tsmRolListado
             // 
             this.tsmRolListado.Name = "tsmRolListado";
-            this.tsmRolListado.Size = new System.Drawing.Size(112, 22);
+            this.tsmRolListado.Size = new System.Drawing.Size(152, 22);
             this.tsmRolListado.Text = "Listado";
             this.tsmRolListado.Click += new System.EventHandler(this.tsmRolListado_Click);
             // 
             // tsmRolAlta
             // 
             this.tsmRolAlta.Name = "tsmRolAlta";
-            this.tsmRolAlta.Size = new System.Drawing.Size(112, 22);
+            this.tsmRolAlta.Size = new System.Drawing.Size(152, 22);
             this.tsmRolAlta.Text = "Alta";
             this.tsmRolAlta.Click += new System.EventHandler(this.tsmRolAlta_Click);
             // 
@@ -233,14 +233,14 @@
             // tsmRecorridoListado
             // 
             this.tsmRecorridoListado.Name = "tsmRecorridoListado";
-            this.tsmRecorridoListado.Size = new System.Drawing.Size(112, 22);
+            this.tsmRecorridoListado.Size = new System.Drawing.Size(152, 22);
             this.tsmRecorridoListado.Text = "Listado";
             this.tsmRecorridoListado.Click += new System.EventHandler(this.tsmRecorridoListado_Click);
             // 
             // tsmRecorridoAlta
             // 
             this.tsmRecorridoAlta.Name = "tsmRecorridoAlta";
-            this.tsmRecorridoAlta.Size = new System.Drawing.Size(112, 22);
+            this.tsmRecorridoAlta.Size = new System.Drawing.Size(152, 22);
             this.tsmRecorridoAlta.Text = "Alta";
             this.tsmRecorridoAlta.Click += new System.EventHandler(this.tsmRecorridoAlta_Click);
             // 
@@ -257,14 +257,14 @@
             // tsmMicroListado
             // 
             this.tsmMicroListado.Name = "tsmMicroListado";
-            this.tsmMicroListado.Size = new System.Drawing.Size(112, 22);
+            this.tsmMicroListado.Size = new System.Drawing.Size(152, 22);
             this.tsmMicroListado.Text = "Listado";
             this.tsmMicroListado.Click += new System.EventHandler(this.tsmMicroListado_Click);
             // 
             // tsmMicroAlta
             // 
             this.tsmMicroAlta.Name = "tsmMicroAlta";
-            this.tsmMicroAlta.Size = new System.Drawing.Size(112, 22);
+            this.tsmMicroAlta.Size = new System.Drawing.Size(152, 22);
             this.tsmMicroAlta.Text = "Alta";
             this.tsmMicroAlta.Click += new System.EventHandler(this.tsmMicroAlta_Click);
             // 
@@ -856,10 +856,10 @@
             this.Controls.Add(this.ssStatusMain);
             this.Controls.Add(this.mnsMain);
             this.MainMenuStrip = this.mnsMain;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrbaBus - Pantalla Principal";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Text = "FrbaBus - Pantalla Principal :: Compras";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.mnsMain.ResumeLayout(false);
             this.mnsMain.PerformLayout();

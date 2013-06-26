@@ -39,5 +39,15 @@ namespace FrbaBus.Manager
 
             };
         }
+
+        public IList<Servicio> ObtenerServiciosDisponibles()
+        {
+            return new ServicioDAO().Listar();
+        }
+
+        public IList<Empresa> ObtenerEmpresasDisponibles()
+        {
+            return new EmpresaDAO().Listar();
+        }
     }
 }

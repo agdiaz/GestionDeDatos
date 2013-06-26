@@ -49,11 +49,13 @@
     <Compile Include="Contexto.cs" />
     <Compile Include="Entidades\Ciudad.cs" />
     <Compile Include="Entidades\Cliente.cs" />
+    <Compile Include="Entidades\Empresa.cs" />
     <Compile Include="Entidades\Funcionalidad.cs" />
     <Compile Include="Entidades\Micro.cs" />
     <Compile Include="Entidades\RolUsuario.cs" />
     <Compile Include="Entidades\RolUsuarioAdministrativo.cs" />
     <Compile Include="Entidades\RolUsuarioBasico.cs" />
+    <Compile Include="Entidades\Servicio.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Excepciones\AccesoBDException.cs" />
     <Compile Include="Helpers\MensajePorPantalla.cs" />

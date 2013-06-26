@@ -48,5 +48,14 @@ namespace FrbaBus.Abm_Viaje
         {
             new RecorridoListado().ShowDialog(this);
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            this.dtpViajeAltaFechaLlegada.Value = DateTime.Now;
+            this.dtpViajeAltaFechaLlegadaEstimada.Value = DateTime.Now;
+            this.dtpViajeAltaFechaSalida.Value = DateTime.Now;
+            this.txtMicro.Text = string.Empty;
+            this.txtRecorrido.Text = string.Empty;
+        }
     }
 }

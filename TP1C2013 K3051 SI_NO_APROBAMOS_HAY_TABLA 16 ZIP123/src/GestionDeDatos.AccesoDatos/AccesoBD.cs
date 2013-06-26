@@ -23,7 +23,7 @@ namespace GestionDeDatos.AccesoDatos
 
         public DataSet RealizarConsulta(string consulta)
         {
-            return this.RealizarConsulta(consulta, new Dictionary<SqlParameter, object>());
+            return this.RealizarConsulta(consulta, null);
         }
         public DataSet RealizarConsulta(string consulta, Dictionary<SqlParameter, object> parametros)
         {
@@ -53,7 +53,7 @@ namespace GestionDeDatos.AccesoDatos
 
         public int EjecutarComando(string comando)
         {
-            return this.EjecutarComando(comando, new Dictionary<SqlParameter, object>());
+            return this.EjecutarComando(comando, null);
         }
         public int EjecutarComando(string comando, Dictionary<SqlParameter, object> parametros)
         {
@@ -83,6 +83,10 @@ namespace GestionDeDatos.AccesoDatos
             }
         }
 
+        public DataSet RealizarConsultaAlmacenada(string comando)
+        {
+            return RealizarConsultaAlmacenada(comando, null);
+        }
         public DataSet RealizarConsultaAlmacenada(string nombreSP, Dictionary<SqlParameter, object> parametros)
         {
             try
@@ -112,10 +116,13 @@ namespace GestionDeDatos.AccesoDatos
 
         private static void AgregarParametros(Dictionary<SqlParameter, object> parametros, SqlCommand sqlCommand)
         {
-            foreach (KeyValuePair<SqlParameter, object> item in parametros)
+            if (parametros != null)
             {
-                item.Key.Value = item.Value;
-                sqlCommand.Parameters.Add(item.Key);
+                foreach (KeyValuePair<SqlParameter, object> item in parametros)
+                {
+                    item.Key.Value = item.Value;
+                    sqlCommand.Parameters.Add(item.Key);
+                }
             }
         }
     }

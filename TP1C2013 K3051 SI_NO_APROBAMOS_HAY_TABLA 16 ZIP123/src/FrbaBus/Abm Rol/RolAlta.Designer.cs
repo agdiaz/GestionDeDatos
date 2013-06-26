@@ -112,6 +112,8 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnRolAltaLimpiar);
             this.Controls.Add(this.btnRolAltaGuardar);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "RolAlta";
             this.Text = "FrbaBus - Roles :: Alta";
             this.Load += new System.EventHandler(this.RolAlta_Load);
