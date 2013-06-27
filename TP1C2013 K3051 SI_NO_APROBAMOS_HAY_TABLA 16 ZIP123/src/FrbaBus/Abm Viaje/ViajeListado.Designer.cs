@@ -110,6 +110,7 @@
             this.btnViajeListadoBuscar.TabIndex = 3;
             this.btnViajeListadoBuscar.Text = "Buscar";
             this.btnViajeListadoBuscar.UseVisualStyleBackColor = true;
+            this.btnViajeListadoBuscar.Click += new System.EventHandler(this.btnViajeListadoBuscar_Click);
             // 
             // lblViajeListadoMicro
             // 

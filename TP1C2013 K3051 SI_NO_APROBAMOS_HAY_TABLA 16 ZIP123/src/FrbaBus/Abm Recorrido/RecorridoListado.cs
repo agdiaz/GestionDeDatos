@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using FrbaBus.Common.Entidades;
 using FrbaBus.Manager;
+using FrbaBus.Common.Excepciones;
+using FrbaBus.Common.Helpers;
 
 namespace FrbaBus.Abm_Recorrido
 {
@@ -20,7 +22,23 @@ namespace FrbaBus.Abm_Recorrido
 
         private void btnRecorridoListadoBuscar_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
+                var origenId = this.cbCiudadOrigen.SelectedIndex;
+                var destinoId = this.cbCiudadDestino.SelectedIndex;
+                var servicioId = this.cbbRecorridoListadoTipoServicio.SelectedIndex;
+
+                DataSet ds = new MicroManager().ObtenerRegistrosRecorrido(origenId, destinoId, servicioId);
+                this.dgvRecorridoListado.DataSource = ds;
+            }
+            catch (AccesoBDException ex)
+            {
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
+            }
+            catch (Exception ex)
+            {
+                MensajePorPantalla.MensajeError(this, "Error al realizar la búsqueda correspondiente.\n Detalle del error: " + ex.Message);
+            }
             
         }
 
@@ -33,8 +51,22 @@ namespace FrbaBus.Abm_Recorrido
 
         private void RecorridoListado_Load(object sender, EventArgs e)
         {
-            CargarCiudades();
-            CargarServicios();
+            try
+            {
+                CargarCiudades();
+                CargarServicios();
+                this.dgvRecorridoListado.DataSource = new MicroManager().ObtenerRegistrosRecorrido().Tables[0];
+            }
+            catch (AccesoBDException ex)
+            {
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MensajePorPantalla.MensajeError(this, "Error al intentar cargar el listado.\n Detalle del error: " + ex.Message);
+                this.Close();
+            }
         }
 
         private void CargarCiudades()

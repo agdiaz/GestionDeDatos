@@ -49,5 +49,25 @@ namespace FrbaBus.Manager
         {
             return new EmpresaDAO().Listar();
         }
+
+        public DataSet ObtenerRegistrosMicro(string kgsEncomiendas, string numeroPatente, string numeroMicro, string tipoEmpresa, string tipoModelo, string tipoServicio)
+        {
+            return new EmpresaDAO().ObtenerRegistrosMicro(kgsEncomiendas, numeroPatente, numeroMicro, tipoEmpresa, tipoModelo, tipoServicio);
+        }
+
+        public DataSet ObtenerRegistrosRecorrido()
+        {
+            return new MicroDAO().ObtenerRegistrosRecorrido();
+        }
+
+        public DataSet ObtenerRegistrosRecorrido(int origenId, int destinoId, int servicioId)
+        {
+            return new MicroDAO().ObtenerRegistrosRecorrido(origenId, destinoId, servicioId);
+        }
+
+        public DataSet ObtenerRegistrosMicro()
+        {
+            return new MicroDAO().ObtenerRegistrosMicro();
+        }
     }
 }

@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using FrbaBus.Common.Excepciones;
+using FrbaBus.Common.Helpers;
 
 namespace FrbaBus.Abm_Viaje
 {
@@ -29,6 +31,36 @@ namespace FrbaBus.Abm_Viaje
 
         private void ViajeListado_Load(object sender, EventArgs e)
         {
+            try
+            {
+
+            }
+            catch (AccesoBDException ex)
+            {
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MensajePorPantalla.MensajeError(this, "Error al intentar cargar el listado.\n Detalle del error: " + ex.Message);
+                this.Close();
+            }
+        }
+
+        private void btnViajeListadoBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (AccesoBDException ex)
+            {
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
+            }
+            catch (Exception ex)
+            {
+                MensajePorPantalla.MensajeError(this, "Error al realizar la búsqueda correspondiente.\n Detalle del error: " + ex.Message);
+            }
 
         }
     }

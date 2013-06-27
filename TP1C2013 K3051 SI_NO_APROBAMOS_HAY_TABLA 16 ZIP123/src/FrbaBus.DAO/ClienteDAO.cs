@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using FrbaBus.Common.Entidades;
 using GestionDeDatos.AccesoDatos;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace FrbaBus.DAO
 {
@@ -39,12 +41,44 @@ namespace FrbaBus.DAO
             throw new NotImplementedException();
         }
 
-        public System.Data.DataSet ObtenerRegistros()
+        public DataSet ObtenerRegistros()
         {
-            string query = "SELECT [dni],[nombre],[apellido],[direccion],[telefono],[mail],[fecha_nacimiento],[es_discapacitado],[sexo] FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Cliente]";
-            return this.accesoBD.RealizarConsulta(query);
+            return this.accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_listar_cliente");
         }
 
         #endregion
+
+        public DataSet ObtenerRegistrosFiltrados(string dni, string nombre, string apellido, string discapacitado, string sexo)
+        {
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+            
+            if (!string.IsNullOrEmpty(nombre))
+            {
+                SqlParameter pNombre = new SqlParameter("@p_nombre", SqlDbType.NVarChar, 50, "p_nombre");
+                parametros.Add(pNombre, nombre);
+            }
+            if (!string.IsNullOrEmpty(apellido))
+            {
+                SqlParameter pApellido = new SqlParameter("@p_apellido", SqlDbType.NVarChar, 50, "p_apellido");
+                parametros.Add(pApellido, apellido);
+            }
+            if (!string.IsNullOrEmpty(dni))
+            {
+                SqlParameter pDni = new SqlParameter("@p_dni", SqlDbType.Variant, 18, "p_dni");
+                parametros.Add(pDni, Convert.ToDecimal(dni));
+            }
+            if (!string.IsNullOrEmpty(discapacitado))
+            {
+                SqlParameter pDiscapacitado = new SqlParameter("@p_discapacitado", SqlDbType.Char, 1, "p_discapacitado");
+                parametros.Add(pDiscapacitado, discapacitado[0]);
+            }
+            if (!string.IsNullOrEmpty(sexo))
+            {
+                SqlParameter pSexo = new SqlParameter("@p_sexo", SqlDbType.VarChar, 50, "p_sexo");
+                parametros.Add(pSexo, sexo);
+            }
+
+            return this.accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_listar_filtrado_cliente", parametros);
+        }
     }
 }

@@ -29,22 +29,20 @@
         private void InitializeComponent()
         {
             this.dgvClienteListado = new System.Windows.Forms.DataGridView();
-            this.clienteDNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clienteNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnDarBaja = new System.Windows.Forms.Button();
             this.gbFiltros = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbDiscapacitado = new System.Windows.Forms.CheckBox();
+            this.txtApellido = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtDni = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
-            this.txtDni = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtApellido = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbHombre = new System.Windows.Forms.RadioButton();
-            this.rbMujer = new System.Windows.Forms.RadioButton();
+            this.cbMasculino = new System.Windows.Forms.CheckBox();
+            this.cbFemenino = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClienteListado)).BeginInit();
             this.gbFiltros.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -56,9 +54,6 @@
             this.dgvClienteListado.AllowUserToOrderColumns = true;
             this.dgvClienteListado.AllowUserToResizeRows = false;
             this.dgvClienteListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClienteListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clienteDNI,
-            this.clienteNombre});
             this.dgvClienteListado.Location = new System.Drawing.Point(12, 142);
             this.dgvClienteListado.MultiSelect = false;
             this.dgvClienteListado.Name = "dgvClienteListado";
@@ -66,16 +61,6 @@
             this.dgvClienteListado.ShowEditingIcon = false;
             this.dgvClienteListado.Size = new System.Drawing.Size(957, 257);
             this.dgvClienteListado.TabIndex = 0;
-            // 
-            // clienteDNI
-            // 
-            this.clienteDNI.HeaderText = "D.N.I.";
-            this.clienteDNI.Name = "clienteDNI";
-            // 
-            // clienteNombre
-            // 
-            this.clienteNombre.HeaderText = "Nombre";
-            this.clienteNombre.Name = "clienteNombre";
             // 
             // btnDarBaja
             // 
@@ -89,7 +74,7 @@
             // gbFiltros
             // 
             this.gbFiltros.Controls.Add(this.groupBox1);
-            this.gbFiltros.Controls.Add(this.checkBox1);
+            this.gbFiltros.Controls.Add(this.cbDiscapacitado);
             this.gbFiltros.Controls.Add(this.txtApellido);
             this.gbFiltros.Controls.Add(this.txtNombre);
             this.gbFiltros.Controls.Add(this.txtDni);
@@ -104,6 +89,49 @@
             this.gbFiltros.TabIndex = 2;
             this.gbFiltros.TabStop = false;
             this.gbFiltros.Text = "Filtros de búsqueda";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.cbFemenino);
+            this.groupBox1.Controls.Add(this.cbMasculino);
+            this.groupBox1.Location = new System.Drawing.Point(341, 19);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(110, 72);
+            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Sexo";
+            // 
+            // cbDiscapacitado
+            // 
+            this.cbDiscapacitado.AutoSize = true;
+            this.cbDiscapacitado.Location = new System.Drawing.Point(10, 100);
+            this.cbDiscapacitado.Name = "cbDiscapacitado";
+            this.cbDiscapacitado.Size = new System.Drawing.Size(118, 17);
+            this.cbDiscapacitado.TabIndex = 8;
+            this.cbDiscapacitado.Text = "Es discapacitado/a";
+            this.cbDiscapacitado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbDiscapacitado.UseVisualStyleBackColor = true;
+            // 
+            // txtApellido
+            // 
+            this.txtApellido.Location = new System.Drawing.Point(63, 71);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(251, 20);
+            this.txtApellido.TabIndex = 7;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(63, 45);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(251, 20);
+            this.txtNombre.TabIndex = 6;
+            // 
+            // txtDni
+            // 
+            this.txtDni.Location = new System.Drawing.Point(63, 19);
+            this.txtDni.Name = "txtDni";
+            this.txtDni.Size = new System.Drawing.Size(109, 20);
+            this.txtDni.TabIndex = 5;
             // 
             // label3
             // 
@@ -140,6 +168,7 @@
             this.btnBuscar.TabIndex = 1;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnLimpiar
             // 
@@ -149,71 +178,27 @@
             this.btnLimpiar.TabIndex = 0;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
-            // txtDni
+            // cbMasculino
             // 
-            this.txtDni.Location = new System.Drawing.Point(63, 19);
-            this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(109, 20);
-            this.txtDni.TabIndex = 5;
+            this.cbMasculino.AutoSize = true;
+            this.cbMasculino.Location = new System.Drawing.Point(6, 22);
+            this.cbMasculino.Name = "cbMasculino";
+            this.cbMasculino.Size = new System.Drawing.Size(74, 17);
+            this.cbMasculino.TabIndex = 0;
+            this.cbMasculino.Text = "Masculino";
+            this.cbMasculino.UseVisualStyleBackColor = true;
             // 
-            // txtNombre
+            // cbFemenino
             // 
-            this.txtNombre.Location = new System.Drawing.Point(63, 45);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(251, 20);
-            this.txtNombre.TabIndex = 6;
-            // 
-            // txtApellido
-            // 
-            this.txtApellido.Location = new System.Drawing.Point(63, 71);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(251, 20);
-            this.txtApellido.TabIndex = 7;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(10, 100);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(118, 17);
-            this.checkBox1.TabIndex = 8;
-            this.checkBox1.Text = "Es discapacitado/a";
-            this.checkBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.rbMujer);
-            this.groupBox1.Controls.Add(this.rbHombre);
-            this.groupBox1.Location = new System.Drawing.Point(341, 19);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(110, 72);
-            this.groupBox1.TabIndex = 9;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Sexo";
-            // 
-            // rbHombre
-            // 
-            this.rbHombre.AutoSize = true;
-            this.rbHombre.Location = new System.Drawing.Point(7, 25);
-            this.rbHombre.Name = "rbHombre";
-            this.rbHombre.Size = new System.Drawing.Size(62, 17);
-            this.rbHombre.TabIndex = 0;
-            this.rbHombre.TabStop = true;
-            this.rbHombre.Text = "Hombre";
-            this.rbHombre.UseVisualStyleBackColor = true;
-            // 
-            // rbMujer
-            // 
-            this.rbMujer.AutoSize = true;
-            this.rbMujer.Location = new System.Drawing.Point(7, 49);
-            this.rbMujer.Name = "rbMujer";
-            this.rbMujer.Size = new System.Drawing.Size(51, 17);
-            this.rbMujer.TabIndex = 1;
-            this.rbMujer.TabStop = true;
-            this.rbMujer.Text = "Mujer";
-            this.rbMujer.UseVisualStyleBackColor = true;
+            this.cbFemenino.AutoSize = true;
+            this.cbFemenino.Location = new System.Drawing.Point(6, 45);
+            this.cbFemenino.Name = "cbFemenino";
+            this.cbFemenino.Size = new System.Drawing.Size(72, 17);
+            this.cbFemenino.TabIndex = 1;
+            this.cbFemenino.Text = "Femenino";
+            this.cbFemenino.UseVisualStyleBackColor = true;
             // 
             // ClienteListado
             // 
@@ -249,14 +234,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvClienteListado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clienteDNI;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clienteNombre;
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton rbMujer;
-        private System.Windows.Forms.RadioButton rbHombre;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox cbDiscapacitado;
+        private System.Windows.Forms.CheckBox cbFemenino;
+        private System.Windows.Forms.CheckBox cbMasculino;
     }
 }

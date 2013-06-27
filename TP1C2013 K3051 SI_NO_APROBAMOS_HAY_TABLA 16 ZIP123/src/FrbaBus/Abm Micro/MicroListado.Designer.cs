@@ -30,7 +30,7 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tbMicroListadoKgsEncomiendas = new System.Windows.Forms.TextBox();
-            this.tbMicroListadoNumeroPatente = new System.Windows.Forms.TextBox();
+            this.tbMicroListadoNumeroMicro = new System.Windows.Forms.TextBox();
             this.tbMicroListadoPatente = new System.Windows.Forms.TextBox();
             this.btnMicroListadoLimpiar = new System.Windows.Forms.Button();
             this.btnMicroListadoBuscar = new System.Windows.Forms.Button();
@@ -53,7 +53,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tbMicroListadoKgsEncomiendas);
-            this.groupBox1.Controls.Add(this.tbMicroListadoNumeroPatente);
+            this.groupBox1.Controls.Add(this.tbMicroListadoNumeroMicro);
             this.groupBox1.Controls.Add(this.tbMicroListadoPatente);
             this.groupBox1.Controls.Add(this.btnMicroListadoLimpiar);
             this.groupBox1.Controls.Add(this.btnMicroListadoBuscar);
@@ -81,12 +81,12 @@
             this.tbMicroListadoKgsEncomiendas.Size = new System.Drawing.Size(100, 20);
             this.tbMicroListadoKgsEncomiendas.TabIndex = 11;
             // 
-            // tbMicroListadoNumeroPatente
+            // tbMicroListadoNumeroMicro
             // 
-            this.tbMicroListadoNumeroPatente.Location = new System.Drawing.Point(376, 44);
-            this.tbMicroListadoNumeroPatente.Name = "tbMicroListadoNumeroPatente";
-            this.tbMicroListadoNumeroPatente.Size = new System.Drawing.Size(100, 20);
-            this.tbMicroListadoNumeroPatente.TabIndex = 10;
+            this.tbMicroListadoNumeroMicro.Location = new System.Drawing.Point(376, 44);
+            this.tbMicroListadoNumeroMicro.Name = "tbMicroListadoNumeroMicro";
+            this.tbMicroListadoNumeroMicro.Size = new System.Drawing.Size(100, 20);
+            this.tbMicroListadoNumeroMicro.TabIndex = 10;
             // 
             // tbMicroListadoPatente
             // 
@@ -115,6 +115,7 @@
             this.btnMicroListadoBuscar.TabIndex = 2;
             this.btnMicroListadoBuscar.Text = "Buscar";
             this.btnMicroListadoBuscar.UseVisualStyleBackColor = true;
+            this.btnMicroListadoBuscar.Click += new System.EventHandler(this.btnMicroListadoBuscar_Click);
             // 
             // lblMicroListadoKgsEncomiendas
             // 
@@ -260,7 +261,7 @@
         private System.Windows.Forms.ComboBox cbbMicroListadoTipoEmpresa;
         private System.Windows.Forms.Label lblMicroListadoTipoEmpresa;
         private System.Windows.Forms.TextBox tbMicroListadoKgsEncomiendas;
-        private System.Windows.Forms.TextBox tbMicroListadoNumeroPatente;
+        private System.Windows.Forms.TextBox tbMicroListadoNumeroMicro;
         private System.Windows.Forms.TextBox tbMicroListadoPatente;
         private System.Windows.Forms.Label lblMicroListadoKgsEncomiendas;
         private System.Windows.Forms.Label lblMicroListadoNumeroMicro;

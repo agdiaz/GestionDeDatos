@@ -32,5 +32,11 @@ namespace FrbaBus.Manager
         {
             return new ClienteDAO().ObtenerRegistros();
         }
+
+        public DataSet ObtenerRegistrosCliente(string dni, string nombre, string apellido, string discapacitado, string sexo)
+        {
+            return new ClienteDAO().ObtenerRegistrosFiltrados(dni, nombre, apellido, discapacitado, sexo);
+        }
+
     }
 }
