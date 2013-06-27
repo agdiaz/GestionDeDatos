@@ -14,7 +14,7 @@ BEGIN
       ,[es_discapacitado]
       ,[sexo]
 	FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Cliente]
-	where ((@p_dni IS NULL) OR (@p_dni = dni))
-	and ((@p_nombre IS NULL) OR (@p_nombre = nombre))
-	and ((@p_apellido IS NULL) OR (@p_apellido = apellido))
+	where ((@p_dni IS NULL) OR (dni like '%' + @p_dni + '%'))
+	and ((@p_nombre IS NULL) OR (nombre like '%' + @p_nombre +'%'))
+	and ((@p_apellido IS NULL) OR (apellido like '%' + @p_apellido + '%'))
 END

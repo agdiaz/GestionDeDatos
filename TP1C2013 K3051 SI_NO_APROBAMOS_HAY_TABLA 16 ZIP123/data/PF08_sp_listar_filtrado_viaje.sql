@@ -15,10 +15,10 @@ BEGIN
       ,v.[fecha_arribo]
       ,v.[baja]
 	 FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Viaje] v
-	where ((@p_fecha_salida IS NULL) OR (@p_fecha_salida = v.fecha_salida))
-	and ((@p_fecha_llegada IS NULL) OR (@p_fecha_llegada = v.fecha_arribo))
-	and ((@fecha_llegada_estimada IS NULL) OR (@fecha_llegada_estimada = v.fecha_arribo_estimada))
-	and ((@p_micro IS NULL) OR (@p_micro = v.id_micro))
-	and ((@p_recorrido IS NULL) OR (@p_recorrido = v.id_recorrido))
+	where ((@p_fecha_salida IS NULL) OR (v.fecha_salida like '%' + @p_fecha_salida + '%'))
+	and ((@p_fecha_llegada IS NULL) OR  (v.fecha_arribo like '%' + @p_fecha_llegada + '%' ))
+	and ((@fecha_llegada_estimada IS NULL) OR (v.fecha_arribo_estimada like '%' + @fecha_llegada_estimada + '%' ))
+	and ((@p_micro IS NULL) OR (v.id_micro like '%' + @p_micro + '%' ))
+	and ((@p_recorrido IS NULL) OR (v.id_recorrido like '%' + @p_recorrido + '%' ))
 END
 

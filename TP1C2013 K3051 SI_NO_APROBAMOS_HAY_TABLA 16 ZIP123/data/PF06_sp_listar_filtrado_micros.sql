@@ -26,9 +26,9 @@ BEGIN
 		on s.id_servicio = m.id_servicio and @p_tipo_servicio = s.tipo_servicio
 	left join SI_NO_APROBAMOS_HAY_TABLA.Marca ma
 		on ma.id_marca = m.id_marca and @p_marca = ma.nombre
-	where ((@p_modelo IS NULL) OR (@p_modelo = m.modelo))
-	and ((@p_patente IS NULL) OR (@p_patente = m.patente))
-	and ((@p_nro_micro IS NULL) OR (@p_nro_micro = m.nro_micro))
-	and ((@p_kgs_encomienda IS NULL) OR (@p_kgs_encomienda = m.capacidad_kg))
+	where ((@p_modelo IS NULL) OR (m.modelo like '%' + @p_modelo + '%' ))
+	and ((@p_patente IS NULL) OR (m.patente like '%' + @p_patente + '%' ))
+	and ((@p_nro_micro IS NULL) OR (m.nro_micro like '%' + @p_nro_micro + '%'))
+	and ((@p_kgs_encomienda IS NULL) OR (m.capacidad_kg like '%' + @p_kgs_encomienda + '%' ))
 
 END

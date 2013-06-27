@@ -19,7 +19,7 @@ BEGIN
 		on r.id_ciudad_destino = cDestino.id_ciudad and cDestino.nombre = @p_ciudad_destino	
 	left join SI_NO_APROBAMOS_HAY_TABLA.Servicio s
 		on r.id_servicio = s.id_servicio 
-	where ((@p_ciudad_origen IS NULL) OR (cOrigen.nombre = @p_ciudad_origen))
-	and ((@p_ciudad_destino IS NULL) OR (cDestino.nombre = @p_ciudad_destino))
-	and ((@p_tipo_servicio IS NULL) OR (@p_tipo_servicio = s.tipo_servicio))
+	where ((@p_ciudad_origen IS NULL) OR (cOrigen.nombre like '%' + @p_ciudad_origen + '%'))
+	and ((@p_ciudad_destino IS NULL) OR (cDestino.nombre like '%' + @p_ciudad_destino + '%'))
+	and ((@p_tipo_servicio IS NULL) OR (@p_tipo_servicio like '%' + s.tipo_servicio + '%'))
 END
