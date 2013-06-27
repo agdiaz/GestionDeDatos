@@ -20,7 +20,9 @@ namespace FrbaBus.Abm_Ciudad
 
         private void btnCiudadListadoBuscar_Click(object sender, EventArgs e)
         {
-            
+            string ciudadElegida = this.tbCiudadListadoCiudad.Text ;;
+            DataSet dsCiudades = new CiudadManager().ObtenerRegistrosCiudades(ciudadElegida);
+            this.dgvCiudadListado.DataSource = dsCiudades.Tables[0];
         }
 
         private void CiudadListado_Load(object sender, EventArgs e)

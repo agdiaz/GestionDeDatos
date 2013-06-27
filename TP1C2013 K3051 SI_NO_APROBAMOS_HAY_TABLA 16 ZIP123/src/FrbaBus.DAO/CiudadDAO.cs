@@ -82,5 +82,15 @@ namespace FrbaBus.DAO
         }
 
         #endregion
+
+        public DataSet ObtenerRegistrosFiltrados(string ciudadElegida)
+        {
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+
+            SqlParameter pNombre = new SqlParameter("@p_ciudad", SqlDbType.VarChar, 50, "p_ciudad");
+            parametros.Add(pNombre, ciudadElegida);
+
+            return this.accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_listar_filtrado_ciudad", parametros);
+        }
     }
 }

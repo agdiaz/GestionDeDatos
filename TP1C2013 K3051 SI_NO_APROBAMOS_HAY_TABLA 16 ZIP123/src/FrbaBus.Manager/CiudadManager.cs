@@ -42,5 +42,11 @@ namespace FrbaBus.Manager
             CiudadDAO ciudadDAO = new CiudadDAO();
             return ciudadDAO.ObtenerRegistros();
         }
+
+        public DataSet ObtenerRegistrosCiudades(string ciudadElegida)
+        {
+            CiudadDAO ciudadDAO = new CiudadDAO();
+            return ciudadDAO.ObtenerRegistrosFiltrados(ciudadElegida);
+        }
     }
 }
