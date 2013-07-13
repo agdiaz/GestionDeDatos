@@ -28,13 +28,13 @@ namespace FrbaBus.Manager
             ciudadDAO.Modificacion(c);
         }
 
-        public IList<Ciudad> ObtenerListado()
+        public IList<Ciudad> Listar()
         {
             CiudadDAO ciudadDAO = new CiudadDAO();
             return ciudadDAO.Listar();
         }
 
-        public DataSet Listar()
+        public DataSet ObtenerRegistros()
         {
             CiudadDAO ciudadDAO = new CiudadDAO();
             return ciudadDAO.ObtenerRegistros();

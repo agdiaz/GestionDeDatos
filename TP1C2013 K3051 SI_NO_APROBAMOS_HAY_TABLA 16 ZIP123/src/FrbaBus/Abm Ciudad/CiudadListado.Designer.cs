@@ -35,6 +35,7 @@
             this.btnCiudadListadoLimpiar = new System.Windows.Forms.Button();
             this.dgvCiudadListado = new System.Windows.Forms.DataGridView();
             this.btnCiudadListadoDarBaja = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             this.gbCiudadListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCiudadListado)).BeginInit();
             this.SuspendLayout();
@@ -90,27 +91,42 @@
             // 
             // dgvCiudadListado
             // 
+            this.dgvCiudadListado.AllowUserToAddRows = false;
+            this.dgvCiudadListado.AllowUserToDeleteRows = false;
             this.dgvCiudadListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCiudadListado.Location = new System.Drawing.Point(12, 101);
             this.dgvCiudadListado.Name = "dgvCiudadListado";
+            this.dgvCiudadListado.ReadOnly = true;
+            this.dgvCiudadListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCiudadListado.Size = new System.Drawing.Size(472, 290);
             this.dgvCiudadListado.TabIndex = 1;
             // 
             // btnCiudadListadoDarBaja
             // 
-            this.btnCiudadListadoDarBaja.Enabled = false;
-            this.btnCiudadListadoDarBaja.Location = new System.Drawing.Point(12, 397);
+            this.btnCiudadListadoDarBaja.Location = new System.Drawing.Point(94, 397);
             this.btnCiudadListadoDarBaja.Name = "btnCiudadListadoDarBaja";
             this.btnCiudadListadoDarBaja.Size = new System.Drawing.Size(75, 23);
             this.btnCiudadListadoDarBaja.TabIndex = 4;
             this.btnCiudadListadoDarBaja.Text = "Dar de baja";
             this.btnCiudadListadoDarBaja.UseVisualStyleBackColor = true;
+            this.btnCiudadListadoDarBaja.Click += new System.EventHandler(this.btnCiudadListadoDarBaja_Click);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Location = new System.Drawing.Point(12, 397);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(75, 23);
+            this.btnModificar.TabIndex = 5;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // CiudadListado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(499, 432);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnCiudadListadoDarBaja);
             this.Controls.Add(this.dgvCiudadListado);
             this.Controls.Add(this.gbCiudadListado);
@@ -137,5 +153,6 @@
         private System.Windows.Forms.Button btnCiudadListadoLimpiar;
         private System.Windows.Forms.Button btnCiudadListadoBuscar;
         private System.Windows.Forms.Button btnCiudadListadoDarBaja;
+        private System.Windows.Forms.Button btnModificar;
     }
 }

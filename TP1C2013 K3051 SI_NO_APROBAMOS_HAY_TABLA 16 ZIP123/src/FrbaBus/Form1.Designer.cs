@@ -72,6 +72,10 @@
             this.tssUserRol = new System.Windows.Forms.ToolStripStatusLabel();
             this.tssRolValor = new System.Windows.Forms.ToolStripStatusLabel();
             this.tssSesion = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tssFecha = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tssHora = new System.Windows.Forms.ToolStripStatusLabel();
             this.gbViaje = new System.Windows.Forms.GroupBox();
             this.btnBuscarMicros = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -107,10 +111,8 @@
             this.cbEncomiendas = new System.Windows.Forms.CheckBox();
             this.cbPasajes = new System.Windows.Forms.CheckBox();
             this.gbMedioDePago = new System.Windows.Forms.GroupBox();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tssFecha = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tssHora = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsmAyuda = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAyudaUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsMain.SuspendLayout();
             this.ssStatusMain.SuspendLayout();
             this.gbViaje.SuspendLayout();
@@ -132,7 +134,8 @@
             this.tsmCliente,
             this.tsmEncomienda,
             this.tsmEstadisticas,
-            this.tsmPremios});
+            this.tsmPremios,
+            this.tsmAyuda});
             this.mnsMain.Location = new System.Drawing.Point(0, 0);
             this.mnsMain.Name = "mnsMain";
             this.mnsMain.Size = new System.Drawing.Size(1030, 24);
@@ -416,13 +419,13 @@
             // tsmPremiosListado
             // 
             this.tsmPremiosListado.Name = "tsmPremiosListado";
-            this.tsmPremiosListado.Size = new System.Drawing.Size(112, 22);
+            this.tsmPremiosListado.Size = new System.Drawing.Size(152, 22);
             this.tsmPremiosListado.Text = "Listado";
             // 
             // tsmPremiosAlta
             // 
             this.tsmPremiosAlta.Name = "tsmPremiosAlta";
-            this.tsmPremiosAlta.Size = new System.Drawing.Size(112, 22);
+            this.tsmPremiosAlta.Size = new System.Drawing.Size(152, 22);
             this.tsmPremiosAlta.Text = "Alta";
             // 
             // ssStatusMain
@@ -472,6 +475,30 @@
             this.tssSesion.Name = "tssSesion";
             this.tssSesion.Size = new System.Drawing.Size(118, 17);
             this.tssSesion.Text = "(Sesion no iniciada)";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(41, 17);
+            this.toolStripStatusLabel1.Text = "Fecha:";
+            // 
+            // tssFecha
+            // 
+            this.tssFecha.Name = "tssFecha";
+            this.tssFecha.Size = new System.Drawing.Size(54, 17);
+            this.tssFecha.Text = "<Fecha>";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(36, 17);
+            this.toolStripStatusLabel2.Text = "Hora:";
+            // 
+            // tssHora
+            // 
+            this.tssHora.Name = "tssHora";
+            this.tssHora.Size = new System.Drawing.Size(49, 17);
+            this.tssHora.Text = "<Hora>";
             // 
             // gbViaje
             // 
@@ -851,29 +878,20 @@
             this.gbMedioDePago.TabStop = false;
             this.gbMedioDePago.Text = "Medio de pago";
             // 
-            // toolStripStatusLabel1
+            // tsmAyuda
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(41, 17);
-            this.toolStripStatusLabel1.Text = "Fecha:";
+            this.tsmAyuda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmAyudaUsuarios});
+            this.tsmAyuda.Name = "tsmAyuda";
+            this.tsmAyuda.Size = new System.Drawing.Size(53, 20);
+            this.tsmAyuda.Text = "Ayuda";
             // 
-            // tssFecha
+            // tsmAyudaUsuarios
             // 
-            this.tssFecha.Name = "tssFecha";
-            this.tssFecha.Size = new System.Drawing.Size(54, 17);
-            this.tssFecha.Text = "<Fecha>";
-            // 
-            // toolStripStatusLabel2
-            // 
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(36, 17);
-            this.toolStripStatusLabel2.Text = "Hora:";
-            // 
-            // tssHora
-            // 
-            this.tssHora.Name = "tssHora";
-            this.tssHora.Size = new System.Drawing.Size(49, 17);
-            this.tssHora.Text = "<Hora>";
+            this.tsmAyudaUsuarios.Name = "tsmAyudaUsuarios";
+            this.tsmAyudaUsuarios.Size = new System.Drawing.Size(152, 22);
+            this.tsmAyudaUsuarios.Text = "Usuarios";
+            this.tsmAyudaUsuarios.Click += new System.EventHandler(this.tsmAyudaUsuarios_Click);
             // 
             // Form1
             // 
@@ -996,6 +1014,8 @@
         private System.Windows.Forms.ToolStripStatusLabel tssFecha;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripStatusLabel tssHora;
+        private System.Windows.Forms.ToolStripMenuItem tsmAyuda;
+        private System.Windows.Forms.ToolStripMenuItem tsmAyudaUsuarios;
     }
 }
 

@@ -38,14 +38,25 @@ namespace FrbaBus.DAO
 
         public void Baja(Ciudad entidad)
         {
-            string consulta = "DELETE FROM [SI_NO_APROBAMOS_HAY_TABLA].[Ciudad] WHERE '" + entidad.Descripcion + "'=descripcion";
-            this.accesoBD.EjecutarComando(consulta);
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+
+            SqlParameter pId = new SqlParameter("@p_id", SqlDbType.Int, 4, "p_id");
+            parametros.Add(pId, entidad.Id);
+
+            this.accesoBD.EjecutarComando("[SI_NO_APROBAMOS_HAY_TABLA].sp_borrar_ciudad", parametros);
         }
 
         public void Modificacion(Ciudad entidad)
         {
-            string consulta = "UPDATE [PRUEBAS].[dbo].[Ciudad] SET descripcion='" + entidad.Descripcion + "' WHERE descripcion="; // Falta ver de donde traigo la descripcion que quiero modificar
-            this.accesoBD.EjecutarComando(consulta);
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+
+            SqlParameter pNombre = new SqlParameter("@nombre", SqlDbType.VarChar, 50, "nombre");
+            parametros.Add(pNombre, entidad.Descripcion);
+
+            SqlParameter pId = new SqlParameter("@p_id", SqlDbType.Int, 4, "p_id");
+            parametros.Add(pId, entidad.Id);
+
+            this.accesoBD.EjecutarComando("[SI_NO_APROBAMOS_HAY_TABLA].sp_modificar_ciudad", parametros);
         }
 
         public IList<Ciudad> Listar()

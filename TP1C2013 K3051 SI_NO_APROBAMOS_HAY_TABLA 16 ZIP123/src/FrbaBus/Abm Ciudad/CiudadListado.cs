@@ -21,6 +21,29 @@ namespace FrbaBus.Abm_Ciudad
 
         }
 
+        private void CargarCiudades()
+        {
+            try
+            {
+                CiudadManager cm = new CiudadManager();
+                IList<Ciudad> ciudades = cm.Listar();
+                this.dgvCiudadListado.DataSource = ciudades;
+            }
+            catch (AccesoBDException ex)
+            {
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MensajePorPantalla.MensajeError(this, "Error al intentar cargar el listado.\n Detalle del error: " + ex.Message);
+                this.Close();
+            }
+        }
+        private void CiudadListado_Load(object sender, EventArgs e)
+        {
+            CargarCiudades();
+        }
         private void btnCiudadListadoBuscar_Click(object sender, EventArgs e)
         {
             try
@@ -38,14 +61,20 @@ namespace FrbaBus.Abm_Ciudad
                 MensajePorPantalla.MensajeError(this, "Error al realizar la búsqueda correspondiente.\n Detalle del error: " + ex.Message);
             }
         }
-
-        private void CiudadListado_Load(object sender, EventArgs e)
+        private void btnCiudadListadoLimpiar_Click(object sender, EventArgs e)
+        {
+            tbCiudadListadoCiudad.Text = "";
+        }
+        private void btnModificar_Click(object sender, EventArgs e)
         {
             try
             {
-                CiudadManager cm = new CiudadManager();
-                DataSet ciudades = cm.Listar();
-                this.dgvCiudadListado.DataSource = ciudades.Tables[0];
+                Ciudad ciudad = dgvCiudadListado.SelectedRows[0].DataBoundItem as Ciudad;
+
+                using (CiudadModificar frm = new CiudadModificar(ciudad))
+                {
+                    frm.ShowDialog(this);
+                }
             }
             catch (AccesoBDException ex)
             {
@@ -54,14 +83,32 @@ namespace FrbaBus.Abm_Ciudad
             }
             catch (Exception ex)
             {
-                MensajePorPantalla.MensajeError(this, "Error al intentar cargar el listado.\n Detalle del error: " + ex.Message);
+                MensajePorPantalla.MensajeError(this, "Error al intentar modificar el registro.\n Detalle del error: " + ex.Message);
                 this.Close();
             }
-        }
 
-        private void btnCiudadListadoLimpiar_Click(object sender, EventArgs e)
+            CargarCiudades();
+        }
+        private void btnCiudadListadoDarBaja_Click(object sender, EventArgs e)
         {
-            tbCiudadListadoCiudad.Text = "";
+            try
+            {
+                Ciudad ciudad = dgvCiudadListado.SelectedRows[0].DataBoundItem as Ciudad;
+                new CiudadManager().Baja(ciudad);
+            }
+            catch (AccesoBDException ex)
+            {
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MensajePorPantalla.MensajeError(this, "Error al intentar cargar borrar el registro.\n Detalle del error: " + ex.Message);
+                this.Close();
+            }
+
+            CargarCiudades();
+
         }
     }
 }
