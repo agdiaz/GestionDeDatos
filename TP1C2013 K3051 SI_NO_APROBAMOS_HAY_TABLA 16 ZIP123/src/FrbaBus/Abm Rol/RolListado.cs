@@ -28,7 +28,6 @@ namespace FrbaBus.Rol
             try
             {
                 //Cargo la grilla de roles
-                //DataSet dsRoles = _manager.ObtenerRegistrosRolUsuario();
                 this.dgvRolListado.DataSource = _manager.ListarRolUsuario();
 
                 //Cargo las funcionalidades
@@ -70,19 +69,44 @@ namespace FrbaBus.Rol
 
         private void button1_Click(object sender, EventArgs e)
         {
-            RolUsuario rol = (RolUsuario)dgvRolListado.SelectedRows[0].DataBoundItem;
-            using (RolModificar frm = new RolModificar(rol))
+            try
             {
-                frm.ShowDialog(this);
+                RolUsuario rol = (RolUsuario)dgvRolListado.SelectedRows[0].DataBoundItem;
+                using (RolModificar frm = new RolModificar(rol))
+                {
+                    frm.ShowDialog(this);
+                }
+            }
+            catch (AccesoBDException ex)
+            {
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MensajePorPantalla.MensajeError(this, "Error al intentar modificar el registro.\n Detalle del error: " + ex.Message);
+                this.Close();
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            RolUsuario rol = (RolUsuario)dgvRolListado.SelectedRows[0].DataBoundItem;
-            _manager.BajaRolUsuario(rol);
+            try
+            {
+                RolUsuario rol = (RolUsuario)dgvRolListado.SelectedRows[0].DataBoundItem;
+                _manager.BajaRolUsuario(rol);
+            }
+            catch (AccesoBDException ex)
+            {
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MensajePorPantalla.MensajeError(this, "Error al intentar borrar el registro.\n Detalle del error: " + ex.Message);
+                this.Close();
+            }
         }
-
 
     }
 }

@@ -284,6 +284,21 @@
     <EmbeddedResource Include="Ayuda\AyudaUsuarios.resx">
       <DependentUpon>AyudaUsuarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticas\EstadisticasClientesConMasPuntos.resx">
+      <DependentUpon>EstadisticasClientesConMasPuntos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticas\EstadisticasDestinosConMasMicrosVacios.resx">
+      <DependentUpon>EstadisticasDestinosConMasMicrosVacios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticas\EstadisticasDestinosMasCancelados.resx">
+      <DependentUpon>EstadisticasDestinosMasCancelados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticas\EstadisticasDestinosMasVendidos.resx">
+      <DependentUpon>EstadisticasDestinosMasVendidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticas\EstadisticasMicrosConMasDiasFueraDeServicio.resx">
+      <DependentUpon>EstadisticasMicrosConMasDiasFueraDeServicio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

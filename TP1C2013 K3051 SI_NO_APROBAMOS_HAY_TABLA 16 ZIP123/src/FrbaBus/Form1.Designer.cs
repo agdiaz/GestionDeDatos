@@ -113,6 +113,7 @@
             this.gbMedioDePago = new System.Windows.Forms.GroupBox();
             this.tsmAyuda = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAyudaUsuarios = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnsMain.SuspendLayout();
             this.ssStatusMain.SuspendLayout();
             this.gbViaje.SuspendLayout();
@@ -146,6 +147,7 @@
             // 
             this.tsmArchivo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmSesion,
+            this.toolStripSeparator1,
             this.tsmArchivoSalir});
             this.tsmArchivo.Name = "tsmArchivo";
             this.tsmArchivo.Size = new System.Drawing.Size(60, 20);
@@ -893,6 +895,11 @@
             this.tsmAyudaUsuarios.Text = "Usuarios";
             this.tsmAyudaUsuarios.Click += new System.EventHandler(this.tsmAyudaUsuarios_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1016,6 +1023,7 @@
         private System.Windows.Forms.ToolStripStatusLabel tssHora;
         private System.Windows.Forms.ToolStripMenuItem tsmAyuda;
         private System.Windows.Forms.ToolStripMenuItem tsmAyudaUsuarios;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 
