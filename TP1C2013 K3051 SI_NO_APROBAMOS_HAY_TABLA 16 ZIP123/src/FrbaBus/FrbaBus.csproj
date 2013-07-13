@@ -47,6 +47,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -213,6 +214,7 @@
     <Compile Include="GenerarViaje\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\FechaHelper.cs" />
     <Compile Include="Helpers\MensajeDeError.cs" />
     <Compile Include="Login\Login.cs">
       <SubType>Form</SubType>

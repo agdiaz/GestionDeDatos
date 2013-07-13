@@ -295,6 +295,9 @@ namespace FrbaBus
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            var now = Helpers.FechaHelper.Ahora();
+            this.tssFecha.Text = now.ToString("dd/MM/yyyy");
+            this.tssHora.Text = now.ToString("HH:mm:ss");
             gbPasajeros.Enabled = (cbPasajes.Checked);
             gbEncomiendas.Enabled = (cbPasajes.Checked);
 
