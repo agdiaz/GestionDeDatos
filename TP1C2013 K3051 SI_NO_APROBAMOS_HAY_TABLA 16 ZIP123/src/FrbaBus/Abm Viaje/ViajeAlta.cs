@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using FrbaBus.Abm_Micro;
 using FrbaBus.Abm_Recorrido;
+using FrbaBus.Helpers;
 
 namespace FrbaBus.Abm_Viaje
 {
@@ -51,9 +52,9 @@ namespace FrbaBus.Abm_Viaje
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            this.dtpViajeAltaFechaLlegada.Value = DateTime.Now;
-            this.dtpViajeAltaFechaLlegadaEstimada.Value = DateTime.Now;
-            this.dtpViajeAltaFechaSalida.Value = DateTime.Now;
+            this.dtpViajeAltaFechaLlegada.Value = FechaHelper.Ahora();
+            this.dtpViajeAltaFechaLlegadaEstimada.Value = FechaHelper.Ahora();
+            this.dtpViajeAltaFechaSalida.Value = FechaHelper.Ahora();
             this.txtMicro.Text = string.Empty;
             this.txtRecorrido.Text = string.Empty;
         }
