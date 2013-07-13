@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gbRolListado = new System.Windows.Forms.GroupBox();
+            this.btnFiltrar = new System.Windows.Forms.Button();
             this.cbbRolListadoFuncionalidades = new System.Windows.Forms.ComboBox();
             this.tbRolListadoRol = new System.Windows.Forms.TextBox();
             this.lblRolListadoFuncionalidades = new System.Windows.Forms.Label();
@@ -36,7 +37,6 @@
             this.dgvRolListado = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.btnFiltrar = new System.Windows.Forms.Button();
             this.gbRolListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRolListado)).BeginInit();
             this.SuspendLayout();
@@ -55,6 +55,16 @@
             this.gbRolListado.TabIndex = 0;
             this.gbRolListado.TabStop = false;
             this.gbRolListado.Text = "Filtros de busqueda";
+            // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.Location = new System.Drawing.Point(344, 20);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(78, 61);
+            this.btnFiltrar.TabIndex = 4;
+            this.btnFiltrar.Text = "Filtrar";
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
             // cbbRolListadoFuncionalidades
             // 
@@ -91,9 +101,13 @@
             // 
             // dgvRolListado
             // 
+            this.dgvRolListado.AllowUserToAddRows = false;
+            this.dgvRolListado.AllowUserToDeleteRows = false;
             this.dgvRolListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRolListado.Location = new System.Drawing.Point(24, 145);
             this.dgvRolListado.Name = "dgvRolListado";
+            this.dgvRolListado.ReadOnly = true;
+            this.dgvRolListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRolListado.Size = new System.Drawing.Size(435, 150);
             this.dgvRolListado.TabIndex = 1;
             // 
@@ -105,6 +119,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "Modificar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -114,16 +129,7 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "Dar de baja";
             this.button2.UseVisualStyleBackColor = true;
-            // 
-            // btnFiltrar
-            // 
-            this.btnFiltrar.Location = new System.Drawing.Point(344, 20);
-            this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(78, 61);
-            this.btnFiltrar.TabIndex = 4;
-            this.btnFiltrar.Text = "Filtrar";
-            this.btnFiltrar.UseVisualStyleBackColor = true;
-            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // RolListado
             // 
@@ -134,6 +140,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dgvRolListado);
             this.Controls.Add(this.gbRolListado);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "RolListado";
             this.Text = "FrbaBus - Roles :: Listado";
             this.Load += new System.EventHandler(this.RolListado_Load);

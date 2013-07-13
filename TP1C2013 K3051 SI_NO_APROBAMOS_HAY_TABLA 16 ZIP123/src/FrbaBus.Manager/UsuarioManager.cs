@@ -19,17 +19,26 @@ namespace FrbaBus.Manager
 
         public void BajaRolUsuario(RolUsuario entidad)
         {
-            throw new NotImplementedException();
+            var dao = new RolUsuarioDAO();
+
+            dao.BajaRolFuncionalidades(entidad);
+            dao.Baja(entidad);
         }
 
         public void ModificacionRolUsuario(RolUsuario entidad)
         {
-            throw new NotImplementedException();
+            var dao = new RolUsuarioDAO();
+            dao.Modificacion(entidad);
         }
 
         public DataSet ObtenerRegistrosRolUsuario()
         {
             return new RolUsuarioDAO().ObtenerRegistros();
+        }
+        public IList<RolUsuario> ListarRolUsuario()
+        {
+            var roles = new RolUsuarioDAO().Listar();
+            return roles;
         }
 
         public void AltaFuncionalidad(Funcionalidad entidad)
@@ -111,7 +120,6 @@ namespace FrbaBus.Manager
         public RolUsuario ObtenerRol(string nombreRol)
         {
             RolUsuario ru = new RolUsuario(nombreRol);
-            ru.Funcionalidades =  new RolUsuarioDAO().ObtenerFuncionalidadesAsociadas(ru);
             return ru;
         }
 
@@ -123,6 +131,17 @@ namespace FrbaBus.Manager
         public void AltaRolFuncionalidad(RolUsuario rol, int idFuncionalidad)
         {
             new FuncionalidadDAO().AltaRolFuncionalidad(rol, idFuncionalidad);
+        }
+
+        public void BajaRolFuncionalidades(RolUsuario rol)
+        {
+            new RolUsuarioDAO().BajaRolFuncionalidades(rol);
+            rol.Funcionalidades = new List<Funcionalidad>();
+        }
+
+        public IList<RolUsuario> ListarRegistrosRolUsuario(string nombreRol, string funcionalidadElegida)
+        {
+            return new RolUsuarioDAO().ListarRegistrosRolUsuario(nombreRol, funcionalidadElegida);
         }
     }
 }

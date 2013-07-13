@@ -20,6 +20,7 @@ namespace FrbaBus.DAO
                 return new AccesoBD();
             }
         }
+        
         public int RealizarIdentificacion(string username, byte[] hash)
         {
             int resultado = -3 ;
@@ -37,6 +38,7 @@ namespace FrbaBus.DAO
             resultado = (int)parametroResultado.Value;
             return resultado;
         }
+        
         public RolUsuario ObtenerRolAsociado(Usuario u)
         {
             Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
@@ -51,6 +53,7 @@ namespace FrbaBus.DAO
             var rolNombre = rolParameter.Value.ToString();
             return new RolUsuario(rolNombre);
         }
+        
         public IList<Funcionalidad> ObtenerFuncionalidadesAsociadas(RolUsuario rolUsuario)
         {
             Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
@@ -97,17 +100,54 @@ namespace FrbaBus.DAO
 
         public void Baja(RolUsuario entidad)
         {
-            throw new NotImplementedException();
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+
+            SqlParameter pId = new SqlParameter("@p_id", SqlDbType.NVarChar, 50, "p_id");
+            pId.Direction = ParameterDirection.Output;
+            parametros.Add(pId, 0);
+
+            this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_baja_rol", parametros);
         }
 
         public void Modificacion(RolUsuario entidad)
         {
-            throw new NotImplementedException();
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+
+            SqlParameter pId = new SqlParameter("@p_id", SqlDbType.NVarChar, 50, "p_id");
+            pId.Direction = ParameterDirection.Output;
+            parametros.Add(pId, 0);
+
+            SqlParameter pNombre = new SqlParameter("@nombre", SqlDbType.NVarChar, 50, "nombre");
+            parametros.Add(pNombre, entidad.Nombre);
+
+            SqlParameter pInhabilitados = new SqlParameter("@inhabilitado", SqlDbType.Bit, 1, "inhabilitado");
+            parametros.Add(pInhabilitados, entidad.Habilitado ? 1 : 0);
+
+
+            this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_modificar_rol", parametros);
+
+            entidad.Funcionalidades = this.ObtenerFuncionalidadesAsociadas(entidad);
         }
 
         public IList<RolUsuario> Listar()
         {
-            throw new NotImplementedException();
+            IList<RolUsuario> roles = new List<RolUsuario>();
+            foreach (DataRow item in this.ObtenerRegistros().Tables[0].Rows)
+            {
+                RolUsuario r = this.BuildRol(item);
+                r.Funcionalidades = ObtenerFuncionalidadesAsociadas(r);
+                roles.Add(r);
+            }
+            return roles;
+        }
+
+        private RolUsuario BuildRol(DataRow item)
+        {
+            return new RolUsuario()
+            {
+                IdRol = Convert.ToInt32(item["id_rol"].ToString()),
+                Nombre = item["nombre"].ToString()
+            };
         }
 
         public DataSet ObtenerRegistros()
@@ -144,5 +184,28 @@ namespace FrbaBus.DAO
             return this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_listar_filtrado_rol", parametros );
         }
 
+
+        public void BajaRolFuncionalidades(RolUsuario rol)
+        {
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+
+            SqlParameter pId = new SqlParameter("@p_id_rol", SqlDbType.Int, 4, "p_id_rol");
+            parametros.Add(pId, rol.IdRol);
+            
+            this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_baja_funcionalidades", parametros);
+        }
+
+        public IList<RolUsuario> ListarRegistrosRolUsuario(string nombreRol, string funcionalidadElegida)
+        {
+            IList<RolUsuario> roles = new List<RolUsuario>();
+
+            DataSet ds = this.ObtenerRegistrosRolUsuario(nombreRol, funcionalidadElegida);
+            foreach (DataRow item in ds.Tables[0].Rows)
+            {
+                roles.Add(this.BuildRol(item));
+            }
+
+            return roles;
+        }
     }
 }

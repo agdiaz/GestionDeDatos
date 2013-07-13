@@ -28,8 +28,8 @@ namespace FrbaBus.Rol
             try
             {
                 //Cargo la grilla de roles
-                DataSet dsRoles = _manager.ObtenerRegistrosRolUsuario();
-                this.dgvRolListado.DataSource = dsRoles.Tables[0];
+                //DataSet dsRoles = _manager.ObtenerRegistrosRolUsuario();
+                this.dgvRolListado.DataSource = _manager.ListarRolUsuario();
 
                 //Cargo las funcionalidades
                 IList<Funcionalidad> funcionalidades = _manager.ListarFuncionalidad();
@@ -54,8 +54,8 @@ namespace FrbaBus.Rol
                 string funcionalidadElegida = string.Empty;
                 if (this.cbbRolListadoFuncionalidades.SelectedItem != null)
                     funcionalidadElegida = this.cbbRolListadoFuncionalidades.SelectedItem.ToString();
-                DataSet dsRoles = _manager.ObtenerRegistrosRolUsuario(this.tbRolListadoRol.Text, funcionalidadElegida);
-                this.dgvRolListado.DataSource = dsRoles.Tables[0];
+                IList<RolUsuario> dsRoles = _manager.ListarRegistrosRolUsuario(this.tbRolListadoRol.Text, funcionalidadElegida);
+                this.dgvRolListado.DataSource = dsRoles;
             }
             catch (AccesoBDException ex)
             {
@@ -66,6 +66,21 @@ namespace FrbaBus.Rol
                 MensajePorPantalla.MensajeError(this, "Error al realizar la búsqueda correspondiente.\n Detalle del error: " + ex.Message);
             }
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            RolUsuario rol = (RolUsuario)dgvRolListado.SelectedRows[0].DataBoundItem;
+            using (RolModificar frm = new RolModificar(rol))
+            {
+                frm.ShowDialog(this);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            RolUsuario rol = (RolUsuario)dgvRolListado.SelectedRows[0].DataBoundItem;
+            _manager.BajaRolUsuario(rol);
         }
 
 

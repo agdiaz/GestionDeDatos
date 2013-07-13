@@ -136,6 +136,12 @@
     <Compile Include="Abm Recorrido\RecorridoListado.Designer.cs">
       <DependentUpon>RecorridoListado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Rol\RolModificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Rol\RolModificar.Designer.cs">
+      <DependentUpon>RolModificar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Viaje\ViajeAlta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,12 +158,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Cancelar Viaje\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Canje de Ptos\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Canje de Ptos\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Compra de Pasajes\Form1.cs">
@@ -256,6 +256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Recorrido\RecorridoListado.resx">
       <DependentUpon>RecorridoListado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Rol\RolModificar.resx">
+      <DependentUpon>RolModificar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Viaje\ViajeAlta.resx">
       <DependentUpon>ViajeAlta.cs</DependentUpon>
@@ -368,6 +371,9 @@
       <Project>{BEEF1DE2-CB66-4363-848E-FA6E8455D733}</Project>
       <Name>FrbaBus.Manager</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Canje de Ptos\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
