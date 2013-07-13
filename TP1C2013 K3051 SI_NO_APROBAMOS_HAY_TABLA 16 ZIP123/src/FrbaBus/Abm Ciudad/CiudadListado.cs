@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using FrbaBus.Manager;
 using FrbaBus.Common.Helpers;
 using FrbaBus.Common.Excepciones;
+using FrbaBus.Common.Entidades;
 
 namespace FrbaBus.Abm_Ciudad
 {
@@ -24,9 +25,9 @@ namespace FrbaBus.Abm_Ciudad
         {
             try
             {
-                string ciudadElegida = this.tbCiudadListadoCiudad.Text; ;
-                DataSet dsCiudades = new CiudadManager().ObtenerRegistrosCiudades(ciudadElegida);
-                this.dgvCiudadListado.DataSource = dsCiudades.Tables[0];
+                string ciudadElegida = this.tbCiudadListadoCiudad.Text;
+                IList<Ciudad> dsCiudades = new CiudadManager().ObtenerListado(ciudadElegida);
+                this.dgvCiudadListado.DataSource = dsCiudades;
             }
             catch (AccesoBDException ex)
             {

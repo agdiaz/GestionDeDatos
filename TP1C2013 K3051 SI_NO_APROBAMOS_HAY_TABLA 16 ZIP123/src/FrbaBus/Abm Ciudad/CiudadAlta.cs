@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using FrbaBus.Manager;
 using FrbaBus.Helpers;
+using FrbaBus.Common.Entidades;
 
 namespace FrbaBus.Abm_Ciudad
 {
@@ -27,8 +28,13 @@ namespace FrbaBus.Abm_Ciudad
         {
             if (this.ValidarDatos())
             {
-                CiudadManager cm = new CiudadManager();
-                cm.Alta(this.tbCiudadAltaCiudad.Text);
+                Ciudad c = new Ciudad()
+                {
+                    Descripcion = this.tbCiudadAltaCiudad.Text
+                };
+                
+                new CiudadManager().Alta(c);
+
                 this.Close();
             }
         }

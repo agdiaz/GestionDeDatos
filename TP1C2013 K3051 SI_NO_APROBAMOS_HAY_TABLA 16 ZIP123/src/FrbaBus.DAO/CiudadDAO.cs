@@ -61,6 +61,13 @@ namespace FrbaBus.DAO
             return ciudades;
         }
 
+        public DataSet ObtenerRegistros()
+        {
+            DataSet ciudades = this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_listar_ciudad", new Dictionary<System.Data.SqlClient.SqlParameter, object>());
+            return ciudades;
+        }
+
+
         private Ciudad BuilderCiudad(DataRow theRow)
         {
             return new Ciudad()
@@ -72,16 +79,18 @@ namespace FrbaBus.DAO
 
         #endregion
 
-        #region Miembros de IEntidadDAO<Ciudad>
-
-
-        public DataSet ObtenerRegistros()
+        public IList<Ciudad> ListarRegistrosFiltrados(string ciudadElegida)
         {
-            DataSet ciudades = this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_listar_ciudad", new Dictionary<System.Data.SqlClient.SqlParameter,object>());
+            IList<Ciudad> ciudades = new List<Ciudad>();
+
+            DataSet ds = ObtenerRegistrosFiltrados(ciudadElegida);
+            foreach (DataRow item in ds.Tables[0].Rows)
+            {
+                ciudades.Add(this.BuilderCiudad(item));
+            }
+
             return ciudades;
         }
-
-        #endregion
 
         public DataSet ObtenerRegistrosFiltrados(string ciudadElegida)
         {

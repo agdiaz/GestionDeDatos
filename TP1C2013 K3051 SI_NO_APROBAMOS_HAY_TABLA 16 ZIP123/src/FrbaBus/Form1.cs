@@ -298,6 +298,8 @@ namespace FrbaBus
             var now = Helpers.FechaHelper.Ahora();
             this.tssFecha.Text = now.ToString("dd/MM/yyyy");
             this.tssHora.Text = now.ToString("HH:mm:ss");
+            this.dtpFechaSalida.Value = now;
+
             gbPasajeros.Enabled = (cbPasajes.Checked);
             gbEncomiendas.Enabled = (cbPasajes.Checked);
 
