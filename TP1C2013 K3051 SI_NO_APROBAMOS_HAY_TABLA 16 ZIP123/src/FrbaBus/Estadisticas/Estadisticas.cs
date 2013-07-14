@@ -24,7 +24,7 @@ namespace FrbaBus.Estadisticas
 
         private void EstadisticasClientesConMasPuntos_Load(object sender, EventArgs e)
         {
-            var s = FechaHelper.ListarSemestres();
+            var s = FechaHelper.ListarSemestres().OrderByDescending( o => o.Inicio).ToList();
             this.comboBox1.DataSource = s;
             this.comboBox1.DisplayMember = "Periodo";
             this.comboBox1.ValueMember = "Periodo";
