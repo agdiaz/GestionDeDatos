@@ -1,4 +1,4 @@
-CREATE PROCEDURE sp_baja_logica_micro
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_baja_logica_micro
 (
 	@id_micro int
 )
