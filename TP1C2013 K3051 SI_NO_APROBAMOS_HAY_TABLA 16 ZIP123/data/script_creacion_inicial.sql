@@ -1289,6 +1289,144 @@ INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Usuario]
            ,CAST(0xE6B87050BFCB8143FCB8DB0170A4DC9ED00D904DDD3E2A4AD1B1E8DC0FDC9BE7 AS VARBINARY(32))
            ,0)
 
+/*===========================Tabla Puntajes=======================================*/
+USE [GD1C2013]
+GO
+
+/****** Object:  Table [SI_NO_APROBAMOS_HAY_TABLA].[Puntaje]    Script Date: 07/14/2013 12:18:58 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Puntaje](
+	[id_puntaje] [int] IDENTITY(1,1) NOT NULL,
+	[dni] [numeric](18, 0) NOT NULL,
+	[descripcion] [nvarchar](200) NOT NULL,
+	[puntos] [int] NOT NULL,
+	[puntos_usados] [int] NOT NULL,
+	[fecha_otorgado] [datetime] NOT NULL,
+	[baja] [bit] NOT NULL,
+ CONSTRAINT [PK_Puntaje] PRIMARY KEY CLUSTERED 
+(
+	[id_puntaje] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Puntaje]  WITH CHECK ADD  CONSTRAINT [FK_Puntaje_Cliente] FOREIGN KEY([dni])
+REFERENCES [SI_NO_APROBAMOS_HAY_TABLA].[Cliente] ([dni])
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Puntaje] CHECK CONSTRAINT [FK_Puntaje_Cliente]
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Puntaje] ADD  CONSTRAINT [DF_Puntaje_puntos_usados]  DEFAULT ((0)) FOR [puntos_usados]
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Puntaje] ADD  CONSTRAINT [DF_Puntaje_fecha_otorgado]  DEFAULT (getdate()) FOR [fecha_otorgado]
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Puntaje] ADD  CONSTRAINT [DF_Puntaje_baja]  DEFAULT ((0)) FOR [baja]
+GO
+
+/*================================TABLA RECOMPENSA================================*/
+USE [GD1C2013]
+GO
+
+/****** Object:  Table [SI_NO_APROBAMOS_HAY_TABLA].[Recompensa]    Script Date: 07/14/2013 12:58:51 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Recompensa](
+	[id_recompensa] [int] IDENTITY(1,1) NOT NULL,
+	[descripcion] [nvarchar](200) NOT NULL,
+	[stock] [int] NOT NULL,
+	[puntos_costo] [int] NOT NULL,
+	[baja] [bit] NOT NULL,
+ CONSTRAINT [PK_Recompensa] PRIMARY KEY CLUSTERED 
+(
+	[id_recompensa] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Recompensa] ADD  CONSTRAINT [DF_Recompensa_baja]  DEFAULT ((0)) FOR [baja]
+GO
+
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Recompensa]
+	([descripcion],[stock],[puntos_costo])
+VALUES ('Lapicera',10,5)
+
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Recompensa]
+	([descripcion],[stock],[puntos_costo])
+VALUES ('Viaje al Caribe',5,10000)
+
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Recompensa]
+	([descripcion],[stock],[puntos_costo])
+VALUES ('Par de medias',20,10)
+
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Recompensa]
+	([descripcion],[stock],[puntos_costo])
+VALUES ('Casette Suavemente de Elvis Crespo',150,200)
+
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Recompensa]
+	([descripcion],[stock],[puntos_costo])
+VALUES ('Ejercitador Shake Weight',20,350)
+
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Recompensa]
+	([descripcion],[stock],[puntos_costo])
+VALUES ('CD Pimpinela: Grandes exitos',20,215)
+
+GO
+
+/*==============================Tabla Canje=======================================*/
+USE [GD1C2013]
+GO
+
+/****** Object:  Table [SI_NO_APROBAMOS_HAY_TABLA].[Canje]    Script Date: 07/14/2013 13:06:52 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Canje](
+	[id_canje] [int] IDENTITY(1,1) NOT NULL,
+	[dni] [numeric](18, 0) NOT NULL,
+	[id_recompensa] [int] NOT NULL,
+	[baja] [bit] NOT NULL,
+ CONSTRAINT [PK_Canje] PRIMARY KEY CLUSTERED 
+(
+	[id_canje] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Canje]  WITH CHECK ADD  CONSTRAINT [FK_Canje_Cliente] FOREIGN KEY([dni])
+REFERENCES [SI_NO_APROBAMOS_HAY_TABLA].[Cliente] ([dni])
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Canje] CHECK CONSTRAINT [FK_Canje_Cliente]
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Canje]  WITH CHECK ADD  CONSTRAINT [FK_Canje_Recompensa] FOREIGN KEY([id_recompensa])
+REFERENCES [SI_NO_APROBAMOS_HAY_TABLA].[Recompensa] ([id_recompensa])
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Canje] CHECK CONSTRAINT [FK_Canje_Recompensa]
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Canje] ADD  CONSTRAINT [DF_Canje_baja]  DEFAULT ((0)) FOR [baja]
+GO
+	   
 /*===========================FUNCION BUTACAS X MICRO==============================*/
 GO
 CREATE FUNCTION SI_NO_APROBAMOS_HAY_TABLA.f_obtener_butacas_por_micro
@@ -2107,3 +2245,51 @@ BEGIN
            @fecha_arribo,
            @baja)
 END
+GO
+
+/*===========================SP BAJA FUNCIONALIDADES==============================*/
+
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].[sp_baja_funcionalidades]
+(
+	@p_id_rol int 
+)
+AS
+BEGIN
+
+DELETE FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad]
+	WHERE Rol_funcionalidad.id_rol = @p_id_rol
+END
+GO
+
+
+/*===============================================================*/
+/*===========================VISTAS==============================*/
+/*===============================================================*/
+GO
+
+CREATE VIEW [SI_NO_APROBAMOS_HAY_TABLA].v_DestinosMasCancelados
+AS
+SELECT top 5 Ciudad.nombre, COUNT(id_pasaje) as CantCancelados
+from SI_NO_APROBAMOS_HAY_TABLA.Ciudad
+inner join SI_NO_APROBAMOS_HAY_TABLA.Recorrido
+	on Ciudad.id_ciudad = Recorrido.id_ciudad_destino
+inner join SI_NO_APROBAMOS_HAY_TABLA.Viaje
+	on Recorrido.id_recorrido = Viaje.id_recorrido
+inner join SI_NO_APROBAMOS_HAY_TABLA.Pasaje
+	on Pasaje.id_viaje = Viaje.id_viaje
+where Pasaje.cancel = 1
+and Ciudad.baja = 0
+and Recorrido.baja = 0
+and Viaje.baja = 0
+and Pasaje.baja = 0
+group by Viaje.id_viaje, Ciudad.nombre
+order by CantCancelados DESC
+
+GO
+
+CREATE VIEW [SI_NO_APROBAMOS_HAY_TABLA].v_MicrosConMasDiasFueraDeServicio
+AS
+SELECT top 5 Micros.id_micros, DATEDIFF(day,isNull(Micros.fec_fuera_servicio,0),isNull(Micros.fec_reinicio_servicio,0)) as Diferencia
+from SI_NO_APROBAMOS_HAY_TABLA.Micros
+where Micros.baja = 0
+order by Diferencia DESC
