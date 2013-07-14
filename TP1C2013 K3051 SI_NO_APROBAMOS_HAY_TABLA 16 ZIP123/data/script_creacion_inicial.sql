@@ -267,6 +267,16 @@ insert into SI_NO_APROBAMOS_HAY_TABLA.Recorrido (id_recorrido, id_ciudad_origen,
 	group by m2.Recorrido_Codigo, corig.id_ciudad, cdes.id_ciudad, serv.id_servicio
 )
 
+USE [GD1C2013]
+GO
+
+/****** Object:  Index [indice_recorrido_ciudad]    Script Date: 07/14/2013 11:45:15 ******/
+CREATE NONCLUSTERED INDEX [indice_recorrido_ciudad] ON [SI_NO_APROBAMOS_HAY_TABLA].[Recorrido] 
+(
+	[id_ciudad_destino] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO
+
 /*===========================MICROS==============================*/
 
 USE [GD1C2013]
@@ -468,6 +478,17 @@ insert into SI_NO_APROBAMOS_HAY_TABLA.Viaje
 	inner join SI_NO_APROBAMOS_HAY_TABLA.Micros mic
 		on mic.patente = m2.Micro_Patente
 )
+
+USE [GD1C2013]
+GO
+
+/****** Object:  Index [indice_viaje_recorrido]    Script Date: 07/14/2013 11:46:59 ******/
+CREATE NONCLUSTERED INDEX [indice_viaje_recorrido] ON [SI_NO_APROBAMOS_HAY_TABLA].[Viaje] 
+(
+	[id_recorrido] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO
+
 
 /*===========================ROL==============================*/
 
@@ -803,6 +824,18 @@ INSERT INTO SI_NO_APROBAMOS_HAY_TABLA.Pasaje
 		and v.id_recorrido = m.idRecorrido
 )
 DROP TABLE #tmpPasajes
+
+
+USE [GD1C2013]
+GO
+
+/****** Object:  Index [indice_pasaje_viaje]    Script Date: 07/14/2013 11:44:10 ******/
+CREATE NONCLUSTERED INDEX [indice_pasaje_viaje] ON [SI_NO_APROBAMOS_HAY_TABLA].[Pasaje] 
+(
+	[id_viaje] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO
+
 COMMIT TRANSACTION comprasPasajes
 
 /*===========================ENCOMIENDA==============================*/
@@ -1396,7 +1429,7 @@ VALUES ('Par de medias',20,10)
 
 INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Recompensa]
 	([descripcion],[stock],[puntos_costo])
-VALUES ('Casette Suavemente de Elvis Crespo',150,200)
+VALUES ('Casette Suavemente de Elvis Crespo',150,100)
 
 INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Recompensa]
 	([descripcion],[stock],[puntos_costo])
@@ -1448,6 +1481,22 @@ GO
 
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Canje] ADD  CONSTRAINT [DF_Canje_baja]  DEFAULT ((0)) FOR [baja]
 GO
+
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Canje]
+	([dni],[id_recompensa])
+VALUES (27223299, 3) --restar 10
+
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Canje]
+	([dni],[id_recompensa])
+VALUES (12835515, 4) --restar 100
+
+UPDATE SI_NO_APROBAMOS_HAY_TABLA.Puntaje
+SET puntos_usados = 10
+WHERE id_puntaje = 1
+
+UPDATE SI_NO_APROBAMOS_HAY_TABLA.Puntaje
+SET puntos_usados = 100
+WHERE id_puntaje = 2
 	   
 /*===========================FUNCION BUTACAS X MICRO==============================*/
 GO
@@ -2284,6 +2333,70 @@ END
 GO
 
 
+/*===========================F BUTACAS VENDIDAS POR VIAJE===========================*/
+
+
+CREATE FUNCTION [SI_NO_APROBAMOS_HAY_TABLA].butacas_vendidas_por_viaje
+(
+	@id_viaje int
+)
+RETURNS int
+AS
+BEGIN
+	DECLARE @butacas_vendidas int
+	
+	SELECT @butacas_vendidas = COUNT(*) 
+	FROM [SI_NO_APROBAMOS_HAY_TABLA].[Pasaje] AS pasaje 
+	WHERE @id_viaje=pasaje.[id_viaje] AND pasaje.baja=0
+	
+	RETURN isnull(@butacas_vendidas,0)
+
+END
+GO
+
+/*===========================Top 5 destinos mas vendidos=============================*/
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_top5_destino_mas_vendido_por_semestre
+(
+	@fecha_inicio datetime,
+	@fecha_fin datetime
+)
+AS
+BEGIN
+	SELECT DISTINCT TOP 5 ciudad.[nombre],
+			SUM ([SI_NO_APROBAMOS_HAY_TABLA].butacas_vendidas_por_viaje(viaje.[id_viaje])) AS butacas_vendidas
+	FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Ciudad] as ciudad
+		 inner join [SI_NO_APROBAMOS_HAY_TABLA].[Recorrido] as recorrido
+			on ciudad.[id_ciudad]=recorrido.[id_ciudad_destino]
+		 inner join [SI_NO_APROBAMOS_HAY_TABLA].[Viaje] as viaje
+			on viaje.[id_recorrido]=recorrido.id_recorrido
+	WHERE recorrido.baja=0 AND viaje.baja=0 AND viaje.fecha_arribo BETWEEN @fecha_inicio AND @fecha_fin
+	GROUP BY ciudad.[id_ciudad], ciudad.[nombre]
+	ORDER BY SUM ([SI_NO_APROBAMOS_HAY_TABLA].butacas_vendidas_por_viaje(viaje.[id_viaje])) desc
+END
+
+
+/*=============================Update viaje fecha arribo===============================*/
+GO
+
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_update_viaje_fecha_arribo
+(
+	@patente nvarchar(50),
+	@fecha_hora_llegada datetime
+)
+AS
+BEGIN
+	DECLARE @micro_id int
+	SELECT @micro_id = micros.[id_micros]
+				FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Micros] AS micros
+				WHERE @patente=micros.patente
+	UPDATE [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Viaje]
+	SET [fecha_arribo]=@fecha_hora_llegada
+	WHERE viaje.id_micro = @micro_id
+END
+GO
+
+
+
 /*===============================================================*/
 /*===========================VISTAS==============================*/
 /*===============================================================*/
@@ -2315,3 +2428,14 @@ SELECT top 5 Micros.id_micros, DATEDIFF(day,isNull(Micros.fec_fuera_servicio,0),
 from SI_NO_APROBAMOS_HAY_TABLA.Micros
 where Micros.baja = 0
 order by Diferencia DESC
+
+GO
+
+/*=============================Micros arribos retrasados===============================*/
+CREATE VIEW [SI_NO_APROBAMOS_HAY_TABLA].micros_arribos_retrasados
+AS SELECT micro.id_micros, viaje.id_viaje, viaje.fecha_arribo, viaje.fecha_arribo_estimada
+FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Micros] AS micro
+	inner join [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Viaje] AS viaje
+		ON viaje.id_micro=micro.id_micros
+WHERE viaje.fecha_arribo <> viaje.fecha_arribo_estimada AND viaje.baja=0
+
