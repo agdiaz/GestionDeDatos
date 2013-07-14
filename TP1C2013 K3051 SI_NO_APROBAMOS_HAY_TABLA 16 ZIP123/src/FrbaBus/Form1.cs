@@ -82,12 +82,8 @@ namespace FrbaBus
             tsmEncomienda.Enabled = tsmPasajeEncomiendaCancelar.Enabled || tsmPasajeEncomiendaAlta.Enabled;
 
             //Menú Estadísticas:
-            tsmEstadisticasT5ClientesMasPuntos.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmEstadisticasT5ClientesMasPuntos");
-            tsmEstadisticasT5DestMasCancelados.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmEstadisticasT5DestMasCancelados");
-            tsmEstadisticasT5DestMasMicrosVacios.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmEstadisticasT5DestMasMicrosVacios");
-            tsmEstadisticasT5DestMasVendidos.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmEstadisticasT5DestMasVendidos");
-            tsmEstadisticasT5MicrosMasDiasFueraDeServicio.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmEstadisticasT5MicrosMasDiasFueraDeServicio");
-            tsmEstadisticas.Enabled = tsmEstadisticasT5ClientesMasPuntos.Enabled || tsmEstadisticasT5DestMasCancelados.Enabled || tsmEstadisticasT5DestMasMicrosVacios.Enabled || tsmEstadisticasT5DestMasVendidos.Enabled || tsmEstadisticasT5MicrosMasDiasFueraDeServicio.Enabled;
+            tsmEstadisticasListados.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmEstadisticasT5DestMasVendidos");
+            tsmEstadisticas.Enabled = tsmEstadisticasListados.Enabled;
             
             //Menú Premios:
             tsmPremiosAlta.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmPremiosAlta");
@@ -232,31 +228,6 @@ namespace FrbaBus
             tsmSesionCerrar.Enabled = Program.ContextoActual.ConSesionIniciada;
         }
 
-        private void tsmEstadisticasT5DestMasVendidos_Click(object sender, EventArgs e)
-        {
-            new Estadisticas.EstadisticasDestinosMasVendidos().ShowDialog(this);
-        }
-
-        private void tsmEstadisticasT5DestMasMicrosVacios_Click(object sender, EventArgs e)
-        {
-            new Estadisticas.EstadisticasDestinosConMasMicrosVacios().ShowDialog(this);
-        }
-
-        private void tsmEstadisticasT5ClientesMasPuntos_Click(object sender, EventArgs e)
-        {
-            new Estadisticas.EstadisticasClientesConMasPuntos().ShowDialog(this);
-        }
-
-        private void tsmEstadisticasT5DestMasCancelados_Click(object sender, EventArgs e)
-        {
-            new Estadisticas.EstadisticasDestinosMasCancelados().ShowDialog(this);
-        }
-
-        private void tsmEstadisticasT5MicrosMasDiasFueraDeServicio_Click(object sender, EventArgs e)
-        {
-            new Estadisticas.EstadisticasMicrosConMasDiasFueraDeServicio().ShowDialog(this);
-        }
-
         private void cbPasajes_CheckedChanged(object sender, EventArgs e)
         {
             gbPasajeros.Enabled = (cbPasajes.Checked);
@@ -375,6 +346,14 @@ namespace FrbaBus
         private void tsmAyudaUsuarios_Click(object sender, EventArgs e)
         {
             using (Ayuda.AyudaUsuarios frm = new FrbaBus.Ayuda.AyudaUsuarios())
+            {
+                frm.ShowDialog(this);
+            }
+        }
+
+        private void tsmEstadisticasListados_Click(object sender, EventArgs e)
+        {
+            using (Estadisticas.Estadisticas frm = new FrbaBus.Estadisticas.Estadisticas())
             {
                 frm.ShowDialog(this);
             }

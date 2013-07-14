@@ -33,6 +33,7 @@
             this.tsmSesion = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmSesionIniciar = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmSesionCerrar = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmArchivoSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmRol = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmRolListado = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,14 +59,12 @@
             this.tsmPasajeEncomiendaAlta = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPasajeEncomiendaCancelar = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmEstadisticas = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmEstadisticasT5DestMasVendidos = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmEstadisticasT5DestMasMicrosVacios = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmEstadisticasT5ClientesMasPuntos = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmEstadisticasT5DestMasCancelados = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmEstadisticasT5MicrosMasDiasFueraDeServicio = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmEstadisticasListados = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPremios = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPremiosListado = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPremiosAlta = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAyuda = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAyudaUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.ssStatusMain = new System.Windows.Forms.StatusStrip();
             this.tssUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.tssUsuarioValor = new System.Windows.Forms.ToolStripStatusLabel();
@@ -111,9 +110,6 @@
             this.cbEncomiendas = new System.Windows.Forms.CheckBox();
             this.cbPasajes = new System.Windows.Forms.CheckBox();
             this.gbMedioDePago = new System.Windows.Forms.GroupBox();
-            this.tsmAyuda = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmAyudaUsuarios = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnsMain.SuspendLayout();
             this.ssStatusMain.SuspendLayout();
             this.gbViaje.SuspendLayout();
@@ -176,6 +172,11 @@
             this.tsmSesionCerrar.Size = new System.Drawing.Size(143, 22);
             this.tsmSesionCerrar.Text = "Cerrar Sesión";
             this.tsmSesionCerrar.Click += new System.EventHandler(this.tsmSesionCerrar_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(105, 6);
             // 
             // tsmArchivoSalir
             // 
@@ -365,49 +366,17 @@
             // tsmEstadisticas
             // 
             this.tsmEstadisticas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmEstadisticasT5DestMasVendidos,
-            this.tsmEstadisticasT5DestMasMicrosVacios,
-            this.tsmEstadisticasT5ClientesMasPuntos,
-            this.tsmEstadisticasT5DestMasCancelados,
-            this.tsmEstadisticasT5MicrosMasDiasFueraDeServicio});
+            this.tsmEstadisticasListados});
             this.tsmEstadisticas.Name = "tsmEstadisticas";
             this.tsmEstadisticas.Size = new System.Drawing.Size(79, 20);
             this.tsmEstadisticas.Text = "Estadísticas";
             // 
-            // tsmEstadisticasT5DestMasVendidos
+            // tsmEstadisticasListados
             // 
-            this.tsmEstadisticasT5DestMasVendidos.Name = "tsmEstadisticasT5DestMasVendidos";
-            this.tsmEstadisticasT5DestMasVendidos.Size = new System.Drawing.Size(304, 22);
-            this.tsmEstadisticasT5DestMasVendidos.Text = "Top 5 destinos más vendidos";
-            this.tsmEstadisticasT5DestMasVendidos.Click += new System.EventHandler(this.tsmEstadisticasT5DestMasVendidos_Click);
-            // 
-            // tsmEstadisticasT5DestMasMicrosVacios
-            // 
-            this.tsmEstadisticasT5DestMasMicrosVacios.Name = "tsmEstadisticasT5DestMasMicrosVacios";
-            this.tsmEstadisticasT5DestMasMicrosVacios.Size = new System.Drawing.Size(304, 22);
-            this.tsmEstadisticasT5DestMasMicrosVacios.Text = "Top 5 destinos con más micros vacíos";
-            this.tsmEstadisticasT5DestMasMicrosVacios.Click += new System.EventHandler(this.tsmEstadisticasT5DestMasMicrosVacios_Click);
-            // 
-            // tsmEstadisticasT5ClientesMasPuntos
-            // 
-            this.tsmEstadisticasT5ClientesMasPuntos.Name = "tsmEstadisticasT5ClientesMasPuntos";
-            this.tsmEstadisticasT5ClientesMasPuntos.Size = new System.Drawing.Size(304, 22);
-            this.tsmEstadisticasT5ClientesMasPuntos.Text = "Top 5 clientes con más puntos";
-            this.tsmEstadisticasT5ClientesMasPuntos.Click += new System.EventHandler(this.tsmEstadisticasT5ClientesMasPuntos_Click);
-            // 
-            // tsmEstadisticasT5DestMasCancelados
-            // 
-            this.tsmEstadisticasT5DestMasCancelados.Name = "tsmEstadisticasT5DestMasCancelados";
-            this.tsmEstadisticasT5DestMasCancelados.Size = new System.Drawing.Size(304, 22);
-            this.tsmEstadisticasT5DestMasCancelados.Text = "Top 5 destinos más cancelados ";
-            this.tsmEstadisticasT5DestMasCancelados.Click += new System.EventHandler(this.tsmEstadisticasT5DestMasCancelados_Click);
-            // 
-            // tsmEstadisticasT5MicrosMasDiasFueraDeServicio
-            // 
-            this.tsmEstadisticasT5MicrosMasDiasFueraDeServicio.Name = "tsmEstadisticasT5MicrosMasDiasFueraDeServicio";
-            this.tsmEstadisticasT5MicrosMasDiasFueraDeServicio.Size = new System.Drawing.Size(304, 22);
-            this.tsmEstadisticasT5MicrosMasDiasFueraDeServicio.Text = "Top 5 micros con más días fuera de servicio";
-            this.tsmEstadisticasT5MicrosMasDiasFueraDeServicio.Click += new System.EventHandler(this.tsmEstadisticasT5MicrosMasDiasFueraDeServicio_Click);
+            this.tsmEstadisticasListados.Name = "tsmEstadisticasListados";
+            this.tsmEstadisticasListados.Size = new System.Drawing.Size(152, 22);
+            this.tsmEstadisticasListados.Text = "Listados";
+            this.tsmEstadisticasListados.Click += new System.EventHandler(this.tsmEstadisticasListados_Click);
             // 
             // tsmPremios
             // 
@@ -421,14 +390,29 @@
             // tsmPremiosListado
             // 
             this.tsmPremiosListado.Name = "tsmPremiosListado";
-            this.tsmPremiosListado.Size = new System.Drawing.Size(152, 22);
+            this.tsmPremiosListado.Size = new System.Drawing.Size(112, 22);
             this.tsmPremiosListado.Text = "Listado";
             // 
             // tsmPremiosAlta
             // 
             this.tsmPremiosAlta.Name = "tsmPremiosAlta";
-            this.tsmPremiosAlta.Size = new System.Drawing.Size(152, 22);
+            this.tsmPremiosAlta.Size = new System.Drawing.Size(112, 22);
             this.tsmPremiosAlta.Text = "Alta";
+            // 
+            // tsmAyuda
+            // 
+            this.tsmAyuda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmAyudaUsuarios});
+            this.tsmAyuda.Name = "tsmAyuda";
+            this.tsmAyuda.Size = new System.Drawing.Size(53, 20);
+            this.tsmAyuda.Text = "Ayuda";
+            // 
+            // tsmAyudaUsuarios
+            // 
+            this.tsmAyudaUsuarios.Name = "tsmAyudaUsuarios";
+            this.tsmAyudaUsuarios.Size = new System.Drawing.Size(119, 22);
+            this.tsmAyudaUsuarios.Text = "Usuarios";
+            this.tsmAyudaUsuarios.Click += new System.EventHandler(this.tsmAyudaUsuarios_Click);
             // 
             // ssStatusMain
             // 
@@ -880,26 +864,6 @@
             this.gbMedioDePago.TabStop = false;
             this.gbMedioDePago.Text = "Medio de pago";
             // 
-            // tsmAyuda
-            // 
-            this.tsmAyuda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmAyudaUsuarios});
-            this.tsmAyuda.Name = "tsmAyuda";
-            this.tsmAyuda.Size = new System.Drawing.Size(53, 20);
-            this.tsmAyuda.Text = "Ayuda";
-            // 
-            // tsmAyudaUsuarios
-            // 
-            this.tsmAyudaUsuarios.Name = "tsmAyudaUsuarios";
-            this.tsmAyudaUsuarios.Size = new System.Drawing.Size(152, 22);
-            this.tsmAyudaUsuarios.Text = "Usuarios";
-            this.tsmAyudaUsuarios.Click += new System.EventHandler(this.tsmAyudaUsuarios_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -962,11 +926,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmPasajeEncomiendaAlta;
         private System.Windows.Forms.ToolStripMenuItem tsmPasajeEncomiendaCancelar;
         private System.Windows.Forms.ToolStripMenuItem tsmEstadisticas;
-        private System.Windows.Forms.ToolStripMenuItem tsmEstadisticasT5DestMasVendidos;
-        private System.Windows.Forms.ToolStripMenuItem tsmEstadisticasT5DestMasMicrosVacios;
-        private System.Windows.Forms.ToolStripMenuItem tsmEstadisticasT5ClientesMasPuntos;
-        private System.Windows.Forms.ToolStripMenuItem tsmEstadisticasT5DestMasCancelados;
-        private System.Windows.Forms.ToolStripMenuItem tsmEstadisticasT5MicrosMasDiasFueraDeServicio;
+        private System.Windows.Forms.ToolStripMenuItem tsmEstadisticasListados;
         private System.Windows.Forms.ToolStripMenuItem tsmClientePasajeroFrecuente;
         private System.Windows.Forms.ToolStripMenuItem tsmClientePasajeroFrecuenteConsultar;
         private System.Windows.Forms.ToolStripMenuItem tsmPremios;

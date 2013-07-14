@@ -3,34 +3,43 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
+using FrbaBus.Common.Entidades;
+using FrbaBus.Common.Entidades.Estadisticas;
+using FrbaBus.DAO;
 
 namespace FrbaBus.Manager
 {
     public class EstadisticasManager
     {
-        public DataSet DestinosMasVendidos()
+        private EstadisticasDAO _dao;
+        
+        public EstadisticasManager()
         {
-            return new DataSet();
+            this._dao = new EstadisticasDAO();
+        }
+        public IList<IListadoEstadistico> DestinosMasVendidos(Semestre semestre)
+        {
+            return this._dao.ListarDestinosMasVendidos();
         }
 
-        public DataSet DestinosConMasMicrosVacios()
+        public IList<IListadoEstadistico> DestinosConMasMicrosVacios(Semestre semestre)
         {
-            return new DataSet();
+            return this._dao.ListarDestinosConMasMicrosVacios();
         }
 
-        public DataSet ClientesConMasPuntos()
+        public IList<IListadoEstadistico> ClientesConMasPuntos(Semestre semestre)
         {
-            return new DataSet();
+            return this._dao.ListarClientesConMasPuntos();
         }
 
-        public DataSet DestinosMasCancelados()
+        public IList<IListadoEstadistico> DestinosMasCancelados(Semestre semestre)
         {
-            return new DataSet();
+            return this._dao.ListarDestinosMasCancelados();
         }
 
-        public DataSet MicrosConMasDiasFueraDeServicio()
+        public IList<IListadoEstadistico> MicrosConMasDiasFueraDeServicio(Semestre semestre)
         {
-            return new DataSet();
+            return this._dao.ListarMicrosConMasDiasFueraDeServicio();
         }
     }
 }
