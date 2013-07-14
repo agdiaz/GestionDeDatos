@@ -28,7 +28,11 @@ namespace FrbaBus.DAO
 
         private DestinoMasVendido BuildDestinoMasVendido(DataRow row)
         {
-            throw new NotImplementedException();
+            return new DestinoMasVendido()
+            {
+                Nombre = row["nombre"].ToString(),
+                Butacas = Convert.ToInt32(row["butacas_vendidas"].ToString())
+            };
         }
 
         public DataSet DestinosMasVendidos(Semestre s)
