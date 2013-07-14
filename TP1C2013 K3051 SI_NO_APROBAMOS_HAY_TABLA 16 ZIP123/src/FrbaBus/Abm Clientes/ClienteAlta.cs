@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using FrbaBus.Manager;
+using FrbaBus.Helpers;
 
 namespace FrbaBus.Abm_Clientes
 {
@@ -25,7 +26,7 @@ namespace FrbaBus.Abm_Clientes
             this.tbClienteMail.Text = "";
             this.tbClienteDireccion.Text = "";
             this.mtbClienteTelefono.Text = "";
-            this.dtpClienteFechaNac.Value = DateTime.Now;
+            this.dtpClienteFechaNac.Value = FechaHelper.Ahora();
             this.cbClienteEsDiscapacitado.Checked = false;
             this.rbClienteHombre.Checked = false;
             this.rbClienteMujer.Checked = false;

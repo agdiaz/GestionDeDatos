@@ -28,8 +28,7 @@ namespace FrbaBus.Rol
             try
             {
                 //Cargo la grilla de roles
-                DataSet dsRoles = _manager.ObtenerRegistrosRolUsuario();
-                this.dgvRolListado.DataSource = dsRoles.Tables[0];
+                this.dgvRolListado.DataSource = _manager.ListarRolUsuario();
 
                 //Cargo las funcionalidades
                 IList<Funcionalidad> funcionalidades = _manager.ListarFuncionalidad();
@@ -54,8 +53,8 @@ namespace FrbaBus.Rol
                 string funcionalidadElegida = string.Empty;
                 if (this.cbbRolListadoFuncionalidades.SelectedItem != null)
                     funcionalidadElegida = this.cbbRolListadoFuncionalidades.SelectedItem.ToString();
-                DataSet dsRoles = _manager.ObtenerRegistrosRolUsuario(this.tbRolListadoRol.Text, funcionalidadElegida);
-                this.dgvRolListado.DataSource = dsRoles.Tables[0];
+                IList<RolUsuario> dsRoles = _manager.ListarRegistrosRolUsuario(this.tbRolListadoRol.Text, funcionalidadElegida);
+                this.dgvRolListado.DataSource = dsRoles;
             }
             catch (AccesoBDException ex)
             {
@@ -68,6 +67,46 @@ namespace FrbaBus.Rol
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                RolUsuario rol = (RolUsuario)dgvRolListado.SelectedRows[0].DataBoundItem;
+                using (RolModificar frm = new RolModificar(rol))
+                {
+                    frm.ShowDialog(this);
+                }
+            }
+            catch (AccesoBDException ex)
+            {
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MensajePorPantalla.MensajeError(this, "Error al intentar modificar el registro.\n Detalle del error: " + ex.Message);
+                this.Close();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                RolUsuario rol = (RolUsuario)dgvRolListado.SelectedRows[0].DataBoundItem;
+                _manager.BajaRolUsuario(rol);
+            }
+            catch (AccesoBDException ex)
+            {
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MensajePorPantalla.MensajeError(this, "Error al intentar borrar el registro.\n Detalle del error: " + ex.Message);
+                this.Close();
+            }
+        }
 
     }
 }

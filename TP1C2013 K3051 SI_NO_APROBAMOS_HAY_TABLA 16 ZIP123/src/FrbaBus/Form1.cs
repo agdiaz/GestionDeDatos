@@ -295,11 +295,16 @@ namespace FrbaBus
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            var now = Helpers.FechaHelper.Ahora();
+            this.tssFecha.Text = now.ToString("dd/MM/yyyy");
+            this.tssHora.Text = now.ToString("HH:mm:ss");
+            this.dtpFechaSalida.Value = now;
+
             gbPasajeros.Enabled = (cbPasajes.Checked);
             gbEncomiendas.Enabled = (cbPasajes.Checked);
 
-            IList<Ciudad> ciudadesOrigen = new CiudadManager().ObtenerListado();
-            IList<Ciudad> ciudadesDestino = new CiudadManager().ObtenerListado();
+            IList<Ciudad> ciudadesOrigen = new CiudadManager().Listar();
+            IList<Ciudad> ciudadesDestino = new CiudadManager().Listar();
 
             this.cbbCiudadOrigen.DataSource = ciudadesOrigen;
             this.cbbCiudadOrigen.DisplayMember = "Descripcion";
@@ -364,6 +369,14 @@ namespace FrbaBus
                 {
                     txtCantPasajes.Text = txtButacasLibres.Text;
                 }
+            }
+        }
+
+        private void tsmAyudaUsuarios_Click(object sender, EventArgs e)
+        {
+            using (Ayuda.AyudaUsuarios frm = new FrbaBus.Ayuda.AyudaUsuarios())
+            {
+                frm.ShowDialog(this);
             }
         }
     }

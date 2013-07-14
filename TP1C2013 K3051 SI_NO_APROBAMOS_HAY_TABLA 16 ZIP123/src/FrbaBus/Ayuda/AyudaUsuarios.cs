@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace FrbaBus.Canje_de_Ptos
+namespace FrbaBus.Ayuda
 {
-    public partial class Form1 : Form
+    public partial class AyudaUsuarios : Form
     {
-        public Form1()
+        public AyudaUsuarios()
         {
             InitializeComponent();
         }

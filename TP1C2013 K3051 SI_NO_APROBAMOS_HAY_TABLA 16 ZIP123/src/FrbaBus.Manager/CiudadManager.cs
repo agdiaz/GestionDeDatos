@@ -10,37 +10,39 @@ namespace FrbaBus.Manager
 {
     public class CiudadManager
     {
-        public void Alta(string descripcion)
+        public void Alta(Ciudad c)
         {
             CiudadDAO ciudadDAO = new CiudadDAO();
-            Ciudad ciudad = new Ciudad() { Descripcion = descripcion };
-            ciudadDAO.Alta(ciudad);
+            ciudadDAO.Alta(c);
         }
 
-        public void Baja(string descripcion)
+        public void Baja(Ciudad c)
         {
             CiudadDAO ciudadDAO = new CiudadDAO();
-            Ciudad ciudad = new Ciudad() { Descripcion = descripcion };
-            ciudadDAO.Baja(ciudad);
+            ciudadDAO.Baja(c);
         }
 
-        public void Modificar(string descripcion)
+        public void Modificar(Ciudad c)
         {
             CiudadDAO ciudadDAO = new CiudadDAO();
-            Ciudad ciudad = new Ciudad() { Descripcion = descripcion };
-            ciudadDAO.Modificacion(ciudad);
+            ciudadDAO.Modificacion(c);
         }
 
-        public IList<Ciudad> ObtenerListado()
+        public IList<Ciudad> Listar()
         {
             CiudadDAO ciudadDAO = new CiudadDAO();
             return ciudadDAO.Listar();
         }
 
-        public DataSet Listar()
+        public DataSet ObtenerRegistros()
         {
             CiudadDAO ciudadDAO = new CiudadDAO();
             return ciudadDAO.ObtenerRegistros();
+        }
+
+        public IList<Ciudad> ObtenerListado(string ciudadElegida)
+        {
+            return new CiudadDAO().ListarRegistrosFiltrados(ciudadElegida);
         }
 
         public DataSet ObtenerRegistrosCiudades(string ciudadElegida)

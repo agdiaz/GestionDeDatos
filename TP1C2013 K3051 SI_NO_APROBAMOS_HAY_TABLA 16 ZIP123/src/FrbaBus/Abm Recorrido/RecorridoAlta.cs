@@ -35,8 +35,8 @@ namespace FrbaBus.Abm_Recorrido
 
         private void CargarCiudades()
         {
-            IList<Ciudad> ciudadesOrigen = new CiudadManager().ObtenerListado();
-            IList<Ciudad> ciudadesDestino = new CiudadManager().ObtenerListado();
+            IList<Ciudad> ciudadesOrigen = new CiudadManager().Listar();
+            IList<Ciudad> ciudadesDestino = new CiudadManager().Listar();
 
             this.cbCiudadOrigen.DataSource = ciudadesOrigen;
             this.cbCiudadOrigen.DisplayMember = "Descripcion";

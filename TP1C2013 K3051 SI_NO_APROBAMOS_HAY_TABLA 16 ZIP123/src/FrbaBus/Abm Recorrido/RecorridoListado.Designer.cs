@@ -39,6 +39,7 @@
             this.btnRecorridoListadoLimpiar = new System.Windows.Forms.Button();
             this.dgvRecorridoListado = new System.Windows.Forms.DataGridView();
             this.btnRecorridoListadoDarBaja = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             this.gbRecorridoListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecorridoListado)).BeginInit();
             this.SuspendLayout();
@@ -141,18 +142,28 @@
             // 
             // btnRecorridoListadoDarBaja
             // 
-            this.btnRecorridoListadoDarBaja.Location = new System.Drawing.Point(12, 368);
+            this.btnRecorridoListadoDarBaja.Location = new System.Drawing.Point(92, 368);
             this.btnRecorridoListadoDarBaja.Name = "btnRecorridoListadoDarBaja";
             this.btnRecorridoListadoDarBaja.Size = new System.Drawing.Size(75, 23);
             this.btnRecorridoListadoDarBaja.TabIndex = 9;
             this.btnRecorridoListadoDarBaja.Text = "Dar de baja";
             this.btnRecorridoListadoDarBaja.UseVisualStyleBackColor = true;
             // 
+            // btnModificar
+            // 
+            this.btnModificar.Location = new System.Drawing.Point(12, 368);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(75, 23);
+            this.btnModificar.TabIndex = 10;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            // 
             // RecorridoListado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(516, 409);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnRecorridoListadoDarBaja);
             this.Controls.Add(this.dgvRecorridoListado);
             this.Controls.Add(this.gbRecorridoListado);
@@ -180,5 +191,6 @@
         private System.Windows.Forms.Button btnRecorridoListadoDarBaja;
         private System.Windows.Forms.ComboBox cbCiudadOrigen;
         private System.Windows.Forms.ComboBox cbCiudadDestino;
+        private System.Windows.Forms.Button btnModificar;
     }
 }

@@ -47,6 +47,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -63,6 +64,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abm Ciudad\CiudadModificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Ciudad\CiudadModificar.Designer.cs">
+      <DependentUpon>CiudadModificar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Clientes\ClienteAlta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +142,12 @@
     <Compile Include="Abm Recorrido\RecorridoListado.Designer.cs">
       <DependentUpon>RecorridoListado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Rol\RolModificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Rol\RolModificar.Designer.cs">
+      <DependentUpon>RolModificar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Viaje\ViajeAlta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,16 +160,16 @@
     <Compile Include="Abm Viaje\ViajeListado.Designer.cs">
       <DependentUpon>ViajeListado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ayuda\AyudaUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ayuda\AyudaUsuarios.Designer.cs">
+      <DependentUpon>AyudaUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cancelar Viaje\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Cancelar Viaje\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Canje de Ptos\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Canje de Ptos\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Compra de Pasajes\Form1.cs">
@@ -213,6 +226,7 @@
     <Compile Include="GenerarViaje\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\FechaHelper.cs" />
     <Compile Include="Helpers\MensajeDeError.cs" />
     <Compile Include="Login\Login.cs">
       <SubType>Form</SubType>
@@ -222,6 +236,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Abm Ciudad\CiudadModificar.resx">
+      <DependentUpon>CiudadModificar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Abm Clientes\ClienteAlta.resx">
       <DependentUpon>ClienteAlta.cs</DependentUpon>
     </EmbeddedResource>
@@ -255,11 +272,32 @@
     <EmbeddedResource Include="Abm Recorrido\RecorridoListado.resx">
       <DependentUpon>RecorridoListado.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Abm Rol\RolModificar.resx">
+      <DependentUpon>RolModificar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Abm Viaje\ViajeAlta.resx">
       <DependentUpon>ViajeAlta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Viaje\ViajeListado.resx">
       <DependentUpon>ViajeListado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ayuda\AyudaUsuarios.resx">
+      <DependentUpon>AyudaUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticas\EstadisticasClientesConMasPuntos.resx">
+      <DependentUpon>EstadisticasClientesConMasPuntos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticas\EstadisticasDestinosConMasMicrosVacios.resx">
+      <DependentUpon>EstadisticasDestinosConMasMicrosVacios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticas\EstadisticasDestinosMasCancelados.resx">
+      <DependentUpon>EstadisticasDestinosMasCancelados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticas\EstadisticasDestinosMasVendidos.resx">
+      <DependentUpon>EstadisticasDestinosMasVendidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticas\EstadisticasMicrosConMasDiasFueraDeServicio.resx">
+      <DependentUpon>EstadisticasMicrosConMasDiasFueraDeServicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -366,6 +404,9 @@
       <Project>{BEEF1DE2-CB66-4363-848E-FA6E8455D733}</Project>
       <Name>FrbaBus.Manager</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Canje de Ptos\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

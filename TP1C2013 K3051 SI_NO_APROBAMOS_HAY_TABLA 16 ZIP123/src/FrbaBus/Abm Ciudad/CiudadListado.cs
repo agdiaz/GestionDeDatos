@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using FrbaBus.Manager;
 using FrbaBus.Common.Helpers;
 using FrbaBus.Common.Excepciones;
+using FrbaBus.Common.Entidades;
 
 namespace FrbaBus.Abm_Ciudad
 {
@@ -20,31 +21,13 @@ namespace FrbaBus.Abm_Ciudad
 
         }
 
-        private void btnCiudadListadoBuscar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string ciudadElegida = this.tbCiudadListadoCiudad.Text; ;
-                DataSet dsCiudades = new CiudadManager().ObtenerRegistrosCiudades(ciudadElegida);
-                this.dgvCiudadListado.DataSource = dsCiudades.Tables[0];
-            }
-            catch (AccesoBDException ex)
-            {
-                MensajePorPantalla.MensajeExceptionBD(this, ex);
-            }
-            catch (Exception ex)
-            {
-                MensajePorPantalla.MensajeError(this, "Error al realizar la búsqueda correspondiente.\n Detalle del error: " + ex.Message);
-            }
-        }
-
-        private void CiudadListado_Load(object sender, EventArgs e)
+        private void CargarCiudades()
         {
             try
             {
                 CiudadManager cm = new CiudadManager();
-                DataSet ciudades = cm.Listar();
-                this.dgvCiudadListado.DataSource = ciudades.Tables[0];
+                IList<Ciudad> ciudades = cm.Listar();
+                this.dgvCiudadListado.DataSource = ciudades;
             }
             catch (AccesoBDException ex)
             {
@@ -57,10 +40,75 @@ namespace FrbaBus.Abm_Ciudad
                 this.Close();
             }
         }
-
+        private void CiudadListado_Load(object sender, EventArgs e)
+        {
+            CargarCiudades();
+        }
+        private void btnCiudadListadoBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string ciudadElegida = this.tbCiudadListadoCiudad.Text;
+                IList<Ciudad> dsCiudades = new CiudadManager().ObtenerListado(ciudadElegida);
+                this.dgvCiudadListado.DataSource = dsCiudades;
+            }
+            catch (AccesoBDException ex)
+            {
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
+            }
+            catch (Exception ex)
+            {
+                MensajePorPantalla.MensajeError(this, "Error al realizar la búsqueda correspondiente.\n Detalle del error: " + ex.Message);
+            }
+        }
         private void btnCiudadListadoLimpiar_Click(object sender, EventArgs e)
         {
             tbCiudadListadoCiudad.Text = "";
+        }
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Ciudad ciudad = dgvCiudadListado.SelectedRows[0].DataBoundItem as Ciudad;
+
+                using (CiudadModificar frm = new CiudadModificar(ciudad))
+                {
+                    frm.ShowDialog(this);
+                }
+            }
+            catch (AccesoBDException ex)
+            {
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MensajePorPantalla.MensajeError(this, "Error al intentar modificar el registro.\n Detalle del error: " + ex.Message);
+                this.Close();
+            }
+
+            CargarCiudades();
+        }
+        private void btnCiudadListadoDarBaja_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Ciudad ciudad = dgvCiudadListado.SelectedRows[0].DataBoundItem as Ciudad;
+                new CiudadManager().Baja(ciudad);
+            }
+            catch (AccesoBDException ex)
+            {
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MensajePorPantalla.MensajeError(this, "Error al intentar cargar borrar el registro.\n Detalle del error: " + ex.Message);
+                this.Close();
+            }
+
+            CargarCiudades();
+
         }
     }
 }
