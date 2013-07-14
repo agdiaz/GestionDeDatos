@@ -130,8 +130,8 @@
             this.tsmViaje,
             this.tsmCliente,
             this.tsmEncomienda,
-            this.tsmEstadisticas,
             this.tsmPremios,
+            this.tsmEstadisticas,
             this.tsmAyuda});
             this.mnsMain.Location = new System.Drawing.Point(0, 0);
             this.mnsMain.Name = "mnsMain";
@@ -146,8 +146,10 @@
             this.toolStripSeparator1,
             this.tsmArchivoSalir});
             this.tsmArchivo.Name = "tsmArchivo";
+            this.tsmArchivo.ShortcutKeyDisplayString = "Control + A";
+            this.tsmArchivo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
             this.tsmArchivo.Size = new System.Drawing.Size(60, 20);
-            this.tsmArchivo.Text = "Archivo";
+            this.tsmArchivo.Text = "&Archivo";
             this.tsmArchivo.DropDownOpened += new System.EventHandler(this.tsmArchivo_DropDownOpened);
             // 
             // tsmSesion
@@ -156,33 +158,33 @@
             this.tsmSesionIniciar,
             this.tsmSesionCerrar});
             this.tsmSesion.Name = "tsmSesion";
-            this.tsmSesion.Size = new System.Drawing.Size(108, 22);
-            this.tsmSesion.Text = "Sesión";
+            this.tsmSesion.Size = new System.Drawing.Size(152, 22);
+            this.tsmSesion.Text = "&Sesión";
             // 
             // tsmSesionIniciar
             // 
             this.tsmSesionIniciar.Name = "tsmSesionIniciar";
-            this.tsmSesionIniciar.Size = new System.Drawing.Size(143, 22);
-            this.tsmSesionIniciar.Text = "Iniciar Sesión";
+            this.tsmSesionIniciar.Size = new System.Drawing.Size(152, 22);
+            this.tsmSesionIniciar.Text = "&Iniciar Sesión";
             this.tsmSesionIniciar.Click += new System.EventHandler(this.tsmSesionIniciar_Click);
             // 
             // tsmSesionCerrar
             // 
             this.tsmSesionCerrar.Name = "tsmSesionCerrar";
-            this.tsmSesionCerrar.Size = new System.Drawing.Size(143, 22);
-            this.tsmSesionCerrar.Text = "Cerrar Sesión";
+            this.tsmSesionCerrar.Size = new System.Drawing.Size(152, 22);
+            this.tsmSesionCerrar.Text = "&Cerrar Sesión";
             this.tsmSesionCerrar.Click += new System.EventHandler(this.tsmSesionCerrar_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(105, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // tsmArchivoSalir
             // 
             this.tsmArchivoSalir.Name = "tsmArchivoSalir";
-            this.tsmArchivoSalir.Size = new System.Drawing.Size(108, 22);
-            this.tsmArchivoSalir.Text = "Salir";
+            this.tsmArchivoSalir.Size = new System.Drawing.Size(152, 22);
+            this.tsmArchivoSalir.Text = "Sali&r";
             this.tsmArchivoSalir.Click += new System.EventHandler(this.tsmArchivoSalir_Click);
             // 
             // tsmRol
@@ -192,7 +194,7 @@
             this.tsmRolAlta});
             this.tsmRol.Name = "tsmRol";
             this.tsmRol.Size = new System.Drawing.Size(36, 20);
-            this.tsmRol.Text = "Rol";
+            this.tsmRol.Text = "&Rol";
             // 
             // tsmRolListado
             // 
@@ -215,7 +217,7 @@
             this.tsmCiudadAlta});
             this.tsmCiudad.Name = "tsmCiudad";
             this.tsmCiudad.Size = new System.Drawing.Size(57, 20);
-            this.tsmCiudad.Text = "Ciudad";
+            this.tsmCiudad.Text = "&Ciudad";
             // 
             // tsmCiudadListado
             // 
@@ -238,7 +240,7 @@
             this.tsmRecorridoAlta});
             this.tsmRecorrido.Name = "tsmRecorrido";
             this.tsmRecorrido.Size = new System.Drawing.Size(70, 20);
-            this.tsmRecorrido.Text = "Recorrido";
+            this.tsmRecorrido.Text = "Rec&orrido";
             // 
             // tsmRecorridoListado
             // 
@@ -261,7 +263,7 @@
             this.tsmMicroAlta});
             this.tsmMicro.Name = "tsmMicro";
             this.tsmMicro.Size = new System.Drawing.Size(50, 20);
-            this.tsmMicro.Text = "Micro";
+            this.tsmMicro.Text = "&Micro";
             this.tsmMicro.Click += new System.EventHandler(this.tsmMicros_Click);
             // 
             // tsmMicroListado
@@ -285,7 +287,7 @@
             this.tsmViajeAlta});
             this.tsmViaje.Name = "tsmViaje";
             this.tsmViaje.Size = new System.Drawing.Size(44, 20);
-            this.tsmViaje.Text = "Viaje";
+            this.tsmViaje.Text = "&Viaje";
             // 
             // tsmViajeListado
             // 
@@ -309,7 +311,7 @@
             this.tsmClientePasajeroFrecuente});
             this.tsmCliente.Name = "tsmCliente";
             this.tsmCliente.Size = new System.Drawing.Size(56, 20);
-            this.tsmCliente.Text = "Cliente";
+            this.tsmCliente.Text = "C&liente";
             this.tsmCliente.Click += new System.EventHandler(this.tsmPasajero_Click);
             // 
             // tsmClienteListado
@@ -347,7 +349,7 @@
             this.tsmPasajeEncomiendaCancelar});
             this.tsmEncomienda.Name = "tsmEncomienda";
             this.tsmEncomienda.Size = new System.Drawing.Size(123, 20);
-            this.tsmEncomienda.Text = "Pasaje/Encomienda";
+            this.tsmEncomienda.Text = "&Pasaje/Encomienda";
             // 
             // tsmPasajeEncomiendaAlta
             // 
@@ -369,7 +371,7 @@
             this.tsmEstadisticasListados});
             this.tsmEstadisticas.Name = "tsmEstadisticas";
             this.tsmEstadisticas.Size = new System.Drawing.Size(79, 20);
-            this.tsmEstadisticas.Text = "Estadísticas";
+            this.tsmEstadisticas.Text = "&Estadísticas";
             // 
             // tsmEstadisticasListados
             // 
@@ -385,7 +387,7 @@
             this.tsmPremiosAlta});
             this.tsmPremios.Name = "tsmPremios";
             this.tsmPremios.Size = new System.Drawing.Size(62, 20);
-            this.tsmPremios.Text = "Premios";
+            this.tsmPremios.Text = "Prem&ios";
             // 
             // tsmPremiosListado
             // 
@@ -405,12 +407,12 @@
             this.tsmAyudaUsuarios});
             this.tsmAyuda.Name = "tsmAyuda";
             this.tsmAyuda.Size = new System.Drawing.Size(53, 20);
-            this.tsmAyuda.Text = "Ayuda";
+            this.tsmAyuda.Text = "A&yuda";
             // 
             // tsmAyudaUsuarios
             // 
             this.tsmAyudaUsuarios.Name = "tsmAyudaUsuarios";
-            this.tsmAyudaUsuarios.Size = new System.Drawing.Size(119, 22);
+            this.tsmAyudaUsuarios.Size = new System.Drawing.Size(152, 22);
             this.tsmAyudaUsuarios.Text = "Usuarios";
             this.tsmAyudaUsuarios.Click += new System.EventHandler(this.tsmAyudaUsuarios_Click);
             // 

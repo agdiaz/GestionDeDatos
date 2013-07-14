@@ -15,9 +15,9 @@ namespace FrbaBus.DAO
         
         #region DestinosMasVendidos
 
-        public IList<IListadoEstadistico> ListarDestinosMasVendidos(Semestre s)
+        public IList<DestinoMasVendido> ListarDestinosMasVendidos(Semestre s)
         {
-            IList<IListadoEstadistico> destinos = new List<IListadoEstadistico>();
+            IList<DestinoMasVendido> destinos = new List<DestinoMasVendido>();
 
             foreach (DataRow row in this.DestinosMasVendidos(s).Tables[0].Rows)
             {
@@ -28,27 +28,33 @@ namespace FrbaBus.DAO
 
         private DestinoMasVendido BuildDestinoMasVendido(DataRow row)
         {
-            throw new NotImplementedException();
+            return new DestinoMasVendido()
+            {
+                Nombre = row["nombre"].ToString(),
+                Butacas = Convert.ToInt32(row["butacas_vendidas"].ToString())
+            };
         }
-
-        public DataSet DestinosMasVendidos(Semestre s)
+        private DataSet ConsultarListado(string nombre, Semestre s)
         {
             Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
             parametros.Add(new SqlParameter("@fecha_inicio", SqlDbType.DateTime, 8, "fecha_inicio"), s.Inicio);
             parametros.Add(new SqlParameter("@fecha_fin", SqlDbType.DateTime, 8, "fecha_fin"), s.Fin);
 
-            string consulta = "[SI_NO_APROBAMOS_HAY_TABLA].sp_top5_destino_mas_vendido_por_semestre";
-            return this.accesoBD.RealizarConsultaAlmacenada(consulta, parametros);
+            return this.accesoBD.RealizarConsultaAlmacenada(nombre, parametros);
+        }
+        public DataSet DestinosMasVendidos(Semestre s)
+        {
+            return ConsultarListado("[SI_NO_APROBAMOS_HAY_TABLA].sp_top5_destino_mas_vendido_por_semestre", s);
         }
 
         #endregion
 
         #region DestinosConMasMicrosVacios
-        public IList<IListadoEstadistico> ListarDestinosConMasMicrosVacios()
+        public IList<DestinoConMasMicrosVacios> ListarDestinosConMasMicrosVacios(Semestre s)
         {
-            IList<IListadoEstadistico> destinos = new List<IListadoEstadistico>();
+            IList<DestinoConMasMicrosVacios> destinos = new List<DestinoConMasMicrosVacios>();
 
-            foreach (DataRow row in this.DestinosConMasMicrosVacios().Tables[0].Rows)
+            foreach (DataRow row in this.DestinosConMasMicrosVacios(s).Tables[0].Rows)
             {
                 destinos.Add(this.BuildDestinoConMasMicrosVacios(row));
             }
@@ -60,21 +66,20 @@ namespace FrbaBus.DAO
             throw new NotImplementedException();
         }
 
-        public DataSet DestinosConMasMicrosVacios()
+        public DataSet DestinosConMasMicrosVacios(Semestre s)
         {
-            string consulta = "SELECT * FROM [SI_NO_APROBAMOS_HAY_TABLA].[v_DestinosConMasMicrosVacios]";
-            return this.accesoBD.RealizarConsulta(consulta);
+            return ConsultarListado("[SI_NO_APROBAMOS_HAY_TABLA].sp_top5_destino_con_micros_vacios_por_semestre", s);
         }
 
 
         #endregion
         
         #region ClientesConMasPuntos
-        public IList<IListadoEstadistico> ListarClientesConMasPuntos()
+        public IList<ClienteConMasPuntos> ListarClientesConMasPuntos(Semestre s)
         {
-            IList<IListadoEstadistico> clientes = new List<IListadoEstadistico>();
+            IList<ClienteConMasPuntos> clientes = new List<ClienteConMasPuntos>();
 
-            foreach (DataRow row in this.ClientesConMasPuntos().Tables[0].Rows)
+            foreach (DataRow row in this.ClientesConMasPuntos(s).Tables[0].Rows)
             {
                 clientes.Add(this.BuildClienteConMasPuntos(row));
             }
@@ -86,19 +91,18 @@ namespace FrbaBus.DAO
             throw new NotImplementedException();
         }
 
-        public DataSet ClientesConMasPuntos()
+        public DataSet ClientesConMasPuntos(Semestre s)
         {
-            string consulta = "SELECT * FROM [SI_NO_APROBAMOS_HAY_TABLA].[v_ClientesConMasPuntos]";
-            return this.accesoBD.RealizarConsulta(consulta);
+            return ConsultarListado("[SI_NO_APROBAMOS_HAY_TABLA].sp_top5_clientes_con_mas_puntos_por_semestre", s);
         }
         #endregion
 
         #region DestinosMasCancelados
-        public IList<IListadoEstadistico> ListarDestinosMasCancelados()
+        public IList<DestinoMasCancelado> ListarDestinosMasCancelados(Semestre s)
         {
-            IList<IListadoEstadistico> clientes = new List<IListadoEstadistico>();
+            IList<DestinoMasCancelado> clientes = new List<DestinoMasCancelado>();
 
-            foreach (DataRow row in this.DestinosMasCancelados().Tables[0].Rows)
+            foreach (DataRow row in this.DestinosMasCancelados(s).Tables[0].Rows)
             {
                 clientes.Add(this.BuildDestinoMasCancelado(row));
             }
@@ -110,19 +114,18 @@ namespace FrbaBus.DAO
             throw new NotImplementedException();
         }
 
-        public DataSet DestinosMasCancelados()
+        public DataSet DestinosMasCancelados(Semestre s)
         {
-            string consulta = "SELECT * FROM [SI_NO_APROBAMOS_HAY_TABLA].[v_DestinosMasCancelados]";
-            return this.accesoBD.RealizarConsulta(consulta);
+            return ConsultarListado("[SI_NO_APROBAMOS_HAY_TABLA].sp_top5_destinos_mas_cancelados_por_semestre", s);
         }
         #endregion
         
         #region MicrosConMasDiasFueraDeServicio
-        public IList<IListadoEstadistico> ListarMicrosConMasDiasFueraDeServicio()
+        public IList<MicroConMasDiasFueraDeServicio> ListarMicrosConMasDiasFueraDeServicio(Semestre s)
         {
-            IList<IListadoEstadistico> clientes = new List<IListadoEstadistico>();
+            IList<MicroConMasDiasFueraDeServicio> clientes = new List<MicroConMasDiasFueraDeServicio>();
 
-            foreach (DataRow row in this.MicrosConMasDiasFueraDeServicio().Tables[0].Rows)
+            foreach (DataRow row in this.MicrosConMasDiasFueraDeServicio(s).Tables[0].Rows)
             {
                 clientes.Add(this.BuildMicroConMasDiasFueraDeServicio(row));
             }
@@ -134,10 +137,9 @@ namespace FrbaBus.DAO
             throw new NotImplementedException();
         }
 
-        public DataSet MicrosConMasDiasFueraDeServicio()
+        public DataSet MicrosConMasDiasFueraDeServicio(Semestre s)
         {
-            string consulta = "SELECT * FROM [SI_NO_APROBAMOS_HAY_TABLA].[v_MicrosConMasDiasFueraDeServicio]";
-            return this.accesoBD.RealizarConsulta(consulta);
+            return ConsultarListado("[SI_NO_APROBAMOS_HAY_TABLA].sp_top5_micros_fuera_servicio_por_semestre", s);
         }
         #endregion
     }

@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using FrbaBus.Helpers;
 using FrbaBus.Common.Entidades.Estadisticas;
 using FrbaBus.Manager;
+using FrbaBus.Common.Excepciones;
+using FrbaBus.Common.Helpers;
 
 namespace FrbaBus.Estadisticas
 {
@@ -24,7 +26,7 @@ namespace FrbaBus.Estadisticas
 
         private void EstadisticasClientesConMasPuntos_Load(object sender, EventArgs e)
         {
-            var s = FechaHelper.ListarSemestres();
+            var s = FechaHelper.ListarSemestres().OrderByDescending( o => o.Inicio).ToList();
             this.comboBox1.DataSource = s;
             this.comboBox1.DisplayMember = "Periodo";
             this.comboBox1.ValueMember = "Periodo";
@@ -34,33 +36,54 @@ namespace FrbaBus.Estadisticas
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            IList<IListadoEstadistico> registros = new List<IListadoEstadistico>();
-            
-            Semestre s = this.comboBox1.SelectedItem as Semestre;
-
-            switch (this.cbListado.SelectedIndex)
+            try
             {
-                case 0:
-                    registros = this._manager.DestinosMasVendidos(s);
-                    break;
-                case 1:
-                    registros = this._manager.DestinosConMasMicrosVacios(s);
-                    break;
-                case 2:
-                    registros = this._manager.ClientesConMasPuntos(s);
-                    break;
-                case 3:
-                    registros = this._manager.DestinosMasCancelados(s);
-                    break;
-                case 4:
-                    registros = this._manager.MicrosConMasDiasFueraDeServicio(s);
-                    break;
-                default:
-                    break;
+                Semestre s = this.comboBox1.SelectedItem as Semestre;
+
+                switch (this.cbListado.SelectedIndex)
+                {
+                    case 0:
+                        {
+                            IList<DestinoMasVendido> registros = this._manager.DestinosMasVendidos(s);
+                            this.dgvEstadistica.DataSource = registros;
+                            break;
+                        }
+                    case 1:
+                        {
+                            IList<DestinoConMasMicrosVacios> registros = this._manager.DestinosConMasMicrosVacios(s);
+                            this.dgvEstadistica.DataSource = registros;
+                            break;
+                        }
+                    case 2:
+                        {
+                            IList<ClienteConMasPuntos> registros = this._manager.ClientesConMasPuntos(s);
+                            this.dgvEstadistica.DataSource = registros;
+                            break;
+                        }
+                    case 3:
+                        {
+                            IList<DestinoMasCancelado> registros = this._manager.DestinosMasCancelados(s);
+                            this.dgvEstadistica.DataSource = registros;
+                            break;
+                        }
+                    case 4:
+                        {
+                            IList<MicroConMasDiasFueraDeServicio> registros = this._manager.MicrosConMasDiasFueraDeServicio(s);
+                            this.dgvEstadistica.DataSource = registros;
+                            break;
+                        }
+                    default:
+                        break;
+                }
             }
-
-            this.dgvEstadistica.DataSource = registros;
-
+            catch (AccesoBDException ex)
+            {
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
+            }
+            catch (Exception ex)
+            {
+                MensajePorPantalla.MensajeError(this, "Error al realizar la búsqueda correspondiente.\n Detalle del error: " + ex.Message);
+            }
         }
     }
 }
