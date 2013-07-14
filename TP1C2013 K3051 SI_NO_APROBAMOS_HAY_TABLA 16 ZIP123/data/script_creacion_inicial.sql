@@ -1289,11 +1289,12 @@ INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Usuario]
            ,CAST(0xE6B87050BFCB8143FCB8DB0170A4DC9ED00D904DDD3E2A4AD1B1E8DC0FDC9BE7 AS VARBINARY(32))
            ,0)
 
+
 /*===========================Tabla Puntajes=======================================*/
 USE [GD1C2013]
 GO
 
-/****** Object:  Table [SI_NO_APROBAMOS_HAY_TABLA].[Puntaje]    Script Date: 07/14/2013 12:18:58 ******/
+/****** Object:  Table [SI_NO_APROBAMOS_HAY_TABLA].[Puntaje]    Script Date: 07/14/2013 14:04:08 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -1303,7 +1304,7 @@ GO
 CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Puntaje](
 	[id_puntaje] [int] IDENTITY(1,1) NOT NULL,
 	[dni] [numeric](18, 0) NOT NULL,
-	[descripcion] [nvarchar](200) NOT NULL,
+	[id_compra] [int] NOT NULL,
 	[puntos] [int] NOT NULL,
 	[puntos_usados] [int] NOT NULL,
 	[fecha_otorgado] [datetime] NOT NULL,
@@ -1323,6 +1324,13 @@ GO
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Puntaje] CHECK CONSTRAINT [FK_Puntaje_Cliente]
 GO
 
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Puntaje]  WITH CHECK ADD  CONSTRAINT [FK_Puntaje_Compra] FOREIGN KEY([id_compra])
+REFERENCES [SI_NO_APROBAMOS_HAY_TABLA].[Compra] ([id_compra])
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Puntaje] CHECK CONSTRAINT [FK_Puntaje_Compra]
+GO
+
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Puntaje] ADD  CONSTRAINT [DF_Puntaje_puntos_usados]  DEFAULT ((0)) FOR [puntos_usados]
 GO
 
@@ -1330,6 +1338,20 @@ ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Puntaje] ADD  CONSTRAINT [DF_Puntaje_fe
 GO
 
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Puntaje] ADD  CONSTRAINT [DF_Puntaje_baja]  DEFAULT ((0)) FOR [baja]
+GO
+
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Puntaje]
+	([dni],[id_compra],[puntos],[puntos_usados])
+VALUES (27223299,145098,103,0)
+
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Puntaje]
+	([dni],[id_compra],[puntos],[puntos_usados])
+VALUES (12835515,139822,103,0)
+
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Puntaje]
+	([dni],[id_compra],[puntos],[puntos_usados])
+VALUES (74978796,219895,92,0)
+
 GO
 
 /*================================TABLA RECOMPENSA================================*/
