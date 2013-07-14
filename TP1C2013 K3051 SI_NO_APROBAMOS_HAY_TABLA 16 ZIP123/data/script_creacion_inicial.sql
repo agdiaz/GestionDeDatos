@@ -1415,6 +1415,11 @@ GO
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Recompensa] ADD  CONSTRAINT [DF_Recompensa_baja]  DEFAULT ((0)) FOR [baja]
 GO
 
+ALTER TABLE SI_NO_APROBAMOS_HAY_TABLA.Recompensa
+ADD CONSTRAINT check_stock CHECK (stock >= 0)
+
+GO
+
 INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Recompensa]
 	([descripcion],[stock],[puntos_costo])
 VALUES ('Lapicera',10,5)
@@ -2392,6 +2397,17 @@ BEGIN
 	UPDATE [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Viaje]
 	SET [fecha_arribo]=@fecha_hora_llegada
 	WHERE viaje.id_micro = @micro_id
+END
+GO
+
+/*=============================Listar recompensas ===============================*/
+
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_recompensas
+AS
+BEGIN
+	SELECT r.id_recompensa, r.descripcion, r.stock, r.puntos_costo
+	FROM SI_NO_APROBAMOS_HAY_TABLA.Recompensa r
+	WHERE r.baja = 0
 END
 GO
 
