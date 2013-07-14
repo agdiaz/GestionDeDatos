@@ -184,35 +184,11 @@
     <Compile Include="Consulta Puntos Adquiridos\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Estadisticas\EstadisticasClientesConMasPuntos.cs">
+    <Compile Include="Estadisticas\Estadisticas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Estadisticas\EstadisticasClientesConMasPuntos.Designer.cs">
-      <DependentUpon>EstadisticasClientesConMasPuntos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Estadisticas\EstadisticasDestinosConMasMicrosVacios.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Estadisticas\EstadisticasDestinosConMasMicrosVacios.Designer.cs">
-      <DependentUpon>EstadisticasDestinosConMasMicrosVacios.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Estadisticas\EstadisticasDestinosMasCancelados.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Estadisticas\EstadisticasDestinosMasCancelados.Designer.cs">
-      <DependentUpon>EstadisticasDestinosMasCancelados.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Estadisticas\EstadisticasDestinosMasVendidos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Estadisticas\EstadisticasDestinosMasVendidos.Designer.cs">
-      <DependentUpon>EstadisticasDestinosMasVendidos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Estadisticas\EstadisticasMicrosConMasDiasFueraDeServicio.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Estadisticas\EstadisticasMicrosConMasDiasFueraDeServicio.Designer.cs">
-      <DependentUpon>EstadisticasMicrosConMasDiasFueraDeServicio.cs</DependentUpon>
+    <Compile Include="Estadisticas\Estadisticas.Designer.cs">
+      <DependentUpon>Estadisticas.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -284,20 +260,8 @@
     <EmbeddedResource Include="Ayuda\AyudaUsuarios.resx">
       <DependentUpon>AyudaUsuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Estadisticas\EstadisticasClientesConMasPuntos.resx">
-      <DependentUpon>EstadisticasClientesConMasPuntos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Estadisticas\EstadisticasDestinosConMasMicrosVacios.resx">
-      <DependentUpon>EstadisticasDestinosConMasMicrosVacios.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Estadisticas\EstadisticasDestinosMasCancelados.resx">
-      <DependentUpon>EstadisticasDestinosMasCancelados.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Estadisticas\EstadisticasDestinosMasVendidos.resx">
-      <DependentUpon>EstadisticasDestinosMasVendidos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Estadisticas\EstadisticasMicrosConMasDiasFueraDeServicio.resx">
-      <DependentUpon>EstadisticasMicrosConMasDiasFueraDeServicio.cs</DependentUpon>
+    <EmbeddedResource Include="Estadisticas\Estadisticas.resx">
+      <DependentUpon>Estadisticas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
