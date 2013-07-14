@@ -15,12 +15,14 @@ namespace GestionDeDatos.AccesoDatos
                 string mensaje = "Se ha producido un error en la base de datos.";
                 mensaje += "\nConsulta realizada: " + this.Consulta;
                 mensaje += "\nParametros usados: ";
-                foreach (var item in this.ParametrosUsados)
+                if (this.ParametrosUsados != null)
                 {
-                    mensaje += "\n\tNombre del parámetro: " + item.Key.ParameterName;
-                    mensaje += "\tValor: " + item.Value.ToString();
+                    foreach (var item in this.ParametrosUsados)
+                    {
+                        mensaje += "\n\tNombre del parámetro: " + item.Key.ParameterName;
+                        mensaje += "\tValor: " + item.Value.ToString();
+                    }
                 }
-
                 mensaje += "\nMensaje interno del error:\n" + this.InnerException.Message;
                 return mensaje;
             }

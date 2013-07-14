@@ -5,6 +5,7 @@ using System.Text;
 using GestionDeDatos.AccesoDatos;
 using System.Data;
 using FrbaBus.Common.Entidades.Estadisticas;
+using System.Data.SqlClient;
 
 namespace FrbaBus.DAO
 {
@@ -13,12 +14,12 @@ namespace FrbaBus.DAO
         private IAccesoBD accesoBD = new AccesoBD();
         
         #region DestinosMasVendidos
-        
-        public IList<IListadoEstadistico> ListarDestinosMasVendidos()
+
+        public IList<IListadoEstadistico> ListarDestinosMasVendidos(Semestre s)
         {
             IList<IListadoEstadistico> destinos = new List<IListadoEstadistico>();
 
-            foreach (DataRow row in this.DestinosMasVendidos().Tables[0].Rows)
+            foreach (DataRow row in this.DestinosMasVendidos(s).Tables[0].Rows)
             {
                 destinos.Add(this.BuildDestinoMasVendido(row));
             }
@@ -30,10 +31,14 @@ namespace FrbaBus.DAO
             throw new NotImplementedException();
         }
 
-        public DataSet DestinosMasVendidos()
+        public DataSet DestinosMasVendidos(Semestre s)
         {
-            string consulta = "[SI_NO_APROBAMOS_HAY_TABLA].[v_DestinosMasVendidos]";
-            return this.accesoBD.RealizarConsulta(consulta);
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+            parametros.Add(new SqlParameter("@fecha_inicio", SqlDbType.DateTime, 8, "fecha_inicio"), s.Inicio);
+            parametros.Add(new SqlParameter("@fecha_fin", SqlDbType.DateTime, 8, "fecha_fin"), s.Fin);
+
+            string consulta = "[SI_NO_APROBAMOS_HAY_TABLA].sp_top5_destino_mas_vendido_por_semestre";
+            return this.accesoBD.RealizarConsultaAlmacenada(consulta, parametros);
         }
 
         #endregion

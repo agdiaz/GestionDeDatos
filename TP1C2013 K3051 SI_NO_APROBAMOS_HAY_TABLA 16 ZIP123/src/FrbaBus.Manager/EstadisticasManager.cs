@@ -19,7 +19,7 @@ namespace FrbaBus.Manager
         }
         public IList<IListadoEstadistico> DestinosMasVendidos(Semestre semestre)
         {
-            return this._dao.ListarDestinosMasVendidos();
+            return this._dao.ListarDestinosMasVendidos(semestre);
         }
 
         public IList<IListadoEstadistico> DestinosConMasMicrosVacios(Semestre semestre)

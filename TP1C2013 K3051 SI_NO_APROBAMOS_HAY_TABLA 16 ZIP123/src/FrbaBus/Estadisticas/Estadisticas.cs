@@ -28,6 +28,8 @@ namespace FrbaBus.Estadisticas
             this.comboBox1.DataSource = s;
             this.comboBox1.DisplayMember = "Periodo";
             this.comboBox1.ValueMember = "Periodo";
+
+            this.cbListado.SelectedIndex = 0;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
