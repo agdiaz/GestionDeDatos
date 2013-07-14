@@ -34,33 +34,43 @@ namespace FrbaBus.Estadisticas
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            IList<IListadoEstadistico> registros = new List<IListadoEstadistico>();
-            
             Semestre s = this.comboBox1.SelectedItem as Semestre;
 
             switch (this.cbListado.SelectedIndex)
             {
                 case 0:
-                    registros = this._manager.DestinosMasVendidos(s);
-                    break;
+                    {
+                        IList<DestinoMasVendido> registros = this._manager.DestinosMasVendidos(s);
+                        this.dgvEstadistica.DataSource = registros;
+                        break;
+                    }
                 case 1:
-                    registros = this._manager.DestinosConMasMicrosVacios(s);
-                    break;
+                    {
+                        IList<DestinoConMasMicrosVacios> registros = this._manager.DestinosConMasMicrosVacios(s);
+                        this.dgvEstadistica.DataSource = registros;
+                        break;
+                    }
                 case 2:
-                    registros = this._manager.ClientesConMasPuntos(s);
-                    break;
+                    {
+                        IList<ClienteConMasPuntos> registros = this._manager.ClientesConMasPuntos(s);
+                        this.dgvEstadistica.DataSource = registros;
+                        break;
+                    }
                 case 3:
-                    registros = this._manager.DestinosMasCancelados(s);
-                    break;
+                    {
+                        IList<DestinoMasCancelado> registros = this._manager.DestinosMasCancelados(s);
+                        this.dgvEstadistica.DataSource = registros;
+                        break;
+                    }
                 case 4:
-                    registros = this._manager.MicrosConMasDiasFueraDeServicio(s);
-                    break;
+                    {
+                        IList<MicroConMasDiasFueraDeServicio> registros = this._manager.MicrosConMasDiasFueraDeServicio(s);
+                        this.dgvEstadistica.DataSource = registros;
+                        break;
+                    }
                 default:
                     break;
             }
-
-            this.dgvEstadistica.DataSource = registros;
-
         }
     }
 }

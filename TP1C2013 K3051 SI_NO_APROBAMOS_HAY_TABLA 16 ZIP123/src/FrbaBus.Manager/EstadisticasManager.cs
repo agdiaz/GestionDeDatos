@@ -17,29 +17,29 @@ namespace FrbaBus.Manager
         {
             this._dao = new EstadisticasDAO();
         }
-        public IList<IListadoEstadistico> DestinosMasVendidos(Semestre semestre)
+        public IList<DestinoMasVendido> DestinosMasVendidos(Semestre semestre)
         {
             return this._dao.ListarDestinosMasVendidos(semestre);
         }
 
-        public IList<IListadoEstadistico> DestinosConMasMicrosVacios(Semestre semestre)
+        public IList<DestinoConMasMicrosVacios> DestinosConMasMicrosVacios(Semestre semestre)
         {
-            return this._dao.ListarDestinosConMasMicrosVacios();
+            return this._dao.ListarDestinosConMasMicrosVacios(semestre);
         }
 
-        public IList<IListadoEstadistico> ClientesConMasPuntos(Semestre semestre)
+        public IList<ClienteConMasPuntos> ClientesConMasPuntos(Semestre semestre)
         {
-            return this._dao.ListarClientesConMasPuntos();
+            return this._dao.ListarClientesConMasPuntos(semestre);
         }
 
-        public IList<IListadoEstadistico> DestinosMasCancelados(Semestre semestre)
+        public IList<DestinoMasCancelado> DestinosMasCancelados(Semestre semestre)
         {
-            return this._dao.ListarDestinosMasCancelados();
+            return this._dao.ListarDestinosMasCancelados(semestre);
         }
 
-        public IList<IListadoEstadistico> MicrosConMasDiasFueraDeServicio(Semestre semestre)
+        public IList<MicroConMasDiasFueraDeServicio> MicrosConMasDiasFueraDeServicio(Semestre semestre)
         {
-            return this._dao.ListarMicrosConMasDiasFueraDeServicio();
+            return this._dao.ListarMicrosConMasDiasFueraDeServicio(semestre);
         }
     }
 }
