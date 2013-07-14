@@ -1,3 +1,14 @@
+/*===========================SCHEMA=============================*/
+USE [GD1C2013]
+GO
+
+IF  EXISTS (SELECT * FROM sys.schemas WHERE name = N'SI_NO_APROBAMOS_HAY_TABLA')
+DROP SCHEMA [SI_NO_APROBAMOS_HAY_TABLA]
+
+IF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = N'SI_NO_APROBAMOS_HAY_TABLA')
+EXEC sys.sp_executesql N'CREATE SCHEMA [SI_NO_APROBAMOS_HAY_TABLA] AUTHORIZATION [dbo]'
+GO
+
 /*===========================CIUDAD=============================*/
 
 /*
@@ -20,12 +31,16 @@ GO
 CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Ciudad](
 	[id_ciudad] [int] IDENTITY(1,1) NOT NULL,
 	[nombre] [varchar](50) NOT NULL,
+	[baja] [bit] NOT NULL,
  CONSTRAINT [PK_Ciudad] PRIMARY KEY CLUSTERED 
 (
 	[id_ciudad] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Ciudad] ADD  CONSTRAINT [DF_Ciudad_baja]  DEFAULT ((0)) FOR [baja]
 GO
 
 SET ANSI_PADDING OFF
@@ -62,12 +77,16 @@ GO
 CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Marca](
 	[id_marca] [int] IDENTITY(1,1) NOT NULL,
 	[nombre] [varchar](50) NOT NULL,
+	[baja] [bit] NOT NULL,
  CONSTRAINT [PK_Marca] PRIMARY KEY CLUSTERED 
 (
 	[id_marca] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Marca] ADD  CONSTRAINT [DF_Marca_baja]  DEFAULT ((0)) FOR [baja]
 GO
 
 SET ANSI_PADDING OFF
@@ -104,12 +123,20 @@ CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Cliente](
 	[fecha_nacimiento] [datetime] NOT NULL,
 	[es_discapacitado] [char](1) NULL,
 	[sexo] [varchar](50) NULL,
+	[inhabilitado] [bit] NOT NULL,
+	[baja] [bit] NOT NULL,
  CONSTRAINT [PK_Cliente] PRIMARY KEY CLUSTERED 
 (
 	[dni] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Cliente] ADD  CONSTRAINT [DF_Cliente_inhabilitado]  DEFAULT ((0)) FOR [inhabilitado]
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Cliente] ADD  CONSTRAINT [DF_Cliente_baja]  DEFAULT ((0)) FOR [baja]
 GO
 
 SET ANSI_PADDING OFF
@@ -145,12 +172,16 @@ CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Servicio](
 	[id_servicio] [int] IDENTITY(1,1) NOT NULL,
 	[tipo_servicio] [nvarchar](255) NOT NULL,
 	[pocent_adic] [decimal](5, 2) NOT NULL,
+	[baja] [bit] NOT NULL,
  CONSTRAINT [PK_Servicio] PRIMARY KEY CLUSTERED 
 (
 	[id_servicio] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Servicio] ADD CONSTRAINT [DF_Servicio_baja]  DEFAULT ((0)) FOR [baja]
 GO
 
 insert into SI_NO_APROBAMOS_HAY_TABLA.Servicio (tipo_servicio, pocent_adic)
@@ -336,6 +367,7 @@ CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Butaca](
 	[id_micro] [int] NOT NULL,
 	[tipo_butaca] [nvarchar](50) NOT NULL,
 	[piso] [numeric](18, 0) NOT NULL,
+	[baja] [bit] NOT NULL,
  CONSTRAINT [PK_Butaca] PRIMARY KEY CLUSTERED 
 (
 	[id_butaca] ASC
@@ -350,6 +382,10 @@ GO
 
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Butaca] CHECK CONSTRAINT [FK_Butaca_Micros]
 GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Butaca] ADD  CONSTRAINT [DF_Butaca_baja]  DEFAULT ((0)) FOR [baja]
+GO
+
 
 insert into SI_NO_APROBAMOS_HAY_TABLA.Butaca
 	(nro_butaca, id_micro, tipo_butaca, piso)
@@ -448,7 +484,9 @@ GO
 CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Rol](
 	[id_rol] [int] IDENTITY(1,1) NOT NULL,
 	[nombre] [nvarchar](50) NOT NULL,
+	[activado] [bit] NOT NULL,
 	[inhabilitado] [bit] NOT NULL,
+	[baja] [bit] NOT NULL,
  CONSTRAINT [PK_Rol] PRIMARY KEY CLUSTERED 
 (
 	[id_rol] ASC
@@ -458,6 +496,12 @@ CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Rol](
 GO
 
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Rol] ADD  CONSTRAINT [DF_Rol_inhabilitado]  DEFAULT ((0)) FOR [inhabilitado]
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Rol] ADD  CONSTRAINT [activado]  DEFAULT ((1)) FOR [activado]
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Rol] ADD  CONSTRAINT [DF_Rol_baja]  DEFAULT ((0)) FOR [baja]
 GO
 
 insert into SI_NO_APROBAMOS_HAY_TABLA.Rol (nombre) VALUES ('Administrativo')
@@ -485,6 +529,7 @@ CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Usuario](
 	[username] [nvarchar](50) NOT NULL UNIQUE,
 	[hash_password] [varbinary](32) NULL,
 	[cant_intentos_fallidos] [int] NOT NULL,
+	[baja] [bit] NOT NULL,
  CONSTRAINT [PK_Usuario] PRIMARY KEY CLUSTERED 
 (
 	[id_usuario] ASC
@@ -511,6 +556,9 @@ ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Usuario] CHECK CONSTRAINT [FK_Usuario_R
 GO
 
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Usuario] ADD  CONSTRAINT [DF_Usuario_cant_intentos_fallidos]  DEFAULT ((0)) FOR [cant_intentos_fallidos]
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Usuario] ADD  CONSTRAINT [DF_Usuario_baja]  DEFAULT ((0)) FOR [baja]
 GO
 
 
@@ -574,6 +622,7 @@ GO
 CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Rol_funcionalidad](
 	[id_rol] [int] NOT NULL,
 	[id_funcionalidad] [int] NOT NULL,
+	[baja] [bit] NOT NULL,
  CONSTRAINT [PK_Rol_funcionalidad_1] PRIMARY KEY CLUSTERED 
 (
 	[id_rol] ASC,
@@ -581,6 +630,9 @@ CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Rol_funcionalidad](
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Rol_funcionalidad] ADD  CONSTRAINT [DF_Rol_funcionalidad_baja]  DEFAULT ((0)) FOR [baja]
 GO
 
 /*===========================COMPRAVACIA==============================*/
@@ -750,7 +802,7 @@ INSERT INTO SI_NO_APROBAMOS_HAY_TABLA.Pasaje
 		and v.fecha_salida = m.fechaSalida
 		and v.id_recorrido = m.idRecorrido
 )
-
+DROP TABLE #tmpPasajes
 COMMIT TRANSACTION comprasPasajes
 
 /*===========================ENCOMIENDA==============================*/
@@ -884,7 +936,7 @@ INSERT INTO SI_NO_APROBAMOS_HAY_TABLA.Encomienda
 		and v.fecha_salida = m.fechaSalida
 		and v.id_recorrido = m.codRecorrido
 )
-
+DROP TABLE #tmpEncomiendas
 COMMIT TRANSACTION comprasEncomiendas
 
 /*===========================INSERT FUNCIONALIDAD==============================*/
@@ -1251,6 +1303,7 @@ BEGIN
 SELECT @cantidad = COUNT(*)
 	FROM SI_NO_APROBAMOS_HAY_TABLA.Butaca b
 	WHERE b.id_micro = @p_id_micro
+	AND b.baja = 0
 	
 	RETURN @cantidad
 
@@ -1290,6 +1343,7 @@ BEGIN
 	SELECT @total = SUM(e.peso)
 	FROM SI_NO_APROBAMOS_HAY_TABLA.Encomienda e
 	where @p_id_viaje = e.id_viaje
+	and e.baja = 0
 
 	RETURN @total
 
@@ -1313,6 +1367,9 @@ BEGIN
 	INNER JOIN SI_NO_APROBAMOS_HAY_TABLA.Rol r
 		ON rf.id_rol = r.id_rol
 	WHERE r.nombre = @nombre_rol
+	AND f.baja = 0
+	AND r.baja = 0
+	AND rf.baja = 0
 END
 GO
 
@@ -1336,6 +1393,8 @@ BEGIN
 	INNER JOIN SI_NO_APROBAMOS_HAY_TABLA.Usuario u
 	ON u.id_rol = r.id_rol
 	WHERE u.username = @userName
+	AND u.baja = 0
+	AND r.baja = 0
 END
 GO
 
@@ -1363,6 +1422,7 @@ BEGIN
 	SELECT @hashReal=us.hash_password, @fallidos=us.cant_intentos_fallidos
 	FROM SI_NO_APROBAMOS_HAY_TABLA.Usuario us
 	WHERE us.username = @userName
+	AND us.baja = 0
 	
 	IF @@ROWCOUNT = 0
 	BEGIN
@@ -1407,8 +1467,9 @@ GO
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_ciudad 
 AS
 BEGIN
-	SELECT [id_ciudad],[nombre]
-	FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Ciudad]
+	SELECT c.[id_ciudad], c.[nombre]
+	FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Ciudad] c
+	WHERE c.baja = 0
 END
 GO
 /*===========================SP LISTAR FILTRADO CIUDAD==============================*/
@@ -1421,6 +1482,7 @@ BEGIN
 	SELECT c.[id_ciudad],c.[nombre]
 	FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Ciudad] c
 	where ((@p_ciudad IS NULL) OR (c.nombre = @p_ciudad))	
+	and c.baja = 0
 END
 GO
 /*===========================SP LISTAR MARCA==============================*/
@@ -1428,8 +1490,9 @@ GO
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_marca
 AS
 BEGIN
-SELECT [id_marca],[nombre]
-  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Marca]
+SELECT m.[id_marca],m.[nombre]
+  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Marca] m
+  WHERE m.baja = 0
 END
 GO
 /*===========================SP LISTAR CLIENTE==============================*/
@@ -1437,16 +1500,17 @@ GO
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_cliente
 AS
 BEGIN
-	SELECT [dni]
-      ,[nombre]
-      ,[apellido]
-      ,[direccion]
-      ,[telefono]
-      ,[mail]
-      ,[fecha_nacimiento]
-      ,[es_discapacitado]
-      ,[sexo]
-  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Cliente]
+	SELECT c.[dni]
+      ,c.[nombre]
+      ,c.[apellido]
+      ,c.[direccion]
+      ,c.[telefono]
+      ,c.[mail]
+      ,c.[fecha_nacimiento]
+      ,c.[es_discapacitado]
+      ,c.[sexo]
+  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Cliente] c
+  WHERE c.baja = 0
 END
 GO
 /*===========================SP LISTAR FILTRADO CLIENTE==============================*/
@@ -1457,19 +1521,20 @@ CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_filtrado_cliente
 	@p_apellido nvarchar(255) = NULL
 AS
 BEGIN
-	SELECT [dni]
-      ,[nombre]
-      ,[apellido]
-      ,[direccion]
-      ,[telefono]
-      ,[mail]
-      ,[fecha_nacimiento]
-      ,[es_discapacitado]
-      ,[sexo]
-	FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Cliente]
-	where ((@p_dni IS NULL) OR (@p_dni = dni))
-	and ((@p_nombre IS NULL) OR (@p_nombre = nombre))
-	and ((@p_apellido IS NULL) OR (@p_apellido = apellido))
+	SELECT c.[dni]
+      ,c.[nombre]
+      ,c.[apellido]
+      ,c.[direccion]
+      ,c.[telefono]
+      ,c.[mail]
+      ,c.[fecha_nacimiento]
+      ,c.[es_discapacitado]
+      ,c.[sexo]
+	FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Cliente] c
+	where ((@p_dni IS NULL) OR (@p_dni = c.dni))
+	and ((@p_nombre IS NULL) OR (@p_nombre = c.nombre))
+	and ((@p_apellido IS NULL) OR (@p_apellido = c.apellido))
+	and c.baja = 0
 END
 GO
 /*===========================SP LISTAR SERVICIO==============================*/
@@ -1477,10 +1542,11 @@ GO
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_servicio
 AS
 BEGIN
-	SELECT [id_servicio]
-      ,[tipo_servicio]
-      ,[pocent_adic]
-  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Servicio]
+	SELECT s.[id_servicio]
+      ,s.[tipo_servicio]
+      ,s.[pocent_adic]
+  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Servicio] s
+  WHERE s.baja = 0
 END
 GO
 /*===========================SP LISTAR FILTRADO RECORRIDO==============================*/
@@ -1509,6 +1575,9 @@ BEGIN
 	where ((@p_ciudad_origen IS NULL) OR (cOrigen.nombre = @p_ciudad_origen))
 	and ((@p_ciudad_destino IS NULL) OR (cDestino.nombre = @p_ciudad_destino))
 	and ((@p_tipo_servicio IS NULL) OR (@p_tipo_servicio = s.tipo_servicio))
+	and r.baja = 0
+	and cOrigen.baja = 0
+	and cDestino.baja = 0
 END
 GO
 /*===========================SP LISTAR RECORRIDO==============================*/
@@ -1516,14 +1585,14 @@ GO
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_recorrido
 	AS
 BEGIN
-	SELECT [id_recorrido]
-      ,[id_ciudad_origen]
-      ,[id_ciudad_destino]
-      ,[pre_base_kg]
-      ,[pre_base_pasaje]
-      ,[id_servicio]
-      ,[baja]
-  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Recorrido]
+	SELECT r.[id_recorrido]
+      ,r.[id_ciudad_origen]
+      ,r.[id_ciudad_destino]
+      ,r.[pre_base_kg]
+      ,r.[pre_base_pasaje]
+      ,r.[id_servicio]
+  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Recorrido] r
+  WHERE r.baja = 0
 END
 GO
 /*===========================SP LISTAR FILTRADO MICROS==============================*/
@@ -1560,6 +1629,9 @@ BEGIN
 	and ((@p_patente IS NULL) OR (@p_patente = m.patente))
 	and ((@p_nro_micro IS NULL) OR (@p_nro_micro = m.nro_micro))
 	and ((@p_kgs_encomienda IS NULL) OR (@p_kgs_encomienda = m.capacidad_kg))
+	and m.baja = 0
+	and s.baja = 0
+	and ma.baja = 0
 
 END
 GO
@@ -1568,21 +1640,21 @@ GO
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_micros
 AS
 BEGIN
-	SELECT [id_micros]
-      ,[fecha_alta]
-      ,[nro_micro]
-      ,[modelo]
-      ,[patente]
-      ,[id_marca]
-      ,[id_servicio]
-      ,[baja_fuera_servicio]
-      ,[baja_vida_util]
-      ,[fec_fuera_servicio]
-      ,[fec_reinicio_servicio]
-      ,[fec_baja_vida_util]
-      ,[capacidad_kg]
-      ,[baja]
-  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Micros]
+	SELECT m.[id_micros]
+      ,m.[fecha_alta]
+      ,m.[nro_micro]
+      ,m.[modelo]
+      ,m.[patente]
+      ,m.[id_marca]
+      ,m.[id_servicio]
+      ,m.[baja_fuera_servicio]
+      ,m.[baja_vida_util]
+      ,m.[fec_fuera_servicio]
+      ,m.[fec_reinicio_servicio]
+      ,m.[fec_baja_vida_util]
+      ,m.[capacidad_kg]
+  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Micros] m
+  WHERE m.baja = 0
 END
 GO
 /*===========================SP LISTAR BUTACA==============================*/
@@ -1590,12 +1662,13 @@ GO
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_butaca
 	AS
 BEGIN
-	SELECT [id_butaca]
-      ,[nro_butaca]
-      ,[id_micro]
-      ,[tipo_butaca]
-      ,[piso]
-  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Butaca]
+	SELECT b.[id_butaca]
+      ,b.[nro_butaca]
+      ,b.[id_micro]
+      ,b.[tipo_butaca]
+      ,b.[piso]
+  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Butaca] b
+  WHERE b.baja = 0
 END
 GO
 /*===========================SP LISTAR FILTRADO VIAJE==============================*/
@@ -1621,6 +1694,7 @@ BEGIN
 	and ((@fecha_llegada_estimada IS NULL) OR (@fecha_llegada_estimada = v.fecha_arribo_estimada))
 	and ((@p_micro IS NULL) OR (@p_micro = v.id_micro))
 	and ((@p_recorrido IS NULL) OR (@p_recorrido = v.id_recorrido))
+	and v.baja = 0
 END
 GO
 /*===========================SP LISTAR VIAJE==============================*/
@@ -1628,14 +1702,14 @@ GO
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_viaje
 	AS
 BEGIN
-	SELECT [id_viaje]
-      ,[id_recorrido]
-      ,[id_micro]
-      ,[fecha_salida]
-      ,[fecha_arribo_estimada]
-      ,[fecha_arribo]
-      ,[baja]
-  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Viaje]
+	SELECT v.[id_viaje]
+      ,v.[id_recorrido]
+      ,v.[id_micro]
+      ,v.[fecha_salida]
+      ,v.[fecha_arribo_estimada]
+      ,v.[fecha_arribo]
+      ,v.[baja]
+  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Viaje] v
 END
 GO
 /*===========================SP LISTAR FILTRADO ROL==============================*/
@@ -1652,6 +1726,8 @@ BEGIN
 		on rf.id_funcionalidad = f.id_funcionalidad
 	where ((@p_rol IS NULL) OR (r.nombre = @p_rol))
 	and ((@p_funcionalidad IS NULL) OR (f.funcionalidad = @p_funcionalidad))
+	and r.baja = 0
+	and rf.baja = 0
 END
 GO
 /*===========================SP LISTAR ROL==============================*/
@@ -1659,10 +1735,11 @@ GO
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_rol
 	AS
 BEGIN
-	SELECT [id_rol]
-      ,[nombre]
-      ,[inhabilitado]
-  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol]
+	SELECT r.[id_rol]
+      ,r.[nombre]
+      ,r.[inhabilitado]
+  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] r
+  WHERE r.baja = 0
 END
 GO
 /*===========================SP LISTAR USUARIO==============================*/
@@ -1670,13 +1747,14 @@ GO
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_usuario 
 AS
 BEGIN
-SELECT [id_usuario]
-      ,[id_rol]
-      ,[dni]
-      ,[username]
-      ,[hash_password]
-      ,[cant_intentos_fallidos]
-  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Usuario]
+SELECT u.[id_usuario]
+      ,u.[id_rol]
+      ,u.[dni]
+      ,u.[username]
+      ,u.[hash_password]
+      ,u.[cant_intentos_fallidos]
+  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Usuario] u
+  WHERE u.baja = 0
 END
 GO
 /*===========================SP LISTAR FUNCIONALIDAD==============================*/
@@ -1684,11 +1762,11 @@ GO
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_funcionalidad
 AS
 BEGIN
-SELECT [id_funcionalidad]
-      ,[funcionalidad]
-      ,[activa]
-      ,[baja]
-  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad]
+SELECT f.[id_funcionalidad]
+      ,f.[funcionalidad]
+      ,f.[activa]
+  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] f
+  WHERE f.baja = 0
 END
 GO
 /*===========================SP LISTAR ROL FUNCIONALIDAD==============================*/
@@ -1696,9 +1774,10 @@ GO
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_rol_funcionalidad
 AS
 BEGIN
-	SELECT [id_rol]
-      ,[id_funcionalidad]
-  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_funcionalidad]
+	SELECT rf.[id_rol]
+      ,rf.[id_funcionalidad]
+  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_funcionalidad] rf
+  WHERE rf.baja = 0
 END
 GO
 /*===========================SP LISTAR BUSCAR MICROS==============================*/
@@ -1743,13 +1822,15 @@ BEGIN
 	AND micro.baja = 0
 	AND viaje.baja = 0
 	AND recorrido.baja = 0
+	AND marca.baja = 0
+	AND servicio.baja = 0
 		
 		
 END
 GO
 /*===========================SP BAJA FISICA MICRO==============================*/
 GO
-CREATE PROCEDURE sp_baja_fisica_micro
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_baja_fisica_micro
 (
 	@id_micro int
 )
@@ -1761,7 +1842,7 @@ END
 GO
 /*===========================SP BAJA LOGICA MICRO==============================*/
 
-CREATE PROCEDURE sp_baja_logica_micro
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_baja_logica_micro
 (
 	@id_micro int
 )
@@ -1774,7 +1855,7 @@ END
 
 /*===========================SP BAJA LOGICA RECORRIDO==============================*/
 GO
-CREATE PROCEDURE sp_dar_baja_recorrido
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_dar_baja_recorrido
 (
 	@id_recorrido numeric(18,0),
 	@baja bit
@@ -1788,20 +1869,20 @@ END
 GO
 /*===========================SP BAJA LOGICA ROL==============================*/
 GO
-CREATE PROCEDURE sp_baja_logica_rol
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_baja_logica_rol
 (
 	@id_rol int
 )
 AS
 BEGIN
 	UPDATE [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol]
-	SET [inhabilitado] = 1
+	SET [baja] = 1
 	WHERE Rol.id_rol = @id_rol
 END
 GO
 /*===========================SP DELETE CIUDAD==============================*/
 
-CREATE PROCEDURE sp_delete_ciudad
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_delete_ciudad
 (
 @id_ciudad INT
 )
@@ -1813,14 +1894,14 @@ END
 
 /*===========================SP DELETE CLIENTE==============================*/
 GO
-CREATE PROCEDURE sp_baja_logica_cliente
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_baja_logica_cliente
 (
 	@dni numeric(18,0)
 )
 AS
 BEGIN
 UPDATE [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Cliente]
-	SET habilitado=TRUE			--Se tiene que agregar campo
+	SET baja=1			--Se tiene que agregar campo
 	WHERE Cliente.dni=@dni
 END
 GO
@@ -1965,7 +2046,7 @@ END
 GO
 /*===========================SP INSERT ROL==============================*/
 
-ALTER PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_insert_rol
+CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_insert_rol
 (
 	@nombre nvarchar(50),
 	@inhabilitado bit = '0',
@@ -1985,7 +2066,7 @@ END
 
 /*===========================SP INSERT ROL FUNCIONALIDAD==============================*/
 GO
-CREATE PROCEDURE sp_insert_rol_funcionalidad
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_insert_rol_funcionalidad
 (
 	@p_id_rol int,
 	@p_id_funcionalidad int
