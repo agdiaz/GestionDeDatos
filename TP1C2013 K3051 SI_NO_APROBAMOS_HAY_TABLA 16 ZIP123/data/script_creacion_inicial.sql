@@ -278,11 +278,10 @@ CREATE NONCLUSTERED INDEX [indice_recorrido_ciudad] ON [SI_NO_APROBAMOS_HAY_TABL
 GO
 
 /*===========================MICROS==============================*/
-
 USE [GD1C2013]
 GO
 
-/****** Object:  Table [SI_NO_APROBAMOS_HAY_TABLA].[Micros]    Script Date: 06/13/2013 23:30:38 ******/
+/****** Object:  Table [SI_NO_APROBAMOS_HAY_TABLA].[Micros]    Script Date: 07/15/2013 19:22:46 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -297,10 +296,7 @@ CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Micros](
 	[patente] [nvarchar](50) NOT NULL,
 	[id_marca] [int] NOT NULL,
 	[id_servicio] [int] NOT NULL,
-	[baja_fuera_servicio] [bit] NOT NULL,
 	[baja_vida_util] [bit] NOT NULL,
-	[fec_fuera_servicio] [datetime] NULL,
-	[fec_reinicio_servicio] [datetime] NULL,
 	[fec_baja_vida_util] [datetime] NULL,
 	[capacidad_kg] [numeric](18, 2) NOT NULL,
 	[baja] [bit] NOT NULL,
@@ -327,9 +323,6 @@ ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Micros] CHECK CONSTRAINT [FK_Micros_Ser
 GO
 
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Micros] ADD  CONSTRAINT [DF_Micros_fecha_alta]  DEFAULT (getdate()) FOR [fecha_alta]
-GO
-
-ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Micros] ADD  CONSTRAINT [DF_Micros_baja_fuera_servicio]  DEFAULT ((0)) FOR [baja_fuera_servicio]
 GO
 
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Micros] ADD  CONSTRAINT [DF_Micros_baja_vida_util]  DEFAULT ((0)) FOR [baja_vida_util]
@@ -1005,6 +998,38 @@ AS
 		(dni, id_compra, puntos)
 	VALUES
 		(@dni, @idCompra, @precio/5)
+GO
+
+/*===========================Baja Servicio Micro==============================*/
+
+USE [GD1C2013]
+GO
+
+/****** Object:  Table [SI_NO_APROBAMOS_HAY_TABLA].[Baja_servicio_micro]    Script Date: 07/15/2013 19:26:27 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Baja_servicio_micro](
+	[id_baja_servicio_micro] [int] IDENTITY(1,1) NOT NULL,
+	[id_micros] [int] NOT NULL,
+	[fec_fuera_servicio] [datetime] NOT NULL,
+	[fec_reinicio_servicio] [datetime] NOT NULL,
+ CONSTRAINT [PK_Baja_servicio_micro] PRIMARY KEY CLUSTERED 
+(
+	[id_baja_servicio_micro] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Baja_servicio_micro]  WITH CHECK ADD  CONSTRAINT [FK_Baja_servicio_micro_Micros] FOREIGN KEY([id_micros])
+REFERENCES [SI_NO_APROBAMOS_HAY_TABLA].[Micros] ([id_micros])
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Baja_servicio_micro] CHECK CONSTRAINT [FK_Baja_servicio_micro_Micros]
 GO
 
 /*===========================INSERT FUNCIONALIDAD==============================*/
