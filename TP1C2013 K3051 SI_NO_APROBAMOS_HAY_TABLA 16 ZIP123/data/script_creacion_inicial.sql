@@ -697,6 +697,7 @@ GO
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Compra] ADD  CONSTRAINT [DF_Compra_baja]  DEFAULT ((0)) FOR [baja]
 GO
 
+
 /*===========================PASAJE==============================*/
 
 USE [GD1C2013]
@@ -837,6 +838,23 @@ CREATE NONCLUSTERED INDEX [indice_pasaje_viaje] ON [SI_NO_APROBAMOS_HAY_TABLA].[
 GO
 
 COMMIT TRANSACTION comprasPasajes
+GO 
+CREATE TRIGGER trgPuntaje ON [SI_NO_APROBAMOS_HAY_TABLA].Pasaje
+FOR INSERT
+AS
+	DECLARE @dni numeric(18,0)
+	DECLARE @precio numeric(18,2)
+	DECLARE @idCompra int
+	
+	SELECT @dni=i.dni FROM INSERTED i
+	SELECT @precio=i.pre_pasaje FROM INSERTED i
+	SELECT @idCompra=i.id_compra FROM INSERTED i
+	
+	INSERT INTO [SI_NO_APROBAMOS_HAY_TABLA].Puntaje
+		(dni, id_compra, puntos)
+	VALUES
+		(@dni, @idCompra, @precio/5)
+GO
 
 /*===========================ENCOMIENDA==============================*/
 
@@ -971,6 +989,23 @@ INSERT INTO SI_NO_APROBAMOS_HAY_TABLA.Encomienda
 )
 DROP TABLE #tmpEncomiendas
 COMMIT TRANSACTION comprasEncomiendas
+GO
+CREATE TRIGGER trgPuntaje2 ON [SI_NO_APROBAMOS_HAY_TABLA].Encomienda
+FOR INSERT
+AS
+	DECLARE @dni numeric(18,0)
+	DECLARE @precio numeric(18,2)
+	DECLARE @idCompra int
+	
+	SELECT @dni=i.dni FROM INSERTED i
+	SELECT @precio=i.pre_encomienda FROM INSERTED i
+	SELECT @idCompra=i.id_compra FROM INSERTED i
+	
+	INSERT INTO [SI_NO_APROBAMOS_HAY_TABLA].Puntaje
+		(dni, id_compra, puntos)
+	VALUES
+		(@dni, @idCompra, @precio/5)
+GO
 
 /*===========================INSERT FUNCIONALIDAD==============================*/
 
@@ -1373,17 +1408,31 @@ GO
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Puntaje] ADD  CONSTRAINT [DF_Puntaje_baja]  DEFAULT ((0)) FOR [baja]
 GO
 
-INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Puntaje]
-	([dni],[id_compra],[puntos],[puntos_usados])
-VALUES (27223299,145098,103,0)
+--INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Puntaje]
+--	([dni],[id_compra],[puntos],[puntos_usados])
+--VALUES (27223299,145098,103,0)
 
-INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Puntaje]
-	([dni],[id_compra],[puntos],[puntos_usados])
-VALUES (12835515,139822,103,0)
+--INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Puntaje]
+--	([dni],[id_compra],[puntos],[puntos_usados])
+--VALUES (12835515,139822,103,0)
 
-INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Puntaje]
-	([dni],[id_compra],[puntos],[puntos_usados])
-VALUES (74978796,219895,92,0)
+--INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Puntaje]
+--	([dni],[id_compra],[puntos],[puntos_usados])
+--VALUES (74978796,219895,92,0)
+
+GO
+
+INSERT INTO [SI_NO_APROBAMOS_HAY_TABLA].Puntaje
+	(dni, id_compra, puntos)
+SELECT p.dni, p.id_compra, (p.pre_pasaje/5) 
+FROM SI_NO_APROBAMOS_HAY_TABLA.Pasaje p
+
+GO
+
+INSERT INTO [SI_NO_APROBAMOS_HAY_TABLA].Puntaje
+	(dni, id_compra, puntos)
+SELECT e.dni, e.id_compra, (e.pre_encomienda/5) 
+FROM SI_NO_APROBAMOS_HAY_TABLA.Encomienda e
 
 GO
 
@@ -1487,21 +1536,21 @@ GO
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Canje] ADD  CONSTRAINT [DF_Canje_baja]  DEFAULT ((0)) FOR [baja]
 GO
 
-INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Canje]
-	([dni],[id_recompensa])
-VALUES (27223299, 3) --restar 10
+--INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Canje]
+--	([dni],[id_recompensa])
+--VALUES (27223299, 3) --restar 10
 
-INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Canje]
-	([dni],[id_recompensa])
-VALUES (12835515, 4) --restar 100
+--INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Canje]
+--	([dni],[id_recompensa])
+--VALUES (12835515, 4) --restar 100
 
-UPDATE SI_NO_APROBAMOS_HAY_TABLA.Puntaje
-SET puntos_usados = 10
-WHERE id_puntaje = 1
+--UPDATE SI_NO_APROBAMOS_HAY_TABLA.Puntaje
+--SET puntos_usados = 10
+--WHERE id_puntaje = 1
 
-UPDATE SI_NO_APROBAMOS_HAY_TABLA.Puntaje
-SET puntos_usados = 100
-WHERE id_puntaje = 2
+--UPDATE SI_NO_APROBAMOS_HAY_TABLA.Puntaje
+--SET puntos_usados = 100
+--WHERE id_puntaje = 2
 	   
 /*===========================FUNCION BUTACAS X MICRO==============================*/
 GO
@@ -1709,6 +1758,7 @@ SELECT m.[id_marca],m.[nombre]
   WHERE m.baja = 0
 END
 GO
+
 /*===========================SP LISTAR CLIENTE==============================*/
 GO
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_cliente
@@ -2042,6 +2092,7 @@ BEGIN
 		
 END
 GO
+
 /*===========================SP BAJA FISICA MICRO==============================*/
 GO
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_baja_fisica_micro
