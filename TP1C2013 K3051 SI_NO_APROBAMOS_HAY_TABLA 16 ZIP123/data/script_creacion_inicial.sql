@@ -1016,7 +1016,7 @@ CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Baja_servicio_micro](
 	[id_baja_servicio_micro] [int] IDENTITY(1,1) NOT NULL,
 	[id_micros] [int] NOT NULL,
 	[fec_fuera_servicio] [datetime] NOT NULL,
-	[fec_reinicio_servicio] [datetime] NOT NULL,
+	[fec_reinicio_servicio] [datetime] NULL,
  CONSTRAINT [PK_Baja_servicio_micro] PRIMARY KEY CLUSTERED 
 (
 	[id_baja_servicio_micro] ASC
@@ -1764,6 +1764,7 @@ BEGIN
 	ORDER BY puntosTotales
 END
 
+GO
 /*===========================SP LISTAR CIUDAD==============================*/
 
 
@@ -1917,10 +1918,7 @@ BEGIN
       ,m.[patente]
       ,m.[id_marca]
       ,m.[id_servicio]
-      ,m.[baja_fuera_servicio]
       ,m.[baja_vida_util]
-      ,m.[fec_fuera_servicio]
-      ,m.[fec_reinicio_servicio]
       ,m.[fec_baja_vida_util]
       ,m.[capacidad_kg]
       ,m.[baja]
@@ -1951,10 +1949,7 @@ BEGIN
       ,m.[patente]
       ,m.[id_marca]
       ,m.[id_servicio]
-      ,m.[baja_fuera_servicio]
       ,m.[baja_vida_util]
-      ,m.[fec_fuera_servicio]
-      ,m.[fec_reinicio_servicio]
       ,m.[fec_baja_vida_util]
       ,m.[capacidad_kg]
   FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Micros] m
@@ -2121,8 +2116,10 @@ BEGIN
 		ON recorrido.id_recorrido = viaje.id_recorrido
 		AND @p_ciudad_destino = recorrido.id_ciudad_destino
 		AND @p_ciudad_origen = recorrido.id_ciudad_origen
-	WHERE micro.baja_fuera_servicio = 0
-	AND micro.baja_vida_util = 0
+	LEFT JOIN SI_NO_APROBAMOS_HAY_TABLA.Baja_servicio_micro bsm
+		ON bsm.id_micros = micro.id_micros
+		AND bsm.fec_reinicio_servicio < GETDATE()
+	WHERE micro.baja_vida_util = 0
 	AND micro.baja = 0
 	AND viaje.baja = 0
 	AND recorrido.baja = 0
@@ -2277,10 +2274,7 @@ CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_insert_micro
 	@patente nvarchar(50),
 	@id_marca int,
 	@id_servicio int,
-	@baja_fuera_servicio bit,
 	@baja_vida_util bit,
-	@fec_fuera_servicio datetime,
-	@fec_reinicio_servicio datetime,
 	@fec_baja_vida_util datetime,
 	@capacidad_kg numeric(18,2),
 	@baja bit
@@ -2294,10 +2288,7 @@ INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Micros]
            ,[patente]
            ,[id_marca]
            ,[id_servicio]
-           ,[baja_fuera_servicio]
            ,[baja_vida_util]
-           ,[fec_fuera_servicio]
-           ,[fec_reinicio_servicio]
            ,[fec_baja_vida_util]
            ,[capacidad_kg]
            ,[baja])
@@ -2308,10 +2299,7 @@ INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Micros]
            @patente,
            @id_marca,
            @id_servicio,
-           @baja_fuera_servicio,
            @baja_vida_util,
-           @fec_fuera_servicio,
-           @fec_reinicio_servicio,
            @fec_baja_vida_util,
            @capacidad_kg,
            @baja)
@@ -2608,14 +2596,6 @@ order by CantCancelados DESC
 
 GO
 
-CREATE VIEW [SI_NO_APROBAMOS_HAY_TABLA].v_MicrosConMasDiasFueraDeServicio
-AS
-SELECT top 5 Micros.id_micros, DATEDIFF(day,isNull(Micros.fec_fuera_servicio,0),isNull(Micros.fec_reinicio_servicio,0)) as Diferencia
-from SI_NO_APROBAMOS_HAY_TABLA.Micros
-where Micros.baja = 0
-order by Diferencia DESC
-
-GO
 
 /*=============================Micros arribos retrasados===============================*/
 CREATE VIEW [SI_NO_APROBAMOS_HAY_TABLA].micros_arribos_retrasados
