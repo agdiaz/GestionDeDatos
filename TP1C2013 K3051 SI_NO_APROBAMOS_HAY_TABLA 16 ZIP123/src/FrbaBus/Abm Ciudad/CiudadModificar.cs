@@ -24,14 +24,14 @@ namespace FrbaBus.Abm_Ciudad
 
         private void btnCiudadModificarLimpiar_Click(object sender, EventArgs e)
         {
-            this.tbCiudadModificarCiudad.Text = CiudadSeleccionada.Descripcion;
+            this.tbCiudadModificarCiudad.Text = CiudadSeleccionada.Nombre;
         }
 
         private void btnCiudadModificarGuardar_Click(object sender, EventArgs e)
         {
             if (this.ValidarDatos())
             {
-                CiudadSeleccionada.Descripcion = this.tbCiudadModificarCiudad.Text;
+                CiudadSeleccionada.Nombre = this.tbCiudadModificarCiudad.Text;
 
                 CiudadManager cm = new CiudadManager();
                 cm.Modificar(CiudadSeleccionada);
@@ -51,7 +51,7 @@ namespace FrbaBus.Abm_Ciudad
 
         private void CiudadModificar_Load(object sender, EventArgs e)
         {
-            this.tbCiudadModificarCiudad.Text = CiudadSeleccionada.Descripcion;
+            this.tbCiudadModificarCiudad.Text = CiudadSeleccionada.Nombre;
         }
     }
 }

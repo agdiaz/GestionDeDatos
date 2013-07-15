@@ -7,5 +7,10 @@ namespace FrbaBus.Common.Entidades
 {
     public class Butaca
     {
+        public int Id { get; set; }
+        public decimal NroButaca { get; set; }
+        public int IdMicro { get; set; }
+        public string TipoButaca { get; set; }
+        public decimal Piso { get; set; }
     }
 }

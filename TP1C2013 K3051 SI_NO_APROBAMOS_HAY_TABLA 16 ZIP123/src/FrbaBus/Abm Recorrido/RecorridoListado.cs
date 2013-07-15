@@ -62,8 +62,7 @@ namespace FrbaBus.Abm_Recorrido
             {
                 CargarCiudades();
                 CargarServicios();
-                CargarRecorridos();
-                
+                CargarRecorridos();                
             }
             catch (AccesoBDException ex)
             {
@@ -82,7 +81,6 @@ namespace FrbaBus.Abm_Recorrido
             var recorridos = _manager.Listar();
             this.dgvRecorridoListado.DataSource = recorridos;
         }
-
         private void CargarCiudades()
         {
             IList<Ciudad> ciudadesOrigen = _ciudadManager.Listar();

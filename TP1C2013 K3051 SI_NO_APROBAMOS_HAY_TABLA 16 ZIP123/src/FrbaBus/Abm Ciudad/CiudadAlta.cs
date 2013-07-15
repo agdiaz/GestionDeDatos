@@ -30,7 +30,7 @@ namespace FrbaBus.Abm_Ciudad
             {
                 Ciudad c = new Ciudad()
                 {
-                    Descripcion = this.tbCiudadAltaCiudad.Text
+                    Nombre = this.tbCiudadAltaCiudad.Text
                 };
                 
                 new CiudadManager().Alta(c);

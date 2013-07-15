@@ -89,7 +89,7 @@ namespace FrbaBus.DAO
             parametros.Add(pNombre, entidad.Nombre);
 
             SqlParameter pInhabilitados = new SqlParameter("@inhabilitado", SqlDbType.Bit, 1, "inhabilitado");
-            parametros.Add(pInhabilitados, entidad.Habilitado ? 1 : 0);
+            parametros.Add(pInhabilitados, entidad.Inhabilitado ? 1 : 0);
 
 
             this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_modificar_rol", parametros);

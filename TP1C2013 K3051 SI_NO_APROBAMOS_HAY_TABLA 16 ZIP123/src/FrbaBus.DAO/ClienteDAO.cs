@@ -38,7 +38,7 @@ namespace FrbaBus.DAO
         public int Alta(Cliente entidad)
         {
             string insert = string.Format("INSERT INTO [SI_NO_APROBAMOS_HAY_TABLA].Cliente (dni, nombre, apellido, direccion, telefono, mail, fecha_nacimiento, es_discapacitado, sexo) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')",
-                entidad.DNI, entidad.Nombre, entidad.Apellido, entidad.Direccion, entidad.Telefono, entidad.Mail, entidad.FechaNacimiento.ToString(), entidad.EsDiscapacitado ? 1 : 0, entidad.Sexo);
+                entidad.NroDni, entidad.Nombre, entidad.Apellido, entidad.Direccion, entidad.Telefono, entidad.Mail, entidad.FechaNacimiento.ToString(), entidad.EsDiscapacitado ? 1 : 0, entidad.Sexo);
             this.accesoBD.EjecutarComando(insert);
             return -1;
         }
