@@ -278,11 +278,10 @@ CREATE NONCLUSTERED INDEX [indice_recorrido_ciudad] ON [SI_NO_APROBAMOS_HAY_TABL
 GO
 
 /*===========================MICROS==============================*/
-
 USE [GD1C2013]
 GO
 
-/****** Object:  Table [SI_NO_APROBAMOS_HAY_TABLA].[Micros]    Script Date: 06/13/2013 23:30:38 ******/
+/****** Object:  Table [SI_NO_APROBAMOS_HAY_TABLA].[Micros]    Script Date: 07/15/2013 19:22:46 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -297,10 +296,7 @@ CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Micros](
 	[patente] [nvarchar](50) NOT NULL,
 	[id_marca] [int] NOT NULL,
 	[id_servicio] [int] NOT NULL,
-	[baja_fuera_servicio] [bit] NOT NULL,
 	[baja_vida_util] [bit] NOT NULL,
-	[fec_fuera_servicio] [datetime] NULL,
-	[fec_reinicio_servicio] [datetime] NULL,
 	[fec_baja_vida_util] [datetime] NULL,
 	[capacidad_kg] [numeric](18, 2) NOT NULL,
 	[baja] [bit] NOT NULL,
@@ -327,9 +323,6 @@ ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Micros] CHECK CONSTRAINT [FK_Micros_Ser
 GO
 
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Micros] ADD  CONSTRAINT [DF_Micros_fecha_alta]  DEFAULT (getdate()) FOR [fecha_alta]
-GO
-
-ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Micros] ADD  CONSTRAINT [DF_Micros_baja_fuera_servicio]  DEFAULT ((0)) FOR [baja_fuera_servicio]
 GO
 
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Micros] ADD  CONSTRAINT [DF_Micros_baja_vida_util]  DEFAULT ((0)) FOR [baja_vida_util]
@@ -697,6 +690,7 @@ GO
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Compra] ADD  CONSTRAINT [DF_Compra_baja]  DEFAULT ((0)) FOR [baja]
 GO
 
+
 /*===========================PASAJE==============================*/
 
 USE [GD1C2013]
@@ -837,6 +831,23 @@ CREATE NONCLUSTERED INDEX [indice_pasaje_viaje] ON [SI_NO_APROBAMOS_HAY_TABLA].[
 GO
 
 COMMIT TRANSACTION comprasPasajes
+GO 
+CREATE TRIGGER trgPuntaje ON [SI_NO_APROBAMOS_HAY_TABLA].Pasaje
+FOR INSERT
+AS
+	DECLARE @dni numeric(18,0)
+	DECLARE @precio numeric(18,2)
+	DECLARE @idCompra int
+	
+	SELECT @dni=i.dni FROM INSERTED i
+	SELECT @precio=i.pre_pasaje FROM INSERTED i
+	SELECT @idCompra=i.id_compra FROM INSERTED i
+	
+	INSERT INTO [SI_NO_APROBAMOS_HAY_TABLA].Puntaje
+		(dni, id_compra, puntos)
+	VALUES
+		(@dni, @idCompra, @precio/5)
+GO
 
 /*===========================ENCOMIENDA==============================*/
 
@@ -971,6 +982,55 @@ INSERT INTO SI_NO_APROBAMOS_HAY_TABLA.Encomienda
 )
 DROP TABLE #tmpEncomiendas
 COMMIT TRANSACTION comprasEncomiendas
+GO
+CREATE TRIGGER trgPuntaje2 ON [SI_NO_APROBAMOS_HAY_TABLA].Encomienda
+FOR INSERT
+AS
+	DECLARE @dni numeric(18,0)
+	DECLARE @precio numeric(18,2)
+	DECLARE @idCompra int
+	
+	SELECT @dni=i.dni FROM INSERTED i
+	SELECT @precio=i.pre_encomienda FROM INSERTED i
+	SELECT @idCompra=i.id_compra FROM INSERTED i
+	
+	INSERT INTO [SI_NO_APROBAMOS_HAY_TABLA].Puntaje
+		(dni, id_compra, puntos)
+	VALUES
+		(@dni, @idCompra, @precio/5)
+GO
+
+/*===========================Baja Servicio Micro==============================*/
+
+USE [GD1C2013]
+GO
+
+/****** Object:  Table [SI_NO_APROBAMOS_HAY_TABLA].[Baja_servicio_micro]    Script Date: 07/15/2013 19:26:27 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Baja_servicio_micro](
+	[id_baja_servicio_micro] [int] IDENTITY(1,1) NOT NULL,
+	[id_micros] [int] NOT NULL,
+	[fec_fuera_servicio] [datetime] NOT NULL,
+	[fec_reinicio_servicio] [datetime] NOT NULL,
+ CONSTRAINT [PK_Baja_servicio_micro] PRIMARY KEY CLUSTERED 
+(
+	[id_baja_servicio_micro] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Baja_servicio_micro]  WITH CHECK ADD  CONSTRAINT [FK_Baja_servicio_micro_Micros] FOREIGN KEY([id_micros])
+REFERENCES [SI_NO_APROBAMOS_HAY_TABLA].[Micros] ([id_micros])
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Baja_servicio_micro] CHECK CONSTRAINT [FK_Baja_servicio_micro_Micros]
+GO
 
 /*===========================INSERT FUNCIONALIDAD==============================*/
 
@@ -1373,17 +1433,31 @@ GO
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Puntaje] ADD  CONSTRAINT [DF_Puntaje_baja]  DEFAULT ((0)) FOR [baja]
 GO
 
-INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Puntaje]
-	([dni],[id_compra],[puntos],[puntos_usados])
-VALUES (27223299,145098,103,0)
+--INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Puntaje]
+--	([dni],[id_compra],[puntos],[puntos_usados])
+--VALUES (27223299,145098,103,0)
 
-INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Puntaje]
-	([dni],[id_compra],[puntos],[puntos_usados])
-VALUES (12835515,139822,103,0)
+--INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Puntaje]
+--	([dni],[id_compra],[puntos],[puntos_usados])
+--VALUES (12835515,139822,103,0)
 
-INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Puntaje]
-	([dni],[id_compra],[puntos],[puntos_usados])
-VALUES (74978796,219895,92,0)
+--INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Puntaje]
+--	([dni],[id_compra],[puntos],[puntos_usados])
+--VALUES (74978796,219895,92,0)
+
+GO
+
+INSERT INTO [SI_NO_APROBAMOS_HAY_TABLA].Puntaje
+	(dni, id_compra, puntos)
+SELECT p.dni, p.id_compra, (p.pre_pasaje/5) 
+FROM SI_NO_APROBAMOS_HAY_TABLA.Pasaje p
+
+GO
+
+INSERT INTO [SI_NO_APROBAMOS_HAY_TABLA].Puntaje
+	(dni, id_compra, puntos)
+SELECT e.dni, e.id_compra, (e.pre_encomienda/5) 
+FROM SI_NO_APROBAMOS_HAY_TABLA.Encomienda e
 
 GO
 
@@ -1487,21 +1561,21 @@ GO
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Canje] ADD  CONSTRAINT [DF_Canje_baja]  DEFAULT ((0)) FOR [baja]
 GO
 
-INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Canje]
-	([dni],[id_recompensa])
-VALUES (27223299, 3) --restar 10
+--INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Canje]
+--	([dni],[id_recompensa])
+--VALUES (27223299, 3) --restar 10
 
-INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Canje]
-	([dni],[id_recompensa])
-VALUES (12835515, 4) --restar 100
+--INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Canje]
+--	([dni],[id_recompensa])
+--VALUES (12835515, 4) --restar 100
 
-UPDATE SI_NO_APROBAMOS_HAY_TABLA.Puntaje
-SET puntos_usados = 10
-WHERE id_puntaje = 1
+--UPDATE SI_NO_APROBAMOS_HAY_TABLA.Puntaje
+--SET puntos_usados = 10
+--WHERE id_puntaje = 1
 
-UPDATE SI_NO_APROBAMOS_HAY_TABLA.Puntaje
-SET puntos_usados = 100
-WHERE id_puntaje = 2
+--UPDATE SI_NO_APROBAMOS_HAY_TABLA.Puntaje
+--SET puntos_usados = 100
+--WHERE id_puntaje = 2
 	   
 /*===========================FUNCION BUTACAS X MICRO==============================*/
 GO
@@ -1675,6 +1749,21 @@ BEGIN
 END
 GO
 
+/*===========================SP Listar puntos por cliente==============================*/
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].[sp_listar_puntos_por_cliente]
+(
+	@p_dni numeric(18,0)
+)
+AS
+BEGIN
+	SELECT p.dni, SUM(p.puntos - p.puntos_usados) as 'puntosTotales'
+	FROM SI_NO_APROBAMOS_HAY_TABLA.Puntaje p
+	WHERE DATEDIFF(year,p.fecha_otorgado, GETDATE() ) < 1
+	AND p.dni = @p_dni
+	GROUP BY p.dni
+	ORDER BY puntosTotales
+END
+
 /*===========================SP LISTAR CIUDAD==============================*/
 
 
@@ -1709,6 +1798,7 @@ SELECT m.[id_marca],m.[nombre]
   WHERE m.baja = 0
 END
 GO
+
 /*===========================SP LISTAR CLIENTE==============================*/
 GO
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_cliente
@@ -2042,6 +2132,7 @@ BEGIN
 		
 END
 GO
+
 /*===========================SP BAJA FISICA MICRO==============================*/
 GO
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_baja_fisica_micro
