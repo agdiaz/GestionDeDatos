@@ -52,6 +52,11 @@ namespace FrbaBus.Login
             {
                 MensajePorPantalla.MensajeExceptionBD(this, ex);
             }
+            catch (Exception ex)
+            {
+                MensajePorPantalla.MensajeError(this, ex.Message);
+
+            }
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {

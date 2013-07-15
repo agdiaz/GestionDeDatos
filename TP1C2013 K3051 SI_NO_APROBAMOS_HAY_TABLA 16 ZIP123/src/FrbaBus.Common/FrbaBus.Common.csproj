@@ -47,9 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contexto.cs" />
+    <Compile Include="Entidades\Butaca.cs" />
     <Compile Include="Entidades\Ciudad.cs" />
     <Compile Include="Entidades\Cliente.cs" />
+    <Compile Include="Entidades\Compra.cs" />
     <Compile Include="Entidades\Empresa.cs" />
+    <Compile Include="Entidades\Encomienda.cs" />
     <Compile Include="Entidades\Estadisticas\ClienteConMasPuntos.cs" />
     <Compile Include="Entidades\Estadisticas\DestinoMasCancelado.cs" />
     <Compile Include="Entidades\Estadisticas\DestinoMasVendido.cs" />
@@ -59,11 +62,14 @@
     <Compile Include="Entidades\Estadisticas\Semestre.cs" />
     <Compile Include="Entidades\Funcionalidad.cs" />
     <Compile Include="Entidades\Micro.cs" />
+    <Compile Include="Entidades\Pasaje.cs" />
+    <Compile Include="Entidades\Recorrido.cs" />
     <Compile Include="Entidades\RolUsuario.cs" />
     <Compile Include="Entidades\RolUsuarioAdministrativo.cs" />
     <Compile Include="Entidades\RolUsuarioBasico.cs" />
     <Compile Include="Entidades\Servicio.cs" />
     <Compile Include="Entidades\Usuario.cs" />
+    <Compile Include="Entidades\Viaje.cs" />
     <Compile Include="Excepciones\AccesoBDException.cs" />
     <Compile Include="Helpers\MensajePorPantalla.cs" />
     <Compile Include="Helpers\PasswordHelper.cs" />

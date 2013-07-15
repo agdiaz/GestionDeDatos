@@ -15,8 +15,18 @@ namespace FrbaBus.Abm_Micro
 {
     public partial class MicroListado : Form
     {
+        private MicroManager _manager;
+        private ServicioManager _servicioManager;
+        private RecorridoManager _recorridoManager;
+        private EmpresaManager _empresaManager;
+
         public MicroListado()
         {
+            this._manager = new MicroManager();
+            this._recorridoManager = new RecorridoManager();
+            this._servicioManager = new ServicioManager();
+            this._empresaManager = new EmpresaManager();
+    
             InitializeComponent();
         }
 
@@ -36,7 +46,8 @@ namespace FrbaBus.Abm_Micro
             {
                 CargarServicios();
                 CargarEmpresas();
-                this.dgvMicroListado.DataSource = new MicroManager().ObtenerRegistrosMicro().Tables[0];
+                
+                this.dgvMicroListado.DataSource = _manager.Listar();
             }
             catch (AccesoBDException ex)
             {
@@ -51,7 +62,7 @@ namespace FrbaBus.Abm_Micro
         }
         private void CargarEmpresas()
         {
-            IList<Empresa> empresas = new MicroManager().ObtenerEmpresasDisponibles();
+            IList<Empresa> empresas = _empresaManager.Listar();
 
             this.cbbMicroListadoTipoEmpresa.DataSource = empresas;
             this.cbbMicroListadoTipoEmpresa.DisplayMember = "Descripcion";
@@ -59,7 +70,7 @@ namespace FrbaBus.Abm_Micro
         }
         private void CargarServicios()
         {
-            IList<Servicio> servicios = new MicroManager().ObtenerServiciosDisponibles();
+            IList<Servicio> servicios = _servicioManager.Listar();
 
             this.cbbMicroListadoTipoServicio.DataSource = servicios;
             this.cbbMicroListadoTipoServicio.DisplayMember = "TipoServicio";
@@ -77,8 +88,7 @@ namespace FrbaBus.Abm_Micro
                 string tipoModelo = this.cbbMicroListadoTipoModelo.Text;
                 string tipoServicio = this.cbbMicroListadoTipoServicio.Text;
 
-                DataSet dsMicros = new MicroManager().ObtenerRegistrosMicro(kgsEncomiendas, numeroPatente, numeroMicro, tipoEmpresa, tipoModelo, tipoServicio);
-                this.dgvMicroListado.DataSource = dsMicros.Tables[0];
+                this.dgvMicroListado.DataSource = _manager.ListarFiltrado(kgsEncomiendas, numeroPatente, numeroMicro, tipoEmpresa, tipoModelo, tipoServicio);
             }
             catch (AccesoBDException ex)
             {

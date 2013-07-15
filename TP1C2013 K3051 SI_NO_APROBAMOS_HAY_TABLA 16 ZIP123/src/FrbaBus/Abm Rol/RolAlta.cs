@@ -13,9 +13,14 @@ namespace FrbaBus.Rol
 {
     public partial class RolAlta : Form
     {
+        private RolUsuarioManager _manager;
+        private FuncionalidadManager _funcionalidadManager;
+
         public RolAlta()
         {
             InitializeComponent();
+            _manager = new RolUsuarioManager();
+            _funcionalidadManager = new FuncionalidadManager();
         }
 
         private void btnRolAltaLimpiar_Click(object sender, EventArgs e)
@@ -29,7 +34,7 @@ namespace FrbaBus.Rol
 
         private void RolAlta_Load(object sender, EventArgs e)
         {
-            IList<Funcionalidad> funcs = new UsuarioManager().ListarFuncionalidad();
+            IList<Funcionalidad> funcs = _funcionalidadManager.Listar();
             clbFuncionalidades.DataSource = funcs;
             clbFuncionalidades.DisplayMember = "Nombre";
             clbFuncionalidades.ValueMember = "Id";
@@ -38,12 +43,12 @@ namespace FrbaBus.Rol
         private void btnRolAltaGuardar_Click(object sender, EventArgs e)
         {
             RolUsuario rol = new RolUsuario(this.tbRolAltaNuevoRol.Text);
-            new UsuarioManager().AltaRolUsuario(rol);
+            rol = _manager.Alta(rol);
 
             foreach (var funcObj in this.clbFuncionalidades.CheckedItems)
             {
                 Funcionalidad f = (Funcionalidad)funcObj;
-                new UsuarioManager().AltaRolFuncionalidad(rol, f.Id);
+                _funcionalidadManager.AsociarRolFuncionalidad(rol, f);
             }
 
             this.Close();

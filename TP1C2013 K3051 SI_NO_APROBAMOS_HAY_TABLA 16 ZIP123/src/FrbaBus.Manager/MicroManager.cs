@@ -10,64 +10,39 @@ namespace FrbaBus.Manager
 {
     public class MicroManager
     {
-        public IList<Micro> ObtenerMicrosDisponibles(int ciudadOrigen, int ciudadDestino, DateTime fechaSalida)
+        private MicroDAO _dao; 
+        
+        public MicroManager()
         {
-            DataSet ds = new MicroDAO().ObtenerMicrosDisponibles(ciudadOrigen, ciudadDestino, fechaSalida);
-
-            IList<Micro> micros = new List<Micro>(ds.Tables[0].Rows.Count);
-            foreach (DataRow row in ds.Tables[0].Rows)
-            {
-                micros.Add(this.BuilderMicro(row));
-            }
-
-            return micros;
+            this._dao = new MicroDAO();
         }
 
-        private Micro BuilderMicro(DataRow row)
+        public int Alta(Micro micro)
         {
-            return new Micro()
-            {
-                Marca = row["nombre"].ToString(),
-                Servicio = row["tipo_servicio"].ToString(),
-                Id = Convert.ToInt32(row["id_micros"].ToString()),
-                ButacasDisponibles = Convert.ToInt32(row["butacas_disponibles"].ToString()),
-                ButacasTotal = Convert.ToInt32(row["butacas_total"].ToString()),
-                ButacasVendidas = Convert.ToInt32(row["butacas_vendidas"].ToString()),
-                KgsCapacidad = Convert.ToDecimal(row["capacidad_kg"].ToString()),
-                KgsDisponibles = Convert.ToDecimal(row["kgs_disponibles"].ToString()),
-                KgsVendidos = Convert.ToDecimal(row["kgs_vendidos"].ToString()),
-
-            };
+            return _dao.Alta(micro);
         }
 
-        public IList<Servicio> ObtenerServiciosDisponibles()
+        public void Baja(Micro micro)
         {
-            return new ServicioDAO().Listar();
+            _dao.Baja(micro);
         }
 
-        public IList<Empresa> ObtenerEmpresasDisponibles()
+        public void Modificar(Micro micro)
         {
-            return new EmpresaDAO().Listar();
+            _dao.Modificacion(micro);
         }
 
-        public DataSet ObtenerRegistrosMicro(string kgsEncomiendas, string numeroPatente, string numeroMicro, string tipoEmpresa, string tipoModelo, string tipoServicio)
+        public IList<Micro> Listar()
         {
-            return new EmpresaDAO().ObtenerRegistrosMicro(kgsEncomiendas, numeroPatente, numeroMicro, tipoEmpresa, tipoModelo, tipoServicio);
+            return _dao.Listar();
         }
-
-        public DataSet ObtenerRegistrosRecorrido()
+        public IList<Micro> ListarFiltrado(string kgsEncomiendas, string numeroPatente, string numeroMicro, string tipoEmpresa, string tipoModelo, string tipoServicio)
         {
-            return new MicroDAO().ObtenerRegistrosRecorrido();
+            return _dao.ListarFiltrado(kgsEncomiendas, numeroPatente, numeroMicro, tipoEmpresa, tipoModelo, tipoServicio);
         }
-
-        public DataSet ObtenerRegistrosRecorrido(int origenId, int destinoId, int servicioId)
+        public IList<Micro> ListarDisponibles(int ciudadOrigenId, int ciudadDestinoId, DateTime fechaSalida)
         {
-            return new MicroDAO().ObtenerRegistrosRecorrido(origenId, destinoId, servicioId);
-        }
-
-        public DataSet ObtenerRegistrosMicro()
-        {
-            return new MicroDAO().ObtenerRegistrosMicro();
+            return _dao.ListarDisponibles(ciudadOrigenId, ciudadDestinoId, fechaSalida);
         }
     }
 }

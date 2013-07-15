@@ -14,18 +14,19 @@ namespace FrbaBus.Abm_Clientes
 {
     public partial class ClienteListado : Form
     {
+        private ClienteManager _manager;
+
         public ClienteListado()
         {
             InitializeComponent();
+            _manager = new ClienteManager();
         }
 
         private void ClienteListado_Load(object sender, EventArgs e)
         {
             try
             {
-                ClienteManager manager = new ClienteManager();
-                DataSet clientes = manager.Listar();
-                this.dgvClienteListado.DataSource = clientes.Tables[0];
+                this.dgvClienteListado.DataSource = _manager.Listar();
             }
             catch (AccesoBDException ex)
             {
@@ -53,8 +54,7 @@ namespace FrbaBus.Abm_Clientes
                 if (!this.cbFemenino.Checked && cbMasculino.Checked)
                     sexo = "Masc";
 
-                DataSet dsClientes = new ClienteManager().ObtenerRegistrosCliente(dni, nombre, apellido, discapacitado, sexo);
-                this.dgvClienteListado.DataSource = dsClientes.Tables[0];
+                this.dgvClienteListado.DataSource = _manager.ListarFiltrado(dni, nombre, apellido, discapacitado, sexo);
             }
             catch (AccesoBDException ex)
             {

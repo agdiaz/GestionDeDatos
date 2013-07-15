@@ -15,9 +15,17 @@ namespace FrbaBus.Abm_Recorrido
 {
     public partial class RecorridoListado : Form
     {
+        private RecorridoManager _manager;
+        private ServicioManager _servicioManager;
+        private CiudadManager _ciudadManager;
+
+
         public RecorridoListado()
         {
             InitializeComponent();
+            _manager = new RecorridoManager();
+            _servicioManager = new ServicioManager();
+            _ciudadManager = new CiudadManager();
         }
 
         private void btnRecorridoListadoBuscar_Click(object sender, EventArgs e)
@@ -28,8 +36,7 @@ namespace FrbaBus.Abm_Recorrido
                 var destinoId = this.cbCiudadDestino.SelectedIndex;
                 var servicioId = this.cbbRecorridoListadoTipoServicio.SelectedIndex;
 
-                DataSet ds = new MicroManager().ObtenerRegistrosRecorrido(origenId, destinoId, servicioId);
-                this.dgvRecorridoListado.DataSource = ds;
+                this.dgvRecorridoListado.DataSource = _manager.ListarFiltrado(origenId, destinoId, servicioId);
             }
             catch (AccesoBDException ex)
             {
@@ -55,7 +62,8 @@ namespace FrbaBus.Abm_Recorrido
             {
                 CargarCiudades();
                 CargarServicios();
-                this.dgvRecorridoListado.DataSource = new MicroManager().ObtenerRegistrosRecorrido().Tables[0];
+                CargarRecorridos();
+                
             }
             catch (AccesoBDException ex)
             {
@@ -69,10 +77,16 @@ namespace FrbaBus.Abm_Recorrido
             }
         }
 
+        private void CargarRecorridos()
+        {
+            var recorridos = _manager.Listar();
+            this.dgvRecorridoListado.DataSource = recorridos;
+        }
+
         private void CargarCiudades()
         {
-            IList<Ciudad> ciudadesOrigen = new CiudadManager().Listar();
-            IList<Ciudad> ciudadesDestino = new CiudadManager().Listar();
+            IList<Ciudad> ciudadesOrigen = _ciudadManager.Listar();
+            IList<Ciudad> ciudadesDestino = _ciudadManager.Listar();
 
             this.cbCiudadOrigen.DataSource = ciudadesOrigen;
             this.cbCiudadOrigen.DisplayMember = "Descripcion";
@@ -84,11 +98,21 @@ namespace FrbaBus.Abm_Recorrido
         }
         private void CargarServicios()
         {
-            IList<Servicio> servicios = new MicroManager().ObtenerServiciosDisponibles();
+            IList<Servicio> servicios = _servicioManager.Listar();
 
             this.cbbRecorridoListadoTipoServicio.DataSource = servicios;
             this.cbbRecorridoListadoTipoServicio.DisplayMember = "TipoServicio";
             this.cbbRecorridoListadoTipoServicio.ValueMember = "Id";
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRecorridoListadoDarBaja_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

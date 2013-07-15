@@ -6,37 +6,26 @@ using FrbaBus.Common.Entidades;
 using System.Data;
 using GestionDeDatos.AccesoDatos;
 using System.Data.SqlClient;
+using FrbaBus.DAO.Builder;
 
 namespace FrbaBus.DAO
 {
     public class RolUsuarioDAO : IEntidadDAO<RolUsuario>
     {
+        private IBuilder<RolUsuario> _builder;
+        public RolUsuarioDAO()
+        {
+            _builder = new RolUsuarioBuilder();
+        }
+
         #region Miembros de IEntidadDAO<RolUsuario>
 
-        public GestionDeDatos.AccesoDatos.IAccesoBD accesoBD
+        public IAccesoBD accesoBD
         {
             get
             {
                 return new AccesoBD();
             }
-        }
-        
-        public int RealizarIdentificacion(string username, byte[] hash)
-        {
-            int resultado = -3 ;
-            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
-
-            parametros.Add(new SqlParameter("@userName", SqlDbType.VarChar, 50, "userName"), username);
-            parametros.Add(new SqlParameter("@passwordHash", SqlDbType.VarBinary, 32, "passwordHash"), hash);
-            
-            var parametroResultado = new SqlParameter("@resultado", SqlDbType.Int, 4, "resultado");
-            parametroResultado.Direction = ParameterDirection.Output;
-            parametros.Add(parametroResultado, 0);
-
-            accesoBD.EjecutarComando("[GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[realizar_identificacion]", parametros);
-            
-            resultado = (int)parametroResultado.Value;
-            return resultado;
         }
         
         public RolUsuario ObtenerRolAsociado(Usuario u)
@@ -54,31 +43,10 @@ namespace FrbaBus.DAO
             return new RolUsuario(rolNombre);
         }
         
-        public IList<Funcionalidad> ObtenerFuncionalidadesAsociadas(RolUsuario rolUsuario)
+        public RolUsuario Obtener(object id)
         {
-            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
-            parametros.Add(new SqlParameter("@nombre_rol", SqlDbType.VarChar, 50, "nombre_rol"), rolUsuario.Nombre);
-
-            DataSet ds = accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.obtener_funcionalidades_rol", parametros);
-
-            IList<Funcionalidad> funcionalidades = new List<Funcionalidad>(ds.Tables[0].Rows.Count);
-            foreach (DataRow row in ds.Tables[0].Rows)
-            {
-                funcionalidades.Add(this.BuildFuncionalidad(row));
-            }
-            return funcionalidades;
+            throw new NotImplementedException();
         }
-
-        private Funcionalidad BuildFuncionalidad(DataRow row)
-        {
-            Funcionalidad f = new Funcionalidad()
-            {
-                //Activa = row["activa"].ToString() == "1" ? true : false,
-                Nombre = row["funcionalidad"].ToString()
-            };
-            return f;
-        }
-
 
         public int Alta(RolUsuario entidad)
         {
@@ -125,8 +93,6 @@ namespace FrbaBus.DAO
 
 
             this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_modificar_rol", parametros);
-
-            entidad.Funcionalidades = this.ObtenerFuncionalidadesAsociadas(entidad);
         }
 
         public IList<RolUsuario> Listar()
@@ -134,40 +100,39 @@ namespace FrbaBus.DAO
             IList<RolUsuario> roles = new List<RolUsuario>();
             foreach (DataRow item in this.ObtenerRegistros().Tables[0].Rows)
             {
-                RolUsuario r = this.BuildRol(item);
-                r.Funcionalidades = ObtenerFuncionalidadesAsociadas(r);
+                RolUsuario r = this._builder.Build(item);
                 roles.Add(r);
             }
             return roles;
         }
-
-        private RolUsuario BuildRol(DataRow item)
+        public IList<RolUsuario> ListarFiltrado(string nombreRol, string funcionalidadElegida)
         {
-            return new RolUsuario()
+            IList<RolUsuario> roles = new List<RolUsuario>();
+
+            DataSet ds = this.ObtenerRegistrosFiltrado(nombreRol, funcionalidadElegida);
+            foreach (DataRow item in ds.Tables[0].Rows)
             {
-                IdRol = Convert.ToInt32(item["id_rol"].ToString()),
-                Nombre = item["nombre"].ToString()
-            };
-        }
+                roles.Add(this._builder.Build(item));
+            }
 
-        public DataSet ObtenerRegistros()
-        {
-            return this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_listar_rol", new Dictionary<SqlParameter, object>());
-        }
-
-        #endregion
-
-        public void InsertarUsuario(string username, byte[] hashPassword)
+            return roles;
+        }        
+        public void BajaRolFuncionalidades(RolUsuario rol)
         {
             Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
 
-            parametros.Add(new SqlParameter("@userName", SqlDbType.VarChar, 50, "userName"), username);
-            parametros.Add(new SqlParameter("@passwordHash", SqlDbType.VarBinary, 32, "passwordHash"), hashPassword);
+            SqlParameter pId = new SqlParameter("@p_id_rol", SqlDbType.Int, 4, "p_id_rol");
+            parametros.Add(pId, rol.IdRol);
 
-            this.accesoBD.EjecutarComando("SI_NO_APROBAMOS_HAY_TABLA.insertar_usuario_admin", parametros);
+            this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_baja_funcionalidades", parametros);
         }
+        #endregion
 
-        public DataSet ObtenerRegistrosRolUsuario(string nombreRol, string nombreFuncionalidad)
+        private DataSet ObtenerRegistros()
+        {
+            return this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_listar_rol", new Dictionary<SqlParameter, object>());
+        }
+        private DataSet ObtenerRegistrosFiltrado(string nombreRol, string nombreFuncionalidad)
         {
             Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
 
@@ -182,30 +147,6 @@ namespace FrbaBus.DAO
                 parametros.Add(pNombreFuncionalidad, nombreFuncionalidad);
             }
             return this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_listar_filtrado_rol", parametros );
-        }
-
-
-        public void BajaRolFuncionalidades(RolUsuario rol)
-        {
-            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
-
-            SqlParameter pId = new SqlParameter("@p_id_rol", SqlDbType.Int, 4, "p_id_rol");
-            parametros.Add(pId, rol.IdRol);
-            
-            this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_baja_funcionalidades", parametros);
-        }
-
-        public IList<RolUsuario> ListarRegistrosRolUsuario(string nombreRol, string funcionalidadElegida)
-        {
-            IList<RolUsuario> roles = new List<RolUsuario>();
-
-            DataSet ds = this.ObtenerRegistrosRolUsuario(nombreRol, funcionalidadElegida);
-            foreach (DataRow item in ds.Tables[0].Rows)
-            {
-                roles.Add(this.BuildRol(item));
-            }
-
-            return roles;
         }
     }
 }

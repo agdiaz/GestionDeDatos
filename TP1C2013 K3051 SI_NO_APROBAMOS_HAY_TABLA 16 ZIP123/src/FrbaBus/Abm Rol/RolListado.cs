@@ -15,12 +15,14 @@ namespace FrbaBus.Rol
 {
     public partial class RolListado : Form
     {
-        private UsuarioManager _manager;
+        private RolUsuarioManager _manager;
+        private FuncionalidadManager _funcionalidadesManager;
 
         public RolListado()
         {
             InitializeComponent();
-            _manager = new UsuarioManager();
+            _manager = new RolUsuarioManager();
+            _funcionalidadesManager = new FuncionalidadManager();
         }
 
         private void RolListado_Load(object sender, EventArgs e)
@@ -28,10 +30,10 @@ namespace FrbaBus.Rol
             try
             {
                 //Cargo la grilla de roles
-                this.dgvRolListado.DataSource = _manager.ListarRolUsuario();
+                this.dgvRolListado.DataSource = _manager.Listar();
 
                 //Cargo las funcionalidades
-                IList<Funcionalidad> funcionalidades = _manager.ListarFuncionalidad();
+                IList<Funcionalidad> funcionalidades = _funcionalidadesManager.Listar();
                 this.cbbRolListadoFuncionalidades.Items.AddRange(funcionalidades.Select(f => f.Nombre).ToArray());
             }
             catch (AccesoBDException ex)
@@ -52,9 +54,12 @@ namespace FrbaBus.Rol
             {
                 string funcionalidadElegida = string.Empty;
                 if (this.cbbRolListadoFuncionalidades.SelectedItem != null)
+                {
                     funcionalidadElegida = this.cbbRolListadoFuncionalidades.SelectedItem.ToString();
-                IList<RolUsuario> dsRoles = _manager.ListarRegistrosRolUsuario(this.tbRolListadoRol.Text, funcionalidadElegida);
-                this.dgvRolListado.DataSource = dsRoles;
+                }
+                
+                IList<RolUsuario> roles = _manager.ListarFiltrado(this.tbRolListadoRol.Text, funcionalidadElegida);
+                this.dgvRolListado.DataSource = roles;
             }
             catch (AccesoBDException ex)
             {
@@ -94,7 +99,7 @@ namespace FrbaBus.Rol
             try
             {
                 RolUsuario rol = (RolUsuario)dgvRolListado.SelectedRows[0].DataBoundItem;
-                _manager.BajaRolUsuario(rol);
+                _manager.Baja(rol);
             }
             catch (AccesoBDException ex)
             {

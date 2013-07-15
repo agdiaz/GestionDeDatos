@@ -13,9 +13,15 @@ namespace FrbaBus.Abm_Micro
 {
     public partial class MicroAlta : Form
     {
+        private MicroManager _manager;
+        private EmpresaManager _empresaManager;
+        private ServicioManager _servicioManager;
+
         public MicroAlta()
         {
             InitializeComponent();
+            this._manager = new MicroManager();
+            this._empresaManager = new EmpresaManager();
         }
 
         private void cbbMicroAltaTipoEmpresa_SelectedIndexChanged(object sender, EventArgs e)
@@ -40,7 +46,7 @@ namespace FrbaBus.Abm_Micro
 
         private void CargarEmpresas()
         {
-            IList<Empresa> empresas = new MicroManager().ObtenerEmpresasDisponibles();
+            IList<Empresa> empresas = _empresaManager.Listar();
 
             this.cbbMicroAltaTipoEmpresa.DataSource = empresas;
             this.cbbMicroAltaTipoEmpresa.DisplayMember = "Descripcion";
@@ -48,7 +54,7 @@ namespace FrbaBus.Abm_Micro
         }
         private void CargarServicios()
         {
-            IList<Servicio> servicios = new MicroManager().ObtenerServiciosDisponibles();
+            IList<Servicio> servicios = _servicioManager.Listar();
 
             this.cbbMicroAltaTipoServicio.DataSource = servicios;
             this.cbbMicroAltaTipoServicio.DisplayMember = "TipoServicio";

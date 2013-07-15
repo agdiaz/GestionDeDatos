@@ -20,9 +20,16 @@ namespace FrbaBus
 {
     public partial class Form1 : Form
     {
+        private MicroManager _microManager;
+        private UsuarioManager _managerUsuario;
+        private CiudadManager _ciudadManager;
         public Form1()
         {
             InitializeComponent();
+            this._microManager = new MicroManager();
+            this._managerUsuario = new UsuarioManager();
+            this._ciudadManager = new CiudadManager();
+
             this.RegistrarPermisos();
             SetearCustomFormatDataTimePicker();
         }
@@ -218,7 +225,7 @@ namespace FrbaBus
                     MessageBoxIcon.Hand) 
                 == DialogResult.OK)
             {
-                Program.ContextoActual.Limpiar().RegistrarUsuario(new UsuarioManager().ObtenerUsuarioGenerico(), true);
+                Program.ContextoActual.Limpiar().RegistrarUsuario(_managerUsuario.ObtenerUsuarioGenerico(), true);
                 this.RegistrarPermisos();
             }
         }
@@ -246,7 +253,7 @@ namespace FrbaBus
             var origen = Convert.ToInt32(this.cbbCiudadOrigen.SelectedValue.ToString());
             var destino = Convert.ToInt32(this.cbbCiudadDestino.SelectedValue.ToString());
 
-            IList<Micro> microsDisponibles = new MicroManager().ObtenerMicrosDisponibles(origen, destino, this.dtpFechaSalida.Value);
+            IList<Micro> microsDisponibles = _microManager.ListarDisponibles(origen, destino, this.dtpFechaSalida.Value);
 
             this.cbbMicro.DataSource = microsDisponibles;
             cbbMicro.DisplayMember = "Marca";
@@ -274,8 +281,8 @@ namespace FrbaBus
             gbPasajeros.Enabled = (cbPasajes.Checked);
             gbEncomiendas.Enabled = (cbPasajes.Checked);
 
-            IList<Ciudad> ciudadesOrigen = new CiudadManager().Listar();
-            IList<Ciudad> ciudadesDestino = new CiudadManager().Listar();
+            IList<Ciudad> ciudadesOrigen = _ciudadManager.Listar();
+            IList<Ciudad> ciudadesDestino = _ciudadManager.Listar();
 
             this.cbbCiudadOrigen.DataSource = ciudadesOrigen;
             this.cbbCiudadOrigen.DisplayMember = "Descripcion";

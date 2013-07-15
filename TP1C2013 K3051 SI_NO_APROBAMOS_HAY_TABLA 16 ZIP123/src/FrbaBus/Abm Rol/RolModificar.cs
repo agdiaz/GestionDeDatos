@@ -13,11 +13,18 @@ namespace FrbaBus.Rol
 {
     public partial class RolModificar : Form
     {
+        private RolUsuarioManager _manager;
+        private FuncionalidadManager _funcionalidadManager;
+
         private RolUsuario Rol { get; set; }
 
         public RolModificar(RolUsuario rol)
         {
             this.Rol = rol;
+
+            _manager = new RolUsuarioManager();
+            _funcionalidadManager = new FuncionalidadManager();
+            
             InitializeComponent();
         }
 
@@ -36,7 +43,7 @@ namespace FrbaBus.Rol
             this.tbRolModificarNuevoRol.Text = Rol.Nombre;
             this.cbHabilitado.Checked = Rol.Habilitado;
 
-            IList<Funcionalidad> funcs = new UsuarioManager().ListarFuncionalidad();
+            IList<Funcionalidad> funcs = _funcionalidadManager.Listar();
             clbFuncionalidades.DataSource = funcs;
             clbFuncionalidades.DisplayMember = "Nombre";
             clbFuncionalidades.ValueMember = "Id";
@@ -62,15 +69,17 @@ namespace FrbaBus.Rol
 
         private void btnRolModificarGuardar_Click(object sender, EventArgs e)
         {
-            var manager = new UsuarioManager();
-            manager.BajaRolFuncionalidades(Rol);
+            
+            _manager.BajaRolFuncionalidades(Rol);
             
             foreach (var funcObj in this.clbFuncionalidades.CheckedItems)
             {
                 Funcionalidad f = (Funcionalidad)funcObj;
-                manager.AltaRolFuncionalidad(Rol, f.Id);
+                _funcionalidadManager.AsociarRolFuncionalidad(Rol, f);
             }
-            manager.ModificacionRolUsuario(Rol);
+            
+            _manager.Modificar(Rol);
+
             this.Close();
         }
     }

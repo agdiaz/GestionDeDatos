@@ -11,70 +11,22 @@ namespace FrbaBus.Manager
 {
     public class UsuarioManager
     {
-        public void AltaRolUsuario(RolUsuario entidad)
-        {
-            int id = new RolUsuarioDAO().Alta(entidad);
-            entidad.IdRol = id;
-        }
+        private UsuarioDAO _dao;
+        private RolUsuarioManager _rolUsuarioManager;
 
-        public void BajaRolUsuario(RolUsuario entidad)
+        public UsuarioManager()
         {
-            var dao = new RolUsuarioDAO();
-
-            dao.BajaRolFuncionalidades(entidad);
-            dao.Baja(entidad);
-        }
-
-        public void ModificacionRolUsuario(RolUsuario entidad)
-        {
-            var dao = new RolUsuarioDAO();
-            dao.Modificacion(entidad);
-        }
-
-        public DataSet ObtenerRegistrosRolUsuario()
-        {
-            return new RolUsuarioDAO().ObtenerRegistros();
-        }
-        public IList<RolUsuario> ListarRolUsuario()
-        {
-            var roles = new RolUsuarioDAO().Listar();
-            return roles;
-        }
-
-        public void AltaFuncionalidad(Funcionalidad entidad)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void BajaFuncionalidad(Funcionalidad entidad)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ModificacionFuncionalidad(Funcionalidad entidad)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IList<Funcionalidad> ListarFuncionalidad()
-        {
-            return new FuncionalidadDAO().Listar();
-        }
-
-        public DataSet ObtenerRegistrosFuncionalidad()
-        {
-            throw new NotImplementedException();
+            this._dao = new UsuarioDAO();
+            this._rolUsuarioManager= new RolUsuarioManager();
         }
 
         public ResultadoLoginEnum RealizarIdentificacion(string username, string password)
         {
-            //this.Insertar("admin", "w23e");
-
             byte[] hashPassword = PasswordHelper.GetSHA256Value(password);
 
             ResultadoLoginEnum resultadoIdentificacion;
 
-            int resultado = new RolUsuarioDAO().RealizarIdentificacion(username, hashPassword);
+            int resultado = _dao.RealizarIdentificacion(username, hashPassword);
             switch (resultado)
             {
                 case -2:
@@ -96,9 +48,8 @@ namespace FrbaBus.Manager
         public Usuario Obtener(string username)
         {
             Usuario u = new Usuario(username);
-            
-            u.RolAsignado = new RolUsuarioDAO().ObtenerRolAsociado(u);
-            u.RolAsignado.Funcionalidades = new RolUsuarioDAO().ObtenerFuncionalidadesAsociadas(u.RolAsignado);
+
+            u.RolAsignado = this._rolUsuarioManager.ObtenerRolAsociado(u);
 
             return u;
         }
@@ -106,8 +57,13 @@ namespace FrbaBus.Manager
         public void Insertar(string username, string password)
         {
             byte[] hashPassword = PasswordHelper.GetSHA256Value(password);
+            Usuario u = new Usuario()
+            {
+                Username = username,
+                HashPassword = hashPassword
+            };
 
-            new RolUsuarioDAO().InsertarUsuario(username, hashPassword);
+            _dao.Alta(u);
         }
 
         public Usuario ObtenerUsuarioGenerico()
@@ -117,31 +73,10 @@ namespace FrbaBus.Manager
             return u;
         }
 
-        public RolUsuario ObtenerRol(string nombreRol)
+        private RolUsuario ObtenerRol(string nombreRol)
         {
             RolUsuario ru = new RolUsuario(nombreRol);
             return ru;
-        }
-
-        public DataSet ObtenerRegistrosRolUsuario(string nombreRol, string nombreFuncionalidad)
-        {
-            return new RolUsuarioDAO().ObtenerRegistrosRolUsuario(nombreRol, nombreFuncionalidad);
-        }
-
-        public void AltaRolFuncionalidad(RolUsuario rol, int idFuncionalidad)
-        {
-            new FuncionalidadDAO().AltaRolFuncionalidad(rol, idFuncionalidad);
-        }
-
-        public void BajaRolFuncionalidades(RolUsuario rol)
-        {
-            new RolUsuarioDAO().BajaRolFuncionalidades(rol);
-            rol.Funcionalidades = new List<Funcionalidad>();
-        }
-
-        public IList<RolUsuario> ListarRegistrosRolUsuario(string nombreRol, string funcionalidadElegida)
-        {
-            return new RolUsuarioDAO().ListarRegistrosRolUsuario(nombreRol, funcionalidadElegida);
         }
     }
 }

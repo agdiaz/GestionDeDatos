@@ -45,17 +45,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builder\ButacaBuilder.cs" />
+    <Compile Include="Builder\CiudadBuilder.cs" />
+    <Compile Include="Builder\ClienteBuilder.cs" />
+    <Compile Include="Builder\CompraBuilder.cs" />
+    <Compile Include="Builder\EmpresaBuilder.cs" />
+    <Compile Include="Builder\EncomiendaBuilder.cs" />
+    <Compile Include="Builder\FuncionalidadBuilder.cs" />
+    <Compile Include="Builder\IBuilder.cs" />
+    <Compile Include="Builder\MicroBuilder.cs" />
+    <Compile Include="Builder\PasajeBuilder.cs" />
+    <Compile Include="Builder\RecorridoBuilder.cs" />
+    <Compile Include="Builder\RolUsuarioBuilder.cs" />
+    <Compile Include="Builder\ServicioBuilder.cs" />
+    <Compile Include="Builder\UsuarioBuilder.cs" />
+    <Compile Include="Builder\ViajeBuilder.cs" />
+    <Compile Include="ButacaDAO.cs" />
     <Compile Include="CiudadDAO.cs" />
     <Compile Include="ClienteDAO.cs" />
+    <Compile Include="CompraDAO.cs" />
     <Compile Include="EmpresaDAO.cs" />
+    <Compile Include="EncomiendaDAO.cs" />
     <Compile Include="EstadisticasDAO.cs" />
     <Compile Include="FuncionalidadDAO.cs" />
     <Compile Include="IEntidadDAO.cs" />
     <Compile Include="MicroDAO.cs" />
-    <Compile Include="PasajesDAO.cs" />
+    <Compile Include="PasajeDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecorridoDAO.cs" />
     <Compile Include="RolUsuarioDAO.cs" />
     <Compile Include="ServicioDAO.cs" />
+    <Compile Include="UsuarioDAO.cs" />
     <Compile Include="ViajeDAO.cs" />
   </ItemGroup>
   <ItemGroup>

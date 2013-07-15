@@ -6,16 +6,33 @@ using FrbaBus.Common.Entidades;
 using GestionDeDatos.AccesoDatos;
 using System.Data;
 using System.Data.SqlClient;
+using FrbaBus.DAO.Builder;
 
 namespace FrbaBus.DAO
 {
     public class ServicioDAO : IEntidadDAO<Servicio>
     {
-        #region Miembros de IEntidadDAO<Servicio>
-
-        public GestionDeDatos.AccesoDatos.IAccesoBD accesoBD
+        private IBuilder<Servicio> _builder;
+        public IAccesoBD accesoBD
         {
             get { return new AccesoBD(); }
+        }
+
+        public ServicioDAO()
+        {
+            this._builder = new ServicioBuilder();
+        }
+        
+        #region Miembros de IEntidadDAO<Servicio>
+
+        public Servicio Obtener(object id)
+        {
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+            parametros.Add(new SqlParameter("@p_id", SqlDbType.Int, 4, "p_id"), id);
+
+            DataSet ds = this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_obtener_servicio", parametros);
+            DataRow row = ds.Tables[0].Rows[0];
+            return this._builder.Build(row);
         }
 
         public int Alta(Servicio entidad)
@@ -39,28 +56,17 @@ namespace FrbaBus.DAO
             IList<Servicio> servicios = new List<Servicio>(dt.Rows.Count);
             foreach (DataRow row in dt.Rows)
             {
-                servicios.Add(this.BuilderServicio(row));
+                servicios.Add(this._builder.Build(row));
             }
 
             return servicios;
         }
 
-        public DataSet ObtenerRegistros()
+        #endregion
+        
+        private DataSet ObtenerRegistros()
         {
             return this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_listar_servicio");
         }
-
-        private Servicio BuilderServicio(DataRow row)
-        {
-            Servicio s = new Servicio()
-            {
-                Id = Convert.ToInt32(row["id_servicio"].ToString()),
-                TipoServicio = row["tipo_servicio"].ToString(),
-                Adicional = Convert.ToDecimal(row["pocent_adic"].ToString())
-            };
-            return s;
-        }
-
-        #endregion
     }
 }

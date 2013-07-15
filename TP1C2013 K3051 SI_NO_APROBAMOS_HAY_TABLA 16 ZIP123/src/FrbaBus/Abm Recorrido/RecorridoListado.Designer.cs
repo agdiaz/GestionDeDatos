@@ -148,6 +148,7 @@
             this.btnRecorridoListadoDarBaja.TabIndex = 9;
             this.btnRecorridoListadoDarBaja.Text = "Dar de baja";
             this.btnRecorridoListadoDarBaja.UseVisualStyleBackColor = true;
+            this.btnRecorridoListadoDarBaja.Click += new System.EventHandler(this.btnRecorridoListadoDarBaja_Click);
             // 
             // btnModificar
             // 
@@ -157,6 +158,7 @@
             this.btnModificar.TabIndex = 10;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // RecorridoListado
             // 

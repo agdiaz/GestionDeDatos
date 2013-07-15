@@ -6,16 +6,33 @@ using FrbaBus.Common.Entidades;
 using GestionDeDatos.AccesoDatos;
 using System.Data;
 using System.Data.SqlClient;
+using FrbaBus.DAO.Builder;
 
 namespace FrbaBus.DAO
 {
     public class ClienteDAO : IEntidadDAO<Cliente>
     {
+        public IBuilder<Cliente> _builder;
+        public ClienteDAO()
+        {
+            this._builder = new ClienteBuilder();
+        }
+
         #region Miembros de IEntidadDAO<Cliente>
 
         public GestionDeDatos.AccesoDatos.IAccesoBD accesoBD
         {
             get { return new AccesoBD(); }
+        }
+        
+        public Cliente Obtener(object id)
+        {
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+            parametros.Add(new SqlParameter("@p_dni", SqlDbType.Decimal, 18, "p_dni"), id);
+
+            DataRow row = accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_obtener_ciudad", parametros).Tables[0].Rows[0];
+            return _builder.Build(row);
+
         }
 
         public int Alta(Cliente entidad)
@@ -38,17 +55,34 @@ namespace FrbaBus.DAO
 
         public IList<Cliente> Listar()
         {
-            throw new NotImplementedException();
+            IList<Cliente> clientes = new List<Cliente>();
+            foreach (DataRow row in this.ObtenerRegistros().Tables[0].Rows)
+            {
+                clientes.Add(this._builder.Build(row));
+            }
+            return clientes;
         }
 
-        public DataSet ObtenerRegistros()
+        public IList<Cliente> ListarFiltrados(string dni, string nombre, string apellido, string discapacitado, string sexo)
+        {
+            IList<Cliente> clientes = new List<Cliente>();
+            DataSet registros = this.ObtenerRegistrosFiltrados(dni, nombre, apellido, discapacitado, sexo);
+            
+            foreach (DataRow row in registros.Tables[0].Rows)
+            {
+                clientes.Add(this._builder.Build(row));
+            }
+            
+            return clientes;
+        
+        }
+
+        private DataSet ObtenerRegistros()
         {
             return this.accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_listar_cliente");
         }
 
-        #endregion
-
-        public DataSet ObtenerRegistrosFiltrados(string dni, string nombre, string apellido, string discapacitado, string sexo)
+        private DataSet ObtenerRegistrosFiltrados(string dni, string nombre, string apellido, string discapacitado, string sexo)
         {
             Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
             
@@ -80,5 +114,7 @@ namespace FrbaBus.DAO
 
             return this.accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_listar_filtrado_cliente", parametros);
         }
+
+        #endregion
     }
 }

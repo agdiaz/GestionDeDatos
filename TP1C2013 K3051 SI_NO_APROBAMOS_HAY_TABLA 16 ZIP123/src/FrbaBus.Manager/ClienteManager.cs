@@ -10,32 +10,28 @@ namespace FrbaBus.Manager
 {
     public class ClienteManager
     {
-        public void Alta(long dni, string nombre, string apellido, string direccion, string telefono, string mail, DateTime fechaNac, bool esDiscapacitado, string sexo)
+        private ClienteDAO _dao;
+        public ClienteManager()
         {
-            Cliente cliente = new Cliente()
-            {
-                DNI = dni,
-                Apellido = apellido,
-                Nombre = nombre,
-                Direccion = direccion,
-                Telefono = telefono,
-                FechaNacimiento = fechaNac,
-                EsDiscapacitado = esDiscapacitado,
-                Mail = mail,
-                Sexo = sexo
-            };
-
-            new ClienteDAO().Alta(cliente);
+            _dao = new ClienteDAO();
         }
 
-        public DataSet Listar()
+        public int Alta(Cliente cliente)
         {
-            return new ClienteDAO().ObtenerRegistros();
+            
+
+            int id = _dao.Alta(cliente);
+            return id;
         }
 
-        public DataSet ObtenerRegistrosCliente(string dni, string nombre, string apellido, string discapacitado, string sexo)
+        public IList<Cliente> Listar()
         {
-            return new ClienteDAO().ObtenerRegistrosFiltrados(dni, nombre, apellido, discapacitado, sexo);
+            return _dao.Listar();
+        }
+        
+        public IList<Cliente> ListarFiltrado(string dni, string nombre, string apellido, string discapacitado, string sexo)
+        {
+            return _dao.ListarFiltrados(dni, nombre, apellido, discapacitado, sexo);
         }
 
     }

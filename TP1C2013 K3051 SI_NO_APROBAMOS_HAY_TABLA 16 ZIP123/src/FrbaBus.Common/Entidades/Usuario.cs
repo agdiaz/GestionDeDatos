@@ -9,6 +9,7 @@ namespace FrbaBus.Common.Entidades
     {
         public string Username { get; set; }
         public RolUsuario RolAsignado { get; set; }
+        public byte[] HashPassword{ get; set; }
 
         public Usuario()
         {

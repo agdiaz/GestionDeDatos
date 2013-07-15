@@ -47,10 +47,15 @@
   <ItemGroup>
     <Compile Include="CiudadManager.cs" />
     <Compile Include="ClienteManager.cs" />
+    <Compile Include="EmpresaManager.cs" />
     <Compile Include="EstadisticasManager.cs" />
+    <Compile Include="FuncionalidadManager.cs" />
     <Compile Include="MicroManager.cs" />
     <Compile Include="PasajeManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecorridoManager.cs" />
+    <Compile Include="RolUsuarioManager.cs" />
+    <Compile Include="ServicioManager.cs" />
     <Compile Include="UsuarioManager.cs" />
     <Compile Include="ViajeManager.cs" />
   </ItemGroup>

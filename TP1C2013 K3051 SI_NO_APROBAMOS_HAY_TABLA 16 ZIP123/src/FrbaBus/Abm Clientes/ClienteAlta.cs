@@ -8,14 +8,18 @@ using System.Text;
 using System.Windows.Forms;
 using FrbaBus.Manager;
 using FrbaBus.Helpers;
+using FrbaBus.Common.Entidades;
 
 namespace FrbaBus.Abm_Clientes
 {
     public partial class ClienteAlta : Form
     {
+        private ClienteManager _manager;
+
         public ClienteAlta()
         {
             InitializeComponent();
+            this._manager = new ClienteManager();
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -45,17 +49,21 @@ namespace FrbaBus.Abm_Clientes
                 {
                     sexo = "M";
                 }
+                
+                Cliente cliente = new Cliente()
+                {
+                    DNI = Convert.ToInt64(this.mtbClienteDNI.Text),
+                    Apellido = tbClienteApellido.Text,
+                    Nombre = tbClienteNombre.Text,
+                    Direccion = tbClienteDireccion.Text,
+                    Telefono = mtbClienteTelefono.Text,
+                    FechaNacimiento = dtpClienteFechaNac.Value,
+                    EsDiscapacitado = cbClienteEsDiscapacitado.Checked,
+                    Mail = tbClienteMail.Text,
+                    Sexo = sexo
+                };
 
-                new ClienteManager().Alta(
-                    Convert.ToInt64(this.mtbClienteDNI.Text),
-                    this.tbClienteNombre.Text,
-                    this.tbClienteApellido.Text,
-                    this.tbClienteDireccion.Text,
-                    this.mtbClienteTelefono.Text,
-                    this.tbClienteMail.Text,
-                    this.dtpClienteFechaNac.Value,
-                    this.cbClienteEsDiscapacitado.Checked,
-                    sexo);
+                _manager.Alta(cliente);
 
                 MessageBox.Show(this, "Cliente dado de alta", "El cliente fue dado de alta correctamente.", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
