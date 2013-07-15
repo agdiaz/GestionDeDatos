@@ -1,4 +1,4 @@
-CREATE PROCEDURE sp_delete_ciudad
+CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_delete_ciudad
 (
 @id_ciudad INT
 )
