@@ -48,6 +48,8 @@
   <ItemGroup>
     <Compile Include="Contexto.cs" />
     <Compile Include="Entidades\Butaca.cs" />
+    <Compile Include="Entidades\Cancelacion.cs" />
+    <Compile Include="Entidades\Canje.cs" />
     <Compile Include="Entidades\Ciudad.cs" />
     <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\Compra.cs" />
@@ -63,6 +65,8 @@
     <Compile Include="Entidades\Funcionalidad.cs" />
     <Compile Include="Entidades\Micro.cs" />
     <Compile Include="Entidades\Pasaje.cs" />
+    <Compile Include="Entidades\Puntaje.cs" />
+    <Compile Include="Entidades\Recompensa.cs" />
     <Compile Include="Entidades\Recorrido.cs" />
     <Compile Include="Entidades\RolUsuario.cs" />
     <Compile Include="Entidades\RolUsuarioAdministrativo.cs" />

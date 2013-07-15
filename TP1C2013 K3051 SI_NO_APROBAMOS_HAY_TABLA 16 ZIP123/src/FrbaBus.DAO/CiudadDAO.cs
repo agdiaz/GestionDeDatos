@@ -42,7 +42,7 @@ namespace FrbaBus.DAO
             Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
 
             SqlParameter pNombre = new SqlParameter("@nombre", SqlDbType.VarChar, 50, "nombre");
-            parametros.Add(pNombre, entidad.Descripcion);
+            parametros.Add(pNombre, entidad.Nombre);
 
             SqlParameter pId = new SqlParameter("@p_id", SqlDbType.Int, 4, "p_id");
             pId.Direction = ParameterDirection.Output;
@@ -65,7 +65,7 @@ namespace FrbaBus.DAO
             Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
 
             SqlParameter pNombre = new SqlParameter("@nombre", SqlDbType.VarChar, 50, "nombre");
-            parametros.Add(pNombre, entidad.Descripcion);
+            parametros.Add(pNombre, entidad.Nombre);
 
             SqlParameter pId = new SqlParameter("@p_id", SqlDbType.Int, 4, "p_id");
             parametros.Add(pId, entidad.Id);

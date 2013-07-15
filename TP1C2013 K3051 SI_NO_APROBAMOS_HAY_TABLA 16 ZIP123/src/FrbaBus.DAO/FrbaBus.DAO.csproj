@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Builder\ButacaBuilder.cs" />
+    <Compile Include="Builder\CancelacionBuilder.cs" />
     <Compile Include="Builder\CiudadBuilder.cs" />
     <Compile Include="Builder\ClienteBuilder.cs" />
     <Compile Include="Builder\CompraBuilder.cs" />

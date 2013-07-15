@@ -15,7 +15,7 @@ namespace FrbaBus.DAO.Builder
         {
             return new Ciudad()
             {
-                Descripcion = row["nombre"].ToString(),
+                Nombre = row["nombre"].ToString(),
                 Id = Convert.ToInt32(row["id_ciudad"])
             };
         }

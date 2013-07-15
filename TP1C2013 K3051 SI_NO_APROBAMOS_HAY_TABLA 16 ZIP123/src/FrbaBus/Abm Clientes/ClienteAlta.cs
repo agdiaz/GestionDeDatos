@@ -52,7 +52,7 @@ namespace FrbaBus.Abm_Clientes
                 
                 Cliente cliente = new Cliente()
                 {
-                    DNI = Convert.ToInt64(this.mtbClienteDNI.Text),
+                    NroDni = Convert.ToInt64(this.mtbClienteDNI.Text),
                     Apellido = tbClienteApellido.Text,
                     Nombre = tbClienteNombre.Text,
                     Direccion = tbClienteDireccion.Text,

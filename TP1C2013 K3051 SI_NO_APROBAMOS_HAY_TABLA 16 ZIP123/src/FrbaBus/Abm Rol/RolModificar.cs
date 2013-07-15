@@ -41,7 +41,7 @@ namespace FrbaBus.Rol
         private void RolModificar_Load(object sender, EventArgs e)
         {
             this.tbRolModificarNuevoRol.Text = Rol.Nombre;
-            this.cbHabilitado.Checked = Rol.Habilitado;
+            this.cbHabilitado.Checked = Rol.Inhabilitado;
 
             IList<Funcionalidad> funcs = _funcionalidadManager.Listar();
             clbFuncionalidades.DataSource = funcs;

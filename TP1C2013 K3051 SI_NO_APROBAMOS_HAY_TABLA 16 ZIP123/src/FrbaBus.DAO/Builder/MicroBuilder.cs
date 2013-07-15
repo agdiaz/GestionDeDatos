@@ -16,7 +16,7 @@ namespace FrbaBus.DAO.Builder
             return new Micro()
             {
                 Marca = row["nombre"].ToString(),
-                Servicio = row["tipo_servicio"].ToString(),
+                IdServicio = Convert.ToInt32(row["id_servicio"].ToString()),
                 Id = Convert.ToInt32(row["id_micros"].ToString()),
                 ButacasDisponibles = Convert.ToInt32(row["butacas_disponibles"].ToString()),
                 ButacasTotal = Convert.ToInt32(row["butacas_total"].ToString()),

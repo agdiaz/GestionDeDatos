@@ -9,12 +9,14 @@ namespace FrbaBus.Common.Entidades
     {
         public int IdRol { get; set; }
         public string Nombre { get; set; }
-        public IList<Funcionalidad> Funcionalidades { get; set; }
-        public bool Habilitado { get; set; }
+        public bool Activado { get; set; }
+        public bool Inhabilitado { get; set; }
 
+        public IList<Funcionalidad> Funcionalidades { get; set; }
+        
         public RolUsuario()
         {
-            this.Habilitado = false;
+            this.Inhabilitado = false;
             this.Nombre = "En blanco";
             this.Funcionalidades = new List<Funcionalidad>();
         }
@@ -22,7 +24,7 @@ namespace FrbaBus.Common.Entidades
         public RolUsuario(string nombre)
         {
             this.Nombre = nombre;
-            this.Habilitado = false;
+            this.Inhabilitado = false;
             this.Funcionalidades = new List<Funcionalidad>();
         }
 
