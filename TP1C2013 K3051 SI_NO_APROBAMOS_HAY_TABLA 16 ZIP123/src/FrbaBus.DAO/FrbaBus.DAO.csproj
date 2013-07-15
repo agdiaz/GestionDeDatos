@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Builder\ButacaBuilder.cs" />
     <Compile Include="Builder\CancelacionBuilder.cs" />
+    <Compile Include="Builder\CanjeBuilder.cs" />
     <Compile Include="Builder\CiudadBuilder.cs" />
     <Compile Include="Builder\ClienteBuilder.cs" />
     <Compile Include="Builder\CompraBuilder.cs" />
@@ -56,12 +57,16 @@
     <Compile Include="Builder\IBuilder.cs" />
     <Compile Include="Builder\MicroBuilder.cs" />
     <Compile Include="Builder\PasajeBuilder.cs" />
+    <Compile Include="Builder\PuntajeBuilder.cs" />
+    <Compile Include="Builder\RecompensaBuilder.cs" />
     <Compile Include="Builder\RecorridoBuilder.cs" />
     <Compile Include="Builder\RolUsuarioBuilder.cs" />
     <Compile Include="Builder\ServicioBuilder.cs" />
     <Compile Include="Builder\UsuarioBuilder.cs" />
     <Compile Include="Builder\ViajeBuilder.cs" />
     <Compile Include="ButacaDAO.cs" />
+    <Compile Include="CancelacionDAO.cs" />
+    <Compile Include="CanjeDAO.cs" />
     <Compile Include="CiudadDAO.cs" />
     <Compile Include="ClienteDAO.cs" />
     <Compile Include="CompraDAO.cs" />
@@ -73,6 +78,8 @@
     <Compile Include="MicroDAO.cs" />
     <Compile Include="PasajeDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PuntajeDAO.cs" />
+    <Compile Include="RecompensaDAO.cs" />
     <Compile Include="RecorridoDAO.cs" />
     <Compile Include="RolUsuarioDAO.cs" />
     <Compile Include="ServicioDAO.cs" />
