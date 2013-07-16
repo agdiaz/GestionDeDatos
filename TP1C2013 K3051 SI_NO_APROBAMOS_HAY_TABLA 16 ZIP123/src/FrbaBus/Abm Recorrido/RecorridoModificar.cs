@@ -95,7 +95,7 @@ namespace FrbaBus.Abm_Recorrido
                     _recorrido.IdServicio = _recorrido.Servicio.Id;
 
                     this._manager.Modificar(_recorrido);
-                    MensajePorPantalla.MensajeInformativo(this, "Se dio de alta el recorrido con el id: " + _recorrido.Id.ToString());
+                    MensajePorPantalla.MensajeInformativo(this, "Se ha modificado el recorrido con el id: " + _recorrido.Id.ToString());
 
                     this.Close();
                 }

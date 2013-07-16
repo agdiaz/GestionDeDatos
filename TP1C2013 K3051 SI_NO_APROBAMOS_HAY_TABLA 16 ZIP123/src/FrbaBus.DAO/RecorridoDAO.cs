@@ -107,7 +107,7 @@ namespace FrbaBus.DAO
             return lista;
         }
 
-        public IList<Recorrido> ListarFiltrado(string origen, string destino, string servicio)
+        public IList<Recorrido> ListarFiltrado(int origen, int destino, int servicio)
         {
             IList<Recorrido> lista = new List<Recorrido>();
             foreach (DataRow item in this.ObtenerRegistrosFiltrado(origen, destino, servicio).Tables[0].Rows)
@@ -123,15 +123,15 @@ namespace FrbaBus.DAO
         {
             return accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_listar_recorrido");
         }
-        private DataSet ObtenerRegistrosFiltrado(string origen, string destino, string servicio)
+        private DataSet ObtenerRegistrosFiltrado(int origen, int destino, int servicio)
         {
             Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
-            if (!string.IsNullOrEmpty(origen))
-                parametros.Add(new SqlParameter("@p_ciudad_origen", SqlDbType.VarChar, 50, "p_ciudad_origen"), origen);
-            if (!string.IsNullOrEmpty(destino))
-                parametros.Add(new SqlParameter("@p_ciudad_destino", SqlDbType.VarChar, 50, "p_ciudad_destino"), destino);
-            if (!string.IsNullOrEmpty(servicio))
-                parametros.Add(new SqlParameter("@p_tipo_servicio", SqlDbType.VarChar, 50, "p_tipo_servicio"), servicio);
+            if (origen > 0)
+                parametros.Add(new SqlParameter("@p_id_ciudad_origen", SqlDbType.Int, 4, "p_id_ciudad_origen"), origen);
+            if (destino > 0)
+                parametros.Add(new SqlParameter("@p_id_ciudad_destino", SqlDbType.Int, 4, "p_id_ciudad_destino"), destino);
+            if (servicio > 0)
+                parametros.Add(new SqlParameter("@p_id_servicio", SqlDbType.Int, 4, "p_id_servicio"), servicio);
 
             DataSet ds = this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_listar_filtrado_recorrido", parametros);
             return ds;
