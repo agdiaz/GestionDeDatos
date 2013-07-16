@@ -13,11 +13,12 @@ namespace FrbaBus.DAO.Builder
 
         public Empresa Build(DataRow row)
         {
-            return new Empresa()
-            {
-                Id = Convert.ToInt32(row["id_marca"].ToString()),
-                Descripcion = row["nombre"].ToString()
-            };
+            Empresa e = new Empresa();
+
+                e.Id = Convert.ToInt32(row["id_marca"].ToString());
+                e.Descripcion = row["nombre"].ToString();
+
+            return e;
         }
 
         #endregion

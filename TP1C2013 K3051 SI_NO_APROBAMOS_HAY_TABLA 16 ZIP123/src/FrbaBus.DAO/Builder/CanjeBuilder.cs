@@ -12,7 +12,14 @@ namespace FrbaBus.DAO.Builder
 
         public Canje Build(System.Data.DataRow row)
         {
-            throw new NotImplementedException();
+
+            Canje c = new Canje();
+            c.IdCanje = Convert.ToInt32(row["id_canje"].ToString());
+            c.NroDni = Convert.ToDecimal(row["dni"].ToString());
+            c.IdRecompensa = Convert.ToInt32(row["id_recompensa"].ToString());
+
+            return c;
+
         }
 
         #endregion
