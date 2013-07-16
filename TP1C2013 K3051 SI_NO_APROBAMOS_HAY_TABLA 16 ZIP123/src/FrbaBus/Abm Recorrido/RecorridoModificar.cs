@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using FrbaBus.Common.Entidades;
 using FrbaBus.Manager;
+using FrbaBus.Common.Helpers;
 
 namespace FrbaBus.Abm_Recorrido
 {
@@ -77,9 +78,49 @@ namespace FrbaBus.Abm_Recorrido
             this.cbbRecorridoModificarTipoServicio.ValueMember = "Id";
         }
 
-        private void RecorridoModificar_Load_1(object sender, EventArgs e)
+        private void btnRecorridoModificarGuardar_Click(object sender, EventArgs e)
         {
+            if (this.ValidarDatos())
+            {
+                _recorrido.CiudadDestino = this.cbCiudadDestino.SelectedItem as Ciudad;
+                _recorrido.CiudadOrigen = this.cbCiudadOrigen.SelectedItem as Ciudad;
+                _recorrido.IdCiudadDestino = _recorrido.CiudadDestino.Id;
+                _recorrido.IdCiudadOrigen = _recorrido.CiudadOrigen.Id;
+                _recorrido.PrecioBaseKG = Convert.ToDecimal(this.tbRecorridoModificarPrecioBasePorKgs.Text);
+                _recorrido.PrecioBasePasaje = Convert.ToDecimal(this.tbRecorridoModificarPrecioBasePorPasaje.Text);
+                _recorrido.Servicio = this.cbbRecorridoModificarTipoServicio.SelectedItem as Servicio;
+                _recorrido.IdServicio = _recorrido.Servicio.Id;
 
+                this._manager.Modificar(_recorrido);
+                MensajePorPantalla.MensajeInformativo(this, "Se dio de alta el recorrido con el id: " + _recorrido.Id.ToString());
+
+                this.Close();
+            }
+        }
+
+        private bool ValidarDatos()
+        {
+            if (cbCiudadOrigen.SelectedIndex < 1)
+            {
+                return false;
+            }
+            if (cbCiudadDestino.SelectedIndex < 1)
+            {
+                return false;
+            }
+            if (cbbRecorridoModificarTipoServicio.SelectedIndex < 1)
+            {
+                return false;
+            }
+            if (string.IsNullOrEmpty(tbRecorridoModificarPrecioBasePorKgs.Text))
+            {
+                return false;
+            }
+            if (string.IsNullOrEmpty(tbRecorridoModificarPrecioBasePorPasaje.Text))
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

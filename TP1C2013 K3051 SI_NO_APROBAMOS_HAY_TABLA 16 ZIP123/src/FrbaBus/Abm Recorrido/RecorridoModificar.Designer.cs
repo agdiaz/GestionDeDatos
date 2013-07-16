@@ -94,6 +94,7 @@
             this.btnRecorridoModificarGuardar.TabIndex = 7;
             this.btnRecorridoModificarGuardar.Text = "Guardar";
             this.btnRecorridoModificarGuardar.UseVisualStyleBackColor = true;
+            this.btnRecorridoModificarGuardar.Click += new System.EventHandler(this.btnRecorridoModificarGuardar_Click);
             // 
             // lblRecorridoModificarPrecioBasePorKgs
             // 
@@ -163,7 +164,7 @@
             this.Name = "RecorridoModificar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrbaBus - Recorridos :: Modificar";
-            this.Load += new System.EventHandler(this.RecorridoModificar_Load_1);
+            this.Load += new System.EventHandler(this.RecorridoModificar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using FrbaBus.Common.Entidades;
 using FrbaBus.Manager;
+using FrbaBus.Common.Helpers;
 
 namespace FrbaBus.Abm_Recorrido
 {
@@ -78,7 +79,11 @@ namespace FrbaBus.Abm_Recorrido
                 rec.Servicio = this.cbbRecorridoAltaTipoServicio.SelectedItem as Servicio;
                 rec.IdServicio = rec.Servicio.Id;
 
-                this._manager.Alta(rec);
+                rec = this._manager.Alta(rec);
+
+                MensajePorPantalla.MensajeInformativo(this, "Se dio de alta el recorrido con el id: " + rec.Id.ToString());
+                
+                this.Close();
             }
             
         }
