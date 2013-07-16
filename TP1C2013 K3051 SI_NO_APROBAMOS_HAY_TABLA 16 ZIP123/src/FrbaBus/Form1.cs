@@ -299,13 +299,17 @@ namespace FrbaBus
             tsmEncomienda.Enabled = tsmPasajeEncomiendaCancelar.Enabled || tsmPasajeEncomiendaAlta.Enabled;
 
             //Menú Estadísticas:
-            tsmEstadisticasListados.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmEstadisticasT5DestMasVendidos");
+            tsmEstadisticasListados.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmEstadisticasListado");
             tsmEstadisticas.Enabled = tsmEstadisticasListados.Enabled;
             
             //Menú Premios:
             tsmPremiosAlta.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmPremiosAlta");
             tsmPremiosListado.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmPremiosListado");
             tsmPremios.Enabled = tsmPremiosAlta.Enabled || tsmPremiosListado.Enabled;
+
+            //Menú Ayuda Usuarios:
+            tsmAyudaUsuarios.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmAyudaUsuarios");
+            tsmAyudaUsuarios.Enabled = tsmAyudaUsuarios.Enabled;
         }
 
         private void ActualizarStatusBar()
