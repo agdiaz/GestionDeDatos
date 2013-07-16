@@ -58,11 +58,11 @@
             this.tsmEncomienda = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPasajeEncomiendaAlta = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPasajeEncomiendaCancelar = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmEstadisticas = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmEstadisticasListados = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPremios = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPremiosListado = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPremiosAlta = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmEstadisticas = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmEstadisticasListados = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAyuda = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAyudaUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.ssStatusMain = new System.Windows.Forms.StatusStrip();
@@ -158,32 +158,32 @@
             this.tsmSesionIniciar,
             this.tsmSesionCerrar});
             this.tsmSesion.Name = "tsmSesion";
-            this.tsmSesion.Size = new System.Drawing.Size(152, 22);
+            this.tsmSesion.Size = new System.Drawing.Size(108, 22);
             this.tsmSesion.Text = "&Sesión";
             // 
             // tsmSesionIniciar
             // 
             this.tsmSesionIniciar.Name = "tsmSesionIniciar";
-            this.tsmSesionIniciar.Size = new System.Drawing.Size(152, 22);
+            this.tsmSesionIniciar.Size = new System.Drawing.Size(143, 22);
             this.tsmSesionIniciar.Text = "&Iniciar Sesión";
             this.tsmSesionIniciar.Click += new System.EventHandler(this.tsmSesionIniciar_Click);
             // 
             // tsmSesionCerrar
             // 
             this.tsmSesionCerrar.Name = "tsmSesionCerrar";
-            this.tsmSesionCerrar.Size = new System.Drawing.Size(152, 22);
+            this.tsmSesionCerrar.Size = new System.Drawing.Size(143, 22);
             this.tsmSesionCerrar.Text = "&Cerrar Sesión";
             this.tsmSesionCerrar.Click += new System.EventHandler(this.tsmSesionCerrar_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(105, 6);
             // 
             // tsmArchivoSalir
             // 
             this.tsmArchivoSalir.Name = "tsmArchivoSalir";
-            this.tsmArchivoSalir.Size = new System.Drawing.Size(152, 22);
+            this.tsmArchivoSalir.Size = new System.Drawing.Size(108, 22);
             this.tsmArchivoSalir.Text = "Sali&r";
             this.tsmArchivoSalir.Click += new System.EventHandler(this.tsmArchivoSalir_Click);
             // 
@@ -365,21 +365,6 @@
             this.tsmPasajeEncomiendaCancelar.Text = "Cancelar";
             this.tsmPasajeEncomiendaCancelar.Click += new System.EventHandler(this.tsmPasajeEncomiendaCancelar_Click);
             // 
-            // tsmEstadisticas
-            // 
-            this.tsmEstadisticas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmEstadisticasListados});
-            this.tsmEstadisticas.Name = "tsmEstadisticas";
-            this.tsmEstadisticas.Size = new System.Drawing.Size(79, 20);
-            this.tsmEstadisticas.Text = "&Estadísticas";
-            // 
-            // tsmEstadisticasListados
-            // 
-            this.tsmEstadisticasListados.Name = "tsmEstadisticasListados";
-            this.tsmEstadisticasListados.Size = new System.Drawing.Size(152, 22);
-            this.tsmEstadisticasListados.Text = "Listados";
-            this.tsmEstadisticasListados.Click += new System.EventHandler(this.tsmEstadisticasListados_Click);
-            // 
             // tsmPremios
             // 
             this.tsmPremios.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -401,6 +386,21 @@
             this.tsmPremiosAlta.Size = new System.Drawing.Size(112, 22);
             this.tsmPremiosAlta.Text = "Alta";
             // 
+            // tsmEstadisticas
+            // 
+            this.tsmEstadisticas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmEstadisticasListados});
+            this.tsmEstadisticas.Name = "tsmEstadisticas";
+            this.tsmEstadisticas.Size = new System.Drawing.Size(79, 20);
+            this.tsmEstadisticas.Text = "&Estadísticas";
+            // 
+            // tsmEstadisticasListados
+            // 
+            this.tsmEstadisticasListados.Name = "tsmEstadisticasListados";
+            this.tsmEstadisticasListados.Size = new System.Drawing.Size(117, 22);
+            this.tsmEstadisticasListados.Text = "Listados";
+            this.tsmEstadisticasListados.Click += new System.EventHandler(this.tsmEstadisticasListados_Click);
+            // 
             // tsmAyuda
             // 
             this.tsmAyuda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -412,7 +412,7 @@
             // tsmAyudaUsuarios
             // 
             this.tsmAyudaUsuarios.Name = "tsmAyudaUsuarios";
-            this.tsmAyudaUsuarios.Size = new System.Drawing.Size(152, 22);
+            this.tsmAyudaUsuarios.Size = new System.Drawing.Size(119, 22);
             this.tsmAyudaUsuarios.Text = "Usuarios";
             this.tsmAyudaUsuarios.Click += new System.EventHandler(this.tsmAyudaUsuarios_Click);
             // 
@@ -503,7 +503,7 @@
             this.gbViaje.Size = new System.Drawing.Size(352, 141);
             this.gbViaje.TabIndex = 2;
             this.gbViaje.TabStop = false;
-            this.gbViaje.Text = "Viaje";
+            this.gbViaje.Text = "1) Viaje";
             // 
             // btnBuscarMicros
             // 
@@ -601,16 +601,16 @@
             this.gbMicros.Size = new System.Drawing.Size(351, 151);
             this.gbMicros.TabIndex = 4;
             this.gbMicros.TabStop = false;
-            this.gbMicros.Text = "Micros";
+            this.gbMicros.Text = "2) Micros disponibles";
             // 
             // btnElegirMicro
             // 
             this.btnElegirMicro.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnElegirMicro.Location = new System.Drawing.Point(258, 99);
+            this.btnElegirMicro.Location = new System.Drawing.Point(226, 104);
             this.btnElegirMicro.Name = "btnElegirMicro";
-            this.btnElegirMicro.Size = new System.Drawing.Size(72, 36);
+            this.btnElegirMicro.Size = new System.Drawing.Size(119, 36);
             this.btnElegirMicro.TabIndex = 9;
-            this.btnElegirMicro.Text = "Elegir micro";
+            this.btnElegirMicro.Text = "Confirmar micro";
             this.btnElegirMicro.UseVisualStyleBackColor = true;
             this.btnElegirMicro.Click += new System.EventHandler(this.btnElegirMicro_Click);
             // 
@@ -652,7 +652,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(9, 88);
+            this.label7.Location = new System.Drawing.Point(13, 88);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(79, 13);
             this.label7.TabIndex = 3;
@@ -674,9 +674,9 @@
             this.label5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(11, 23);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(32, 13);
+            this.label5.Size = new System.Drawing.Size(48, 13);
             this.label5.TabIndex = 1;
-            this.label5.Text = "Micro";
+            this.label5.Text = "Empresa";
             // 
             // cbbMicro
             // 
@@ -684,7 +684,7 @@
             this.cbbMicro.FormattingEnabled = true;
             this.cbbMicro.Location = new System.Drawing.Point(105, 20);
             this.cbbMicro.Name = "cbbMicro";
-            this.cbbMicro.Size = new System.Drawing.Size(100, 21);
+            this.cbbMicro.Size = new System.Drawing.Size(225, 21);
             this.cbbMicro.TabIndex = 0;
             this.cbbMicro.SelectedIndexChanged += new System.EventHandler(this.cbbMicro_SelectedIndexChanged);
             // 
@@ -711,7 +711,7 @@
             this.gbDetalles.Size = new System.Drawing.Size(629, 537);
             this.gbDetalles.TabIndex = 7;
             this.gbDetalles.TabStop = false;
-            this.gbDetalles.Text = "Detalles de la compra";
+            this.gbDetalles.Text = "3) Detalles de la compra";
             this.gbDetalles.Enter += new System.EventHandler(this.gbDetalles_Enter);
             // 
             // gbEncomiendas
@@ -864,7 +864,7 @@
             this.gbMedioDePago.Size = new System.Drawing.Size(351, 99);
             this.gbMedioDePago.TabIndex = 8;
             this.gbMedioDePago.TabStop = false;
-            this.gbMedioDePago.Text = "Medio de pago";
+            this.gbMedioDePago.Text = "4) Medio de pago";
             // 
             // Form1
             // 
