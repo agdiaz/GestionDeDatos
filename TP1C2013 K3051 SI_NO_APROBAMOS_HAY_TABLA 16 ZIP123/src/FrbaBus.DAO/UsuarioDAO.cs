@@ -45,7 +45,13 @@ namespace FrbaBus.DAO
 
         public Usuario Obtener(object id)
         {
-            throw new NotImplementedException();
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+            parametros.Add(new SqlParameter("@p_username", SqlDbType.NVarChar, 50, "p_username"), id);
+
+            DataSet ds = this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_obtener_usuario", parametros);
+            DataRow row = ds.Tables[0].Rows[0];
+
+            return this._builder.Build(row);
         }
 
         public int Alta(Usuario entidad)

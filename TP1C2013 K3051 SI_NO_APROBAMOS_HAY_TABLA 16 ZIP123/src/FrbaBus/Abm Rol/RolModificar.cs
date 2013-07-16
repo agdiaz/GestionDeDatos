@@ -69,7 +69,9 @@ namespace FrbaBus.Rol
 
         private void btnRolModificarGuardar_Click(object sender, EventArgs e)
         {
-            
+            Rol.Inhabilitado = this.cbHabilitado.Checked;
+            Rol.Nombre = this.tbRolModificarNuevoRol.Text;
+
             _manager.BajaRolFuncionalidades(Rol);
             
             foreach (var funcObj in this.clbFuncionalidades.CheckedItems)
@@ -77,7 +79,6 @@ namespace FrbaBus.Rol
                 Funcionalidad f = (Funcionalidad)funcObj;
                 _funcionalidadManager.AsociarRolFuncionalidad(Rol, f);
             }
-            
             _manager.Modificar(Rol);
 
             this.Close();

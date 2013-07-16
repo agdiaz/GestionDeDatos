@@ -103,9 +103,9 @@
             this.cbHabilitado.AutoSize = true;
             this.cbHabilitado.Location = new System.Drawing.Point(56, 53);
             this.cbHabilitado.Name = "cbHabilitado";
-            this.cbHabilitado.Size = new System.Drawing.Size(73, 17);
+            this.cbHabilitado.Size = new System.Drawing.Size(80, 17);
             this.cbHabilitado.TabIndex = 4;
-            this.cbHabilitado.Text = "Habilitado";
+            this.cbHabilitado.Text = "Inhabilitado";
             this.cbHabilitado.UseVisualStyleBackColor = true;
             // 
             // clbFuncionalidades

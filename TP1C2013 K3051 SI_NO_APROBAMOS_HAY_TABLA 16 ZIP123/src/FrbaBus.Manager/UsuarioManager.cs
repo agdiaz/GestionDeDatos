@@ -47,7 +47,7 @@ namespace FrbaBus.Manager
 
         public Usuario Obtener(string username)
         {
-            Usuario u = new Usuario(username);
+            Usuario u = _dao.Obtener(username);
 
             u.RolAsignado = this._rolUsuarioManager.ObtenerRolAsociado(u);
 

@@ -61,7 +61,7 @@ namespace FrbaBus.Manager
 
         public RolUsuario ObtenerRolAsociado(Usuario usuario)
         {
-            RolUsuario rol = _rolUsuarioDAO.ObtenerRolAsociado(usuario);
+            RolUsuario rol = _rolUsuarioDAO.Obtener(usuario.IdRol);
             rol.Funcionalidades = this._funcionalidadManager.ObtenerFuncionalidadesRol(rol);
             return rol;
         }

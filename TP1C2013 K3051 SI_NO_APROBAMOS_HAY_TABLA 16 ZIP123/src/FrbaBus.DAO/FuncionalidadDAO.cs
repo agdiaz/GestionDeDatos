@@ -84,7 +84,7 @@ namespace FrbaBus.DAO
             SqlParameter pIdFuncionalidad = new SqlParameter("@p_id_funcionalidad", SqlDbType.Int, 4, "p_id_funcionalidad");
             parametros.Add(pIdFuncionalidad, idFuncionalidad);
 
-            return this.accesoBD.EjecutarComando("sp_insert_rol_funcionalidad", parametros);
+            return this.accesoBD.EjecutarComando("SI_NO_APROBAMOS_HAY_TABLA.sp_insert_rol_funcionalidad", parametros);
         }
 
         #endregion
