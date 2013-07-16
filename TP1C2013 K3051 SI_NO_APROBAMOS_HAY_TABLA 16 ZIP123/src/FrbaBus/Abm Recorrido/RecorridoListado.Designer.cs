@@ -90,6 +90,7 @@
             // 
             // cbCiudadDestino
             // 
+            this.cbCiudadDestino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCiudadDestino.FormattingEnabled = true;
             this.cbCiudadDestino.Location = new System.Drawing.Point(110, 43);
             this.cbCiudadDestino.Name = "cbCiudadDestino";
@@ -98,6 +99,7 @@
             // 
             // cbCiudadOrigen
             // 
+            this.cbCiudadOrigen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCiudadOrigen.FormattingEnabled = true;
             this.cbCiudadOrigen.Location = new System.Drawing.Point(110, 16);
             this.cbCiudadOrigen.Name = "cbCiudadOrigen";
@@ -106,6 +108,7 @@
             // 
             // cbbRecorridoListadoTipoServicio
             // 
+            this.cbbRecorridoListadoTipoServicio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbRecorridoListadoTipoServicio.FormattingEnabled = true;
             this.cbbRecorridoListadoTipoServicio.Location = new System.Drawing.Point(110, 70);
             this.cbbRecorridoListadoTipoServicio.Name = "cbbRecorridoListadoTipoServicio";

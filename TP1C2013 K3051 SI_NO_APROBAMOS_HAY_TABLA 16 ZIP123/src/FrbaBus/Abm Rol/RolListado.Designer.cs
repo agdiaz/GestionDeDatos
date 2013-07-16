@@ -68,6 +68,7 @@
             // 
             // cbbRolListadoFuncionalidades
             // 
+            this.cbbRolListadoFuncionalidades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbRolListadoFuncionalidades.FormattingEnabled = true;
             this.cbbRolListadoFuncionalidades.Location = new System.Drawing.Point(107, 60);
             this.cbbRolListadoFuncionalidades.Name = "cbbRolListadoFuncionalidades";
