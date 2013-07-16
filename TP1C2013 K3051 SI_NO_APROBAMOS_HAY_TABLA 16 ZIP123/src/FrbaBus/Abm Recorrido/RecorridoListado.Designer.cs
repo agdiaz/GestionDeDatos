@@ -137,9 +137,13 @@
             // 
             // dgvRecorridoListado
             // 
+            this.dgvRecorridoListado.AllowUserToAddRows = false;
+            this.dgvRecorridoListado.AllowUserToDeleteRows = false;
             this.dgvRecorridoListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRecorridoListado.Location = new System.Drawing.Point(12, 134);
             this.dgvRecorridoListado.Name = "dgvRecorridoListado";
+            this.dgvRecorridoListado.ReadOnly = true;
+            this.dgvRecorridoListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRecorridoListado.Size = new System.Drawing.Size(481, 228);
             this.dgvRecorridoListado.TabIndex = 7;
             // 

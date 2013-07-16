@@ -71,6 +71,7 @@
             // 
             // cbbRecorridoAltaTipoServicio
             // 
+            this.cbbRecorridoAltaTipoServicio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbRecorridoAltaTipoServicio.FormattingEnabled = true;
             this.cbbRecorridoAltaTipoServicio.Location = new System.Drawing.Point(140, 74);
             this.cbbRecorridoAltaTipoServicio.Name = "cbbRecorridoAltaTipoServicio";
@@ -130,6 +131,7 @@
             // 
             // cbCiudadOrigen
             // 
+            this.cbCiudadOrigen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCiudadOrigen.FormattingEnabled = true;
             this.cbCiudadOrigen.Location = new System.Drawing.Point(140, 17);
             this.cbCiudadOrigen.Name = "cbCiudadOrigen";
@@ -138,6 +140,7 @@
             // 
             // cbCiudadDestino
             // 
+            this.cbCiudadDestino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCiudadDestino.FormattingEnabled = true;
             this.cbCiudadDestino.Location = new System.Drawing.Point(140, 47);
             this.cbCiudadDestino.Name = "cbCiudadDestino";

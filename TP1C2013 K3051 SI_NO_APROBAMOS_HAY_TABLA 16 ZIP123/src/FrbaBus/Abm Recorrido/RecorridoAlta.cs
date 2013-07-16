@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using FrbaBus.Common.Entidades;
 using FrbaBus.Manager;
 using FrbaBus.Common.Helpers;
+using FrbaBus.Common.Excepciones;
 
 namespace FrbaBus.Abm_Recorrido
 {
@@ -68,37 +69,50 @@ namespace FrbaBus.Abm_Recorrido
         {
             if (this.ValidarDatos())
             {
-                Recorrido rec = new Recorrido();
+                try
+                {
+                    Recorrido rec = new Recorrido();
 
-                rec.CiudadDestino = this.cbCiudadDestino.SelectedItem as Ciudad;
-                rec.CiudadOrigen = this.cbCiudadOrigen.SelectedItem as Ciudad;
-                rec.IdCiudadDestino = rec.CiudadDestino.Id;
-                rec.IdCiudadOrigen = rec.CiudadOrigen.Id;
-                rec.PrecioBaseKG = Convert.ToDecimal(this.tbRecorridoAltaPrecioBasePorKgs.Text);
-                rec.PrecioBasePasaje = Convert.ToDecimal(this.tbRecorridoAltaPrecioBasePorPasaje.Text);
-                rec.Servicio = this.cbbRecorridoAltaTipoServicio.SelectedItem as Servicio;
-                rec.IdServicio = rec.Servicio.Id;
+                    rec.CiudadDestino = this.cbCiudadDestino.SelectedItem as Ciudad;
+                    rec.CiudadOrigen = this.cbCiudadOrigen.SelectedItem as Ciudad;
+                    rec.IdCiudadDestino = rec.CiudadDestino.Id;
+                    rec.IdCiudadOrigen = rec.CiudadOrigen.Id;
+                    rec.PrecioBaseKG = Convert.ToDecimal(this.tbRecorridoAltaPrecioBasePorKgs.Text);
+                    rec.PrecioBasePasaje = Convert.ToDecimal(this.tbRecorridoAltaPrecioBasePorPasaje.Text);
+                    rec.Servicio = this.cbbRecorridoAltaTipoServicio.SelectedItem as Servicio;
+                    rec.IdServicio = rec.Servicio.Id;
 
-                rec = this._manager.Alta(rec);
+                    rec = this._manager.Alta(rec);
 
-                MensajePorPantalla.MensajeInformativo(this, "Se dio de alta el recorrido con el id: " + rec.Id.ToString());
-                
-                this.Close();
+                    MensajePorPantalla.MensajeInformativo(this, "Se dio de alta el recorrido con el id: " + rec.Id.ToString());
+
+                    this.Close();
+                }
+                catch (AccesoBDException ex)
+                {
+                    MensajePorPantalla.MensajeExceptionBD(this, ex);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MensajePorPantalla.MensajeError(this, "Error al intentar modificar el registro.\n Detalle del error: " + ex.Message);
+                    this.Close();
+                }
             }
             
         }
 
         private bool ValidarDatos()
         {
-            if (cbCiudadOrigen.SelectedIndex < 1)
+            if ((int)cbCiudadOrigen.SelectedValue < 1)
             {
                 return false;
             }
-            if (cbCiudadDestino.SelectedIndex < 1)
+            if ((int)cbCiudadDestino.SelectedValue < 1)
             {
                 return false;
             }
-            if (cbbRecorridoAltaTipoServicio.SelectedIndex < 1)
+            if ((int)cbbRecorridoAltaTipoServicio.SelectedValue < 1)
             {
                 return false;
             }
