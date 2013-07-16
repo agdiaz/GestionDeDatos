@@ -12,7 +12,16 @@ namespace FrbaBus.DAO.Builder
 
         public Puntaje Build(System.Data.DataRow row)
         {
-            throw new NotImplementedException();
+            Puntaje p = new Puntaje();
+
+            p.NroDni = Convert.ToDecimal(row["dni"].ToString());
+            p.Puntos = Convert.ToInt32(row["puntos"].ToString());
+            p.PuntosUsados= Convert.ToInt32(row["dni"].ToString());
+            p.FechaOtorgacion= Convert.ToDateTime(row["fecha_otorgado"].ToString());
+            p.IdPuntaje= Convert.ToInt32(row["id_puntaje"].ToString());
+            p.IdCompra = Convert.ToInt32(row["id_compra"].ToString());
+
+            return p;
         }
 
         #endregion

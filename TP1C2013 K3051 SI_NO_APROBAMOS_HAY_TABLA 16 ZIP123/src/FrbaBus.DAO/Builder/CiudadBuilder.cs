@@ -13,11 +13,12 @@ namespace FrbaBus.DAO.Builder
 
         public Ciudad Build(DataRow row)
         {
-            return new Ciudad()
-            {
-                Nombre = row["nombre"].ToString(),
-                Id = Convert.ToInt32(row["id_ciudad"])
-            };
+            Ciudad c = new Ciudad();
+            
+            c.Id = Convert.ToInt32(row["id_ciudad"].ToString());
+            c.Nombre = row["nombre"].ToString();
+
+            return c;
         }
 
         #endregion

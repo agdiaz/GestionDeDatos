@@ -13,7 +13,15 @@ namespace FrbaBus.DAO.Builder
 
         public Usuario Build(DataRow row)
         {
-            throw new NotImplementedException();
+            Usuario u = new Usuario();
+
+            u.IdUsuario = Convert.ToInt32(row["id_usuario"].ToString());
+            u.IdRol = Convert.ToInt32(row["id_rol"].ToString());
+            u.NroDni= Convert.ToDecimal(row["dni"].ToString());
+            u.Username = row["username"].ToString();
+//            u.HashPassword = Convert.ToByte(row["hash_password"].ToString()); 
+
+            return u;
         }
 
         #endregion
