@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using FrbaBus.Manager;
 using FrbaBus.Helpers;
 using FrbaBus.Common.Entidades;
+using FrbaBus.Common.Helpers;
 
 namespace FrbaBus.Abm_Ciudad
 {
@@ -35,6 +36,8 @@ namespace FrbaBus.Abm_Ciudad
 
                 CiudadManager cm = new CiudadManager();
                 cm.Modificar(CiudadSeleccionada);
+
+                MensajePorPantalla.MensajeInformativo(this, "Se ha modificado la ciudad con el id: " + CiudadSeleccionada.Id.ToString());
                 this.Close();
             }
         }
