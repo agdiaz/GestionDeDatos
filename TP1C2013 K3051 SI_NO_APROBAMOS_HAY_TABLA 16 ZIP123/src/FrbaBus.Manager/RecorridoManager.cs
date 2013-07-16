@@ -56,18 +56,18 @@ namespace FrbaBus.Manager
             }
             return rtn;
         }
-        public IList<Recorrido> ListarFiltrado(int origenId, int destinoId, int servicioId)
+        public IList<Recorrido> ListarFiltrado(Ciudad origen, Ciudad destino, Servicio servicio)
         {
-            IList<Recorrido> rtn = _dao.ListarFiltrado(origenId, destinoId, servicioId);
+            IList<Recorrido> rtn = _dao.ListarFiltrado(origen.Nombre, destino.Nombre, servicio.TipoServicio);
             foreach (Recorrido rec in rtn)
             {
                 Ciudad ciudadDestino = _ciudadManager.Obtener(rec.IdCiudadDestino);
-                Ciudad ciudadOrigen = _ciudadManager.Obtener(rec.IdCiudadDestino);
-                Servicio servicio = _servicioManager.Obtener(rec.IdServicio);
+                Ciudad ciudadOrigen = _ciudadManager.Obtener(rec.IdCiudadOrigen);
+                Servicio serv = _servicioManager.Obtener(rec.IdServicio);
 
                 rec.CiudadDestino = ciudadDestino;
                 rec.CiudadOrigen = ciudadOrigen;
-                rec.Servicio = servicio;
+                rec.Servicio = serv;
             }
             return rtn;
 

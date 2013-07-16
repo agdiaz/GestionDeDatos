@@ -32,11 +32,11 @@ namespace FrbaBus.Abm_Recorrido
         {
             try
             {
-                var origenId = this.cbCiudadOrigen.SelectedIndex;
-                var destinoId = this.cbCiudadDestino.SelectedIndex;
-                var servicioId = this.cbbRecorridoListadoTipoServicio.SelectedIndex;
+                Ciudad origen = this.cbCiudadOrigen.SelectedItem as Ciudad;
+                Ciudad destino = this.cbCiudadDestino.SelectedItem as Ciudad;
+                Servicio servicio = this.cbbRecorridoListadoTipoServicio.SelectedItem as Servicio;
 
-                this.dgvRecorridoListado.DataSource = _manager.ListarFiltrado(origenId, destinoId, servicioId);
+                this.dgvRecorridoListado.DataSource = _manager.ListarFiltrado(origen, destino, servicio);
             }
             catch (AccesoBDException ex)
             {
