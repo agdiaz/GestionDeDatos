@@ -66,7 +66,7 @@
             // 
             // btnRolModificarGuardar
             // 
-            this.btnRolModificarGuardar.Location = new System.Drawing.Point(222, 449);
+            this.btnRolModificarGuardar.Location = new System.Drawing.Point(141, 449);
             this.btnRolModificarGuardar.Name = "btnRolModificarGuardar";
             this.btnRolModificarGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnRolModificarGuardar.TabIndex = 4;
@@ -76,7 +76,7 @@
             // 
             // btnRolModificarLimpiar
             // 
-            this.btnRolModificarLimpiar.Location = new System.Drawing.Point(137, 449);
+            this.btnRolModificarLimpiar.Location = new System.Drawing.Point(222, 449);
             this.btnRolModificarLimpiar.Name = "btnRolModificarLimpiar";
             this.btnRolModificarLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnRolModificarLimpiar.TabIndex = 5;

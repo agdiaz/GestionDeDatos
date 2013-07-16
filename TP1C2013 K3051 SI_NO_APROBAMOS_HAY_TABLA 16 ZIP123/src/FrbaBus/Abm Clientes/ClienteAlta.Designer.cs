@@ -48,11 +48,11 @@
             this.tbClienteApellido = new System.Windows.Forms.TextBox();
             this.tbClienteDireccion = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblClienteDNI
@@ -160,7 +160,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(409, 326);
+            this.btnGuardar.Location = new System.Drawing.Point(328, 326);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 11;
@@ -170,7 +170,7 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(326, 326);
+            this.btnLimpiar.Location = new System.Drawing.Point(409, 326);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpiar.TabIndex = 10;
@@ -241,6 +241,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos personales";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.rbClienteHombre);
+            this.groupBox3.Controls.Add(this.rbClienteMujer);
+            this.groupBox3.Location = new System.Drawing.Point(6, 108);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(134, 42);
+            this.groupBox3.TabIndex = 3;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Sexo";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lblClienteDireccion);
@@ -255,17 +266,6 @@
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos de contacto";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.rbClienteHombre);
-            this.groupBox3.Controls.Add(this.rbClienteMujer);
-            this.groupBox3.Location = new System.Drawing.Point(6, 108);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(134, 42);
-            this.groupBox3.TabIndex = 3;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Sexo";
             // 
             // ClienteAlta
             // 
@@ -284,10 +284,10 @@
             this.Text = "FrbaBus - Clientes :: Alta";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }

@@ -83,6 +83,10 @@ namespace FrbaBus.Rol
                 {
                     frm.ShowDialog(this);
                 }
+
+                //Cargo la grilla de roles
+                this.dgvRolListado.DataSource = _manager.Listar();
+                
             }
             catch (AccesoBDException ex)
             {
@@ -102,6 +106,10 @@ namespace FrbaBus.Rol
             {
                 RolUsuario rol = (RolUsuario)dgvRolListado.SelectedRows[0].DataBoundItem;
                 _manager.Baja(rol);
+
+                //Cargo la grilla de roles
+                this.dgvRolListado.DataSource = _manager.Listar();
+
             }
             catch (AccesoBDException ex)
             {
