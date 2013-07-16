@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using FrbaBus.Manager;
 using FrbaBus.Common.Entidades;
+using FrbaBus.Common.Helpers;
 
 namespace FrbaBus.Rol
 {
@@ -81,6 +82,7 @@ namespace FrbaBus.Rol
             }
             _manager.Modificar(Rol);
 
+            MensajePorPantalla.MensajeInformativo(this, "Se ha modificado el rol con el id: " + Rol.IdRol.ToString());
             this.Close();
         }
     }

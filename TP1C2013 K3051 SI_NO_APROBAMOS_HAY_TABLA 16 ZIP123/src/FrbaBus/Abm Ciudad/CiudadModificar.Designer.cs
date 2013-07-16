@@ -45,7 +45,7 @@
             // 
             // btnCiudadModificarLimpiar
             // 
-            this.btnCiudadModificarLimpiar.Location = new System.Drawing.Point(216, 32);
+            this.btnCiudadModificarLimpiar.Location = new System.Drawing.Point(297, 32);
             this.btnCiudadModificarLimpiar.Name = "btnCiudadModificarLimpiar";
             this.btnCiudadModificarLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnCiudadModificarLimpiar.TabIndex = 1;
@@ -55,7 +55,7 @@
             // 
             // btnCiudadModificarGuardar
             // 
-            this.btnCiudadModificarGuardar.Location = new System.Drawing.Point(297, 32);
+            this.btnCiudadModificarGuardar.Location = new System.Drawing.Point(216, 32);
             this.btnCiudadModificarGuardar.Name = "btnCiudadModificarGuardar";
             this.btnCiudadModificarGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnCiudadModificarGuardar.TabIndex = 2;

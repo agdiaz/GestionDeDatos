@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using FrbaBus.Manager;
 using FrbaBus.Common.Entidades;
+using FrbaBus.Common.Helpers;
 
 namespace FrbaBus.Rol
 {
@@ -51,6 +52,7 @@ namespace FrbaBus.Rol
                 _funcionalidadManager.AsociarRolFuncionalidad(rol, f);
             }
 
+            MensajePorPantalla.MensajeInformativo(this, "Se dio de alta el rol con el id: " + rol.IdRol.ToString());
             this.Close();
         }
     }

@@ -14,6 +14,10 @@ namespace FrbaBus.Common.Helpers
             return MessageBox.Show(formulario, mensaje, "FrbaBus - Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        public static DialogResult MensajeInformativo(IWin32Window formulario, string mensaje, MessageBoxButtons botones)
+        {
+            return MessageBox.Show(formulario, mensaje, "FrbaBus - Información", botones, MessageBoxIcon.Information);
+        }
         public static DialogResult MensajeError(IWin32Window formulario, string mensaje)
         {
             return MessageBox.Show(formulario, mensaje, "FrbaBus - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

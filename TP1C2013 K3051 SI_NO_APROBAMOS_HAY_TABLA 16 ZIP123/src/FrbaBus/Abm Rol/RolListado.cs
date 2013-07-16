@@ -103,14 +103,18 @@ namespace FrbaBus.Rol
 
         private void button2_Click(object sender, EventArgs e)
         {
+            
             try
             {
                 RolUsuario rol = (RolUsuario)dgvRolListado.SelectedRows[0].DataBoundItem;
-                _manager.Baja(rol);
+                DialogResult confirm = MensajePorPantalla.MensajeInformativo(this, "¿Desea borrar el rol " + rol.Nombre + " ?", MessageBoxButtons.YesNo);
+                if (confirm == DialogResult.OK)
+                {
+                    _manager.Baja(rol);
 
-                //Cargo la grilla de roles
-                this.dgvRolListado.DataSource = _manager.Listar();
-
+                    //Cargo la grilla de roles
+                    this.dgvRolListado.DataSource = _manager.Listar();
+                }
             }
             catch (AccesoBDException ex)
             {
