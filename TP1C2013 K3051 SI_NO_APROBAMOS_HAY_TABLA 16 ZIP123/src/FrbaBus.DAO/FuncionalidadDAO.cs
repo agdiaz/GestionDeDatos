@@ -63,7 +63,7 @@ namespace FrbaBus.DAO
         public IList<Funcionalidad> ObtenerFuncionalidadesAsociadas(RolUsuario rolUsuario)
         {
             Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
-            parametros.Add(new SqlParameter("p_id_rol", SqlDbType.VarChar, 50, "p_id_rol"), rolUsuario.Nombre);
+            parametros.Add(new SqlParameter("p_id_rol", SqlDbType.Int, 4, "p_id_rol"), rolUsuario.Nombre);
 
             DataSet ds = accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_listar_funcionalidades_rol", parametros);
 
