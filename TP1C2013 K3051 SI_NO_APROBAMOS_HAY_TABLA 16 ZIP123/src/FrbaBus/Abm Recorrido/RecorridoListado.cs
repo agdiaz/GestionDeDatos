@@ -80,11 +80,18 @@ namespace FrbaBus.Abm_Recorrido
         {
             var recorridos = _manager.Listar().OrderBy(r => r.CiudadOrigen.Nombre).ThenBy(r => r.CiudadDestino.Nombre).ThenBy(r => r.Servicio.TipoServicio).ToList();
             this.dgvRecorridoListado.DataSource = recorridos;
+            this.dgvRecorridoListado.Columns["Id"].Visible = false;
+            this.dgvRecorridoListado.Columns["IdCiudadDestino"].Visible = false;
+            this.dgvRecorridoListado.Columns["IdCiudadOrigen"].Visible = false;
+            this.dgvRecorridoListado.Columns["IdServicio"].Visible = false;
         }
         private void CargarCiudades()
         {
             IList<Ciudad> ciudadesOrigen = _ciudadManager.Listar();
+            ciudadesOrigen.Insert(0, new Ciudad(){Nombre = string.Empty });
+
             IList<Ciudad> ciudadesDestino = _ciudadManager.Listar();
+            ciudadesDestino.Insert(0, new Ciudad() { Nombre = string.Empty });
 
             this.cbCiudadOrigen.DataSource = ciudadesOrigen;
             this.cbCiudadOrigen.DisplayMember = "Nombre";
@@ -97,6 +104,7 @@ namespace FrbaBus.Abm_Recorrido
         private void CargarServicios()
         {
             IList<Servicio> servicios = _servicioManager.Listar();
+            servicios.Insert(0, new Servicio() { TipoServicio = string.Empty });
 
             this.cbbRecorridoListadoTipoServicio.DataSource = servicios;
             this.cbbRecorridoListadoTipoServicio.DisplayMember = "TipoServicio";

@@ -13,12 +13,14 @@ namespace FrbaBus.Common.Entidades
         public int IdCiudadDestino { get; set; }
         public int IdServicio { get; set; }
 
-        public decimal PrecioBaseKG { get; set; }
-        public decimal PrecioBasePasaje { get; set; }
-        
         public Ciudad CiudadOrigen { get; set; }
         public Ciudad CiudadDestino { get; set; }
         public Servicio Servicio { get; set; }
+
+        public decimal PrecioBaseKG { get; set; }
+        public decimal PrecioBasePasaje { get; set; }
+        
+     
 
         public override string ToString()
         {
