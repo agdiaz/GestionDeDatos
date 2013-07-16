@@ -219,6 +219,7 @@
             this.btnMicroListadoDarBaja.TabIndex = 4;
             this.btnMicroListadoDarBaja.Text = "Dar de baja";
             this.btnMicroListadoDarBaja.UseVisualStyleBackColor = true;
+            this.btnMicroListadoDarBaja.Click += new System.EventHandler(this.btnMicroListadoDarBaja_Click);
             // 
             // btnMicroListadoModificar
             // 
