@@ -12,7 +12,17 @@ namespace FrbaBus.DAO.Builder
 
         public Encomienda Build(System.Data.DataRow row)
         {
-            throw new NotImplementedException();
+            Encomienda e = new Encomienda();
+
+            e.IdEncomienda = Convert.ToInt32(row["id_encomienda"].ToString());
+            e.IdCancelacion = Convert.ToInt32(row["id_cancelacion"].ToString());
+            e.IdViaje = Convert.ToInt32(row["id_viaje"].ToString());
+            e.IdCompra = Convert.ToInt32(row["id_compra"].ToString());
+            e.NroDni = Convert.ToInt32(row["dni"].ToString());
+            e.Peso = Convert.ToDecimal(row["peso"].ToString());
+            e.PrecioEncomienda = Convert.ToDecimal(row["pre_encomienda"].ToString());
+
+            return e;
         }
 
         #endregion

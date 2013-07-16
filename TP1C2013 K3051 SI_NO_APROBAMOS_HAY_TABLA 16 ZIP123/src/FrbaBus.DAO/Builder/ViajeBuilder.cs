@@ -12,7 +12,16 @@ namespace FrbaBus.DAO.Builder
 
         public Viaje Build(System.Data.DataRow row)
         {
-            throw new NotImplementedException();
+            Viaje v = new Viaje();
+
+            v.Id = Convert.ToInt32(row["id_viaje"].ToString());
+            v.IdRecorrido = Convert.ToInt32(row["id_recorrido"].ToString());
+            v.IdMicro = Convert.ToInt32(row["id_micros"].ToString());
+            v.FechaSalida = Convert.ToDateTime(row["fecha_salida"].ToString());
+            v.FechaArriboEstimada = Convert.ToDateTime(row["fecha_arribo_estimada"].ToString());
+            v.FechaArribo = Convert.ToDateTime(row["fecha_arribo"].ToString());
+
+            return v;
         }
 
         #endregion

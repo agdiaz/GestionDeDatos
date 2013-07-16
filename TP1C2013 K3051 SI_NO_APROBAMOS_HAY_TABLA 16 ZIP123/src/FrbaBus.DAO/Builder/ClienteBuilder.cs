@@ -13,7 +13,19 @@ namespace FrbaBus.DAO.Builder
 
         public Cliente Build(DataRow row)
         {
-            throw new NotImplementedException();
+            Cliente c = new Cliente();
+
+            c.NroDni = Convert.ToInt32(row["dni"].ToString());
+            c.Nombre = row["nombre"].ToString();
+            c.Apellido = row["apellido"].ToString();
+            c.Direccion = row["direccion"].ToString();
+            c.Telefono = row["telefono"].ToString();
+            c.Mail = row["mail"].ToString();
+            c.FechaNacimiento = Convert.ToDateTime(row["fecha_nacimiento"].ToString());
+            c.EsDiscapacitado = Convert.ToBoolean(row["es_discapacitado"].ToString());
+            c.Sexo = row["sexo"].ToString();
+
+            return c;
         }
 
         #endregion
