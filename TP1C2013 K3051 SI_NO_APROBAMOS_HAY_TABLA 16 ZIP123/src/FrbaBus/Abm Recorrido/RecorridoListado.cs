@@ -78,7 +78,7 @@ namespace FrbaBus.Abm_Recorrido
 
         private void CargarRecorridos()
         {
-            var recorridos = _manager.Listar().OrderBy(r => r.CiudadOrigen.Nombre).ThenBy(r => r.CiudadDestino.Nombre).ThenBy(r => r.Servicio.TipoServicio).ToList();
+            var recorridos = _manager.Listar();
             this.dgvRecorridoListado.DataSource = recorridos;
             this.dgvRecorridoListado.Columns["Id"].Visible = false;
             this.dgvRecorridoListado.Columns["IdCiudadDestino"].Visible = false;

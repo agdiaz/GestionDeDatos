@@ -28,6 +28,8 @@ namespace FrbaBus.Abm_Ciudad
                 CiudadManager cm = new CiudadManager();
                 IList<Ciudad> ciudades = cm.Listar();
                 this.dgvCiudadListado.DataSource = ciudades;
+                this.dgvCiudadListado.Columns["Id"].Visible = false;
+                this.dgvCiudadListado.Columns["Nombre"].Width = 300;
             }
             catch (AccesoBDException ex)
             {
@@ -110,6 +112,11 @@ namespace FrbaBus.Abm_Ciudad
             }
 
             CargarCiudades();
+
+        }
+
+        private void dgvCiudadListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }
