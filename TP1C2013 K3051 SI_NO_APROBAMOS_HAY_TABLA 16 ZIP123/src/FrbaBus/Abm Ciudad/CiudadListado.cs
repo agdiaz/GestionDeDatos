@@ -70,11 +70,12 @@ namespace FrbaBus.Abm_Ciudad
             try
             {
                 Ciudad ciudad = dgvCiudadListado.SelectedRows[0].DataBoundItem as Ciudad;
-
+                
                 using (CiudadModificar frm = new CiudadModificar(ciudad))
                 {
                     frm.ShowDialog(this);
                 }
+                CargarCiudades();
             }
             catch (AccesoBDException ex)
             {
@@ -95,6 +96,7 @@ namespace FrbaBus.Abm_Ciudad
             {
                 Ciudad ciudad = dgvCiudadListado.SelectedRows[0].DataBoundItem as Ciudad;
                 new CiudadManager().Baja(ciudad);
+                CargarCiudades();
             }
             catch (AccesoBDException ex)
             {
