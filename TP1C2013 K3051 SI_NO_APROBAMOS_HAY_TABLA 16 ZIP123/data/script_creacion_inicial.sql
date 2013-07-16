@@ -205,7 +205,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Recorrido](
-	[id_recorrido] [numeric](18, 0) NOT NULL,
+	[id_recorrido] [numeric](18, 0) IDENTITY(1,1) NOT NULL,
 	[id_ciudad_origen] [int] NOT NULL,
 	[id_ciudad_destino] [int] NOT NULL,
 	[pre_base_kg] [numeric](18, 2) NOT NULL,
@@ -244,6 +244,9 @@ GO
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Recorrido] ADD  CONSTRAINT [DF_Recorrido_baja]  DEFAULT ((0)) FOR [baja]
 GO
 
+
+SET IDENTITY_INSERT SI_NO_APROBAMOS_HAY_TABLA.Recorrido ON
+
 insert into SI_NO_APROBAMOS_HAY_TABLA.Recorrido (id_recorrido, id_ciudad_origen, id_ciudad_destino, pre_base_kg, pre_base_pasaje, id_servicio)
 (
 	select	m2.Recorrido_Codigo					as id_recorrido, 
@@ -266,6 +269,8 @@ insert into SI_NO_APROBAMOS_HAY_TABLA.Recorrido (id_recorrido, id_ciudad_origen,
 		on serv.tipo_servicio = m2.Tipo_Servicio
 	group by m2.Recorrido_Codigo, corig.id_ciudad, cdes.id_ciudad, serv.id_servicio
 )
+
+GO
 
 USE [GD1C2013]
 GO
@@ -407,6 +412,12 @@ insert into SI_NO_APROBAMOS_HAY_TABLA.Butaca
 	inner join SI_NO_APROBAMOS_HAY_TABLA.Micros mic
 		on mic.patente = m2.Micro_Patente
 )
+
+CREATE NONCLUSTERED INDEX [indice_nro_butaca] ON [SI_NO_APROBAMOS_HAY_TABLA].[Butaca] 
+(
+	[nro_butaca] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO
 
 /*===========================VIAJE==============================*/
 
@@ -649,6 +660,33 @@ GO
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Rol_funcionalidad] ADD  CONSTRAINT [DF_Rol_funcionalidad_baja]  DEFAULT ((0)) FOR [baja]
 GO
 
+/*===========================Cancelacion==============================*/
+USE [GD1C2013]
+GO
+
+/****** Object:  Table [SI_NO_APROBAMOS_HAY_TABLA].[Cancelacion]    Script Date: 07/15/2013 21:22:53 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Cancelacion](
+	[id_cancelacion] [int] IDENTITY(1,1) NOT NULL,
+	[fecha_cancel] [datetime] NOT NULL,
+	[motivo_cancel] [nvarchar](200) NULL,
+ CONSTRAINT [PK_Cancelacion] PRIMARY KEY CLUSTERED 
+(
+	[id_cancelacion] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Cancelacion] ADD  CONSTRAINT [DF_Cancelacion_fecha_cancel]  DEFAULT (getdate()) FOR [fecha_cancel]
+GO
+
+
 /*===========================COMPRAVACIA==============================*/
 
 USE [GD1C2013]
@@ -664,6 +702,7 @@ GO
 CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Compra](
 	[id_compra] [int] IDENTITY(1,1) NOT NULL,
 	[id_usuario] [int] NOT NULL,
+	[id_cancelacion] [int] NULL,
 	[fecha_compra] [datetime] NOT NULL,
 	[cancel] [bit] NOT NULL,
 	[fecha_cancel] [datetime] NULL,
@@ -684,6 +723,15 @@ GO
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Compra] CHECK CONSTRAINT [FK_Compra_Usuario]
 GO
 
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Compra]  WITH CHECK ADD  CONSTRAINT [FK_Compra_Cancelacion] FOREIGN KEY([id_cancelacion])
+REFERENCES [SI_NO_APROBAMOS_HAY_TABLA].[Cancelacion] ([id_cancelacion])
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Compra] CHECK CONSTRAINT [FK_Compra_Cancelacion]
+GO
+
+
+
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Compra] ADD  CONSTRAINT [DF_Compra_cancel]  DEFAULT ((0)) FOR [cancel]
 GO
 
@@ -696,7 +744,7 @@ GO
 USE [GD1C2013]
 GO
 
-/****** Object:  Table [SI_NO_APROBAMOS_HAY_TABLA].[Pasaje]    Script Date: 06/21/2013 01:48:03 ******/
+/****** Object:  Table [SI_NO_APROBAMOS_HAY_TABLA].[Pasaje]    Script Date: 07/15/2013 21:01:04 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -704,9 +752,10 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Pasaje](
-	[id_pasaje] [numeric](18, 0) NOT NULL,
+	[id_pasaje] [numeric](18, 0) IDENTITY(1,1) NOT NULL,
 	[id_compra] [int] NOT NULL,
-	[nro_butaca] [numeric](18,0) NOT NULL,
+	[id_butaca] [int] NOT NULL,
+	[id_cancelacion] [int] NULL,
 	[dni] [numeric](18, 0) NOT NULL,
 	[pre_pasaje] [numeric](18, 2) NOT NULL,
 	[disponible] [bit] NOT NULL,
@@ -721,6 +770,20 @@ CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Pasaje](
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Pasaje]  WITH CHECK ADD  CONSTRAINT [FK_Pasaje_Butaca] FOREIGN KEY([id_butaca])
+REFERENCES [SI_NO_APROBAMOS_HAY_TABLA].[Butaca] ([id_butaca])
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Pasaje] CHECK CONSTRAINT [FK_Pasaje_Butaca]
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Pasaje]  WITH CHECK ADD  CONSTRAINT [FK_Pasaje_Cancelacion] FOREIGN KEY([id_cancelacion])
+REFERENCES [SI_NO_APROBAMOS_HAY_TABLA].[Cancelacion] ([id_cancelacion])
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Pasaje] CHECK CONSTRAINT [FK_Pasaje_Cancelacion]
 GO
 
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Pasaje]  WITH CHECK ADD  CONSTRAINT [FK_Pasaje_Cliente] FOREIGN KEY([dni])
@@ -753,9 +816,10 @@ GO
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Pasaje] ADD  CONSTRAINT [DF_Pasaje_baja]  DEFAULT ((0)) FOR [baja]
 GO
 
-
 SET xact_abort on
 BEGIN TRANSACTION comprasPasajes
+
+SET IDENTITY_INSERT SI_NO_APROBAMOS_HAY_TABLA.Recorrido OFF
 SET IDENTITY_INSERT SI_NO_APROBAMOS_HAY_TABLA.Compra ON
 CREATE TABLE #tmpPasajes(
 	ident				int IDENTITY(1,1),
@@ -798,12 +862,14 @@ INSERT INTO SI_NO_APROBAMOS_HAY_TABLA.Compra
 		on u.dni = m.dni
 )
 
+SET IDENTITY_INSERT SI_NO_APROBAMOS_HAY_TABLA.Pasaje ON
+
 INSERT INTO SI_NO_APROBAMOS_HAY_TABLA.Pasaje
-(id_pasaje, id_compra, nro_butaca, dni, pre_pasaje, id_viaje)
+(id_pasaje, id_compra, id_butaca, dni, pre_pasaje, id_viaje)
 (
 	select	m.codPasaje		as id_pasaje,
 			m.ident			as id_compra,
-			m.butaca_nro	as nro_butaca,
+			b.id_butaca		as id_butaca,
 			m.dni			as dni,
 			m.prePasaje		as pre_pasaje,
 			v.id_viaje		as id_viaje
@@ -816,9 +882,11 @@ INSERT INTO SI_NO_APROBAMOS_HAY_TABLA.Pasaje
 		and v.fecha_arribo_estimada = m.fechaLlegadaEst
 		and v.fecha_salida = m.fechaSalida
 		and v.id_recorrido = m.idRecorrido
+	inner join SI_NO_APROBAMOS_HAY_TABLA.Butaca b
+		on mic.id_micros = b.id_micro
+		and m.butaca_nro = b.nro_butaca
 )
 DROP TABLE #tmpPasajes
-
 
 USE [GD1C2013]
 GO
@@ -865,6 +933,7 @@ CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Encomienda](
 	[id_encomienda] [numeric](18, 0) IDENTITY(1,1) NOT NULL,
 	[id_viaje] [int] NOT NULL,
 	[id_compra] [int] NOT NULL,
+	[id_cancelacion] [int] NULL,
 	[dni] [numeric](18, 0) NOT NULL,
 	[peso] [numeric](18, 0) NOT NULL,
 	[pre_encomienda] [numeric](18, 0) NOT NULL,
@@ -894,6 +963,13 @@ GO
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Encomienda] CHECK CONSTRAINT [FK_Encomienda_Compra]
 GO
 
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Encomienda]  WITH CHECK ADD  CONSTRAINT [FK_Encomienda_Cancelacion] FOREIGN KEY([id_cancelacion])
+REFERENCES [SI_NO_APROBAMOS_HAY_TABLA].[Cancelacion] ([id_cancelacion])
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Encomienda] CHECK CONSTRAINT [FK_Encomienda_Cancelacion]
+GO
+
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Encomienda]  WITH CHECK ADD  CONSTRAINT [FK_Encomienda_Viaje] FOREIGN KEY([id_viaje])
 REFERENCES [SI_NO_APROBAMOS_HAY_TABLA].[Viaje] ([id_viaje])
 GO
@@ -910,8 +986,6 @@ GO
 
 SET xact_abort on
 BEGIN TRANSACTION comprasEncomiendas
-
-SET IDENTITY_INSERT SI_NO_APROBAMOS_HAY_TABLA.Compra ON
 
 DECLARE @proxId int
 SELECT @proxId=IDENT_CURRENT('SI_NO_APROBAMOS_HAY_TABLA.Compra') + 1
@@ -947,6 +1021,8 @@ WHERE m.Paquete_Codigo <> 0
 DECLARE @sql VARCHAR(2000)
 SET @sql = 'ALTER TABLE #tmpEncomiendas ADD ident INT NOT NULL IDENTITY(' + CAST(@proxId AS VARCHAR) + ', 1)'
 EXEC(@sql)
+
+SET IDENTITY_INSERT SI_NO_APROBAMOS_HAY_TABLA.Compra ON
 
 INSERT INTO SI_NO_APROBAMOS_HAY_TABLA.Compra
 	(id_compra, id_usuario, fecha_compra)
@@ -1953,9 +2029,23 @@ BEGIN
       ,m.[fec_baja_vida_util]
       ,m.[capacidad_kg]
   FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Micros] m
+  LEFT JOIN [SI_NO_APROBAMOS_HAY_TABLA].Baja_servicio_micro bsm
+	ON bsm.id_micros = m.id_micros
+	AND bsm.fec_reinicio_servicio < GETDATE()
   WHERE m.baja = 0
 END
 GO
+
+/*=====================SP LISTAR BAJA SERVICIO MICRO=========================*/
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].[sp_listar_baja_servicio_micro]
+AS
+BEGIN
+	SELECT bsm.id_baja_servicio_micro,
+			bsm.id_micros,
+			bsm.fec_fuera_servicio,
+			bsm.fec_reinicio_servicio
+	FROM SI_NO_APROBAMOS_HAY_TABLA.Baja_servicio_micro bsm
+END
 /*===========================SP LISTAR BUTACA==============================*/
 GO
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_butaca
