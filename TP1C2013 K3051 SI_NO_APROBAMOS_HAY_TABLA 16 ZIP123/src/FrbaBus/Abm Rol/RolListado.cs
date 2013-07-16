@@ -34,6 +34,7 @@ namespace FrbaBus.Rol
 
                 //Cargo las funcionalidades
                 IList<Funcionalidad> funcionalidades = _funcionalidadesManager.Listar();
+                funcionalidades.Insert(0, new Funcionalidad() {  Nombre = string.Empty });
                 this.cbbRolListadoFuncionalidades.DataSource = funcionalidades;
                 this.cbbRolListadoFuncionalidades.DisplayMember = "Nombre";
                 this.cbbRolListadoFuncionalidades.ValueMember = "Id";
