@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using FrbaBus.Manager;
 using FrbaBus.Helpers;
 using FrbaBus.Common.Entidades;
+using FrbaBus.Common.Helpers;
 
 namespace FrbaBus.Abm_Ciudad
 {
@@ -34,7 +35,9 @@ namespace FrbaBus.Abm_Ciudad
                 };
                 
                 new CiudadManager().Alta(c);
-
+                
+                MensajePorPantalla.MensajeInformativo(this, "Se dio de alta la ciudad con el id: " + c.Id.ToString());
+                
                 this.Close();
             }
         }
