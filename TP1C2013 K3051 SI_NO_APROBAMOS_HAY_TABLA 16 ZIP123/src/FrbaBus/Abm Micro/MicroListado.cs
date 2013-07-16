@@ -46,8 +46,8 @@ namespace FrbaBus.Abm_Micro
             {
                 CargarServicios();
                 CargarEmpresas();
-                
-                this.dgvMicroListado.DataSource = _manager.Listar();
+
+                CargarMicros();
             }
             catch (AccesoBDException ex)
             {
@@ -59,6 +59,11 @@ namespace FrbaBus.Abm_Micro
                 MensajePorPantalla.MensajeError(this, "Error al intentar cargar el listado.\n Detalle del error: " + ex.Message);
                 this.Close();
             }
+        }
+
+        private void CargarMicros()
+        {
+            this.dgvMicroListado.DataSource = _manager.Listar();
         }
         private void CargarEmpresas()
         {
@@ -98,6 +103,11 @@ namespace FrbaBus.Abm_Micro
             {
                 MensajePorPantalla.MensajeError(this, "Error al realizar la búsqueda correspondiente.\n Detalle del error: " + ex.Message);
             }
+        }
+
+        private void btnMicroListadoModificar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

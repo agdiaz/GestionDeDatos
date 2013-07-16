@@ -206,14 +206,14 @@
             this.dgvMicroListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMicroListado.Location = new System.Drawing.Point(12, 120);
             this.dgvMicroListado.Name = "dgvMicroListado";
-            this.dgvMicroListado.Size = new System.Drawing.Size(517, 256);
+            this.dgvMicroListado.Size = new System.Drawing.Size(596, 256);
             this.dgvMicroListado.TabIndex = 3;
             // 
             // btnMicroListadoDarBaja
             // 
             this.btnMicroListadoDarBaja.Enabled = false;
             this.btnMicroListadoDarBaja.ForeColor = System.Drawing.Color.Black;
-            this.btnMicroListadoDarBaja.Location = new System.Drawing.Point(12, 382);
+            this.btnMicroListadoDarBaja.Location = new System.Drawing.Point(100, 382);
             this.btnMicroListadoDarBaja.Name = "btnMicroListadoDarBaja";
             this.btnMicroListadoDarBaja.Size = new System.Drawing.Size(75, 23);
             this.btnMicroListadoDarBaja.TabIndex = 4;
@@ -224,12 +224,13 @@
             // 
             this.btnMicroListadoModificar.Enabled = false;
             this.btnMicroListadoModificar.ForeColor = System.Drawing.Color.Black;
-            this.btnMicroListadoModificar.Location = new System.Drawing.Point(93, 382);
+            this.btnMicroListadoModificar.Location = new System.Drawing.Point(19, 382);
             this.btnMicroListadoModificar.Name = "btnMicroListadoModificar";
             this.btnMicroListadoModificar.Size = new System.Drawing.Size(75, 23);
             this.btnMicroListadoModificar.TabIndex = 5;
             this.btnMicroListadoModificar.Text = "Modificar";
             this.btnMicroListadoModificar.UseVisualStyleBackColor = true;
+            this.btnMicroListadoModificar.Click += new System.EventHandler(this.btnMicroListadoModificar_Click);
             // 
             // MicroListado
             // 
