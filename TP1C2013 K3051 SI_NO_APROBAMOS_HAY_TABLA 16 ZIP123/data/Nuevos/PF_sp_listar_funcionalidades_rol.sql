@@ -7,8 +7,8 @@ GO
 -- Create date: 20/6/2013
 -- Description:	Selecciona las funcionalidades
 -- =============================================
-CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_funcionalidades_rol
-	@p_id_rol int 
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_funcionalidades_rol(
+	@p_id_rol int) 
 AS
 BEGIN
 	SET NOCOUNT ON;
