@@ -38,7 +38,7 @@
             // 
             // btnIngresar
             // 
-            this.btnIngresar.Location = new System.Drawing.Point(245, 76);
+            this.btnIngresar.Location = new System.Drawing.Point(43, 77);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(69, 23);
             this.btnIngresar.TabIndex = 0;
@@ -48,7 +48,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(171, 76);
+            this.btnCancelar.Location = new System.Drawing.Point(118, 77);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(68, 23);
             this.btnCancelar.TabIndex = 1;
@@ -78,7 +78,7 @@
             // 
             this.txtUsuario.Location = new System.Drawing.Point(101, 12);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(369, 20);
+            this.txtUsuario.Size = new System.Drawing.Size(113, 20);
             this.txtUsuario.TabIndex = 2;
             this.txtUsuario.Text = "admin2";
             // 
@@ -87,7 +87,7 @@
             this.txtContrasena.Location = new System.Drawing.Point(101, 38);
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.PasswordChar = '*';
-            this.txtContrasena.Size = new System.Drawing.Size(369, 20);
+            this.txtContrasena.Size = new System.Drawing.Size(113, 20);
             this.txtContrasena.TabIndex = 3;
             this.txtContrasena.Text = "w23e";
             // 
@@ -95,7 +95,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(478, 112);
+            this.ClientSize = new System.Drawing.Size(229, 112);
             this.Controls.Add(this.txtContrasena);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.label2);
