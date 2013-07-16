@@ -24,5 +24,10 @@ namespace FrbaBus.Common.Entidades
         
         public Servicio Servicio { get; set; }
         public IList<Butaca> Butacas { get; set; }
+
+        public override string ToString()
+        {
+            return Patente;
+        }
     }
 }

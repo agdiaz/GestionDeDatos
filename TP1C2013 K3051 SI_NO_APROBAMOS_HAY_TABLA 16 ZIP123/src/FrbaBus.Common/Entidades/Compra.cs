@@ -17,5 +17,9 @@ namespace FrbaBus.Common.Entidades
         public IList<Puntaje> Puntajes { get; set; }
         public Cancelacion Cancelacion { get; set; }
 
+        public override string ToString()
+        {
+            return IdCompra.ToString();
+        }
     }
 }

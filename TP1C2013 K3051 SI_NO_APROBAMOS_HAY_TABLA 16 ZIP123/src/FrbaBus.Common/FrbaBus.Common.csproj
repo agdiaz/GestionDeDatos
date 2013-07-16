@@ -72,6 +72,7 @@
     <Compile Include="Entidades\RolUsuarioAdministrativo.cs" />
     <Compile Include="Entidades\RolUsuarioBasico.cs" />
     <Compile Include="Entidades\Servicio.cs" />
+    <Compile Include="Entidades\TipoButaca.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Entidades\Viaje.cs" />
     <Compile Include="Excepciones\AccesoBDException.cs" />

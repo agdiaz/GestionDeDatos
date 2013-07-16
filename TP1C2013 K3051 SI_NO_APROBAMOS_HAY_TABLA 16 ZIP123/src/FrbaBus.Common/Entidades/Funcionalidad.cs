@@ -10,5 +10,10 @@ namespace FrbaBus.Common.Entidades
         public int Id { get; set; }
         public string Nombre { get; set; }
         public bool Activa { get; set; }
+
+        public override string ToString()
+        {
+            return Nombre;
+        }
     }
 }

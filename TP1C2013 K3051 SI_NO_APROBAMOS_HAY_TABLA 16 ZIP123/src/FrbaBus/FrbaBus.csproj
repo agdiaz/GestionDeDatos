@@ -130,6 +130,12 @@
     <Compile Include="Abm Permisos\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Recorrido\RecorridoModificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Recorrido\RecorridoModificar.Designer.cs">
+      <DependentUpon>RecorridoModificar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Recorrido\RecorridoAlta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Pasaje_encomienda\RegistrarCompra.resx">
       <DependentUpon>RegistrarCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Recorrido\RecorridoModificar.resx">
+      <DependentUpon>RecorridoModificar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Recorrido\RecorridoAlta.resx">
       <DependentUpon>RecorridoAlta.cs</DependentUpon>

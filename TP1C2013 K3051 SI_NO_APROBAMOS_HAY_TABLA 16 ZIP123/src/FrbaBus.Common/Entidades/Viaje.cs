@@ -19,5 +19,9 @@ namespace FrbaBus.Common.Entidades
 
         public IList<Pasaje> Pasajes { get; set; }
 
+        public override string ToString()
+        {
+            return Id.ToString();
+        }
     }
 }

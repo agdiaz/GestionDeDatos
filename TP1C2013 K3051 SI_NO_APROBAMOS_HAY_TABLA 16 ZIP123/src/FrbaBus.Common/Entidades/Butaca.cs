@@ -12,5 +12,10 @@ namespace FrbaBus.Common.Entidades
         public int IdMicro { get; set; }
         public string TipoButaca { get; set; }
         public decimal Piso { get; set; }
+
+        public override string ToString()
+        {
+            return NroButaca.ToString();
+        }
     }
 }

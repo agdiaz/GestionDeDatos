@@ -10,5 +10,10 @@ namespace FrbaBus.Common.Entidades
         public int IdCancelacion { get; set; }
         public DateTime FechaCancelacion { get; set; }
         public string Motivo { get; set; }
+
+        public override string ToString()
+        {
+            return IdCancelacion.ToString();
+        }
     }
 }

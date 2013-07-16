@@ -87,11 +87,11 @@ namespace FrbaBus.Abm_Recorrido
             IList<Ciudad> ciudadesDestino = _ciudadManager.Listar();
 
             this.cbCiudadOrigen.DataSource = ciudadesOrigen;
-            this.cbCiudadOrigen.DisplayMember = "Descripcion";
+            this.cbCiudadOrigen.DisplayMember = "Nombre";
             this.cbCiudadOrigen.ValueMember = "Id";
 
             this.cbCiudadDestino.DataSource = ciudadesDestino;
-            this.cbCiudadDestino.DisplayMember = "Descripcion";
+            this.cbCiudadDestino.DisplayMember = "Nombre";
             this.cbCiudadDestino.ValueMember = "Id";
         }
         private void CargarServicios()

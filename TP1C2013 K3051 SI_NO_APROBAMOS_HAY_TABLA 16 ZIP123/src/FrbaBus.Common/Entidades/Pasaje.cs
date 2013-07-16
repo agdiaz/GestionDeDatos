@@ -18,5 +18,10 @@ namespace FrbaBus.Common.Entidades
 
         public Cancelacion Cancelacion{ get; set; }
         public Butaca Butaca { get; set; }
+
+        public override string ToString()
+        {
+            return Id.ToString();
+        }
     }
 }

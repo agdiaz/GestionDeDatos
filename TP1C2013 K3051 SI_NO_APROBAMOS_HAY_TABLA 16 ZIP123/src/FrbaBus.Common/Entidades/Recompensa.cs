@@ -11,5 +11,10 @@ namespace FrbaBus.Common.Entidades
         public string Descripcion { get; set; }
         public int Stock { get; set; }
         public int Costo { get; set; }
+
+        public override string ToString()
+        {
+            return Descripcion;
+        }
     }
 }

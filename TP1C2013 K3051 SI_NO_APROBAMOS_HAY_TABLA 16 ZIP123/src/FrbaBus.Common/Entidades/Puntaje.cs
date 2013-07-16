@@ -13,5 +13,10 @@ namespace FrbaBus.Common.Entidades
         public int PuntosUsados { get; set; }
         public DateTime FechaOtorgacion { get; set; }
         public int IdCompra { get; set; }
+
+        public override string ToString()
+        {
+            return IdPuntaje.ToString();
+        }
     }
 }

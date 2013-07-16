@@ -15,5 +15,9 @@ namespace FrbaBus.Common.Entidades
         public decimal Peso { get; set; }
         public decimal PrecioEncomienda { get; set; }
 
+        public override string ToString()
+        {
+            return IdEncomienda.ToString();
+        }
     }
 }

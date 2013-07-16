@@ -10,5 +10,10 @@ namespace FrbaBus.Common.Entidades
         public int Id { get; set; }
         public string TipoServicio { get; set; }
         public decimal Adicional { get; set; }
+
+        public override string ToString()
+        {
+            return TipoServicio;
+        }
     }
 }

@@ -24,6 +24,11 @@ namespace FrbaBus.Common.Entidades
         {
             this.Username = username;
         }
+
+        public override string ToString()
+        {
+            return Username;
+        }
     }
 
 }

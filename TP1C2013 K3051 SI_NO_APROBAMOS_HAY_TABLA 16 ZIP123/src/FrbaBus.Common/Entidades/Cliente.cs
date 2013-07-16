@@ -19,5 +19,10 @@ namespace FrbaBus.Common.Entidades
 
         public IList<Puntaje> Puntaje { get; set; }
         public IList<Canje> Canjes{ get; set; }
+
+        public override string ToString()
+        {
+            return Nombre + " " + Apellido;
+        }
     }
 }

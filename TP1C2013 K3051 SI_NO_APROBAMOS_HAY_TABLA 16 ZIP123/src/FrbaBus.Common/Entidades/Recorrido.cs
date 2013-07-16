@@ -19,5 +19,10 @@ namespace FrbaBus.Common.Entidades
         public Ciudad CiudadOrigen { get; set; }
         public Ciudad CiudadDestino { get; set; }
         public Servicio Servicio { get; set; }
+
+        public override string ToString()
+        {
+            return Id.ToString();
+        }
     }
 }

@@ -33,5 +33,10 @@ namespace FrbaBus.Common.Entidades
             var cantidad = Funcionalidades.Where(f => (f.Nombre == nombre)).Count();
             return cantidad > 0;
         }
+
+        public override string ToString()
+        {
+            return Nombre;
+        }
     }
 }

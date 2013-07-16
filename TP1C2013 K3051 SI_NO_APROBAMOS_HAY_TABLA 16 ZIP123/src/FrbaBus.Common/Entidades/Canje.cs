@@ -12,5 +12,10 @@ namespace FrbaBus.Common.Entidades
         public int IdRecompensa { get; set; }
 
         public IList<Recompensa> Recomensa{ get; set; }
+
+        public override string ToString()
+        {
+            return IdCanje.ToString();
+        }
     }
 }
