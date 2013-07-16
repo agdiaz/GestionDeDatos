@@ -100,6 +100,7 @@
             this.dgvCiudadListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCiudadListado.Size = new System.Drawing.Size(472, 290);
             this.dgvCiudadListado.TabIndex = 1;
+            this.dgvCiudadListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCiudadListado_CellContentClick);
             // 
             // btnCiudadListadoDarBaja
             // 
