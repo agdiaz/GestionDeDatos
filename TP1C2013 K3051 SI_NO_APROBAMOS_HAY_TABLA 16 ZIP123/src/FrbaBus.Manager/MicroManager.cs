@@ -17,9 +17,11 @@ namespace FrbaBus.Manager
             this._dao = new MicroDAO();
         }
 
-        public int Alta(Micro micro)
+        public Micro Alta(Micro micro)
         {
-            return _dao.Alta(micro);
+            int id = _dao.Alta(micro);
+            micro.Id = id;
+            return micro;
         }
 
         public void Baja(Micro micro)

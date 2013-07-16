@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using FrbaBus.Common.Entidades;
 using FrbaBus.Manager;
+using FrbaBus.Common.Helpers;
 
 namespace FrbaBus.Abm_Micro
 {
@@ -34,7 +35,6 @@ namespace FrbaBus.Abm_Micro
             this.cbbMicroAltaTipoEmpresa.SelectedIndex = 0;
             this.cbbMicroAltaTipoModelo.SelectedIndex = 0;
             this.cbbMicroAltaTipoServicio.SelectedIndex = 0;
-            this.mtbMicroAltaCantidadButacas.Text = string.Empty;
             this.mtbMicroAltaKgsEncomiendas.Text = string.Empty;
         }
 
@@ -59,6 +59,40 @@ namespace FrbaBus.Abm_Micro
             this.cbbMicroAltaTipoServicio.DataSource = servicios;
             this.cbbMicroAltaTipoServicio.DisplayMember = "TipoServicio";
             this.cbbMicroAltaTipoServicio.ValueMember = "Id";
+        }
+
+        private void btnMicroAltaGuardar_Click(object sender, EventArgs e)
+        {
+            if (this.ValidarDatos())
+            {
+                Servicio serv = this.cbbMicroAltaTipoServicio.SelectedItem as Servicio;
+                Empresa empresa = this.cbbMicroAltaTipoEmpresa.SelectedItem as Empresa;
+                string modelo = this.cbbMicroAltaTipoModelo.SelectedText as string;
+
+                Micro micro = new Micro()
+                {
+                    FechaAlta = dtpFechaAlta.Value,
+                    NumeroDeMicro = 0,
+                    Modelo = modelo,
+                    Patente = this.txtPatente.Text,
+                    KgsCapacidad = Convert.ToDecimal(this.mtbMicroAltaKgsEncomiendas.Text),
+                    Servicio = serv,
+                    Marca = empresa.Descripcion,
+                    FechaBajaVidaUtil = null
+
+                };
+
+                _manager.Alta(micro);
+
+                MensajePorPantalla.MensajeInformativo(this, "Se dio de alta el micro con el id: " + micro.Id.ToString());
+
+                this.Close();
+            }
+        }
+
+        private bool ValidarDatos()
+        {
+            return true;
         }
     }
 }

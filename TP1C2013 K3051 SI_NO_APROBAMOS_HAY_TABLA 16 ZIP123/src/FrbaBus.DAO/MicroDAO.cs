@@ -37,7 +37,41 @@ namespace FrbaBus.DAO
 
         public int Alta(Micro entidad)
         {
-            throw new NotImplementedException();
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+
+            SqlParameter p0 = new SqlParameter("@p_fecha_alta", SqlDbType.DateTime2, 8, "p_fecha_alta");
+            parametros.Add(p0, entidad.FechaAlta);
+
+            SqlParameter p1 = new SqlParameter("@p_nro_micro", SqlDbType.Int, 4, "p_nro_micro");
+            parametros.Add(p1, entidad.NumeroDeMicro);
+
+            SqlParameter p2 = new SqlParameter("@p_modelo", SqlDbType.NVarChar, 50, "p_modelo");
+            parametros.Add(p2, entidad.Modelo);
+
+            SqlParameter p3 = new SqlParameter("@p_patente", SqlDbType.NVarChar, 50, "p_patente");
+            parametros.Add(p3, entidad.Patente);
+
+            SqlParameter p4 = new SqlParameter("@p_id_marca", SqlDbType.Int, 4, "p_id_marca");
+            parametros.Add(p4, entidad.Empresa.Id);
+
+            SqlParameter p5 = new SqlParameter("@p_id_servicio", SqlDbType.Int, 4, "p_id_servicio");
+            parametros.Add(p5, entidad.IdServicio);
+
+            SqlParameter p6 = new SqlParameter("@p_baja_vida_util", SqlDbType.Bit, 1, "p_baja_vida_util");
+            parametros.Add(p6, 0);
+
+            SqlParameter p7 = new SqlParameter("@p_fec_baja_vida_util", SqlDbType.DateTime, 8, "p_fec_baja_vida_util");
+            parametros.Add(p7, entidad.FechaBajaVidaUtil);
+
+            SqlParameter p8 = new SqlParameter("@p_capacidad_kg", SqlDbType.Decimal, 18, "p_capacidad_kg");
+            parametros.Add(p8, entidad.KgsCapacidad);
+
+            SqlParameter pId = new SqlParameter("@p_id", SqlDbType.Int, 4, "p_id");
+            pId.Direction = ParameterDirection.Output;
+            parametros.Add(pId, 0);
+
+            this.accesoBD.EjecutarComando("[SI_NO_APROBAMOS_HAY_TABLA].sp_insert_micro", parametros);
+            return Convert.ToInt32(pId.Value);
         }
 
         public void Baja(Micro entidad)
