@@ -8,8 +8,7 @@ CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_insert_micro
 	@p_id_servicio int,
 	@p_baja_vida_util bit,
 	@p_fec_baja_vida_util datetime,
-	@p_capacidad_kg numeric(18,2),
-	@p_id int output
+	@p_capacidad_kg numeric(18,2)
 )
 AS
 BEGIN
@@ -35,5 +34,4 @@ INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Micros]
            ,@p_fec_baja_vida_util
            ,@p_capacidad_kg
            ,0)
-	SET @p_id = SCOPE_IDENTITY()
 END
