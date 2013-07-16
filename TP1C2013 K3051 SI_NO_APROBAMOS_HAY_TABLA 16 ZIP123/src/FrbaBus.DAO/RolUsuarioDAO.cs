@@ -70,29 +70,28 @@ namespace FrbaBus.DAO
         {
             Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
 
-            SqlParameter pId = new SqlParameter("@p_id", SqlDbType.NVarChar, 50, "p_id");
+            SqlParameter pId = new SqlParameter("@p_id", SqlDbType.Int, 4, "p_id");
             pId.Direction = ParameterDirection.Output;
             parametros.Add(pId, 0);
 
-            this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_baja_rol", parametros);
+            this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_delete_rol", parametros);
         }
 
         public void Modificacion(RolUsuario entidad)
         {
             Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
 
-            SqlParameter pId = new SqlParameter("@p_id", SqlDbType.NVarChar, 50, "p_id");
+            SqlParameter pId = new SqlParameter("@p_id", SqlDbType.Int, 4, "p_id");
             pId.Direction = ParameterDirection.Output;
             parametros.Add(pId, 0);
 
-            SqlParameter pNombre = new SqlParameter("@nombre", SqlDbType.NVarChar, 50, "nombre");
+            SqlParameter pNombre = new SqlParameter("@p_nombre", SqlDbType.NVarChar, 50, "p_nombre");
             parametros.Add(pNombre, entidad.Nombre);
 
             SqlParameter pInhabilitados = new SqlParameter("@inhabilitado", SqlDbType.Bit, 1, "inhabilitado");
             parametros.Add(pInhabilitados, entidad.Inhabilitado ? 1 : 0);
 
-
-            this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_modificar_rol", parametros);
+            this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_update_rol", parametros);
         }
 
         public IList<RolUsuario> Listar()
