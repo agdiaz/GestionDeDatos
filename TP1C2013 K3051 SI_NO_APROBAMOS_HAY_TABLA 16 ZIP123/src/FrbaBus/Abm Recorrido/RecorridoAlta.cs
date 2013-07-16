@@ -65,7 +65,47 @@ namespace FrbaBus.Abm_Recorrido
 
         private void btnRecorridoAltaGuardar_Click(object sender, EventArgs e)
         {
+            if (this.ValidarDatos())
+            {
+                Recorrido rec = new Recorrido();
 
+                rec.CiudadDestino = this.cbCiudadDestino.SelectedItem as Ciudad;
+                rec.CiudadOrigen = this.cbCiudadOrigen.SelectedItem as Ciudad;
+                rec.IdCiudadDestino = rec.CiudadDestino.Id;
+                rec.IdCiudadOrigen = rec.CiudadOrigen.Id;
+                rec.PrecioBaseKG = Convert.ToDecimal(this.tbRecorridoAltaPrecioBasePorKgs.Text);
+                rec.PrecioBasePasaje = Convert.ToDecimal(this.tbRecorridoAltaPrecioBasePorPasaje.Text);
+                rec.Servicio = this.cbbRecorridoAltaTipoServicio.SelectedItem as Servicio;
+                rec.IdServicio = rec.Servicio.Id;
+
+                this._manager.Alta(rec);
+            }
+            
+        }
+
+        private bool ValidarDatos()
+        {
+            if (cbCiudadOrigen.SelectedIndex < 1)
+            {
+                return false;
+            }
+            if (cbCiudadDestino.SelectedIndex < 1)
+            {
+                return false;
+            }
+            if (cbbRecorridoAltaTipoServicio.SelectedIndex < 1)
+            {
+                return false;
+            }
+            if (string.IsNullOrEmpty(tbRecorridoAltaPrecioBasePorKgs.Text))
+            {
+                return false;
+            }
+            if (string.IsNullOrEmpty(tbRecorridoAltaPrecioBasePorPasaje.Text))
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

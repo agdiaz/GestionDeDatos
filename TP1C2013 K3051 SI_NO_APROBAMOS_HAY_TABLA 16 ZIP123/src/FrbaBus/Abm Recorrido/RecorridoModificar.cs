@@ -40,6 +40,18 @@ namespace FrbaBus.Abm_Recorrido
         {
             CargarCiudades();
             CargarServicios();
+
+            CargarRecorrido();
+        }
+
+        private void CargarRecorrido()
+        {
+            this.cbbRecorridoModificarTipoServicio.SelectedItem = _recorrido.Servicio;
+            this.cbCiudadDestino.SelectedItem = _recorrido.CiudadDestino;
+            this.cbCiudadOrigen.SelectedItem = _recorrido.CiudadOrigen;
+            this.tbRecorridoModificarPrecioBasePorKgs.Text = _recorrido.PrecioBaseKG.ToString();
+            this.tbRecorridoModificarPrecioBasePorPasaje.Text = _recorrido.PrecioBasePasaje.ToString();
+
         }
 
         private void CargarCiudades()
