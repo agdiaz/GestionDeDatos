@@ -16,22 +16,24 @@ namespace FrbaBus.Abm_Recorrido
         private RecorridoManager _manager;
         private CiudadManager _ciudadManager;
         private ServicioManager _servicioManager;
+        private Recorrido _recorrido;
 
-        public RecorridoModificar()
+        public RecorridoModificar(Recorrido recorrido)
         {
             InitializeComponent();
             this._manager = new RecorridoManager();
             this._ciudadManager = new CiudadManager();
             this._servicioManager = new ServicioManager();
+            this._recorrido = recorrido;
         }
 
         private void btnRecorridoModificarLimpiar_Click(object sender, EventArgs e)
         {
-            this.cbbRecorridoAltaTipoServicio.SelectedIndex = 0;
+            this.cbbRecorridoModificarTipoServicio.SelectedIndex = 0;
             this.cbCiudadDestino.SelectedIndex = 0;
             this.cbCiudadOrigen.SelectedIndex = 0;
-            this.tbRecorridoAltaPrecioBasePorKgs.Text = string.Empty;
-            this.tbRecorridoAltaPrecioBasePorPasaje.Text = string.Empty;
+            this.tbRecorridoModificarPrecioBasePorKgs.Text = string.Empty;
+            this.tbRecorridoModificarPrecioBasePorPasaje.Text = string.Empty;
         }
 
         private void RecorridoModificar_Load(object sender, EventArgs e)
@@ -58,9 +60,9 @@ namespace FrbaBus.Abm_Recorrido
         {
             IList<Servicio> servicios = _servicioManager.Listar();
 
-            this.cbbRecorridoAltaTipoServicio.DataSource = servicios;
-            this.cbbRecorridoAltaTipoServicio.DisplayMember = "TipoServicio";
-            this.cbbRecorridoAltaTipoServicio.ValueMember = "Id";
+            this.cbbRecorridoModificarTipoServicio.DataSource = servicios;
+            this.cbbRecorridoModificarTipoServicio.DisplayMember = "TipoServicio";
+            this.cbbRecorridoModificarTipoServicio.ValueMember = "Id";
         }
 
         private void RecorridoModificar_Load_1(object sender, EventArgs e)

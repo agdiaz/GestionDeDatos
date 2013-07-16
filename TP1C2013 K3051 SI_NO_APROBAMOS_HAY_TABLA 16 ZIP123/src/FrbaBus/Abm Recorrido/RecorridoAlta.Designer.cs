@@ -28,105 +28,105 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblRecorridoModificarCiudadOrigen = new System.Windows.Forms.Label();
-            this.lblRecorridoModificarCiudadDestino = new System.Windows.Forms.Label();
-            this.lblRecorridoModificarTipoServicio = new System.Windows.Forms.Label();
-            this.cbbRecorridoModificarTipoServicio = new System.Windows.Forms.ComboBox();
-            this.btnRecorridoModificarLimpiar = new System.Windows.Forms.Button();
-            this.btnRecorridoModificarGuardar = new System.Windows.Forms.Button();
-            this.lblRecorridoModificarPrecioBasePorKgs = new System.Windows.Forms.Label();
-            this.lblRecorridoModificarPrecioBasePorPasaje = new System.Windows.Forms.Label();
-            this.tbRecorridoModificarPrecioBasePorKgs = new System.Windows.Forms.TextBox();
-            this.tbRecorridoModificarPrecioBasePorPasaje = new System.Windows.Forms.TextBox();
+            this.lblRecorridoAltaCiudadOrigen = new System.Windows.Forms.Label();
+            this.lblRecorridoAltaCiudadDestino = new System.Windows.Forms.Label();
+            this.lblRecorridoAltaTipoServicio = new System.Windows.Forms.Label();
+            this.cbbRecorridoAltaTipoServicio = new System.Windows.Forms.ComboBox();
+            this.btnRecorridoAltaLimpiar = new System.Windows.Forms.Button();
+            this.btnRecorridoAltaGuardar = new System.Windows.Forms.Button();
+            this.lblRecorridoAltaPrecioBasePorKgs = new System.Windows.Forms.Label();
+            this.lblRecorridoAltaPrecioBasePorPasaje = new System.Windows.Forms.Label();
+            this.tbRecorridoAltaPrecioBasePorKgs = new System.Windows.Forms.TextBox();
+            this.tbRecorridoAltaPrecioBasePorPasaje = new System.Windows.Forms.TextBox();
             this.cbCiudadOrigen = new System.Windows.Forms.ComboBox();
             this.cbCiudadDestino = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // lblRecorridoModificarCiudadOrigen
+            // lblRecorridoAltaCiudadOrigen
             // 
-            this.lblRecorridoModificarCiudadOrigen.AutoSize = true;
-            this.lblRecorridoModificarCiudadOrigen.Location = new System.Drawing.Point(12, 20);
-            this.lblRecorridoModificarCiudadOrigen.Name = "lblRecorridoModificarCiudadOrigen";
-            this.lblRecorridoModificarCiudadOrigen.Size = new System.Drawing.Size(72, 13);
-            this.lblRecorridoModificarCiudadOrigen.TabIndex = 0;
-            this.lblRecorridoModificarCiudadOrigen.Text = "Ciudad origen";
+            this.lblRecorridoAltaCiudadOrigen.AutoSize = true;
+            this.lblRecorridoAltaCiudadOrigen.Location = new System.Drawing.Point(12, 20);
+            this.lblRecorridoAltaCiudadOrigen.Name = "lblRecorridoAltaCiudadOrigen";
+            this.lblRecorridoAltaCiudadOrigen.Size = new System.Drawing.Size(72, 13);
+            this.lblRecorridoAltaCiudadOrigen.TabIndex = 0;
+            this.lblRecorridoAltaCiudadOrigen.Text = "Ciudad origen";
             // 
-            // lblRecorridoModificarCiudadDestino
+            // lblRecorridoAltaCiudadDestino
             // 
-            this.lblRecorridoModificarCiudadDestino.AutoSize = true;
-            this.lblRecorridoModificarCiudadDestino.Location = new System.Drawing.Point(12, 50);
-            this.lblRecorridoModificarCiudadDestino.Name = "lblRecorridoModificarCiudadDestino";
-            this.lblRecorridoModificarCiudadDestino.Size = new System.Drawing.Size(77, 13);
-            this.lblRecorridoModificarCiudadDestino.TabIndex = 1;
-            this.lblRecorridoModificarCiudadDestino.Text = "Ciudad destino";
+            this.lblRecorridoAltaCiudadDestino.AutoSize = true;
+            this.lblRecorridoAltaCiudadDestino.Location = new System.Drawing.Point(12, 50);
+            this.lblRecorridoAltaCiudadDestino.Name = "lblRecorridoAltaCiudadDestino";
+            this.lblRecorridoAltaCiudadDestino.Size = new System.Drawing.Size(77, 13);
+            this.lblRecorridoAltaCiudadDestino.TabIndex = 1;
+            this.lblRecorridoAltaCiudadDestino.Text = "Ciudad destino";
             // 
-            // lblRecorridoModificarTipoServicio
+            // lblRecorridoAltaTipoServicio
             // 
-            this.lblRecorridoModificarTipoServicio.AutoSize = true;
-            this.lblRecorridoModificarTipoServicio.Location = new System.Drawing.Point(12, 77);
-            this.lblRecorridoModificarTipoServicio.Name = "lblRecorridoModificarTipoServicio";
-            this.lblRecorridoModificarTipoServicio.Size = new System.Drawing.Size(82, 13);
-            this.lblRecorridoModificarTipoServicio.TabIndex = 2;
-            this.lblRecorridoModificarTipoServicio.Text = "Tipo de servicio";
+            this.lblRecorridoAltaTipoServicio.AutoSize = true;
+            this.lblRecorridoAltaTipoServicio.Location = new System.Drawing.Point(12, 77);
+            this.lblRecorridoAltaTipoServicio.Name = "lblRecorridoAltaTipoServicio";
+            this.lblRecorridoAltaTipoServicio.Size = new System.Drawing.Size(82, 13);
+            this.lblRecorridoAltaTipoServicio.TabIndex = 2;
+            this.lblRecorridoAltaTipoServicio.Text = "Tipo de servicio";
             // 
-            // cbbRecorridoModificarTipoServicio
+            // cbbRecorridoAltaTipoServicio
             // 
-            this.cbbRecorridoModificarTipoServicio.FormattingEnabled = true;
-            this.cbbRecorridoModificarTipoServicio.Location = new System.Drawing.Point(140, 74);
-            this.cbbRecorridoModificarTipoServicio.Name = "cbbRecorridoModificarTipoServicio";
-            this.cbbRecorridoModificarTipoServicio.Size = new System.Drawing.Size(187, 21);
-            this.cbbRecorridoModificarTipoServicio.TabIndex = 5;
+            this.cbbRecorridoAltaTipoServicio.FormattingEnabled = true;
+            this.cbbRecorridoAltaTipoServicio.Location = new System.Drawing.Point(140, 74);
+            this.cbbRecorridoAltaTipoServicio.Name = "cbbRecorridoAltaTipoServicio";
+            this.cbbRecorridoAltaTipoServicio.Size = new System.Drawing.Size(187, 21);
+            this.cbbRecorridoAltaTipoServicio.TabIndex = 5;
             // 
-            // btnRecorridoModificarLimpiar
+            // btnRecorridoAltaLimpiar
             // 
-            this.btnRecorridoModificarLimpiar.Location = new System.Drawing.Point(96, 175);
-            this.btnRecorridoModificarLimpiar.Name = "btnRecorridoModificarLimpiar";
-            this.btnRecorridoModificarLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnRecorridoModificarLimpiar.TabIndex = 6;
-            this.btnRecorridoModificarLimpiar.Text = "Limpiar";
-            this.btnRecorridoModificarLimpiar.UseVisualStyleBackColor = true;
+            this.btnRecorridoAltaLimpiar.Location = new System.Drawing.Point(96, 175);
+            this.btnRecorridoAltaLimpiar.Name = "btnRecorridoAltaLimpiar";
+            this.btnRecorridoAltaLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.btnRecorridoAltaLimpiar.TabIndex = 6;
+            this.btnRecorridoAltaLimpiar.Text = "Limpiar";
+            this.btnRecorridoAltaLimpiar.UseVisualStyleBackColor = true;
             // 
-            // btnRecorridoModificarGuardar
+            // btnRecorridoAltaGuardar
             // 
-            this.btnRecorridoModificarGuardar.Location = new System.Drawing.Point(15, 175);
-            this.btnRecorridoModificarGuardar.Name = "btnRecorridoModificarGuardar";
-            this.btnRecorridoModificarGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnRecorridoModificarGuardar.TabIndex = 7;
-            this.btnRecorridoModificarGuardar.Text = "Guardar";
-            this.btnRecorridoModificarGuardar.UseVisualStyleBackColor = true;
-            this.btnRecorridoModificarGuardar.Click += new System.EventHandler(this.btnRecorridoModificarGuardar_Click);
+            this.btnRecorridoAltaGuardar.Location = new System.Drawing.Point(15, 175);
+            this.btnRecorridoAltaGuardar.Name = "btnRecorridoAltaGuardar";
+            this.btnRecorridoAltaGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnRecorridoAltaGuardar.TabIndex = 7;
+            this.btnRecorridoAltaGuardar.Text = "Guardar";
+            this.btnRecorridoAltaGuardar.UseVisualStyleBackColor = true;
+            this.btnRecorridoAltaGuardar.Click += new System.EventHandler(this.btnRecorridoAltaGuardar_Click);
             // 
-            // lblRecorridoModificarPrecioBasePorKgs
+            // lblRecorridoAltaPrecioBasePorKgs
             // 
-            this.lblRecorridoModificarPrecioBasePorKgs.AutoSize = true;
-            this.lblRecorridoModificarPrecioBasePorKgs.Location = new System.Drawing.Point(12, 104);
-            this.lblRecorridoModificarPrecioBasePorKgs.Name = "lblRecorridoModificarPrecioBasePorKgs";
-            this.lblRecorridoModificarPrecioBasePorKgs.Size = new System.Drawing.Size(102, 13);
-            this.lblRecorridoModificarPrecioBasePorKgs.TabIndex = 8;
-            this.lblRecorridoModificarPrecioBasePorKgs.Text = "Precio base por Kgs";
+            this.lblRecorridoAltaPrecioBasePorKgs.AutoSize = true;
+            this.lblRecorridoAltaPrecioBasePorKgs.Location = new System.Drawing.Point(12, 104);
+            this.lblRecorridoAltaPrecioBasePorKgs.Name = "lblRecorridoAltaPrecioBasePorKgs";
+            this.lblRecorridoAltaPrecioBasePorKgs.Size = new System.Drawing.Size(102, 13);
+            this.lblRecorridoAltaPrecioBasePorKgs.TabIndex = 8;
+            this.lblRecorridoAltaPrecioBasePorKgs.Text = "Precio base por Kgs";
             // 
-            // lblRecorridoModificarPrecioBasePorPasaje
+            // lblRecorridoAltaPrecioBasePorPasaje
             // 
-            this.lblRecorridoModificarPrecioBasePorPasaje.AutoSize = true;
-            this.lblRecorridoModificarPrecioBasePorPasaje.Location = new System.Drawing.Point(12, 130);
-            this.lblRecorridoModificarPrecioBasePorPasaje.Name = "lblRecorridoModificarPrecioBasePorPasaje";
-            this.lblRecorridoModificarPrecioBasePorPasaje.Size = new System.Drawing.Size(115, 13);
-            this.lblRecorridoModificarPrecioBasePorPasaje.TabIndex = 9;
-            this.lblRecorridoModificarPrecioBasePorPasaje.Text = "Precio base por pasaje";
+            this.lblRecorridoAltaPrecioBasePorPasaje.AutoSize = true;
+            this.lblRecorridoAltaPrecioBasePorPasaje.Location = new System.Drawing.Point(12, 130);
+            this.lblRecorridoAltaPrecioBasePorPasaje.Name = "lblRecorridoAltaPrecioBasePorPasaje";
+            this.lblRecorridoAltaPrecioBasePorPasaje.Size = new System.Drawing.Size(115, 13);
+            this.lblRecorridoAltaPrecioBasePorPasaje.TabIndex = 9;
+            this.lblRecorridoAltaPrecioBasePorPasaje.Text = "Precio base por pasaje";
             // 
-            // tbRecorridoModificarPrecioBasePorKgs
+            // tbRecorridoAltaPrecioBasePorKgs
             // 
-            this.tbRecorridoModificarPrecioBasePorKgs.Location = new System.Drawing.Point(140, 101);
-            this.tbRecorridoModificarPrecioBasePorKgs.Name = "tbRecorridoModificarPrecioBasePorKgs";
-            this.tbRecorridoModificarPrecioBasePorKgs.Size = new System.Drawing.Size(187, 20);
-            this.tbRecorridoModificarPrecioBasePorKgs.TabIndex = 10;
+            this.tbRecorridoAltaPrecioBasePorKgs.Location = new System.Drawing.Point(140, 101);
+            this.tbRecorridoAltaPrecioBasePorKgs.Name = "tbRecorridoAltaPrecioBasePorKgs";
+            this.tbRecorridoAltaPrecioBasePorKgs.Size = new System.Drawing.Size(187, 20);
+            this.tbRecorridoAltaPrecioBasePorKgs.TabIndex = 10;
             // 
-            // tbRecorridoModificarPrecioBasePorPasaje
+            // tbRecorridoAltaPrecioBasePorPasaje
             // 
-            this.tbRecorridoModificarPrecioBasePorPasaje.Location = new System.Drawing.Point(140, 127);
-            this.tbRecorridoModificarPrecioBasePorPasaje.Name = "tbRecorridoModificarPrecioBasePorPasaje";
-            this.tbRecorridoModificarPrecioBasePorPasaje.Size = new System.Drawing.Size(187, 20);
-            this.tbRecorridoModificarPrecioBasePorPasaje.TabIndex = 11;
+            this.tbRecorridoAltaPrecioBasePorPasaje.Location = new System.Drawing.Point(140, 127);
+            this.tbRecorridoAltaPrecioBasePorPasaje.Name = "tbRecorridoAltaPrecioBasePorPasaje";
+            this.tbRecorridoAltaPrecioBasePorPasaje.Size = new System.Drawing.Size(187, 20);
+            this.tbRecorridoAltaPrecioBasePorPasaje.TabIndex = 11;
             // 
             // cbCiudadOrigen
             // 
@@ -151,19 +151,20 @@
             this.ClientSize = new System.Drawing.Size(475, 210);
             this.Controls.Add(this.cbCiudadDestino);
             this.Controls.Add(this.cbCiudadOrigen);
-            this.Controls.Add(this.tbRecorridoModificarPrecioBasePorPasaje);
-            this.Controls.Add(this.tbRecorridoModificarPrecioBasePorKgs);
-            this.Controls.Add(this.lblRecorridoModificarPrecioBasePorPasaje);
-            this.Controls.Add(this.lblRecorridoModificarPrecioBasePorKgs);
-            this.Controls.Add(this.btnRecorridoModificarGuardar);
-            this.Controls.Add(this.btnRecorridoModificarLimpiar);
-            this.Controls.Add(this.cbbRecorridoModificarTipoServicio);
-            this.Controls.Add(this.lblRecorridoModificarTipoServicio);
-            this.Controls.Add(this.lblRecorridoModificarCiudadDestino);
-            this.Controls.Add(this.lblRecorridoModificarCiudadOrigen);
+            this.Controls.Add(this.tbRecorridoAltaPrecioBasePorPasaje);
+            this.Controls.Add(this.tbRecorridoAltaPrecioBasePorKgs);
+            this.Controls.Add(this.lblRecorridoAltaPrecioBasePorPasaje);
+            this.Controls.Add(this.lblRecorridoAltaPrecioBasePorKgs);
+            this.Controls.Add(this.btnRecorridoAltaGuardar);
+            this.Controls.Add(this.btnRecorridoAltaLimpiar);
+            this.Controls.Add(this.cbbRecorridoAltaTipoServicio);
+            this.Controls.Add(this.lblRecorridoAltaTipoServicio);
+            this.Controls.Add(this.lblRecorridoAltaCiudadDestino);
+            this.Controls.Add(this.lblRecorridoAltaCiudadOrigen);
             this.Name = "RecorridoAlta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrbaBus - Recorridos :: Alta";
+            this.Load += new System.EventHandler(this.RecorridoAlta_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,16 +172,16 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblRecorridoModificarCiudadOrigen;
-        private System.Windows.Forms.Label lblRecorridoModificarCiudadDestino;
-        private System.Windows.Forms.Label lblRecorridoModificarTipoServicio;
-        private System.Windows.Forms.ComboBox cbbRecorridoModificarTipoServicio;
-        private System.Windows.Forms.Button btnRecorridoModificarLimpiar;
-        private System.Windows.Forms.Button btnRecorridoModificarGuardar;
-        private System.Windows.Forms.Label lblRecorridoModificarPrecioBasePorKgs;
-        private System.Windows.Forms.Label lblRecorridoModificarPrecioBasePorPasaje;
-        private System.Windows.Forms.TextBox tbRecorridoModificarPrecioBasePorKgs;
-        private System.Windows.Forms.TextBox tbRecorridoModificarPrecioBasePorPasaje;
+        private System.Windows.Forms.Label lblRecorridoAltaCiudadOrigen;
+        private System.Windows.Forms.Label lblRecorridoAltaCiudadDestino;
+        private System.Windows.Forms.Label lblRecorridoAltaTipoServicio;
+        private System.Windows.Forms.ComboBox cbbRecorridoAltaTipoServicio;
+        private System.Windows.Forms.Button btnRecorridoAltaLimpiar;
+        private System.Windows.Forms.Button btnRecorridoAltaGuardar;
+        private System.Windows.Forms.Label lblRecorridoAltaPrecioBasePorKgs;
+        private System.Windows.Forms.Label lblRecorridoAltaPrecioBasePorPasaje;
+        private System.Windows.Forms.TextBox tbRecorridoAltaPrecioBasePorKgs;
+        private System.Windows.Forms.TextBox tbRecorridoAltaPrecioBasePorPasaje;
         private System.Windows.Forms.ComboBox cbCiudadOrigen;
         private System.Windows.Forms.ComboBox cbCiudadDestino;
     }

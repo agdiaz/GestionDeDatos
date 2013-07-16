@@ -33,11 +33,11 @@ namespace FrbaBus.Abm_Recorrido
 
         private void btnRecorridoAltaLimpiar_Click(object sender, EventArgs e)
         {
-            this.cbbRecorridoModificarTipoServicio.SelectedIndex = 0;
+            this.cbbRecorridoAltaTipoServicio.SelectedIndex = 0;
             this.cbCiudadDestino.SelectedIndex = 0;
             this.cbCiudadOrigen.SelectedIndex = 0;
-            this.tbRecorridoModificarPrecioBasePorKgs.Text = string.Empty;
-            this.tbRecorridoModificarPrecioBasePorPasaje.Text = string.Empty;
+            this.tbRecorridoAltaPrecioBasePorKgs.Text = string.Empty;
+            this.tbRecorridoAltaPrecioBasePorPasaje.Text = string.Empty;
         }
 
         private void CargarCiudades()
@@ -58,12 +58,12 @@ namespace FrbaBus.Abm_Recorrido
         {
             IList<Servicio> servicios = _servicioManager.Listar();
 
-            this.cbbRecorridoModificarTipoServicio.DataSource = servicios;
-            this.cbbRecorridoModificarTipoServicio.DisplayMember = "TipoServicio";
-            this.cbbRecorridoModificarTipoServicio.ValueMember = "Id";
+            this.cbbRecorridoAltaTipoServicio.DataSource = servicios;
+            this.cbbRecorridoAltaTipoServicio.DisplayMember = "TipoServicio";
+            this.cbbRecorridoAltaTipoServicio.ValueMember = "Id";
         }
 
-        private void btnRecorridoModificarGuardar_Click(object sender, EventArgs e)
+        private void btnRecorridoAltaGuardar_Click(object sender, EventArgs e)
         {
 
         }

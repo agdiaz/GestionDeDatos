@@ -78,7 +78,7 @@ namespace FrbaBus.Abm_Recorrido
 
         private void CargarRecorridos()
         {
-            var recorridos = _manager.Listar();
+            var recorridos = _manager.Listar().OrderBy(r => r.CiudadOrigen.Nombre).ThenBy(r => r.CiudadDestino.Nombre).ThenBy(r => r.Servicio.TipoServicio).ToList();
             this.dgvRecorridoListado.DataSource = recorridos;
         }
         private void CargarCiudades()
@@ -105,12 +105,38 @@ namespace FrbaBus.Abm_Recorrido
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            Recorrido recorrido = dgvRecorridoListado.SelectedRows[0].DataBoundItem as Recorrido;
 
+            using (RecorridoModificar frm = new RecorridoModificar(recorrido))
+            {
+                frm.ShowDialog(this);
+            }
+            CargarRecorridos();
+            
         }
 
         private void btnRecorridoListadoDarBaja_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Recorrido rec = (Recorrido)dgvRecorridoListado.SelectedRows[0].DataBoundItem;
+                _manager.Baja(rec);
 
+                //Cargo la grilla de roles
+                CargarRecorridos();
+
+            }
+            catch (AccesoBDException ex)
+            {
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MensajePorPantalla.MensajeError(this, "Error al intentar borrar el registro.\n Detalle del error: " + ex.Message);
+                this.Close();
+            }
+            
         }
     }
 }
