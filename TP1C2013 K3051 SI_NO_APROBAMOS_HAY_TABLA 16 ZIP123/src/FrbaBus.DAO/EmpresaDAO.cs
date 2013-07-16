@@ -30,24 +30,45 @@ namespace FrbaBus.DAO
             Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
             parametros.Add(new SqlParameter("@p_id", SqlDbType.Int, 4, "p_id"), id);
 
-            DataSet ds = this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_obtener_empresa", parametros);
+            DataSet ds = this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_obtener_marca", parametros);
             DataRow row = ds.Tables[0].Rows[0];
             return this._builder.Build(row);
         }
 
         public int Alta(Empresa entidad)
         {
-            throw new NotImplementedException();
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+
+            SqlParameter pId = new SqlParameter("@p_id", SqlDbType.Int, 4, "p_id");
+            pId.Direction = ParameterDirection.Output;
+            parametros.Add(pId, 0);
+
+            SqlParameter pNombre = new SqlParameter("@p_nombre", SqlDbType.VarChar, 50, "p_nombre");
+            parametros.Add(pNombre, entidad.Descripcion);
+
+            this.accesoBD.EjecutarComando("[SI_NO_APROBAMOS_HAY_TABLA].sp_insert_marca", parametros);
+            return Convert.ToInt32(pId.Value);
         }
 
         public void Baja(Empresa entidad)
         {
-            throw new NotImplementedException();
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+            parametros.Add(new SqlParameter("@p_id", SqlDbType.Int, 4, "p_id"), entidad.Id);
+
+            this.accesoBD.EjecutarComando("SI_NO_APROBAMOS_HAY_TABLA.sp_delete_marca");
         }
 
         public void Modificacion(Empresa entidad)
         {
-            throw new NotImplementedException();
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+
+            SqlParameter pId = new SqlParameter("@p_id", SqlDbType.Int, 4, "p_id");
+            parametros.Add(pId, entidad.Id);
+
+            SqlParameter pNombre = new SqlParameter("@p_nombre", SqlDbType.VarChar, 50, "p_nombre");
+            parametros.Add(pNombre, entidad.Descripcion);
+
+            this.accesoBD.EjecutarComando("[SI_NO_APROBAMOS_HAY_TABLA].sp_update_marca", parametros);
         }
         
         public IList<Empresa> Listar()

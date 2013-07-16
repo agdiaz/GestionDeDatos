@@ -20,6 +20,26 @@ namespace FrbaBus.Manager
             this._ciudadManager = new CiudadManager();
             this._servicioManager = new ServicioManager();
         }
+        
+        public Recorrido Obtener(int id)
+        {
+            return _dao.Obtener(id);
+        }
+        public Recorrido Alta(Recorrido rec)
+        {
+            int id = _dao.Alta(rec);
+            rec.Id = id;
+            return rec;
+        }
+        public void Modificar(Recorrido rec)
+        {
+            this._dao.Modificacion(rec);
+
+        }
+        public void Baja(Recorrido rec)
+        {
+            this._dao.Baja(rec);
+        }
 
         public IList<Recorrido> Listar()
         {
@@ -36,7 +56,6 @@ namespace FrbaBus.Manager
             }
             return rtn;
         }
-
         public IList<Recorrido> ListarFiltrado(int origenId, int destinoId, int servicioId)
         {
             IList<Recorrido> rtn = _dao.ListarFiltrado(origenId, destinoId, servicioId);

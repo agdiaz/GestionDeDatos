@@ -16,12 +16,27 @@ namespace FrbaBus.Manager
             _dao = new ClienteDAO();
         }
 
+        public Cliente Obtener(decimal nroDni)
+        {
+            return _dao.Obtener(nroDni);
+        }
+
         public int Alta(Cliente cliente)
         {
             
 
             int id = _dao.Alta(cliente);
             return id;
+        }
+
+        public void Baja(Cliente cliente)
+        {
+            _dao.Baja(cliente);
+        }
+
+        public void Modificar(Cliente cliente)
+        {
+            _dao.Modificacion(cliente);
         }
 
         public IList<Cliente> Listar()

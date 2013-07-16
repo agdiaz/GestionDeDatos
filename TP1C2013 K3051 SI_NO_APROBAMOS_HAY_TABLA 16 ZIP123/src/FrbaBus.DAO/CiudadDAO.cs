@@ -41,7 +41,7 @@ namespace FrbaBus.DAO
         {
             Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
 
-            SqlParameter pNombre = new SqlParameter("@nombre", SqlDbType.VarChar, 50, "nombre");
+            SqlParameter pNombre = new SqlParameter("@p_nombre", SqlDbType.VarChar, 50, "p_nombre");
             parametros.Add(pNombre, entidad.Nombre);
 
             SqlParameter pId = new SqlParameter("@p_id", SqlDbType.Int, 4, "p_id");
@@ -55,22 +55,22 @@ namespace FrbaBus.DAO
         {
             Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
 
-            SqlParameter pId = new SqlParameter("@p_id", SqlDbType.Int, 4, "p_id");
+            SqlParameter pId = new SqlParameter("@p_id_ciudad", SqlDbType.Int, 4, "p_id_ciudad");
             parametros.Add(pId, entidad.Id);
 
-            this.accesoBD.EjecutarComando("[SI_NO_APROBAMOS_HAY_TABLA].sp_borrar_ciudad", parametros);
+            this.accesoBD.EjecutarComando("[SI_NO_APROBAMOS_HAY_TABLA].sp_delete_ciudad", parametros);
         }
         public void Modificacion(Ciudad entidad)
         {
             Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
 
-            SqlParameter pNombre = new SqlParameter("@nombre", SqlDbType.VarChar, 50, "nombre");
-            parametros.Add(pNombre, entidad.Nombre);
-
             SqlParameter pId = new SqlParameter("@p_id", SqlDbType.Int, 4, "p_id");
             parametros.Add(pId, entidad.Id);
 
-            this.accesoBD.EjecutarComando("[SI_NO_APROBAMOS_HAY_TABLA].sp_modificar_ciudad", parametros);
+            SqlParameter pNombre = new SqlParameter("@p_nombre", SqlDbType.VarChar, 50, "nombre");
+            parametros.Add(pNombre, entidad.Nombre);
+
+            this.accesoBD.EjecutarComando("[SI_NO_APROBAMOS_HAY_TABLA].sp_update_ciudad", parametros);
         }
 
         public IList<Ciudad> Listar()
@@ -100,14 +100,14 @@ namespace FrbaBus.DAO
 
         private DataSet ObtenerRegistros()
         {
-            DataSet ciudades = this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_listar_ciudad", new Dictionary<System.Data.SqlClient.SqlParameter, object>());
+            DataSet ciudades = this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_listar_ciudad");
             return ciudades;
         }
         private DataSet ObtenerRegistrosFiltrados(string nombre)
         {
             Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
 
-            SqlParameter pNombre = new SqlParameter("@p_ciudad", SqlDbType.VarChar, 50, "p_ciudad");
+            SqlParameter pNombre = new SqlParameter("@p_nombre", SqlDbType.VarChar, 50, "p_nombre");
             parametros.Add(pNombre, nombre);
 
             return this.accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_listar_filtrado_ciudad", parametros);
