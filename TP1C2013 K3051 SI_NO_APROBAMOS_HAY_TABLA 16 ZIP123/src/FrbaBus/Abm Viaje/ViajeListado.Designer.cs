@@ -70,6 +70,7 @@
             // 
             // cbRecorrido
             // 
+            this.cbRecorrido.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRecorrido.FormattingEnabled = true;
             this.cbRecorrido.Location = new System.Drawing.Point(388, 49);
             this.cbRecorrido.Name = "cbRecorrido";
@@ -78,6 +79,7 @@
             // 
             // cbMicro
             // 
+            this.cbMicro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMicro.FormattingEnabled = true;
             this.cbMicro.Location = new System.Drawing.Point(388, 22);
             this.cbMicro.Name = "cbMicro";
