@@ -65,7 +65,7 @@ namespace FrbaBus.DAO
             Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
             parametros.Add(new SqlParameter("p_id_rol", SqlDbType.VarChar, 50, "p_id_rol"), rolUsuario.Nombre);
 
-            DataSet ds = accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.listar_funcionalidades_rol", parametros);
+            DataSet ds = accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_listar_funcionalidades_rol", parametros);
 
             IList<Funcionalidad> funcionalidades = new List<Funcionalidad>(ds.Tables[0].Rows.Count);
             foreach (DataRow row in ds.Tables[0].Rows)

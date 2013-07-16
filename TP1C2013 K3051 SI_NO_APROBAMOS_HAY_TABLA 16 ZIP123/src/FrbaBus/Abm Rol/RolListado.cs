@@ -34,7 +34,9 @@ namespace FrbaBus.Rol
 
                 //Cargo las funcionalidades
                 IList<Funcionalidad> funcionalidades = _funcionalidadesManager.Listar();
-                this.cbbRolListadoFuncionalidades.Items.AddRange(funcionalidades.Select(f => f.Nombre).ToArray());
+                this.cbbRolListadoFuncionalidades.DataSource = funcionalidades;
+                this.cbbRolListadoFuncionalidades.DisplayMember = "Nombre";
+                this.cbbRolListadoFuncionalidades.ValueMember = "Id";
             }
             catch (AccesoBDException ex)
             {
@@ -52,13 +54,13 @@ namespace FrbaBus.Rol
         {
             try
             {
-                string funcionalidadElegida = string.Empty;
+                Funcionalidad funcionalidadElegida = null;
                 if (this.cbbRolListadoFuncionalidades.SelectedItem != null)
                 {
-                    funcionalidadElegida = this.cbbRolListadoFuncionalidades.SelectedItem.ToString();
+                    funcionalidadElegida = this.cbbRolListadoFuncionalidades.SelectedItem as Funcionalidad;
                 }
                 
-                IList<RolUsuario> roles = _manager.ListarFiltrado(this.tbRolListadoRol.Text, funcionalidadElegida);
+                IList<RolUsuario> roles = _manager.ListarFiltrado(this.tbRolListadoRol.Text, funcionalidadElegida.Nombre);
                 this.dgvRolListado.DataSource = roles;
             }
             catch (AccesoBDException ex)
