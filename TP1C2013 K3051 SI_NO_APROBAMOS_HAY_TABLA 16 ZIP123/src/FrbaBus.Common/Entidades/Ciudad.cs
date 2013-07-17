@@ -14,5 +14,11 @@ namespace FrbaBus.Common.Entidades
         {
             return Nombre;
         }
+
+        public Ciudad()
+        {
+            Id = 0;
+            Nombre = string.Empty;
+        }
     }
 }

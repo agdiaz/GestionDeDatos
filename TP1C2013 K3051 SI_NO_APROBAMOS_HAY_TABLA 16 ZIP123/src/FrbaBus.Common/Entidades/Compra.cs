@@ -15,11 +15,24 @@ namespace FrbaBus.Common.Entidades
         public IList<Pasaje> Pasajes { get; set; }
         public IList<Encomienda> Encomiendas { get; set; }
         public IList<Puntaje> Puntajes { get; set; }
-        public Cancelacion Cancelacion { get; set; }
+        public Cancelacion CancelacionCompra { get; set; }
 
         public override string ToString()
         {
             return IdCompra.ToString();
+        }
+
+        public Compra()
+        {
+            IdCompra = 0;
+            IdUsuario = 0;
+            IdCancelacion = 0;
+            FechaCompra = DateTime.MinValue;
+
+            Pasajes = new List<Pasaje>();
+            Encomiendas = new List<Encomienda>();
+            Puntajes = new List<Puntaje>();
+            CancelacionCompra = new Cancelacion();
         }
     }
 }

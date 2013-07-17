@@ -19,5 +19,17 @@ namespace FrbaBus.Common.Entidades
         {
             return IdEncomienda.ToString();
         }
+
+        public Encomienda()
+        {
+            IdEncomienda = 0;
+            IdCancelacion = 0;
+            IdViaje = 0;
+            IdCompra = 0;
+            NroDni = 0;
+            Peso = 0;
+            PrecioEncomienda = 0;
+
+        }
     }
 }

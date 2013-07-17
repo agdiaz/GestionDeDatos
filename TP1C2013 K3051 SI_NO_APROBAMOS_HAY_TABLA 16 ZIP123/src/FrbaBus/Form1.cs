@@ -20,13 +20,28 @@ namespace FrbaBus
 {
     public partial class Form1 : Form
     {
+        #region Managers
         private MicroManager _microManager;
         private UsuarioManager _managerUsuario;
         private CiudadManager _ciudadManager;
+        #endregion
+        
+        #region Atributos para la compra
+        
+        IList<Pasaje> _pasajes;
+        IList<Encomienda> _encomiendas;
+        Viaje _viaje;
+        Recorrido _recorrido;
+        Micro _micro;
 
+        #endregion
+        
+        #region Constructor
         public Form1()
         {
             InitializeComponent();
+            
+            //Manager
             this._microManager = new MicroManager();
             this._managerUsuario = new UsuarioManager();
             this._ciudadManager = new CiudadManager();
@@ -35,6 +50,8 @@ namespace FrbaBus
             SetearCustomFormatDataTimePicker();
         }
 
+        #endregion
+        
         #region Formulario
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -43,17 +60,79 @@ namespace FrbaBus
 
         private void IniciarFormulario()
         {
+            InicializarDatosCompra();
+            LimpiarGrupoRecorrido(true);
+            LimpiarGrupoViaje(false);
+            LimpiarGrupoMicros(false);
+            LimpiarGrupoDetalles(false);
+            LimpiarGrupoMedioPago(false);
+            
+        }
+
+        private void LimpiarGrupoViaje(bool habilitado)
+        {
+            gbViaje.Enabled = habilitado;
+        }
+
+        private void LimpiarGrupoRecorrido(bool habilitar)
+        {
+            this.gbRecorrido.Enabled = habilitar;
+        }
+
+        private void LimpiarGrupoMedioPago(bool habilitar)
+        {
+            gbMedioDePago.Enabled = habilitar;
+        }
+
+        private void LimpiarGrupoDetalles(bool habilitar)
+        {
+            gbDetalles.Enabled = habilitar;
+        }
+
+        private void LimpiarGrupoMicros(bool habilitar)
+        {
+            gbMicro.Enabled = habilitar;
+        }
+
+        // 1) Recorrido
+        private void MostrarOpcionesRecorrido()
+        {
+            LimpiarGrupoRecorrido(true);
+            tbRecorridoCiudadDestino.Text = _recorrido.CiudadDestino.Nombre;
+            tbRecorridoCiudadOrigen.Text = _recorrido.CiudadOrigen.Nombre;
+            tbRecorridoServicio.Text = _recorrido.Servicio.TipoServicio;
+
+        }
+        // 2) Viaje
+        private void MostrarOpcionesViaje()
+        {
+            LimpiarGrupoViaje(true);
+            dtpViajeFechaArribo.Value = _viaje.FechaArribo;
+            dtpViajeFechaSalida.Value = _viaje.FechaSalida;
+        }
+
+        // 3) Micro
+        private void MostrarOpcionesMicro()
+        {
+            LimpiarGrupoMicros(true);
+            tbMicroButacasLibres.Text = _micro.ButacasDisponibles.ToString();
+            tbMicroKgDisponibles.Text = _micro.KgsDisponibles.ToString();
+            tbMicroMarca.Text = _micro.Empresa.Descripcion;
+            tbMicroPatente.Text = _micro.Patente;
+            tbMicroServicio.Text = _micro.Servicio.TipoServicio;
+        }
+        
+        private void btnBuscarMicros_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CargarFecha()
+        {
             var now = Helpers.FechaHelper.Ahora();
             this.tssFecha.Text = now.ToString("dd/MM/yyyy");
             this.tssHora.Text = now.ToString("HH:mm:ss");
-            this.dtpFechaSalida.Value = now;
-
-            gbPasajeros.Enabled = (cbPasajes.Checked);
-            gbEncomiendas.Enabled = (cbPasajes.Checked);
-
-            this.ListarCiudadesOrigen();
-            this.ListarCiudadesDestino();
-
+            this.dtpViajeFechaSalida.Value = now;
         }
         #endregion
 
@@ -204,6 +283,30 @@ namespace FrbaBus
         {
             tsmSesionCerrar.Enabled = Program.ContextoActual.ConSesionIniciada;
         }
+        private void tsmMicroButacaAlta_Click(object sender, EventArgs e)
+        {
+            using (MicroButacaAlta frm = new MicroButacaAlta())
+            {
+                frm.ShowDialog(this);
+            }
+        }
+
+        private void tsmMicroMarcaAlta_Click(object sender, EventArgs e)
+        {
+            using (MicroMarcaAlta frm = new MicroMarcaAlta())
+            {
+                frm.ShowDialog(this);
+            }
+        }
+
+        private void tsmMicroServicioAlta_Click(object sender, EventArgs e)
+        {
+            using (MicroServicioAlta frm = new MicroServicioAlta())
+            {
+                frm.ShowDialog(this);
+            }
+        }
+
 
         #endregion
 
@@ -213,37 +316,17 @@ namespace FrbaBus
 
         }
 
-        private void btnBuscarMicros_Click(object sender, EventArgs e)
-        {
-            gbMicros.Enabled = true;
-            gbDetalles.Enabled = true;
-            gbMedioDePago.Enabled = true;
-            var origen = Convert.ToInt32(this.cbbCiudadOrigen.SelectedValue.ToString());
-            var destino = Convert.ToInt32(this.cbbCiudadDestino.SelectedValue.ToString());
-
-            IList<Micro> microsDisponibles = _microManager.ListarDisponibles(origen, destino, this.dtpFechaSalida.Value);
-
-            this.cbbMicro.DataSource = microsDisponibles;
-            cbbMicro.DisplayMember = "Marca";
-            cbbMicro.ValueMember = "Id";
-
-            if (microsDisponibles.Count > 0)
-            {
-                var Micro = cbbMicro.SelectedValue as Micro;
-                if (Micro != null)
-                {
-                    txtButacasLibres.Text = Micro.ButacasDisponibles.ToString();
-                    txtKgsDisp.Text = Micro.KgsDisponibles.ToString();
-                    txtTipoServicio.Text = Micro.Servicio.ToString();
-                }
-            }
-        }
+        
         private void btnAgregarPasajero_Click(object sender, EventArgs e)
         {
             new ClienteAlta().ShowDialog(this);
         }
         #endregion
 
+        #region Listas
+        #endregion
+
+        #region Usuario y roles
         public void RegistrarPermisos()
         {
             this.ActualizarStatusBar();
@@ -299,11 +382,6 @@ namespace FrbaBus
             tsmViajeListado.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmViajeListado");
             tsmViaje.Enabled = tsmViajeAlta.Enabled || tsmViajeListado.Enabled;
 
-            //Menú Pasaje/Encomienda:
-            tsmPasajeEncomiendaAlta.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmEncomiendaAlta");
-            tsmPasajeEncomiendaCancelar.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmEncomiendaCancelar");
-            tsmEncomienda.Enabled = tsmPasajeEncomiendaCancelar.Enabled || tsmPasajeEncomiendaAlta.Enabled;
-
             //Menú Estadísticas:
             tsmEstadisticasListados.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmEstadisticasListado");
             tsmEstadisticas.Enabled = tsmEstadisticasListados.Enabled;
@@ -324,33 +402,24 @@ namespace FrbaBus
             this.tssRolValor.Text = Program.ContextoActual.UsuarioActual.RolAsignado.Nombre;
             this.tssSesion.Text = Program.ContextoActual.ConSesionIniciada ? "(Sesión iniciada)" : "(Sesión no iniciada)";
         }
+        #endregion
+
+        #region Compras
+
+        private void InicializarDatosCompra()
+        {
+            _pasajes = new List<Pasaje>();
+            _encomiendas = new List<Encomienda>();
+            _viaje = new Viaje();
+            _recorrido = new Recorrido();
+            _micro = new Micro();
+        }
 
         private void cbPasajes_CheckedChanged(object sender, EventArgs e)
         {
             gbPasajeros.Enabled = (cbPasajes.Checked);
         }
-
-        #region Listas
-        private void ListarCiudadesDestino()
-        {
-            IList<Ciudad> ciudadesDestino = _ciudadManager.Listar();
-            this.cbbCiudadDestino.DataSource = ciudadesDestino;
-            this.cbbCiudadDestino.DisplayMember = "Nombre";
-            this.cbbCiudadDestino.ValueMember = "Id";
-
-        }
-
-        private void ListarCiudadesOrigen()
-        {
-            IList<Ciudad> ciudadesOrigen = _ciudadManager.Listar();
-            this.cbbCiudadOrigen.DataSource = ciudadesOrigen;
-            this.cbbCiudadOrigen.DisplayMember = "Nombre";
-            this.cbbCiudadOrigen.ValueMember = "Id";
-
-        }
-
-        #endregion
-
+        
         private void lbEncomiendas_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -368,8 +437,11 @@ namespace FrbaBus
 
         private void SetearCustomFormatDataTimePicker()
         {
-            dtpFechaSalida.Format = DateTimePickerFormat.Custom;
-            dtpFechaSalida.CustomFormat = "MMMM dd, yyyy - HH:mm:ss";
+            dtpViajeFechaSalida.Format = DateTimePickerFormat.Custom;
+            dtpViajeFechaSalida.CustomFormat = "MMMM dd, yyyy - HH:mm:ss";
+
+            dtpViajeFechaArribo.Format = DateTimePickerFormat.Custom;
+            dtpViajeFechaArribo.CustomFormat = "MMMM dd, yyyy - HH:mm:ss";
         }
 
         private void gbDetalles_Enter(object sender, EventArgs e)
@@ -377,54 +449,46 @@ namespace FrbaBus
 
         }
 
-        private void cbbMicro_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var Micro = cbbMicro.SelectedValue as Micro;
-            if (Micro != null)
-            {
-
-                txtButacasLibres.Text = Micro.ButacasDisponibles.ToString();
-                txtKgsDisp.Text = Micro.KgsDisponibles.ToString();
-                txtTipoServicio.Text = Micro.Servicio.ToString();
-            }
-        }
-
         private void txtCantPasajes_Leave(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtButacasLibres.Text))
+            if (!string.IsNullOrEmpty(tbMicroButacasLibres.Text))
             { 
-                var cantDisp = Convert.ToInt32(txtButacasLibres.Text);
+                var cantDisp = Convert.ToInt32(tbMicroButacasLibres.Text);
                 var cantSeleccionada = Convert.ToInt32(txtCantPasajes.Text);
                 if (cantSeleccionada > cantDisp)
                 {
-                    txtCantPasajes.Text = txtButacasLibres.Text;
+                    txtCantPasajes.Text = tbMicroButacasLibres.Text;
                 }
             }
         }
 
-        private void tsmMicroButacaAlta_Click(object sender, EventArgs e)
+        private void gbPasajeros_Enter(object sender, EventArgs e)
         {
-            using (MicroButacaAlta frm = new MicroButacaAlta())
-            {
-                frm.ShowDialog(this);
-            }
+
         }
 
-        private void tsmMicroMarcaAlta_Click(object sender, EventArgs e)
+        #endregion
+
+        private void btnBuscarViaje_Click(object sender, EventArgs e)
         {
-            using (MicroMarcaAlta frm = new MicroMarcaAlta())
-            {
-                frm.ShowDialog(this);
-            }
+            MostrarOpcionesViaje();
+        }
+        private void btnCargarMicro_Click(object sender, EventArgs e)
+        {
+            MostrarOpcionesMicro();
         }
 
-        private void tsmMicroServicioAlta_Click(object sender, EventArgs e)
+        private void label2_Click(object sender, EventArgs e)
         {
-            using (MicroServicioAlta frm = new MicroServicioAlta())
-            {
-                frm.ShowDialog(this);
-            }
+
         }
+
+        private void btnCargarDetalles_Click(object sender, EventArgs e)
+        {
+            LimpiarGrupoDetalles(true);
+        }
+
+        
 
     }
 }

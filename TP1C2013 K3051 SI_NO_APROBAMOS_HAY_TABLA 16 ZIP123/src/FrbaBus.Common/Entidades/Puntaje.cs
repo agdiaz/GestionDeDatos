@@ -18,5 +18,15 @@ namespace FrbaBus.Common.Entidades
         {
             return IdPuntaje.ToString();
         }
+
+        public Puntaje()
+        {
+            IdPuntaje = 0;
+            NroDni = 0;
+            Puntos = 0;
+            PuntosUsados = 0;
+            FechaOtorgacion = DateTime.MinValue;
+            IdCompra = 0;
+        }
     }
 }

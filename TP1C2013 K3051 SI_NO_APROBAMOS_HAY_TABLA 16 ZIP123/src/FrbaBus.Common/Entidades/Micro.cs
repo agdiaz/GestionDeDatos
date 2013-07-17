@@ -31,5 +31,23 @@ namespace FrbaBus.Common.Entidades
         {
             return Patente;
         }
+
+        public Micro()
+        {
+            Id = 0;
+            FechaAlta = DateTime.MinValue;
+            NumeroDeMicro = 0;
+            Modelo = string.Empty;
+            Patente = string.Empty;
+            
+            IdEmpresa = 0;
+            Empresa = new Empresa();
+            Marca = Empresa.Descripcion;
+            IdServicio = 0;
+            FechaBajaVidaUtil = null;
+
+            Servicio = new Servicio();
+            Butacas = new List<Butaca>();
+        }
     }
 }

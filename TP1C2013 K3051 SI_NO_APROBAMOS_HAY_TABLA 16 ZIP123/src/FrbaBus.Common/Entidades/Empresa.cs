@@ -14,5 +14,11 @@ namespace FrbaBus.Common.Entidades
         {
             return Descripcion;
         }
+
+        public Empresa()
+        {
+            Id = 0;
+            Descripcion = string.Empty;
+        }
     }
 }

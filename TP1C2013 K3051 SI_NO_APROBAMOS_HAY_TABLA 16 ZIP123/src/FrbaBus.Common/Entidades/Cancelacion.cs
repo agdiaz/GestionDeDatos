@@ -15,5 +15,12 @@ namespace FrbaBus.Common.Entidades
         {
             return IdCancelacion.ToString();
         }
+
+        public Cancelacion()
+        {
+            IdCancelacion = 0;
+            FechaCancelacion = DateTime.MinValue;
+            Motivo = string.Empty;
+        }
     }
 }

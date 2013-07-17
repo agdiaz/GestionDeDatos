@@ -47,6 +47,7 @@
             this.tsmMicro = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmMicroListado = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmMicroAlta = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmMicroServicio = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmMicroServicioListado = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmMicroServicioAlta = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,7 +65,6 @@
             this.tsmClientePasajeroFrecuente = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmClientePasajeroFrecuenteConsultar = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmEncomienda = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmPasajeEncomiendaAlta = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPasajeEncomiendaCancelar = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPremios = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPremiosListado = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,24 +84,21 @@
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tssHora = new System.Windows.Forms.ToolStripStatusLabel();
             this.gbViaje = new System.Windows.Forms.GroupBox();
-            this.btnBuscarMicros = new System.Windows.Forms.Button();
+            this.btnCargarMicro = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.cbbCiudadDestino = new System.Windows.Forms.ComboBox();
-            this.cbbCiudadOrigen = new System.Windows.Forms.ComboBox();
-            this.dtpFechaSalida = new System.Windows.Forms.DateTimePicker();
+            this.dtpViajeFechaSalida = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.gbMicros = new System.Windows.Forms.GroupBox();
-            this.btnElegirMicro = new System.Windows.Forms.Button();
-            this.txtTipoServicio = new System.Windows.Forms.TextBox();
-            this.txtKgsDisp = new System.Windows.Forms.TextBox();
-            this.txtButacasLibres = new System.Windows.Forms.TextBox();
+            this.gbMicro = new System.Windows.Forms.GroupBox();
+            this.btnCargarDetalles = new System.Windows.Forms.Button();
+            this.tbMicroServicio = new System.Windows.Forms.TextBox();
+            this.tbMicroKgDisponibles = new System.Windows.Forms.TextBox();
+            this.tbMicroButacasLibres = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.cbbMicro = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.gbDetalles = new System.Windows.Forms.GroupBox();
             this.gbEncomiendas = new System.Windows.Forms.GroupBox();
@@ -118,14 +115,29 @@
             this.cbEncomiendas = new System.Windows.Forms.CheckBox();
             this.cbPasajes = new System.Windows.Forms.CheckBox();
             this.gbMedioDePago = new System.Windows.Forms.GroupBox();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.cargarArribaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.gbRecorrido = new System.Windows.Forms.GroupBox();
+            this.tbRecorridoCiudadOrigen = new System.Windows.Forms.TextBox();
+            this.tbRecorridoCiudadDestino = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tbRecorridoServicio = new System.Windows.Forms.TextBox();
+            this.btnCargarViaje = new System.Windows.Forms.Button();
+            this.tsmComprarPasajes = new System.Windows.Forms.ToolStripMenuItem();
+            this.label11 = new System.Windows.Forms.Label();
+            this.dtpViajeFechaArribo = new System.Windows.Forms.DateTimePicker();
+            this.tbMicroMarca = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tbMicroPatente = new System.Windows.Forms.TextBox();
             this.mnsMain.SuspendLayout();
             this.ssStatusMain.SuspendLayout();
             this.gbViaje.SuspendLayout();
-            this.gbMicros.SuspendLayout();
+            this.gbMicro.SuspendLayout();
             this.gbDetalles.SuspendLayout();
             this.gbEncomiendas.SuspendLayout();
             this.gbPasajeros.SuspendLayout();
+            this.gbRecorrido.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnsMain
@@ -293,6 +305,11 @@
             this.tsmMicroAlta.Text = "Alta";
             this.tsmMicroAlta.Click += new System.EventHandler(this.tsmMicroAlta_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            // 
             // tsmMicroServicio
             // 
             this.tsmMicroServicio.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -305,13 +322,13 @@
             // tsmMicroServicioListado
             // 
             this.tsmMicroServicioListado.Name = "tsmMicroServicioListado";
-            this.tsmMicroServicioListado.Size = new System.Drawing.Size(152, 22);
+            this.tsmMicroServicioListado.Size = new System.Drawing.Size(112, 22);
             this.tsmMicroServicioListado.Text = "Listado";
             // 
             // tsmMicroServicioAlta
             // 
             this.tsmMicroServicioAlta.Name = "tsmMicroServicioAlta";
-            this.tsmMicroServicioAlta.Size = new System.Drawing.Size(152, 22);
+            this.tsmMicroServicioAlta.Size = new System.Drawing.Size(112, 22);
             this.tsmMicroServicioAlta.Text = "Alta";
             this.tsmMicroServicioAlta.Click += new System.EventHandler(this.tsmMicroServicioAlta_Click);
             // 
@@ -327,13 +344,13 @@
             // tsmMicroMarcaListado
             // 
             this.tsmMicroMarcaListado.Name = "tsmMicroMarcaListado";
-            this.tsmMicroMarcaListado.Size = new System.Drawing.Size(152, 22);
+            this.tsmMicroMarcaListado.Size = new System.Drawing.Size(112, 22);
             this.tsmMicroMarcaListado.Text = "Listado";
             // 
             // tsmMicroMarcaAlta
             // 
             this.tsmMicroMarcaAlta.Name = "tsmMicroMarcaAlta";
-            this.tsmMicroMarcaAlta.Size = new System.Drawing.Size(152, 22);
+            this.tsmMicroMarcaAlta.Size = new System.Drawing.Size(112, 22);
             this.tsmMicroMarcaAlta.Text = "Alta";
             this.tsmMicroMarcaAlta.Click += new System.EventHandler(this.tsmMicroMarcaAlta_Click);
             // 
@@ -348,7 +365,7 @@
             // tsmMicroButacaAlta
             // 
             this.tsmMicroButacaAlta.Name = "tsmMicroButacaAlta";
-            this.tsmMicroButacaAlta.Size = new System.Drawing.Size(152, 22);
+            this.tsmMicroButacaAlta.Size = new System.Drawing.Size(95, 22);
             this.tsmMicroButacaAlta.Text = "Alta";
             this.tsmMicroButacaAlta.Click += new System.EventHandler(this.tsmMicroButacaAlta_Click);
             // 
@@ -356,7 +373,9 @@
             // 
             this.tsmViaje.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmViajeListado,
-            this.tsmViajeAlta});
+            this.tsmViajeAlta,
+            this.toolStripSeparator3,
+            this.cargarArribaToolStripMenuItem});
             this.tsmViaje.Name = "tsmViaje";
             this.tsmViaje.Size = new System.Drawing.Size(44, 20);
             this.tsmViaje.Text = "&Viaje";
@@ -380,6 +399,7 @@
             this.tsmCliente.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmClienteListado,
             this.tsmClienteAlta,
+            this.toolStripSeparator4,
             this.tsmClientePasajeroFrecuente});
             this.tsmCliente.Name = "tsmCliente";
             this.tsmCliente.Size = new System.Drawing.Size(56, 20);
@@ -411,29 +431,22 @@
             // tsmClientePasajeroFrecuenteConsultar
             // 
             this.tsmClientePasajeroFrecuenteConsultar.Name = "tsmClientePasajeroFrecuenteConsultar";
-            this.tsmClientePasajeroFrecuenteConsultar.Size = new System.Drawing.Size(125, 22);
+            this.tsmClientePasajeroFrecuenteConsultar.Size = new System.Drawing.Size(152, 22);
             this.tsmClientePasajeroFrecuenteConsultar.Text = "Consultar";
             // 
             // tsmEncomienda
             // 
             this.tsmEncomienda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmPasajeEncomiendaAlta,
+            this.tsmComprarPasajes,
             this.tsmPasajeEncomiendaCancelar});
             this.tsmEncomienda.Name = "tsmEncomienda";
             this.tsmEncomienda.Size = new System.Drawing.Size(123, 20);
             this.tsmEncomienda.Text = "&Pasaje/Encomienda";
             // 
-            // tsmPasajeEncomiendaAlta
-            // 
-            this.tsmPasajeEncomiendaAlta.Name = "tsmPasajeEncomiendaAlta";
-            this.tsmPasajeEncomiendaAlta.Size = new System.Drawing.Size(121, 22);
-            this.tsmPasajeEncomiendaAlta.Text = "Comprar";
-            this.tsmPasajeEncomiendaAlta.Click += new System.EventHandler(this.tsmPasajeEncomiendaComprar_Click);
-            // 
             // tsmPasajeEncomiendaCancelar
             // 
             this.tsmPasajeEncomiendaCancelar.Name = "tsmPasajeEncomiendaCancelar";
-            this.tsmPasajeEncomiendaCancelar.Size = new System.Drawing.Size(121, 22);
+            this.tsmPasajeEncomiendaCancelar.Size = new System.Drawing.Size(152, 22);
             this.tsmPasajeEncomiendaCancelar.Text = "Cancelar";
             this.tsmPasajeEncomiendaCancelar.Click += new System.EventHandler(this.tsmPasajeEncomiendaCancelar_Click);
             // 
@@ -449,13 +462,13 @@
             // tsmPremiosListado
             // 
             this.tsmPremiosListado.Name = "tsmPremiosListado";
-            this.tsmPremiosListado.Size = new System.Drawing.Size(112, 22);
+            this.tsmPremiosListado.Size = new System.Drawing.Size(152, 22);
             this.tsmPremiosListado.Text = "Listado";
             // 
             // tsmPremiosAlta
             // 
             this.tsmPremiosAlta.Name = "tsmPremiosAlta";
-            this.tsmPremiosAlta.Size = new System.Drawing.Size(112, 22);
+            this.tsmPremiosAlta.Size = new System.Drawing.Size(152, 22);
             this.tsmPremiosAlta.Text = "Alta";
             // 
             // tsmEstadisticas
@@ -469,7 +482,7 @@
             // tsmEstadisticasListados
             // 
             this.tsmEstadisticasListados.Name = "tsmEstadisticasListados";
-            this.tsmEstadisticasListados.Size = new System.Drawing.Size(117, 22);
+            this.tsmEstadisticasListados.Size = new System.Drawing.Size(152, 22);
             this.tsmEstadisticasListados.Text = "Listados";
             this.tsmEstadisticasListados.Click += new System.EventHandler(this.tsmEstadisticasListados_Click);
             // 
@@ -562,37 +575,35 @@
             // 
             // gbViaje
             // 
-            this.gbViaje.Controls.Add(this.btnBuscarMicros);
-            this.gbViaje.Controls.Add(this.label4);
-            this.gbViaje.Controls.Add(this.label3);
+            this.gbViaje.Controls.Add(this.dtpViajeFechaArribo);
+            this.gbViaje.Controls.Add(this.label11);
+            this.gbViaje.Controls.Add(this.btnCargarMicro);
             this.gbViaje.Controls.Add(this.label2);
-            this.gbViaje.Controls.Add(this.cbbCiudadDestino);
-            this.gbViaje.Controls.Add(this.cbbCiudadOrigen);
-            this.gbViaje.Controls.Add(this.dtpFechaSalida);
+            this.gbViaje.Controls.Add(this.dtpViajeFechaSalida);
             this.gbViaje.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbViaje.Location = new System.Drawing.Point(12, 89);
+            this.gbViaje.Location = new System.Drawing.Point(12, 298);
             this.gbViaje.Name = "gbViaje";
             this.gbViaje.Size = new System.Drawing.Size(352, 141);
             this.gbViaje.TabIndex = 2;
             this.gbViaje.TabStop = false;
             this.gbViaje.Text = "1) Viaje";
             // 
-            // btnBuscarMicros
+            // btnCargarMicro
             // 
-            this.btnBuscarMicros.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarMicros.Location = new System.Drawing.Point(259, 92);
-            this.btnBuscarMicros.Name = "btnBuscarMicros";
-            this.btnBuscarMicros.Size = new System.Drawing.Size(72, 36);
-            this.btnBuscarMicros.TabIndex = 6;
-            this.btnBuscarMicros.Text = "Buscar micros";
-            this.btnBuscarMicros.UseVisualStyleBackColor = true;
-            this.btnBuscarMicros.Click += new System.EventHandler(this.btnBuscarMicros_Click);
+            this.btnCargarMicro.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCargarMicro.Location = new System.Drawing.Point(23, 101);
+            this.btnCargarMicro.Name = "btnCargarMicro";
+            this.btnCargarMicro.Size = new System.Drawing.Size(75, 23);
+            this.btnCargarMicro.TabIndex = 6;
+            this.btnCargarMicro.Text = "Continuar >>";
+            this.btnCargarMicro.UseVisualStyleBackColor = true;
+            this.btnCargarMicro.Click += new System.EventHandler(this.btnCargarMicro_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(10, 101);
+            this.label4.Location = new System.Drawing.Point(19, 86);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 13);
             this.label4.TabIndex = 5;
@@ -602,7 +613,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(10, 67);
+            this.label3.Location = new System.Drawing.Point(19, 52);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 13);
             this.label3.TabIndex = 4;
@@ -617,33 +628,17 @@
             this.label2.Size = new System.Drawing.Size(81, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Fecha de salida";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // cbbCiudadDestino
+            // dtpViajeFechaSalida
             // 
-            this.cbbCiudadDestino.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbCiudadDestino.FormattingEnabled = true;
-            this.cbbCiudadDestino.Location = new System.Drawing.Point(106, 101);
-            this.cbbCiudadDestino.Name = "cbbCiudadDestino";
-            this.cbbCiudadDestino.Size = new System.Drawing.Size(121, 21);
-            this.cbbCiudadDestino.TabIndex = 2;
-            // 
-            // cbbCiudadOrigen
-            // 
-            this.cbbCiudadOrigen.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbCiudadOrigen.FormattingEnabled = true;
-            this.cbbCiudadOrigen.Location = new System.Drawing.Point(106, 67);
-            this.cbbCiudadOrigen.Name = "cbbCiudadOrigen";
-            this.cbbCiudadOrigen.Size = new System.Drawing.Size(121, 21);
-            this.cbbCiudadOrigen.TabIndex = 1;
-            // 
-            // dtpFechaSalida
-            // 
-            this.dtpFechaSalida.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaSalida.Location = new System.Drawing.Point(106, 33);
-            this.dtpFechaSalida.Name = "dtpFechaSalida";
-            this.dtpFechaSalida.Size = new System.Drawing.Size(200, 21);
-            this.dtpFechaSalida.TabIndex = 0;
-            this.dtpFechaSalida.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.dtpViajeFechaSalida.Enabled = false;
+            this.dtpViajeFechaSalida.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpViajeFechaSalida.Location = new System.Drawing.Point(106, 33);
+            this.dtpViajeFechaSalida.Name = "dtpViajeFechaSalida";
+            this.dtpViajeFechaSalida.Size = new System.Drawing.Size(200, 21);
+            this.dtpViajeFechaSalida.TabIndex = 0;
+            this.dtpViajeFechaSalida.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label1
             // 
@@ -651,70 +646,72 @@
             this.label1.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(19, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 33);
+            this.label1.Size = new System.Drawing.Size(483, 33);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Compras";
+            this.label1.Text = "Compra de pasajes y encomiendas";
             // 
-            // gbMicros
+            // gbMicro
             // 
-            this.gbMicros.Controls.Add(this.btnElegirMicro);
-            this.gbMicros.Controls.Add(this.txtTipoServicio);
-            this.gbMicros.Controls.Add(this.txtKgsDisp);
-            this.gbMicros.Controls.Add(this.txtButacasLibres);
-            this.gbMicros.Controls.Add(this.label8);
-            this.gbMicros.Controls.Add(this.label7);
-            this.gbMicros.Controls.Add(this.label6);
-            this.gbMicros.Controls.Add(this.label5);
-            this.gbMicros.Controls.Add(this.cbbMicro);
-            this.gbMicros.Enabled = false;
-            this.gbMicros.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbMicros.Location = new System.Drawing.Point(13, 237);
-            this.gbMicros.Name = "gbMicros";
-            this.gbMicros.Size = new System.Drawing.Size(351, 151);
-            this.gbMicros.TabIndex = 4;
-            this.gbMicros.TabStop = false;
-            this.gbMicros.Text = "2) Micros disponibles";
+            this.gbMicro.Controls.Add(this.tbMicroPatente);
+            this.gbMicro.Controls.Add(this.label12);
+            this.gbMicro.Controls.Add(this.tbMicroMarca);
+            this.gbMicro.Controls.Add(this.btnCargarDetalles);
+            this.gbMicro.Controls.Add(this.tbMicroServicio);
+            this.gbMicro.Controls.Add(this.tbMicroKgDisponibles);
+            this.gbMicro.Controls.Add(this.tbMicroButacasLibres);
+            this.gbMicro.Controls.Add(this.label8);
+            this.gbMicro.Controls.Add(this.label7);
+            this.gbMicro.Controls.Add(this.label6);
+            this.gbMicro.Controls.Add(this.label5);
+            this.gbMicro.Enabled = false;
+            this.gbMicro.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbMicro.Location = new System.Drawing.Point(13, 445);
+            this.gbMicro.Name = "gbMicro";
+            this.gbMicro.Size = new System.Drawing.Size(351, 181);
+            this.gbMicro.TabIndex = 4;
+            this.gbMicro.TabStop = false;
+            this.gbMicro.Text = "2) Micro";
             // 
-            // btnElegirMicro
+            // btnCargarDetalles
             // 
-            this.btnElegirMicro.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnElegirMicro.Location = new System.Drawing.Point(226, 104);
-            this.btnElegirMicro.Name = "btnElegirMicro";
-            this.btnElegirMicro.Size = new System.Drawing.Size(119, 36);
-            this.btnElegirMicro.TabIndex = 9;
-            this.btnElegirMicro.Text = "Confirmar micro";
-            this.btnElegirMicro.UseVisualStyleBackColor = true;
-            this.btnElegirMicro.Click += new System.EventHandler(this.btnElegirMicro_Click);
+            this.btnCargarDetalles.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCargarDetalles.Location = new System.Drawing.Point(270, 153);
+            this.btnCargarDetalles.Name = "btnCargarDetalles";
+            this.btnCargarDetalles.Size = new System.Drawing.Size(75, 22);
+            this.btnCargarDetalles.TabIndex = 9;
+            this.btnCargarDetalles.Text = "Continuar";
+            this.btnCargarDetalles.UseVisualStyleBackColor = true;
+            this.btnCargarDetalles.Click += new System.EventHandler(this.btnCargarDetalles_Click);
             // 
-            // txtTipoServicio
+            // tbMicroServicio
             // 
-            this.txtTipoServicio.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTipoServicio.Location = new System.Drawing.Point(105, 119);
-            this.txtTipoServicio.Name = "txtTipoServicio";
-            this.txtTipoServicio.Size = new System.Drawing.Size(100, 21);
-            this.txtTipoServicio.TabIndex = 8;
+            this.tbMicroServicio.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMicroServicio.Location = new System.Drawing.Point(104, 77);
+            this.tbMicroServicio.Name = "tbMicroServicio";
+            this.tbMicroServicio.Size = new System.Drawing.Size(100, 21);
+            this.tbMicroServicio.TabIndex = 8;
             // 
-            // txtKgsDisp
+            // tbMicroKgDisponibles
             // 
-            this.txtKgsDisp.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKgsDisp.Location = new System.Drawing.Point(105, 85);
-            this.txtKgsDisp.Name = "txtKgsDisp";
-            this.txtKgsDisp.Size = new System.Drawing.Size(100, 21);
-            this.txtKgsDisp.TabIndex = 7;
+            this.tbMicroKgDisponibles.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMicroKgDisponibles.Location = new System.Drawing.Point(104, 132);
+            this.tbMicroKgDisponibles.Name = "tbMicroKgDisponibles";
+            this.tbMicroKgDisponibles.Size = new System.Drawing.Size(100, 21);
+            this.tbMicroKgDisponibles.TabIndex = 7;
             // 
-            // txtButacasLibres
+            // tbMicroButacasLibres
             // 
-            this.txtButacasLibres.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtButacasLibres.Location = new System.Drawing.Point(105, 54);
-            this.txtButacasLibres.Name = "txtButacasLibres";
-            this.txtButacasLibres.Size = new System.Drawing.Size(100, 21);
-            this.txtButacasLibres.TabIndex = 6;
+            this.tbMicroButacasLibres.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMicroButacasLibres.Location = new System.Drawing.Point(104, 105);
+            this.tbMicroButacasLibres.Name = "tbMicroButacasLibres";
+            this.tbMicroButacasLibres.Size = new System.Drawing.Size(101, 21);
+            this.tbMicroButacasLibres.TabIndex = 6;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(11, 122);
+            this.label8.Location = new System.Drawing.Point(6, 80);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(81, 13);
             this.label8.TabIndex = 4;
@@ -724,7 +721,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(13, 88);
+            this.label7.Location = new System.Drawing.Point(6, 135);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(79, 13);
             this.label7.TabIndex = 3;
@@ -734,7 +731,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(11, 57);
+            this.label6.Location = new System.Drawing.Point(6, 108);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(73, 13);
             this.label6.TabIndex = 2;
@@ -744,21 +741,11 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(11, 23);
+            this.label5.Location = new System.Drawing.Point(9, 28);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 13);
+            this.label5.Size = new System.Drawing.Size(36, 13);
             this.label5.TabIndex = 1;
-            this.label5.Text = "Empresa";
-            // 
-            // cbbMicro
-            // 
-            this.cbbMicro.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbMicro.FormattingEnabled = true;
-            this.cbbMicro.Location = new System.Drawing.Point(105, 20);
-            this.cbbMicro.Name = "cbbMicro";
-            this.cbbMicro.Size = new System.Drawing.Size(225, 21);
-            this.cbbMicro.TabIndex = 0;
-            this.cbbMicro.SelectedIndexChanged += new System.EventHandler(this.cbbMicro_SelectedIndexChanged);
+            this.label5.Text = "Marca";
             // 
             // label9
             // 
@@ -780,7 +767,7 @@
             this.gbDetalles.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbDetalles.Location = new System.Drawing.Point(389, 89);
             this.gbDetalles.Name = "gbDetalles";
-            this.gbDetalles.Size = new System.Drawing.Size(629, 537);
+            this.gbDetalles.Size = new System.Drawing.Size(372, 537);
             this.gbDetalles.TabIndex = 7;
             this.gbDetalles.TabStop = false;
             this.gbDetalles.Text = "3) Detalles de la compra";
@@ -853,6 +840,7 @@
             this.gbPasajeros.TabIndex = 14;
             this.gbPasajeros.TabStop = false;
             this.gbPasajeros.Text = "Pasajeros";
+            this.gbPasajeros.Enter += new System.EventHandler(this.gbPasajeros_Enter);
             // 
             // btnQuitarPasajero
             // 
@@ -869,6 +857,7 @@
             this.txtCantPasajes.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCantPasajes.Location = new System.Drawing.Point(124, 20);
             this.txtCantPasajes.Name = "txtCantPasajes";
+            this.txtCantPasajes.ReadOnly = true;
             this.txtCantPasajes.Size = new System.Drawing.Size(100, 21);
             this.txtCantPasajes.TabIndex = 11;
             this.txtCantPasajes.Leave += new System.EventHandler(this.txtCantPasajes_Leave);
@@ -931,26 +920,148 @@
             // 
             this.gbMedioDePago.Enabled = false;
             this.gbMedioDePago.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbMedioDePago.Location = new System.Drawing.Point(13, 411);
+            this.gbMedioDePago.Location = new System.Drawing.Point(778, 89);
             this.gbMedioDePago.Name = "gbMedioDePago";
-            this.gbMedioDePago.Size = new System.Drawing.Size(351, 99);
+            this.gbMedioDePago.Size = new System.Drawing.Size(226, 299);
             this.gbMedioDePago.TabIndex = 8;
             this.gbMedioDePago.TabStop = false;
             this.gbMedioDePago.Text = "4) Medio de pago";
             // 
-            // toolStripSeparator2
+            // cargarArribaToolStripMenuItem
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            this.cargarArribaToolStripMenuItem.Name = "cargarArribaToolStripMenuItem";
+            this.cargarArribaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cargarArribaToolStripMenuItem.Text = "Cargar arribo";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(168, 6);
+            // 
+            // gbRecorrido
+            // 
+            this.gbRecorrido.Controls.Add(this.btnCargarViaje);
+            this.gbRecorrido.Controls.Add(this.tbRecorridoServicio);
+            this.gbRecorrido.Controls.Add(this.label10);
+            this.gbRecorrido.Controls.Add(this.tbRecorridoCiudadDestino);
+            this.gbRecorrido.Controls.Add(this.tbRecorridoCiudadOrigen);
+            this.gbRecorrido.Controls.Add(this.label4);
+            this.gbRecorrido.Controls.Add(this.label3);
+            this.gbRecorrido.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbRecorrido.Location = new System.Drawing.Point(13, 89);
+            this.gbRecorrido.Name = "gbRecorrido";
+            this.gbRecorrido.Size = new System.Drawing.Size(351, 203);
+            this.gbRecorrido.TabIndex = 9;
+            this.gbRecorrido.TabStop = false;
+            this.gbRecorrido.Text = "1) Recorrido";
+            // 
+            // tbRecorridoCiudadOrigen
+            // 
+            this.tbRecorridoCiudadOrigen.Location = new System.Drawing.Point(105, 52);
+            this.tbRecorridoCiudadOrigen.Name = "tbRecorridoCiudadOrigen";
+            this.tbRecorridoCiudadOrigen.ReadOnly = true;
+            this.tbRecorridoCiudadOrigen.Size = new System.Drawing.Size(200, 20);
+            this.tbRecorridoCiudadOrigen.TabIndex = 6;
+            // 
+            // tbRecorridoCiudadDestino
+            // 
+            this.tbRecorridoCiudadDestino.Location = new System.Drawing.Point(104, 87);
+            this.tbRecorridoCiudadDestino.Name = "tbRecorridoCiudadDestino";
+            this.tbRecorridoCiudadDestino.ReadOnly = true;
+            this.tbRecorridoCiudadDestino.Size = new System.Drawing.Size(201, 20);
+            this.tbRecorridoCiudadDestino.TabIndex = 7;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(47, 123);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(45, 13);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "Servicio";
+            // 
+            // tbRecorridoServicio
+            // 
+            this.tbRecorridoServicio.Location = new System.Drawing.Point(105, 120);
+            this.tbRecorridoServicio.Name = "tbRecorridoServicio";
+            this.tbRecorridoServicio.ReadOnly = true;
+            this.tbRecorridoServicio.Size = new System.Drawing.Size(200, 20);
+            this.tbRecorridoServicio.TabIndex = 9;
+            // 
+            // btnCargarViaje
+            // 
+            this.btnCargarViaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCargarViaje.Location = new System.Drawing.Point(22, 166);
+            this.btnCargarViaje.Name = "btnCargarViaje";
+            this.btnCargarViaje.Size = new System.Drawing.Size(75, 23);
+            this.btnCargarViaje.TabIndex = 10;
+            this.btnCargarViaje.Text = "Continuar";
+            this.btnCargarViaje.UseVisualStyleBackColor = true;
+            this.btnCargarViaje.Click += new System.EventHandler(this.btnBuscarViaje_Click);
+            // 
+            // tsmComprarPasajes
+            // 
+            this.tsmComprarPasajes.Name = "tsmComprarPasajes";
+            this.tsmComprarPasajes.Size = new System.Drawing.Size(152, 22);
+            this.tsmComprarPasajes.Text = "Comprar";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(10, 73);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(82, 13);
+            this.label11.TabIndex = 7;
+            this.label11.Text = "Fecha de arribo";
+            // 
+            // dtpViajeFechaArribo
+            // 
+            this.dtpViajeFechaArribo.Enabled = false;
+            this.dtpViajeFechaArribo.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpViajeFechaArribo.Location = new System.Drawing.Point(106, 67);
+            this.dtpViajeFechaArribo.Name = "dtpViajeFechaArribo";
+            this.dtpViajeFechaArribo.Size = new System.Drawing.Size(200, 21);
+            this.dtpViajeFechaArribo.TabIndex = 8;
+            // 
+            // tbMicroMarca
+            // 
+            this.tbMicroMarca.Location = new System.Drawing.Point(105, 23);
+            this.tbMicroMarca.Name = "tbMicroMarca";
+            this.tbMicroMarca.Size = new System.Drawing.Size(100, 21);
+            this.tbMicroMarca.TabIndex = 10;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(9, 53);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(52, 13);
+            this.label12.TabIndex = 11;
+            this.label12.Text = "Patente";
+            // 
+            // tbMicroPatente
+            // 
+            this.tbMicroPatente.Location = new System.Drawing.Point(105, 50);
+            this.tbMicroPatente.Name = "tbMicroPatente";
+            this.tbMicroPatente.Size = new System.Drawing.Size(100, 21);
+            this.tbMicroPatente.TabIndex = 12;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1030, 661);
+            this.Controls.Add(this.gbRecorrido);
             this.Controls.Add(this.gbMedioDePago);
             this.Controls.Add(this.gbDetalles);
-            this.Controls.Add(this.gbMicros);
+            this.Controls.Add(this.gbMicro);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.gbViaje);
             this.Controls.Add(this.ssStatusMain);
@@ -967,13 +1078,15 @@
             this.ssStatusMain.PerformLayout();
             this.gbViaje.ResumeLayout(false);
             this.gbViaje.PerformLayout();
-            this.gbMicros.ResumeLayout(false);
-            this.gbMicros.PerformLayout();
+            this.gbMicro.ResumeLayout(false);
+            this.gbMicro.PerformLayout();
             this.gbDetalles.ResumeLayout(false);
             this.gbDetalles.PerformLayout();
             this.gbEncomiendas.ResumeLayout(false);
             this.gbPasajeros.ResumeLayout(false);
             this.gbPasajeros.PerformLayout();
+            this.gbRecorrido.ResumeLayout(false);
+            this.gbRecorrido.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1002,7 +1115,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsmCliente;
         private System.Windows.Forms.ToolStripMenuItem tsmClienteListado;
         private System.Windows.Forms.ToolStripMenuItem tsmEncomienda;
-        private System.Windows.Forms.ToolStripMenuItem tsmPasajeEncomiendaAlta;
         private System.Windows.Forms.ToolStripMenuItem tsmPasajeEncomiendaCancelar;
         private System.Windows.Forms.ToolStripMenuItem tsmEstadisticas;
         private System.Windows.Forms.ToolStripMenuItem tsmEstadisticasListados;
@@ -1023,23 +1135,20 @@
         private System.Windows.Forms.ToolStripStatusLabel tssSesion;
         private System.Windows.Forms.GroupBox gbViaje;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cbbCiudadDestino;
-        private System.Windows.Forms.ComboBox cbbCiudadOrigen;
-        private System.Windows.Forms.DateTimePicker dtpFechaSalida;
+        private System.Windows.Forms.DateTimePicker dtpViajeFechaSalida;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnBuscarMicros;
-        private System.Windows.Forms.GroupBox gbMicros;
+        private System.Windows.Forms.Button btnCargarMicro;
+        private System.Windows.Forms.GroupBox gbMicro;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cbbMicro;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnElegirMicro;
-        private System.Windows.Forms.TextBox txtTipoServicio;
-        private System.Windows.Forms.TextBox txtKgsDisp;
-        private System.Windows.Forms.TextBox txtButacasLibres;
+        private System.Windows.Forms.Button btnCargarDetalles;
+        private System.Windows.Forms.TextBox tbMicroServicio;
+        private System.Windows.Forms.TextBox tbMicroKgDisponibles;
+        private System.Windows.Forms.TextBox tbMicroButacasLibres;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox gbDetalles;
         private System.Windows.Forms.TextBox txtCantPasajes;
@@ -1072,6 +1181,21 @@
         private System.Windows.Forms.ToolStripMenuItem tsmMicroButaca;
         private System.Windows.Forms.ToolStripMenuItem tsmMicroButacaAlta;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem cargarArribaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.GroupBox gbRecorrido;
+        private System.Windows.Forms.Button btnCargarViaje;
+        private System.Windows.Forms.TextBox tbRecorridoServicio;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox tbRecorridoCiudadDestino;
+        private System.Windows.Forms.TextBox tbRecorridoCiudadOrigen;
+        private System.Windows.Forms.ToolStripMenuItem tsmComprarPasajes;
+        private System.Windows.Forms.DateTimePicker dtpViajeFechaArribo;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox tbMicroMarca;
+        private System.Windows.Forms.TextBox tbMicroPatente;
+        private System.Windows.Forms.Label label12;
     }
 }
 

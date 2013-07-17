@@ -17,5 +17,14 @@ namespace FrbaBus.Common.Entidades
         {
             return NroButaca.ToString();
         }
+
+        public Butaca()
+        {
+            Id = 0;
+            NroButaca = 0;
+            IdMicro = 0;
+            TipoButaca = string.Empty;
+            Piso = 0;
+        }
     }
 }

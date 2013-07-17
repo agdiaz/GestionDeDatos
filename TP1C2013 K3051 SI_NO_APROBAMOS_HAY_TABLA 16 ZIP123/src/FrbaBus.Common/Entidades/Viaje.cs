@@ -23,5 +23,20 @@ namespace FrbaBus.Common.Entidades
         {
             return Id.ToString();
         }
+
+        public Viaje()
+        {
+            Id = 0;
+            IdRecorrido = 0;
+            IdMicro = 0;
+            FechaSalida = DateTime.MinValue.AddMilliseconds(1);
+            FechaArribo = DateTime.MinValue.AddMilliseconds(1);
+            FechaArriboEstimada = DateTime.MinValue.AddMilliseconds(1);
+
+            Recorrido = new Recorrido();
+            Micro = new Micro();
+
+            Pasajes = new List<Pasaje>();
+        }
     }
 }
