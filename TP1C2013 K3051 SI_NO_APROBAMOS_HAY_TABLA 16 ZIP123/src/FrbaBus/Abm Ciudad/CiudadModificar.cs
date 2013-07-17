@@ -10,15 +10,19 @@ using FrbaBus.Manager;
 using FrbaBus.Helpers;
 using FrbaBus.Common.Entidades;
 using FrbaBus.Common.Helpers;
+using FrbaBus.Common.Excepciones;
 
 namespace FrbaBus.Abm_Ciudad
 {
     public partial class CiudadModificar : Form
     {
+        private CiudadManager _manager;
+
         private Ciudad CiudadSeleccionada { get; set; }
 
         public CiudadModificar(Ciudad ciudad)
         {
+            _manager = new CiudadManager(); 
             this.CiudadSeleccionada = ciudad;
             InitializeComponent();
         }
@@ -32,13 +36,26 @@ namespace FrbaBus.Abm_Ciudad
         {
             if (this.ValidarDatos())
             {
-                CiudadSeleccionada.Nombre = this.tbCiudadModificarCiudad.Text;
+                try
+                {
+                    CiudadSeleccionada.Nombre = this.tbCiudadModificarCiudad.Text;
 
-                CiudadManager cm = new CiudadManager();
-                cm.Modificar(CiudadSeleccionada);
+                    _manager.Modificar(CiudadSeleccionada);
 
-                MensajePorPantalla.MensajeInformativo(this, "Se ha modificado la ciudad con el id: " + CiudadSeleccionada.Id.ToString());
-                this.Close();
+                    MensajePorPantalla.MensajeInformativo(this, "Se ha modificado la ciudad con el id: " + CiudadSeleccionada.Id.ToString());
+                    this.Close();
+                }
+                catch (AccesoBDException ex)
+                {
+                    MensajePorPantalla.MensajeExceptionBD(this, ex);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MensajePorPantalla.MensajeError(this, "Error al intentar modificar el registro.\n Detalle del error: " + ex.Message);
+                    this.Close();
+                }
+
             }
         }
 

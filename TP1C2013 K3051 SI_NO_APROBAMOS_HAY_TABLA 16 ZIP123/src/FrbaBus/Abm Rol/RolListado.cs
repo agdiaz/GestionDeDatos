@@ -87,7 +87,6 @@ namespace FrbaBus.Rol
 
                 //Cargo la grilla de roles
                 this.dgvRolListado.DataSource = _manager.Listar();
-                
             }
             catch (AccesoBDException ex)
             {
