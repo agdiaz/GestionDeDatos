@@ -23,5 +23,20 @@ namespace FrbaBus.Common.Entidades
         {
             return Id.ToString();
         }
+
+        public Pasaje()
+        {
+            Id = 0;
+            IdCancelacion = 0;
+            IdViaje = 0;
+            IdCompra = 0;
+            IdButaca = 0;
+            NroDni = 0;
+            PrecioPasaje = 0;
+            Disponible = false;
+
+            Cancelacion = new Cancelacion();
+            Butaca = new Butaca();
+        }
     }
 }

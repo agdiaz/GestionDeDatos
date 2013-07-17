@@ -12,10 +12,19 @@ namespace FrbaBus.Common.Entidades
         public int IdMicro { get; set; }
         public string TipoButaca { get; set; }
         public decimal Piso { get; set; }
-
+        public string Informacion { get { return "Piso " + Piso.ToString() + " - Nro " + NroButaca.ToString() + " - " + TipoButaca; } }
         public override string ToString()
         {
             return NroButaca.ToString();
+        }
+
+        public Butaca()
+        {
+            Id = 0;
+            NroButaca = 0;
+            IdMicro = 0;
+            TipoButaca = string.Empty;
+            Piso = 0;
         }
     }
 }

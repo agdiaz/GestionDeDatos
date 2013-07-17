@@ -25,5 +25,10 @@ namespace FrbaBus.Manager
         {
             return _dao.Listar();
         }
+
+        public void Alta(Servicio c)
+        {
+            _dao.Alta(c);
+        }
     }
 }

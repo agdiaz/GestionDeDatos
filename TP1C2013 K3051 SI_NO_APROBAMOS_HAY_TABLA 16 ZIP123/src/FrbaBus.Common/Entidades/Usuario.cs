@@ -17,7 +17,11 @@ namespace FrbaBus.Common.Entidades
         
         public Usuario()
         {
-            this.Username = "En blanco";
+            IdUsuario = 0;
+            IdRol = 0;
+            NroDni = 0;
+            Username = "En blanco";
+            HashPassword = new byte[1] { Byte.MinValue };
         }
 
         public Usuario(string username)

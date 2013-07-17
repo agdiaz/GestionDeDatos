@@ -37,7 +37,7 @@
             // lblMicroMarcaAltaMarca
             // 
             this.lblMicroMarcaAltaMarca.AutoSize = true;
-            this.lblMicroMarcaAltaMarca.Location = new System.Drawing.Point(12, 19);
+            this.lblMicroMarcaAltaMarca.Location = new System.Drawing.Point(9, 9);
             this.lblMicroMarcaAltaMarca.Name = "lblMicroMarcaAltaMarca";
             this.lblMicroMarcaAltaMarca.Size = new System.Drawing.Size(37, 13);
             this.lblMicroMarcaAltaMarca.TabIndex = 0;
@@ -45,14 +45,14 @@
             // 
             // tbMicroMarcaAltaMarca
             // 
-            this.tbMicroMarcaAltaMarca.Location = new System.Drawing.Point(92, 16);
+            this.tbMicroMarcaAltaMarca.Location = new System.Drawing.Point(79, 6);
             this.tbMicroMarcaAltaMarca.Name = "tbMicroMarcaAltaMarca";
-            this.tbMicroMarcaAltaMarca.Size = new System.Drawing.Size(100, 20);
+            this.tbMicroMarcaAltaMarca.Size = new System.Drawing.Size(291, 20);
             this.tbMicroMarcaAltaMarca.TabIndex = 1;
             // 
             // btnMicroMarcaAltaLimpiar
             // 
-            this.btnMicroMarcaAltaLimpiar.Location = new System.Drawing.Point(12, 81);
+            this.btnMicroMarcaAltaLimpiar.Location = new System.Drawing.Point(286, 32);
             this.btnMicroMarcaAltaLimpiar.Name = "btnMicroMarcaAltaLimpiar";
             this.btnMicroMarcaAltaLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnMicroMarcaAltaLimpiar.TabIndex = 2;
@@ -61,18 +61,19 @@
             // 
             // btnMicroMarcaAltaGuardar
             // 
-            this.btnMicroMarcaAltaGuardar.Location = new System.Drawing.Point(295, 81);
+            this.btnMicroMarcaAltaGuardar.Location = new System.Drawing.Point(205, 32);
             this.btnMicroMarcaAltaGuardar.Name = "btnMicroMarcaAltaGuardar";
             this.btnMicroMarcaAltaGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnMicroMarcaAltaGuardar.TabIndex = 3;
             this.btnMicroMarcaAltaGuardar.Text = "Guardar";
             this.btnMicroMarcaAltaGuardar.UseVisualStyleBackColor = true;
+            this.btnMicroMarcaAltaGuardar.Click += new System.EventHandler(this.btnMicroMarcaAltaGuardar_Click);
             // 
             // MicroMarcaAlta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(382, 119);
+            this.ClientSize = new System.Drawing.Size(382, 62);
             this.Controls.Add(this.btnMicroMarcaAltaGuardar);
             this.Controls.Add(this.btnMicroMarcaAltaLimpiar);
             this.Controls.Add(this.tbMicroMarcaAltaMarca);

@@ -16,8 +16,10 @@ namespace FrbaBus.Common.Entidades
         
         public RolUsuario()
         {
+            IdRol = 0;
+            this.Activado = false;
             this.Inhabilitado = false;
-            this.Nombre = "En blanco";
+            this.Nombre = string.Empty;
             this.Funcionalidades = new List<Funcionalidad>();
         }
 

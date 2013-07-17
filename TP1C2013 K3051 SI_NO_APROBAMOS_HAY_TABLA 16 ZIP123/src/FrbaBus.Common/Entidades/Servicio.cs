@@ -15,5 +15,12 @@ namespace FrbaBus.Common.Entidades
         {
             return TipoServicio;
         }
+
+        public Servicio()
+        {
+            Id = 0;
+            TipoServicio = string.Empty;
+            Adicional = 0;
+        }
     }
 }

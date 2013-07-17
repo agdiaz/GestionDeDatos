@@ -16,5 +16,13 @@ namespace FrbaBus.Common.Entidades
         {
             return Descripcion;
         }
+
+        public Recompensa()
+        {
+            IdRecompensa = 0;
+            Descripcion = string.Empty;
+            Stock = 0;
+            Costo = 0;
+        }
     }
 }

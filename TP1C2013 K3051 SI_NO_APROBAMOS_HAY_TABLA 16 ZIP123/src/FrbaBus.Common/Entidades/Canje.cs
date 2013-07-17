@@ -11,11 +11,19 @@ namespace FrbaBus.Common.Entidades
         public decimal NroDni { get; set; }
         public int IdRecompensa { get; set; }
 
-        public IList<Recompensa> Recomensa{ get; set; }
+        public IList<Recompensa> Recomensas{ get; set; }
 
         public override string ToString()
         {
             return IdCanje.ToString();
+        }
+
+        public Canje()
+        {
+            IdCanje = 0;
+            NroDni = 0;
+            IdRecompensa = 0;
+            Recomensas = new List<Recompensa>();
         }
     }
 }

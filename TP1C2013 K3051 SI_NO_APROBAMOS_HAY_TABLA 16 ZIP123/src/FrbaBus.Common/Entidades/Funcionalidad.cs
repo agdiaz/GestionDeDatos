@@ -15,5 +15,12 @@ namespace FrbaBus.Common.Entidades
         {
             return Nombre;
         }
+
+        public Funcionalidad()
+        {
+            Id = 0;
+            Nombre = string.Empty;
+            Activa = false;
+        }
     }
 }

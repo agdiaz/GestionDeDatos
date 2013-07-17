@@ -17,12 +17,28 @@ namespace FrbaBus.Common.Entidades
         public bool EsDiscapacitado { get; set; }
         public string Sexo { get; set; }
 
-        public IList<Puntaje> Puntaje { get; set; }
+        public IList<Puntaje> Puntajes { get; set; }
         public IList<Canje> Canjes{ get; set; }
 
         public override string ToString()
         {
             return Nombre + " " + Apellido;
+        }
+
+        public Cliente()
+        {
+            NroDni = 0;
+            Nombre = string.Empty;
+            Apellido = string.Empty;
+            Direccion = string.Empty;
+            Telefono = string.Empty;
+            Mail = string.Empty;
+            FechaNacimiento = DateTime.MinValue;
+            EsDiscapacitado = false;
+            Sexo = string.Empty;
+
+            Puntajes = new List<Puntaje>();
+            Canjes = new List<Canje>();
         }
     }
 }

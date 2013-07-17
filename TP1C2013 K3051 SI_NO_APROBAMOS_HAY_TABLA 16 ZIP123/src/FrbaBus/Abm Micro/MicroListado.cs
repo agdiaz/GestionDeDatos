@@ -30,6 +30,15 @@ namespace FrbaBus.Abm_Micro
             InitializeComponent();
         }
 
+        public Micro MicroSeleccionado()
+        {
+            Micro seleccionado = null;
+
+            seleccionado = dgvMicroListado.SelectedRows[0].DataBoundItem as Micro;
+
+            return seleccionado;
+        }
+
         private void btnMicroListadoLimpiar_Click(object sender, EventArgs e)
         {
             this.tbMicroListadoKgsEncomiendas.Text = string.Empty;

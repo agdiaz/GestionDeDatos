@@ -19,7 +19,21 @@ namespace FrbaBus.Common.Entidades
 
         public decimal PrecioBaseKG { get; set; }
         public decimal PrecioBasePasaje { get; set; }
-        
+
+        public Recorrido()
+        {
+            Id = 0;
+            IdCiudadDestino = 0;
+            IdCiudadOrigen = 0;
+            IdServicio = 0;
+
+            CiudadDestino = new Ciudad();
+            CiudadOrigen = new Ciudad();
+
+            Servicio = new Servicio();
+            PrecioBaseKG = 0;
+            PrecioBasePasaje = 0;
+        }
      
 
         public override string ToString()
