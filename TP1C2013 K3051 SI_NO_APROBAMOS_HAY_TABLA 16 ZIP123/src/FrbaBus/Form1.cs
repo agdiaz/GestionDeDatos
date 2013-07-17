@@ -61,7 +61,7 @@ namespace FrbaBus
         private void IniciarFormulario()
         {
             InicializarDatosCompra();
-            LimpiarGrupoRecorrido(true);
+            LimpiarGrupoRecorrido(false);
             LimpiarGrupoViaje(false);
             LimpiarGrupoMicros(false);
             LimpiarGrupoDetalles(false);
@@ -476,7 +476,8 @@ namespace FrbaBus
                 frm.ShowDialog(this);
                 _viaje = frm.ViajeSeleccionado();
             }
-            MostrarOpcionesViaje();
+            if (_viaje != null)
+                MostrarOpcionesViaje();
         }
         private void btnCargarMicro_Click(object sender, EventArgs e)
         {
