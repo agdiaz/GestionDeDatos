@@ -153,6 +153,15 @@ namespace FrbaBus
             }
         }
 
+        private void tsmComprarPasajes_Click(object sender, EventArgs e)
+        {
+            using (RecorridoListado frm = new RecorridoListado())
+            {
+                frm.ShowDialog(this);
+                _recorrido = frm.RecorridoSeleccionado();
+                MostrarOpcionesRecorrido();
+            }
+        }
 
         private void tsmRolListado_Click(object sender, EventArgs e)
         {
@@ -481,30 +490,18 @@ namespace FrbaBus
         }
         private void btnCargarMicro_Click(object sender, EventArgs e)
         {
-            MostrarOpcionesMicro();
+            using (MicroListado frm = new MicroListado())
+            {
+                frm.ShowDialog(this);
+                _micro = new Micro();// frm.MicroSeleccionado();
+            }
+            if (_micro != null)
+                MostrarOpcionesMicro();
         }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCargarDetalles_Click(object sender, EventArgs e)
         {
             LimpiarGrupoDetalles(true);
         }
-
-        private void tsmComprarPasajes_Click(object sender, EventArgs e)
-        {
-            using (RecorridoListado frm = new RecorridoListado())
-            {
-                frm.ShowDialog(this);
-                _recorrido = frm.RecorridoSeleccionado();
-                MostrarOpcionesRecorrido();
-            }
-        }
-
-        
 
     }
 }

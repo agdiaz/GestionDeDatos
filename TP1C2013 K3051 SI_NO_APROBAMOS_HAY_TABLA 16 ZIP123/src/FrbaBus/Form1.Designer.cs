@@ -650,7 +650,6 @@
             this.label2.Size = new System.Drawing.Size(81, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Fecha de salida";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // dtpViajeFechaSalida
             // 
@@ -1071,7 +1070,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "º";
+            this.Text = "FrbaBus - Pantalla principal";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.mnsMain.ResumeLayout(false);
             this.mnsMain.PerformLayout();
