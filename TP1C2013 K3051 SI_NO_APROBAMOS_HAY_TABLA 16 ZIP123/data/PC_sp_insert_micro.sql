@@ -1,4 +1,4 @@
-CREATE ALTER PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_insert_micro
+CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_insert_micro
 (
 	@p_fecha_alta datetime2(7),
 	@p_nro_micro int,
