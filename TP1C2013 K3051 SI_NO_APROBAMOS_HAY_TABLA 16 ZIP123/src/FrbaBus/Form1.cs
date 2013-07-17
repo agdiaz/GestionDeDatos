@@ -57,7 +57,7 @@ namespace FrbaBus
         {
             this.IniciarFormulario();
         }
-
+        
         private void IniciarFormulario()
         {
             InicializarDatosCompra();
@@ -471,6 +471,11 @@ namespace FrbaBus
 
         private void btnBuscarViaje_Click(object sender, EventArgs e)
         {
+            using (ViajeListado frm = new ViajeListado())
+            {
+                frm.ShowDialog(this);
+                _viaje = frm.ViajeSeleccionado();
+            }
             MostrarOpcionesViaje();
         }
         private void btnCargarMicro_Click(object sender, EventArgs e)
@@ -486,6 +491,16 @@ namespace FrbaBus
         private void btnCargarDetalles_Click(object sender, EventArgs e)
         {
             LimpiarGrupoDetalles(true);
+        }
+
+        private void tsmComprarPasajes_Click(object sender, EventArgs e)
+        {
+            using (RecorridoListado frm = new RecorridoListado())
+            {
+                frm.ShowDialog(this);
+                _recorrido = frm.RecorridoSeleccionado();
+                MostrarOpcionesRecorrido();
+            }
         }
 
         

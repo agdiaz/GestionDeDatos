@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using FrbaBus.Common.Excepciones;
 using FrbaBus.Common.Helpers;
+using FrbaBus.Common.Entidades;
 
 namespace FrbaBus.Abm_Viaje
 {
@@ -62,6 +63,15 @@ namespace FrbaBus.Abm_Viaje
                 MensajePorPantalla.MensajeError(this, "Error al realizar la búsqueda correspondiente.\n Detalle del error: " + ex.Message);
             }
 
+        }
+
+        public Viaje ViajeSeleccionado()
+        {
+            Viaje v = null;
+            if (dgvViajeListado.SelectedRows.Count > 0)
+                v = dgvViajeListado.SelectedRows[0].DataBoundItem as Viaje;
+
+            return v;
         }
     }
 }
