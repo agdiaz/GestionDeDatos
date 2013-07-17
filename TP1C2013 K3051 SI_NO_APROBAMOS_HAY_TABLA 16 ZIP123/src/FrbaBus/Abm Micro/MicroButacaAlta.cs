@@ -21,6 +21,7 @@ namespace FrbaBus.Abm_Micro
 
         public MicroButacaAlta()
         {
+            InitializeComponent();
             _desdeAltaMicro = false;
             _microManager = new MicroManager();
             _butacaManager = new ButacaManager();
@@ -28,6 +29,7 @@ namespace FrbaBus.Abm_Micro
         }
         public MicroButacaAlta(Micro micro)
         {
+            InitializeComponent();
             _desdeAltaMicro = true;
             _microManager = new MicroManager();
             _butacaManager = new ButacaManager();
@@ -129,6 +131,8 @@ namespace FrbaBus.Abm_Micro
             {
                 _butacaManager.Alta(butaca);
             }
+
+            this.Close();
         }
 
         private void btnBuscarMicro_Click(object sender, EventArgs e)

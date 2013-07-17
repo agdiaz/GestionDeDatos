@@ -5,7 +5,6 @@ CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_insert_butaca
 	@p_id_micro int,
 	@p_tipo_butaca nvarchar(50),
 	@p_piso numeric(18,0),
-	@p_baja bit,
 	@p_id int output
 )
 
@@ -15,14 +14,12 @@ INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Butaca]
            ([nro_butaca]
            ,[id_micro]
            ,[tipo_butaca]
-           ,[piso]
-           ,[baja])
+           ,[piso])
      VALUES
            (@p_nro_butaca
            ,@p_id_micro
            ,@p_tipo_butaca
-           ,@p_piso
-           ,@p_baja)
+           ,@p_piso)
 
 SET @p_id = SCOPE_IDENTITY()
 

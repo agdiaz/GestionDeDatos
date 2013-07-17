@@ -112,7 +112,7 @@ namespace FrbaBus.Abm_Micro
         {
             DialogResult confirma = MensajePorPantalla.MensajeInformativo(this, "¿Desea cargar las butacas ahora?", MessageBoxButtons.YesNo);
 
-            if (confirma == DialogResult.OK)
+            if (confirma == DialogResult.Yes)
             {
                 using (MicroButacaAlta frm = new MicroButacaAlta(micro))
                 {
