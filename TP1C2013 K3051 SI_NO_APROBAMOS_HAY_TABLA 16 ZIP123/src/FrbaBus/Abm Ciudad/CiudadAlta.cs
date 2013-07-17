@@ -10,13 +10,16 @@ using FrbaBus.Manager;
 using FrbaBus.Helpers;
 using FrbaBus.Common.Entidades;
 using FrbaBus.Common.Helpers;
+using FrbaBus.Common.Excepciones;
 
 namespace FrbaBus.Abm_Ciudad
 {
     public partial class CiudadAlta : Form
     {
+        private CiudadManager _manager;
         public CiudadAlta()
         {
+            this._manager = new CiudadManager();
             InitializeComponent();
         }
 
@@ -29,16 +32,27 @@ namespace FrbaBus.Abm_Ciudad
         {
             if (this.ValidarDatos())
             {
-                Ciudad c = new Ciudad()
+                try
                 {
-                    Nombre = this.tbCiudadAltaCiudad.Text
-                };
-                
-                new CiudadManager().Alta(c);
-                
-                MensajePorPantalla.MensajeInformativo(this, "Se dio de alta la ciudad con el id: " + c.Id.ToString());
-                
-                this.Close();
+                    Ciudad c = new Ciudad();
+                    c.Nombre = this.tbCiudadAltaCiudad.Text;
+
+                    _manager.Alta(c);
+
+                    MensajePorPantalla.MensajeInformativo(this, "Se dio de alta la ciudad con el id: " + c.Id.ToString());
+
+                    this.Close();
+                }
+                catch (AccesoBDException ex)
+                {
+                    MensajePorPantalla.MensajeExceptionBD(this, ex);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MensajePorPantalla.MensajeError(this, "Error al intentar dar el registro.\n Detalle del error: " + ex.Message);
+                    this.Close();
+                }
             }
         }
 

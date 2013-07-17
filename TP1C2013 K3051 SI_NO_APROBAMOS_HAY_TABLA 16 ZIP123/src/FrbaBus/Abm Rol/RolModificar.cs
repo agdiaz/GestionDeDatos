@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using FrbaBus.Manager;
 using FrbaBus.Common.Entidades;
 using FrbaBus.Common.Helpers;
+using FrbaBus.Common.Excepciones;
 
 namespace FrbaBus.Rol
 {
@@ -70,20 +71,33 @@ namespace FrbaBus.Rol
 
         private void btnRolModificarGuardar_Click(object sender, EventArgs e)
         {
-            Rol.Inhabilitado = this.cbHabilitado.Checked;
-            Rol.Nombre = this.tbRolModificarNuevoRol.Text;
-
-            _manager.BajaRolFuncionalidades(Rol);
-            
-            foreach (var funcObj in this.clbFuncionalidades.CheckedItems)
+            try
             {
-                Funcionalidad f = (Funcionalidad)funcObj;
-                _funcionalidadManager.AsociarRolFuncionalidad(Rol, f);
-            }
-            _manager.Modificar(Rol);
+                Rol.Inhabilitado = this.cbHabilitado.Checked;
+                Rol.Nombre = this.tbRolModificarNuevoRol.Text;
 
-            MensajePorPantalla.MensajeInformativo(this, "Se ha modificado el rol con el id: " + Rol.IdRol.ToString());
-            this.Close();
+                _manager.BajaRolFuncionalidades(Rol);
+
+                foreach (var funcObj in this.clbFuncionalidades.CheckedItems)
+                {
+                    Funcionalidad f = (Funcionalidad)funcObj;
+                    _funcionalidadManager.AsociarRolFuncionalidad(Rol, f);
+                }
+                _manager.Modificar(Rol);
+
+                MensajePorPantalla.MensajeInformativo(this, "Se ha modificado el rol con el id: " + Rol.IdRol.ToString());
+                this.Close();
+            }
+            catch (AccesoBDException ex)
+            {
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MensajePorPantalla.MensajeError(this, "Error al intentar modificar el registro.\n Detalle del error: " + ex.Message);
+                this.Close();
+            }
         }
     }
 }

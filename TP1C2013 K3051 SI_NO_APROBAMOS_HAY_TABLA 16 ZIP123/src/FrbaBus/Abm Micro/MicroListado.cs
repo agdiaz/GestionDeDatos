@@ -64,6 +64,11 @@ namespace FrbaBus.Abm_Micro
         private void CargarMicros()
         {
             this.dgvMicroListado.DataSource = _manager.Listar();
+            this.dgvMicroListado.Columns["Id"].Visible = false;
+            this.dgvMicroListado.Columns["NumeroDeMicro"].Visible = false;
+            this.dgvMicroListado.Columns["IdEmpresa"].Visible = false;
+            this.dgvMicroListado.Columns["IdServicio"].Visible = false;
+            this.dgvMicroListado.Columns["Empresa"].Visible = false;
         }
         private void CargarEmpresas()
         {

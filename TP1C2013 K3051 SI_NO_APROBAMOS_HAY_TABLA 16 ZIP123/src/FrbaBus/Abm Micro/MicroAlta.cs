@@ -91,6 +91,8 @@ namespace FrbaBus.Abm_Micro
 
                     MensajePorPantalla.MensajeInformativo(this, "Se dio de alta el micro con el id: " + micro.Id.ToString());
 
+                    this.PreguntarCargarButacas(micro);
+
                     this.Close();
                 }
                 catch (AccesoBDException ex)
@@ -102,6 +104,19 @@ namespace FrbaBus.Abm_Micro
                 {
                     MensajePorPantalla.MensajeError(this, "Error al intentar modificar el registro.\n Detalle del error: " + ex.Message);
                     this.Close();
+                }
+            }
+        }
+
+        private void PreguntarCargarButacas(Micro micro)
+        {
+            DialogResult confirma = MensajePorPantalla.MensajeInformativo(this, "¿Desea cargar las butacas ahora?", MessageBoxButtons.YesNo);
+
+            if (confirma == DialogResult.OK)
+            {
+                using (MicroButacaAlta frm = new MicroButacaAlta())
+                {
+                    frm.ShowDialog(this);
                 }
             }
         }

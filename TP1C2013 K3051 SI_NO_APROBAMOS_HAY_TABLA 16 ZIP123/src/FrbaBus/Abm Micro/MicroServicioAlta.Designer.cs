@@ -37,7 +37,7 @@
             // lblMicroServicioAltaTipoServicio
             // 
             this.lblMicroServicioAltaTipoServicio.AutoSize = true;
-            this.lblMicroServicioAltaTipoServicio.Location = new System.Drawing.Point(14, 15);
+            this.lblMicroServicioAltaTipoServicio.Location = new System.Drawing.Point(12, 9);
             this.lblMicroServicioAltaTipoServicio.Name = "lblMicroServicioAltaTipoServicio";
             this.lblMicroServicioAltaTipoServicio.Size = new System.Drawing.Size(82, 13);
             this.lblMicroServicioAltaTipoServicio.TabIndex = 0;
@@ -45,14 +45,14 @@
             // 
             // tbMicroServicioAltaTipoServicio
             // 
-            this.tbMicroServicioAltaTipoServicio.Location = new System.Drawing.Point(121, 12);
+            this.tbMicroServicioAltaTipoServicio.Location = new System.Drawing.Point(109, 6);
             this.tbMicroServicioAltaTipoServicio.Name = "tbMicroServicioAltaTipoServicio";
-            this.tbMicroServicioAltaTipoServicio.Size = new System.Drawing.Size(100, 20);
+            this.tbMicroServicioAltaTipoServicio.Size = new System.Drawing.Size(253, 20);
             this.tbMicroServicioAltaTipoServicio.TabIndex = 1;
             // 
             // btnMicroServicioAltaLimpiar
             // 
-            this.btnMicroServicioAltaLimpiar.Location = new System.Drawing.Point(12, 72);
+            this.btnMicroServicioAltaLimpiar.Location = new System.Drawing.Point(278, 32);
             this.btnMicroServicioAltaLimpiar.Name = "btnMicroServicioAltaLimpiar";
             this.btnMicroServicioAltaLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnMicroServicioAltaLimpiar.TabIndex = 2;
@@ -61,22 +61,24 @@
             // 
             // btnMicroServicioAltaGuardar
             // 
-            this.btnMicroServicioAltaGuardar.Location = new System.Drawing.Point(383, 72);
+            this.btnMicroServicioAltaGuardar.Location = new System.Drawing.Point(197, 32);
             this.btnMicroServicioAltaGuardar.Name = "btnMicroServicioAltaGuardar";
             this.btnMicroServicioAltaGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnMicroServicioAltaGuardar.TabIndex = 3;
             this.btnMicroServicioAltaGuardar.Text = "Guardar";
             this.btnMicroServicioAltaGuardar.UseVisualStyleBackColor = true;
+            this.btnMicroServicioAltaGuardar.Click += new System.EventHandler(this.btnMicroServicioAltaGuardar_Click);
             // 
             // MicroServicioAlta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(470, 107);
+            this.ClientSize = new System.Drawing.Size(374, 58);
             this.Controls.Add(this.btnMicroServicioAltaGuardar);
             this.Controls.Add(this.btnMicroServicioAltaLimpiar);
             this.Controls.Add(this.tbMicroServicioAltaTipoServicio);
             this.Controls.Add(this.lblMicroServicioAltaTipoServicio);
+            this.Location = new System.Drawing.Point(71, 6);
             this.Name = "MicroServicioAlta";
             this.Text = "Alta Servicio";
             this.ResumeLayout(false);
