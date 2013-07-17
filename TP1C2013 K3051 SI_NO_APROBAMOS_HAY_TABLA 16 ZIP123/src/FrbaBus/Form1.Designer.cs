@@ -462,14 +462,14 @@
             // tsmComprarPasajes
             // 
             this.tsmComprarPasajes.Name = "tsmComprarPasajes";
-            this.tsmComprarPasajes.Size = new System.Drawing.Size(152, 22);
+            this.tsmComprarPasajes.Size = new System.Drawing.Size(121, 22);
             this.tsmComprarPasajes.Text = "Comprar";
             this.tsmComprarPasajes.Click += new System.EventHandler(this.tsmComprarPasajes_Click);
             // 
             // tsmPasajeEncomiendaCancelar
             // 
             this.tsmPasajeEncomiendaCancelar.Name = "tsmPasajeEncomiendaCancelar";
-            this.tsmPasajeEncomiendaCancelar.Size = new System.Drawing.Size(152, 22);
+            this.tsmPasajeEncomiendaCancelar.Size = new System.Drawing.Size(121, 22);
             this.tsmPasajeEncomiendaCancelar.Text = "Cancelar";
             this.tsmPasajeEncomiendaCancelar.Click += new System.EventHandler(this.tsmPasajeEncomiendaCancelar_Click);
             // 
@@ -1071,7 +1071,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrbaBus - Pantalla Principal :: Compras";
+            this.Text = "º";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.mnsMain.ResumeLayout(false);
             this.mnsMain.PerformLayout();

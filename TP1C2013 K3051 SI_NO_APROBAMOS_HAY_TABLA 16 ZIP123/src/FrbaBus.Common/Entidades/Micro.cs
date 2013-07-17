@@ -23,13 +23,13 @@ namespace FrbaBus.Common.Entidades
         public decimal KgsCapacidad { get; set; }
         public decimal KgsVendidos { get; set; }
         public decimal KgsDisponibles { get; set; }
-        
+        public string Informacion { get { return ToString(); } }
         public Servicio Servicio { get; set; }
         public IList<Butaca> Butacas { get; set; }
 
         public override string ToString()
         {
-            return Patente;
+            return Empresa.Descripcion + " - Pat: " + Patente + " - Serv: " + Servicio.TipoServicio;
         }
 
         public Micro()
