@@ -27,7 +27,7 @@ namespace FrbaBus.Common.Entidades
             IdCompra = 0;
             IdUsuario = 0;
             IdCancelacion = 0;
-            FechaCompra = DateTime.MinValue;
+            FechaCompra = DateTime.MinValue.AddMilliseconds(1);
 
             Pasajes = new List<Pasaje>();
             Encomiendas = new List<Encomienda>();

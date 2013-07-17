@@ -35,7 +35,7 @@ namespace FrbaBus.Common.Entidades
         public Micro()
         {
             Id = 0;
-            FechaAlta = DateTime.MinValue;
+            FechaAlta = DateTime.MinValue.AddMilliseconds(1);
             NumeroDeMicro = 0;
             Modelo = string.Empty;
             Patente = string.Empty;

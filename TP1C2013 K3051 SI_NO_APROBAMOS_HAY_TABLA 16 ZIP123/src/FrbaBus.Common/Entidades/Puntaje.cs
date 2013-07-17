@@ -25,7 +25,7 @@ namespace FrbaBus.Common.Entidades
             NroDni = 0;
             Puntos = 0;
             PuntosUsados = 0;
-            FechaOtorgacion = DateTime.MinValue;
+            FechaOtorgacion = DateTime.MinValue.AddMilliseconds(1);
             IdCompra = 0;
         }
     }

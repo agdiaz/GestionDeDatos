@@ -33,7 +33,7 @@ namespace FrbaBus.Common.Entidades
             Direccion = string.Empty;
             Telefono = string.Empty;
             Mail = string.Empty;
-            FechaNacimiento = DateTime.MinValue;
+            FechaNacimiento = DateTime.MinValue.AddMilliseconds(1);
             EsDiscapacitado = false;
             Sexo = string.Empty;
 

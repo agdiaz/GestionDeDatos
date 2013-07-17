@@ -19,7 +19,7 @@ namespace FrbaBus.Common.Entidades
         public Cancelacion()
         {
             IdCancelacion = 0;
-            FechaCancelacion = DateTime.MinValue;
+            FechaCancelacion = DateTime.MinValue.AddMilliseconds(1);
             Motivo = string.Empty;
         }
     }
