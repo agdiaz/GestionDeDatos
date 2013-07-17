@@ -15,5 +15,10 @@ namespace FrbaBus.Abm_Micro
         {
             InitializeComponent();
         }
+
+        private void MicroButacaAlta_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
