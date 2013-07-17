@@ -109,5 +109,25 @@ namespace FrbaBus.Abm_Micro
         {
 
         }
+
+        private void btnMicroListadoDarBaja_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Micro micro = dgvMicroListado.SelectedRows[0].DataBoundItem as Micro;
+                _manager.Baja(micro);
+                CargarMicros();
+            }
+            catch (AccesoBDException ex)
+            {
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MensajePorPantalla.MensajeError(this, "Error al intentar cargar borrar el registro.\n Detalle del error: " + ex.Message);
+                this.Close();
+            }
+        }
     }
 }

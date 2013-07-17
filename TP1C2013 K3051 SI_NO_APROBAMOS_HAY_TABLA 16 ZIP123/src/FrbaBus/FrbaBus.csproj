@@ -94,6 +94,36 @@
     <Compile Include="Abm Clientes\ClienteListado.Designer.cs">
       <DependentUpon>ClienteListado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Micro\MicroButacaAlta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Micro\MicroButacaAlta.Designer.cs">
+      <DependentUpon>MicroButacaAlta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Micro\MicroMarcaAlta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Micro\MicroMarcaAlta.Designer.cs">
+      <DependentUpon>MicroMarcaAlta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Micro\MicroMarcaListado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Micro\MicroMarcaListado.Designer.cs">
+      <DependentUpon>MicroMarcaListado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Micro\MicroServicioAlta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Micro\MicroServicioAlta.Designer.cs">
+      <DependentUpon>MicroServicioAlta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Micro\MicroServicioListado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Micro\MicroServicioListado.Designer.cs">
+      <DependentUpon>MicroServicioListado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Pasaje_encomienda\Comprar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,8 +266,23 @@
     <EmbeddedResource Include="Abm Micro\MicroAlta.resx">
       <DependentUpon>MicroAlta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Abm Micro\MicroButacaAlta.resx">
+      <DependentUpon>MicroButacaAlta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Abm Micro\MicroListado.resx">
       <DependentUpon>MicroListado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Micro\MicroMarcaAlta.resx">
+      <DependentUpon>MicroMarcaAlta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Micro\MicroMarcaListado.resx">
+      <DependentUpon>MicroMarcaListado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Micro\MicroServicioAlta.resx">
+      <DependentUpon>MicroServicioAlta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Micro\MicroServicioListado.resx">
+      <DependentUpon>MicroServicioListado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Pasaje_encomienda\Cancelar.resx">
       <DependentUpon>Cancelar.cs</DependentUpon>
