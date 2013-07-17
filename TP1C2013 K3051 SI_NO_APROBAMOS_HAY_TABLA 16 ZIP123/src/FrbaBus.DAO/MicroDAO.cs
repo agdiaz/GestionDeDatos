@@ -55,13 +55,16 @@ namespace FrbaBus.DAO
             parametros.Add(p4, entidad.Empresa.Id);
 
             SqlParameter p5 = new SqlParameter("@p_id_servicio", SqlDbType.Int, 4, "p_id_servicio");
-            parametros.Add(p5, entidad.IdServicio);
+            parametros.Add(p5, entidad.Servicio.Id);
 
             SqlParameter p6 = new SqlParameter("@p_baja_vida_util", SqlDbType.Bit, 1, "p_baja_vida_util");
             parametros.Add(p6, 0);
-
+            
+            object baja = DBNull.Value;
+            if (entidad.FechaBajaVidaUtil.HasValue )
+                baja = entidad.FechaBajaVidaUtil.Value;
             SqlParameter p7 = new SqlParameter("@p_fec_baja_vida_util", SqlDbType.DateTime, 8, "p_fec_baja_vida_util");
-            parametros.Add(p7, entidad.FechaBajaVidaUtil);
+            parametros.Add(p7, baja);
 
             SqlParameter p8 = new SqlParameter("@p_capacidad_kg", SqlDbType.Decimal, 18, "p_capacidad_kg");
             parametros.Add(p8, entidad.KgsCapacidad);

@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using FrbaBus.Common.Entidades;
 using FrbaBus.Manager;
 using FrbaBus.Common.Helpers;
+using FrbaBus.Common.Excepciones;
 
 namespace FrbaBus.Abm_Micro
 {
@@ -23,6 +24,7 @@ namespace FrbaBus.Abm_Micro
             InitializeComponent();
             this._manager = new MicroManager();
             this._empresaManager = new EmpresaManager();
+            this._servicioManager = new ServicioManager();
         }
 
         private void cbbMicroAltaTipoEmpresa_SelectedIndexChanged(object sender, EventArgs e)
@@ -40,6 +42,7 @@ namespace FrbaBus.Abm_Micro
 
         private void MicroAlta_Load(object sender, EventArgs e)
         {
+            this.cbbMicroAltaTipoModelo.SelectedIndex = 0;
             CargarEmpresas();
             CargarServicios();
         }
@@ -65,28 +68,41 @@ namespace FrbaBus.Abm_Micro
         {
             if (this.ValidarDatos())
             {
-                Servicio serv = this.cbbMicroAltaTipoServicio.SelectedItem as Servicio;
-                Empresa empresa = this.cbbMicroAltaTipoEmpresa.SelectedItem as Empresa;
-                string modelo = this.cbbMicroAltaTipoModelo.SelectedText as string;
-
-                Micro micro = new Micro()
+                try
                 {
-                    FechaAlta = dtpFechaAlta.Value,
-                    NumeroDeMicro = 0,
-                    Modelo = modelo,
-                    Patente = this.txtPatente.Text,
-                    KgsCapacidad = Convert.ToDecimal(this.mtbMicroAltaKgsEncomiendas.Text),
-                    Servicio = serv,
-                    Marca = empresa.Descripcion,
-                    FechaBajaVidaUtil = null
+                    Servicio serv = this.cbbMicroAltaTipoServicio.SelectedItem as Servicio;
+                    Empresa empresa = this.cbbMicroAltaTipoEmpresa.SelectedItem as Empresa;
+                    string modelo = this.cbbMicroAltaTipoModelo.SelectedItem as string;
 
-                };
+                    Micro micro = new Micro()
+                    {
+                        FechaAlta = dtpFechaAlta.Value,
+                        NumeroDeMicro = 0,
+                        Modelo = modelo,
+                        Patente = this.txtPatente.Text,
+                        KgsCapacidad = Convert.ToDecimal(this.mtbMicroAltaKgsEncomiendas.Text),
+                        Servicio = serv,
+                        Marca = empresa.Descripcion,
+                        FechaBajaVidaUtil = null,
+                        Empresa = empresa
+                    };
 
-                _manager.Alta(micro);
+                    _manager.Alta(micro);
 
-                MensajePorPantalla.MensajeInformativo(this, "Se dio de alta el micro con el id: " + micro.Id.ToString());
+                    MensajePorPantalla.MensajeInformativo(this, "Se dio de alta el micro con el id: " + micro.Id.ToString());
 
-                this.Close();
+                    this.Close();
+                }
+                catch (AccesoBDException ex)
+                {
+                    MensajePorPantalla.MensajeExceptionBD(this, ex);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MensajePorPantalla.MensajeError(this, "Error al intentar modificar el registro.\n Detalle del error: " + ex.Message);
+                    this.Close();
+                }
             }
         }
 

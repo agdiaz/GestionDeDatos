@@ -32,5 +32,10 @@ namespace FrbaBus.Manager
         {
             return _dao.Listar(micro.Id);
         }
+
+        public IList<Butaca> ObtenerButacasMicro(Micro m)
+        {
+            return new List<Butaca>();
+        }
     }
 }

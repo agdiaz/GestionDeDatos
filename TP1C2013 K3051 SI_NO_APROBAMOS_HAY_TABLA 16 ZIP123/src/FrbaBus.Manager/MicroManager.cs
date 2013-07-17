@@ -10,11 +10,29 @@ namespace FrbaBus.Manager
 {
     public class MicroManager
     {
+        private ServicioManager _servicioManager;
+        private EmpresaManager _empresaManager;
+        private ButacaManager _butacaManager;
+
         private MicroDAO _dao; 
         
         public MicroManager()
         {
             this._dao = new MicroDAO();
+            _servicioManager = new ServicioManager();
+            _empresaManager = new EmpresaManager();
+            _butacaManager = new ButacaManager();
+        }
+        
+        public Micro Obtener(int id)
+        {
+            Micro m = this._dao.Obtener(id);
+            
+            m.Empresa = _empresaManager.Obtener(m.IdEmpresa);
+            m.Servicio = _servicioManager.Obtener(m.IdServicio);
+            m.Butacas = _butacaManager.ObtenerButacasMicro(m);
+
+            return m;
         }
 
         public Micro Alta(Micro micro)
@@ -36,15 +54,38 @@ namespace FrbaBus.Manager
 
         public IList<Micro> Listar()
         {
-            return _dao.Listar();
+            var micros = _dao.Listar();
+            foreach (Micro m in micros)
+            {
+                m.Empresa = _empresaManager.Obtener(m.IdEmpresa);
+                m.Servicio = _servicioManager.Obtener(m.IdServicio);
+                m.Butacas = _butacaManager.ObtenerButacasMicro(m);
+            }
+            return micros;
         }
         public IList<Micro> ListarFiltrado(string kgsEncomiendas, string numeroPatente, string numeroMicro, string tipoEmpresa, string tipoModelo, string tipoServicio)
         {
-            return _dao.ListarFiltrado(kgsEncomiendas, numeroPatente, numeroMicro, tipoEmpresa, tipoModelo, tipoServicio);
+            var micros = _dao.ListarFiltrado(kgsEncomiendas, numeroPatente, numeroMicro, tipoEmpresa, tipoModelo, tipoServicio);
+            foreach (Micro m in micros)
+            {
+                m.Empresa = _empresaManager.Obtener(m.IdEmpresa);
+                m.Servicio = _servicioManager.Obtener(m.IdServicio);
+                m.Butacas = _butacaManager.ObtenerButacasMicro(m);
+            }
+
+            return micros;
         }
         public IList<Micro> ListarDisponibles(int ciudadOrigenId, int ciudadDestinoId, DateTime fechaSalida)
         {
-            return _dao.ListarDisponibles(ciudadOrigenId, ciudadDestinoId, fechaSalida);
+            var micros = _dao.ListarDisponibles(ciudadOrigenId, ciudadDestinoId, fechaSalida);
+            foreach (Micro m in micros)
+            {
+                m.Empresa = _empresaManager.Obtener(m.IdEmpresa);
+                m.Servicio = _servicioManager.Obtener(m.IdServicio);
+                m.Butacas = _butacaManager.ObtenerButacasMicro(m);
+            
+            }
+            return micros;
         }
     }
 }

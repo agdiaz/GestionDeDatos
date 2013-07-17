@@ -13,6 +13,7 @@ namespace FrbaBus.Common.Entidades
         public string Modelo { get; set; }
         public string Patente { get; set; }
         public string Marca { get; set; }
+        public int IdEmpresa { get; set; }
         public Empresa Empresa { get; set; }
         public int IdServicio { get; set; }
         public DateTime? FechaBajaVidaUtil { get; set; }

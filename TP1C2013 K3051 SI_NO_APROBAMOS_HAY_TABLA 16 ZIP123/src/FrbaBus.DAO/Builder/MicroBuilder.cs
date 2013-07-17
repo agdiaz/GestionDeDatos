@@ -18,6 +18,7 @@ namespace FrbaBus.DAO.Builder
                 Marca = row["nombre"].ToString(),
                 IdServicio = Convert.ToInt32(row["id_servicio"].ToString()),
                 Id = Convert.ToInt32(row["id_micros"].ToString()),
+                IdEmpresa = Convert.ToInt32(row["id_marca"].ToString()),
                 ButacasDisponibles = 0,//Convert.ToInt32(row["butacas_disponibles"].ToString()),
                 ButacasTotal = 0,//Convert.ToInt32(row["butacas_total"].ToString()),
                 ButacasVendidas = 0,//Convert.ToInt32(row["butacas_vendidas"].ToString()),
