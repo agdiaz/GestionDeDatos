@@ -149,6 +149,7 @@
             // 
             // cbbMicroListadoTipoServicio
             // 
+            this.cbbMicroListadoTipoServicio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbMicroListadoTipoServicio.FormattingEnabled = true;
             this.cbbMicroListadoTipoServicio.Location = new System.Drawing.Point(88, 70);
             this.cbbMicroListadoTipoServicio.Name = "cbbMicroListadoTipoServicio";
@@ -157,6 +158,7 @@
             // 
             // cbbMicroListadoTipoModelo
             // 
+            this.cbbMicroListadoTipoModelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbMicroListadoTipoModelo.FormattingEnabled = true;
             this.cbbMicroListadoTipoModelo.Location = new System.Drawing.Point(88, 43);
             this.cbbMicroListadoTipoModelo.Name = "cbbMicroListadoTipoModelo";
@@ -185,6 +187,7 @@
             // 
             // cbbMicroListadoTipoEmpresa
             // 
+            this.cbbMicroListadoTipoEmpresa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbMicroListadoTipoEmpresa.FormattingEnabled = true;
             this.cbbMicroListadoTipoEmpresa.Location = new System.Drawing.Point(88, 16);
             this.cbbMicroListadoTipoEmpresa.Name = "cbbMicroListadoTipoEmpresa";
@@ -203,15 +206,17 @@
             // 
             // dgvMicroListado
             // 
+            this.dgvMicroListado.AllowUserToAddRows = false;
+            this.dgvMicroListado.AllowUserToDeleteRows = false;
             this.dgvMicroListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMicroListado.Location = new System.Drawing.Point(12, 120);
             this.dgvMicroListado.Name = "dgvMicroListado";
+            this.dgvMicroListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMicroListado.Size = new System.Drawing.Size(596, 256);
             this.dgvMicroListado.TabIndex = 3;
             // 
             // btnMicroListadoDarBaja
             // 
-            this.btnMicroListadoDarBaja.Enabled = false;
             this.btnMicroListadoDarBaja.ForeColor = System.Drawing.Color.Black;
             this.btnMicroListadoDarBaja.Location = new System.Drawing.Point(100, 382);
             this.btnMicroListadoDarBaja.Name = "btnMicroListadoDarBaja";
@@ -223,7 +228,6 @@
             // 
             // btnMicroListadoModificar
             // 
-            this.btnMicroListadoModificar.Enabled = false;
             this.btnMicroListadoModificar.ForeColor = System.Drawing.Color.Black;
             this.btnMicroListadoModificar.Location = new System.Drawing.Point(19, 382);
             this.btnMicroListadoModificar.Name = "btnMicroListadoModificar";
