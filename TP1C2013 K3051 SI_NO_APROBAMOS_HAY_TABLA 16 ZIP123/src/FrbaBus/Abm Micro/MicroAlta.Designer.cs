@@ -98,7 +98,6 @@
             // 
             // btnMicroAltaGuardar
             // 
-            this.btnMicroAltaGuardar.Enabled = false;
             this.btnMicroAltaGuardar.Location = new System.Drawing.Point(21, 296);
             this.btnMicroAltaGuardar.Name = "btnMicroAltaGuardar";
             this.btnMicroAltaGuardar.Size = new System.Drawing.Size(75, 23);

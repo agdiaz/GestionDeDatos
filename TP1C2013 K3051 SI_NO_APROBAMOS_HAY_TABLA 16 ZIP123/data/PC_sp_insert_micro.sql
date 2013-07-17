@@ -1,4 +1,4 @@
-CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_insert_micro
+CREATE ALTER PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_insert_micro
 (
 	@p_fecha_alta datetime2(7),
 	@p_nro_micro int,
@@ -7,7 +7,7 @@ CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_insert_micro
 	@p_id_marca int,
 	@p_id_servicio int,
 	@p_baja_vida_util bit,
-	@p_fec_baja_vida_util datetime,
+	@p_fec_baja_vida_util datetime = NULL,
 	@p_capacidad_kg numeric(18,2),
 	@p_id int output
 )
