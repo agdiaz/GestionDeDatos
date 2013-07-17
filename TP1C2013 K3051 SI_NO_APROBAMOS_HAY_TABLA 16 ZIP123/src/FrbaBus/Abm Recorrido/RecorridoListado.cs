@@ -28,6 +28,16 @@ namespace FrbaBus.Abm_Recorrido
             _ciudadManager = new CiudadManager();
         }
 
+        public Recorrido RecorridoSeleccionado()
+        {
+            Recorrido r = null;
+
+            if (this.dgvRecorridoListado.SelectedRows.Count > 0)
+                r = this.dgvRecorridoListado.SelectedRows[0].DataBoundItem as Recorrido;
+            
+            return r;
+        }
+
         private void btnRecorridoListadoBuscar_Click(object sender, EventArgs e)
         {
             try

@@ -1,4 +1,4 @@
-ALTER PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_insert_recorrido
+CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_insert_recorrido
 (
 	@p_id int output,
 	@p_id_ciudad_origen int,
