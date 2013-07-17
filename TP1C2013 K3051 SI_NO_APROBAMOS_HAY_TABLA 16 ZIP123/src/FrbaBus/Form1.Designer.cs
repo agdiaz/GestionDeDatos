@@ -59,12 +59,16 @@
             this.tsmViaje = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmViajeListado = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmViajeAlta = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.cargarArribaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmClienteListado = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmClienteAlta = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmClientePasajeroFrecuente = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmClientePasajeroFrecuenteConsultar = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmEncomienda = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmComprarPasajes = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPasajeEncomiendaCancelar = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPremios = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPremiosListado = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,13 +88,18 @@
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tssHora = new System.Windows.Forms.ToolStripStatusLabel();
             this.gbViaje = new System.Windows.Forms.GroupBox();
+            this.dtpViajeFechaArribo = new System.Windows.Forms.DateTimePicker();
+            this.label11 = new System.Windows.Forms.Label();
             this.btnCargarMicro = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dtpViajeFechaSalida = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.gbMicro = new System.Windows.Forms.GroupBox();
+            this.tbMicroPatente = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tbMicroMarca = new System.Windows.Forms.TextBox();
             this.btnCargarDetalles = new System.Windows.Forms.Button();
             this.tbMicroServicio = new System.Windows.Forms.TextBox();
             this.tbMicroKgDisponibles = new System.Windows.Forms.TextBox();
@@ -115,21 +124,12 @@
             this.cbEncomiendas = new System.Windows.Forms.CheckBox();
             this.cbPasajes = new System.Windows.Forms.CheckBox();
             this.gbMedioDePago = new System.Windows.Forms.GroupBox();
-            this.cargarArribaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.gbRecorrido = new System.Windows.Forms.GroupBox();
-            this.tbRecorridoCiudadOrigen = new System.Windows.Forms.TextBox();
-            this.tbRecorridoCiudadDestino = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.tbRecorridoServicio = new System.Windows.Forms.TextBox();
             this.btnCargarViaje = new System.Windows.Forms.Button();
-            this.tsmComprarPasajes = new System.Windows.Forms.ToolStripMenuItem();
-            this.label11 = new System.Windows.Forms.Label();
-            this.dtpViajeFechaArribo = new System.Windows.Forms.DateTimePicker();
-            this.tbMicroMarca = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.tbMicroPatente = new System.Windows.Forms.TextBox();
+            this.tbRecorridoServicio = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tbRecorridoCiudadDestino = new System.Windows.Forms.TextBox();
+            this.tbRecorridoCiudadOrigen = new System.Windows.Forms.TextBox();
             this.mnsMain.SuspendLayout();
             this.ssStatusMain.SuspendLayout();
             this.gbViaje.SuspendLayout();
@@ -294,21 +294,21 @@
             // tsmMicroListado
             // 
             this.tsmMicroListado.Name = "tsmMicroListado";
-            this.tsmMicroListado.Size = new System.Drawing.Size(152, 22);
+            this.tsmMicroListado.Size = new System.Drawing.Size(115, 22);
             this.tsmMicroListado.Text = "Listado";
             this.tsmMicroListado.Click += new System.EventHandler(this.tsmMicroListado_Click);
             // 
             // tsmMicroAlta
             // 
             this.tsmMicroAlta.Name = "tsmMicroAlta";
-            this.tsmMicroAlta.Size = new System.Drawing.Size(152, 22);
+            this.tsmMicroAlta.Size = new System.Drawing.Size(115, 22);
             this.tsmMicroAlta.Text = "Alta";
             this.tsmMicroAlta.Click += new System.EventHandler(this.tsmMicroAlta_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(112, 6);
             // 
             // tsmMicroServicio
             // 
@@ -316,7 +316,7 @@
             this.tsmMicroServicioListado,
             this.tsmMicroServicioAlta});
             this.tsmMicroServicio.Name = "tsmMicroServicio";
-            this.tsmMicroServicio.Size = new System.Drawing.Size(152, 22);
+            this.tsmMicroServicio.Size = new System.Drawing.Size(115, 22);
             this.tsmMicroServicio.Text = "Servicio";
             // 
             // tsmMicroServicioListado
@@ -338,7 +338,7 @@
             this.tsmMicroMarcaListado,
             this.tsmMicroMarcaAlta});
             this.tsmMicroMarca.Name = "tsmMicroMarca";
-            this.tsmMicroMarca.Size = new System.Drawing.Size(152, 22);
+            this.tsmMicroMarca.Size = new System.Drawing.Size(115, 22);
             this.tsmMicroMarca.Text = "Marca";
             // 
             // tsmMicroMarcaListado
@@ -359,7 +359,7 @@
             this.tsmMicroButaca.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmMicroButacaAlta});
             this.tsmMicroButaca.Name = "tsmMicroButaca";
-            this.tsmMicroButaca.Size = new System.Drawing.Size(152, 22);
+            this.tsmMicroButaca.Size = new System.Drawing.Size(115, 22);
             this.tsmMicroButaca.Text = "Butaca";
             // 
             // tsmMicroButacaAlta
@@ -383,16 +383,27 @@
             // tsmViajeListado
             // 
             this.tsmViajeListado.Name = "tsmViajeListado";
-            this.tsmViajeListado.Size = new System.Drawing.Size(152, 22);
+            this.tsmViajeListado.Size = new System.Drawing.Size(143, 22);
             this.tsmViajeListado.Text = "Listado";
             this.tsmViajeListado.Click += new System.EventHandler(this.tsmViajeListado_Click);
             // 
             // tsmViajeAlta
             // 
             this.tsmViajeAlta.Name = "tsmViajeAlta";
-            this.tsmViajeAlta.Size = new System.Drawing.Size(152, 22);
+            this.tsmViajeAlta.Size = new System.Drawing.Size(143, 22);
             this.tsmViajeAlta.Text = "Alta";
             this.tsmViajeAlta.Click += new System.EventHandler(this.tsmViajeAlta_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(140, 6);
+            // 
+            // cargarArribaToolStripMenuItem
+            // 
+            this.cargarArribaToolStripMenuItem.Name = "cargarArribaToolStripMenuItem";
+            this.cargarArribaToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.cargarArribaToolStripMenuItem.Text = "Cargar arribo";
             // 
             // tsmCliente
             // 
@@ -420,6 +431,11 @@
             this.tsmClienteAlta.Text = "Alta";
             this.tsmClienteAlta.Click += new System.EventHandler(this.tsmAltaCliente_Click);
             // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(168, 6);
+            // 
             // tsmClientePasajeroFrecuente
             // 
             this.tsmClientePasajeroFrecuente.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -431,7 +447,7 @@
             // tsmClientePasajeroFrecuenteConsultar
             // 
             this.tsmClientePasajeroFrecuenteConsultar.Name = "tsmClientePasajeroFrecuenteConsultar";
-            this.tsmClientePasajeroFrecuenteConsultar.Size = new System.Drawing.Size(152, 22);
+            this.tsmClientePasajeroFrecuenteConsultar.Size = new System.Drawing.Size(125, 22);
             this.tsmClientePasajeroFrecuenteConsultar.Text = "Consultar";
             // 
             // tsmEncomienda
@@ -442,6 +458,13 @@
             this.tsmEncomienda.Name = "tsmEncomienda";
             this.tsmEncomienda.Size = new System.Drawing.Size(123, 20);
             this.tsmEncomienda.Text = "&Pasaje/Encomienda";
+            // 
+            // tsmComprarPasajes
+            // 
+            this.tsmComprarPasajes.Name = "tsmComprarPasajes";
+            this.tsmComprarPasajes.Size = new System.Drawing.Size(152, 22);
+            this.tsmComprarPasajes.Text = "Comprar";
+            this.tsmComprarPasajes.Click += new System.EventHandler(this.tsmComprarPasajes_Click);
             // 
             // tsmPasajeEncomiendaCancelar
             // 
@@ -462,13 +485,13 @@
             // tsmPremiosListado
             // 
             this.tsmPremiosListado.Name = "tsmPremiosListado";
-            this.tsmPremiosListado.Size = new System.Drawing.Size(152, 22);
+            this.tsmPremiosListado.Size = new System.Drawing.Size(112, 22);
             this.tsmPremiosListado.Text = "Listado";
             // 
             // tsmPremiosAlta
             // 
             this.tsmPremiosAlta.Name = "tsmPremiosAlta";
-            this.tsmPremiosAlta.Size = new System.Drawing.Size(152, 22);
+            this.tsmPremiosAlta.Size = new System.Drawing.Size(112, 22);
             this.tsmPremiosAlta.Text = "Alta";
             // 
             // tsmEstadisticas
@@ -482,7 +505,7 @@
             // tsmEstadisticasListados
             // 
             this.tsmEstadisticasListados.Name = "tsmEstadisticasListados";
-            this.tsmEstadisticasListados.Size = new System.Drawing.Size(152, 22);
+            this.tsmEstadisticasListados.Size = new System.Drawing.Size(117, 22);
             this.tsmEstadisticasListados.Text = "Listados";
             this.tsmEstadisticasListados.Click += new System.EventHandler(this.tsmEstadisticasListados_Click);
             // 
@@ -588,6 +611,25 @@
             this.gbViaje.TabStop = false;
             this.gbViaje.Text = "1) Viaje";
             // 
+            // dtpViajeFechaArribo
+            // 
+            this.dtpViajeFechaArribo.Enabled = false;
+            this.dtpViajeFechaArribo.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpViajeFechaArribo.Location = new System.Drawing.Point(106, 67);
+            this.dtpViajeFechaArribo.Name = "dtpViajeFechaArribo";
+            this.dtpViajeFechaArribo.Size = new System.Drawing.Size(200, 21);
+            this.dtpViajeFechaArribo.TabIndex = 8;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(10, 73);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(82, 13);
+            this.label11.TabIndex = 7;
+            this.label11.Text = "Fecha de arribo";
+            // 
             // btnCargarMicro
             // 
             this.btnCargarMicro.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -598,26 +640,6 @@
             this.btnCargarMicro.Text = "Continuar >>";
             this.btnCargarMicro.UseVisualStyleBackColor = true;
             this.btnCargarMicro.Click += new System.EventHandler(this.btnCargarMicro_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(19, 86);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Ciudad destino";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(19, 52);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Ciudad origen";
             // 
             // label2
             // 
@@ -639,6 +661,26 @@
             this.dtpViajeFechaSalida.Size = new System.Drawing.Size(200, 21);
             this.dtpViajeFechaSalida.TabIndex = 0;
             this.dtpViajeFechaSalida.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(19, 86);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(78, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Ciudad destino";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(19, 52);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(73, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Ciudad origen";
             // 
             // label1
             // 
@@ -671,6 +713,29 @@
             this.gbMicro.TabIndex = 4;
             this.gbMicro.TabStop = false;
             this.gbMicro.Text = "2) Micro";
+            // 
+            // tbMicroPatente
+            // 
+            this.tbMicroPatente.Location = new System.Drawing.Point(105, 50);
+            this.tbMicroPatente.Name = "tbMicroPatente";
+            this.tbMicroPatente.Size = new System.Drawing.Size(100, 21);
+            this.tbMicroPatente.TabIndex = 12;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(9, 53);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(52, 13);
+            this.label12.TabIndex = 11;
+            this.label12.Text = "Patente";
+            // 
+            // tbMicroMarca
+            // 
+            this.tbMicroMarca.Location = new System.Drawing.Point(105, 23);
+            this.tbMicroMarca.Name = "tbMicroMarca";
+            this.tbMicroMarca.Size = new System.Drawing.Size(100, 21);
+            this.tbMicroMarca.TabIndex = 10;
             // 
             // btnCargarDetalles
             // 
@@ -927,22 +992,6 @@
             this.gbMedioDePago.TabStop = false;
             this.gbMedioDePago.Text = "4) Medio de pago";
             // 
-            // cargarArribaToolStripMenuItem
-            // 
-            this.cargarArribaToolStripMenuItem.Name = "cargarArribaToolStripMenuItem";
-            this.cargarArribaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.cargarArribaToolStripMenuItem.Text = "Cargar arribo";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(168, 6);
-            // 
             // gbRecorrido
             // 
             this.gbRecorrido.Controls.Add(this.btnCargarViaje);
@@ -960,40 +1009,6 @@
             this.gbRecorrido.TabStop = false;
             this.gbRecorrido.Text = "1) Recorrido";
             // 
-            // tbRecorridoCiudadOrigen
-            // 
-            this.tbRecorridoCiudadOrigen.Location = new System.Drawing.Point(105, 52);
-            this.tbRecorridoCiudadOrigen.Name = "tbRecorridoCiudadOrigen";
-            this.tbRecorridoCiudadOrigen.ReadOnly = true;
-            this.tbRecorridoCiudadOrigen.Size = new System.Drawing.Size(200, 20);
-            this.tbRecorridoCiudadOrigen.TabIndex = 6;
-            // 
-            // tbRecorridoCiudadDestino
-            // 
-            this.tbRecorridoCiudadDestino.Location = new System.Drawing.Point(104, 87);
-            this.tbRecorridoCiudadDestino.Name = "tbRecorridoCiudadDestino";
-            this.tbRecorridoCiudadDestino.ReadOnly = true;
-            this.tbRecorridoCiudadDestino.Size = new System.Drawing.Size(201, 20);
-            this.tbRecorridoCiudadDestino.TabIndex = 7;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(47, 123);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(45, 13);
-            this.label10.TabIndex = 8;
-            this.label10.Text = "Servicio";
-            // 
-            // tbRecorridoServicio
-            // 
-            this.tbRecorridoServicio.Location = new System.Drawing.Point(105, 120);
-            this.tbRecorridoServicio.Name = "tbRecorridoServicio";
-            this.tbRecorridoServicio.ReadOnly = true;
-            this.tbRecorridoServicio.Size = new System.Drawing.Size(200, 20);
-            this.tbRecorridoServicio.TabIndex = 9;
-            // 
             // btnCargarViaje
             // 
             this.btnCargarViaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1005,53 +1020,39 @@
             this.btnCargarViaje.UseVisualStyleBackColor = true;
             this.btnCargarViaje.Click += new System.EventHandler(this.btnBuscarViaje_Click);
             // 
-            // tsmComprarPasajes
+            // tbRecorridoServicio
             // 
-            this.tsmComprarPasajes.Name = "tsmComprarPasajes";
-            this.tsmComprarPasajes.Size = new System.Drawing.Size(152, 22);
-            this.tsmComprarPasajes.Text = "Comprar";
+            this.tbRecorridoServicio.Location = new System.Drawing.Point(105, 120);
+            this.tbRecorridoServicio.Name = "tbRecorridoServicio";
+            this.tbRecorridoServicio.ReadOnly = true;
+            this.tbRecorridoServicio.Size = new System.Drawing.Size(200, 20);
+            this.tbRecorridoServicio.TabIndex = 9;
             // 
-            // label11
+            // label10
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(10, 73);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(82, 13);
-            this.label11.TabIndex = 7;
-            this.label11.Text = "Fecha de arribo";
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(47, 123);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(45, 13);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "Servicio";
             // 
-            // dtpViajeFechaArribo
+            // tbRecorridoCiudadDestino
             // 
-            this.dtpViajeFechaArribo.Enabled = false;
-            this.dtpViajeFechaArribo.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpViajeFechaArribo.Location = new System.Drawing.Point(106, 67);
-            this.dtpViajeFechaArribo.Name = "dtpViajeFechaArribo";
-            this.dtpViajeFechaArribo.Size = new System.Drawing.Size(200, 21);
-            this.dtpViajeFechaArribo.TabIndex = 8;
+            this.tbRecorridoCiudadDestino.Location = new System.Drawing.Point(104, 87);
+            this.tbRecorridoCiudadDestino.Name = "tbRecorridoCiudadDestino";
+            this.tbRecorridoCiudadDestino.ReadOnly = true;
+            this.tbRecorridoCiudadDestino.Size = new System.Drawing.Size(201, 20);
+            this.tbRecorridoCiudadDestino.TabIndex = 7;
             // 
-            // tbMicroMarca
+            // tbRecorridoCiudadOrigen
             // 
-            this.tbMicroMarca.Location = new System.Drawing.Point(105, 23);
-            this.tbMicroMarca.Name = "tbMicroMarca";
-            this.tbMicroMarca.Size = new System.Drawing.Size(100, 21);
-            this.tbMicroMarca.TabIndex = 10;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(9, 53);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(52, 13);
-            this.label12.TabIndex = 11;
-            this.label12.Text = "Patente";
-            // 
-            // tbMicroPatente
-            // 
-            this.tbMicroPatente.Location = new System.Drawing.Point(105, 50);
-            this.tbMicroPatente.Name = "tbMicroPatente";
-            this.tbMicroPatente.Size = new System.Drawing.Size(100, 21);
-            this.tbMicroPatente.TabIndex = 12;
+            this.tbRecorridoCiudadOrigen.Location = new System.Drawing.Point(105, 52);
+            this.tbRecorridoCiudadOrigen.Name = "tbRecorridoCiudadOrigen";
+            this.tbRecorridoCiudadOrigen.ReadOnly = true;
+            this.tbRecorridoCiudadOrigen.Size = new System.Drawing.Size(200, 20);
+            this.tbRecorridoCiudadOrigen.TabIndex = 6;
             // 
             // Form1
             // 
