@@ -47,6 +47,14 @@
             this.tsmMicro = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmMicroListado = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmMicroAlta = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmMicroServicio = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmMicroServicioListado = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmMicroServicioAlta = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmMicroMarca = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmMicroMarcaListado = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmMicroMarcaAlta = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmMicroButaca = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmMicroButacaAlta = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmViaje = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmViajeListado = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmViajeAlta = new System.Windows.Forms.ToolStripMenuItem();
@@ -110,14 +118,7 @@
             this.cbEncomiendas = new System.Windows.Forms.CheckBox();
             this.cbPasajes = new System.Windows.Forms.CheckBox();
             this.gbMedioDePago = new System.Windows.Forms.GroupBox();
-            this.tsmMicroServicio = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmMicroMarca = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmMicroServicioListado = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmMicroServicioAlta = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmMicroMarcaListado = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmMicroMarcaAlta = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmMicroButaca = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmMicroButacaAlta = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.mnsMain.SuspendLayout();
             this.ssStatusMain.SuspendLayout();
             this.gbViaje.SuspendLayout();
@@ -269,6 +270,7 @@
             this.tsmMicro.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmMicroListado,
             this.tsmMicroAlta,
+            this.toolStripSeparator2,
             this.tsmMicroServicio,
             this.tsmMicroMarca,
             this.tsmMicroButaca});
@@ -290,6 +292,65 @@
             this.tsmMicroAlta.Size = new System.Drawing.Size(152, 22);
             this.tsmMicroAlta.Text = "Alta";
             this.tsmMicroAlta.Click += new System.EventHandler(this.tsmMicroAlta_Click);
+            // 
+            // tsmMicroServicio
+            // 
+            this.tsmMicroServicio.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmMicroServicioListado,
+            this.tsmMicroServicioAlta});
+            this.tsmMicroServicio.Name = "tsmMicroServicio";
+            this.tsmMicroServicio.Size = new System.Drawing.Size(152, 22);
+            this.tsmMicroServicio.Text = "Servicio";
+            // 
+            // tsmMicroServicioListado
+            // 
+            this.tsmMicroServicioListado.Name = "tsmMicroServicioListado";
+            this.tsmMicroServicioListado.Size = new System.Drawing.Size(152, 22);
+            this.tsmMicroServicioListado.Text = "Listado";
+            // 
+            // tsmMicroServicioAlta
+            // 
+            this.tsmMicroServicioAlta.Name = "tsmMicroServicioAlta";
+            this.tsmMicroServicioAlta.Size = new System.Drawing.Size(152, 22);
+            this.tsmMicroServicioAlta.Text = "Alta";
+            this.tsmMicroServicioAlta.Click += new System.EventHandler(this.tsmMicroServicioAlta_Click);
+            // 
+            // tsmMicroMarca
+            // 
+            this.tsmMicroMarca.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmMicroMarcaListado,
+            this.tsmMicroMarcaAlta});
+            this.tsmMicroMarca.Name = "tsmMicroMarca";
+            this.tsmMicroMarca.Size = new System.Drawing.Size(152, 22);
+            this.tsmMicroMarca.Text = "Marca";
+            // 
+            // tsmMicroMarcaListado
+            // 
+            this.tsmMicroMarcaListado.Name = "tsmMicroMarcaListado";
+            this.tsmMicroMarcaListado.Size = new System.Drawing.Size(152, 22);
+            this.tsmMicroMarcaListado.Text = "Listado";
+            // 
+            // tsmMicroMarcaAlta
+            // 
+            this.tsmMicroMarcaAlta.Name = "tsmMicroMarcaAlta";
+            this.tsmMicroMarcaAlta.Size = new System.Drawing.Size(152, 22);
+            this.tsmMicroMarcaAlta.Text = "Alta";
+            this.tsmMicroMarcaAlta.Click += new System.EventHandler(this.tsmMicroMarcaAlta_Click);
+            // 
+            // tsmMicroButaca
+            // 
+            this.tsmMicroButaca.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmMicroButacaAlta});
+            this.tsmMicroButaca.Name = "tsmMicroButaca";
+            this.tsmMicroButaca.Size = new System.Drawing.Size(152, 22);
+            this.tsmMicroButaca.Text = "Butaca";
+            // 
+            // tsmMicroButacaAlta
+            // 
+            this.tsmMicroButacaAlta.Name = "tsmMicroButacaAlta";
+            this.tsmMicroButacaAlta.Size = new System.Drawing.Size(152, 22);
+            this.tsmMicroButacaAlta.Text = "Alta";
+            this.tsmMicroButacaAlta.Click += new System.EventHandler(this.tsmMicroButacaAlta_Click);
             // 
             // tsmViaje
             // 
@@ -408,7 +469,7 @@
             // tsmEstadisticasListados
             // 
             this.tsmEstadisticasListados.Name = "tsmEstadisticasListados";
-            this.tsmEstadisticasListados.Size = new System.Drawing.Size(152, 22);
+            this.tsmEstadisticasListados.Size = new System.Drawing.Size(117, 22);
             this.tsmEstadisticasListados.Text = "Listados";
             this.tsmEstadisticasListados.Click += new System.EventHandler(this.tsmEstadisticasListados_Click);
             // 
@@ -877,61 +938,10 @@
             this.gbMedioDePago.TabStop = false;
             this.gbMedioDePago.Text = "4) Medio de pago";
             // 
-            // tsmMicroServicio
+            // toolStripSeparator2
             // 
-            this.tsmMicroServicio.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmMicroServicioListado,
-            this.tsmMicroServicioAlta});
-            this.tsmMicroServicio.Name = "tsmMicroServicio";
-            this.tsmMicroServicio.Size = new System.Drawing.Size(152, 22);
-            this.tsmMicroServicio.Text = "Servicio";
-            // 
-            // tsmMicroMarca
-            // 
-            this.tsmMicroMarca.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmMicroMarcaListado,
-            this.tsmMicroMarcaAlta});
-            this.tsmMicroMarca.Name = "tsmMicroMarca";
-            this.tsmMicroMarca.Size = new System.Drawing.Size(152, 22);
-            this.tsmMicroMarca.Text = "Marca";
-            // 
-            // tsmMicroServicioListado
-            // 
-            this.tsmMicroServicioListado.Name = "tsmMicroServicioListado";
-            this.tsmMicroServicioListado.Size = new System.Drawing.Size(152, 22);
-            this.tsmMicroServicioListado.Text = "Listado";
-            // 
-            // tsmMicroServicioAlta
-            // 
-            this.tsmMicroServicioAlta.Name = "tsmMicroServicioAlta";
-            this.tsmMicroServicioAlta.Size = new System.Drawing.Size(152, 22);
-            this.tsmMicroServicioAlta.Text = "Alta";
-            // 
-            // tsmMicroMarcaListado
-            // 
-            this.tsmMicroMarcaListado.Name = "tsmMicroMarcaListado";
-            this.tsmMicroMarcaListado.Size = new System.Drawing.Size(152, 22);
-            this.tsmMicroMarcaListado.Text = "Listado";
-            // 
-            // tsmMicroMarcaAlta
-            // 
-            this.tsmMicroMarcaAlta.Name = "tsmMicroMarcaAlta";
-            this.tsmMicroMarcaAlta.Size = new System.Drawing.Size(152, 22);
-            this.tsmMicroMarcaAlta.Text = "Alta";
-            // 
-            // tsmMicroButaca
-            // 
-            this.tsmMicroButaca.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmMicroButacaAlta});
-            this.tsmMicroButaca.Name = "tsmMicroButaca";
-            this.tsmMicroButaca.Size = new System.Drawing.Size(152, 22);
-            this.tsmMicroButaca.Text = "Butaca";
-            // 
-            // tsmMicroButacaAlta
-            // 
-            this.tsmMicroButacaAlta.Name = "tsmMicroButacaAlta";
-            this.tsmMicroButacaAlta.Size = new System.Drawing.Size(152, 22);
-            this.tsmMicroButacaAlta.Text = "Alta";
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
             // 
             // Form1
             // 
@@ -1061,6 +1071,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmMicroMarcaAlta;
         private System.Windows.Forms.ToolStripMenuItem tsmMicroButaca;
         private System.Windows.Forms.ToolStripMenuItem tsmMicroButacaAlta;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }
 

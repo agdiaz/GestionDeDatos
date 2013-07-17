@@ -402,5 +402,29 @@ namespace FrbaBus
             }
         }
 
+        private void tsmMicroButacaAlta_Click(object sender, EventArgs e)
+        {
+            using (MicroButacaAlta frm = new MicroButacaAlta())
+            {
+                frm.ShowDialog(this);
+            }
+        }
+
+        private void tsmMicroMarcaAlta_Click(object sender, EventArgs e)
+        {
+            using (MicroMarcaAlta frm = new MicroMarcaAlta())
+            {
+                frm.ShowDialog(this);
+            }
+        }
+
+        private void tsmMicroServicioAlta_Click(object sender, EventArgs e)
+        {
+            using (MicroServicioAlta frm = new MicroServicioAlta())
+            {
+                frm.ShowDialog(this);
+            }
+        }
+
     }
 }
