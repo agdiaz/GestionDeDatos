@@ -114,7 +114,7 @@ namespace FrbaBus.Abm_Micro
 
             if (confirma == DialogResult.OK)
             {
-                using (MicroButacaAlta frm = new MicroButacaAlta())
+                using (MicroButacaAlta frm = new MicroButacaAlta(micro))
                 {
                     frm.ShowDialog(this);
                 }
