@@ -236,7 +236,7 @@
             this.groupBox1.Controls.Add(this.lblClienteApellido);
             this.groupBox1.Location = new System.Drawing.Point(16, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(468, 193);
+            this.groupBox1.Size = new System.Drawing.Size(468, 182);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos personales";
