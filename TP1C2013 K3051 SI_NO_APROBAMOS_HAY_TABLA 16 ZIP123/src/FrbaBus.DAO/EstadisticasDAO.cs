@@ -63,12 +63,16 @@ namespace FrbaBus.DAO
 
         private DestinoConMasMicrosVacios BuildDestinoConMasMicrosVacios(DataRow row)
         {
-            throw new NotImplementedException();
+            return new DestinoConMasMicrosVacios()
+            {
+                Nombre = row["nombre"].ToString(),
+                Butacas_libres = Convert.ToInt32(row["butacas_libres_x_viaje"].ToString())
+            };
         }
 
         public DataSet DestinosConMasMicrosVacios(Semestre s)
         {
-            return ConsultarListado("[SI_NO_APROBAMOS_HAY_TABLA].sp_top5_destino_con_micros_vacios_por_semestre", s);
+            return ConsultarListado("[SI_NO_APROBAMOS_HAY_TABLA].sp_top5_destino_micros_mas_vacios_por_semestre", s);
         }
 
 
