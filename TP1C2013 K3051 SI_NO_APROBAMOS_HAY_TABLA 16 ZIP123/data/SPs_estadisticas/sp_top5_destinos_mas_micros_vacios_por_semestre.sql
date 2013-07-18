@@ -1,4 +1,4 @@
-CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].[sp_top5_destino_mas_micros_vacios]
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].[sp_top5_destino_micros_mas_vacios_por_semestre]
 (
 	@fecha_inicio datetime,
 	@fecha_fin datetime
