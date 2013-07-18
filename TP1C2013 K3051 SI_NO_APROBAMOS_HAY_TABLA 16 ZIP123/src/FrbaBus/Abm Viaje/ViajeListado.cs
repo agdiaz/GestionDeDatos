@@ -10,6 +10,7 @@ using FrbaBus.Common.Excepciones;
 using FrbaBus.Common.Helpers;
 using FrbaBus.Common.Entidades;
 using FrbaBus.Manager;
+using FrbaBus.Helpers;
 
 namespace FrbaBus.Abm_Viaje
 {
@@ -52,6 +53,7 @@ namespace FrbaBus.Abm_Viaje
         {
             try
             {
+                CargarFechas();
                 ListarMicros();
                 ListarRecorridos();
                 ListarViajes();
@@ -68,17 +70,25 @@ namespace FrbaBus.Abm_Viaje
             }
         }
 
+        private void CargarFechas()
+        {
+            this.dtpViajeListadoFechaSalida.Value = FechaHelper.Ahora();
+            this.dtpViajeListadoFechaLlegadaEstimada.Value = FechaHelper.Ahora();
+        }
+
         private void ListarViajes()
         {
-            if (_recorrido != null)
-                this.dgvViajeListado.DataSource = _manager.ListarPorRecorrido(_recorrido);
-            else
-                this.dgvViajeListado.DataSource = _manager.Listar();
+            Micro micro = cbMicro.SelectedItem as Micro;
+            Recorrido rec = cbRecorrido.SelectedItem as Recorrido;
+
+            this.dgvViajeListado.DataSource = _manager.ListarFiltrado(dtpViajeListadoFechaLlegada.Value, dtpViajeListadoFechaSalida.Value, rec, micro);
         }
 
         private void ListarRecorridos()
         {
-            this.cbRecorrido.DataSource = _recorridoManager.Listar();
+            var recorridos = _recorridoManager.Listar();
+            recorridos.Insert(0, new Recorrido());
+            this.cbRecorrido.DataSource = recorridos;
             this.cbRecorrido.DisplayMember = "Informacion";
             this.cbRecorrido.ValueMember = "Id";
 
@@ -91,7 +101,9 @@ namespace FrbaBus.Abm_Viaje
 
         private void ListarMicros()
         {
-            this.cbMicro.DataSource = _microManager.Listar();
+            var micros = _microManager.Listar();
+            micros.Insert(0, new Micro());
+            this.cbMicro.DataSource = micros;
             this.cbMicro.DisplayMember = "Informacion";
             this.cbMicro.ValueMember = "Id";
         }

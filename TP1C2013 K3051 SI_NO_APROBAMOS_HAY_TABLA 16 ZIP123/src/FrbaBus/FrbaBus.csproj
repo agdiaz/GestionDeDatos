@@ -257,6 +257,9 @@
     <EmbeddedResource Include="Abm Micro\MicroServicioListado.resx">
       <DependentUpon>MicroServicioListado.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Abm Recompensa\RecompensaListado.resx">
+      <DependentUpon>RecompensaListado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Abm Recorrido\RecorridoModificar.resx">
       <DependentUpon>RecorridoModificar.cs</DependentUpon>
     </EmbeddedResource>

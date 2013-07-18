@@ -10,19 +10,25 @@ using FrbaBus.Manager;
 using FrbaBus.Helpers;
 using FrbaBus.Common.Entidades;
 using FrbaBus.Common.Helpers;
+using FrbaBus.Common.Excepciones;
 
 namespace FrbaBus.Abm_Clientes
 {
     public partial class ClienteAlta : Form
     {
         private ClienteManager _manager;
+        private Cliente _cliente;
 
         public ClienteAlta()
         {
             InitializeComponent();
             this._manager = new ClienteManager();
         }
-
+        
+        public Cliente ClienteNuevo()
+        {
+            return _cliente;
+        }
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             this.mtbClienteDNI.Text = "";
@@ -41,33 +47,47 @@ namespace FrbaBus.Abm_Clientes
         {
             if (this.ValidarDatos())
             {
-                string sexo = "";
-                if (rbClienteHombre.Checked)
+                try
                 {
-                    sexo = "H";
-                }
-                else if (rbClienteMujer.Checked)
-                {
-                    sexo = "M";
-                }
-                
-                Cliente cliente = new Cliente()
-                {
-                    NroDni = Convert.ToInt64(this.mtbClienteDNI.Text),
-                    Apellido = tbClienteApellido.Text,
-                    Nombre = tbClienteNombre.Text,
-                    Direccion = tbClienteDireccion.Text,
-                    Telefono = mtbClienteTelefono.Text,
-                    FechaNacimiento = dtpClienteFechaNac.Value,
-                    EsDiscapacitado = cbClienteEsDiscapacitado.Checked,
-                    Mail = tbClienteMail.Text,
-                    Sexo = sexo
-                };
+                    string sexo = "";
+                    if (rbClienteHombre.Checked)
+                    {
+                        sexo = "H";
+                    }
+                    else if (rbClienteMujer.Checked)
+                    {
+                        sexo = "M";
+                    }
 
-                cliente = _manager.Alta(cliente);
+                    _cliente = new Cliente()
+                    {
+                        NroDni = Convert.ToInt64(this.mtbClienteDNI.Text),
+                        Apellido = tbClienteApellido.Text,
+                        Nombre = tbClienteNombre.Text,
+                        Direccion = tbClienteDireccion.Text,
+                        Telefono = mtbClienteTelefono.Text,
+                        FechaNacimiento = dtpClienteFechaNac.Value,
+                        EsDiscapacitado = cbClienteEsDiscapacitado.Checked,
+                        Mail = tbClienteMail.Text,
+                        Sexo = sexo
+                    };
 
-                MensajePorPantalla.MensajeInformativo(this, "Se dio de alta el cliente con DNI: " + cliente.NroDni.ToString());
-                this.Close();
+                    _cliente = _manager.Alta(_cliente);
+
+                    MensajePorPantalla.MensajeInformativo(this, "Se dio de alta el cliente con DNI: " + _cliente.NroDni.ToString());
+                    this.Close();
+
+                }
+                catch (AccesoBDException ex)
+                {
+                    MensajePorPantalla.MensajeExceptionBD(this, ex);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MensajePorPantalla.MensajeError(this, "Error al intentar dar el registro.\n Detalle del error: " + ex.Message);
+                    this.Close();
+                }
             }
         }
 

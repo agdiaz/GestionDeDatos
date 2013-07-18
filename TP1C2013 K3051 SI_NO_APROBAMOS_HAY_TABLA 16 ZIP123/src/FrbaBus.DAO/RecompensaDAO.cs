@@ -42,5 +42,12 @@ namespace FrbaBus.DAO
         }
 
         #endregion
+
+        public IList<Recompensa> ListarFiltrado(string descripcion, int puntosDesde, int puntosHasta, int stockDesde, int stockHasta)
+        {
+            IList<Recompensa> recompensas = new List<Recompensa>();
+
+            return recompensas;
+        }
     }
 }

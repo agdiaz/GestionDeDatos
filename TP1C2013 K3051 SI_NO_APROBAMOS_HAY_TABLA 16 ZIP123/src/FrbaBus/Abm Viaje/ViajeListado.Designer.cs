@@ -175,9 +175,14 @@
             // 
             // dgvViajeListado
             // 
+            this.dgvViajeListado.AllowUserToAddRows = false;
+            this.dgvViajeListado.AllowUserToDeleteRows = false;
+            this.dgvViajeListado.AllowUserToResizeColumns = false;
+            this.dgvViajeListado.AllowUserToResizeRows = false;
             this.dgvViajeListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvViajeListado.Location = new System.Drawing.Point(12, 180);
             this.dgvViajeListado.Name = "dgvViajeListado";
+            this.dgvViajeListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvViajeListado.Size = new System.Drawing.Size(859, 239);
             this.dgvViajeListado.TabIndex = 1;
             // 

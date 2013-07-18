@@ -55,6 +55,7 @@
     <Compile Include="MicroManager.cs" />
     <Compile Include="PasajeManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecompensaManager.cs" />
     <Compile Include="RecorridoManager.cs" />
     <Compile Include="RolUsuarioManager.cs" />
     <Compile Include="ServicioManager.cs" />
