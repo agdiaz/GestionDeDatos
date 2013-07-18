@@ -117,10 +117,10 @@ namespace FrbaBus.DAO
         public void GenerarArribo(Viaje viaje)
         {
             Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
-            //parametros.Add(new SqlParameter("@p_id_viaje", SqlDbType.Int, 4, "p_micro"), micro.Id);
-            //parametros.Add(new SqlParameter("@p_recorrido", SqlDbType.DateTime, 8, "p_recorrido"), (decimal)rec.Id);
+            parametros.Add(new SqlParameter("@p_id_viaje", SqlDbType.Int, 4, "p_id_viaje"), viaje.Id);
+            parametros.Add(new SqlParameter("@p_fecha_llegada", SqlDbType.DateTime, 8, "p_fecha_llegada"), viaje.FechaArribo);
 
-            accesoBD.EjecutarComando("[SI_NO_APROBAMOS_HAY_TABLA].sp_listar_filtrado_viaje", parametros);
+            accesoBD.EjecutarComando("[SI_NO_APROBAMOS_HAY_TABLA].sp_registro_llegada", parametros);
         }
     }
 }

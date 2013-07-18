@@ -11,6 +11,7 @@ using FrbaBus.Abm_Recorrido;
 using FrbaBus.Common.Entidades;
 using FrbaBus.Manager;
 using FrbaBus.Common.Helpers;
+using FrbaBus.Common.Excepciones;
 
 namespace FrbaBus.Abm_Viaje
 {
@@ -29,8 +30,20 @@ namespace FrbaBus.Abm_Viaje
         private void btnGuardar_Click(object sender, EventArgs e)
         {
 
-            _viaje.FechaArribo = dtpFechaArriboReal.Value;
-            _manager.GenerarArribo(_viaje);
+            try
+            {
+                _viaje.FechaArribo = dtpFechaArriboReal.Value;
+                _manager.GenerarArribo(_viaje);
+            }
+            catch (AccesoBDException ex)
+            {
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
+            }
+            catch (Exception ex)
+            {
+                MensajePorPantalla.MensajeError(this, "Error al intentar dar el registro.\n Detalle del error: " + ex.Message);
+            }
+
         }
 
         private void CargarDatosViaje()
