@@ -196,6 +196,12 @@
     <Compile Include="Abm Viaje\ViajeCancelar.Designer.cs">
       <DependentUpon>ViajeCancelar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Viaje\ViajeCargarArribo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Viaje\ViajeCargarArribo.Designer.cs">
+      <DependentUpon>ViajeCargarArribo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Viaje\ViajeListado.cs">
       <SubType>Form</SubType>
     </Compile>
