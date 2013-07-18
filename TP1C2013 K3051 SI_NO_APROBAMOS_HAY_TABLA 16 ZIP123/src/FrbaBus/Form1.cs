@@ -541,5 +541,13 @@ namespace FrbaBus
                 MostrarOpcionesRecorrido();
             }
         }
+
+        private void cargarArribaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (ViajeCargarArribo frm = new ViajeCargarArribo())
+            {
+                frm.ShowDialog(this);
+            }
+        }
     }
 }

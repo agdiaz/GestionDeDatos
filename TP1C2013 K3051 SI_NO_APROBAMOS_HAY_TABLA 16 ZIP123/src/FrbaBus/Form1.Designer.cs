@@ -73,6 +73,7 @@
             this.tsmPasajeEncomiendaCancelar = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPremios = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPremiosListado = new System.Windows.Forms.ToolStripMenuItem();
+            this.canjearPuntosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmEstadisticas = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmEstadisticasListados = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAyuda = new System.Windows.Forms.ToolStripMenuItem();
@@ -131,7 +132,6 @@
             this.tbRecorridoCiudadDestino = new System.Windows.Forms.TextBox();
             this.tbRecorridoCiudadOrigen = new System.Windows.Forms.TextBox();
             this.btnComprar = new System.Windows.Forms.Button();
-            this.canjearPuntosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsMain.SuspendLayout();
             this.ssStatusMain.SuspendLayout();
             this.gbViaje.SuspendLayout();
@@ -385,27 +385,28 @@
             // tsmViajeListado
             // 
             this.tsmViajeListado.Name = "tsmViajeListado";
-            this.tsmViajeListado.Size = new System.Drawing.Size(143, 22);
+            this.tsmViajeListado.Size = new System.Drawing.Size(152, 22);
             this.tsmViajeListado.Text = "Listado";
             this.tsmViajeListado.Click += new System.EventHandler(this.tsmViajeListado_Click);
             // 
             // tsmViajeAlta
             // 
             this.tsmViajeAlta.Name = "tsmViajeAlta";
-            this.tsmViajeAlta.Size = new System.Drawing.Size(143, 22);
+            this.tsmViajeAlta.Size = new System.Drawing.Size(152, 22);
             this.tsmViajeAlta.Text = "Alta";
             this.tsmViajeAlta.Click += new System.EventHandler(this.tsmViajeAlta_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(140, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
             // 
             // cargarArribaToolStripMenuItem
             // 
             this.cargarArribaToolStripMenuItem.Name = "cargarArribaToolStripMenuItem";
-            this.cargarArribaToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.cargarArribaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.cargarArribaToolStripMenuItem.Text = "Cargar arribo";
+            this.cargarArribaToolStripMenuItem.Click += new System.EventHandler(this.cargarArribaToolStripMenuItem_Click);
             // 
             // tsmCliente
             // 
@@ -497,6 +498,13 @@
             this.tsmPremiosListado.Text = "Listado";
             this.tsmPremiosListado.Click += new System.EventHandler(this.tsmPremiosListado_Click);
             // 
+            // canjearPuntosToolStripMenuItem
+            // 
+            this.canjearPuntosToolStripMenuItem.Name = "canjearPuntosToolStripMenuItem";
+            this.canjearPuntosToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.canjearPuntosToolStripMenuItem.Text = "Canjear puntos";
+            this.canjearPuntosToolStripMenuItem.Click += new System.EventHandler(this.canjearPuntosToolStripMenuItem_Click);
+            // 
             // tsmEstadisticas
             // 
             this.tsmEstadisticas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -508,7 +516,7 @@
             // tsmEstadisticasListados
             // 
             this.tsmEstadisticasListados.Name = "tsmEstadisticasListados";
-            this.tsmEstadisticasListados.Size = new System.Drawing.Size(152, 22);
+            this.tsmEstadisticasListados.Size = new System.Drawing.Size(117, 22);
             this.tsmEstadisticasListados.Text = "Listados";
             this.tsmEstadisticasListados.Click += new System.EventHandler(this.tsmEstadisticasListados_Click);
             // 
@@ -1065,13 +1073,6 @@
             this.btnComprar.Text = "Comprar";
             this.btnComprar.UseVisualStyleBackColor = true;
             this.btnComprar.Click += new System.EventHandler(this.btnComprar_Click);
-            // 
-            // canjearPuntosToolStripMenuItem
-            // 
-            this.canjearPuntosToolStripMenuItem.Name = "canjearPuntosToolStripMenuItem";
-            this.canjearPuntosToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.canjearPuntosToolStripMenuItem.Text = "Canjear puntos";
-            this.canjearPuntosToolStripMenuItem.Click += new System.EventHandler(this.canjearPuntosToolStripMenuItem_Click);
             // 
             // Form1
             // 
