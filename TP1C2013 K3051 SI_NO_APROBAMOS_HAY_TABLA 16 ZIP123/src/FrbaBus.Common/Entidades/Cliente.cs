@@ -16,7 +16,23 @@ namespace FrbaBus.Common.Entidades
         public DateTime FechaNacimiento { get; set; }
         public bool EsDiscapacitado { get; set; }
         public string Sexo { get; set; }
+        public string SexoValor { get { return MostrarSexo(); } }
 
+        private string MostrarSexo()
+        {
+            if (string.IsNullOrEmpty(Sexo))
+            {
+                return "-";
+            }
+            else if(Sexo == "M")
+            {
+                return "Mujer";
+            }
+            else
+            {
+                return "Hombre";
+            }
+        }
         public IList<Puntaje> Puntajes { get; set; }
         public IList<Canje> Canjes{ get; set; }
 

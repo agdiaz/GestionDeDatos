@@ -53,7 +53,8 @@ namespace FrbaBus.Abm_Clientes
         private void CargarListaClientes()
         {
             this.dgvClienteListado.DataSource = _manager.Listar();
-
+            this.dgvClienteListado.Columns["Sexo"].Visible = false;
+            this.dgvClienteListado.Columns["SexoValor"].HeaderText = "Sexo";
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -72,9 +73,9 @@ namespace FrbaBus.Abm_Clientes
 
                 string sexo = string.Empty;
                 if (this.cbFemenino.Checked)
-                    sexo = "F";
-                if (cbMasculino.Checked)
                     sexo = "M";
+                if (cbMasculino.Checked)
+                    sexo = "H";
 
                 this.dgvClienteListado.DataSource = _manager.ListarFiltrado(dni, nombre, apellido, discapacitado, sexo);
             }
@@ -101,6 +102,33 @@ namespace FrbaBus.Abm_Clientes
             this.rbDiscNA.Checked = true;
             this.cbFemenino.Checked = false;
             this.cbMasculino.Checked = false;
+        }
+
+        private void btnDarBaja_Click(object sender, EventArgs e)
+        {
+            {
+                try
+                {
+                    Cliente cliente = dgvClienteListado.SelectedRows[0].DataBoundItem as Cliente;
+                    new ClienteManager().Baja(cliente);
+                    MensajePorPantalla.MensajeInformativo(this,"El cliente se ha dado de baja correctamente");
+                    CargarListaClientes();
+                }
+                catch (AccesoBDException ex)
+                {
+                    MensajePorPantalla.MensajeExceptionBD(this, ex);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MensajePorPantalla.MensajeError(this, "Error al intentar borrar el registro.\n Detalle del error: " + ex.Message);
+                    this.Close();
+                }
+
+                CargarListaClientes();
+
+            }
+
         }
     }
 }

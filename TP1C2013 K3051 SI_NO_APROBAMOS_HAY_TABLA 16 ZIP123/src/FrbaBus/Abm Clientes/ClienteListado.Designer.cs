@@ -31,6 +31,10 @@
             this.dgvClienteListado = new System.Windows.Forms.DataGridView();
             this.btnDarBaja = new System.Windows.Forms.Button();
             this.gbFiltros = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbDiscNA = new System.Windows.Forms.RadioButton();
+            this.rbDiscNo = new System.Windows.Forms.RadioButton();
+            this.rbDiscSi = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbFemenino = new System.Windows.Forms.CheckBox();
             this.cbMasculino = new System.Windows.Forms.CheckBox();
@@ -42,14 +46,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.rbDiscSi = new System.Windows.Forms.RadioButton();
-            this.rbDiscNo = new System.Windows.Forms.RadioButton();
-            this.rbDiscNA = new System.Windows.Forms.RadioButton();
+            this.btnModificarCliente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClienteListado)).BeginInit();
             this.gbFiltros.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvClienteListado
@@ -70,12 +71,13 @@
             // 
             // btnDarBaja
             // 
-            this.btnDarBaja.Location = new System.Drawing.Point(92, 405);
+            this.btnDarBaja.Location = new System.Drawing.Point(93, 406);
             this.btnDarBaja.Name = "btnDarBaja";
             this.btnDarBaja.Size = new System.Drawing.Size(75, 23);
             this.btnDarBaja.TabIndex = 1;
             this.btnDarBaja.Text = "Dar de baja";
             this.btnDarBaja.UseVisualStyleBackColor = true;
+            this.btnDarBaja.Click += new System.EventHandler(this.btnDarBaja_Click);
             // 
             // gbFiltros
             // 
@@ -96,6 +98,51 @@
             this.gbFiltros.TabStop = false;
             this.gbFiltros.Text = "Filtros de búsqueda";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.rbDiscNA);
+            this.groupBox2.Controls.Add(this.rbDiscNo);
+            this.groupBox2.Controls.Add(this.rbDiscSi);
+            this.groupBox2.Location = new System.Drawing.Point(457, 24);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(177, 67);
+            this.groupBox2.TabIndex = 10;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Discapacitado";
+            // 
+            // rbDiscNA
+            // 
+            this.rbDiscNA.AutoSize = true;
+            this.rbDiscNA.Location = new System.Drawing.Point(94, 21);
+            this.rbDiscNA.Name = "rbDiscNA";
+            this.rbDiscNA.Size = new System.Drawing.Size(76, 17);
+            this.rbDiscNA.TabIndex = 2;
+            this.rbDiscNA.TabStop = true;
+            this.rbDiscNA.Text = "No importa";
+            this.rbDiscNA.UseVisualStyleBackColor = true;
+            // 
+            // rbDiscNo
+            // 
+            this.rbDiscNo.AutoSize = true;
+            this.rbDiscNo.Location = new System.Drawing.Point(48, 21);
+            this.rbDiscNo.Name = "rbDiscNo";
+            this.rbDiscNo.Size = new System.Drawing.Size(39, 17);
+            this.rbDiscNo.TabIndex = 1;
+            this.rbDiscNo.TabStop = true;
+            this.rbDiscNo.Text = "No";
+            this.rbDiscNo.UseVisualStyleBackColor = true;
+            // 
+            // rbDiscSi
+            // 
+            this.rbDiscSi.AutoSize = true;
+            this.rbDiscSi.Location = new System.Drawing.Point(7, 20);
+            this.rbDiscSi.Name = "rbDiscSi";
+            this.rbDiscSi.Size = new System.Drawing.Size(34, 17);
+            this.rbDiscSi.TabIndex = 0;
+            this.rbDiscSi.TabStop = true;
+            this.rbDiscSi.Text = "Si";
+            this.rbDiscSi.UseVisualStyleBackColor = true;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.cbFemenino);
@@ -112,9 +159,9 @@
             this.cbFemenino.AutoSize = true;
             this.cbFemenino.Location = new System.Drawing.Point(6, 45);
             this.cbFemenino.Name = "cbFemenino";
-            this.cbFemenino.Size = new System.Drawing.Size(72, 17);
+            this.cbFemenino.Size = new System.Drawing.Size(52, 17);
             this.cbFemenino.TabIndex = 1;
-            this.cbFemenino.Text = "Femenino";
+            this.cbFemenino.Text = "Mujer";
             this.cbFemenino.UseVisualStyleBackColor = true;
             // 
             // cbMasculino
@@ -122,9 +169,9 @@
             this.cbMasculino.AutoSize = true;
             this.cbMasculino.Location = new System.Drawing.Point(6, 22);
             this.cbMasculino.Name = "cbMasculino";
-            this.cbMasculino.Size = new System.Drawing.Size(74, 17);
+            this.cbMasculino.Size = new System.Drawing.Size(63, 17);
             this.cbMasculino.TabIndex = 0;
-            this.cbMasculino.Text = "Masculino";
+            this.cbMasculino.Text = "Hombre";
             this.cbMasculino.UseVisualStyleBackColor = true;
             // 
             // txtApellido
@@ -195,56 +242,21 @@
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
-            // groupBox2
+            // btnModificarCliente
             // 
-            this.groupBox2.Controls.Add(this.rbDiscNA);
-            this.groupBox2.Controls.Add(this.rbDiscNo);
-            this.groupBox2.Controls.Add(this.rbDiscSi);
-            this.groupBox2.Location = new System.Drawing.Point(457, 24);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(177, 67);
-            this.groupBox2.TabIndex = 10;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Discapacitado";
-            // 
-            // rbDiscSi
-            // 
-            this.rbDiscSi.AutoSize = true;
-            this.rbDiscSi.Location = new System.Drawing.Point(7, 20);
-            this.rbDiscSi.Name = "rbDiscSi";
-            this.rbDiscSi.Size = new System.Drawing.Size(34, 17);
-            this.rbDiscSi.TabIndex = 0;
-            this.rbDiscSi.TabStop = true;
-            this.rbDiscSi.Text = "Si";
-            this.rbDiscSi.UseVisualStyleBackColor = true;
-            // 
-            // rbDiscNo
-            // 
-            this.rbDiscNo.AutoSize = true;
-            this.rbDiscNo.Location = new System.Drawing.Point(48, 21);
-            this.rbDiscNo.Name = "rbDiscNo";
-            this.rbDiscNo.Size = new System.Drawing.Size(39, 17);
-            this.rbDiscNo.TabIndex = 1;
-            this.rbDiscNo.TabStop = true;
-            this.rbDiscNo.Text = "No";
-            this.rbDiscNo.UseVisualStyleBackColor = true;
-            // 
-            // rbDiscNA
-            // 
-            this.rbDiscNA.AutoSize = true;
-            this.rbDiscNA.Location = new System.Drawing.Point(94, 21);
-            this.rbDiscNA.Name = "rbDiscNA";
-            this.rbDiscNA.Size = new System.Drawing.Size(76, 17);
-            this.rbDiscNA.TabIndex = 2;
-            this.rbDiscNA.TabStop = true;
-            this.rbDiscNA.Text = "No importa";
-            this.rbDiscNA.UseVisualStyleBackColor = true;
+            this.btnModificarCliente.Location = new System.Drawing.Point(12, 406);
+            this.btnModificarCliente.Name = "btnModificarCliente";
+            this.btnModificarCliente.Size = new System.Drawing.Size(75, 23);
+            this.btnModificarCliente.TabIndex = 3;
+            this.btnModificarCliente.Text = "Modificar";
+            this.btnModificarCliente.UseVisualStyleBackColor = true;
             // 
             // ClienteListado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(981, 454);
+            this.Controls.Add(this.btnModificarCliente);
             this.Controls.Add(this.gbFiltros);
             this.Controls.Add(this.btnDarBaja);
             this.Controls.Add(this.dgvClienteListado);
@@ -258,10 +270,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvClienteListado)).EndInit();
             this.gbFiltros.ResumeLayout(false);
             this.gbFiltros.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -286,5 +298,6 @@
         private System.Windows.Forms.RadioButton rbDiscNA;
         private System.Windows.Forms.RadioButton rbDiscNo;
         private System.Windows.Forms.RadioButton rbDiscSi;
+        private System.Windows.Forms.Button btnModificarCliente;
     }
 }

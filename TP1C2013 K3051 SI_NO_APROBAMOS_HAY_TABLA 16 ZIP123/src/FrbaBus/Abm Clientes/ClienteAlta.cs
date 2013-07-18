@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using FrbaBus.Manager;
 using FrbaBus.Helpers;
 using FrbaBus.Common.Entidades;
+using FrbaBus.Common.Helpers;
 
 namespace FrbaBus.Abm_Clientes
 {
@@ -63,9 +64,10 @@ namespace FrbaBus.Abm_Clientes
                     Sexo = sexo
                 };
 
-                _manager.Alta(cliente);
+                cliente = _manager.Alta(cliente);
 
-                MessageBox.Show(this, "Cliente dado de alta", "El cliente fue dado de alta correctamente.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MensajePorPantalla.MensajeInformativo(this, "Se dio de alta el cliente con DNI: " + cliente.NroDni.ToString());
+                this.Close();
             }
         }
 
