@@ -22,7 +22,7 @@ namespace FrbaBus.DAO.Builder
             c.Telefono = row["telefono"].ToString();
             c.Mail = row["mail"].ToString();
             c.FechaNacimiento = Convert.ToDateTime(row["fecha_nacimiento"].ToString());
-            c.EsDiscapacitado = Convert.ToBoolean(row["es_discapacitado"].ToString());
+            c.EsDiscapacitado = row["es_discapacitado"].ToString() == "0" ? false : true;
             c.Sexo = row["sexo"].ToString();
 
             return c;

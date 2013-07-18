@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using FrbaBus.Manager;
 using FrbaBus.Common.Excepciones;
 using FrbaBus.Common.Helpers;
+using FrbaBus.Common.Entidades;
 
 namespace FrbaBus.Abm_Clientes
 {
@@ -22,11 +23,19 @@ namespace FrbaBus.Abm_Clientes
             _manager = new ClienteManager();
         }
 
+        public Cliente ClienteSeleccionado()
+        {
+            Cliente c = null;
+            if (dgvClienteListado.SelectedRows.Count > 0)
+                c = dgvClienteListado.SelectedRows[0].DataBoundItem as Cliente;
+            return c;
+        }
+
         private void ClienteListado_Load(object sender, EventArgs e)
         {
             try
             {
-                this.dgvClienteListado.DataSource = _manager.Listar();
+                CargarListaClientes();
             }
             catch (AccesoBDException ex)
             {
@@ -38,6 +47,12 @@ namespace FrbaBus.Abm_Clientes
                 MensajePorPantalla.MensajeError(this, "Error al intentar cargar el listado.\n Detalle del error: " + ex.Message);
                 this.Close();
             }
+        }
+
+        private void CargarListaClientes()
+        {
+            this.dgvClienteListado.DataSource = _manager.Listar();
+
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
