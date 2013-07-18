@@ -1562,16 +1562,20 @@ GO
 GO
 
 INSERT INTO [SI_NO_APROBAMOS_HAY_TABLA].Puntaje
-	(dni, id_compra, puntos)
-SELECT p.dni, p.id_compra, (p.pre_pasaje/5) 
+	(dni, id_compra, puntos, fecha_otorgado)
+SELECT p.dni, p.id_compra, (p.pre_pasaje/5) , c.fecha_compra
 FROM SI_NO_APROBAMOS_HAY_TABLA.Pasaje p
+INNER JOIN SI_NO_APROBAMOS_HAY_TABLA.Compra c
+	ON c.id_compra = p.id_compra
 
 GO
 
 INSERT INTO [SI_NO_APROBAMOS_HAY_TABLA].Puntaje
-	(dni, id_compra, puntos)
-SELECT e.dni, e.id_compra, (e.pre_encomienda/5) 
+	(dni, id_compra, puntos, fecha_otorgado)
+SELECT e.dni, e.id_compra, (e.pre_encomienda/5), c.fecha_compra
 FROM SI_NO_APROBAMOS_HAY_TABLA.Encomienda e
+INNER JOIN SI_NO_APROBAMOS_HAY_TABLA.Compra c
+	ON c.id_compra = e.id_compra
 
 GO
 
