@@ -12,5 +12,5 @@ BEGIN
 	FROM SI_NO_APROBAMOS_HAY_TABLA.Puntaje p
 	WHERE DATEDIFF(year,p.fecha_otorgado, GETDATE() ) < 1
 	AND p.dni = @p_dni
-	ORDER BY puntosRestantes DESC
+	ORDER BY p.fecha_otorgado ASC
 END
