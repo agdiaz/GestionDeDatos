@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace FrbaBus.Top_Destinos
+namespace FrbaBus.Abm_Viaje
 {
-    public partial class Form3 : Form
+    public partial class ViajeCancelar : Form
     {
-        public Form3()
+        public ViajeCancelar()
         {
             InitializeComponent();
         }

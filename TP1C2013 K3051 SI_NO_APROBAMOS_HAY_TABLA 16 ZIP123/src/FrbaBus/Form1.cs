@@ -10,11 +10,11 @@ using FrbaBus.Abm_Micro;
 using FrbaBus.Rol;
 using FrbaBus.Abm_Ciudad;
 using FrbaBus.Abm_Clientes;
-using FrbaBus.Abm_encomienda;
 using FrbaBus.Abm_Recorrido;
 using FrbaBus.Abm_Viaje;
 using FrbaBus.Common.Entidades;
 using FrbaBus.Manager;
+using FrbaBus.Abm_Recompensa;
 
 namespace FrbaBus
 {
@@ -229,16 +229,6 @@ namespace FrbaBus
             new ClienteListado().ShowDialog(this);
         }
 
-        private void tsmPasajeEncomiendaCancelar_Click(object sender, EventArgs e)
-        {
-            new Cancelar().ShowDialog(this);
-        }
-
-        private void tsmPasajeEncomiendaComprar_Click(object sender, EventArgs e)
-        {
-            new Comprar().ShowDialog(this);
-        }
-
         private void tsmRecorridoAlta_Click(object sender, EventArgs e)
         {
             new RecorridoAlta().ShowDialog(this);
@@ -395,11 +385,6 @@ namespace FrbaBus
             tsmEstadisticasListados.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmEstadisticasListado");
             tsmEstadisticas.Enabled = tsmEstadisticasListados.Enabled;
             
-            //Menú Premios:
-            tsmPremiosAlta.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmPremiosAlta");
-            tsmPremiosListado.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmPremiosListado");
-            tsmPremios.Enabled = tsmPremiosAlta.Enabled || tsmPremiosListado.Enabled;
-
             //Menú Ayuda Usuarios:
             tsmAyudaUsuarios.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmAyudaUsuarios");
             tsmAyudaUsuarios.Enabled = tsmAyudaUsuarios.Enabled;
@@ -501,6 +486,24 @@ namespace FrbaBus
         private void btnCargarDetalles_Click(object sender, EventArgs e)
         {
             LimpiarGrupoDetalles(true);
+        }
+
+        private void tsmPremiosListado_Click(object sender, EventArgs e)
+        {
+            using (RecompensaListado frm = new RecompensaListado())
+            {
+                frm.ShowDialog(this);   
+            }
+        }
+
+        private void btnComprar_Click(object sender, EventArgs e)
+        {
+            using (RecorridoListado frm = new RecorridoListado())
+            {
+                frm.ShowDialog(this);
+                _recorrido = frm.RecorridoSeleccionado();
+                MostrarOpcionesRecorrido();
+            }
         }
 
     }
