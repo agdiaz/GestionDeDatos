@@ -13,15 +13,17 @@ namespace FrbaBus.DAO
     public class ViajeDAO : IEntidadDAO<Viaje>
     {
         private IBuilder<Viaje> _builder;
+        private IAccesoBD _accesoBD;
         public ViajeDAO()
         {
             this._builder = new ViajeBuilder();
+            this._accesoBD = new AccesoBD();
         }
         #region Miembros de IEntidadDAO<Viaje>
 
-        public GestionDeDatos.AccesoDatos.IAccesoBD accesoBD
+        public IAccesoBD accesoBD
         {
-            get { return new AccesoBD() ; }
+            get { return _accesoBD; }
         }
 
         public Viaje Obtener(object id)
@@ -66,6 +68,24 @@ namespace FrbaBus.DAO
         private DataSet ObtenerRegistros()
         {
             return accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_listar_viajes");
+        }
+        private DataSet ObtenerRegistros(Recorrido rec)
+        {
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+            parametros.Add(new SqlParameter("@p_id", SqlDbType.Int, 4, "p_id"), rec.Id);
+
+            return accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_listar_viajes_recorrido", parametros);
+        }
+        public IList<Viaje> ListarPorRecorrido(Recorrido rec)
+        {
+            List<Viaje> viajes = new List<Viaje>();
+
+            foreach (DataRow row in this.ObtenerRegistros().Tables[0].Rows)
+            {
+                viajes.Add(this._builder.Build(row));
+            }
+
+            return viajes;
         }
     }
 }

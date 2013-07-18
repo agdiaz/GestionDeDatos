@@ -70,7 +70,10 @@ namespace FrbaBus.Abm_Viaje
 
         private void ListarViajes()
         {
-            this.dgvViajeListado.DataSource = _manager.Listar();
+            if (_recorrido != null)
+                this.dgvViajeListado.DataSource = _manager.ListarPorRecorrido(_recorrido);
+            else
+                this.dgvViajeListado.DataSource = _manager.Listar();
         }
 
         private void ListarRecorridos()

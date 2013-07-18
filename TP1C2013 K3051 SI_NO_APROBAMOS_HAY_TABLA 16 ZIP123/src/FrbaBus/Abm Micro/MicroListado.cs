@@ -87,7 +87,11 @@ namespace FrbaBus.Abm_Micro
             if (_viaje == null)
                 this.dgvMicroListado.DataSource = _manager.Listar();
             else
-                this.dgvMicroListado.DataSource = _manager.ListarPorViaje(_viaje);
+            {
+                IList<Micro> microUnico = new List<Micro>();
+                microUnico.Add(_viaje.Micro);
+                this.dgvMicroListado.DataSource = microUnico;
+            }
             this.dgvMicroListado.Columns["Id"].Visible = false;
             this.dgvMicroListado.Columns["NumeroDeMicro"].Visible = false;
             this.dgvMicroListado.Columns["IdEmpresa"].Visible = false;

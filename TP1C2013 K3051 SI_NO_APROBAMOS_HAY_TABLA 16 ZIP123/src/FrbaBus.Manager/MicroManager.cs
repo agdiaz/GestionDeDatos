@@ -13,7 +13,6 @@ namespace FrbaBus.Manager
         private ServicioManager _servicioManager;
         private EmpresaManager _empresaManager;
         private ButacaManager _butacaManager;
-        private ViajeManager _viajeManager;
 
         private MicroDAO _dao; 
         
@@ -23,7 +22,6 @@ namespace FrbaBus.Manager
             _servicioManager = new ServicioManager();
             _empresaManager = new EmpresaManager();
             _butacaManager = new ButacaManager();
-            _viajeManager = new ViajeManager();
         }
         
         public Micro Obtener(int id)
@@ -87,16 +85,6 @@ namespace FrbaBus.Manager
                 m.Butacas = _butacaManager.ObtenerButacasMicro(m);
             
             }
-            return micros;
-        }
-
-        public IList<Micro> ListarPorViaje(Viaje _viaje)
-        {
-            IList<Viaje> todosLosViajes = _viajeManager.Listar();
-
-            IList<Micro> micros = new List<Micro>();
-            micros.Add(_viaje.Micro);
-            
             return micros;
         }
     }

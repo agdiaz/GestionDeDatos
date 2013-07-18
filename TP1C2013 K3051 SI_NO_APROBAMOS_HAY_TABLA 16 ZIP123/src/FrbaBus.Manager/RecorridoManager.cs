@@ -23,7 +23,17 @@ namespace FrbaBus.Manager
         
         public Recorrido Obtener(int id)
         {
-            return _dao.Obtener(id);
+            var rec = _dao.Obtener(id);
+
+            Ciudad ciudadDestino = _ciudadManager.Obtener(rec.IdCiudadDestino);
+            Ciudad ciudadOrigen = _ciudadManager.Obtener(rec.IdCiudadOrigen);
+            Servicio servicio = _servicioManager.Obtener(rec.IdServicio);
+
+            rec.CiudadDestino = ciudadDestino;
+            rec.CiudadOrigen = ciudadOrigen;
+            rec.Servicio = servicio;
+
+            return rec;
         }
         public Recorrido Alta(Recorrido rec)
         {
