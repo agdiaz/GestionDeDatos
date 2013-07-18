@@ -38,28 +38,40 @@ BEGIN
 	BEGIN
 		--Todos estos if son mutuamente exclusivos
 		
-		IF @fec_fuera >= @fecha_inicio AND @fec_reinic <= @fecha_fin
+		IF @fec_fuera >= @fecha_inicio AND
+			@fec_fuera < @fecha_fin	AND
+			@fec_reinic <= @fecha_fin AND
+			@fec_reinic > @fecha_fin
 		BEGIN
 			--Arranca y termina dentro del periodo
 			INSERT INTO #tmpDias (id_micro, patente, dias)
 			VALUES (@id_micro, @patente, ABS(DATEDIFF(DAY, @fec_fuera, @fec_reinic)))
 		END
 		 
-		IF @fec_fuera < @fecha_inicio AND @fec_reinic <= @fecha_fin
+		IF @fec_fuera < @fecha_inicio AND
+			@fec_fuera < @fecha_fin	AND
+			@fec_reinic <= @fecha_fin AND
+			@fec_reinic > @fecha_inicio
 		BEGIN
 			--Arranca antes del periodo pero termina dentro
 			INSERT INTO #tmpDias (id_micro, patente, dias)
 			VALUES (@id_micro, @patente, ABS(DATEDIFF(DAY, @fecha_inicio, @fec_reinic)))				
 		END
 		
-		IF @fec_fuera < @fecha_inicio AND @fec_reinic > @fecha_fin
+		IF @fec_fuera < @fecha_inicio AND 
+			@fec_fuera < @fecha_fin AND
+			@fec_reinic > @fecha_fin AND
+			@fec_reinic > @fecha_inicio
 		BEGIN
 			--Arranca antes del periodo y termina despues del periodo
 			INSERT INTO #tmpDias (id_micro, patente, dias)
 			VALUES (@id_micro, @patente, ABS(DATEDIFF(DAY, @fecha_inicio, @fecha_fin)))			
 		END
 		
-		IF @fec_fuera >= @fecha_inicio AND @fec_reinic > @fecha_fin
+		IF @fec_fuera >= @fecha_inicio AND
+			@fec_fuera < @fecha_fin AND
+			@fec_reinic > @fecha_fin AND
+			@fec_reinic > @fecha_inicio
 		BEGIN
 			--Arranca dentro del periodo pero termina despues
 			INSERT INTO #tmpDias (id_micro, patente, dias)
