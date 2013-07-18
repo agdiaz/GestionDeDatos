@@ -55,7 +55,7 @@ namespace FrbaBus.Abm_Micro
             {
                 CargarServicios();
                 CargarEmpresas();
-
+                CargarModelo();
                 CargarMicros();
             }
             catch (AccesoBDException ex)
@@ -70,6 +70,11 @@ namespace FrbaBus.Abm_Micro
             }
         }
 
+        private void CargarModelo()
+        {
+            this.cbbMicroListadoTipoModelo.SelectedIndex = 0;
+        }
+
         private void CargarMicros()
         {
             this.dgvMicroListado.DataSource = _manager.Listar();
@@ -82,7 +87,7 @@ namespace FrbaBus.Abm_Micro
         private void CargarEmpresas()
         {
             IList<Empresa> empresas = _empresaManager.Listar();
-
+            empresas.Insert(0,new Empresa());
             this.cbbMicroListadoTipoEmpresa.DataSource = empresas;
             this.cbbMicroListadoTipoEmpresa.DisplayMember = "Descripcion";
             this.cbbMicroListadoTipoEmpresa.ValueMember = "Id";
@@ -90,6 +95,7 @@ namespace FrbaBus.Abm_Micro
         private void CargarServicios()
         {
             IList<Servicio> servicios = _servicioManager.Listar();
+            servicios.Insert(0, new Servicio());
 
             this.cbbMicroListadoTipoServicio.DataSource = servicios;
             this.cbbMicroListadoTipoServicio.DisplayMember = "TipoServicio";
@@ -100,12 +106,27 @@ namespace FrbaBus.Abm_Micro
         {
             try
             {
-                string kgsEncomiendas = this.tbMicroListadoKgsEncomiendas.Text;
-                string numeroPatente = this.tbMicroListadoNumeroMicro.Text;
-                string numeroMicro = this.tbMicroListadoNumeroMicro.Text;
-                string tipoEmpresa = this.cbbMicroListadoTipoEmpresa.Text;
-                string tipoModelo = this.cbbMicroListadoTipoModelo.Text;
-                string tipoServicio = this.cbbMicroListadoTipoServicio.Text;
+                decimal kgsEncomiendas = 0;
+                if (!string.IsNullOrEmpty(this.tbMicroListadoKgsEncomiendas.Text))
+                 kgsEncomiendas = Convert.ToDecimal(this.tbMicroListadoKgsEncomiendas.Text);
+
+                int numeroMicro = 0;
+                if (!string.IsNullOrEmpty(this.tbMicroListadoNumeroMicro.Text))
+                    Convert.ToInt32(this.tbMicroListadoNumeroMicro.Text);
+                
+                string numeroPatente = this.tbMicroListadoPatente.Text;
+                
+                string tipoEmpresa = null;
+                if (cbbMicroListadoTipoEmpresa.SelectedIndex > 0)
+                    tipoEmpresa = this.cbbMicroListadoTipoEmpresa.Text;
+
+                string tipoModelo = null;
+                if (cbbMicroListadoTipoModelo.SelectedIndex > 0)
+                    tipoModelo = this.cbbMicroListadoTipoModelo.Text;
+
+                string tipoServicio = null;
+                if (cbbMicroListadoTipoServicio.SelectedIndex > 0)
+                    tipoServicio = this.cbbMicroListadoTipoServicio.Text;
 
                 this.dgvMicroListado.DataSource = _manager.ListarFiltrado(kgsEncomiendas, numeroPatente, numeroMicro, tipoEmpresa, tipoModelo, tipoServicio);
             }
@@ -142,6 +163,11 @@ namespace FrbaBus.Abm_Micro
                 MensajePorPantalla.MensajeError(this, "Error al intentar cargar borrar el registro.\n Detalle del error: " + ex.Message);
                 this.Close();
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

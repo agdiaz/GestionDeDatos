@@ -63,7 +63,7 @@ namespace FrbaBus.Manager
             }
             return micros;
         }
-        public IList<Micro> ListarFiltrado(string kgsEncomiendas, string numeroPatente, string numeroMicro, string tipoEmpresa, string tipoModelo, string tipoServicio)
+        public IList<Micro> ListarFiltrado(decimal kgsEncomiendas, string numeroPatente, int numeroMicro, string tipoEmpresa, string tipoModelo, string tipoServicio)
         {
             var micros = _dao.ListarFiltrado(kgsEncomiendas, numeroPatente, numeroMicro, tipoEmpresa, tipoModelo, tipoServicio);
             foreach (Micro m in micros)

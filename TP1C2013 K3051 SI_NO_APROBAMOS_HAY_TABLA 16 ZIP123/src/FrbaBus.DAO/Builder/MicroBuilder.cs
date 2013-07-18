@@ -17,7 +17,6 @@ namespace FrbaBus.DAO.Builder
             {
                 Modelo  = row["modelo"].ToString(),
                 Patente = row["patente"].ToString(),
-                Marca = row["nombre"].ToString(),
                 IdServicio = Convert.ToInt32(row["id_servicio"].ToString()),
                 Id = Convert.ToInt32(row["id_micros"].ToString()),
                 IdEmpresa = Convert.ToInt32(row["id_marca"].ToString()),
@@ -27,7 +26,9 @@ namespace FrbaBus.DAO.Builder
                 KgsCapacidad = Convert.ToDecimal(row["capacidad_kg"].ToString()),
                 KgsDisponibles = 0,//Convert.ToDecimal(row["kgs_disponibles"].ToString()),
                 KgsVendidos = 0,//Convert.ToDecimal(row["kgs_vendidos"].ToString()),
-                FechaAlta = Convert.ToDateTime(row["fecha_alta"].ToString())
+                FechaAlta = Convert.ToDateTime(row["fecha_alta"].ToString()),
+                BajaVidaUtil = row["baja_vida_util"].ToString() == "0" ? false : true
+
             };
             DateTime aux;
             DateTime.TryParse(row["fec_baja_vida_util"].ToString(), out aux);

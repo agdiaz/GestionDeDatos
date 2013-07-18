@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tbMicroListadoKgsEncomiendas = new System.Windows.Forms.TextBox();
             this.tbMicroListadoNumeroMicro = new System.Windows.Forms.TextBox();
@@ -73,6 +76,7 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros de búsqueda";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // tbMicroListadoKgsEncomiendas
             // 
@@ -160,6 +164,9 @@
             // 
             this.cbbMicroListadoTipoModelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbMicroListadoTipoModelo.FormattingEnabled = true;
+            this.cbbMicroListadoTipoModelo.Items.AddRange(new object[] {
+            "",
+            "modelo"});
             this.cbbMicroListadoTipoModelo.Location = new System.Drawing.Point(88, 43);
             this.cbbMicroListadoTipoModelo.Name = "cbbMicroListadoTipoModelo";
             this.cbbMicroListadoTipoModelo.Size = new System.Drawing.Size(189, 21);
@@ -209,8 +216,26 @@
             this.dgvMicroListado.AllowUserToAddRows = false;
             this.dgvMicroListado.AllowUserToDeleteRows = false;
             this.dgvMicroListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMicroListado.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgvMicroListado.Location = new System.Drawing.Point(12, 120);
             this.dgvMicroListado.Name = "dgvMicroListado";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMicroListado.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.dgvMicroListado.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvMicroListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMicroListado.Size = new System.Drawing.Size(596, 256);
             this.dgvMicroListado.TabIndex = 3;

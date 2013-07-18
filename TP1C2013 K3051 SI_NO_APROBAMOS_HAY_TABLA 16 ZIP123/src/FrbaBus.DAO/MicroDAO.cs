@@ -96,7 +96,7 @@ namespace FrbaBus.DAO
             }
             return lista;
         }
-        public IList<Micro> ListarFiltrado(string kgsEncomiendas, string numeroPatente, string numeroMicro, string tipoEmpresa, string tipoModelo, string tipoServicio)
+        public IList<Micro> ListarFiltrado(decimal kgsEncomiendas, string numeroPatente, int numeroMicro, string tipoEmpresa, string tipoModelo, string tipoServicio)
         {
             IList<Micro> lista = new List<Micro>();
             foreach (DataRow row in this.ObtenerRegistrosMicro(kgsEncomiendas, numeroPatente, numeroMicro, tipoEmpresa, tipoModelo, tipoServicio).Tables[0].Rows)
@@ -136,34 +136,34 @@ namespace FrbaBus.DAO
         {
             return this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_listar_micros");
         }
-        private DataSet ObtenerRegistrosMicro(string kgsEncomiendas, string numeroPatente, string numeroMicro, string tipoEmpresa, string tipoModelo, string tipoServicio)
+        private DataSet ObtenerRegistrosMicro(decimal kgsEncomiendas, string numeroPatente, int numeroMicro, string marca, string tipoModelo, string tipoServicio)
         {
             var parametros = new Dictionary<System.Data.SqlClient.SqlParameter, object>();
-            if (!string.IsNullOrEmpty(kgsEncomiendas))
+            if (kgsEncomiendas > 0)
             {
-                parametros.Add(new SqlParameter("@p_kgm_Encomiendas", SqlDbType.Decimal, 4, "p_kgm_encomiendas"), kgsEncomiendas);
+                parametros.Add(new SqlParameter("@p_kgs_encomienda", SqlDbType.Decimal, 18, "p_kgs_encomienda"), kgsEncomiendas);
             }
             if (!string.IsNullOrEmpty(numeroPatente))
             {
-                parametros.Add(new SqlParameter("@p_kgm_Encomiendas", SqlDbType.Decimal, 4, "p_kgm_encomiendas"), kgsEncomiendas);
+                parametros.Add(new SqlParameter("@p_patente", SqlDbType.NVarChar, 50, "p_patente"), numeroPatente);
             }
-            if (!string.IsNullOrEmpty(numeroMicro))
+            if (numeroMicro > 0)
             {
-                parametros.Add(new SqlParameter("@p_kgm_Encomiendas", SqlDbType.Decimal, 4, "p_kgm_encomiendas"), kgsEncomiendas);
+                parametros.Add(new SqlParameter("@p_nro_micro", SqlDbType.Int, 4, "p_nro_micro"), numeroMicro);
             }
-            if (!string.IsNullOrEmpty(tipoEmpresa))
+            if (!string.IsNullOrEmpty(marca))
             {
-                parametros.Add(new SqlParameter("@p_kgm_Encomiendas", SqlDbType.Decimal, 4, "p_kgm_encomiendas"), kgsEncomiendas);
+                parametros.Add(new SqlParameter("@p_marca", SqlDbType.VarChar, 50, "p_marca"), marca);
             }
-            if (!string.IsNullOrEmpty(tipoModelo))
-            {
-                parametros.Add(new SqlParameter("@p_kgm_Encomiendas", SqlDbType.Decimal, 4, "p_kgm_encomiendas"), kgsEncomiendas);
-            }
+           if (!string.IsNullOrEmpty(tipoModelo))
+           {
+               parametros.Add(new SqlParameter("@p_modelo", SqlDbType.NVarChar, 50, "p_modelo"), tipoModelo);
+          }
             if (!string.IsNullOrEmpty(tipoServicio))
             {
-                parametros.Add(new SqlParameter("@p_kgm_Encomiendas", SqlDbType.Decimal, 4, "p_kgm_encomiendas"), kgsEncomiendas);
+                parametros.Add(new SqlParameter("@p_tipo_servicio", SqlDbType.NVarChar, 255, "p_tipo_servicio"), tipoServicio);
             }
-            return this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_listar_filtrado_micro", parametros);
+            return this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_listar_filtrado_micros", parametros);
         }
 
     }

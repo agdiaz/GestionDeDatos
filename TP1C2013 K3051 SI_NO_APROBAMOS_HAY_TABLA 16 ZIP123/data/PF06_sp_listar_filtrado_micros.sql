@@ -1,4 +1,4 @@
-CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_filtrado_micros
+ALTER PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_filtrado_micros
 	@p_marca varchar(50) = NULL, 
 	@p_modelo nvarchar(50) = NULL,
 	@p_tipo_servicio nvarchar(255) = NULL,
@@ -14,21 +14,19 @@ BEGIN
       ,m.[patente]
       ,m.[id_marca]
       ,m.[id_servicio]
-      ,m.[baja_fuera_servicio]
       ,m.[baja_vida_util]
-      ,m.[fec_fuera_servicio]
-      ,m.[fec_reinicio_servicio]
       ,m.[fec_baja_vida_util]
       ,m.[capacidad_kg]
-      ,m.[baja]
 	FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Micros] m
 	left join SI_NO_APROBAMOS_HAY_TABLA.Servicio s
-		on s.id_servicio = m.id_servicio and @p_tipo_servicio = s.tipo_servicio
+		on s.id_servicio = m.id_servicio
 	left join SI_NO_APROBAMOS_HAY_TABLA.Marca ma
-		on ma.id_marca = m.id_marca and @p_marca = ma.nombre
+		on ma.id_marca = m.id_marca 
 	where ((@p_modelo IS NULL) OR (m.modelo like '%' + @p_modelo + '%' ))
 	and ((@p_patente IS NULL) OR (m.patente like '%' + @p_patente + '%' ))
-	and ((@p_nro_micro IS NULL) OR (m.nro_micro like '%' + @p_nro_micro + '%'))
-	and ((@p_kgs_encomienda IS NULL) OR (m.capacidad_kg like '%' + @p_kgs_encomienda + '%' ))
+	and ((@p_nro_micro IS NULL) OR (m.nro_micro = @p_nro_micro ))
+	and ((@p_kgs_encomienda IS NULL) OR (m.capacidad_kg = @p_kgs_encomienda ))
+	and ((@p_marca IS NULL) OR (ma.nombre = @p_marca))
+	and ((@p_tipo_servicio IS NULL) OR (s.tipo_servicio = @p_tipo_servicio ))
 
 END

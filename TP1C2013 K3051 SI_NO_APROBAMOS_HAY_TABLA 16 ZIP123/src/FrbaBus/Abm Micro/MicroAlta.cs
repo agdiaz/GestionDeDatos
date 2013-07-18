@@ -82,7 +82,6 @@ namespace FrbaBus.Abm_Micro
                         Patente = this.txtPatente.Text,
                         KgsCapacidad = Convert.ToDecimal(this.mtbMicroAltaKgsEncomiendas.Text),
                         Servicio = serv,
-                        Marca = empresa.Descripcion,
                         FechaBajaVidaUtil = null,
                         Empresa = empresa
                     };
