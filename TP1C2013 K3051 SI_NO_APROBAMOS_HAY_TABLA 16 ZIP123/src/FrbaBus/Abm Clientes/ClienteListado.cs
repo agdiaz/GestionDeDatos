@@ -35,6 +35,7 @@ namespace FrbaBus.Abm_Clientes
         {
             try
             {
+                LimpiarControles();
                 CargarListaClientes();
             }
             catch (AccesoBDException ex)
@@ -62,12 +63,18 @@ namespace FrbaBus.Abm_Clientes
                 string dni = this.txtDni.Text;
                 string nombre = this.txtNombre.Text;
                 string apellido = this.txtApellido.Text;
-                string discapacitado = this.cbDiscapacitado.Checked ? "S" : "N";
+                string discapacitado = string.Empty;
+                
+                if (this.rbDiscNo.Checked)
+                    discapacitado = "N";
+                if (this.rbDiscSi.Checked)
+                    discapacitado = "S";
+
                 string sexo = string.Empty;
-                if (this.cbFemenino.Checked && !cbMasculino.Checked)
-                    sexo = "Fem";
-                if (!this.cbFemenino.Checked && cbMasculino.Checked)
-                    sexo = "Masc";
+                if (this.cbFemenino.Checked)
+                    sexo = "F";
+                if (cbMasculino.Checked)
+                    sexo = "M";
 
                 this.dgvClienteListado.DataSource = _manager.ListarFiltrado(dni, nombre, apellido, discapacitado, sexo);
             }
@@ -83,10 +90,15 @@ namespace FrbaBus.Abm_Clientes
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
+            LimpiarControles();
+        }
+
+        private void LimpiarControles()
+        {
             this.txtApellido.Text = string.Empty;
             this.txtDni.Text = string.Empty;
             this.txtNombre.Text = string.Empty;
-            this.cbDiscapacitado.Checked = false;
+            this.rbDiscNA.Checked = true;
             this.cbFemenino.Checked = false;
             this.cbMasculino.Checked = false;
         }
