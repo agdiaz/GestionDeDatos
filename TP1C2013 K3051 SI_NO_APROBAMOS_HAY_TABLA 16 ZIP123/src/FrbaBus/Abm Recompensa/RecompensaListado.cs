@@ -38,10 +38,26 @@ namespace FrbaBus.Abm_Recompensa
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             string descripcion = tbDescripcion.Text;
-            int puntosDesde = Convert.ToInt32(tbPuntosDesde.Text);
-            int puntosHasta = Convert.ToInt32(tbPuntosHasta.Text);
-            int stockDesde = Convert.ToInt32 (tbStockDesde.Text);
-            int stockHasta = Convert.ToInt32 (tbStockHasta.Text);
+
+            int puntosDesde = 0;
+            if (!string.IsNullOrEmpty(this.tbPuntosDesde.Text)){
+                puntosDesde = Convert.ToInt32(tbPuntosDesde.ToString());
+            }
+            int puntosHasta = 9999;
+            if (!string.IsNullOrEmpty(tbPuntosHasta.Text)){
+                puntosHasta = Convert.ToInt32(tbPuntosHasta.Text);
+            }
+            
+            int stockDesde = 0;
+            if (!string.IsNullOrEmpty(tbStockDesde.Text))
+            {
+                stockDesde = Convert.ToInt32(tbStockDesde.Text);
+            }
+            int stockHasta = 9999;
+            if (!string.IsNullOrEmpty(tbStockHasta.Text))
+            {
+                stockHasta = Convert.ToInt32(tbStockHasta.Text);
+            }
 
             IList<Recompensa> recompensas = _manager.ListarFiltrado(descripcion, puntosDesde, puntosHasta, stockDesde, stockHasta);
             dgvRecomensas.DataSource = recompensas;
