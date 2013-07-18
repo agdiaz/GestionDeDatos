@@ -1,7 +1,8 @@
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_canjear_recompensa
 (
 	@p_dni numeric(18,0),
-	@p_id_recompensa int
+	@p_id_recompensa int,
+	@p_cantidad	int
 )
 AS
 BEGIN
@@ -12,12 +13,12 @@ BEGIN
 	DECLARE @puntos_act int
 	DECLARE @puntos_usados_act int
 	
-	SELECT @puntos_costo = r.puntos_costo
+	SELECT @puntos_costo = (r.puntos_costo * @p_cantidad)
 	FROM [SI_NO_APROBAMOS_HAY_TABLA].Recompensa r
 	WHERE id_recompensa = @p_id_recompensa
 	
 	UPDATE [SI_NO_APROBAMOS_HAY_TABLA].Recompensa
-	SET stock = stock - 1
+	SET stock = stock - @p_cantidad
 	WHERE id_recompensa = @p_id_recompensa
 
 	DECLARE CUR_PUNTAJE CURSOR FOR
