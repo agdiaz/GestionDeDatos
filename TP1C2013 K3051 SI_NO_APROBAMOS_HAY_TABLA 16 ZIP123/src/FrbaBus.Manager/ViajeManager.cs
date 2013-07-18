@@ -44,9 +44,9 @@ namespace FrbaBus.Manager
             return viajes;
         }
 
-        public object ListarFiltrado(DateTime llegada, DateTime salida, Recorrido rec, Micro micro)
+        public IList<Viaje> ListarFiltrado(DateTime? llegada, DateTime? salida, DateTime? estimada, Recorrido rec, Micro micro)
         {
-            IList<Viaje> viajes = _dao.ListarFiltrado(llegada, salida, rec,  micro);
+            IList<Viaje> viajes = _dao.ListarFiltrado(llegada, salida, estimada, rec,  micro);
             foreach (Viaje viaje in viajes)
             {
                 viaje.Recorrido = rec;
