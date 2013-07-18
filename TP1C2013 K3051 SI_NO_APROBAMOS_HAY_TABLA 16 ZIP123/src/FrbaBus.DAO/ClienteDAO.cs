@@ -83,38 +83,32 @@ namespace FrbaBus.DAO
         {
             Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
 
-            SqlParameter p0 = new SqlParameter("@p_nombre", SqlDbType.VarChar, 50, "p_nombre");
+            SqlParameter p0 = new SqlParameter("@p_nombre", SqlDbType.NVarChar, 255, "p_nombre");
             parametros.Add(p0, entidad.Nombre);
 
-            SqlParameter p1 = new SqlParameter("@p_nombre", SqlDbType.VarChar, 50, "p_nombre");
-            parametros.Add(p1, entidad.Nombre);
+            SqlParameter p1 = new SqlParameter("@p_dni", SqlDbType.Decimal, 18, "p_dni");
+            parametros.Add(p1, entidad.NroDni);
 
-            SqlParameter p2 = new SqlParameter("@p_dni", SqlDbType.Decimal, 18, "p_dni");
-            parametros.Add(p2, entidad.NroDni);
+            SqlParameter p2 = new SqlParameter("@p_apellido", SqlDbType.NVarChar, 255, "p_apellido");
+            parametros.Add(p2, entidad.Apellido);
 
-            SqlParameter p3 = new SqlParameter("@p_nombre", SqlDbType.NVarChar, 255, "p_nombre");
-            parametros.Add(p3, entidad.Nombre);
+            SqlParameter p3 = new SqlParameter("@p_direccion", SqlDbType.NVarChar, 255, "p_direccion");
+            parametros.Add(p3, entidad.Direccion);
 
-            SqlParameter p4 = new SqlParameter("@p_apellido", SqlDbType.NVarChar, 255, "p_apellido");
-            parametros.Add(p4, entidad.Apellido);
+            SqlParameter p4 = new SqlParameter("@p_telefono", SqlDbType.Decimal, 18, "p_telefono");
+            parametros.Add(p4, entidad.Telefono);
 
-            SqlParameter p5 = new SqlParameter("@p_direccion", SqlDbType.NVarChar, 255, "p_direccion");
-            parametros.Add(p5, entidad.Direccion);
+            SqlParameter p5 = new SqlParameter("@p_mail", SqlDbType.NVarChar, 255, "p_mail");
+            parametros.Add(p5, entidad.Mail);
 
-            SqlParameter p6 = new SqlParameter("@p_telefono", SqlDbType.Decimal, 18, "p_telefono");
-            parametros.Add(p6, entidad.Telefono);
+            SqlParameter p6 = new SqlParameter("@p_fecha_nacimiento", SqlDbType.DateTime, 8, "p_fecha_nacimiento");
+            parametros.Add(p6, entidad.FechaNacimiento);
 
-            SqlParameter p7 = new SqlParameter("@p_mail", SqlDbType.NVarChar, 255, "p_mail");
-            parametros.Add(p7, entidad.Mail);
+            SqlParameter p7 = new SqlParameter("@p_es_discapacitado", SqlDbType.Char, 1, "p_es_discapacitado");
+            parametros.Add(p7, entidad.EsDiscapacitado ? 'S' : 'N');
 
-            SqlParameter p8 = new SqlParameter("@p_fecha_nacimiento", SqlDbType.DateTime, 8, "p_fecha_nacimiento");
-            parametros.Add(p8, entidad.FechaNacimiento);
-
-            SqlParameter p9 = new SqlParameter("@p_es_discapacitado", SqlDbType.Char, 1, "p_es_discapacitado");
-            parametros.Add(p9, entidad.EsDiscapacitado ? "S" : "N");
-
-            SqlParameter p10 = new SqlParameter("@p_sexo", SqlDbType.VarChar, 50, "p_sexo");
-            parametros.Add(p10, entidad.Sexo);
+            SqlParameter p8 = new SqlParameter("@p_sexo", SqlDbType.VarChar, 50, "p_sexo");
+            parametros.Add(p8, entidad.Sexo);
 
             this.accesoBD.EjecutarComando("[SI_NO_APROBAMOS_HAY_TABLA].sp_update_cliente", parametros);
             
