@@ -92,12 +92,16 @@ namespace FrbaBus.DAO
 
         private ClienteConMasPuntos BuildClienteConMasPuntos(DataRow row)
         {
-            throw new NotImplementedException();
+            return new ClienteConMasPuntos()
+            {
+                Dni = Convert.ToInt32(row["dni"].ToString()),
+                PuntosTotales = Convert.ToInt32(row["puntosTotales"].ToString())
+            };
         }
 
         public DataSet ClientesConMasPuntos(Semestre s)
         {
-            return ConsultarListado("[SI_NO_APROBAMOS_HAY_TABLA].sp_top5_clientes_con_mas_puntos_por_semestre", s);
+            return ConsultarListado("[SI_NO_APROBAMOS_HAY_TABLA].sp_clientes_mas_puntos", s);
         }
         #endregion
 

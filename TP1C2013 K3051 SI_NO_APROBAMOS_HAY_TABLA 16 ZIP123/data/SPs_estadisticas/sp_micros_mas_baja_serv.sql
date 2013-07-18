@@ -1,8 +1,8 @@
 
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].[sp_micros_mas_baja_serv]
 (
-	@p_fecha_inicio datetime,
-	@p_fecha_fin datetime
+	@fecha_inicio datetime,
+	@fecha_fin datetime
 )
 AS
 BEGIN
@@ -38,32 +38,32 @@ BEGIN
 	BEGIN
 		--Todos estos if son mutuamente exclusivos
 		
-		IF @fec_fuera >= @p_fecha_inicio AND @fec_reinic <= @p_fecha_fin
+		IF @fec_fuera >= @fecha_inicio AND @fec_reinic <= @fecha_fin
 		BEGIN
 			--Arranca y termina dentro del periodo
 			INSERT INTO #tmpDias (id_micro, patente, dias)
 			VALUES (@id_micro, @patente, ABS(DATEDIFF(DAY, @fec_fuera, @fec_reinic)))
 		END
 		 
-		IF @fec_fuera < @p_fecha_inicio AND @fec_reinic <= @p_fecha_fin
+		IF @fec_fuera < @fecha_inicio AND @fec_reinic <= @fecha_fin
 		BEGIN
 			--Arranca antes del periodo pero termina dentro
 			INSERT INTO #tmpDias (id_micro, patente, dias)
-			VALUES (@id_micro, @patente, ABS(DATEDIFF(DAY, @p_fecha_inicio, @fec_reinic)))				
+			VALUES (@id_micro, @patente, ABS(DATEDIFF(DAY, @fecha_inicio, @fec_reinic)))				
 		END
 		
-		IF @fec_fuera < @p_fecha_inicio AND @fec_reinic > @p_fecha_fin
+		IF @fec_fuera < @fecha_inicio AND @fec_reinic > @fecha_fin
 		BEGIN
 			--Arranca antes del periodo y termina despues del periodo
 			INSERT INTO #tmpDias (id_micro, patente, dias)
-			VALUES (@id_micro, @patente, ABS(DATEDIFF(DAY, @p_fecha_inicio, @p_fecha_fin)))			
+			VALUES (@id_micro, @patente, ABS(DATEDIFF(DAY, @fecha_inicio, @fecha_fin)))			
 		END
 		
-		IF @fec_fuera >= @p_fecha_inicio AND @fec_reinic > @p_fecha_fin
+		IF @fec_fuera >= @fecha_inicio AND @fec_reinic > @fecha_fin
 		BEGIN
 			--Arranca dentro del periodo pero termina despues
 			INSERT INTO #tmpDias (id_micro, patente, dias)
-			VALUES (@id_micro, @patente, ABS(DATEDIFF(DAY, @fec_fuera, @p_fecha_fin)))
+			VALUES (@id_micro, @patente, ABS(DATEDIFF(DAY, @fec_fuera, @fecha_fin)))
 		END
 		
 		FETCH NEXT FROM CUR
