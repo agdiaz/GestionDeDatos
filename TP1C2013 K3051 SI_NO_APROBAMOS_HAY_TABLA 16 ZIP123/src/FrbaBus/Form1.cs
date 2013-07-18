@@ -307,6 +307,13 @@ namespace FrbaBus
             }
         }
 
+        private void canjearPuntosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (RecompensaCanjearPuntos frm = new RecompensaCanjearPuntos())
+            {
+                frm.ShowDialog(this);
+            }
+        }
 
         #endregion
 
@@ -535,5 +542,12 @@ namespace FrbaBus
             }
         }
 
+        private void cargarArribaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (ViajeCargarArribo frm = new ViajeCargarArribo())
+            {
+                frm.ShowDialog(this);
+            }
+        }
     }
 }

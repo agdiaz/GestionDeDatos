@@ -73,6 +73,7 @@
             this.tsmPasajeEncomiendaCancelar = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPremios = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPremiosListado = new System.Windows.Forms.ToolStripMenuItem();
+            this.canjearPuntosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmEstadisticas = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmEstadisticasListados = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAyuda = new System.Windows.Forms.ToolStripMenuItem();
@@ -405,6 +406,7 @@
             this.cargarArribaToolStripMenuItem.Name = "cargarArribaToolStripMenuItem";
             this.cargarArribaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.cargarArribaToolStripMenuItem.Text = "Cargar arribo";
+            this.cargarArribaToolStripMenuItem.Click += new System.EventHandler(this.cargarArribaToolStripMenuItem_Click);
             // 
             // tsmCliente
             // 
@@ -470,20 +472,21 @@
             // tsmComprarPasajes
             // 
             this.tsmComprarPasajes.Name = "tsmComprarPasajes";
-            this.tsmComprarPasajes.Size = new System.Drawing.Size(152, 22);
+            this.tsmComprarPasajes.Size = new System.Drawing.Size(121, 22);
             this.tsmComprarPasajes.Text = "Comprar";
             this.tsmComprarPasajes.Click += new System.EventHandler(this.tsmComprarPasajes_Click);
             // 
             // tsmPasajeEncomiendaCancelar
             // 
             this.tsmPasajeEncomiendaCancelar.Name = "tsmPasajeEncomiendaCancelar";
-            this.tsmPasajeEncomiendaCancelar.Size = new System.Drawing.Size(152, 22);
+            this.tsmPasajeEncomiendaCancelar.Size = new System.Drawing.Size(121, 22);
             this.tsmPasajeEncomiendaCancelar.Text = "Cancelar";
             // 
             // tsmPremios
             // 
             this.tsmPremios.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmPremiosListado});
+            this.tsmPremiosListado,
+            this.canjearPuntosToolStripMenuItem});
             this.tsmPremios.Name = "tsmPremios";
             this.tsmPremios.Size = new System.Drawing.Size(92, 20);
             this.tsmPremios.Text = "Recompensas";
@@ -491,9 +494,16 @@
             // tsmPremiosListado
             // 
             this.tsmPremiosListado.Name = "tsmPremiosListado";
-            this.tsmPremiosListado.Size = new System.Drawing.Size(152, 22);
+            this.tsmPremiosListado.Size = new System.Drawing.Size(154, 22);
             this.tsmPremiosListado.Text = "Listado";
             this.tsmPremiosListado.Click += new System.EventHandler(this.tsmPremiosListado_Click);
+            // 
+            // canjearPuntosToolStripMenuItem
+            // 
+            this.canjearPuntosToolStripMenuItem.Name = "canjearPuntosToolStripMenuItem";
+            this.canjearPuntosToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.canjearPuntosToolStripMenuItem.Text = "Canjear puntos";
+            this.canjearPuntosToolStripMenuItem.Click += new System.EventHandler(this.canjearPuntosToolStripMenuItem_Click);
             // 
             // tsmEstadisticas
             // 
@@ -1209,6 +1219,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ToolStripMenuItem canjeDePuntosToolStripMenuItem;
         private System.Windows.Forms.Button btnComprar;
+        private System.Windows.Forms.ToolStripMenuItem canjearPuntosToolStripMenuItem;
     }
 }
 
