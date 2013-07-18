@@ -115,7 +115,11 @@ namespace FrbaBus.DAO
 
         private DestinoMasCancelado BuildDestinoMasCancelado(DataRow row)
         {
-            throw new NotImplementedException();
+            return new DestinoMasCancelado()
+            {
+                Nombre = row["nombre"].ToString(),
+                CantidadPasajesCancelados = Convert.ToInt32(row["pasajes_cancelados"].ToString())
+            };
         }
 
         public DataSet DestinosMasCancelados(Semestre s)

@@ -7,5 +7,7 @@ namespace FrbaBus.Common.Entidades.Estadisticas
 {
     public class DestinoMasCancelado : IListadoEstadistico
     {
+        public string Nombre { get; set; }
+        public int CantidadPasajesCancelados { get; set; }
     }
 }
