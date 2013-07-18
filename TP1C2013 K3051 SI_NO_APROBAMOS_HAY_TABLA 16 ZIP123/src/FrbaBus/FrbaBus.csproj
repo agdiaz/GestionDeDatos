@@ -100,6 +100,12 @@
     <Compile Include="Abm Clientes\ClienteModificar.Designer.cs">
       <DependentUpon>ClienteModificar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Micro\MicroModificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Micro\MicroModificar.Designer.cs">
+      <DependentUpon>MicroModificar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Micro\MicroButacaAlta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,6 +241,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Clientes\ClienteModificar.resx">
       <DependentUpon>ClienteModificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Micro\MicroModificar.resx">
+      <DependentUpon>MicroModificar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Micro\MicroAlta.resx">
       <DependentUpon>MicroAlta.cs</DependentUpon>

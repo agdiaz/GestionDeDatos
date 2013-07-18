@@ -250,6 +250,7 @@
             this.btnModificarCliente.TabIndex = 3;
             this.btnModificarCliente.Text = "Modificar";
             this.btnModificarCliente.UseVisualStyleBackColor = true;
+            this.btnModificarCliente.Click += new System.EventHandler(this.btnModificarCliente_Click);
             // 
             // ClienteListado
             // 

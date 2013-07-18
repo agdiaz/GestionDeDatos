@@ -156,8 +156,28 @@ namespace FrbaBus.Abm_Micro
 
         private void btnMicroListadoModificar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Micro micro = dgvMicroListado.SelectedRows[0].DataBoundItem as Micro;
 
+                using (MicroModificar frm = new MicroModificar(micro))
+                {
+                    frm.ShowDialog(this);
+                }
+                CargarMicros();
+            }
+            catch (AccesoBDException ex)
+            {
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MensajePorPantalla.MensajeError(this, "Error al intentar modificar el registro.\n Detalle del error: " + ex.Message);
+                this.Close();
+            }   
         }
+        
 
         private void btnMicroListadoDarBaja_Click(object sender, EventArgs e)
         {
@@ -165,7 +185,9 @@ namespace FrbaBus.Abm_Micro
             {
                 Micro micro = dgvMicroListado.SelectedRows[0].DataBoundItem as Micro;
                 _manager.Baja(micro);
+                MensajePorPantalla.MensajeInformativo(this, "Se dio de baja el micro");
                 CargarMicros();
+
             }
             catch (AccesoBDException ex)
             {

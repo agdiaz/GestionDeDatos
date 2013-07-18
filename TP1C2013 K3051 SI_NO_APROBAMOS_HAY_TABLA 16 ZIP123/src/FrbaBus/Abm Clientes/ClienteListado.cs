@@ -130,5 +130,31 @@ namespace FrbaBus.Abm_Clientes
             }
 
         }
+
+        private void btnModificarCliente_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cliente cliente = dgvClienteListado.SelectedRows[0].DataBoundItem as Cliente;
+
+                using (ClienteModificar frm = new ClienteModificar(cliente))
+                {
+                    frm.ShowDialog(this);
+                }
+                CargarListaClientes();
+            }
+            catch (AccesoBDException ex)
+            {
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MensajePorPantalla.MensajeError(this, "Error al intentar modificar el registro.\n Detalle del error: " + ex.Message);
+                this.Close();
+            }
+
+            CargarListaClientes();
+        }
     }
 }

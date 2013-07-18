@@ -27,7 +27,7 @@ namespace FrbaBus.DAO.Builder
                 KgsDisponibles = 0,//Convert.ToDecimal(row["kgs_disponibles"].ToString()),
                 KgsVendidos = 0,//Convert.ToDecimal(row["kgs_vendidos"].ToString()),
                 FechaAlta = Convert.ToDateTime(row["fecha_alta"].ToString()),
-                BajaVidaUtil = row["baja_vida_util"].ToString() == "0" ? false : true
+                BajaVidaUtil = row["baja_vida_util"].ToString() == "False" ? false : true
 
             };
             DateTime aux;
