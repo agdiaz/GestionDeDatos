@@ -61,5 +61,17 @@ namespace FrbaBus.Abm_Viaje
             
         }
 
+        private void ViajeCargarArribo_Load(object sender, EventArgs e)
+        {
+            dtpFechaArriboEstimada.Format = DateTimePickerFormat.Custom;
+            dtpFechaArriboEstimada.CustomFormat = "dd/MM/yyyy hh:mm:ss";
+
+            dtpFechaArriboReal.Format = DateTimePickerFormat.Custom;
+            dtpFechaArriboReal.CustomFormat = "dd/MM/yyyy hh:mm:ss";
+
+            dtpFechaSalida.Format = DateTimePickerFormat.Custom;
+            dtpFechaSalida.CustomFormat = "dd/MM/yyyy hh:mm:ss";  
+        }
+
     }
 }

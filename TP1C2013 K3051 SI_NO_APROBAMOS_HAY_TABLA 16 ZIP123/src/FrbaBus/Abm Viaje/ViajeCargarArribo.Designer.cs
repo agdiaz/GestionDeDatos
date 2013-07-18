@@ -220,6 +220,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "ViajeCargarArribo";
             this.Text = "FrbaBus - Viaje :: Cargar arribo";
+            this.Load += new System.EventHandler(this.ViajeCargarArribo_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
