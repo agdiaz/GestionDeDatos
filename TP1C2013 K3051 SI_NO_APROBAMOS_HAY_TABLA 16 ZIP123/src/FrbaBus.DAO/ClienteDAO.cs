@@ -163,17 +163,17 @@ namespace FrbaBus.DAO
 
             if (!string.IsNullOrEmpty(nombre))
             {
-                SqlParameter pNombre = new SqlParameter("@p_nombre", SqlDbType.NVarChar, 50, "p_nombre");
+                SqlParameter pNombre = new SqlParameter("@p_nombre", SqlDbType.NVarChar, 255, "p_nombre");
                 parametros.Add(pNombre, nombre);
             }
             if (!string.IsNullOrEmpty(apellido))
             {
-                SqlParameter pApellido = new SqlParameter("@p_apellido", SqlDbType.NVarChar, 50, "p_apellido");
+                SqlParameter pApellido = new SqlParameter("@p_apellido", SqlDbType.NVarChar, 255, "p_apellido");
                 parametros.Add(pApellido, apellido);
             }
             if (!string.IsNullOrEmpty(dni))
             {
-                SqlParameter pDni = new SqlParameter("@p_dni", SqlDbType.Variant, 18, "p_dni");
+                SqlParameter pDni = new SqlParameter("@p_dni", SqlDbType.Decimal, 18, "p_dni");
                 parametros.Add(pDni, Convert.ToDecimal(dni));
             }
             if (!string.IsNullOrEmpty(discapacitado))
