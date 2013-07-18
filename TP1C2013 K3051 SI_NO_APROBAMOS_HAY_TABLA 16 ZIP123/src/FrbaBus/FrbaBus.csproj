@@ -148,6 +148,12 @@
     <Compile Include="Abm Micro\MicroListado.Designer.cs">
       <DependentUpon>MicroListado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Recompensa\RecompensaCanjearPuntos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Recompensa\RecompensaCanjearPuntos.Designer.cs">
+      <DependentUpon>RecompensaCanjearPuntos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Recompensa\RecompensaListado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -265,6 +271,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Micro\MicroServicioListado.resx">
       <DependentUpon>MicroServicioListado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Recompensa\RecompensaCanjearPuntos.resx">
+      <DependentUpon>RecompensaCanjearPuntos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Recompensa\RecompensaListado.resx">
       <DependentUpon>RecompensaListado.cs</DependentUpon>
