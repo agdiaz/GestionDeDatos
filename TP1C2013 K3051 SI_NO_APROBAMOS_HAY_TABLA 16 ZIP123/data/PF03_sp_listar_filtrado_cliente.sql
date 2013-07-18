@@ -1,4 +1,4 @@
-CREATE TER PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_filtrado_cliente
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_filtrado_cliente
 	@p_dni numeric(18,0) = NULL,
 	@p_nombre nvarchar(255) = NULL,
 	@p_apellido nvarchar(255) = NULL,
@@ -19,6 +19,6 @@ BEGIN
 	where ((@p_dni IS NULL) OR (dni = @p_dni))
 	and ((@p_nombre IS NULL) OR (nombre like '%' + @p_nombre +'%'))
 	and ((@p_apellido IS NULL) OR (apellido like '%' + @p_apellido + '%'))
-	and ((@p_discapacitado IS NULL) OR (es_discapacitado = @p_discapacitado))
+	and ((@p_discapacitado IS NULL) OR (ISNULL(es_discapacitado, 'N') = @p_discapacitado))
 	and ((@p_sexo IS NULL) OR (sexo like '%' + @p_sexo + '%'))
 END
