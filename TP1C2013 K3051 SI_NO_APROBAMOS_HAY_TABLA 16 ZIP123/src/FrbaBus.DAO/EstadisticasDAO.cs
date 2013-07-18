@@ -142,12 +142,17 @@ namespace FrbaBus.DAO
 
         private MicroConMasDiasFueraDeServicio BuildMicroConMasDiasFueraDeServicio(DataRow row)
         {
-            throw new NotImplementedException();
+            return new MicroConMasDiasFueraDeServicio()
+            {
+                Id = Convert.ToInt32(row["id_micro"].ToString()),
+                Patente = row["patente"].ToString(),
+                DiasFueraServicio = Convert.ToInt32(row["diastot"].ToString())
+            };
         }
 
         public DataSet MicrosConMasDiasFueraDeServicio(Semestre s)
         {
-            return ConsultarListado("[SI_NO_APROBAMOS_HAY_TABLA].sp_top5_micros_fuera_servicio_por_semestre", s);
+            return ConsultarListado("[SI_NO_APROBAMOS_HAY_TABLA].sp_micros_mas_baja_serv", s);
         }
         #endregion
     }
