@@ -20,6 +20,18 @@ namespace FrbaBus.Manager
             _recManager = new RecorridoManager();
         }
 
+        public Viaje Alta(Viaje viaje)
+        {
+            int id = this._dao.Alta(viaje);
+            viaje.Id = id;
+            return viaje;
+        }
+        
+        public void Modificar(Viaje viaje)
+        {
+            this._dao.Modificacion(viaje);
+        }
+        
         public IList<Viaje> Listar()
         {
             IList<Viaje> viajes = _dao.Listar();
@@ -53,6 +65,11 @@ namespace FrbaBus.Manager
                 viaje.Micro = _microManager.Obtener(viaje.IdMicro);
             }
             return viajes;
+        }
+
+        public void GenerarArribo(Viaje viaje)
+        {
+            _dao.GenerarArribo(viaje);
         }
     }
 }

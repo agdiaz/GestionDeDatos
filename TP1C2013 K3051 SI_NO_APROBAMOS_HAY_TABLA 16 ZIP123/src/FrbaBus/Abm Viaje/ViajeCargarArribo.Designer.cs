@@ -124,6 +124,7 @@
             this.btnMicro.TabIndex = 0;
             this.btnMicro.Text = "Buscar Micro";
             this.btnMicro.UseVisualStyleBackColor = true;
+            this.btnMicro.Click += new System.EventHandler(this.btnMicro_Click);
             // 
             // groupBox2
             // 

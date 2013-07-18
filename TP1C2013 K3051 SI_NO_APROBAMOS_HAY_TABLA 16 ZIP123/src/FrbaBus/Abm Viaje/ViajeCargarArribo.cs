@@ -28,25 +28,9 @@ namespace FrbaBus.Abm_Viaje
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            using (ViajeListado frm = new ViajeListado())
-            {
-                frm.ShowDialog(this);
-                _viaje = frm.ViajeSeleccionado();
-            }
 
-            if (_viaje != null)
-            {
-                if (_viaje.FechaArribo != null && _viaje.FechaArribo > DateTime.MinValue.AddMilliseconds(1))
-                {
-                    CargarDatosViaje();
-                }
-                else
-                {
-                    MensajePorPantalla.MensajeError(this, "El viaje ya tiene cargado una fecha de arribo");
-                    _viaje = null;
-                }
-                
-            }
+            _viaje.FechaArribo = dtpFechaArriboReal.Value;
+            _manager.GenerarArribo(_viaje);
         }
 
         private void CargarDatosViaje()
@@ -71,6 +55,29 @@ namespace FrbaBus.Abm_Viaje
 
             dtpFechaSalida.Format = DateTimePickerFormat.Custom;
             dtpFechaSalida.CustomFormat = "dd/MM/yyyy hh:mm:ss";  
+        }
+
+        private void btnMicro_Click(object sender, EventArgs e)
+        {
+            using (ViajeListado frm = new ViajeListado())
+            {
+                frm.ShowDialog(this);
+                _viaje = frm.ViajeSeleccionado();
+            }
+
+            if (_viaje != null)
+            {
+                if (_viaje.FechaArribo != null && _viaje.FechaArribo > DateTime.MinValue.AddMilliseconds(1))
+                {
+                    CargarDatosViaje();
+                }
+                else
+                {
+                    MensajePorPantalla.MensajeError(this, "El viaje ya tiene cargado una fecha de arribo");
+                    _viaje = null;
+                }
+
+            }
         }
 
     }
