@@ -21,12 +21,10 @@ namespace FrbaBus.Manager
             return _dao.Obtener(nroDni);
         }
 
-        public int Alta(Cliente cliente)
+        public Cliente Alta(Cliente cliente)
         {
-            
-
             int id = _dao.Alta(cliente);
-            return id;
+            return cliente;
         }
 
         public void Baja(Cliente cliente)
