@@ -19,6 +19,7 @@ namespace FrbaBus.Abm_Micro
         private ServicioManager _servicioManager;
         private RecorridoManager _recorridoManager;
         private EmpresaManager _empresaManager;
+        private Viaje _viaje;
 
         public MicroListado()
         {
@@ -28,6 +29,12 @@ namespace FrbaBus.Abm_Micro
             this._empresaManager = new EmpresaManager();
     
             InitializeComponent();
+        }
+
+        public MicroListado(Viaje viaje)
+        : this()
+        {
+            _viaje = viaje;
         }
 
         public Micro MicroSeleccionado()
@@ -77,7 +84,10 @@ namespace FrbaBus.Abm_Micro
 
         private void CargarMicros()
         {
-            this.dgvMicroListado.DataSource = _manager.Listar();
+            if (_viaje == null)
+                this.dgvMicroListado.DataSource = _manager.Listar();
+            else
+                this.dgvMicroListado.DataSource = _manager.ListarPorViaje(_viaje);
             this.dgvMicroListado.Columns["Id"].Visible = false;
             this.dgvMicroListado.Columns["NumeroDeMicro"].Visible = false;
             this.dgvMicroListado.Columns["IdEmpresa"].Visible = false;

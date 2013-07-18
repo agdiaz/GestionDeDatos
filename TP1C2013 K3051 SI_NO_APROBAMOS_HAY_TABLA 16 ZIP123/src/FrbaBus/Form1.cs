@@ -490,10 +490,10 @@ namespace FrbaBus
         }
         private void btnCargarMicro_Click(object sender, EventArgs e)
         {
-            using (MicroListado frm = new MicroListado())
+            using (MicroListado frm = new MicroListado(_viaje))
             {
                 frm.ShowDialog(this);
-                _micro = new Micro();// frm.MicroSeleccionado();
+                _micro = frm.MicroSeleccionado();
             }
             if (_micro != null)
                 MostrarOpcionesMicro();
