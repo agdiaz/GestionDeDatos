@@ -299,6 +299,9 @@
     <EmbeddedResource Include="Abm Viaje\ViajeAlta.resx">
       <DependentUpon>ViajeAlta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Abm Viaje\ViajeCargarArribo.resx">
+      <DependentUpon>ViajeCargarArribo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Abm Viaje\ViajeListado.resx">
       <DependentUpon>ViajeListado.cs</DependentUpon>
     </EmbeddedResource>
