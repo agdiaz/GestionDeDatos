@@ -42,28 +42,28 @@ BEGIN
 		BEGIN
 			--Arranca y termina dentro del periodo
 			INSERT INTO #tmpDias (id_micro, patente, dias)
-			VALUES (@id_micro, @patente, DATEDIFF(DAY, @fec_fuera, @fec_reinic))
+			VALUES (@id_micro, @patente, ABS(DATEDIFF(DAY, @fec_fuera, @fec_reinic)))
 		END
 		 
 		IF @fec_fuera < @p_fecha_inicio AND @fec_reinic <= @p_fecha_fin
 		BEGIN
 			--Arranca antes del periodo pero termina dentro
 			INSERT INTO #tmpDias (id_micro, patente, dias)
-			VALUES (@id_micro, @patente, DATEDIFF(DAY, @p_fecha_inicio, @fec_reinic))				
+			VALUES (@id_micro, @patente, ABS(DATEDIFF(DAY, @p_fecha_inicio, @fec_reinic)))				
 		END
 		
 		IF @fec_fuera < @p_fecha_inicio AND @fec_reinic > @p_fecha_fin
 		BEGIN
 			--Arranca antes del periodo y termina despues del periodo
 			INSERT INTO #tmpDias (id_micro, patente, dias)
-			VALUES (@id_micro, @patente, DATEDIFF(DAY, @p_fecha_inicio, @p_fecha_fin))			
+			VALUES (@id_micro, @patente, ABS(DATEDIFF(DAY, @p_fecha_inicio, @p_fecha_fin)))			
 		END
 		
 		IF @fec_fuera >= @p_fecha_inicio AND @fec_reinic > @p_fecha_fin
 		BEGIN
 			--Arranca dentro del periodo pero termina despues
 			INSERT INTO #tmpDias (id_micro, patente, dias)
-			VALUES (@id_micro, @patente, DATEDIFF(DAY, @fec_fuera, @p_fecha_fin))			
+			VALUES (@id_micro, @patente, ABS(DATEDIFF(DAY, @fec_fuera, @p_fecha_fin)))
 		END
 		
 		FETCH NEXT FROM CUR

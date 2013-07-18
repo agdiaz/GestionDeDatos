@@ -34,7 +34,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbFemenino = new System.Windows.Forms.CheckBox();
             this.cbMasculino = new System.Windows.Forms.CheckBox();
-            this.cbDiscapacitado = new System.Windows.Forms.CheckBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtDni = new System.Windows.Forms.TextBox();
@@ -43,9 +42,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbDiscSi = new System.Windows.Forms.RadioButton();
+            this.rbDiscNo = new System.Windows.Forms.RadioButton();
+            this.rbDiscNA = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClienteListado)).BeginInit();
             this.gbFiltros.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvClienteListado
@@ -75,8 +79,8 @@
             // 
             // gbFiltros
             // 
+            this.gbFiltros.Controls.Add(this.groupBox2);
             this.gbFiltros.Controls.Add(this.groupBox1);
-            this.gbFiltros.Controls.Add(this.cbDiscapacitado);
             this.gbFiltros.Controls.Add(this.txtApellido);
             this.gbFiltros.Controls.Add(this.txtNombre);
             this.gbFiltros.Controls.Add(this.txtDni);
@@ -87,7 +91,7 @@
             this.gbFiltros.Controls.Add(this.btnLimpiar);
             this.gbFiltros.Location = new System.Drawing.Point(12, 12);
             this.gbFiltros.Name = "gbFiltros";
-            this.gbFiltros.Size = new System.Drawing.Size(583, 123);
+            this.gbFiltros.Size = new System.Drawing.Size(957, 123);
             this.gbFiltros.TabIndex = 2;
             this.gbFiltros.TabStop = false;
             this.gbFiltros.Text = "Filtros de búsqueda";
@@ -122,17 +126,6 @@
             this.cbMasculino.TabIndex = 0;
             this.cbMasculino.Text = "Masculino";
             this.cbMasculino.UseVisualStyleBackColor = true;
-            // 
-            // cbDiscapacitado
-            // 
-            this.cbDiscapacitado.AutoSize = true;
-            this.cbDiscapacitado.Location = new System.Drawing.Point(10, 100);
-            this.cbDiscapacitado.Name = "cbDiscapacitado";
-            this.cbDiscapacitado.Size = new System.Drawing.Size(118, 17);
-            this.cbDiscapacitado.TabIndex = 8;
-            this.cbDiscapacitado.Text = "Es discapacitado/a";
-            this.cbDiscapacitado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.cbDiscapacitado.UseVisualStyleBackColor = true;
             // 
             // txtApellido
             // 
@@ -184,7 +177,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(495, 20);
+            this.btnBuscar.Location = new System.Drawing.Point(876, 15);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 1;
@@ -194,13 +187,58 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(495, 49);
+            this.btnLimpiar.Location = new System.Drawing.Point(876, 44);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpiar.TabIndex = 0;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.rbDiscNA);
+            this.groupBox2.Controls.Add(this.rbDiscNo);
+            this.groupBox2.Controls.Add(this.rbDiscSi);
+            this.groupBox2.Location = new System.Drawing.Point(457, 24);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(177, 67);
+            this.groupBox2.TabIndex = 10;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Discapacitado";
+            // 
+            // rbDiscSi
+            // 
+            this.rbDiscSi.AutoSize = true;
+            this.rbDiscSi.Location = new System.Drawing.Point(7, 20);
+            this.rbDiscSi.Name = "rbDiscSi";
+            this.rbDiscSi.Size = new System.Drawing.Size(34, 17);
+            this.rbDiscSi.TabIndex = 0;
+            this.rbDiscSi.TabStop = true;
+            this.rbDiscSi.Text = "Si";
+            this.rbDiscSi.UseVisualStyleBackColor = true;
+            // 
+            // rbDiscNo
+            // 
+            this.rbDiscNo.AutoSize = true;
+            this.rbDiscNo.Location = new System.Drawing.Point(48, 21);
+            this.rbDiscNo.Name = "rbDiscNo";
+            this.rbDiscNo.Size = new System.Drawing.Size(39, 17);
+            this.rbDiscNo.TabIndex = 1;
+            this.rbDiscNo.TabStop = true;
+            this.rbDiscNo.Text = "No";
+            this.rbDiscNo.UseVisualStyleBackColor = true;
+            // 
+            // rbDiscNA
+            // 
+            this.rbDiscNA.AutoSize = true;
+            this.rbDiscNA.Location = new System.Drawing.Point(94, 21);
+            this.rbDiscNA.Name = "rbDiscNA";
+            this.rbDiscNA.Size = new System.Drawing.Size(76, 17);
+            this.rbDiscNA.TabIndex = 2;
+            this.rbDiscNA.TabStop = true;
+            this.rbDiscNA.Text = "No importa";
+            this.rbDiscNA.UseVisualStyleBackColor = true;
             // 
             // ClienteListado
             // 
@@ -222,6 +260,8 @@
             this.gbFiltros.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -240,8 +280,11 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox cbDiscapacitado;
         private System.Windows.Forms.CheckBox cbFemenino;
         private System.Windows.Forms.CheckBox cbMasculino;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton rbDiscNA;
+        private System.Windows.Forms.RadioButton rbDiscNo;
+        private System.Windows.Forms.RadioButton rbDiscSi;
     }
 }
