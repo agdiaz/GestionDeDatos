@@ -65,10 +65,10 @@ namespace FrbaBus.DAO
         {
             Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
 
-            SqlParameter p0 = new SqlParameter("@p_id", SqlDbType.Int, 4, "p_id");
+            SqlParameter p0 = new SqlParameter("id_recorrido", SqlDbType.Decimal, 18, "id_recorrido");
             parametros.Add(p0, entidad.Id);
             
-            this.accesoBD.EjecutarComando("[SI_NO_APROBAMOS_HAY_TABLA].sp_delete_recorrido", parametros);
+            this.accesoBD.EjecutarComando("[SI_NO_APROBAMOS_HAY_TABLA].sp_baja_recorrido", parametros);
         }
 
         public void Modificacion(Recorrido entidad)
