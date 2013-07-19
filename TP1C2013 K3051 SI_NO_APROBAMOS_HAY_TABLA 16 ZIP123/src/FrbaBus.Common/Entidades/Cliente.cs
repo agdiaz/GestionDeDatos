@@ -38,7 +38,7 @@ namespace FrbaBus.Common.Entidades
 
         public override string ToString()
         {
-            return Nombre + " " + Apellido;
+            return (Nombre + " " + Apellido).Trim();
         }
 
         public Cliente()

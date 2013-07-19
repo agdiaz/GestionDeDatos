@@ -14,7 +14,10 @@ namespace FrbaBus.Helpers
             var sNow = ConfigurationManager.AppSettings["DateTimeNow"];
             return DateTime.ParseExact(sNow, "yyyyMMdd HHmmss", System.Globalization.CultureInfo.CurrentCulture);
         }
-
+        public static DateTime FechaNulla()
+        {
+            return DateTime.MinValue.AddMilliseconds(1);
+        }
         public static IList<Semestre> ListarSemestres()
         {
             IList<Semestre> semestres = new List<Semestre>();

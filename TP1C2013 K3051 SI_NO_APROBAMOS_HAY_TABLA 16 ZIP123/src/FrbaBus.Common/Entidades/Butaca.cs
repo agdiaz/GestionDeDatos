@@ -13,9 +13,13 @@ namespace FrbaBus.Common.Entidades
         public string TipoButaca { get; set; }
         public decimal Piso { get; set; }
         public string Informacion { get { return "Piso " + Piso.ToString() + " - Nro " + NroButaca.ToString() + " - " + TipoButaca; } }
+
         public override string ToString()
         {
-            return NroButaca.ToString();
+            if (NroButaca > 0 && Piso > 0 && !string.IsNullOrEmpty(TipoButaca))
+                return Informacion;
+            else
+                return string.Empty;
         }
 
         public Butaca()

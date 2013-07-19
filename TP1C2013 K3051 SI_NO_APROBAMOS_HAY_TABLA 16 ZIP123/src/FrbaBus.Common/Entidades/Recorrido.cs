@@ -19,7 +19,7 @@ namespace FrbaBus.Common.Entidades
 
         public decimal PrecioBaseKG { get; set; }
         public decimal PrecioBasePasaje { get; set; }
-        public string Informacion { get { return this.ToString(); } }
+        public string Informacion { get { return CiudadOrigen.Nombre + " -> " + CiudadDestino.Nombre + " (" + Servicio.TipoServicio + ")"; } }
 
         public Recorrido()
         {
@@ -39,7 +39,14 @@ namespace FrbaBus.Common.Entidades
 
         public override string ToString()
         {
-            return CiudadOrigen.Nombre + " -> " + CiudadDestino.Nombre + " (" + Servicio.TipoServicio + ")";
+            if (!string.IsNullOrEmpty(CiudadOrigen.Nombre) && !string.IsNullOrEmpty(CiudadDestino.Nombre))
+            {
+                return Informacion;
+            }
+            else
+            {
+                return string.Empty;
+            }
         }
     }
 }

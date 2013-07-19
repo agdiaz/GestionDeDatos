@@ -19,9 +19,11 @@ namespace FrbaBus.Common.Entidades
 
         public IList<Pasaje> Pasajes { get; set; }
 
+        public string Informacion { get { return FechaSalida.ToShortDateString() + " - " + FechaArriboEstimada.ToShortDateString(); } }
+
         public override string ToString()
         {
-            return Id.ToString();
+            return Informacion;
         }
 
         public Viaje()
