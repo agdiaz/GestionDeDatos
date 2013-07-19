@@ -31,5 +31,10 @@ namespace FrbaBus.Manager
         {
             return _dao.ObtenerPuntosCliente(dni);
         }
+
+        public void CanjearPuntos(decimal dni, int id_recompensa, int cantidadPedidad)
+        {
+            _dao.CanjearPuntos(dni,id_recompensa,cantidadPedidad);
+        }
     }
 }
