@@ -40,6 +40,7 @@
             this.dgvRecorridoListado = new System.Windows.Forms.DataGridView();
             this.btnRecorridoListadoDarBaja = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
+            this.btnSeleccionar = new System.Windows.Forms.Button();
             this.gbRecorridoListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecorridoListado)).BeginInit();
             this.SuspendLayout();
@@ -146,6 +147,7 @@
             this.dgvRecorridoListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRecorridoListado.Size = new System.Drawing.Size(481, 228);
             this.dgvRecorridoListado.TabIndex = 7;
+            this.dgvRecorridoListado.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRecorridoListado_CellContentDoubleClick);
             // 
             // btnRecorridoListadoDarBaja
             // 
@@ -167,11 +169,22 @@
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.Location = new System.Drawing.Point(417, 367);
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.Size = new System.Drawing.Size(75, 23);
+            this.btnSeleccionar.TabIndex = 11;
+            this.btnSeleccionar.Text = "Seleccionar";
+            this.btnSeleccionar.UseVisualStyleBackColor = true;
+            this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
+            // 
             // RecorridoListado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(516, 409);
+            this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnRecorridoListadoDarBaja);
             this.Controls.Add(this.dgvRecorridoListado);
@@ -201,5 +214,6 @@
         private System.Windows.Forms.ComboBox cbCiudadOrigen;
         private System.Windows.Forms.ComboBox cbCiudadDestino;
         private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnSeleccionar;
     }
 }

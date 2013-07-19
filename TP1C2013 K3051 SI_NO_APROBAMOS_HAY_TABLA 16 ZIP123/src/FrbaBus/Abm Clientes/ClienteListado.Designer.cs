@@ -47,6 +47,7 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnModificarCliente = new System.Windows.Forms.Button();
+            this.btnSeleccionar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClienteListado)).BeginInit();
             this.gbFiltros.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -68,6 +69,7 @@
             this.dgvClienteListado.ShowEditingIcon = false;
             this.dgvClienteListado.Size = new System.Drawing.Size(957, 257);
             this.dgvClienteListado.TabIndex = 0;
+            this.dgvClienteListado.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClienteListado_CellContentDoubleClick);
             // 
             // btnDarBaja
             // 
@@ -252,11 +254,22 @@
             this.btnModificarCliente.UseVisualStyleBackColor = true;
             this.btnModificarCliente.Click += new System.EventHandler(this.btnModificarCliente_Click);
             // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.Location = new System.Drawing.Point(894, 406);
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.Size = new System.Drawing.Size(75, 23);
+            this.btnSeleccionar.TabIndex = 4;
+            this.btnSeleccionar.Text = "Seleccionar";
+            this.btnSeleccionar.UseVisualStyleBackColor = true;
+            this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
+            // 
             // ClienteListado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(981, 454);
+            this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.btnModificarCliente);
             this.Controls.Add(this.gbFiltros);
             this.Controls.Add(this.btnDarBaja);
@@ -300,5 +313,6 @@
         private System.Windows.Forms.RadioButton rbDiscNo;
         private System.Windows.Forms.RadioButton rbDiscSi;
         private System.Windows.Forms.Button btnModificarCliente;
+        private System.Windows.Forms.Button btnSeleccionar;
     }
 }

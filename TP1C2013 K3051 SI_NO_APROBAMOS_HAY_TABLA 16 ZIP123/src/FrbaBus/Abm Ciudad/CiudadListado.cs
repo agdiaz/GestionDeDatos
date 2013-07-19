@@ -15,18 +15,26 @@ namespace FrbaBus.Abm_Ciudad
 {
     public partial class CiudadListado : Form
     {
+        private bool _esParaSeleccionar = false;
+        private CiudadManager _manager;
+
         public CiudadListado()
         {
             InitializeComponent();
+            _manager = new CiudadManager();
+        }
 
+        public CiudadListado(bool esParaSeleccionar)
+        :this()
+        {
+            _esParaSeleccionar = esParaSeleccionar;
         }
 
         private void CargarCiudades()
         {
             try
             {
-                CiudadManager cm = new CiudadManager();
-                IList<Ciudad> ciudades = cm.Listar();
+                IList<Ciudad> ciudades = _manager.Listar();
                 this.dgvCiudadListado.DataSource = ciudades;
                 this.dgvCiudadListado.Columns["Id"].Visible = false;
                 this.dgvCiudadListado.Columns["Nombre"].Width = 300;
@@ -44,6 +52,7 @@ namespace FrbaBus.Abm_Ciudad
         }
         private void CiudadListado_Load(object sender, EventArgs e)
         {
+            btnSeleccionar.Visible = _esParaSeleccionar;
             CargarCiudades();
         }
         private void btnCiudadListadoBuscar_Click(object sender, EventArgs e)
@@ -51,7 +60,7 @@ namespace FrbaBus.Abm_Ciudad
             try
             {
                 string ciudadElegida = this.tbCiudadListadoCiudad.Text;
-                IList<Ciudad> dsCiudades = new CiudadManager().ObtenerListado(ciudadElegida);
+                IList<Ciudad> dsCiudades = _manager.ObtenerListado(ciudadElegida);
                 this.dgvCiudadListado.DataSource = dsCiudades;
             }
             catch (AccesoBDException ex)
@@ -97,27 +106,41 @@ namespace FrbaBus.Abm_Ciudad
             try
             {
                 Ciudad ciudad = dgvCiudadListado.SelectedRows[0].DataBoundItem as Ciudad;
-                new CiudadManager().Baja(ciudad);
+                _manager.Baja(ciudad);
                 CargarCiudades();
             }
             catch (AccesoBDException ex)
             {
                 MensajePorPantalla.MensajeExceptionBD(this, ex);
-                this.Close();
             }
             catch (Exception ex)
             {
                 MensajePorPantalla.MensajeError(this, "Error al intentar cargar borrar el registro.\n Detalle del error: " + ex.Message);
-                this.Close();
             }
-
-            CargarCiudades();
-
         }
 
-        private void dgvCiudadListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvCiudadListado_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (_esParaSeleccionar)
+                Seleccionar();
+        }
 
+        private void btnSeleccionar_Click(object sender, EventArgs e)
+        {
+            Seleccionar();
+        }
+
+        private void Seleccionar()
+        {
+            if (this.dgvCiudadListado.SelectedRows.Count > 0)
+            {
+                DialogResult confirma = MensajePorPantalla.MensajeInformativo(this, "¿Desea seleccionar esta ciudad?", MessageBoxButtons.YesNo);
+
+                if (confirma == DialogResult.Yes)
+                {
+                    this.Close();
+                }
+            }
         }
     }
 }

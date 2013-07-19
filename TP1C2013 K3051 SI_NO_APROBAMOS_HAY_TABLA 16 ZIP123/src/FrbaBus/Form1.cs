@@ -33,7 +33,6 @@ namespace FrbaBus
         IList<Encomienda> _encomiendas;
         Viaje _viaje;
         Recorrido _recorrido;
-        Micro _micro;
 
         #endregion
         
@@ -110,17 +109,20 @@ namespace FrbaBus
             LimpiarGrupoViaje(true);
             dtpViajeFechaArribo.Value = _viaje.FechaArribo;
             dtpViajeFechaSalida.Value = _viaje.FechaSalida;
+
+            if (_viaje.Micro != null)
+                MostrarOpcionesMicro();
         }
 
         // 3) Micro
         private void MostrarOpcionesMicro()
         {
             LimpiarGrupoMicros(true);
-            tbMicroButacasLibres.Text = _micro.ButacasDisponibles.ToString();
-            tbMicroKgDisponibles.Text = _micro.KgsDisponibles.ToString();
-            tbMicroMarca.Text = _micro.Empresa.Descripcion;
-            tbMicroPatente.Text = _micro.Patente;
-            tbMicroServicio.Text = _micro.Servicio.TipoServicio;
+            tbMicroButacasLibres.Text = _viaje.Micro.ButacasDisponibles.ToString();
+            tbMicroKgDisponibles.Text = _viaje.Micro.KgsDisponibles.ToString();
+            tbMicroMarca.Text = _viaje.Micro.Empresa.Descripcion;
+            tbMicroPatente.Text = _viaje.Micro.Patente;
+            tbMicroServicio.Text = _viaje.Micro.Servicio.TipoServicio;
         }
         
         private void btnBuscarMicros_Click(object sender, EventArgs e)
@@ -333,7 +335,7 @@ namespace FrbaBus
         private Cliente ObtenerCliente()
         {
             Cliente cliente = null;
-            using (ClienteListado frm = new ClienteListado())
+            using (ClienteListado frm = new ClienteListado(true))
             {
                 frm.ShowDialog(this);
                 if (frm.ClienteSeleccionado() != null)
@@ -442,7 +444,6 @@ namespace FrbaBus
             _encomiendas = new List<Encomienda>();
             _viaje = new Viaje();
             _recorrido = new Recorrido();
-            _micro = new Micro();
         }
 
         private void cbPasajes_CheckedChanged(object sender, EventArgs e)
@@ -509,16 +510,6 @@ namespace FrbaBus
             if (_viaje != null)
                 MostrarOpcionesViaje();
         }
-        private void btnCargarMicro_Click(object sender, EventArgs e)
-        {
-            using (MicroListado frm = new MicroListado(_viaje))
-            {
-                frm.ShowDialog(this);
-                _micro = frm.MicroSeleccionado();
-            }
-            if (_micro != null)
-                MostrarOpcionesMicro();
-        }
         private void btnCargarDetalles_Click(object sender, EventArgs e)
         {
             LimpiarGrupoDetalles(true);
@@ -534,7 +525,7 @@ namespace FrbaBus
 
         private void btnComprar_Click(object sender, EventArgs e)
         {
-            using (RecorridoListado frm = new RecorridoListado())
+            using (RecorridoListado frm = new RecorridoListado(true))
             {
                 frm.ShowDialog(this);
                 _recorrido = frm.RecorridoSeleccionado();
@@ -547,6 +538,27 @@ namespace FrbaBus
             using (ViajeCargarArribo frm = new ViajeCargarArribo())
             {
                 frm.ShowDialog(this);
+            }
+        }
+
+        private void btnQuitarPasajero_Click(object sender, EventArgs e)
+        {
+            Cliente c = this.lbPasajeros.SelectedItem as Cliente;
+            if (c != null)
+            {
+                this.lbPasajeros.Items.Remove(c);
+            }
+        }
+
+        private void btnModificarPasajero_Click(object sender, EventArgs e)
+        {
+            Cliente c = this.lbPasajeros.SelectedItem as Cliente;
+            if (c != null)
+            {
+                using (ClienteModificar frm = new ClienteModificar(c))
+                {
+                    frm.ShowDialog(this);
+                }
             }
         }
     }
