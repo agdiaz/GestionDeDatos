@@ -15,12 +15,19 @@ namespace FrbaBus.Abm_Clientes
 {
     public partial class ClienteListado : Form
     {
+        private bool _esParaSeleccionar = false;
         private ClienteManager _manager;
 
         public ClienteListado()
         {
             InitializeComponent();
             _manager = new ClienteManager();
+        }
+
+        public ClienteListado(bool esParaSeleccionar)
+        :this()
+        {
+            _esParaSeleccionar = esParaSeleccionar;
         }
 
         public Cliente ClienteSeleccionado()
@@ -35,6 +42,7 @@ namespace FrbaBus.Abm_Clientes
         {
             try
             {
+                btnSeleccionar.Visible = _esParaSeleccionar;
                 LimpiarControles();
                 CargarListaClientes();
             }
@@ -155,6 +163,41 @@ namespace FrbaBus.Abm_Clientes
             }
 
             CargarListaClientes();
+        }
+
+        private void btnSeleccionar_Click(object sender, EventArgs e)
+        {
+            Seleccionar();
+        }
+
+        private void dgvClienteListado_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (_esParaSeleccionar)
+                Seleccionar();
+        }
+
+        private void Seleccionar()
+        {
+            if (this.dgvClienteListado.SelectedRows.Count > 0)
+            {
+                DialogResult confirma = MensajePorPantalla.MensajeInformativo(this, "¿Desea seleccionar este cliente?", MessageBoxButtons.YesNo);
+
+                if (confirma == DialogResult.Yes)
+                {
+                    this.Close();
+                }
+            }
+        }
+
+        private void ClienteListado_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_esParaSeleccionar && e.CloseReason == CloseReason.UserClosing)
+            {
+                DialogResult confirma = MensajePorPantalla.MensajeInformativo(this, "Debía seleccionar un cliente.\n¿Desea salir de todas maneras?", MessageBoxButtons.YesNo);
+
+                if (confirma == DialogResult.No)
+                    e.Cancel = true;
+            }
         }
     }
 }

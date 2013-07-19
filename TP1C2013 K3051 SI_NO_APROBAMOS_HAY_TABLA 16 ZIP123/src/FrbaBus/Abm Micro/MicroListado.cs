@@ -15,6 +15,7 @@ namespace FrbaBus.Abm_Micro
 {
     public partial class MicroListado : Form
     {
+        private bool _esParaSeleccionar = false;
         private MicroManager _manager;
         private ServicioManager _servicioManager;
         private RecorridoManager _recorridoManager;
@@ -30,11 +31,20 @@ namespace FrbaBus.Abm_Micro
     
             InitializeComponent();
         }
-
+        public MicroListado(bool esParaSeleccionar)
+        :this()
+        {
+            _esParaSeleccionar = esParaSeleccionar;
+        }
         public MicroListado(Viaje viaje)
-        : this()
+        : this(false)
         {
             _viaje = viaje;
+        }
+        public MicroListado(Viaje viaje, bool esParaSeleccionar)
+            : this(viaje)
+        {
+            _esParaSeleccionar = esParaSeleccionar;
         }
 
         public Micro MicroSeleccionado()
@@ -201,9 +211,39 @@ namespace FrbaBus.Abm_Micro
             }
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void dgvMicroListado_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (_esParaSeleccionar)
+                Seleccionar();
+        }
 
+        private void btnSeleccionar_Click(object sender, EventArgs e)
+        {
+            Seleccionar();
+        }
+
+        private void Seleccionar()
+        {
+            if (this.dgvMicroListado.SelectedRows.Count > 0)
+            {
+                DialogResult confirma = MensajePorPantalla.MensajeInformativo(this, "¿Desea seleccionar este micro?", MessageBoxButtons.YesNo);
+
+                if (confirma == DialogResult.Yes)
+                {
+                    this.Close();
+                }
+            }
+        }
+
+        private void MicroListado_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_esParaSeleccionar && e.CloseReason == CloseReason.UserClosing)
+            {
+                DialogResult confirma = MensajePorPantalla.MensajeInformativo(this, "Debía seleccionar un micro.\n¿Desea salir de todas maneras?", MessageBoxButtons.YesNo);
+
+                if (confirma == DialogResult.No)
+                    e.Cancel = true;
+            }
         }
     }
 }

@@ -15,6 +15,7 @@ namespace FrbaBus.Abm_Recorrido
 {
     public partial class RecorridoListado : Form
     {
+        private bool _esParaSeleccion = false;
         private RecorridoManager _manager;
         private ServicioManager _servicioManager;
         private CiudadManager _ciudadManager;
@@ -26,6 +27,12 @@ namespace FrbaBus.Abm_Recorrido
             _manager = new RecorridoManager();
             _servicioManager = new ServicioManager();
             _ciudadManager = new CiudadManager();
+        }
+
+        public RecorridoListado(bool esParaSeleccion)
+            : this()
+        {
+            _esParaSeleccion = esParaSeleccion;
         }
 
         public Recorrido RecorridoSeleccionado()
@@ -70,6 +77,7 @@ namespace FrbaBus.Abm_Recorrido
         {
             try
             {
+                btnSeleccionar.Visible = _esParaSeleccion;
                 CargarCiudades();
                 CargarServicios();
                 CargarRecorridos();                
@@ -155,6 +163,41 @@ namespace FrbaBus.Abm_Recorrido
                 this.Close();
             }
             
+        }
+
+        private void dgvRecorridoListado_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (_esParaSeleccion)
+                Seleccionar();
+        }
+
+        private void btnSeleccionar_Click(object sender, EventArgs e)
+        {
+            Seleccionar();
+        }
+
+        private void Seleccionar()
+        {
+            if (this.dgvRecorridoListado.SelectedRows.Count > 0)
+            {
+                DialogResult confirma = MensajePorPantalla.MensajeInformativo(this, "¿Desea seleccionar este recorrido?", MessageBoxButtons.YesNo);
+
+                if (confirma == DialogResult.Yes)
+                {
+                    this.Close();
+                }
+            }
+        }
+
+        private void RecorridoListado_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_esParaSeleccion && e.CloseReason == CloseReason.UserClosing)
+            {
+                DialogResult confirma = MensajePorPantalla.MensajeInformativo(this, "Debía seleccionar un recorrido.\n¿Desea salir de todas maneras?", MessageBoxButtons.YesNo);
+                
+                if (confirma == DialogResult.No) 
+                    e.Cancel = true;
+            }
         }
     }
 }

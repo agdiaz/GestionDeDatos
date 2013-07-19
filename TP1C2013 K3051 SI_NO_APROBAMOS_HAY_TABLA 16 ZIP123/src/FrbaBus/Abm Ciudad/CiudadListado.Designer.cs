@@ -36,6 +36,7 @@
             this.dgvCiudadListado = new System.Windows.Forms.DataGridView();
             this.btnCiudadListadoDarBaja = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
+            this.btnSeleccionar = new System.Windows.Forms.Button();
             this.gbCiudadListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCiudadListado)).BeginInit();
             this.SuspendLayout();
@@ -100,7 +101,7 @@
             this.dgvCiudadListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCiudadListado.Size = new System.Drawing.Size(472, 290);
             this.dgvCiudadListado.TabIndex = 1;
-            this.dgvCiudadListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCiudadListado_CellContentClick);
+            this.dgvCiudadListado.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCiudadListado_CellDoubleClick);
             // 
             // btnCiudadListadoDarBaja
             // 
@@ -122,11 +123,23 @@
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.Location = new System.Drawing.Point(402, 397);
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.Size = new System.Drawing.Size(75, 23);
+            this.btnSeleccionar.TabIndex = 6;
+            this.btnSeleccionar.Text = "Seleccionar";
+            this.btnSeleccionar.UseVisualStyleBackColor = true;
+            this.btnSeleccionar.Visible = false;
+            this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
+            // 
             // CiudadListado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(499, 432);
+            this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnCiudadListadoDarBaja);
             this.Controls.Add(this.dgvCiudadListado);
@@ -138,6 +151,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrbaBus - Ciudades :: Listado";
             this.Load += new System.EventHandler(this.CiudadListado_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CiudadListado_FormClosing);
             this.gbCiudadListado.ResumeLayout(false);
             this.gbCiudadListado.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCiudadListado)).EndInit();
@@ -155,5 +169,6 @@
         private System.Windows.Forms.Button btnCiudadListadoBuscar;
         private System.Windows.Forms.Button btnCiudadListadoDarBaja;
         private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnSeleccionar;
     }
 }

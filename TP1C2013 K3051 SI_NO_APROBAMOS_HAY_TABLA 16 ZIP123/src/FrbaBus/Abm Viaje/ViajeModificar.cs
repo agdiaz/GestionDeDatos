@@ -59,7 +59,7 @@ namespace FrbaBus.Abm_Viaje
         private void btnViajeModificarBuscarMicro_Click(object sender, EventArgs e)
         {
             
-            using (MicroListado frm = new MicroListado())
+            using (MicroListado frm = new MicroListado(true))
             {
                 frm.ShowDialog(this);
                 micro = frm.MicroSeleccionado();
@@ -74,7 +74,7 @@ namespace FrbaBus.Abm_Viaje
         private void btnViajeModificarBuscarRecorrido_Click(object sender, EventArgs e)
         {
             {
-                using (RecorridoListado frm = new RecorridoListado())
+                using (RecorridoListado frm = new RecorridoListado(true))
                 {
                     frm.ShowDialog(this);
                     recorrido = frm.RecorridoSeleccionado();
@@ -97,7 +97,9 @@ namespace FrbaBus.Abm_Viaje
 
         private void btnViajeModificarGuardar_Click(object sender, EventArgs e)
         {
-            //this._manager.Alta(recorrido);
+            viaje.Micro = micro;
+            viaje.Recorrido = recorrido;
+            this._manager.Modificar(viaje);
         }
     }
 }
