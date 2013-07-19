@@ -19,7 +19,8 @@ namespace FrbaBus.DAO.Builder
             v.IdMicro = Convert.ToInt32(row["id_micro"].ToString());
             v.FechaSalida = Convert.ToDateTime(row["fecha_salida"].ToString());
             v.FechaArriboEstimada = Convert.ToDateTime(row["fecha_arribo_estimada"].ToString());
-            v.FechaArribo = Convert.ToDateTime(row["fecha_arribo"].ToString());
+            if (row["fecha_arribo"].ToString() != "") 
+                v.FechaArribo = Convert.ToDateTime(row["fecha_arribo"].ToString());
 
             return v;
         }

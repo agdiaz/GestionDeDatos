@@ -101,7 +101,9 @@ namespace FrbaBus.Abm_Viaje
                     viaje.FechaArriboEstimada = this.dtpViajeAltaFechaLlegadaEstimada.Value;
                     
                     viaje.Micro = micro;
+                    viaje.IdMicro = micro.Id;
                     viaje.Recorrido = recorrido;
+                    viaje.IdRecorrido = recorrido.Id;
 
                    viaje = this._manager.Alta(viaje);
 

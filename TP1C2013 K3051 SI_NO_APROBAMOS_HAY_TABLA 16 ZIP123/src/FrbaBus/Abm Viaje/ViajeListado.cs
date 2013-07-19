@@ -82,6 +82,9 @@ namespace FrbaBus.Abm_Viaje
             Recorrido rec = cbRecorrido.SelectedItem as Recorrido;
 
             this.dgvViajeListado.DataSource = _manager.ListarFiltrado(dtpViajeListadoFechaLlegada.Value, dtpViajeListadoFechaSalida.Value, dtpViajeListadoFechaLlegadaEstimada.Value, rec, micro);
+            this.dgvViajeListado.Columns["Id"].Visible = false;
+            this.dgvViajeListado.Columns["IdRecorrido"].Visible = false;
+            this.dgvViajeListado.Columns["IdMicro"].Visible = false;
         }
 
         private void ListarRecorridos()
@@ -106,6 +109,7 @@ namespace FrbaBus.Abm_Viaje
             this.cbMicro.DataSource = micros;
             this.cbMicro.DisplayMember = "Informacion";
             this.cbMicro.ValueMember = "Id";
+           
         }
 
         private void btnViajeListadoBuscar_Click(object sender, EventArgs e)
