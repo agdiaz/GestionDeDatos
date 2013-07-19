@@ -97,7 +97,9 @@ namespace FrbaBus.Abm_Viaje
 
         private void btnViajeModificarGuardar_Click(object sender, EventArgs e)
         {
-            //this._manager.Alta(recorrido);
+            viaje.Micro = micro;
+            viaje.Recorrido = recorrido;
+            this._manager.Modificar(viaje);
         }
     }
 }

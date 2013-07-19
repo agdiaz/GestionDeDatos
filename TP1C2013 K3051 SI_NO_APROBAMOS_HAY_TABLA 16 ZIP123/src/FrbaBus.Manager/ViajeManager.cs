@@ -61,7 +61,7 @@ namespace FrbaBus.Manager
             IList<Viaje> viajes = _dao.ListarFiltrado(llegada, salida, estimada, rec,  micro);
             foreach (Viaje viaje in viajes)
             {
-                viaje.Recorrido = rec;
+                viaje.Recorrido = _recManager.Obtener(viaje.IdRecorrido);
                 viaje.Micro = _microManager.Obtener(viaje.IdMicro);
             }
             return viajes;
