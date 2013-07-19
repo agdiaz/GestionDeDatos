@@ -34,6 +34,7 @@ namespace FrbaBus.Abm_Viaje
             {
                 _viaje.FechaArribo = dtpFechaArriboReal.Value;
                 _manager.GenerarArribo(_viaje);
+                MensajePorPantalla.MensajeInformativo(this, "Se registro el arribo real del viaje");
             }
             catch (AccesoBDException ex)
             {
