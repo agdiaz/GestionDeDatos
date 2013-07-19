@@ -125,7 +125,7 @@
             this.dtpClienteFechaNac.Name = "dtpClienteFechaNac";
             this.dtpClienteFechaNac.Size = new System.Drawing.Size(135, 20);
             this.dtpClienteFechaNac.TabIndex = 6;
-            this.dtpClienteFechaNac.Value = new System.DateTime(1988, 12, 30, 23, 53, 0, 0);
+            this.dtpClienteFechaNac.Value = new System.DateTime(2013, 7, 18, 0, 0, 0, 0);
             // 
             // cbClienteEsDiscapacitado
             // 
@@ -186,7 +186,6 @@
             this.mtbClienteDNI.Name = "mtbClienteDNI";
             this.mtbClienteDNI.Size = new System.Drawing.Size(100, 20);
             this.mtbClienteDNI.TabIndex = 0;
-            this.mtbClienteDNI.Text = "34318224";
             // 
             // mtbClienteTelefono
             // 
@@ -195,7 +194,6 @@
             this.mtbClienteTelefono.Name = "mtbClienteTelefono";
             this.mtbClienteTelefono.Size = new System.Drawing.Size(89, 20);
             this.mtbClienteTelefono.TabIndex = 4;
-            this.mtbClienteTelefono.Text = "45024545";
             // 
             // tbClienteMail
             // 
@@ -203,7 +201,6 @@
             this.tbClienteMail.Name = "tbClienteMail";
             this.tbClienteMail.Size = new System.Drawing.Size(324, 20);
             this.tbClienteMail.TabIndex = 5;
-            this.tbClienteMail.Text = "florxgomez@gmail.com";
             // 
             // tbClienteNombre
             // 
@@ -211,7 +208,6 @@
             this.tbClienteNombre.Name = "tbClienteNombre";
             this.tbClienteNombre.Size = new System.Drawing.Size(324, 20);
             this.tbClienteNombre.TabIndex = 1;
-            this.tbClienteNombre.Text = "Florencia";
             // 
             // tbClienteApellido
             // 
@@ -219,7 +215,6 @@
             this.tbClienteApellido.Name = "tbClienteApellido";
             this.tbClienteApellido.Size = new System.Drawing.Size(324, 20);
             this.tbClienteApellido.TabIndex = 2;
-            this.tbClienteApellido.Text = "Gomez";
             // 
             // tbClienteDireccion
             // 
@@ -227,7 +222,6 @@
             this.tbClienteDireccion.Name = "tbClienteDireccion";
             this.tbClienteDireccion.Size = new System.Drawing.Size(324, 20);
             this.tbClienteDireccion.TabIndex = 3;
-            this.tbClienteDireccion.Text = "Franco 3661";
             // 
             // groupBox1
             // 
