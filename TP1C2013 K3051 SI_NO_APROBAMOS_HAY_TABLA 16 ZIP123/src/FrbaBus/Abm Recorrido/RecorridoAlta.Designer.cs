@@ -102,18 +102,18 @@
             this.lblRecorridoAltaPrecioBasePorKgs.AutoSize = true;
             this.lblRecorridoAltaPrecioBasePorKgs.Location = new System.Drawing.Point(12, 104);
             this.lblRecorridoAltaPrecioBasePorKgs.Name = "lblRecorridoAltaPrecioBasePorKgs";
-            this.lblRecorridoAltaPrecioBasePorKgs.Size = new System.Drawing.Size(102, 13);
+            this.lblRecorridoAltaPrecioBasePorKgs.Size = new System.Drawing.Size(111, 13);
             this.lblRecorridoAltaPrecioBasePorKgs.TabIndex = 8;
-            this.lblRecorridoAltaPrecioBasePorKgs.Text = "Precio base por Kgs";
+            this.lblRecorridoAltaPrecioBasePorKgs.Text = "Precio base por Kgs $";
             // 
             // lblRecorridoAltaPrecioBasePorPasaje
             // 
             this.lblRecorridoAltaPrecioBasePorPasaje.AutoSize = true;
             this.lblRecorridoAltaPrecioBasePorPasaje.Location = new System.Drawing.Point(12, 130);
             this.lblRecorridoAltaPrecioBasePorPasaje.Name = "lblRecorridoAltaPrecioBasePorPasaje";
-            this.lblRecorridoAltaPrecioBasePorPasaje.Size = new System.Drawing.Size(115, 13);
+            this.lblRecorridoAltaPrecioBasePorPasaje.Size = new System.Drawing.Size(124, 13);
             this.lblRecorridoAltaPrecioBasePorPasaje.TabIndex = 9;
-            this.lblRecorridoAltaPrecioBasePorPasaje.Text = "Precio base por pasaje";
+            this.lblRecorridoAltaPrecioBasePorPasaje.Text = "Precio base por pasaje $";
             // 
             // tbRecorridoAltaPrecioBasePorKgs
             // 

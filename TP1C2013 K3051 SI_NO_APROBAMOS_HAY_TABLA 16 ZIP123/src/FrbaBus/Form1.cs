@@ -16,6 +16,7 @@ using FrbaBus.Common.Entidades;
 using FrbaBus.Manager;
 using FrbaBus.Abm_Recompensa;
 using FrbaBus.Common.Helpers;
+using FrbaBus.Compras;
 
 namespace FrbaBus
 {
@@ -328,35 +329,20 @@ namespace FrbaBus
         
         private void btnAgregarPasajero_Click(object sender, EventArgs e)
         {
-            Cliente c = ObtenerCliente();
-            this.lbPasajeros.Items.Add(c);
+            Pasaje p = ObtenerPasaje();
+            this.lbPasajeros.Items.Add(p);
         }
 
-        private Cliente ObtenerCliente()
+        private Pasaje ObtenerPasaje()
         {
-            Cliente cliente = null;
-            using (ClienteListado frm = new ClienteListado(true))
+            Pasaje pasaje = null;
+            using (PasajeAlta frm = new PasajeAlta(_viaje))
             {
                 frm.ShowDialog(this);
-                if (frm.ClienteSeleccionado() != null)
-                    cliente = frm.ClienteSeleccionado();
+                pasaje = frm.PasajeNuevo;
             }
-
-            if (cliente == null)
-            {
-                MensajePorPantalla.MensajeInformativo(this, "No ha seleccionado un cliente, se dará de alta uno nuevo");
-
-                using (ClienteAlta frm = new ClienteAlta())
-                {
-                    frm.ShowDialog(this);
-
-                    if (frm.ClienteNuevo() != null)
-                    {
-                        cliente = frm.ClienteNuevo();
-                    }
-                }
-            }
-            return cliente;
+        
+            return pasaje;
         }
         #endregion
 
@@ -552,10 +538,10 @@ namespace FrbaBus
 
         private void btnModificarPasajero_Click(object sender, EventArgs e)
         {
-            Cliente c = this.lbPasajeros.SelectedItem as Cliente;
-            if (c != null)
+            Pasaje p = this.lbPasajeros.SelectedItem as Pasaje;
+            if (p != null)
             {
-                using (ClienteModificar frm = new ClienteModificar(c))
+                using (PasajeModificar frm = new PasajeModificar(p, _viaje))
                 {
                     frm.ShowDialog(this);
                 }

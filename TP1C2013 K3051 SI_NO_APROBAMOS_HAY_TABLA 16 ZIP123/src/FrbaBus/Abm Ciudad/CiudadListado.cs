@@ -153,5 +153,14 @@ namespace FrbaBus.Abm_Ciudad
                     e.Cancel = true;
             }
         }
+
+        public Ciudad ClienteSeleccionado()
+        {
+            Ciudad c = null;
+            if (dgvCiudadListado.SelectedRows.Count > 0)
+                c = dgvCiudadListado.SelectedRows[0].DataBoundItem as Ciudad;
+            return c;
+        }
+
     }
 }
