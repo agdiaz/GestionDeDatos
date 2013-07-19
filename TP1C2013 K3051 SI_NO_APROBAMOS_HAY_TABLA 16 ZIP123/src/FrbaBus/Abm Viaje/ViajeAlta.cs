@@ -34,8 +34,6 @@ namespace FrbaBus.Abm_Viaje
         {
             dtpViajeAltaFechaSalida.Format = DateTimePickerFormat.Custom;
             dtpViajeAltaFechaSalida.CustomFormat = "MMMM dd, yyyy - HH:mm:ss";
-            dtpViajeAltaFechaLlegada.Format = DateTimePickerFormat.Custom;
-            dtpViajeAltaFechaLlegada.CustomFormat = "MMMM dd, yyyy - HH:mm:ss";
             dtpViajeAltaFechaLlegadaEstimada.Format = DateTimePickerFormat.Custom;
             dtpViajeAltaFechaLlegadaEstimada.CustomFormat = "MMMM dd, yyyy - HH:mm:ss";
         }
@@ -84,7 +82,6 @@ namespace FrbaBus.Abm_Viaje
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            this.dtpViajeAltaFechaLlegada.Value = FechaHelper.Ahora();
             this.dtpViajeAltaFechaLlegadaEstimada.Value = FechaHelper.Ahora();
             this.dtpViajeAltaFechaSalida.Value = FechaHelper.Ahora();
             this.txtMicro.Text = string.Empty;
@@ -101,13 +98,12 @@ namespace FrbaBus.Abm_Viaje
                     Viaje viaje = new Viaje();
 
                     viaje.FechaSalida = this.dtpViajeAltaFechaSalida.Value;
-                    viaje.FechaArribo = this.dtpViajeAltaFechaLlegada.Value;
                     viaje.FechaArriboEstimada = this.dtpViajeAltaFechaLlegadaEstimada.Value;
                     
                     viaje.Micro = micro;
                     viaje.Recorrido = recorrido;
 
-                   // viaje = this._manager.Alta(viaje);
+                   viaje = this._manager.Alta(viaje);
 
                     MensajePorPantalla.MensajeInformativo(this, "Se dio de alta el viaje con el id: " + viaje.Id.ToString());
 
@@ -116,12 +112,10 @@ namespace FrbaBus.Abm_Viaje
                 catch (AccesoBDException ex)
                 {
                     MensajePorPantalla.MensajeExceptionBD(this, ex);
-                    this.Close();
                 }
                 catch (Exception ex)
                 {
                     MensajePorPantalla.MensajeError(this, "Error al intentar modificar el registro.\n Detalle del error: " + ex.Message);
-                    this.Close();
                 }
             }
         }
@@ -131,22 +125,23 @@ namespace FrbaBus.Abm_Viaje
         {
             if (dtpViajeAltaFechaSalida.Value < Helpers.FechaHelper.Ahora())
             {
+                MensajePorPantalla.MensajeError(this, "Complete la fecha de salida");
                 return false;
             }
-            if (dtpViajeAltaFechaLlegada.Value < Helpers.FechaHelper.Ahora())
-            {
-                return false;
-            }
+     
             if (dtpViajeAltaFechaLlegadaEstimada.Value < Helpers.FechaHelper.Ahora())
             {
+                MensajePorPantalla.MensajeError(this, "Complete la fecha de llegada estimada");
                 return false;
             }
-            if (micro!=null)
+            if (micro==null)
             {
+                MensajePorPantalla.MensajeError(this, "Elija un micro");
                 return false;
             }
-            if (recorrido!=null)
+            if (recorrido==null)
             {
+                MensajePorPantalla.MensajeError(this, "Elija un recorrido");
                 return false;
             }
             return true;

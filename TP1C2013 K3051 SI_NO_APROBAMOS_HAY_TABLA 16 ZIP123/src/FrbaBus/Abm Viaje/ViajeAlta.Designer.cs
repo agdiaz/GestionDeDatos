@@ -29,12 +29,10 @@
         private void InitializeComponent()
         {
             this.lblViajeAltaFechaSalida = new System.Windows.Forms.Label();
-            this.lblViajeAltaFechaLlegada = new System.Windows.Forms.Label();
             this.lblViajeAltaFechaLlegadaEstimada = new System.Windows.Forms.Label();
             this.lblViajeAltaMicro = new System.Windows.Forms.Label();
             this.lblViajeAltaRecorrido = new System.Windows.Forms.Label();
             this.dtpViajeAltaFechaSalida = new System.Windows.Forms.DateTimePicker();
-            this.dtpViajeAltaFechaLlegada = new System.Windows.Forms.DateTimePicker();
             this.dtpViajeAltaFechaLlegadaEstimada = new System.Windows.Forms.DateTimePicker();
             this.btnViajeAltaGuardar = new System.Windows.Forms.Button();
             this.txtMicro = new System.Windows.Forms.TextBox();
@@ -57,19 +55,10 @@
             this.lblViajeAltaFechaSalida.TabIndex = 0;
             this.lblViajeAltaFechaSalida.Text = "Fecha de salida";
             // 
-            // lblViajeAltaFechaLlegada
-            // 
-            this.lblViajeAltaFechaLlegada.AutoSize = true;
-            this.lblViajeAltaFechaLlegada.Location = new System.Drawing.Point(9, 51);
-            this.lblViajeAltaFechaLlegada.Name = "lblViajeAltaFechaLlegada";
-            this.lblViajeAltaFechaLlegada.Size = new System.Drawing.Size(89, 13);
-            this.lblViajeAltaFechaLlegada.TabIndex = 1;
-            this.lblViajeAltaFechaLlegada.Text = "Fecha de llegada";
-            // 
             // lblViajeAltaFechaLlegadaEstimada
             // 
             this.lblViajeAltaFechaLlegadaEstimada.AutoSize = true;
-            this.lblViajeAltaFechaLlegadaEstimada.Location = new System.Drawing.Point(9, 77);
+            this.lblViajeAltaFechaLlegadaEstimada.Location = new System.Drawing.Point(9, 57);
             this.lblViajeAltaFechaLlegadaEstimada.Name = "lblViajeAltaFechaLlegadaEstimada";
             this.lblViajeAltaFechaLlegadaEstimada.Size = new System.Drawing.Size(134, 13);
             this.lblViajeAltaFechaLlegadaEstimada.TabIndex = 2;
@@ -100,16 +89,9 @@
             this.dtpViajeAltaFechaSalida.Size = new System.Drawing.Size(274, 20);
             this.dtpViajeAltaFechaSalida.TabIndex = 5;
             // 
-            // dtpViajeAltaFechaLlegada
-            // 
-            this.dtpViajeAltaFechaLlegada.Location = new System.Drawing.Point(161, 45);
-            this.dtpViajeAltaFechaLlegada.Name = "dtpViajeAltaFechaLlegada";
-            this.dtpViajeAltaFechaLlegada.Size = new System.Drawing.Size(274, 20);
-            this.dtpViajeAltaFechaLlegada.TabIndex = 6;
-            // 
             // dtpViajeAltaFechaLlegadaEstimada
             // 
-            this.dtpViajeAltaFechaLlegadaEstimada.Location = new System.Drawing.Point(161, 71);
+            this.dtpViajeAltaFechaLlegadaEstimada.Location = new System.Drawing.Point(161, 51);
             this.dtpViajeAltaFechaLlegadaEstimada.Name = "dtpViajeAltaFechaLlegadaEstimada";
             this.dtpViajeAltaFechaLlegadaEstimada.Size = new System.Drawing.Size(274, 20);
             this.dtpViajeAltaFechaLlegadaEstimada.TabIndex = 7;
@@ -178,9 +160,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dtpViajeAltaFechaLlegada);
             this.groupBox2.Controls.Add(this.lblViajeAltaFechaSalida);
-            this.groupBox2.Controls.Add(this.lblViajeAltaFechaLlegada);
             this.groupBox2.Controls.Add(this.dtpViajeAltaFechaLlegadaEstimada);
             this.groupBox2.Controls.Add(this.lblViajeAltaFechaLlegadaEstimada);
             this.groupBox2.Controls.Add(this.dtpViajeAltaFechaSalida);
@@ -228,12 +208,10 @@
         #endregion
 
         private System.Windows.Forms.Label lblViajeAltaFechaSalida;
-        private System.Windows.Forms.Label lblViajeAltaFechaLlegada;
         private System.Windows.Forms.Label lblViajeAltaFechaLlegadaEstimada;
         private System.Windows.Forms.Label lblViajeAltaMicro;
         private System.Windows.Forms.Label lblViajeAltaRecorrido;
         private System.Windows.Forms.DateTimePicker dtpViajeAltaFechaSalida;
-        private System.Windows.Forms.DateTimePicker dtpViajeAltaFechaLlegada;
         private System.Windows.Forms.DateTimePicker dtpViajeAltaFechaLlegadaEstimada;
         private System.Windows.Forms.Button btnViajeAltaGuardar;
         private System.Windows.Forms.TextBox txtMicro;
