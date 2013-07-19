@@ -11,14 +11,14 @@ using FrbaBus.Abm_Recorrido;
 using FrbaBus.Helpers;
 using FrbaBus.Common.Entidades;
 using FrbaBus.Manager;
+using FrbaBus.Common.Helpers;
+using FrbaBus.Common.Excepciones;
 
 namespace FrbaBus.Abm_Viaje
 {
     public partial class ViajeModificar : Form
     {
         Viaje viaje = null;
-        Micro micro = null;
-        Recorrido recorrido = null;
 
         private ViajeManager _manager;
 
@@ -62,12 +62,12 @@ namespace FrbaBus.Abm_Viaje
             using (MicroListado frm = new MicroListado(true))
             {
                 frm.ShowDialog(this);
-                micro = frm.MicroSeleccionado();
+                viaje.Micro = frm.MicroSeleccionado();
             }
             
-            if (micro != null)
+            if (viaje.Micro != null)
             {
-                txtMicro.Text = micro.Informacion;
+                txtMicro.Text = viaje.Micro.Informacion;
             }
         }
 
@@ -77,12 +77,12 @@ namespace FrbaBus.Abm_Viaje
                 using (RecorridoListado frm = new RecorridoListado(true))
                 {
                     frm.ShowDialog(this);
-                    recorrido = frm.RecorridoSeleccionado();
+                    viaje.Recorrido = frm.RecorridoSeleccionado();
                 }
 
-                if (recorrido != null)
+                if (viaje.Recorrido != null)
                 {
-                    txtRecorrido.Text = recorrido.Informacion;
+                    txtRecorrido.Text = viaje.Recorrido.Informacion;
                 }
             }
         }
@@ -97,9 +97,63 @@ namespace FrbaBus.Abm_Viaje
 
         private void btnViajeModificarGuardar_Click(object sender, EventArgs e)
         {
-            viaje.Micro = micro;
-            viaje.Recorrido = recorrido;
-            this._manager.Modificar(viaje);
+            {
+            if (this.ValidarDatos())
+            {
+                try
+                {
+                    viaje.FechaSalida = this.dtpViajeModificarFechaSalida.Value;
+                    viaje.FechaArriboEstimada = this.dtpViajeModificarFechaLlegadaEstimada.Value;
+                    
+                    viaje.Micro = viaje.Micro;
+                    viaje.IdMicro = viaje.Micro.Id;
+                    viaje.Recorrido = viaje.Recorrido;
+                    viaje.IdRecorrido = viaje.Recorrido.Id;
+
+                   this._manager.Modificar(viaje);
+
+                 
+                    MensajePorPantalla.MensajeInformativo(this, "Se modifico el viaje con el id: " + viaje.Id.ToString());
+
+                    this.Close();
+                }
+                catch (AccesoBDException ex)
+                {
+                    MensajePorPantalla.MensajeExceptionBD(this, ex);
+                }
+                catch (Exception ex)
+                {
+                    MensajePorPantalla.MensajeError(this, "Error al intentar modificar el registro.\n Detalle del error: " + ex.Message);
+                }
+            }
+        }
+ }
+
+        private bool ValidarDatos()
+        {
+            if (dtpViajeModificarFechaSalida.Value < Helpers.FechaHelper.Ahora())
+            {
+                MensajePorPantalla.MensajeError(this, "Complete la fecha de salida");
+                return false;
+            }
+     
+            if (dtpViajeModificarFechaLlegadaEstimada.Value < Helpers.FechaHelper.Ahora())
+            {
+                MensajePorPantalla.MensajeError(this, "Complete la fecha de llegada estimada");
+                return false;
+            }
+            if (viaje.Micro==null)
+            {
+                MensajePorPantalla.MensajeError(this, "Elija un micro");
+                return false;
+            }
+            if (viaje.Recorrido==null)
+            {
+                MensajePorPantalla.MensajeError(this, "Elija un recorrido");
+                return false;
+            }
+            return true;
         }
     }
 }
+

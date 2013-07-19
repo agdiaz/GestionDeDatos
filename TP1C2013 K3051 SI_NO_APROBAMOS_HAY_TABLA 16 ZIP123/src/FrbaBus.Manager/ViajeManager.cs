@@ -31,6 +31,11 @@ namespace FrbaBus.Manager
         {
             this._dao.Modificacion(viaje);
         }
+
+        public void Baja(Viaje viaje)
+        {
+            this._dao.Baja(viaje);
+        }
         
         public IList<Viaje> Listar()
         {

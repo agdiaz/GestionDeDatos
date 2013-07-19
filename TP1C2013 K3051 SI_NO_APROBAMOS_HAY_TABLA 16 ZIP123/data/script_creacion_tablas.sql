@@ -56,6 +56,12 @@ insert into SI_NO_APROBAMOS_HAY_TABLA.Ciudad (nombre)
 	) as aut
 ) 
 
+CREATE NONCLUSTERED INDEX [indice_Ciudad_nombre] ON [SI_NO_APROBAMOS_HAY_TABLA].[Ciudad] 
+(
+	[nombre] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO
+
 
 /*===========================MARCA==============================*/
 
@@ -94,6 +100,12 @@ insert into SI_NO_APROBAMOS_HAY_TABLA.Marca (nombre)
 	select distinct m.Micro_Marca
 	from gd_esquema.Maestra m
 )
+
+CREATE NONCLUSTERED INDEX [indice_Marca_nombre] ON [SI_NO_APROBAMOS_HAY_TABLA].[Marca] 
+(
+	[nombre] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO
 
 /*===========================CLIENTE==============================*/
 
@@ -291,11 +303,25 @@ USE [GD1C2013]
 GO
 
 /****** Object:  Index [indice_recorrido_ciudad]    Script Date: 07/14/2013 11:45:15 ******/
-CREATE NONCLUSTERED INDEX [indice_recorrido_ciudad] ON [SI_NO_APROBAMOS_HAY_TABLA].[Recorrido] 
+CREATE NONCLUSTERED INDEX [indice_recorrido_destino] ON [SI_NO_APROBAMOS_HAY_TABLA].[Recorrido] 
 (
 	[id_ciudad_destino] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 GO
+
+CREATE NONCLUSTERED INDEX [indice_recorrido_origen] ON [SI_NO_APROBAMOS_HAY_TABLA].[Recorrido] 
+(
+	[id_ciudad_origen] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO
+
+CREATE NONCLUSTERED INDEX [indice_recorrido_origen_destino] ON [SI_NO_APROBAMOS_HAY_TABLA].[Recorrido] 
+(
+	[id_ciudad_origen],
+	[id_ciudad_destino]
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO
+
 
 /*===========================MICROS==============================*/
 USE [GD1C2013]
@@ -775,6 +801,11 @@ GO
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Compra] ADD  CONSTRAINT [DF_Compra_baja]  DEFAULT ((0)) FOR [baja]
 GO
 
+CREATE NONCLUSTERED INDEX [indice_Compra_Usuario] ON [SI_NO_APROBAMOS_HAY_TABLA].[Compra] 
+(
+	[id_usuario] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+GO
 
 /*===========================PASAJE==============================*/
 
@@ -929,7 +960,9 @@ DROP TABLE #tmpPasajes
 USE [GD1C2013]
 GO
 
-/****** Object:  Index [indice_pasaje_viaje]    Script Date: 07/14/2013 11:44:10 ******/
+
+COMMIT TRANSACTION comprasPasajes
+GO
 CREATE NONCLUSTERED INDEX [indice_pasaje_viaje] ON [SI_NO_APROBAMOS_HAY_TABLA].[Pasaje] 
 (
 	[id_viaje] ASC
@@ -942,8 +975,6 @@ CREATE NONCLUSTERED INDEX [indice_pasaje_compra] ON [SI_NO_APROBAMOS_HAY_TABLA].
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 GO
 
-COMMIT TRANSACTION comprasPasajes
-GO 
 CREATE TRIGGER trgPuntaje ON [SI_NO_APROBAMOS_HAY_TABLA].Pasaje
 FOR INSERT
 AS
@@ -1562,19 +1593,6 @@ GO
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Puntaje] ADD  CONSTRAINT [DF_Puntaje_baja]  DEFAULT ((0)) FOR [baja]
 GO
 
---INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Puntaje]
---	([dni],[id_compra],[puntos],[puntos_usados])
---VALUES (27223299,145098,103,0)
-
---INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Puntaje]
---	([dni],[id_compra],[puntos],[puntos_usados])
---VALUES (12835515,139822,103,0)
-
---INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Puntaje]
---	([dni],[id_compra],[puntos],[puntos_usados])
---VALUES (74978796,219895,92,0)
-
-GO
 
 INSERT INTO [SI_NO_APROBAMOS_HAY_TABLA].Puntaje
 	(dni, id_compra, puntos, fecha_otorgado)
@@ -1700,20 +1718,3 @@ GO
 
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Canje] ADD  CONSTRAINT [DF_Canje_baja]  DEFAULT ((0)) FOR [baja]
 GO
-
---INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Canje]
---	([dni],[id_recompensa])
---VALUES (27223299, 3) --restar 10
-
---INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Canje]
---	([dni],[id_recompensa])
---VALUES (12835515, 4) --restar 100
-
---UPDATE SI_NO_APROBAMOS_HAY_TABLA.Puntaje
---SET puntos_usados = 10
---WHERE id_puntaje = 1
-
---UPDATE SI_NO_APROBAMOS_HAY_TABLA.Puntaje
---SET puntos_usados = 100
---WHERE id_puntaje = 2
-	   

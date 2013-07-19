@@ -192,6 +192,31 @@ namespace FrbaBus.Abm_Viaje
 
             ListarViajes();
         }
+
+        private void btnViajeListadoDarBaja_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Viaje viaje = (Viaje)dgvViajeListado.SelectedRows[0].DataBoundItem;
+                _manager.Baja(viaje);
+
+                //Cargo la grilla de roles
+                ListarViajes();
+
+            }
+            catch (AccesoBDException ex)
+            {
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MensajePorPantalla.MensajeError(this, "Error al intentar borrar el registro.\n Detalle del error: " + ex.Message);
+                this.Close();
+            }
+            
+        }
+        
         
     }
 }
