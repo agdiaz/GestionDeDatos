@@ -100,6 +100,12 @@
     <Compile Include="Abm Clientes\ClienteModificar.Designer.cs">
       <DependentUpon>ClienteModificar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Micro\MicroButacaListado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Micro\MicroButacaListado.Designer.cs">
+      <DependentUpon>MicroButacaListado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Micro\MicroModificar.cs">
       <SubType>Form</SubType>
     </Compile>
