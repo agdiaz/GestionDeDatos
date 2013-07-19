@@ -32,18 +32,26 @@
             this.lblRecompensaCanjearPuntosPuntosAcumulados = new System.Windows.Forms.Label();
             this.tbRecompensaCanjearPuntosDni = new System.Windows.Forms.TextBox();
             this.tbRecompensaCanjearPuntosPuntosAcumulados = new System.Windows.Forms.TextBox();
-            this.gbRecompensaCanjearPuntos = new System.Windows.Forms.GroupBox();
-            this.dgvRecompensaCanjearPuntos = new System.Windows.Forms.DataGridView();
+            this.gbRecompensaCanjearPuntosPremiosDisponibles = new System.Windows.Forms.GroupBox();
+            this.dgvRecompensaCanjearPuntosPremiosDisponibles = new System.Windows.Forms.DataGridView();
             this.btnRecompensaCanjearPuntosCanjear = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.gbRecompensaCanjearPuntos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRecompensaCanjearPuntos)).BeginInit();
+            this.btnRecompensaCanjearPuntosBuscar = new System.Windows.Forms.Button();
+            this.gbRecompensaCanjearPuntosPuntosCliente = new System.Windows.Forms.GroupBox();
+            this.gbRecompensaCanjearPuntosRegistroPuntos = new System.Windows.Forms.GroupBox();
+            this.dgvRecompensaCanjearPuntosRegistroPuntos = new System.Windows.Forms.DataGridView();
+            this.lblRecompensaCanjearPuntosCantidadPedida = new System.Windows.Forms.Label();
+            this.tbRecompensaCanjearPuntosCantidadPedida = new System.Windows.Forms.TextBox();
+            this.gbRecompensaCanjearPuntosPremiosDisponibles.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRecompensaCanjearPuntosPremiosDisponibles)).BeginInit();
+            this.gbRecompensaCanjearPuntosPuntosCliente.SuspendLayout();
+            this.gbRecompensaCanjearPuntosRegistroPuntos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRecompensaCanjearPuntosRegistroPuntos)).BeginInit();
             this.SuspendLayout();
             // 
             // lblRecompensaCanjearPuntosDni
             // 
             this.lblRecompensaCanjearPuntosDni.AutoSize = true;
-            this.lblRecompensaCanjearPuntosDni.Location = new System.Drawing.Point(13, 13);
+            this.lblRecompensaCanjearPuntosDni.Location = new System.Drawing.Point(5, 22);
             this.lblRecompensaCanjearPuntosDni.Name = "lblRecompensaCanjearPuntosDni";
             this.lblRecompensaCanjearPuntosDni.Size = new System.Drawing.Size(61, 13);
             this.lblRecompensaCanjearPuntosDni.TabIndex = 0;
@@ -52,7 +60,7 @@
             // lblRecompensaCanjearPuntosPuntosAcumulados
             // 
             this.lblRecompensaCanjearPuntosPuntosAcumulados.AutoSize = true;
-            this.lblRecompensaCanjearPuntosPuntosAcumulados.Location = new System.Drawing.Point(13, 41);
+            this.lblRecompensaCanjearPuntosPuntosAcumulados.Location = new System.Drawing.Point(5, 50);
             this.lblRecompensaCanjearPuntosPuntosAcumulados.Name = "lblRecompensaCanjearPuntosPuntosAcumulados";
             this.lblRecompensaCanjearPuntosPuntosAcumulados.Size = new System.Drawing.Size(100, 13);
             this.lblRecompensaCanjearPuntosPuntosAcumulados.TabIndex = 1;
@@ -60,72 +68,127 @@
             // 
             // tbRecompensaCanjearPuntosDni
             // 
-            this.tbRecompensaCanjearPuntosDni.Location = new System.Drawing.Point(124, 10);
+            this.tbRecompensaCanjearPuntosDni.Enabled = false;
+            this.tbRecompensaCanjearPuntosDni.Location = new System.Drawing.Point(116, 19);
             this.tbRecompensaCanjearPuntosDni.Name = "tbRecompensaCanjearPuntosDni";
             this.tbRecompensaCanjearPuntosDni.Size = new System.Drawing.Size(194, 20);
             this.tbRecompensaCanjearPuntosDni.TabIndex = 3;
             // 
             // tbRecompensaCanjearPuntosPuntosAcumulados
             // 
-            this.tbRecompensaCanjearPuntosPuntosAcumulados.Location = new System.Drawing.Point(124, 38);
+            this.tbRecompensaCanjearPuntosPuntosAcumulados.Location = new System.Drawing.Point(116, 47);
             this.tbRecompensaCanjearPuntosPuntosAcumulados.Name = "tbRecompensaCanjearPuntosPuntosAcumulados";
+            this.tbRecompensaCanjearPuntosPuntosAcumulados.ReadOnly = true;
             this.tbRecompensaCanjearPuntosPuntosAcumulados.Size = new System.Drawing.Size(194, 20);
             this.tbRecompensaCanjearPuntosPuntosAcumulados.TabIndex = 4;
             // 
-            // gbRecompensaCanjearPuntos
+            // gbRecompensaCanjearPuntosPremiosDisponibles
             // 
-            this.gbRecompensaCanjearPuntos.Controls.Add(this.dgvRecompensaCanjearPuntos);
-            this.gbRecompensaCanjearPuntos.Location = new System.Drawing.Point(16, 124);
-            this.gbRecompensaCanjearPuntos.Name = "gbRecompensaCanjearPuntos";
-            this.gbRecompensaCanjearPuntos.Size = new System.Drawing.Size(302, 197);
-            this.gbRecompensaCanjearPuntos.TabIndex = 5;
-            this.gbRecompensaCanjearPuntos.TabStop = false;
-            this.gbRecompensaCanjearPuntos.Text = "Premios disponibles";
+            this.gbRecompensaCanjearPuntosPremiosDisponibles.Controls.Add(this.tbRecompensaCanjearPuntosCantidadPedida);
+            this.gbRecompensaCanjearPuntosPremiosDisponibles.Controls.Add(this.lblRecompensaCanjearPuntosCantidadPedida);
+            this.gbRecompensaCanjearPuntosPremiosDisponibles.Controls.Add(this.dgvRecompensaCanjearPuntosPremiosDisponibles);
+            this.gbRecompensaCanjearPuntosPremiosDisponibles.Controls.Add(this.btnRecompensaCanjearPuntosCanjear);
+            this.gbRecompensaCanjearPuntosPremiosDisponibles.Location = new System.Drawing.Point(356, 13);
+            this.gbRecompensaCanjearPuntosPremiosDisponibles.Name = "gbRecompensaCanjearPuntosPremiosDisponibles";
+            this.gbRecompensaCanjearPuntosPremiosDisponibles.Size = new System.Drawing.Size(321, 394);
+            this.gbRecompensaCanjearPuntosPremiosDisponibles.TabIndex = 5;
+            this.gbRecompensaCanjearPuntosPremiosDisponibles.TabStop = false;
+            this.gbRecompensaCanjearPuntosPremiosDisponibles.Text = "Premios disponibles";
             // 
-            // dgvRecompensaCanjearPuntos
+            // dgvRecompensaCanjearPuntosPremiosDisponibles
             // 
-            this.dgvRecompensaCanjearPuntos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRecompensaCanjearPuntos.Location = new System.Drawing.Point(12, 19);
-            this.dgvRecompensaCanjearPuntos.Name = "dgvRecompensaCanjearPuntos";
-            this.dgvRecompensaCanjearPuntos.Size = new System.Drawing.Size(290, 172);
-            this.dgvRecompensaCanjearPuntos.TabIndex = 0;
+            this.dgvRecompensaCanjearPuntosPremiosDisponibles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRecompensaCanjearPuntosPremiosDisponibles.Location = new System.Drawing.Point(12, 19);
+            this.dgvRecompensaCanjearPuntosPremiosDisponibles.Name = "dgvRecompensaCanjearPuntosPremiosDisponibles";
+            this.dgvRecompensaCanjearPuntosPremiosDisponibles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvRecompensaCanjearPuntosPremiosDisponibles.Size = new System.Drawing.Size(300, 301);
+            this.dgvRecompensaCanjearPuntosPremiosDisponibles.TabIndex = 0;
             // 
             // btnRecompensaCanjearPuntosCanjear
             // 
-            this.btnRecompensaCanjearPuntosCanjear.Location = new System.Drawing.Point(253, 348);
+            this.btnRecompensaCanjearPuntosCanjear.Location = new System.Drawing.Point(240, 359);
             this.btnRecompensaCanjearPuntosCanjear.Name = "btnRecompensaCanjearPuntosCanjear";
             this.btnRecompensaCanjearPuntosCanjear.Size = new System.Drawing.Size(75, 23);
             this.btnRecompensaCanjearPuntosCanjear.TabIndex = 6;
             this.btnRecompensaCanjearPuntosCanjear.Text = "Canjear";
             this.btnRecompensaCanjearPuntosCanjear.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnRecompensaCanjearPuntosBuscar
             // 
-            this.button1.Location = new System.Drawing.Point(253, 78);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnRecompensaCanjearPuntosBuscar.Location = new System.Drawing.Point(235, 83);
+            this.btnRecompensaCanjearPuntosBuscar.Name = "btnRecompensaCanjearPuntosBuscar";
+            this.btnRecompensaCanjearPuntosBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnRecompensaCanjearPuntosBuscar.TabIndex = 7;
+            this.btnRecompensaCanjearPuntosBuscar.Text = "Buscar";
+            this.btnRecompensaCanjearPuntosBuscar.UseVisualStyleBackColor = true;
+            this.btnRecompensaCanjearPuntosBuscar.Click += new System.EventHandler(this.btnRecompensaCanjearPuntosBuscar_Click);
+            // 
+            // gbRecompensaCanjearPuntosPuntosCliente
+            // 
+            this.gbRecompensaCanjearPuntosPuntosCliente.Controls.Add(this.gbRecompensaCanjearPuntosRegistroPuntos);
+            this.gbRecompensaCanjearPuntosPuntosCliente.Controls.Add(this.btnRecompensaCanjearPuntosBuscar);
+            this.gbRecompensaCanjearPuntosPuntosCliente.Controls.Add(this.tbRecompensaCanjearPuntosDni);
+            this.gbRecompensaCanjearPuntosPuntosCliente.Controls.Add(this.tbRecompensaCanjearPuntosPuntosAcumulados);
+            this.gbRecompensaCanjearPuntosPuntosCliente.Controls.Add(this.lblRecompensaCanjearPuntosDni);
+            this.gbRecompensaCanjearPuntosPuntosCliente.Controls.Add(this.lblRecompensaCanjearPuntosPuntosAcumulados);
+            this.gbRecompensaCanjearPuntosPuntosCliente.Location = new System.Drawing.Point(12, 13);
+            this.gbRecompensaCanjearPuntosPuntosCliente.Name = "gbRecompensaCanjearPuntosPuntosCliente";
+            this.gbRecompensaCanjearPuntosPuntosCliente.Size = new System.Drawing.Size(316, 394);
+            this.gbRecompensaCanjearPuntosPuntosCliente.TabIndex = 8;
+            this.gbRecompensaCanjearPuntosPuntosCliente.TabStop = false;
+            this.gbRecompensaCanjearPuntosPuntosCliente.Text = "Puntos cliente";
+            // 
+            // gbRecompensaCanjearPuntosRegistroPuntos
+            // 
+            this.gbRecompensaCanjearPuntosRegistroPuntos.Controls.Add(this.dgvRecompensaCanjearPuntosRegistroPuntos);
+            this.gbRecompensaCanjearPuntosRegistroPuntos.Location = new System.Drawing.Point(8, 112);
+            this.gbRecompensaCanjearPuntosRegistroPuntos.Name = "gbRecompensaCanjearPuntosRegistroPuntos";
+            this.gbRecompensaCanjearPuntosRegistroPuntos.Size = new System.Drawing.Size(302, 270);
+            this.gbRecompensaCanjearPuntosRegistroPuntos.TabIndex = 8;
+            this.gbRecompensaCanjearPuntosRegistroPuntos.TabStop = false;
+            this.gbRecompensaCanjearPuntosRegistroPuntos.Text = "Registro de puntos";
+            // 
+            // dgvRecompensaCanjearPuntosRegistroPuntos
+            // 
+            this.dgvRecompensaCanjearPuntosRegistroPuntos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRecompensaCanjearPuntosRegistroPuntos.Location = new System.Drawing.Point(7, 20);
+            this.dgvRecompensaCanjearPuntosRegistroPuntos.Name = "dgvRecompensaCanjearPuntosRegistroPuntos";
+            this.dgvRecompensaCanjearPuntosRegistroPuntos.Size = new System.Drawing.Size(289, 236);
+            this.dgvRecompensaCanjearPuntosRegistroPuntos.TabIndex = 0;
+            // 
+            // lblRecompensaCanjearPuntosCantidadPedida
+            // 
+            this.lblRecompensaCanjearPuntosCantidadPedida.AutoSize = true;
+            this.lblRecompensaCanjearPuntosCantidadPedida.Location = new System.Drawing.Point(9, 333);
+            this.lblRecompensaCanjearPuntosCantidadPedida.Name = "lblRecompensaCanjearPuntosCantidadPedida";
+            this.lblRecompensaCanjearPuntosCantidadPedida.Size = new System.Drawing.Size(84, 13);
+            this.lblRecompensaCanjearPuntosCantidadPedida.TabIndex = 7;
+            this.lblRecompensaCanjearPuntosCantidadPedida.Text = "Cantidad pedida";
+            // 
+            // tbRecompensaCanjearPuntosCantidadPedida
+            // 
+            this.tbRecompensaCanjearPuntosCantidadPedida.Location = new System.Drawing.Point(99, 330);
+            this.tbRecompensaCanjearPuntosCantidadPedida.Name = "tbRecompensaCanjearPuntosCantidadPedida";
+            this.tbRecompensaCanjearPuntosCantidadPedida.Size = new System.Drawing.Size(100, 20);
+            this.tbRecompensaCanjearPuntosCantidadPedida.TabIndex = 8;
             // 
             // RecompensaCanjearPuntos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(340, 383);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnRecompensaCanjearPuntosCanjear);
-            this.Controls.Add(this.gbRecompensaCanjearPuntos);
-            this.Controls.Add(this.tbRecompensaCanjearPuntosPuntosAcumulados);
-            this.Controls.Add(this.tbRecompensaCanjearPuntosDni);
-            this.Controls.Add(this.lblRecompensaCanjearPuntosPuntosAcumulados);
-            this.Controls.Add(this.lblRecompensaCanjearPuntosDni);
+            this.ClientSize = new System.Drawing.Size(697, 419);
+            this.Controls.Add(this.gbRecompensaCanjearPuntosPuntosCliente);
+            this.Controls.Add(this.gbRecompensaCanjearPuntosPremiosDisponibles);
             this.Name = "RecompensaCanjearPuntos";
             this.Text = "RecompensaCanjearPuntos";
-            this.gbRecompensaCanjearPuntos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRecompensaCanjearPuntos)).EndInit();
+            this.gbRecompensaCanjearPuntosPremiosDisponibles.ResumeLayout(false);
+            this.gbRecompensaCanjearPuntosPremiosDisponibles.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRecompensaCanjearPuntosPremiosDisponibles)).EndInit();
+            this.gbRecompensaCanjearPuntosPuntosCliente.ResumeLayout(false);
+            this.gbRecompensaCanjearPuntosPuntosCliente.PerformLayout();
+            this.gbRecompensaCanjearPuntosRegistroPuntos.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRecompensaCanjearPuntosRegistroPuntos)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -135,9 +198,14 @@
         private System.Windows.Forms.Label lblRecompensaCanjearPuntosPuntosAcumulados;
         private System.Windows.Forms.TextBox tbRecompensaCanjearPuntosDni;
         private System.Windows.Forms.TextBox tbRecompensaCanjearPuntosPuntosAcumulados;
-        private System.Windows.Forms.GroupBox gbRecompensaCanjearPuntos;
-        private System.Windows.Forms.DataGridView dgvRecompensaCanjearPuntos;
+        private System.Windows.Forms.GroupBox gbRecompensaCanjearPuntosPremiosDisponibles;
+        private System.Windows.Forms.DataGridView dgvRecompensaCanjearPuntosPremiosDisponibles;
         private System.Windows.Forms.Button btnRecompensaCanjearPuntosCanjear;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRecompensaCanjearPuntosBuscar;
+        private System.Windows.Forms.GroupBox gbRecompensaCanjearPuntosPuntosCliente;
+        private System.Windows.Forms.GroupBox gbRecompensaCanjearPuntosRegistroPuntos;
+        private System.Windows.Forms.DataGridView dgvRecompensaCanjearPuntosRegistroPuntos;
+        private System.Windows.Forms.TextBox tbRecompensaCanjearPuntosCantidadPedida;
+        private System.Windows.Forms.Label lblRecompensaCanjearPuntosCantidadPedida;
     }
 }

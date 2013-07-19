@@ -76,5 +76,25 @@ namespace FrbaBus.DAO
 
             return accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_listar_filtrado_recompensa", parametros);
         }
+
+        public DataSet ObtenerRegistroPuntosCliente(decimal dni)
+        {
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+
+            parametros.Add(new SqlParameter("@p_dni", SqlDbType.Decimal, 8, "p_dni"), dni);
+            DataSet ds = accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_puntos_por_cliente_detallado",parametros);
+            return ds;
+        }
+
+        public string ObtenerPuntosCliente(decimal dni)
+        {
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+
+            parametros.Add(new SqlParameter("@p_dni", SqlDbType.Decimal, 8, "p_dni"), dni);
+            var fila = accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_puntos_por_cliente", parametros).Tables[0].Rows[0];
+            string puntos = fila[0].ToString();
+
+            return puntos;
+        }
     }
 }
