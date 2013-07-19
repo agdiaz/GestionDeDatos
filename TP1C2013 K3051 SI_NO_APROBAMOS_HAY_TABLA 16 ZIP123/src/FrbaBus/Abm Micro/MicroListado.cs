@@ -234,5 +234,16 @@ namespace FrbaBus.Abm_Micro
                 }
             }
         }
+
+        private void MicroListado_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_esParaSeleccionar && e.CloseReason == CloseReason.UserClosing)
+            {
+                DialogResult confirma = MensajePorPantalla.MensajeInformativo(this, "Debía seleccionar un micro.\n¿Desea salir de todas maneras?", MessageBoxButtons.YesNo);
+
+                if (confirma == DialogResult.No)
+                    e.Cancel = true;
+            }
+        }
     }
 }

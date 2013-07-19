@@ -226,6 +226,7 @@
             this.dgvMicroListado.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvMicroListado.Location = new System.Drawing.Point(12, 120);
             this.dgvMicroListado.Name = "dgvMicroListado";
+            this.dgvMicroListado.ReadOnly = true;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -287,6 +288,7 @@
             this.Name = "MicroListado";
             this.Text = "FrbaBus - Micros :: Listado";
             this.Load += new System.EventHandler(this.MicroListado_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MicroListado_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMicroListado)).EndInit();

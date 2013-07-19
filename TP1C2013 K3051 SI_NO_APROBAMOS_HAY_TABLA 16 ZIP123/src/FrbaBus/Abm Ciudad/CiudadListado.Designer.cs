@@ -151,6 +151,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrbaBus - Ciudades :: Listado";
             this.Load += new System.EventHandler(this.CiudadListado_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CiudadListado_FormClosing);
             this.gbCiudadListado.ResumeLayout(false);
             this.gbCiudadListado.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCiudadListado)).EndInit();

@@ -281,6 +281,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrbaBus - Clientes :: Listado";
             this.Load += new System.EventHandler(this.ClienteListado_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClienteListado_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClienteListado)).EndInit();
             this.gbFiltros.ResumeLayout(false);
             this.gbFiltros.PerformLayout();

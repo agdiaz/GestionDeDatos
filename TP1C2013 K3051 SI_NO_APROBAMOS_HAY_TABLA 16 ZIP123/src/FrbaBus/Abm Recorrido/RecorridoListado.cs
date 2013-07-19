@@ -188,5 +188,16 @@ namespace FrbaBus.Abm_Recorrido
                 }
             }
         }
+
+        private void RecorridoListado_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_esParaSeleccion && e.CloseReason == CloseReason.UserClosing)
+            {
+                DialogResult confirma = MensajePorPantalla.MensajeInformativo(this, "Debía seleccionar un recorrido.\n¿Desea salir de todas maneras?", MessageBoxButtons.YesNo);
+                
+                if (confirma == DialogResult.No) 
+                    e.Cancel = true;
+            }
+        }
     }
 }

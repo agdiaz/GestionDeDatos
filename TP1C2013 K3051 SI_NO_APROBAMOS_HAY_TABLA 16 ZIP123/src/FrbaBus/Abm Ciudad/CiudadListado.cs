@@ -142,5 +142,16 @@ namespace FrbaBus.Abm_Ciudad
                 }
             }
         }
+
+        private void CiudadListado_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_esParaSeleccionar && e.CloseReason == CloseReason.UserClosing)
+            {
+                DialogResult confirma = MensajePorPantalla.MensajeInformativo(this, "Debía seleccionar una ciudad.\n¿Desea salir de todas maneras?", MessageBoxButtons.YesNo);
+
+                if (confirma == DialogResult.No)
+                    e.Cancel = true;
+            }
+        }
     }
 }

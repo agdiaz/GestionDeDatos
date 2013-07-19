@@ -193,6 +193,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrbaBus - Recorridos :: Listado";
             this.Load += new System.EventHandler(this.RecorridoListado_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RecorridoListado_FormClosing);
             this.gbRecorridoListado.ResumeLayout(false);
             this.gbRecorridoListado.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecorridoListado)).EndInit();
