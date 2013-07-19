@@ -37,17 +37,57 @@ namespace FrbaBus.DAO
 
         public int Alta(Viaje entidad)
         {
-            throw new NotImplementedException();
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+
+            SqlParameter p0 = new SqlParameter("@p_Fecha_Arribo_Estimada", SqlDbType.DateTime, 8, "p_Fecha_Arribo_Estimada");
+            parametros.Add(p0, entidad.FechaArriboEstimada);
+
+            SqlParameter p1 = new SqlParameter("@p_Fecha_Salida", SqlDbType.DateTime, 8, "p_Fecha_Salida");
+            parametros.Add(p1, entidad.FechaSalida);
+
+            SqlParameter p2 = new SqlParameter("@p_id_micro", SqlDbType.Int, 4, "p_id_micro");
+            parametros.Add(p2, entidad.IdMicro);
+
+            SqlParameter p3 = new SqlParameter("@p_id_recorrido", SqlDbType.Int, 4, "p_id_recorrido");
+            parametros.Add(p3, entidad.IdRecorrido);
+
+            SqlParameter pId = new SqlParameter("@p_id", SqlDbType.Int, 4, "p_id");
+            pId.Direction = ParameterDirection.Output;
+            parametros.Add(pId, 0);
+
+            this.accesoBD.EjecutarComando("[SI_NO_APROBAMOS_HAY_TABLA].sp_insert_viaje", parametros);
+            return Convert.ToInt32(pId.Value);
         }
 
         public void Baja(Viaje entidad)
         {
-            throw new NotImplementedException();
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+            parametros.Add(new SqlParameter("@p_id", SqlDbType.Int, 4, "p_id"), entidad.Id);
+
+            accesoBD.EjecutarComando("[SI_NO_APROBAMOS_HAY_TABLA].sp_delete_viaje", parametros);
+
         }
 
         public void Modificacion(Viaje entidad)
         {
-            throw new NotImplementedException();
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+
+            SqlParameter p0 = new SqlParameter("@p_Fecha_Arribo_Estimada", SqlDbType.DateTime, 8, "p_Fecha_Arribo_Estimada");
+            parametros.Add(p0, entidad.FechaArriboEstimada);
+
+            SqlParameter p1 = new SqlParameter("@p_Fecha_Salida", SqlDbType.DateTime, 8, "p_Fecha_Salida");
+            parametros.Add(p1, entidad.FechaSalida);
+
+            SqlParameter p2 = new SqlParameter("@p_id_micro", SqlDbType.Int, 4, "p_id_micro");
+            parametros.Add(p2, entidad.IdMicro);
+
+            SqlParameter p3 = new SqlParameter("@p_id_recorrido", SqlDbType.Int, 4, "p_id_recorrido");
+            parametros.Add(p3, entidad.IdRecorrido);
+
+            SqlParameter pId = new SqlParameter("@p_id", SqlDbType.Int, 4, "p_id");
+            parametros.Add(pId, entidad.Id);
+
+            this.accesoBD.EjecutarComando("[SI_NO_APROBAMOS_HAY_TABLA].sp_update_viaje", parametros);
         }
 
         public IList<Viaje> Listar()
