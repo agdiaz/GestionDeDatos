@@ -41,20 +41,38 @@ namespace FrbaBus.Abm_Recompensa
 
                 this.dgvRecompensaCanjearPuntosRegistroPuntos.DataSource = _manager.ObtenerRegistroPuntosCliente(cliente.NroDni).Tables[0];
 
-                #region Ver premios disponibles para el cliente
+#region Ver premios disponibles para el cliente
 
                 IList<Recompensa> recompensas = _manager.ListarFiltrado("", 0, puntosCliente, 0, 9999);
                 this.dgvRecompensaCanjearPuntosPremiosDisponibles.DataSource = recompensas;
 
-                //            this.dgvRecompensaCanjearPuntosPremiosDisponibles.DataSource = _manager.ObtenerPremiosDisponibles(puntosCliente);
-                #endregion Ver premios disponibles para el cliente
+#endregion Ver premios disponibles para el cliente
             }
         }
 
-        //private void btnRecompensaCanjearPuntosCanjear_Click(object sender, EventArgs e)
-        //{
-        //    var fila_actual = dgvRecompensaCanjearPuntosPremiosDisponibles.SelectedRows[0].DataBoundItem;
-        //    fila_actual[""]
-        //}
+        private void btnRecompensaCanjearPuntosCanjear_Click(object sender, EventArgs e)
+        {
+            decimal dniCliente = Convert.ToDecimal(tbRecompensaCanjearPuntosDni.Text);
+
+            Recompensa recompensa = dgvRecompensaCanjearPuntosPremiosDisponibles.SelectedRows[0].DataBoundItem as Recompensa;
+
+            int cantidadPedidad = Convert.ToInt32(tbRecompensaCanjearPuntosCantidadPedida.Text);
+
+            _manager.CanjearPuntos(dniCliente,recompensa.IdRecompensa,cantidadPedidad);
+
+
+#region Actualizando datagridview's después de un canje
+
+            tbRecompensaCanjearPuntosPuntosAcumulados.Text = _manager.ObtenerPuntosCliente(dniCliente);
+
+            this.dgvRecompensaCanjearPuntosRegistroPuntos.DataSource = _manager.ObtenerRegistroPuntosCliente(dniCliente).Tables[0];
+
+            int puntosAcumuladosActualizados = Convert.ToInt32(tbRecompensaCanjearPuntosPuntosAcumulados.Text);
+            IList<Recompensa> recompensas = _manager.ListarFiltrado("", 0, puntosAcumuladosActualizados, 0, 9999);
+            this.dgvRecompensaCanjearPuntosPremiosDisponibles.DataSource = recompensas;
+
+#endregion Actualizando datagridview's después de un canje
+
+        }
     }
 }

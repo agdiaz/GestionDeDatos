@@ -96,5 +96,16 @@ namespace FrbaBus.DAO
 
             return puntos;
         }
+
+        public void CanjearPuntos(decimal dni, int id_recompensa, int cantidadPedida)
+        {
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+
+            parametros.Add(new SqlParameter("@p_dni", SqlDbType.Decimal, 8, "p_dni"), dni);
+            parametros.Add(new SqlParameter("@p_id_recompensa", SqlDbType.Int, 4, "id_recompensa"), id_recompensa);
+            parametros.Add(new SqlParameter("@p_cantidad", SqlDbType.Int, 4, "p_cantidad"), cantidadPedida);
+            accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_canjear_recompensa", parametros);
+
+        }
     }
 }
