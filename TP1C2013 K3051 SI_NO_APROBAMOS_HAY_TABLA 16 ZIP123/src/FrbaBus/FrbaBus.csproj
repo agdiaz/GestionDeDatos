@@ -226,6 +226,24 @@
     <Compile Include="Ayuda\AyudaUsuarios.Designer.cs">
       <DependentUpon>AyudaUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cancelaciones\CancelacionCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cancelaciones\CancelacionCompra.Designer.cs">
+      <DependentUpon>CancelacionCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cancelaciones\CancelacionEncomienda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cancelaciones\CancelacionEncomienda.Designer.cs">
+      <DependentUpon>CancelacionEncomienda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cancelaciones\CancelacionPasaje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cancelaciones\CancelacionPasaje.Designer.cs">
+      <DependentUpon>CancelacionPasaje.cs</DependentUpon>
+    </Compile>
     <Compile Include="Compras\EncomiendaAlta.cs">
       <SubType>Form</SubType>
     </Compile>

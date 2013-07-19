@@ -561,5 +561,29 @@ namespace FrbaBus
                 }
             }
         }
+
+        private void cancelarCompraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (Cancelaciones.CancelacionCompra frm = new Cancelaciones.CancelacionCompra ())
+            {
+                frm.ShowDialog(this);
+            }
+        }
+
+        private void cancelarPasajeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (Cancelaciones.CancelacionPasaje frm = new Cancelaciones.CancelacionPasaje())
+            {
+                frm.ShowDialog(this);
+            }
+        }
+
+        private void cancelarEncomiendaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (Cancelaciones.CancelacionEncomienda frm = new Cancelaciones.CancelacionEncomienda())
+            {
+                frm.ShowDialog(this);
+            }
+        }
     }
 }

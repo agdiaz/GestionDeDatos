@@ -131,6 +131,9 @@
             this.tbRecorridoCiudadDestino = new System.Windows.Forms.TextBox();
             this.tbRecorridoCiudadOrigen = new System.Windows.Forms.TextBox();
             this.btnComprar = new System.Windows.Forms.Button();
+            this.cancelarCompraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cancelarPasajeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cancelarEncomiendaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsMain.SuspendLayout();
             this.ssStatusMain.SuspendLayout();
             this.gbViaje.SuspendLayout();
@@ -471,15 +474,19 @@
             // tsmComprarPasajes
             // 
             this.tsmComprarPasajes.Name = "tsmComprarPasajes";
-            this.tsmComprarPasajes.Size = new System.Drawing.Size(121, 22);
+            this.tsmComprarPasajes.Size = new System.Drawing.Size(152, 22);
             this.tsmComprarPasajes.Text = "Comprar";
             this.tsmComprarPasajes.Click += new System.EventHandler(this.tsmComprarPasajes_Click);
             // 
             // tsmPasajeEncomiendaCancelar
             // 
+            this.tsmPasajeEncomiendaCancelar.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cancelarCompraToolStripMenuItem,
+            this.cancelarPasajeToolStripMenuItem,
+            this.cancelarEncomiendaToolStripMenuItem});
             this.tsmPasajeEncomiendaCancelar.Name = "tsmPasajeEncomiendaCancelar";
-            this.tsmPasajeEncomiendaCancelar.Size = new System.Drawing.Size(121, 22);
-            this.tsmPasajeEncomiendaCancelar.Text = "Cancelar";
+            this.tsmPasajeEncomiendaCancelar.Size = new System.Drawing.Size(152, 22);
+            this.tsmPasajeEncomiendaCancelar.Text = "Cancelaciones";
             // 
             // tsmPremios
             // 
@@ -1065,6 +1072,27 @@
             this.btnComprar.UseVisualStyleBackColor = true;
             this.btnComprar.Click += new System.EventHandler(this.btnComprar_Click);
             // 
+            // cancelarCompraToolStripMenuItem
+            // 
+            this.cancelarCompraToolStripMenuItem.Name = "cancelarCompraToolStripMenuItem";
+            this.cancelarCompraToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.cancelarCompraToolStripMenuItem.Text = "Cancelar Compra";
+            this.cancelarCompraToolStripMenuItem.Click += new System.EventHandler(this.cancelarCompraToolStripMenuItem_Click);
+            // 
+            // cancelarPasajeToolStripMenuItem
+            // 
+            this.cancelarPasajeToolStripMenuItem.Name = "cancelarPasajeToolStripMenuItem";
+            this.cancelarPasajeToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.cancelarPasajeToolStripMenuItem.Text = "Cancelar Pasaje";
+            this.cancelarPasajeToolStripMenuItem.Click += new System.EventHandler(this.cancelarPasajeToolStripMenuItem_Click);
+            // 
+            // cancelarEncomiendaToolStripMenuItem
+            // 
+            this.cancelarEncomiendaToolStripMenuItem.Name = "cancelarEncomiendaToolStripMenuItem";
+            this.cancelarEncomiendaToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.cancelarEncomiendaToolStripMenuItem.Text = "Cancelar Encomienda";
+            this.cancelarEncomiendaToolStripMenuItem.Click += new System.EventHandler(this.cancelarEncomiendaToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1209,6 +1237,9 @@
         private System.Windows.Forms.ToolStripMenuItem canjeDePuntosToolStripMenuItem;
         private System.Windows.Forms.Button btnComprar;
         private System.Windows.Forms.ToolStripMenuItem canjearPuntosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cancelarCompraToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cancelarPasajeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cancelarEncomiendaToolStripMenuItem;
     }
 }
 
