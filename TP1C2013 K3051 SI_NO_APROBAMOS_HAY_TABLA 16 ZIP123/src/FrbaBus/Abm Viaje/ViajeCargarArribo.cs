@@ -11,6 +11,7 @@ using FrbaBus.Abm_Recorrido;
 using FrbaBus.Common.Entidades;
 using FrbaBus.Manager;
 using FrbaBus.Common.Helpers;
+using FrbaBus.Common.Excepciones;
 
 namespace FrbaBus.Abm_Viaje
 {
@@ -27,6 +28,51 @@ namespace FrbaBus.Abm_Viaje
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                _viaje.FechaArribo = dtpFechaArriboReal.Value;
+                _manager.GenerarArribo(_viaje);
+                MensajePorPantalla.MensajeInformativo(this,"Se registro el arribo real del viaje");
+                this.Close();
+            }
+            catch (AccesoBDException ex)
+            {
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
+            }
+            catch (Exception ex)
+            {
+                MensajePorPantalla.MensajeError(this, "Error al intentar dar el registro.\n Detalle del error: " + ex.Message);
+            }
+
+        }
+
+        private void CargarDatosViaje()
+        {
+            tbCiudadDestino.Text = _viaje.Recorrido.CiudadDestino.Nombre;
+            tbCiudadOrigen.Text = _viaje.Recorrido.CiudadOrigen.Nombre;
+            tbMicro.Text = _viaje.Micro.Informacion;
+
+            dtpFechaSalida.Value = _viaje.FechaSalida;
+            dtpFechaArriboEstimada.Value = _viaje.FechaArriboEstimada;
+
+            
+        }
+
+        private void ViajeCargarArribo_Load(object sender, EventArgs e)
+        {
+            dtpFechaArriboEstimada.Format = DateTimePickerFormat.Custom;
+            dtpFechaArriboEstimada.CustomFormat = "dd/MM/yyyy hh:mm:ss";
+
+            dtpFechaArriboReal.Format = DateTimePickerFormat.Custom;
+            dtpFechaArriboReal.CustomFormat = "dd/MM/yyyy hh:mm:ss";
+
+            dtpFechaSalida.Format = DateTimePickerFormat.Custom;
+            dtpFechaSalida.CustomFormat = "dd/MM/yyyy hh:mm:ss";  
+        }
+
+        private void btnMicro_Click(object sender, EventArgs e)
         {
             using (ViajeListado frm = new ViajeListado())
             {
@@ -45,20 +91,8 @@ namespace FrbaBus.Abm_Viaje
                     MensajePorPantalla.MensajeError(this, "El viaje ya tiene cargado una fecha de arribo");
                     _viaje = null;
                 }
-                
+
             }
-        }
-
-        private void CargarDatosViaje()
-        {
-            tbCiudadDestino.Text = _viaje.Recorrido.CiudadDestino.Nombre;
-            tbCiudadOrigen.Text = _viaje.Recorrido.CiudadOrigen.Nombre;
-            tbMicro.Text = _viaje.Micro.Informacion;
-
-            dtpFechaSalida.Value = _viaje.FechaSalida;
-            dtpFechaArriboEstimada.Value = _viaje.FechaArriboEstimada;
-
-            
         }
 
     }

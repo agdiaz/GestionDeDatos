@@ -124,6 +124,7 @@
             this.btnMicro.TabIndex = 0;
             this.btnMicro.Text = "Buscar Micro";
             this.btnMicro.UseVisualStyleBackColor = true;
+            this.btnMicro.Click += new System.EventHandler(this.btnMicro_Click);
             // 
             // groupBox2
             // 
@@ -220,6 +221,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "ViajeCargarArribo";
             this.Text = "FrbaBus - Viaje :: Cargar arribo";
+            this.Load += new System.EventHandler(this.ViajeCargarArribo_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
