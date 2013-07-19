@@ -122,7 +122,7 @@
             this.btnMicro.Name = "btnMicro";
             this.btnMicro.Size = new System.Drawing.Size(75, 46);
             this.btnMicro.TabIndex = 0;
-            this.btnMicro.Text = "Buscar Micro";
+            this.btnMicro.Text = "Buscar viaje";
             this.btnMicro.UseVisualStyleBackColor = true;
             this.btnMicro.Click += new System.EventHandler(this.btnMicro_Click);
             // 
