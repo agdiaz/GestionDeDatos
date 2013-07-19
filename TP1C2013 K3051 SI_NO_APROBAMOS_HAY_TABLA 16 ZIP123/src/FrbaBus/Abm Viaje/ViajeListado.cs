@@ -85,6 +85,7 @@ namespace FrbaBus.Abm_Viaje
             this.dgvViajeListado.Columns["Id"].Visible = false;
             this.dgvViajeListado.Columns["IdRecorrido"].Visible = false;
             this.dgvViajeListado.Columns["IdMicro"].Visible = false;
+            this.dgvViajeListado.Columns["Pasajes"].Visible = false;
         }
 
         private void ListarRecorridos()

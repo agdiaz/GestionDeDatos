@@ -63,6 +63,8 @@ namespace FrbaBus.Abm_Clientes
             this.dgvClienteListado.DataSource = _manager.Listar();
             this.dgvClienteListado.Columns["Sexo"].Visible = false;
             this.dgvClienteListado.Columns["SexoValor"].HeaderText = "Sexo";
+            this.dgvClienteListado.Columns["Puntajes"].Visible = false;
+            this.dgvClienteListado.Columns["Canjes"].Visible = false;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
