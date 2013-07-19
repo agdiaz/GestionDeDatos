@@ -290,6 +290,9 @@
     <EmbeddedResource Include="Abm Clientes\ClienteModificar.resx">
       <DependentUpon>ClienteModificar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Abm Micro\MicroButacaListado.resx">
+      <DependentUpon>MicroButacaListado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Abm Micro\MicroModificar.resx">
       <DependentUpon>MicroModificar.cs</DependentUpon>
     </EmbeddedResource>
