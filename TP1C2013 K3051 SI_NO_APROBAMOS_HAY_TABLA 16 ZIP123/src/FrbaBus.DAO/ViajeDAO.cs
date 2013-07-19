@@ -128,11 +128,11 @@ namespace FrbaBus.DAO
             return viajes;
         }
 
-        public IList<Viaje> ListarFiltrado(DateTime llegada, DateTime salida, Recorrido rec, Micro micro)
+        public IList<Viaje> ListarFiltrado(DateTime? llegada, DateTime? salida, DateTime? estimada, Recorrido rec, Micro micro)
         {
             List<Viaje> viajes = new List<Viaje>();
 
-            foreach (DataRow row in this.ObtenerRegistros(llegada, salida, rec, micro).Tables[0].Rows)
+            foreach (DataRow row in this.ObtenerRegistros(llegada, salida, estimada, rec, micro).Tables[0].Rows)
             {
                 viajes.Add(this._builder.Build(row));
             }
@@ -141,15 +141,22 @@ namespace FrbaBus.DAO
         }
 
 
-        public DataSet ObtenerRegistros(DateTime llegada, DateTime salida, Recorrido rec, Micro micro)
+        public DataSet ObtenerRegistros(DateTime? llegada, DateTime? salida, DateTime? estimada, Recorrido rec, Micro micro)
         {
             Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
             if (micro.Id > 0)
                 parametros.Add(new SqlParameter("@p_micro", SqlDbType.Int, 4, "p_micro"), micro.Id);
             if (rec.Id > 0)
                 parametros.Add(new SqlParameter("@p_recorrido", SqlDbType.Decimal, 18, "p_recorrido"), (decimal)rec.Id);
-            //parametros.Add(new SqlParameter("@p_fecha_salida", SqlDbType.DateTime, 8, "p_fecha_salida"), salida);
-            //parametros.Add(new SqlParameter("@p_fecha_llegada", SqlDbType.DateTime, 8, "p_fecha_llegada"), llegada);
+
+            if(salida.HasValue)
+            parametros.Add(new SqlParameter("@p_fecha_salida", SqlDbType.DateTime, 8, "p_fecha_salida"), salida.Value);
+            
+            if(llegada.HasValue)
+            parametros.Add(new SqlParameter("@p_fecha_llegada", SqlDbType.DateTime, 8, "p_fecha_llegada"), llegada.Value);
+
+            if(estimada.HasValue)
+            parametros.Add(new SqlParameter("@p_fecha_llegada_estimada", SqlDbType.DateTime, 8, "p_fecha_llegada_estimada"), estimada.Value);
 
             return accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_listar_filtrado_viaje", parametros);
         }

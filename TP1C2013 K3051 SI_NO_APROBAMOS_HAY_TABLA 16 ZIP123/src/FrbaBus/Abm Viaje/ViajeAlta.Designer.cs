@@ -122,6 +122,7 @@
             this.btnViajeAltaGuardar.TabIndex = 9;
             this.btnViajeAltaGuardar.Text = "Guardar";
             this.btnViajeAltaGuardar.UseVisualStyleBackColor = true;
+            this.btnViajeAltaGuardar.Click += new System.EventHandler(this.btnViajeAltaGuardar_Click);
             // 
             // txtMicro
             // 

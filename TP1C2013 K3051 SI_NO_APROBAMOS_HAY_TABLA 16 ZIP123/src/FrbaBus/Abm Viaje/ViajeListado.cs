@@ -81,7 +81,7 @@ namespace FrbaBus.Abm_Viaje
             Micro micro = cbMicro.SelectedItem as Micro;
             Recorrido rec = cbRecorrido.SelectedItem as Recorrido;
 
-            this.dgvViajeListado.DataSource = _manager.ListarFiltrado(dtpViajeListadoFechaLlegada.Value, dtpViajeListadoFechaSalida.Value, rec, micro);
+            this.dgvViajeListado.DataSource = _manager.ListarFiltrado(dtpViajeListadoFechaLlegada.Value, dtpViajeListadoFechaSalida.Value, dtpViajeListadoFechaLlegadaEstimada.Value, rec, micro);
         }
 
         private void ListarRecorridos()
@@ -112,7 +112,24 @@ namespace FrbaBus.Abm_Viaje
         {
             try
             {
+                DateTime? fecha_salida = null;
+                if (cbFechaSalida.Checked)
+                    fecha_salida = this.dtpViajeListadoFechaSalida.Value;
 
+                DateTime? fecha_llegada = null;
+                if(cbFechaLlegada.Checked)
+                    fecha_llegada = this.dtpViajeListadoFechaLlegada.Value;
+
+                DateTime? fecha_llegada_estimada = null;
+                if(cbFechaEstimada.Checked)
+                fecha_llegada_estimada = this.dtpViajeListadoFechaLlegadaEstimada.Value;
+                
+                Micro micro = cbMicro.SelectedItem as Micro;
+                Recorrido recorrido = cbRecorrido.SelectedItem as Recorrido;
+
+                var viajes = _manager.ListarFiltrado(fecha_llegada, fecha_salida, fecha_llegada_estimada, recorrido, micro);
+
+                this.dgvViajeListado.DataSource = viajes;
             }
             catch (AccesoBDException ex)
             {
@@ -133,5 +150,44 @@ namespace FrbaBus.Abm_Viaje
 
             return v;
         }
+
+        private void btnViajeListadoLimpiar_Click(object sender, EventArgs e)
+        {
+            cbFechaEstimada.Checked = false;
+            cbFechaLlegada.Checked = false;
+            cbFechaSalida.Checked = false;
+            dtpViajeListadoFechaLlegada.Value = Helpers.FechaHelper.Ahora();
+            dtpViajeListadoFechaLlegadaEstimada.Value = Helpers.FechaHelper.Ahora();
+            dtpViajeListadoFechaSalida.Value = Helpers.FechaHelper.Ahora();
+            cbMicro.SelectedIndex = 0;
+            cbRecorrido.SelectedIndex = 0;
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Viaje viaje = dgvViajeListado.SelectedRows[0].DataBoundItem as Viaje;
+
+                using (ViajeModificar frm = new ViajeModificar(viaje))
+                {
+                    frm.ShowDialog(this);
+                }
+                ListarViajes();
+            }
+            catch (AccesoBDException ex)
+            {
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MensajePorPantalla.MensajeError(this, "Error al intentar modificar el registro.\n Detalle del error: " + ex.Message);
+                this.Close();
+            }
+
+            ListarViajes();
+        }
+        
     }
 }
