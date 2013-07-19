@@ -94,6 +94,8 @@
             // 
             this.dgvCiudadListado.AllowUserToAddRows = false;
             this.dgvCiudadListado.AllowUserToDeleteRows = false;
+            this.dgvCiudadListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvCiudadListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvCiudadListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCiudadListado.Location = new System.Drawing.Point(12, 101);
             this.dgvCiudadListado.Name = "dgvCiudadListado";

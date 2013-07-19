@@ -183,6 +183,8 @@
             this.dgvViajeListado.AllowUserToDeleteRows = false;
             this.dgvViajeListado.AllowUserToResizeColumns = false;
             this.dgvViajeListado.AllowUserToResizeRows = false;
+            this.dgvViajeListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvViajeListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvViajeListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvViajeListado.Location = new System.Drawing.Point(12, 180);
             this.dgvViajeListado.Name = "dgvViajeListado";

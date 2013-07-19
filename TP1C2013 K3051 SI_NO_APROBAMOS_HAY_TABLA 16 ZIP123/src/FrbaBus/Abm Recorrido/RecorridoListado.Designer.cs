@@ -140,12 +140,14 @@
             // 
             this.dgvRecorridoListado.AllowUserToAddRows = false;
             this.dgvRecorridoListado.AllowUserToDeleteRows = false;
+            this.dgvRecorridoListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvRecorridoListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRecorridoListado.Location = new System.Drawing.Point(12, 134);
             this.dgvRecorridoListado.Name = "dgvRecorridoListado";
             this.dgvRecorridoListado.ReadOnly = true;
+            this.dgvRecorridoListado.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvRecorridoListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRecorridoListado.Size = new System.Drawing.Size(481, 228);
+            this.dgvRecorridoListado.Size = new System.Drawing.Size(730, 228);
             this.dgvRecorridoListado.TabIndex = 7;
             this.dgvRecorridoListado.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRecorridoListado_CellContentDoubleClick);
             // 
@@ -171,7 +173,7 @@
             // 
             // btnSeleccionar
             // 
-            this.btnSeleccionar.Location = new System.Drawing.Point(417, 367);
+            this.btnSeleccionar.Location = new System.Drawing.Point(667, 374);
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.Size = new System.Drawing.Size(75, 23);
             this.btnSeleccionar.TabIndex = 11;
@@ -183,12 +185,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(516, 409);
+            this.ClientSize = new System.Drawing.Size(754, 409);
             this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnRecorridoListadoDarBaja);
             this.Controls.Add(this.dgvRecorridoListado);
             this.Controls.Add(this.gbRecorridoListado);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "RecorridoListado";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrbaBus - Recorridos :: Listado";

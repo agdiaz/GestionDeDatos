@@ -104,6 +104,8 @@
             // 
             this.dgvRolListado.AllowUserToAddRows = false;
             this.dgvRolListado.AllowUserToDeleteRows = false;
+            this.dgvRolListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvRolListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvRolListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRolListado.Location = new System.Drawing.Point(24, 145);
             this.dgvRolListado.Name = "dgvRolListado";
