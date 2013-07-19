@@ -16,13 +16,15 @@ namespace FrbaBus.Abm_Viaje
 {
     public partial class ViajeModificar : Form
     {
+        Viaje viaje = null;
         Micro micro = null;
         Recorrido recorrido = null;
 
         private ViajeManager _manager;
 
-        public ViajeModificar(Viaje viaje)
+        public ViajeModificar(Viaje v)
         {
+            viaje = v;
             _manager = new ViajeManager();
             InitializeComponent();
             SetearCustomFormatDataTimePicker();
@@ -32,15 +34,21 @@ namespace FrbaBus.Abm_Viaje
         {
             dtpViajeModificarFechaSalida.Format = DateTimePickerFormat.Custom;
             dtpViajeModificarFechaSalida.CustomFormat = "MMMM dd, yyyy - HH:mm:ss";
-            dtpViajeModificarFechaLlegada.Format = DateTimePickerFormat.Custom;
-            dtpViajeModificarFechaLlegada.CustomFormat = "MMMM dd, yyyy - HH:mm:ss";
             dtpViajeModificarFechaLlegadaEstimada.Format = DateTimePickerFormat.Custom;
             dtpViajeModificarFechaLlegadaEstimada.CustomFormat = "MMMM dd, yyyy - HH:mm:ss";
         }
 
         private void ViajeModificar_Load(object sender, EventArgs e)
         {
+            cargarDatosDelViaje();
+        }
 
+        private void cargarDatosDelViaje()
+        {
+            this.dtpViajeModificarFechaSalida.Value = viaje.FechaSalida;
+            this.dtpViajeModificarFechaLlegadaEstimada.Value = viaje.FechaArriboEstimada;
+            this.txtMicro.Text = viaje.Micro.Informacion;
+            this.txtRecorrido.Text = viaje.Recorrido.Informacion;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -65,12 +73,22 @@ namespace FrbaBus.Abm_Viaje
 
         private void btnViajeModificarBuscarRecorrido_Click(object sender, EventArgs e)
         {
-            new RecorridoListado().ShowDialog(this);
+            {
+                using (RecorridoListado frm = new RecorridoListado())
+                {
+                    frm.ShowDialog(this);
+                    recorrido = frm.RecorridoSeleccionado();
+                }
+
+                if (recorrido != null)
+                {
+                    txtRecorrido.Text = recorrido.Informacion;
+                }
+            }
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            this.dtpViajeModificarFechaLlegada.Value = FechaHelper.Ahora();
             this.dtpViajeModificarFechaLlegadaEstimada.Value = FechaHelper.Ahora();
             this.dtpViajeModificarFechaSalida.Value = FechaHelper.Ahora();
             this.txtMicro.Text = string.Empty;

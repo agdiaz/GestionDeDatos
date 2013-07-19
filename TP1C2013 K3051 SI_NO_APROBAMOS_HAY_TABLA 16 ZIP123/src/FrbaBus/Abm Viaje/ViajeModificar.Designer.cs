@@ -29,12 +29,10 @@
         private void InitializeComponent()
         {
             this.lblViajeModificarFechaSalida = new System.Windows.Forms.Label();
-            this.lblViajeModificarFechaLlegada = new System.Windows.Forms.Label();
             this.lblViajeModificarFechaLlegadaEstimada = new System.Windows.Forms.Label();
             this.lblViajeModificarMicro = new System.Windows.Forms.Label();
             this.lblViajeModificarRecorrido = new System.Windows.Forms.Label();
             this.dtpViajeModificarFechaSalida = new System.Windows.Forms.DateTimePicker();
-            this.dtpViajeModificarFechaLlegada = new System.Windows.Forms.DateTimePicker();
             this.dtpViajeModificarFechaLlegadaEstimada = new System.Windows.Forms.DateTimePicker();
             this.btnViajeModificarGuardar = new System.Windows.Forms.Button();
             this.txtMicro = new System.Windows.Forms.TextBox();
@@ -57,19 +55,10 @@
             this.lblViajeModificarFechaSalida.TabIndex = 0;
             this.lblViajeModificarFechaSalida.Text = "Fecha de salida";
             // 
-            // lblViajeModificarFechaLlegada
-            // 
-            this.lblViajeModificarFechaLlegada.AutoSize = true;
-            this.lblViajeModificarFechaLlegada.Location = new System.Drawing.Point(9, 51);
-            this.lblViajeModificarFechaLlegada.Name = "lblViajeModificarFechaLlegada";
-            this.lblViajeModificarFechaLlegada.Size = new System.Drawing.Size(89, 13);
-            this.lblViajeModificarFechaLlegada.TabIndex = 1;
-            this.lblViajeModificarFechaLlegada.Text = "Fecha de llegada";
-            // 
             // lblViajeModificarFechaLlegadaEstimada
             // 
             this.lblViajeModificarFechaLlegadaEstimada.AutoSize = true;
-            this.lblViajeModificarFechaLlegadaEstimada.Location = new System.Drawing.Point(9, 77);
+            this.lblViajeModificarFechaLlegadaEstimada.Location = new System.Drawing.Point(9, 61);
             this.lblViajeModificarFechaLlegadaEstimada.Name = "lblViajeModificarFechaLlegadaEstimada";
             this.lblViajeModificarFechaLlegadaEstimada.Size = new System.Drawing.Size(134, 13);
             this.lblViajeModificarFechaLlegadaEstimada.TabIndex = 2;
@@ -100,16 +89,9 @@
             this.dtpViajeModificarFechaSalida.Size = new System.Drawing.Size(274, 20);
             this.dtpViajeModificarFechaSalida.TabIndex = 5;
             // 
-            // dtpViajeModificarFechaLlegada
-            // 
-            this.dtpViajeModificarFechaLlegada.Location = new System.Drawing.Point(161, 45);
-            this.dtpViajeModificarFechaLlegada.Name = "dtpViajeModificarFechaLlegada";
-            this.dtpViajeModificarFechaLlegada.Size = new System.Drawing.Size(274, 20);
-            this.dtpViajeModificarFechaLlegada.TabIndex = 6;
-            // 
             // dtpViajeModificarFechaLlegadaEstimada
             // 
-            this.dtpViajeModificarFechaLlegadaEstimada.Location = new System.Drawing.Point(161, 71);
+            this.dtpViajeModificarFechaLlegadaEstimada.Location = new System.Drawing.Point(161, 55);
             this.dtpViajeModificarFechaLlegadaEstimada.Name = "dtpViajeModificarFechaLlegadaEstimada";
             this.dtpViajeModificarFechaLlegadaEstimada.Size = new System.Drawing.Size(274, 20);
             this.dtpViajeModificarFechaLlegadaEstimada.TabIndex = 7;
@@ -178,9 +160,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dtpViajeModificarFechaLlegada);
             this.groupBox2.Controls.Add(this.lblViajeModificarFechaSalida);
-            this.groupBox2.Controls.Add(this.lblViajeModificarFechaLlegada);
             this.groupBox2.Controls.Add(this.dtpViajeModificarFechaLlegadaEstimada);
             this.groupBox2.Controls.Add(this.lblViajeModificarFechaLlegadaEstimada);
             this.groupBox2.Controls.Add(this.dtpViajeModificarFechaSalida);
@@ -228,12 +208,10 @@
         #endregion
 
         private System.Windows.Forms.Label lblViajeModificarFechaSalida;
-        private System.Windows.Forms.Label lblViajeModificarFechaLlegada;
         private System.Windows.Forms.Label lblViajeModificarFechaLlegadaEstimada;
         private System.Windows.Forms.Label lblViajeModificarMicro;
         private System.Windows.Forms.Label lblViajeModificarRecorrido;
         private System.Windows.Forms.DateTimePicker dtpViajeModificarFechaSalida;
-        private System.Windows.Forms.DateTimePicker dtpViajeModificarFechaLlegada;
         private System.Windows.Forms.DateTimePicker dtpViajeModificarFechaLlegadaEstimada;
         private System.Windows.Forms.Button btnViajeModificarGuardar;
         private System.Windows.Forms.TextBox txtMicro;
