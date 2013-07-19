@@ -571,5 +571,21 @@ namespace FrbaBus
                 frm.ShowDialog(this);
             }
         }
+
+        private void tsmPasajesListar_Click(object sender, EventArgs e)
+        {
+            using (Compras.PasajeListado frm = new PasajeListado())
+            {
+                frm.ShowDialog(this);
+            }
+        }
+
+        private void tsmEncomiendasListar_Click(object sender, EventArgs e)
+        {
+            using (Compras.EncomiendaListado frm = new EncomiendaListado())
+            {
+                frm.ShowDialog(this);
+            }
+        }
     }
 }

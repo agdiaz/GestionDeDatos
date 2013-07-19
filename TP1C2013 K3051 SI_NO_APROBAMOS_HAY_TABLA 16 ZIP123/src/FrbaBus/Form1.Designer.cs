@@ -1106,12 +1106,14 @@
             this.tsmPasajesListar.Name = "tsmPasajesListar";
             this.tsmPasajesListar.Size = new System.Drawing.Size(202, 22);
             this.tsmPasajesListar.Text = "Listado de Pasajes";
+            this.tsmPasajesListar.Click += new System.EventHandler(this.tsmPasajesListar_Click);
             // 
             // tsmEncomiendasListar
             // 
             this.tsmEncomiendasListar.Name = "tsmEncomiendasListar";
             this.tsmEncomiendasListar.Size = new System.Drawing.Size(202, 22);
             this.tsmEncomiendasListar.Text = "Listado de Encomiendas";
+            this.tsmEncomiendasListar.Click += new System.EventHandler(this.tsmEncomiendasListar_Click);
             // 
             // toolStripSeparator5
             // 
