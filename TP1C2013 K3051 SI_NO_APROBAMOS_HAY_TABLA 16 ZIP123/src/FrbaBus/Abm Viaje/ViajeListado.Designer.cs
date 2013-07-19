@@ -198,6 +198,7 @@
             this.btnViajeListadoDarBaja.TabIndex = 4;
             this.btnViajeListadoDarBaja.Text = "Dar de baja";
             this.btnViajeListadoDarBaja.UseVisualStyleBackColor = true;
+            this.btnViajeListadoDarBaja.Click += new System.EventHandler(this.btnViajeListadoDarBaja_Click);
             // 
             // btnModificar
             // 
