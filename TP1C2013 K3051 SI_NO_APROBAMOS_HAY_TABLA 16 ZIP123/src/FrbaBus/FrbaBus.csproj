@@ -184,6 +184,12 @@
     <Compile Include="Abm Rol\RolModificar.Designer.cs">
       <DependentUpon>RolModificar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Viaje\ViajeModificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Viaje\ViajeModificar.Designer.cs">
+      <DependentUpon>ViajeModificar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Viaje\ViajeAlta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -295,6 +301,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Rol\RolModificar.resx">
       <DependentUpon>RolModificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Viaje\ViajeModificar.resx">
+      <DependentUpon>ViajeModificar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Viaje\ViajeAlta.resx">
       <DependentUpon>ViajeAlta.cs</DependentUpon>

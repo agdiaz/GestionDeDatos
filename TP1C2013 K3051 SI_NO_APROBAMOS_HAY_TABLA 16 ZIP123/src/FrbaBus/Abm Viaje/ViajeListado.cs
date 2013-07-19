@@ -169,10 +169,10 @@ namespace FrbaBus.Abm_Viaje
             {
                 Viaje viaje = dgvViajeListado.SelectedRows[0].DataBoundItem as Viaje;
 
-                //using (ViajeModificar frm = new ViajeModificar(viaje))
-                //{
-                //    frm.ShowDialog(this);
-                //}
+                using (ViajeModificar frm = new ViajeModificar(viaje))
+                {
+                    frm.ShowDialog(this);
+                }
                 ListarViajes();
             }
             catch (AccesoBDException ex)
