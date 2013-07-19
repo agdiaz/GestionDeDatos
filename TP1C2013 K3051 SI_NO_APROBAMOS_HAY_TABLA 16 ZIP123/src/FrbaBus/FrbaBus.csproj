@@ -220,6 +220,18 @@
     <Compile Include="Ayuda\AyudaUsuarios.Designer.cs">
       <DependentUpon>AyudaUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Compras\EncomiendaAlta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\EncomiendaAlta.Designer.cs">
+      <DependentUpon>EncomiendaAlta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\PasajeAlta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\PasajeAlta.Designer.cs">
+      <DependentUpon>PasajeAlta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Estadisticas\Estadisticas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -316,6 +328,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ayuda\AyudaUsuarios.resx">
       <DependentUpon>AyudaUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\PasajeAlta.resx">
+      <DependentUpon>PasajeAlta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Estadisticas\Estadisticas.resx">
       <DependentUpon>Estadisticas.cs</DependentUpon>
