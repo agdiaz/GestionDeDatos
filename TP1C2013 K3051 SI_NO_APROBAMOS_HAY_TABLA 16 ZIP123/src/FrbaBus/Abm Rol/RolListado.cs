@@ -31,6 +31,7 @@ namespace FrbaBus.Rol
             {
                 //Cargo la grilla de roles
                 this.dgvRolListado.DataSource = _manager.Listar();
+                this.dgvRolListado.Columns["IdRol"].Visible = false;
 
                 //Cargo las funcionalidades
                 IList<Funcionalidad> funcionalidades = _funcionalidadesManager.Listar();

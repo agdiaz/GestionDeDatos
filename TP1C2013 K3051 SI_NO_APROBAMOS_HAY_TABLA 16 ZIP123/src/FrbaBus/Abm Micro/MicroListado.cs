@@ -107,6 +107,12 @@ namespace FrbaBus.Abm_Micro
             this.dgvMicroListado.Columns["IdEmpresa"].Visible = false;
             this.dgvMicroListado.Columns["IdServicio"].Visible = false;
             this.dgvMicroListado.Columns["Empresa"].Visible = false;
+            this.dgvMicroListado.Columns["ButacasDisponibles"].Visible = false;
+            this.dgvMicroListado.Columns["ButacasTotal"].Visible = false;
+            this.dgvMicroListado.Columns["ButacasVendidas"].Visible = false;
+            this.dgvMicroListado.Columns["KgsDisponibles"].Visible = false;
+            this.dgvMicroListado.Columns["KgsVendidos"].Visible = false;
+            this.dgvMicroListado.Columns["Butacas"].Visible = false;
         }
         private void CargarEmpresas()
         {
