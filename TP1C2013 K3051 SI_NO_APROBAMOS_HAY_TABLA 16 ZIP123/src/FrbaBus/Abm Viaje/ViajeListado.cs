@@ -78,14 +78,40 @@ namespace FrbaBus.Abm_Viaje
 
         private void ListarViajes()
         {
-            Micro micro = cbMicro.SelectedItem as Micro;
-            Recorrido rec = cbRecorrido.SelectedItem as Recorrido;
+            try
+            {
+                DateTime? fecha_salida = null;
+                if (cbFechaSalida.Checked)
+                    fecha_salida = this.dtpViajeListadoFechaSalida.Value;
 
-            this.dgvViajeListado.DataSource = _manager.ListarFiltrado(dtpViajeListadoFechaLlegada.Value, dtpViajeListadoFechaSalida.Value, dtpViajeListadoFechaLlegadaEstimada.Value, rec, micro);
-            this.dgvViajeListado.Columns["Id"].Visible = false;
-            this.dgvViajeListado.Columns["IdRecorrido"].Visible = false;
-            this.dgvViajeListado.Columns["IdMicro"].Visible = false;
-            this.dgvViajeListado.Columns["Pasajes"].Visible = false;
+                DateTime? fecha_llegada = null;
+                if (cbFechaLlegada.Checked)
+                    fecha_llegada = this.dtpViajeListadoFechaLlegada.Value;
+
+                DateTime? fecha_llegada_estimada = null;
+                if (cbFechaEstimada.Checked)
+                    fecha_llegada_estimada = this.dtpViajeListadoFechaLlegadaEstimada.Value;
+
+                Micro micro = cbMicro.SelectedItem as Micro;
+                Recorrido recorrido = cbRecorrido.SelectedItem as Recorrido;
+
+                var viajes = _manager.ListarFiltrado(fecha_llegada, fecha_salida, fecha_llegada_estimada, recorrido, micro);
+
+                this.dgvViajeListado.DataSource = viajes;
+                this.dgvViajeListado.Columns["Id"].Visible = false;
+                this.dgvViajeListado.Columns["IdRecorrido"].Visible = false;
+                this.dgvViajeListado.Columns["IdMicro"].Visible = false;
+                this.dgvViajeListado.Columns["Pasajes"].Visible = false;
+            }
+            catch (AccesoBDException ex)
+            {
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
+            }
+            catch (Exception ex)
+            {
+                MensajePorPantalla.MensajeError(this, "Error al realizar la búsqueda correspondiente.\n Detalle del error: " + ex.Message);
+            }
+            
         }
 
         private void ListarRecorridos()
@@ -115,35 +141,7 @@ namespace FrbaBus.Abm_Viaje
 
         private void btnViajeListadoBuscar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                DateTime? fecha_salida = null;
-                if (cbFechaSalida.Checked)
-                    fecha_salida = this.dtpViajeListadoFechaSalida.Value;
-
-                DateTime? fecha_llegada = null;
-                if(cbFechaLlegada.Checked)
-                    fecha_llegada = this.dtpViajeListadoFechaLlegada.Value;
-
-                DateTime? fecha_llegada_estimada = null;
-                if(cbFechaEstimada.Checked)
-                fecha_llegada_estimada = this.dtpViajeListadoFechaLlegadaEstimada.Value;
-                
-                Micro micro = cbMicro.SelectedItem as Micro;
-                Recorrido recorrido = cbRecorrido.SelectedItem as Recorrido;
-
-                var viajes = _manager.ListarFiltrado(fecha_llegada, fecha_salida, fecha_llegada_estimada, recorrido, micro);
-
-                this.dgvViajeListado.DataSource = viajes;
-            }
-            catch (AccesoBDException ex)
-            {
-                MensajePorPantalla.MensajeExceptionBD(this, ex);
-            }
-            catch (Exception ex)
-            {
-                MensajePorPantalla.MensajeError(this, "Error al realizar la búsqueda correspondiente.\n Detalle del error: " + ex.Message);
-            }
+            ListarViajes();
 
         }
 
