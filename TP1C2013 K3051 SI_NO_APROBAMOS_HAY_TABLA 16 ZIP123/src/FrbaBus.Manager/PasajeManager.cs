@@ -28,7 +28,7 @@ namespace FrbaBus.Manager
             return _daoPasaje.ListarFiltrado(IdMicro, nroDni, IdButaca, precio);
         }
 
-        public IList<Encomienda> ListarFiltrado(decimal nroDni, int IdEncomienda, int IdViaje, int idCompra, decimal kgs)
+        public IList<Encomienda> ListarFiltradoEncomiendas(decimal nroDni, int IdEncomienda, int IdViaje, int idCompra, decimal kgs)
         {
             return _daoEncomienda.ListarFiltrado(nroDni, IdEncomienda, IdViaje, idCompra, kgs);
         }

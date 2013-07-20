@@ -53,7 +53,7 @@ namespace FrbaBus.DAO
 
         #endregion
 
-        public IList<Encomienda> ListarFiltrado(decimal nroDni, int IdEncomienda, int IdViaje, decimal kgs)
+        public IList<Encomienda> ListarFiltrado(decimal nroDni, int IdEncomienda, int IdViaje, int IdCompra, decimal kgs)
         {
             throw new NotImplementedException();
         }

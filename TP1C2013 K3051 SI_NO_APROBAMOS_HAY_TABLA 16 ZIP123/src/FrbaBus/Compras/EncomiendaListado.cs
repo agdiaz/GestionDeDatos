@@ -9,13 +9,17 @@ using System.Windows.Forms;
 using FrbaBus.Common.Excepciones;
 using FrbaBus.Common.Helpers;
 using FrbaBus.Common.Entidades;
+using FrbaBus.Manager;
 
 namespace FrbaBus.Compras
 {
     public partial class EncomiendaListado : Form
     {
+        private PasajeManager _manager;
+
         public EncomiendaListado()
         {
+            _manager = new PasajeManager();
             InitializeComponent();
         }
 
@@ -54,7 +58,7 @@ namespace FrbaBus.Compras
                     peso = Convert.ToDecimal(tbEncomiendaListadoPesoKg.Text);
                 }
 
-                IList<Encomienda> encomiendas = _manager.ListarFiltrado(IdMicro, DniCliente, idButaca, precio);
+                IList<Encomienda> encomiendas = _manager.ListarFiltradoEncomiendas(DniCliente, idEncomienda, IdViaje, idCompra, peso);
 
                 dgvEncomiendaListado.DataSource = encomiendas;
 
