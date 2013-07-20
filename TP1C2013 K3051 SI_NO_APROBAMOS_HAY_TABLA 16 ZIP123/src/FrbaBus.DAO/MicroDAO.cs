@@ -13,17 +13,19 @@ namespace FrbaBus.DAO
     public class MicroDAO : IEntidadDAO<Micro>
     {
         private IBuilder<Micro> _builder;
+        private IAccesoBD _accesoBD;
 
         public MicroDAO()
         {
             this._builder = new MicroBuilder();
+            this._accesoBD = new AccesoBD();
         }
 
         #region Miembros de IEntidadDAO<Micro>
 
         public IAccesoBD accesoBD
         {
-            get { return new AccesoBD(); }
+            get { return _accesoBD ; }
         }
 
         public Micro Obtener(object id)

@@ -11,11 +11,14 @@ using FrbaBus.Common.Helpers;
 using FrbaBus.Common.Excepciones;
 using FrbaBus.Abm_Clientes;
 using FrbaBus.Abm_Micro;
+using FrbaBus.Manager;
 
 namespace FrbaBus.Compras
 {
     public partial class PasajeModificar : Form
     {
+        private PasajeManager _manager;
+
         private Pasaje _pasaje;
         private Viaje _viaje;
         private Butaca _butaca;
@@ -24,6 +27,8 @@ namespace FrbaBus.Compras
 
         public PasajeModificar(Pasaje p, Viaje v)
         {
+            _manager = new PasajeManager();
+
             _viaje = v;
             _pasaje = p;
             _butaca = null;

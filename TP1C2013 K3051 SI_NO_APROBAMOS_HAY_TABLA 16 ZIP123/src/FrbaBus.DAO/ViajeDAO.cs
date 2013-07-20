@@ -14,11 +14,13 @@ namespace FrbaBus.DAO
     {
         private IBuilder<Viaje> _builder;
         private IAccesoBD _accesoBD;
+        
         public ViajeDAO()
         {
             this._builder = new ViajeBuilder();
             this._accesoBD = new AccesoBD();
         }
+        
         #region Miembros de IEntidadDAO<Viaje>
 
         public IAccesoBD accesoBD
@@ -104,10 +106,28 @@ namespace FrbaBus.DAO
 
         #endregion
 
-
         private DataSet ObtenerRegistros()
         {
             return accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_listar_viajes");
+        }
+        public DataSet ObtenerRegistros(DateTime? llegada, DateTime? salida, DateTime? estimada, Recorrido rec, Micro micro)
+        {
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+            if (micro.Id > 0)
+                parametros.Add(new SqlParameter("@p_micro", SqlDbType.Int, 4, "p_micro"), micro.Id);
+            if (rec.Id > 0)
+                parametros.Add(new SqlParameter("@p_recorrido", SqlDbType.Decimal, 18, "p_recorrido"), (decimal)rec.Id);
+
+            if (salida.HasValue)
+                parametros.Add(new SqlParameter("@p_fecha_salida", SqlDbType.DateTime, 8, "p_fecha_salida"), salida.Value);
+
+            if (llegada.HasValue)
+                parametros.Add(new SqlParameter("@p_fecha_llegada", SqlDbType.DateTime, 8, "p_fecha_llegada"), llegada.Value);
+
+            if (estimada.HasValue)
+                parametros.Add(new SqlParameter("@p_fecha_llegada_estimada", SqlDbType.DateTime, 8, "p_fecha_llegada_estimada"), estimada.Value);
+
+            return accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_listar_filtrado_viaje", parametros);
         }
         private DataSet ObtenerRegistros(Recorrido rec)
         {
@@ -116,6 +136,7 @@ namespace FrbaBus.DAO
 
             return accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_listar_viajes_recorrido", parametros);
         }
+        
         public IList<Viaje> ListarPorRecorrido(Recorrido rec)
         {
             List<Viaje> viajes = new List<Viaje>();
@@ -127,7 +148,6 @@ namespace FrbaBus.DAO
 
             return viajes;
         }
-
         public IList<Viaje> ListarFiltrado(DateTime? llegada, DateTime? salida, DateTime? estimada, Recorrido rec, Micro micro)
         {
             List<Viaje> viajes = new List<Viaje>();
@@ -138,27 +158,6 @@ namespace FrbaBus.DAO
             }
 
             return viajes;
-        }
-
-
-        public DataSet ObtenerRegistros(DateTime? llegada, DateTime? salida, DateTime? estimada, Recorrido rec, Micro micro)
-        {
-            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
-            if (micro.Id > 0)
-                parametros.Add(new SqlParameter("@p_micro", SqlDbType.Int, 4, "p_micro"), micro.Id);
-            if (rec.Id > 0)
-                parametros.Add(new SqlParameter("@p_recorrido", SqlDbType.Decimal, 18, "p_recorrido"), (decimal)rec.Id);
-
-            if(salida.HasValue)
-            parametros.Add(new SqlParameter("@p_fecha_salida", SqlDbType.DateTime, 8, "p_fecha_salida"), salida.Value);
-            
-            if(llegada.HasValue)
-            parametros.Add(new SqlParameter("@p_fecha_llegada", SqlDbType.DateTime, 8, "p_fecha_llegada"), llegada.Value);
-
-            if(estimada.HasValue)
-            parametros.Add(new SqlParameter("@p_fecha_llegada_estimada", SqlDbType.DateTime, 8, "p_fecha_llegada_estimada"), estimada.Value);
-
-            return accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_listar_filtrado_viaje", parametros);
         }
 
         public void GenerarArribo(Viaje viaje)

@@ -12,10 +12,12 @@ namespace FrbaBus.DAO
 {
     public class UsuarioDAO : IEntidadDAO<Usuario>
     {
+        private IAccesoBD _accesoDB;
         private IBuilder<Usuario> _builder;
         public UsuarioDAO()
         {
             this._builder = new UsuarioBuilder();
+            this._accesoDB = new AccesoBD();
         }
 
         public int RealizarIdentificacion(string username, byte[] hash)
@@ -40,7 +42,7 @@ namespace FrbaBus.DAO
 
         public IAccesoBD accesoBD
         {
-            get { return new AccesoBD() ; }
+            get { return _accesoDB; }
         }
 
         public Usuario Obtener(object id)

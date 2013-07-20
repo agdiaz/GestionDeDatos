@@ -13,16 +13,19 @@ namespace FrbaBus.DAO
     public class RecorridoDAO : IEntidadDAO<Recorrido>
     {
         private IBuilder<Recorrido> _builder;
+        private IAccesoBD _acceso;
+
         public RecorridoDAO()
         {
             _builder = new RecorridoBuilder();
+            _acceso = new AccesoBD();
         }
 
         #region Miembros de IEntidadDAO<Recorrido>
 
         public IAccesoBD accesoBD
         {
-            get { return new AccesoBD(); }
+            get { return _acceso; }
         }
 
         public Recorrido Obtener(object id)

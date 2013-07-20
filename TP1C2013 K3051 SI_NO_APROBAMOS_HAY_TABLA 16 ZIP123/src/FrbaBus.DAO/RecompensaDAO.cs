@@ -12,17 +12,20 @@ namespace FrbaBus.DAO
 {
     public class RecompensaDAO : IEntidadDAO<Recompensa>
     {
-
+        private IAccesoBD _acceso;
         private IBuilder<Recompensa> _builder;
+
         public RecompensaDAO()
         {
             this._builder = new RecompensaBuilder();
+            this._acceso = new AccesoBD();
+
         }
         #region Miembros de IEntidadDAO<Recompensa>
 
         public GestionDeDatos.AccesoDatos.IAccesoBD accesoBD
         {
-            get { return new AccesoBD(); }
+            get { return _acceso; }
         }
 
         public Recompensa Obtener(object id)

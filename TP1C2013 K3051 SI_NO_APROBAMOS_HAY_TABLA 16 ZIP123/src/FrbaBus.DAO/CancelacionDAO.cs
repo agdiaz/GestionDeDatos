@@ -3,16 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using FrbaBus.Common.Entidades;
+using GestionDeDatos.AccesoDatos;
 
 namespace FrbaBus.DAO
 {
     class CancelacionDAO : IEntidadDAO<Cancelacion>
     {
+        private IAccesoBD _acceso;
+        public CancelacionDAO()
+        {
+            _acceso = new AccesoBD();
+        }
         #region Miembros de IEntidadDAO<Cancelacion>
 
         public GestionDeDatos.AccesoDatos.IAccesoBD accesoBD
         {
-            get { throw new NotImplementedException(); }
+            get { return _acceso; }
         }
 
         public Cancelacion Obtener(object id)

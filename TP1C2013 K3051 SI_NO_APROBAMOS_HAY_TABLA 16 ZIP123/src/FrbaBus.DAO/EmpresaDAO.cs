@@ -12,9 +12,12 @@ namespace FrbaBus.DAO
 {
     public class EmpresaDAO : IEntidadDAO<Empresa>
     {
+        private IAccesoBD _acceso;
         private IBuilder<Empresa> _builder;
+
         public EmpresaDAO()
         {
+            this._acceso = new AccesoBD();
             this._builder = new EmpresaBuilder();
         }
 
@@ -22,7 +25,7 @@ namespace FrbaBus.DAO
 
         public IAccesoBD accesoBD
         {
-            get { return new AccesoBD(); }
+            get { return _acceso; }
         }
 
         public Empresa Obtener(object id)

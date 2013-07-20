@@ -12,18 +12,21 @@ namespace FrbaBus.DAO
 {
     public class FuncionalidadDAO : IEntidadDAO<Funcionalidad>
     {
-        public GestionDeDatos.AccesoDatos.IAccesoBD accesoBD
-        {
-            get { return new AccesoBD(); }
-        }
-        private IBuilder<Funcionalidad> _builder;
         
+        private IBuilder<Funcionalidad> _builder;
+        private IAccesoBD _acceso;
+
         public FuncionalidadDAO()
         {
             this._builder = new FuncionalidadBuilder();
+            this._acceso = new AccesoBD();
         }
 
         #region Miembros de IEntidadDAO<Funcionalidad>
+        public GestionDeDatos.AccesoDatos.IAccesoBD accesoBD
+        {
+            get { return _acceso; }
+        }
         public Funcionalidad Obtener(object id)
         {
             Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();

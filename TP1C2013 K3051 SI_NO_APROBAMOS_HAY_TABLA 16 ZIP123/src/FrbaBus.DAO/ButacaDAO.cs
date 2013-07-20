@@ -12,17 +12,19 @@ namespace FrbaBus.DAO
 {
     public class ButacaDAO : IEntidadDAO<Butaca>
     {
+        private IAccesoBD _acceso;
         private IBuilder<Butaca> _builder;
         public ButacaDAO()
         {
             this._builder = new ButacaBuilder();
+            this._acceso = new AccesoBD();
         }
 
         #region Miembros de IEntidadDAO<Butaca>
 
         public GestionDeDatos.AccesoDatos.IAccesoBD accesoBD
         {
-            get { return new AccesoBD(); }
+            get { return _acceso; }
         }
 
         public Butaca Obtener(object id)
