@@ -61,7 +61,7 @@ namespace FrbaBus.Abm_Ciudad
         {
             if (String.IsNullOrEmpty(this.tbCiudadModificarCiudad.Text))
             {
-                MensajeDeError.MostrarError(lblCiudadModificarCiudad);
+                MensajePorPantalla.MensajeError(this, "Debe ingresar un nombre");
                 return false;
             }
             return true;

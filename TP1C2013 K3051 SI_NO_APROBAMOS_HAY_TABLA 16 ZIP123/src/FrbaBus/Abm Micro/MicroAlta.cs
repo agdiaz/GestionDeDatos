@@ -133,6 +133,37 @@ namespace FrbaBus.Abm_Micro
 
         private bool ValidarDatos()
         {
+            if(cbbMicroAltaTipoModelo.SelectedIndex < 1)
+            {
+                MensajePorPantalla.MensajeError(this, "Debe seleccionar un modelo");
+                return false;
+            }
+            if (cbbMicroAltaTipoEmpresa.SelectedIndex < 1)
+            {
+                MensajePorPantalla.MensajeError(this, "Debe seleccionar una marca");
+                return false;
+            }
+            if (string.IsNullOrEmpty(txtPatente.Text))
+            {
+                MensajePorPantalla.MensajeError(this, "Debe ingresar una patente");
+                return false;
+            }
+            if (cbbMicroAltaTipoServicio.SelectedIndex < 1)
+            {
+                MensajePorPantalla.MensajeError(this, "Debe seleccionar un servicio");
+                return false;
+            }
+            if (string.IsNullOrEmpty(mtbMicroAltaKgsEncomiendas.Text))
+            {
+                MensajePorPantalla.MensajeError(this, "Debe ingresar una cantidad de kgs disponibles para encomienda");
+                return false;
+            }
+            if (string.IsNullOrEmpty(tbCantButacas.Text))
+            {
+                MensajePorPantalla.MensajeError(this, "Debe ingresar una cantidad de butacas");
+                return false;
+            }
+
             return true;
         }
     }

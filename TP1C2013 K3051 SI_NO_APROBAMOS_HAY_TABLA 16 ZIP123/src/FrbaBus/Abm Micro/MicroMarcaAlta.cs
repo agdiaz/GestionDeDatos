@@ -53,7 +53,7 @@ namespace FrbaBus.Abm_Micro
         {
             if (String.IsNullOrEmpty(this.tbMicroMarcaAltaMarca.Text))
             {
-                MensajeDeError.MostrarError(lblMicroMarcaAltaMarca);
+                MensajePorPantalla.MensajeError(this, "Debe ingresar una marca");
                 return false;
             }
             return true;
