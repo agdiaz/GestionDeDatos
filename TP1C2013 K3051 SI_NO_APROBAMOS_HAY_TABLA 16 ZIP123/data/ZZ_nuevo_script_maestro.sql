@@ -2420,12 +2420,24 @@ BEGIN
 	SET id_cancelacion = @id_cancel
 	WHERE id_compra = @id_compra
 	
+	UPDATE SI_NO_APROBAMOS_HAY_TABLA.Compra
+	SET baja = 1
+	WHERE id_compra = @id_compra
+	
 	UPDATE SI_NO_APROBAMOS_HAY_TABLA.Encomienda
 	SET id_cancelacion = @id_cancel
 	WHERE id_compra = @id_compra
 	
+	UPDATE SI_NO_APROBAMOS_HAY_TABLA.Encomienda
+	SET baja = 1
+	WHERE id_compra = @id_compra
+	
 	UPDATE SI_NO_APROBAMOS_HAY_TABLA.Pasaje
 	SET id_cancelacion = @id_cancel
+	WHERE id_compra = @id_compra
+	
+	UPDATE SI_NO_APROBAMOS_HAY_TABLA.Pasaje
+	SET baja = 1
 	WHERE id_compra = @id_compra
 	
 	COMMIT TRANSACTION cancel
