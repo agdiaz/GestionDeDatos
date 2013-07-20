@@ -4,4 +4,5 @@ AS
 BEGIN
 	SELECT [id_ciudad],[nombre],[baja]
 	FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Ciudad]
+	WHERE baja = 0
 END

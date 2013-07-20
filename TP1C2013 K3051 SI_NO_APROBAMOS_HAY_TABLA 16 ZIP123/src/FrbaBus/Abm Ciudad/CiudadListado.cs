@@ -75,6 +75,7 @@ namespace FrbaBus.Abm_Ciudad
         private void btnCiudadListadoLimpiar_Click(object sender, EventArgs e)
         {
             tbCiudadListadoCiudad.Text = "";
+            CargarCiudades();
         }
         private void btnModificar_Click(object sender, EventArgs e)
         {

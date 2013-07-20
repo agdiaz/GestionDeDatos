@@ -22,9 +22,11 @@ namespace FrbaBus.Manager
             return _dao.Obtener(id);    
         }
         
-        public void Alta(Ciudad c)
+        public Ciudad Alta(Ciudad c)
         {
-            _dao.Alta(c);
+            int i = _dao.Alta(c);
+            c.Id = i;
+            return c;
         }
 
         public void Baja(Ciudad c)
