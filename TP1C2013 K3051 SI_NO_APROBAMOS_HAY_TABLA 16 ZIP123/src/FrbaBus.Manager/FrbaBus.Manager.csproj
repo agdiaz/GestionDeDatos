@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ButacaManager.cs" />
+    <Compile Include="CancelacionManager.cs" />
     <Compile Include="CanjeManager.cs" />
     <Compile Include="CiudadManager.cs" />
     <Compile Include="ClienteManager.cs" />

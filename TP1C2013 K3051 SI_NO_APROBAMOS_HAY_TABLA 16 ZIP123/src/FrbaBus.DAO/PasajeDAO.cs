@@ -65,5 +65,31 @@ namespace FrbaBus.DAO
 
             return ((PasajeBuilder)_builder).BuildPrecio(row);
         }
+
+        public IList<Pasaje> ListarFiltrado(int IdMicro, decimal nroDni, int IdButaca, decimal precio)
+        {
+            IList<Pasaje> lista = new List<Pasaje>();
+
+            foreach (DataRow row in ObtenerFiltrado(IdMicro, nroDni, IdButaca, precio).Tables[0].Rows)
+            {
+                lista.Add(this._builder.Build(row));
+            }
+
+            return lista;
+        }
+
+        private DataSet ObtenerFiltrado(int IdMicro, decimal nroDni, int IdButaca, decimal precio)
+        {
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+            
+            parametros.Add(new SqlParameter("@id_recorrido", SqlDbType.Decimal, 18, "id_recorrido"), IdMicro);
+            parametros.Add(new SqlParameter("@id_recorrido", SqlDbType.Decimal, 18, "id_recorrido"), nroDni);
+            parametros.Add(new SqlParameter("@id_recorrido", SqlDbType.Decimal, 18, "id_recorrido"), IdButaca);
+            parametros.Add(new SqlParameter("@id_recorrido", SqlDbType.Decimal, 18, "id_recorrido"), precio);
+
+            DataSet ds = accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_precio_final_pasaje", parametros);
+            return ds;
+
+        }
     }
 }

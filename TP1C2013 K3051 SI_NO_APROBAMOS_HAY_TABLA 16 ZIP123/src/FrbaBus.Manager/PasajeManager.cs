@@ -9,15 +9,29 @@ namespace FrbaBus.Manager
 {
     public class PasajeManager
     {
-        private PasajeDAO _dao;
+        private PasajeDAO _daoPasaje;
+        private EncomiendaDAO _daoEncomienda;
+
         public PasajeManager()
         {
-            _dao = new PasajeDAO();
+            _daoPasaje = new PasajeDAO();
+            _daoEncomienda = new EncomiendaDAO();
         }
 
         public decimal BuscarPrecio(Recorrido recorrido, decimal nroDni)
         {
-            return _dao.BuscarPrecio(recorrido, nroDni);
+            return _daoPasaje.BuscarPrecio(recorrido, nroDni);
         }
+
+        public IList<Pasaje> ListarFiltrado(int IdMicro, decimal nroDni, int IdButaca, decimal precio)
+        {
+            return _daoPasaje.ListarFiltrado(IdMicro, nroDni, IdButaca, precio);
+        }
+
+        public IList<Encomienda> ListarFiltrado(decimal nroDni, int IdEncomienda, int IdViaje, decimal kgs)
+        {
+            return _daoEncomienda.ListarFiltrado(nroDni, IdEncomienda, IdViaje, kgs);
+        }
+
     }
 }

@@ -48,7 +48,8 @@ namespace FrbaBus
             this._managerUsuario = new UsuarioManager();
             this._ciudadManager = new CiudadManager();
             this._compraManager = new CompraManager();
-
+            this._pasajes = new List<Pasaje>();
+            this._encomiendas = new List<Encomienda>();
             this.RegistrarPermisos();
             SetearCustomFormatDataTimePicker();
         }
@@ -122,7 +123,14 @@ namespace FrbaBus
         {
             LimpiarGrupoMicros(true);
 
-            _microManager.ObtenerDisponibilidades(_viaje.Micro, _viaje.Id);
+            try
+            {
+                _microManager.ObtenerDisponibilidades(_viaje.Micro, _viaje.Id);
+            }
+            catch (Exception)
+            {
+                ;
+            }
 
             tbMicroButacasLibres.Text = _viaje.Micro.ButacasDisponibles.ToString();
             tbMicroKgDisponibles.Text = _viaje.Micro.KgsDisponibles.ToString();
@@ -335,7 +343,10 @@ namespace FrbaBus
         private void btnAgregarPasajero_Click(object sender, EventArgs e)
         {
             Pasaje p = ObtenerPasaje();
-            this.lbPasajeros.Items.Add(p);
+            _pasajes.Add(p);
+
+            this.lbPasajeros.DataSource = _pasajes;
+
         }
 
         private Pasaje ObtenerPasaje()

@@ -218,7 +218,7 @@ namespace FrbaBus.DAO
             DataRow row = accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_obtener_micro_disponibilidades", parametros).Tables[0].Rows[0];
 
             micro.ButacasDisponibles = Convert.ToInt32(row["butacas"].ToString());
-            micro.KgsDisponibles = Convert.ToInt32(row["kgs"].ToString());
+            micro.KgsDisponibles = Convert.ToDecimal(row["kgs"].ToString());
 
         }
     }

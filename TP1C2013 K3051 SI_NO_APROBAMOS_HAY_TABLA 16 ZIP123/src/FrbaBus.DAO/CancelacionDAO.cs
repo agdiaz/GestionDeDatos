@@ -7,7 +7,7 @@ using GestionDeDatos.AccesoDatos;
 
 namespace FrbaBus.DAO
 {
-    class CancelacionDAO : IEntidadDAO<Cancelacion>
+    public class CancelacionDAO : IEntidadDAO<Cancelacion>
     {
         private IAccesoBD _acceso;
         public CancelacionDAO()
@@ -47,5 +47,20 @@ namespace FrbaBus.DAO
         }
 
         #endregion
+
+        public void CancelarCompra(Compra compra, string motivo)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CancelarPasaje(Pasaje pasaje, string motivo)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CancelarEncomienda(Encomienda encomienda, string motivo)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
