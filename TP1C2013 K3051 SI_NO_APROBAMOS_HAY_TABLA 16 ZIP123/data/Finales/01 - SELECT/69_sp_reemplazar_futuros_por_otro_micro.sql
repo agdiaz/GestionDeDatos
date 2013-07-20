@@ -42,6 +42,7 @@ BEGIN
 	WHERE m.modelo = @modelo
 	AND m.id_marca = @idMarca
 	AND [SI_NO_APROBAMOS_HAY_TABLA].func_puede_reemplazar_desde(m.id_micros, GETDATE()) = 1
+	AND m.id_micros <> @id_micro
 	AND m.baja = 0
 	
 	IF @microElegido is not null
