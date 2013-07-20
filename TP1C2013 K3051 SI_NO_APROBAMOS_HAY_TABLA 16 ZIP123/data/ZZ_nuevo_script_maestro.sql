@@ -2188,3 +2188,101 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_servicio
+AS
+BEGIN
+  SELECT [id_servicio]
+	,[tipo_servicio]
+	,[pocent_adic]
+  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Servicio]
+  WHERE [baja] = 0
+END
+
+GO
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_recorrido
+	AS
+BEGIN
+	SELECT [id_recorrido]
+      ,[id_ciudad_origen]
+      ,[id_ciudad_destino]
+      ,[pre_base_kg]
+      ,[pre_base_pasaje]
+      ,[id_servicio]
+      ,[baja]
+  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Recorrido]
+  WHERE [baja] = 0
+END
+
+GO
+
+CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_obtener_cliente
+	@p_dni numeric(18,0)
+AS
+BEGIN
+	SELECT TOP 1 [dni]
+      ,[nombre]
+      ,[apellido]
+      ,[direccion]
+      ,[telefono]
+      ,[mail]
+      ,[fecha_nacimiento]
+      ,[es_discapacitado]
+      ,[sexo]
+      ,[inhabilitado]
+      ,[baja]
+  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Cliente]
+	WHERE Cliente.dni = @p_dni
+	AND [baja] = 0
+END
+
+GO
+
+CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_obtener_ciudad(
+	@p_id int
+)
+AS
+BEGIN
+	SELECT [id_ciudad]
+      ,[nombre]
+      ,[baja]
+  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Ciudad]
+	WHERE Ciudad.id_ciudad = @p_id
+END
+GO
+
+CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_obtener_servicio
+	@p_id int
+AS
+BEGIN
+	SELECT s.id_servicio, s.tipo_servicio, s.pocent_adic
+	from SI_NO_APROBAMOS_HAY_TABLA.Servicio s
+	where s.id_servicio = @p_id
+	AND baja = 0
+END
+GO
+USE [GD1C2013]
+GO
+/****** Object:  StoredProcedure [SI_NO_APROBAMOS_HAY_TABLA].[sp_listar_filtrado_recorrido]    Script Date: 07/16/2013 02:09:12 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE  PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].[sp_listar_filtrado_recorrido]
+	@p_id_ciudad_origen int=NULL,
+	@p_id_ciudad_destino int=NULL, 
+	@p_id_servicio int=NULL
+	AS
+BEGIN
+	SELECT distinct r.[id_recorrido]
+      ,r.[id_ciudad_origen]
+      ,r.[id_ciudad_destino]
+      ,r.[pre_base_kg]
+      ,r.[pre_base_pasaje]
+      ,r.[id_servicio]
+	FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Recorrido] r 
+	where ((@p_id_ciudad_origen IS NULL) OR (r.id_ciudad_origen = @p_id_ciudad_origen))
+	and ((@p_id_ciudad_destino IS NULL) OR (r.id_ciudad_destino = @p_id_ciudad_destino))
+	and ((@p_id_servicio IS NULL) OR ( r.id_servicio = @p_id_servicio))
+	and r.baja = 0
+END
+GO
