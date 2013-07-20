@@ -12,10 +12,21 @@ BEGIN
 	DECLARE @puntos_costo int
 	DECLARE @puntos_act int
 	DECLARE @puntos_usados_act int
+	DECLARE @stock_check int
 	
 	SELECT @puntos_costo = (r.puntos_costo * @p_cantidad)
 	FROM [SI_NO_APROBAMOS_HAY_TABLA].Recompensa r
 	WHERE id_recompensa = @p_id_recompensa
+	
+	SELECT @stock_check=r.stock
+	FROM [SI_NO_APROBAMOS_HAY_TABLA].Recompensa r
+	WHERE id_recompensa = @p_id_recompensa
+	
+	IF ( @stock_check - @p_cantidad ) < 0
+	BEGIN
+		ROLLBACK TRANSACTION canje_recompensa
+		RAISERROR('No hay stock suficiente', 12, 2)
+	END
 	
 	UPDATE [SI_NO_APROBAMOS_HAY_TABLA].Recompensa
 	SET stock = stock - @p_cantidad
