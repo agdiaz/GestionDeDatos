@@ -40,6 +40,10 @@
             this.btnCancelacionPasajeBuscarCompra = new System.Windows.Forms.Button();
             this.lblCancelacionPasajeCompra = new System.Windows.Forms.Label();
             this.tbCancelacionPasajeCompra = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tbCancelacionPasajeMicro
@@ -60,7 +64,7 @@
             // 
             // btnCancelacionPasajeCancelarPasaje
             // 
-            this.btnCancelacionPasajeCancelarPasaje.Location = new System.Drawing.Point(295, 151);
+            this.btnCancelacionPasajeCancelarPasaje.Location = new System.Drawing.Point(295, 435);
             this.btnCancelacionPasajeCancelarPasaje.Name = "btnCancelacionPasajeCancelarPasaje";
             this.btnCancelacionPasajeCancelarPasaje.Size = new System.Drawing.Size(119, 23);
             this.btnCancelacionPasajeCancelarPasaje.TabIndex = 15;
@@ -117,7 +121,7 @@
             // 
             // btnCancelacionPasajeBuscarCompra
             // 
-            this.btnCancelacionPasajeBuscarCompra.Location = new System.Drawing.Point(339, 36);
+            this.btnCancelacionPasajeBuscarCompra.Location = new System.Drawing.Point(339, 114);
             this.btnCancelacionPasajeBuscarCompra.Name = "btnCancelacionPasajeBuscarCompra";
             this.btnCancelacionPasajeBuscarCompra.Size = new System.Drawing.Size(75, 23);
             this.btnCancelacionPasajeBuscarCompra.TabIndex = 18;
@@ -140,11 +144,38 @@
             this.tbCancelacionPasajeCompra.Size = new System.Drawing.Size(216, 20);
             this.tbCancelacionPasajeCompra.TabIndex = 20;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(14, 187);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(400, 234);
+            this.dataGridView1.TabIndex = 21;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(10, 145);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(39, 13);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Motivo";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(105, 142);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(218, 20);
+            this.textBox1.TabIndex = 23;
+            // 
             // CancelacionPasaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(426, 185);
+            this.ClientSize = new System.Drawing.Size(426, 470);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.tbCancelacionPasajeCompra);
             this.Controls.Add(this.lblCancelacionPasajeCompra);
             this.Controls.Add(this.btnCancelacionPasajeBuscarCompra);
@@ -159,6 +190,7 @@
             this.Controls.Add(this.lblCancelacionPasajeDniCliente);
             this.Name = "CancelacionPasaje";
             this.Text = "Cancelar Pasaje";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,6 +210,9 @@
         private System.Windows.Forms.Button btnCancelacionPasajeBuscarCompra;
         private System.Windows.Forms.Label lblCancelacionPasajeCompra;
         private System.Windows.Forms.TextBox tbCancelacionPasajeCompra;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
 
     }
 }

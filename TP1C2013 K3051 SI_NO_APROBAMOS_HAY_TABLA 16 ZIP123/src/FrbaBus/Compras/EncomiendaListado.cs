@@ -15,5 +15,10 @@ namespace FrbaBus.Compras
         {
             InitializeComponent();
         }
+
+        private void btnEncomiendaListadoBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

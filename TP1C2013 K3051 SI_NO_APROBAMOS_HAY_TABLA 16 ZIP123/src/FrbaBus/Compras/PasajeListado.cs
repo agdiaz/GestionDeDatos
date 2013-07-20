@@ -6,14 +6,66 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using FrbaBus.Manager;
+using FrbaBus.Common.Entidades;
 
 namespace FrbaBus.Compras
 {
     public partial class PasajeListado : Form
     {
+
+        private PasajeManager _manager;
         public PasajeListado()
         {
             InitializeComponent();
+            _manager = new PasajeManager();
+        }
+
+        private void btnPasajeListadoBuscar_Click(object sender, EventArgs e)
+        {
+            int IdMicro = 0;
+            if (!string.IsNullOrEmpty(tbPasajeListadoMicro.Text))
+            {
+                IdMicro = Convert.ToInt32(tbPasajeListadoMicro.Text);
+            }
+
+            decimal DniCliente = 0;
+            if (!string.IsNullOrEmpty(tbPasajeListadoCliente.Text))
+            {
+                DniCliente = Convert.ToDecimal(tbPasajeListadoCliente.Text);
+            }
+
+            // DEBERIA SER POR NUMERO DE BUTACA
+            int idButaca = 0;
+            if (!string.IsNullOrEmpty(tbPasajeListadoButaca.Text))
+            {
+                idButaca = Convert.ToInt32(tbPasajeListadoButaca.Text);
+            }
+
+            decimal precio = 0;
+            if (!string.IsNullOrEmpty(tbPasajeListadoPrecio.Text))
+            {
+                precio = Convert.ToDecimal(tbPasajeListadoPrecio.Text);
+            }
+
+            IList<Pasaje> pasajes = _manager.ListarFiltrado(IdMicro,DniCliente,idButaca,precio);
+
+            dgvPasajeListado.DataSource = pasajes;
+
+
+            /*
+             // CAMPOS VISIBLES=> dni, pre_pasaje
+            this.dgvPasajeListado.DataSource = pasajes;
+            this.dgvPasajeListado.Columns["id_pasaje"].Visible = false;
+            this.dgvPasajeListado.Columns["id_compra"].Visible = false;
+            this.dgvPasajeListado.Columns["id_butaca"].Visible = false;
+            this.dgvPasajeListado.Columns["id_cancelacion"].Visible = false;
+            this.dgvPasajeListado.Columns["disponible"].Visible = false;
+            this.dgvPasajeListado.Columns["cancel"].Visible = false;
+            this.dgvPasajeListado.Columns["fecha_cancel"].Visible = false;
+            this.dgvPasajeListado.Columns["motivo_cancel"].Visible = false;
+            this.dgvPasajeListado.Columns["id_viaje"].Visible = false;
+            */
         }
     }
 }

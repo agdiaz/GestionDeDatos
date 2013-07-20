@@ -15,6 +15,7 @@ namespace FrbaBus.Common.Entidades
         public decimal NroDni { get; set; }
         public decimal PrecioPasaje { get; set; }
         public bool Disponible { get; set; }
+        public bool Cancel { get; set; }
 
         public Cancelacion Cancelacion{ get; set; }
         public Butaca Butaca { get; set; }
@@ -34,6 +35,7 @@ namespace FrbaBus.Common.Entidades
             NroDni = 0;
             PrecioPasaje = 0;
             Disponible = false;
+            Cancel = false;
 
             Cancelacion = new Cancelacion();
             Butaca = new Butaca();

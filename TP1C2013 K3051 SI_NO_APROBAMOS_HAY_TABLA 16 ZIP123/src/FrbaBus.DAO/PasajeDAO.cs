@@ -70,26 +70,49 @@ namespace FrbaBus.DAO
         {
             IList<Pasaje> lista = new List<Pasaje>();
 
-            foreach (DataRow row in ObtenerFiltrado(IdMicro, nroDni, IdButaca, precio).Tables[0].Rows)
+            try
             {
-                lista.Add(this._builder.Build(row));
+                foreach (DataRow row in ObtenerFiltrado(IdMicro, nroDni, IdButaca, precio).Tables[0].Rows)
+                {
+                    lista.Add(this._builder.Build(row));
+                }
+                return lista;
+
+            }
+            catch (Exception x)
+            {
+                x.ToString();
+                return null;
             }
 
-            return lista;
         }
 
         private DataSet ObtenerFiltrado(int IdMicro, decimal nroDni, int IdButaca, decimal precio)
         {
             Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
-            
-            parametros.Add(new SqlParameter("@id_recorrido", SqlDbType.Decimal, 18, "id_recorrido"), IdMicro);
-            parametros.Add(new SqlParameter("@id_recorrido", SqlDbType.Decimal, 18, "id_recorrido"), nroDni);
-            parametros.Add(new SqlParameter("@id_recorrido", SqlDbType.Decimal, 18, "id_recorrido"), IdButaca);
-            parametros.Add(new SqlParameter("@id_recorrido", SqlDbType.Decimal, 18, "id_recorrido"), precio);
 
-            DataSet ds = accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_precio_final_pasaje", parametros);
+            if (IdMicro > 0)
+                parametros.Add(new SqlParameter("@p_id_micro", SqlDbType.Int, 4, "p_id_micro"), IdMicro);
+            else
+                parametros.Add(new SqlParameter("@p_id_micro", SqlDbType.Int, 4, "p_id_micro"), DBNull.Value);
+
+            if(nroDni > 0)
+                parametros.Add(new SqlParameter("@p_dni", SqlDbType.Decimal, 18, "p_dni"), nroDni);
+            else
+                parametros.Add(new SqlParameter("@p_dni", SqlDbType.Decimal, 18, "p_dni"), DBNull.Value);
+
+            if(IdButaca > 0)
+                parametros.Add(new SqlParameter("@p_id_butaca", SqlDbType.Int, 4, "p_id_butaca"), IdButaca);
+            else
+                parametros.Add(new SqlParameter("@p_id_butaca", SqlDbType.Int, 4, "p_id_butaca"), DBNull.Value);
+
+            if(precio > 0)
+                parametros.Add(new SqlParameter("@p_precio", SqlDbType.Decimal, 18, "p_precio"), precio);
+            else
+                parametros.Add(new SqlParameter("@p_precio", SqlDbType.Decimal, 18, "p_precio"), DBNull.Value);
+
+            DataSet ds = accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_listar_detallado_pasaje", parametros);
             return ds;
-
         }
     }
 }

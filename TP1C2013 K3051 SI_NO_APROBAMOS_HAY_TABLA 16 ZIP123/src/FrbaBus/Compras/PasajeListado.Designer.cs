@@ -155,6 +155,7 @@
             this.btnPasajeListadoBuscar.TabIndex = 5;
             this.btnPasajeListadoBuscar.Text = "Buscar";
             this.btnPasajeListadoBuscar.UseVisualStyleBackColor = true;
+            this.btnPasajeListadoBuscar.Click += new System.EventHandler(this.btnPasajeListadoBuscar_Click);
             // 
             // btnPasajeListadoLimpiar
             // 

@@ -40,6 +40,10 @@
             this.btnCancelacionEncomiendaBuscarCompra = new System.Windows.Forms.Button();
             this.lblCancelacionEncomiendaCompra = new System.Windows.Forms.Label();
             this.tbCancelacionEncomiendaCompra = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCancelacionEncomiendaDniCliente
@@ -92,7 +96,7 @@
             // 
             // btnCancelacionEncomiendaCancelarEncomienda
             // 
-            this.btnCancelacionEncomiendaCancelarEncomienda.Location = new System.Drawing.Point(290, 150);
+            this.btnCancelacionEncomiendaCancelarEncomienda.Location = new System.Drawing.Point(287, 445);
             this.btnCancelacionEncomiendaCancelarEncomienda.Name = "btnCancelacionEncomiendaCancelarEncomienda";
             this.btnCancelacionEncomiendaCancelarEncomienda.Size = new System.Drawing.Size(119, 23);
             this.btnCancelacionEncomiendaCancelarEncomienda.TabIndex = 6;
@@ -117,12 +121,13 @@
             // 
             // btnCancelacionEncomiendaBuscarCompra
             // 
-            this.btnCancelacionEncomiendaBuscarCompra.Location = new System.Drawing.Point(334, 34);
+            this.btnCancelacionEncomiendaBuscarCompra.Location = new System.Drawing.Point(331, 34);
             this.btnCancelacionEncomiendaBuscarCompra.Name = "btnCancelacionEncomiendaBuscarCompra";
             this.btnCancelacionEncomiendaBuscarCompra.Size = new System.Drawing.Size(75, 23);
             this.btnCancelacionEncomiendaBuscarCompra.TabIndex = 9;
             this.btnCancelacionEncomiendaBuscarCompra.Text = " Buscar";
             this.btnCancelacionEncomiendaBuscarCompra.UseVisualStyleBackColor = true;
+            this.btnCancelacionEncomiendaBuscarCompra.Click += new System.EventHandler(this.btnCancelacionEncomiendaBuscarCompra_Click);
             // 
             // lblCancelacionEncomiendaCompra
             // 
@@ -140,11 +145,38 @@
             this.tbCancelacionEncomiendaCompra.Size = new System.Drawing.Size(217, 20);
             this.tbCancelacionEncomiendaCompra.TabIndex = 11;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 180);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(394, 246);
+            this.dataGridView1.TabIndex = 12;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 143);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(39, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Motivo";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(108, 140);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(217, 20);
+            this.textBox1.TabIndex = 14;
+            // 
             // CancelacionEncomienda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 186);
+            this.ClientSize = new System.Drawing.Size(421, 482);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.tbCancelacionEncomiendaCompra);
             this.Controls.Add(this.lblCancelacionEncomiendaCompra);
             this.Controls.Add(this.btnCancelacionEncomiendaBuscarCompra);
@@ -159,6 +191,7 @@
             this.Controls.Add(this.lblCancelacionEncomiendaDniCliente);
             this.Name = "CancelacionEncomienda";
             this.Text = "Cancelar Encomienda";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,5 +211,8 @@
         private System.Windows.Forms.Button btnCancelacionEncomiendaBuscarCompra;
         private System.Windows.Forms.Label lblCancelacionEncomiendaCompra;
         private System.Windows.Forms.TextBox tbCancelacionEncomiendaCompra;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
