@@ -250,7 +250,7 @@ namespace FrbaBus.DAO
             pId.Direction = ParameterDirection.Output;
             parametros.Add(pId, 0);
 
-            accesoBD.EjecutarComando("[SI_NO_APROBAMOS_HAY_TABLA].[sp_reemplazar_futuros_por_otrro_micro]", parametros);
+            accesoBD.EjecutarComando("[SI_NO_APROBAMOS_HAY_TABLA].[sp_reemplazar_futuros_por_otro_micro]", parametros);
             return Convert.ToInt32(pId.Value);
         }
     }
