@@ -2286,3 +2286,241 @@ BEGIN
 	and r.baja = 0
 END
 GO
+
+CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_insert_recorrido
+(
+	@p_id int output,
+	@p_id_ciudad_origen int,
+	@p_id_ciudad_destino int,
+	@p_pre_base_kg numeric(18,2),
+	@p_pre_base_pasaje numeric(18,2),
+	@p_id_servicio int
+)
+AS
+BEGIN
+	INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Recorrido]
+           ([id_ciudad_origen]
+           ,[id_ciudad_destino]
+           ,[pre_base_kg]
+           ,[pre_base_pasaje]
+           ,[id_servicio])
+	VALUES
+           (@p_id_ciudad_origen,
+           @p_id_ciudad_destino,
+           @p_pre_base_kg,
+           @p_pre_base_pasaje,
+           @p_id_servicio)
+           
+	  SET @p_id = SCOPE_IDENTITY()
+END
+GO
+
+USE [GD1C2013]
+GO
+
+/****** Object:  StoredProcedure [SI_NO_APROBAMOS_HAY_TABLA].[sp_update_recorrido]    Script Date: 07/16/2013 03:04:35 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].[sp_update_recorrido]
+(
+	@p_id int,
+	@p_id_ciudad_origen int,
+	@p_id_ciudad_destino int,
+	@p_pre_base_kg numeric(18,2),
+	@p_pre_base_pasaje numeric(18,2),
+	@p_id_servicio int
+)
+AS
+BEGIN
+UPDATE [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].Recorrido
+SET id_ciudad_origen = @p_id_ciudad_origen,
+	id_ciudad_destino = @p_id_ciudad_destino,
+	pre_base_kg = @p_pre_base_kg,
+	pre_base_pasaje = @p_pre_base_pasaje,
+	id_servicio = @p_id_servicio 
+	
+WHERE id_recorrido =@p_id
+END
+
+GO
+
+
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_baja_recorrido
+	@id_recorrido numeric(18,0) 
+AS
+BEGIN
+	SET xact_abort on
+	BEGIN TRANSACTION baja_recorrido
+	DECLARE @motivo nvarchar(200)
+	SET @motivo = 'Baja de recorrido'
+	
+	UPDATE SI_NO_APROBAMOS_HAY_TABLA.Recorrido 
+	SET baja = 1
+	WHERE id_recorrido = @id_recorrido
+	
+	UPDATE SI_NO_APROBAMOS_HAY_TABLA.Viaje
+	SET baja = 1
+	WHERE id_recorrido = @id_recorrido
+	
+	--Doy de baja todas las compras del recorrido
+	declare @idCompraAct int
+
+	declare cur CURSOR LOCAL for
+		SELECT c.id_compra
+		FROM SI_NO_APROBAMOS_HAY_TABLA.Compra c
+		INNER JOIN SI_NO_APROBAMOS_HAY_TABLA.Pasaje p
+			ON p.id_compra = c.id_compra
+		INNER JOIN SI_NO_APROBAMOS_HAY_TABLA.Viaje v
+			ON p.id_viaje = v.id_viaje
+			AND v.id_recorrido = @id_recorrido
+		WHERE c.id_cancelacion IS NULL
+		
+	open cur
+
+	fetch next from cur into @idCompraAct
+
+	while @@FETCH_STATUS = 0 
+	BEGIN
+		exec SI_NO_APROBAMOS_HAY_TABLA.sp_cancelar_compra @idCompraAct, @motivo
+		fetch next from cur into @idCompraAct 
+	END
+
+	close cur
+	deallocate cur
+
+	COMMIT TRANSACTION baja_recorrido	
+END
+GO
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_cancelar_compra
+	@id_compra	int,
+	@motivo		nvarchar(200)
+AS
+BEGIN
+	SET xact_abort on
+	BEGIN TRANSACTION cancel 
+	DECLARE @id_cancel int
+	
+	INSERT INTO SI_NO_APROBAMOS_HAY_TABLA.Cancelacion
+	  (motivo_cancel)
+	VALUES (@motivo)
+	
+	SET @id_cancel = SCOPE_IDENTITY()
+	
+	UPDATE SI_NO_APROBAMOS_HAY_TABLA.Compra
+	SET id_cancelacion = @id_cancel
+	WHERE id_compra = @id_compra
+	
+	UPDATE SI_NO_APROBAMOS_HAY_TABLA.Encomienda
+	SET id_cancelacion = @id_cancel
+	WHERE id_compra = @id_compra
+	
+	UPDATE SI_NO_APROBAMOS_HAY_TABLA.Pasaje
+	SET id_cancelacion = @id_cancel
+	WHERE id_compra = @id_compra
+	
+	COMMIT TRANSACTION cancel
+END
+GO
+
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_baja_recorrido
+	@id_recorrido numeric(18,0) 
+AS
+BEGIN
+	SET xact_abort on
+	BEGIN TRANSACTION baja_recorrido
+	DECLARE @motivo nvarchar(200)
+	SET @motivo = 'Baja de recorrido'
+	
+	UPDATE SI_NO_APROBAMOS_HAY_TABLA.Recorrido 
+	SET baja = 1
+	WHERE id_recorrido = @id_recorrido
+	
+	UPDATE SI_NO_APROBAMOS_HAY_TABLA.Viaje
+	SET baja = 1
+	WHERE id_recorrido = @id_recorrido
+	
+	--Doy de baja todas las compras del recorrido
+	declare @idCompraAct int
+
+	declare cur CURSOR LOCAL for
+		SELECT c.id_compra
+		FROM SI_NO_APROBAMOS_HAY_TABLA.Compra c
+		INNER JOIN SI_NO_APROBAMOS_HAY_TABLA.Pasaje p
+			ON p.id_compra = c.id_compra
+		INNER JOIN SI_NO_APROBAMOS_HAY_TABLA.Viaje v
+			ON p.id_viaje = v.id_viaje
+			AND v.id_recorrido = @id_recorrido
+		WHERE c.id_cancelacion IS NULL
+		
+	open cur
+
+	fetch next from cur into @idCompraAct
+
+	while @@FETCH_STATUS = 0 
+	BEGIN
+		exec SI_NO_APROBAMOS_HAY_TABLA.sp_cancelar_compra @idCompraAct, @motivo
+		fetch next from cur into @idCompraAct 
+	END
+
+	close cur
+	deallocate cur
+
+	COMMIT TRANSACTION baja_recorrido	
+END
+
+GO
+
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_marca
+AS
+BEGIN
+SELECT [id_marca],[nombre]
+  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Marca]
+  WHERE
+  baja = 0
+END
+GO
+
+USE [GD1C2013]
+GO
+/****** Object:  StoredProcedure [SI_NO_APROBAMOS_HAY_TABLA].[sp_listar_micros]    Script Date: 07/16/2013 20:07:39 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].[sp_listar_micros]
+AS
+BEGIN
+SELECT Mi.[id_micros]
+      ,Mi.[fecha_alta]
+      ,Mi.[nro_micro]
+      ,Mi.[modelo]
+      ,Mi.[patente]
+      ,Ma.nombre
+      ,Ma.id_marca
+      ,Mi.[id_servicio]
+      ,Mi.[baja_vida_util]
+      ,Mi.[fec_baja_vida_util]
+      ,Mi.[capacidad_kg]
+  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Micros] Mi
+  INNER JOIN SI_NO_APROBAMOS_HAY_TABLA.Marca Ma
+	on Mi.id_marca = Ma.id_marca
+  WHERE Mi.baja = 0
+END
+
+GO
+CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_obtener_marca
+	@p_id int
+AS
+BEGIN
+SELECT [id_marca]
+      ,[nombre]
+      ,[baja]
+  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Marca]
+	WHERE id_marca = @p_id
+END
+
+GO
