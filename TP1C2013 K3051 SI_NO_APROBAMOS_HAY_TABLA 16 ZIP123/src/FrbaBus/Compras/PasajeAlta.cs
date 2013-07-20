@@ -9,20 +9,34 @@ using System.Windows.Forms;
 using FrbaBus.Common.Entidades;
 using FrbaBus.Abm_Clientes;
 using FrbaBus.Common.Helpers;
+using FrbaBus.Manager;
+using FrbaBus.Abm_Micro;
+using FrbaBus.Common.Excepciones;
 
 namespace FrbaBus.Compras
 {
     public partial class PasajeAlta : Form
     {
-        public PasajeAlta()
+        private Viaje _viaje;
+        private Cliente _cliente;
+        private Butaca _butaca;
+
+        public Pasaje PasajeNuevo { get; set; }
+        
+        private PasajeManager _manager;
+
+        public PasajeAlta(Viaje v)
         {
+            _manager = new PasajeManager();
+            _viaje = v;
             InitializeComponent();
         }
 
         private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
-            Cliente c = ObtenerCliente();
+            this._cliente = ObtenerCliente();
         }
+        
         private Cliente ObtenerCliente()
         {
             Cliente cliente = null;
@@ -52,7 +66,58 @@ namespace FrbaBus.Compras
 
         private void btnSeleccionarButaca_Click(object sender, EventArgs e)
         {
+            this._butaca = ObtenerButaca();
+        }
 
+        private Butaca ObtenerButaca()
+        {
+            Butaca b = null;
+            using (MicroButacaListado frm = new MicroButacaListado(_viaje.Micro))
+            {
+                frm.ShowDialog();
+                b = frm.ButacaSeleccionada();
+            }
+            return b;
+        }
+
+        private void PasajeAlta_Load(object sender, EventArgs e)
+        {
+            this.tbMicro.Text = _viaje.Micro.Informacion;
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (this.ValidarDatos())
+            {
+                try
+                {
+                    Pasaje p = new Pasaje();
+                    p.Butaca = _butaca;
+                    p.IdViaje = _viaje.Id;
+                    p.NroDni = _cliente.NroDni;
+                    p.PrecioPasaje = Convert.ToDecimal(tbPrecio.Text);
+
+                    MensajePorPantalla.MensajeInformativo(this, "Se dio de alta la solicitud de pasaje");
+
+                    this.Close();
+                }
+                catch (AccesoBDException ex)
+                {
+                    MensajePorPantalla.MensajeExceptionBD(this, ex);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MensajePorPantalla.MensajeError(this, "Error al intentar dar el registro.\n Detalle del error: " + ex.Message);
+                    this.Close();
+                }
+            }
+
+        }
+
+        private bool ValidarDatos()
+        {
+            return true;
         }
     }
 }

@@ -6,19 +6,13 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using FrbaBus.Common.Entidades;
 
 namespace FrbaBus.Compras
 {
-    public partial class PasajeModificar : Form
+    public partial class PasajeListado : Form
     {
-        private Pasaje _pasaje;
-        private Viaje _viaje;
-
-        public PasajeModificar(Pasaje p, Viaje v)
+        public PasajeListado()
         {
-            _viaje = v;
-            _pasaje = p;
             InitializeComponent();
         }
     }

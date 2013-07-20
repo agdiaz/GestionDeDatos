@@ -250,6 +250,12 @@
     <Compile Include="Compras\EncomiendaAlta.Designer.cs">
       <DependentUpon>EncomiendaAlta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Compras\EncomiendaListado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\EncomiendaListado.Designer.cs">
+      <DependentUpon>EncomiendaListado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Compras\EncomiendaModificar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -261,6 +267,12 @@
     </Compile>
     <Compile Include="Compras\PasajeAlta.Designer.cs">
       <DependentUpon>PasajeAlta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\PasajeListado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\PasajeListado.Designer.cs">
+      <DependentUpon>PasajeListado.cs</DependentUpon>
     </Compile>
     <Compile Include="Compras\PasajeModificar.cs">
       <SubType>Form</SubType>

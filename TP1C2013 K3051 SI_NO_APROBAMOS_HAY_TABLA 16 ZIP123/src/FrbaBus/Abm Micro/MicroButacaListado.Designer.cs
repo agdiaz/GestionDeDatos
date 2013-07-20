@@ -40,10 +40,12 @@
             this.btnBuscarMicro = new System.Windows.Forms.Button();
             this.tbMicro = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvButacas = new System.Windows.Forms.DataGridView();
+            this.dgvOcupadas = new System.Windows.Forms.DataGridView();
             this.btnSeleccionar = new System.Windows.Forms.Button();
+            this.dgvLibres = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvButacas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOcupadas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLibres)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -83,6 +85,7 @@
             this.btnBuscar.TabIndex = 9;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // tbPiso
             // 
@@ -158,40 +161,58 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Micro";
             // 
-            // dgvButacas
+            // dgvOcupadas
             // 
-            this.dgvButacas.AllowUserToAddRows = false;
-            this.dgvButacas.AllowUserToDeleteRows = false;
-            this.dgvButacas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvButacas.Location = new System.Drawing.Point(13, 165);
-            this.dgvButacas.Name = "dgvButacas";
-            this.dgvButacas.ReadOnly = true;
-            this.dgvButacas.Size = new System.Drawing.Size(646, 158);
-            this.dgvButacas.TabIndex = 1;
+            this.dgvOcupadas.AllowUserToAddRows = false;
+            this.dgvOcupadas.AllowUserToDeleteRows = false;
+            this.dgvOcupadas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvOcupadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOcupadas.Location = new System.Drawing.Point(12, 180);
+            this.dgvOcupadas.Name = "dgvOcupadas";
+            this.dgvOcupadas.ReadOnly = true;
+            this.dgvOcupadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvOcupadas.Size = new System.Drawing.Size(328, 202);
+            this.dgvOcupadas.TabIndex = 1;
             // 
             // btnSeleccionar
             // 
-            this.btnSeleccionar.Location = new System.Drawing.Point(570, 330);
+            this.btnSeleccionar.Location = new System.Drawing.Point(584, 398);
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.Size = new System.Drawing.Size(75, 23);
             this.btnSeleccionar.TabIndex = 2;
             this.btnSeleccionar.Text = "Seleccionar";
             this.btnSeleccionar.UseVisualStyleBackColor = true;
             // 
+            // dgvLibres
+            // 
+            this.dgvLibres.AllowUserToAddRows = false;
+            this.dgvLibres.AllowUserToDeleteRows = false;
+            this.dgvLibres.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvLibres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLibres.Location = new System.Drawing.Point(348, 180);
+            this.dgvLibres.Name = "dgvLibres";
+            this.dgvLibres.ReadOnly = true;
+            this.dgvLibres.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLibres.Size = new System.Drawing.Size(311, 202);
+            this.dgvLibres.TabIndex = 3;
+            this.dgvLibres.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLibres_CellContentDoubleClick);
+            // 
             // MicroButacaListado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(671, 368);
+            this.ClientSize = new System.Drawing.Size(671, 433);
+            this.Controls.Add(this.dgvLibres);
             this.Controls.Add(this.btnSeleccionar);
-            this.Controls.Add(this.dgvButacas);
+            this.Controls.Add(this.dgvOcupadas);
             this.Controls.Add(this.groupBox1);
             this.Name = "MicroButacaListado";
             this.Text = "MicroButacaListado";
             this.Load += new System.EventHandler(this.MicroButacaListado_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvButacas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOcupadas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLibres)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -206,11 +227,12 @@
         private System.Windows.Forms.TextBox tbNroButaca;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dgvButacas;
+        private System.Windows.Forms.DataGridView dgvOcupadas;
         private System.Windows.Forms.Button btnSeleccionar;
         private System.Windows.Forms.TextBox tbPiso;
         private System.Windows.Forms.ComboBox cbTipoButaca;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.DataGridView dgvLibres;
     }
 }

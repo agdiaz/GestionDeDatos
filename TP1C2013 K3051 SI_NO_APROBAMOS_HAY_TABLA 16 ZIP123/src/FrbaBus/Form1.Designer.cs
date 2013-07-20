@@ -131,9 +131,13 @@
             this.tbRecorridoCiudadDestino = new System.Windows.Forms.TextBox();
             this.tbRecorridoCiudadOrigen = new System.Windows.Forms.TextBox();
             this.btnComprar = new System.Windows.Forms.Button();
-            this.cancelarCompraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cancelarPasajeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cancelarEncomiendaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmCancelacionesCompra = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmCancelacionesPasaje = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmCancelacionesEncomienda = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmPasajesListar = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmEncomiendasListar = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.mnsMain.SuspendLayout();
             this.ssStatusMain.SuspendLayout();
             this.gbViaje.SuspendLayout();
@@ -466,6 +470,10 @@
             // 
             this.tsmEncomienda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmComprarPasajes,
+            this.toolStripSeparator5,
+            this.tsmPasajesListar,
+            this.tsmEncomiendasListar,
+            this.toolStripSeparator6,
             this.tsmPasajeEncomiendaCancelar});
             this.tsmEncomienda.Name = "tsmEncomienda";
             this.tsmEncomienda.Size = new System.Drawing.Size(123, 20);
@@ -474,18 +482,18 @@
             // tsmComprarPasajes
             // 
             this.tsmComprarPasajes.Name = "tsmComprarPasajes";
-            this.tsmComprarPasajes.Size = new System.Drawing.Size(152, 22);
+            this.tsmComprarPasajes.Size = new System.Drawing.Size(202, 22);
             this.tsmComprarPasajes.Text = "Comprar";
             this.tsmComprarPasajes.Click += new System.EventHandler(this.tsmComprarPasajes_Click);
             // 
             // tsmPasajeEncomiendaCancelar
             // 
             this.tsmPasajeEncomiendaCancelar.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cancelarCompraToolStripMenuItem,
-            this.cancelarPasajeToolStripMenuItem,
-            this.cancelarEncomiendaToolStripMenuItem});
+            this.tsmCancelacionesCompra,
+            this.tsmCancelacionesPasaje,
+            this.tsmCancelacionesEncomienda});
             this.tsmPasajeEncomiendaCancelar.Name = "tsmPasajeEncomiendaCancelar";
-            this.tsmPasajeEncomiendaCancelar.Size = new System.Drawing.Size(152, 22);
+            this.tsmPasajeEncomiendaCancelar.Size = new System.Drawing.Size(202, 22);
             this.tsmPasajeEncomiendaCancelar.Text = "Cancelaciones";
             // 
             // tsmPremios
@@ -1072,26 +1080,50 @@
             this.btnComprar.UseVisualStyleBackColor = true;
             this.btnComprar.Click += new System.EventHandler(this.btnComprar_Click);
             // 
-            // cancelarCompraToolStripMenuItem
+            // tsmCancelacionesCompra
             // 
-            this.cancelarCompraToolStripMenuItem.Name = "cancelarCompraToolStripMenuItem";
-            this.cancelarCompraToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.cancelarCompraToolStripMenuItem.Text = "Cancelar Compra";
-            this.cancelarCompraToolStripMenuItem.Click += new System.EventHandler(this.cancelarCompraToolStripMenuItem_Click);
+            this.tsmCancelacionesCompra.Name = "tsmCancelacionesCompra";
+            this.tsmCancelacionesCompra.Size = new System.Drawing.Size(189, 22);
+            this.tsmCancelacionesCompra.Text = "Cancelar Compra";
+            this.tsmCancelacionesCompra.Click += new System.EventHandler(this.cancelarCompraToolStripMenuItem_Click);
             // 
-            // cancelarPasajeToolStripMenuItem
+            // tsmCancelacionesPasaje
             // 
-            this.cancelarPasajeToolStripMenuItem.Name = "cancelarPasajeToolStripMenuItem";
-            this.cancelarPasajeToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.cancelarPasajeToolStripMenuItem.Text = "Cancelar Pasaje";
-            this.cancelarPasajeToolStripMenuItem.Click += new System.EventHandler(this.cancelarPasajeToolStripMenuItem_Click);
+            this.tsmCancelacionesPasaje.Name = "tsmCancelacionesPasaje";
+            this.tsmCancelacionesPasaje.Size = new System.Drawing.Size(189, 22);
+            this.tsmCancelacionesPasaje.Text = "Cancelar Pasaje";
+            this.tsmCancelacionesPasaje.Click += new System.EventHandler(this.cancelarPasajeToolStripMenuItem_Click);
             // 
-            // cancelarEncomiendaToolStripMenuItem
+            // tsmCancelacionesEncomienda
             // 
-            this.cancelarEncomiendaToolStripMenuItem.Name = "cancelarEncomiendaToolStripMenuItem";
-            this.cancelarEncomiendaToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.cancelarEncomiendaToolStripMenuItem.Text = "Cancelar Encomienda";
-            this.cancelarEncomiendaToolStripMenuItem.Click += new System.EventHandler(this.cancelarEncomiendaToolStripMenuItem_Click);
+            this.tsmCancelacionesEncomienda.Name = "tsmCancelacionesEncomienda";
+            this.tsmCancelacionesEncomienda.Size = new System.Drawing.Size(189, 22);
+            this.tsmCancelacionesEncomienda.Text = "Cancelar Encomienda";
+            this.tsmCancelacionesEncomienda.Click += new System.EventHandler(this.cancelarEncomiendaToolStripMenuItem_Click);
+            // 
+            // tsmPasajesListar
+            // 
+            this.tsmPasajesListar.Name = "tsmPasajesListar";
+            this.tsmPasajesListar.Size = new System.Drawing.Size(202, 22);
+            this.tsmPasajesListar.Text = "Listado de Pasajes";
+            this.tsmPasajesListar.Click += new System.EventHandler(this.tsmPasajesListar_Click);
+            // 
+            // tsmEncomiendasListar
+            // 
+            this.tsmEncomiendasListar.Name = "tsmEncomiendasListar";
+            this.tsmEncomiendasListar.Size = new System.Drawing.Size(202, 22);
+            this.tsmEncomiendasListar.Text = "Listado de Encomiendas";
+            this.tsmEncomiendasListar.Click += new System.EventHandler(this.tsmEncomiendasListar_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(199, 6);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(199, 6);
             // 
             // Form1
             // 
@@ -1237,9 +1269,13 @@
         private System.Windows.Forms.ToolStripMenuItem canjeDePuntosToolStripMenuItem;
         private System.Windows.Forms.Button btnComprar;
         private System.Windows.Forms.ToolStripMenuItem canjearPuntosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cancelarCompraToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cancelarPasajeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cancelarEncomiendaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmCancelacionesCompra;
+        private System.Windows.Forms.ToolStripMenuItem tsmCancelacionesPasaje;
+        private System.Windows.Forms.ToolStripMenuItem tsmCancelacionesEncomienda;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem tsmPasajesListar;
+        private System.Windows.Forms.ToolStripMenuItem tsmEncomiendasListar;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
     }
 }
 
