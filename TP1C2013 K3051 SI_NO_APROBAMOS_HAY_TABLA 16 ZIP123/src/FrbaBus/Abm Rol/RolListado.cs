@@ -34,25 +34,33 @@ namespace FrbaBus.Rol
                 this.dgvRolListado.Columns["IdRol"].Visible = false;
 
                 //Cargo las funcionalidades
-                IList<Funcionalidad> funcionalidades = _funcionalidadesManager.Listar();
-                funcionalidades.Insert(0, new Funcionalidad() {  Nombre = string.Empty });
-                this.cbbRolListadoFuncionalidades.DataSource = funcionalidades;
-                this.cbbRolListadoFuncionalidades.DisplayMember = "Nombre";
-                this.cbbRolListadoFuncionalidades.ValueMember = "Id";
+                CargarFuncionalidades();
             }
             catch (AccesoBDException ex)
             {
                 MensajePorPantalla.MensajeExceptionBD(this, ex);
-                this.Close();
             }
             catch (Exception ex)
             {
                 MensajePorPantalla.MensajeError(this, "Error al intentar cargar el listado.\n Detalle del error: " + ex.Message);
-                this.Close();
             }
         }
 
+        private void CargarFuncionalidades()
+        {
+            IList<Funcionalidad> funcionalidades = _funcionalidadesManager.Listar();
+            funcionalidades.Insert(0, new Funcionalidad() { Nombre = string.Empty });
+            this.cbbRolListadoFuncionalidades.DataSource = funcionalidades;
+            this.cbbRolListadoFuncionalidades.DisplayMember = "Nombre";
+            this.cbbRolListadoFuncionalidades.ValueMember = "Id";
+        }
+
         private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            CargarRolesFiltrados();
+        }
+
+        private void CargarRolesFiltrados()
         {
             try
             {
@@ -61,7 +69,7 @@ namespace FrbaBus.Rol
                 {
                     funcionalidadElegida = this.cbbRolListadoFuncionalidades.SelectedItem as Funcionalidad;
                 }
-                
+
                 IList<RolUsuario> roles = _manager.ListarFiltrado(this.tbRolListadoRol.Text, funcionalidadElegida.Nombre);
                 this.dgvRolListado.DataSource = roles;
             }
@@ -73,7 +81,6 @@ namespace FrbaBus.Rol
             {
                 MensajePorPantalla.MensajeError(this, "Error al realizar la búsqueda correspondiente.\n Detalle del error: " + ex.Message);
             }
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -108,24 +115,34 @@ namespace FrbaBus.Rol
             {
                 RolUsuario rol = (RolUsuario)dgvRolListado.SelectedRows[0].DataBoundItem;
                 DialogResult confirm = MensajePorPantalla.MensajeInformativo(this, "¿Desea borrar el rol " + rol.Nombre + " ?", MessageBoxButtons.YesNo);
-                if (confirm == DialogResult.OK)
+                if (confirm == DialogResult.Yes)
                 {
                     _manager.Baja(rol);
-
-                    //Cargo la grilla de roles
-                    this.dgvRolListado.DataSource = _manager.Listar();
+                    MensajePorPantalla.MensajeInformativo(this, "Se ha borrado el rol");
+                    LimpiarDatos();
+                    CargarRolesFiltrados();
                 }
             }
             catch (AccesoBDException ex)
             {
                 MensajePorPantalla.MensajeExceptionBD(this, ex);
-                this.Close();
             }
             catch (Exception ex)
             {
                 MensajePorPantalla.MensajeError(this, "Error al intentar borrar el registro.\n Detalle del error: " + ex.Message);
-                this.Close();
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            LimpiarDatos();
+            CargarRolesFiltrados();
+        }
+
+        private void LimpiarDatos()
+        {
+            cbbRolListadoFuncionalidades.SelectedIndex = 0;
+            tbRolListadoRol.Text = string.Empty;
         }
 
     }
