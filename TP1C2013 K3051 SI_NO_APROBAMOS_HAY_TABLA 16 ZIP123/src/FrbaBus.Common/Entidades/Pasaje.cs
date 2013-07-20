@@ -22,7 +22,9 @@ namespace FrbaBus.Common.Entidades
 
         public override string ToString()
         {
-            return Id.ToString();
+            StringBuilder sb = new StringBuilder();
+            sb.AppendFormat("Butaca: {0} - Pasajero: {1} ($ {2})", Butaca.Informacion, NroDni.ToString(), PrecioPasaje.ToString());
+            return sb.ToString();
         }
 
         public Pasaje()

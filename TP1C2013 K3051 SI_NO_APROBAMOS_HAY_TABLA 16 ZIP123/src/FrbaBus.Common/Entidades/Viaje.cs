@@ -19,10 +19,12 @@ namespace FrbaBus.Common.Entidades
 
         public IList<Pasaje> Pasajes { get; set; }
 
-        public string Informacion { get { return FechaSalida.ToShortDateString() + " - " + FechaArriboEstimada.ToShortDateString(); } }
+        public string Informacion { get { return this.ToString(); } }
 
         public override string ToString()
         {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendFormat("Salida {0} - Llegada {1}", FechaSalida.ToShortDateString() ,FechaArriboEstimada.ToShortDateString());
             return Informacion;
         }
 
