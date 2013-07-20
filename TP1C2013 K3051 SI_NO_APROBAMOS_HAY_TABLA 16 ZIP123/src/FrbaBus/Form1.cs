@@ -529,10 +529,10 @@ namespace FrbaBus
 
         private void btnQuitarPasajero_Click(object sender, EventArgs e)
         {
-            Cliente c = this.lbPasajeros.SelectedItem as Cliente;
-            if (c != null)
+            Pasaje p = this.lbPasajeros.SelectedItem as Pasaje;
+            if (p != null)
             {
-                this.lbPasajeros.Items.Remove(c);
+                this.lbPasajeros.Items.Remove(p);
             }
         }
 
@@ -544,8 +544,10 @@ namespace FrbaBus
                 using (PasajeModificar frm = new PasajeModificar(p, _viaje))
                 {
                     frm.ShowDialog(this);
+                    p = frm.PasajeModificado;
                 }
             }
+
         }
 
         private void cancelarCompraToolStripMenuItem_Click(object sender, EventArgs e)

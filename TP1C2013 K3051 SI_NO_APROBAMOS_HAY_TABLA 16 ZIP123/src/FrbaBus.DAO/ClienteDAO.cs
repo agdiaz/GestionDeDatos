@@ -13,16 +13,19 @@ namespace FrbaBus.DAO
     public class ClienteDAO : IEntidadDAO<Cliente>
     {
         public IBuilder<Cliente> _builder;
+        private IAccesoBD _acceso;
+
         public ClienteDAO()
         {
             this._builder = new ClienteBuilder();
+            this._acceso = new AccesoBD();
         }
 
         #region Miembros de IEntidadDAO<Cliente>
 
         public GestionDeDatos.AccesoDatos.IAccesoBD accesoBD
         {
-            get { return new AccesoBD(); }
+            get { return _acceso; }
         }
         
         public Cliente Obtener(object id)

@@ -12,17 +12,20 @@ namespace FrbaBus.DAO
 {
     public class CanjeDAO : IEntidadDAO<Canje>
     {
+        public IAccesoBD _acceso;
+
         #region Miembros de IEntidadDAO<Canje>
         private IBuilder<Canje> _builder;
         
         public CanjeDAO()
         {
             this._builder = new CanjeBuilder();
+            _acceso = new AccesoBD();
         }
 
         public GestionDeDatos.AccesoDatos.IAccesoBD accesoBD
         {
-            get { return new AccesoBD() ; }
+            get { return _acceso ; }
         }
 
         public Canje Obtener(object id)

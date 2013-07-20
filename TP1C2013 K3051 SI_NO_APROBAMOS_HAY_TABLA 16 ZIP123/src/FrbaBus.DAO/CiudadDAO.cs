@@ -13,17 +13,20 @@ namespace FrbaBus.DAO
     public class CiudadDAO : IEntidadDAO<Ciudad>
     {
         private IBuilder<Ciudad> _builder;
+        private IAccesoBD _acceso;
+
         public GestionDeDatos.AccesoDatos.IAccesoBD accesoBD
         {
             get
             {
-                return new AccesoBD();
+                return _acceso;
             }
         }
 
         public CiudadDAO()
         {
             this._builder = new CiudadBuilder();
+            _acceso = new AccesoBD();
         }
 
         #region Miembros de IEntidadDAO<Ciudad>

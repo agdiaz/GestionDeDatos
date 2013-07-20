@@ -13,9 +13,12 @@ namespace FrbaBus.DAO
     public class RolUsuarioDAO : IEntidadDAO<RolUsuario>
     {
         private IBuilder<RolUsuario> _builder;
+        private IAccesoBD _acceso;
+
         public RolUsuarioDAO()
         {
             _builder = new RolUsuarioBuilder();
+            _acceso = new AccesoBD();
         }
 
         #region Miembros de IEntidadDAO<RolUsuario>
@@ -24,7 +27,7 @@ namespace FrbaBus.DAO
         {
             get
             {
-                return new AccesoBD();
+                return _acceso;
             }
         }
         

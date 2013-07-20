@@ -383,6 +383,9 @@
     <EmbeddedResource Include="Compras\PasajeAlta.resx">
       <DependentUpon>PasajeAlta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Compras\PasajeModificar.resx">
+      <DependentUpon>PasajeModificar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Estadisticas\Estadisticas.resx">
       <DependentUpon>Estadisticas.cs</DependentUpon>
     </EmbeddedResource>

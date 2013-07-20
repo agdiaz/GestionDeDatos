@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using FrbaBus.Common.Entidades;
+using System.Data;
 
 namespace FrbaBus.DAO.Builder
 {
@@ -27,5 +28,11 @@ namespace FrbaBus.DAO.Builder
         }
 
         #endregion
+
+        public decimal BuildPrecio(DataRow row)
+        {
+            decimal precio = Convert.ToDecimal(row["precio"].ToString());
+            return precio;
+        }
     }
 }

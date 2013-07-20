@@ -11,7 +11,12 @@ namespace FrbaBus.DAO
 {
     public class EstadisticasDAO
     {
-        private IAccesoBD accesoBD = new AccesoBD();
+        private IAccesoBD accesoBD;
+
+        public EstadisticasDAO()
+        {
+            accesoBD = new AccesoBD();
+        }
         
         #region DestinosMasVendidos
 

@@ -13,18 +13,19 @@ namespace FrbaBus.DAO
     public class ServicioDAO : IEntidadDAO<Servicio>
     {
         private IBuilder<Servicio> _builder;
-        public IAccesoBD accesoBD
-        {
-            get { return new AccesoBD(); }
-        }
+        public IAccesoBD _accesoBD;
 
         public ServicioDAO()
         {
+            this._accesoBD = new AccesoBD();
             this._builder = new ServicioBuilder();
         }
         
         #region Miembros de IEntidadDAO<Servicio>
-
+        public IAccesoBD accesoBD
+        {
+            get { return _accesoBD; }
+        }
         public Servicio Obtener(object id)
         {
             Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
