@@ -2,4 +2,7 @@ Usuarios -> OK
 Roles -> OK
 Ciudades -> OK
 Recorridos -> OK
-Micros -> OK
+Micros -> NOK
+Recompensas -> OK
+Clientes -> OK
+Estadisticas -> OK

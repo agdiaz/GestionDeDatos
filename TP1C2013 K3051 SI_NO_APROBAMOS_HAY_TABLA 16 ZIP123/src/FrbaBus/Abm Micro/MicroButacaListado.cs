@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using FrbaBus.Common.Entidades;
 using FrbaBus.Manager;
 using FrbaBus.Common.Helpers;
+using FrbaBus.Common.Excepciones;
 
 namespace FrbaBus.Abm_Micro
 {
@@ -88,25 +89,47 @@ namespace FrbaBus.Abm_Micro
         {
             Micro m = null;
 
-            using (MicroListado frm = new MicroListado())
+            try
             {
-                frm.ShowDialog();
-                m = frm.MicroSeleccionado();
-            }
+                using (MicroListado frm = new MicroListado())
+                {
+                    frm.ShowDialog();
+                    m = frm.MicroSeleccionado();
+                }
 
-            if (m != null)
+                if (m != null)
+                {
+                    this._viaje.Micro = m;
+                    MostrarDatosMicro();
+                }
+            }
+            catch (AccesoBDException ex)
             {
-                this._viaje.Micro = m;
-                MostrarDatosMicro();
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
+            }
+            catch (Exception ex)
+            {
+                MensajePorPantalla.MensajeError(this, "Error.\n Detalle del error: " + ex.Message);
             }
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            IList<Butaca> libres = _manager.ListarLibres(_viaje);
-            IList<Butaca> ocupadas = _manager.ListarOcupadas(_viaje);
+            try
+            {
+                IList<Butaca> libres = _manager.ListarLibres(_viaje);
+                IList<Butaca> ocupadas = _manager.ListarOcupadas(_viaje);
 
-            this.dgvLibres.DataSource = libres;
-            this.dgvOcupadas.DataSource = ocupadas;
+                this.dgvLibres.DataSource = libres;
+                this.dgvOcupadas.DataSource = ocupadas;
+            }
+            catch (AccesoBDException ex)
+            {
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
+            }
+            catch (Exception ex)
+            {
+                MensajePorPantalla.MensajeError(this, "Error.\n Detalle del error: " + ex.Message);
+            }
             
 
         }

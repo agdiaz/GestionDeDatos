@@ -87,5 +87,10 @@ namespace FrbaBus.Manager
             }
             return micros;
         }
+
+        public void ObtenerDisponibilidades(Micro micro, int idViaje)
+        {
+            _dao.ObtenerDisponibilidades(micro, idViaje);
+        }
     }
 }

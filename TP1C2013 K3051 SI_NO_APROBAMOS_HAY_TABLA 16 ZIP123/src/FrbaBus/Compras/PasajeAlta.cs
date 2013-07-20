@@ -35,6 +35,10 @@ namespace FrbaBus.Compras
         private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
             this._cliente = ObtenerCliente();
+            if (_cliente != null)
+            {
+                tbCliente.Text = _cliente.ToString();
+            }
             if (_butaca != null && _cliente != null)
             {
                 MostrarPrecio();
@@ -71,6 +75,10 @@ namespace FrbaBus.Compras
         private void btnSeleccionarButaca_Click(object sender, EventArgs e)
         {
             this._butaca = ObtenerButaca();
+            if (_butaca != null)
+            {
+                tbButaca.Text = _butaca.Informacion;
+            }
             if (_butaca != null && _cliente != null)
             {
                 MostrarPrecio();
@@ -79,8 +87,20 @@ namespace FrbaBus.Compras
 
         private void MostrarPrecio()
         {
-            decimal precio = this._manager.BuscarPrecio(_viaje.Recorrido, _cliente.NroDni);
-            this.tbPrecio.Text = precio.ToString();
+            this.tbPrecio.Text = "0";
+            try
+            {
+                decimal precio = this._manager.BuscarPrecio(_viaje.Recorrido, _cliente.NroDni);
+                this.tbPrecio.Text = precio.ToString();
+            }
+            catch (AccesoBDException ex)
+            {
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
+            }
+            catch (Exception ex)
+            {
+                MensajePorPantalla.MensajeError(this, "Error.\n Detalle del error: " + ex.Message);
+            }
         }
 
         private Butaca ObtenerButaca()
@@ -118,12 +138,10 @@ namespace FrbaBus.Compras
                 catch (AccesoBDException ex)
                 {
                     MensajePorPantalla.MensajeExceptionBD(this, ex);
-                    this.Close();
                 }
                 catch (Exception ex)
                 {
                     MensajePorPantalla.MensajeError(this, "Error al intentar dar el registro.\n Detalle del error: " + ex.Message);
-                    this.Close();
                 }
             }
 

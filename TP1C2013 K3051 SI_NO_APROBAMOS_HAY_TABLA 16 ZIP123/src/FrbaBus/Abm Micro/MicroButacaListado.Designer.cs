@@ -43,6 +43,8 @@
             this.dgvOcupadas = new System.Windows.Forms.DataGridView();
             this.btnSeleccionar = new System.Windows.Forms.Button();
             this.dgvLibres = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOcupadas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLibres)).BeginInit();
@@ -200,11 +202,31 @@
             this.dgvLibres.TabIndex = 3;
             this.dgvLibres.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLibres_CellContentDoubleClick);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(348, 161);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Libres";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(18, 161);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(56, 13);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Ocupadas";
+            // 
             // MicroButacaListado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(671, 433);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.dgvLibres);
             this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.dgvOcupadas);
@@ -217,6 +239,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvOcupadas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLibres)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -237,5 +260,7 @@
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.DataGridView dgvLibres;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }

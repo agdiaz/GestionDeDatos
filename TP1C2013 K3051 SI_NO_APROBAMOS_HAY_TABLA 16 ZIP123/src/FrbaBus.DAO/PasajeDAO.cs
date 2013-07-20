@@ -60,8 +60,8 @@ namespace FrbaBus.DAO
             Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
             parametros.Add(new SqlParameter("@dni", SqlDbType.Decimal, 18, "dni"), nroDni);
             parametros.Add(new SqlParameter("@id_recorrido", SqlDbType.Decimal, 18, "id_recorrido"), recorrido.Id);
-            
-            DataRow row = accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_obtener_ciudad", parametros).Tables[0].Rows[0];
+
+            DataRow row = accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_precio_final_pasaje", parametros).Tables[0].Rows[0];
 
             return ((PasajeBuilder)_builder).BuildPrecio(row);
         }

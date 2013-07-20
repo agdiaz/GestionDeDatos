@@ -121,6 +121,9 @@ namespace FrbaBus
         private void MostrarOpcionesMicro()
         {
             LimpiarGrupoMicros(true);
+
+            _microManager.ObtenerDisponibilidades(_viaje.Micro, _viaje.Id);
+
             tbMicroButacasLibres.Text = _viaje.Micro.ButacasDisponibles.ToString();
             tbMicroKgDisponibles.Text = _viaje.Micro.KgsDisponibles.ToString();
             tbMicroMarca.Text = _viaje.Micro.Empresa.Descripcion;

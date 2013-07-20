@@ -209,5 +209,17 @@ namespace FrbaBus.DAO
             return this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_listar_filtrado_micros", parametros);
         }
 
+
+        public void ObtenerDisponibilidades(Micro micro, int idViaje)
+        {
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+            parametros.Add(new SqlParameter("@p_id_viaje", SqlDbType.Int, 4, "p_id_viaje"), idViaje);
+
+            DataRow row = accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_obtener_micro_disponibilidades", parametros).Tables[0].Rows[0];
+
+            micro.ButacasDisponibles = Convert.ToInt32(row["butacas"].ToString());
+            micro.KgsDisponibles = Convert.ToInt32(row["kgs"].ToString());
+
+        }
     }
 }
