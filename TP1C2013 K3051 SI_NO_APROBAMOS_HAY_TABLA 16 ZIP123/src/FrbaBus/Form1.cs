@@ -392,20 +392,41 @@ namespace FrbaBus
             //Menú Viaje:
             tsmViajeAlta.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmViajeAlta");
             tsmViajeListado.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmViajeListado");
+            cargarArribaToolStripMenuItem.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("cargarArribaToolStripMenuItem");
             tsmViaje.Enabled = tsmViajeAlta.Enabled || tsmViajeListado.Enabled;
 
             //Menú Cliente:
             tsmClienteListado.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmClienteListado");
             tsmClienteAlta.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmClienteAlta");
-            
+
             tsmClientePasajeroFrecuenteConsultar.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmClientePasajeroFrecuenteConsultar");
+            tsmClientePasajeroFrecuenteConsultar.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("canjeDePuntosToolStripMenuItem");
             tsmClientePasajeroFrecuente.Enabled = tsmClientePasajeroFrecuenteConsultar.Enabled;
             tsmCliente.Enabled = tsmClienteListado.Enabled || tsmClienteAlta.Enabled || tsmClientePasajeroFrecuente.Enabled;
 
             //Menú Viaje:
             tsmViajeAlta.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmViajeAlta");
             tsmViajeListado.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmViajeListado");
+            cargarArribaToolStripMenuItem.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("cargarArribaToolStripMenuItem");
+                       
             tsmViaje.Enabled = tsmViajeAlta.Enabled || tsmViajeListado.Enabled;
+
+            //Pasaje/Encomienda:
+            tsmComprarPasajes.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmComprarPasajes");
+            tsmPasajesListar.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmPasajesListar");
+            tsmComprarPasajes.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmEncomiendasListar");
+
+            tsmCancelacionesCompra.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmCancelacionesCompra");
+            tsmCancelacionesPasaje.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmCancelacionesPasaje");
+            tsmCancelacionesEncomienda.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmCancelacionesEncomienda");
+
+            tsmEncomienda.Enabled = tsmComprarPasajes.Enabled || tsmPasajesListar.Enabled || tsmComprarPasajes.Enabled;
+
+
+            //Recompensas:
+            tsmPremiosListado.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmPremiosListado");
+            canjearPuntosToolStripMenuItem.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("canjearPuntosToolStripMenuItem");
+            tsmPremios.Enabled = tsmPremiosListado.Enabled || canjearPuntosToolStripMenuItem.Enabled;
 
             //Menú Estadísticas:
             tsmEstadisticasListados.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmEstadisticasListado");

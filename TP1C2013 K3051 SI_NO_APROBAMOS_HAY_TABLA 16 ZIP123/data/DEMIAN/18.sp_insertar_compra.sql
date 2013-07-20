@@ -11,5 +11,5 @@ BEGIN
 	VALUES
 		(@p_id_usuario, @p_fecha_compra)
 
-	SET @p_id_usuario = SCOPE_IDENTITY()
+	SET @p_id_compra = SCOPE_IDENTITY()
 END
