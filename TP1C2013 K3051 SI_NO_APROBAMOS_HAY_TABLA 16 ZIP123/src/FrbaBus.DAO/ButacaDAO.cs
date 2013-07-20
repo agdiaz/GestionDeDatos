@@ -98,5 +98,31 @@ namespace FrbaBus.DAO
             return this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_obtener_butacas_por_micro", parametros);
         }
         #endregion
+
+        public IList<Butaca> ListarLibres(Viaje viaje)
+        {
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+            parametros.Add(new SqlParameter("@p_id_viaje", SqlDbType.Int, 4, "p_id_viaje"), viaje.Id);
+
+            IList<Butaca> butacas = new List<Butaca>();
+            foreach (DataRow row in accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].[sp_butacas_libres_viaje]",parametros).Tables[0].Rows)
+            {
+                butacas.Add(_builder.Build(row));
+            }
+            return butacas;
+        }
+
+        public IList<Butaca> ListarOcupadas(Viaje viaje)
+        {
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+            parametros.Add(new SqlParameter("@p_id_viaje", SqlDbType.Int, 4, "p_id_viaje"), viaje.Id);
+
+            IList<Butaca> butacas = new List<Butaca>();
+            foreach (DataRow row in accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].[sp_butacas_ocupadas_viaje]", parametros).Tables[0].Rows)
+            {
+                butacas.Add(_builder.Build(row));
+            }
+            return butacas;
+        }
     }
 }
