@@ -80,11 +80,11 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(238, 76);
+            this.btnCancelar.Location = new System.Drawing.Point(215, 76);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(98, 23);
             this.btnCancelar.TabIndex = 8;
-            this.btnCancelar.Text = "button1";
+            this.btnCancelar.Text = "Cancelar compra";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 

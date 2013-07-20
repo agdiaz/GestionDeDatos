@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using FrbaBus.Common.Entidades;
 using FrbaBus.Manager;
+using FrbaBus.Common.Helpers;
+using FrbaBus.Common.Excepciones;
 
 namespace FrbaBus.Cancelaciones
 {
@@ -47,12 +49,20 @@ namespace FrbaBus.Cancelaciones
             try
             {
                 _manager.CancelarCompra(compra, tbMotivo.Text);
+
+                MensajePorPantalla.MensajeInformativo(this, "Se cancelo la compra con el id: " + compra.IdCompra);
+                this.Close();
             }
-            catch (Exception)
-            {
-                
-                throw;
-            }
+            catch (AccesoBDException ex)
+                {
+                    MensajePorPantalla.MensajeExceptionBD(this, ex);
+                   
+                }
+                catch (Exception ex)
+                {
+                    MensajePorPantalla.MensajeError(this, "Error al intentar modificar el registro.\n Detalle del error: " + ex.Message);
+                 
+                }
         }
     }
 }
