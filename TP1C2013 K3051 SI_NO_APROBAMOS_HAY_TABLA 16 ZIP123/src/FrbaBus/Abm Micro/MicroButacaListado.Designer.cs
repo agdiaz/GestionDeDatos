@@ -207,7 +207,7 @@
             this.Controls.Add(this.dgvOcupadas);
             this.Controls.Add(this.groupBox1);
             this.Name = "MicroButacaListado";
-            this.Text = "MicroButacaListado";
+            this.Text = "FrbaBus - Micro - Butacas :: Listado";
             this.Load += new System.EventHandler(this.MicroButacaListado_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

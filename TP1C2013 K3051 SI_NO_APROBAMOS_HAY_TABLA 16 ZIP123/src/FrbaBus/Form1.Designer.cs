@@ -1141,13 +1141,15 @@
             this.btnFinalizarCompra.TabIndex = 0;
             this.btnFinalizarCompra.Text = "Finalizar compra";
             this.btnFinalizarCompra.UseVisualStyleBackColor = true;
+            this.btnFinalizarCompra.Click += new System.EventHandler(this.btnFinalizarCompra_Click);
             // 
             // rbEfectivo
             // 
             this.rbEfectivo.AutoSize = true;
+            this.rbEfectivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbEfectivo.Location = new System.Drawing.Point(17, 58);
             this.rbEfectivo.Name = "rbEfectivo";
-            this.rbEfectivo.Size = new System.Drawing.Size(72, 17);
+            this.rbEfectivo.Size = new System.Drawing.Size(64, 17);
             this.rbEfectivo.TabIndex = 1;
             this.rbEfectivo.TabStop = true;
             this.rbEfectivo.Text = "Efectivo";
@@ -1156,9 +1158,10 @@
             // rbTarjeta
             // 
             this.rbTarjeta.AutoSize = true;
+            this.rbTarjeta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbTarjeta.Location = new System.Drawing.Point(17, 33);
             this.rbTarjeta.Name = "rbTarjeta";
-            this.rbTarjeta.Size = new System.Drawing.Size(65, 17);
+            this.rbTarjeta.Size = new System.Drawing.Size(58, 17);
             this.rbTarjeta.TabIndex = 2;
             this.rbTarjeta.TabStop = true;
             this.rbTarjeta.Text = "Tarjeta";

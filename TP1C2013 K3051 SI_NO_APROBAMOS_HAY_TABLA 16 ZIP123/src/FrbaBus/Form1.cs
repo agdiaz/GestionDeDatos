@@ -26,6 +26,7 @@ namespace FrbaBus
         private MicroManager _microManager;
         private UsuarioManager _managerUsuario;
         private CiudadManager _ciudadManager;
+        private CompraManager _compraManager;
         #endregion
         
         #region Atributos para la compra
@@ -46,6 +47,7 @@ namespace FrbaBus
             this._microManager = new MicroManager();
             this._managerUsuario = new UsuarioManager();
             this._ciudadManager = new CiudadManager();
+            this._compraManager = new CompraManager();
 
             this.RegistrarPermisos();
             SetearCustomFormatDataTimePicker();
@@ -588,6 +590,63 @@ namespace FrbaBus
             {
                 frm.ShowDialog(this);
             }
+        }
+
+        private void btnFinalizarCompra_Click(object sender, EventArgs e)
+        {
+            // Primero tengo que generar la compra;
+            Compra compra = new Compra();
+            compra.FechaCompra = Helpers.FechaHelper.Ahora();
+            compra.IdUsuario = Program.ContextoActual.UsuarioActual.IdUsuario;
+            
+            try
+            {    
+                // Impacto la compra contra la base de datos
+                _compraManager.Alta(compra);
+            }
+            catch (Exception ex)
+            {
+                MensajePorPantalla.MensajeError(this, ex.Message);
+                compra = null;
+            }
+
+            if (compra != null)
+            {
+                try
+                {
+                    //Impacto los pasajes a la compra en la base de datos
+                    int retornoPasajes = AltaPasajesDeCompra();
+
+                    //Impacto las encomiendas a la compra en la base de datos
+                    int retornoEncomiendas = AltaEncomiendasDeCompra();
+
+                    MensajePorPantalla.MensajeInformativo(this, "Se ha dado de alta la compra con id: " + compra.IdCompra);
+                }
+                catch (Exception)
+                {
+                    //Cancelar la compra
+                    throw;
+                }
+            }
+            
+        }
+
+        private int AltaEncomiendasDeCompra()
+        {
+            foreach (Encomienda encomienda in _encomiendas)
+            {
+
+            }
+            return _encomiendas.Count;
+        }
+
+        private int AltaPasajesDeCompra()
+        {
+            foreach (Pasaje pasaje in _pasajes)
+            {
+
+            }
+            return _pasajes.Count();
         }
     }
 }
