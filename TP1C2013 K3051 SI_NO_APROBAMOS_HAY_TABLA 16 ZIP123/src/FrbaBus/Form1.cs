@@ -429,7 +429,7 @@ namespace FrbaBus
             tsmPremios.Enabled = tsmPremiosListado.Enabled || canjearPuntosToolStripMenuItem.Enabled;
 
             //Menú Estadísticas:
-            tsmEstadisticasListados.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmEstadisticasListado");
+            tsmEstadisticasListados.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmEstadisticasListados");
             tsmEstadisticas.Enabled = tsmEstadisticasListados.Enabled;
             
             //Menú Ayuda Usuarios:
