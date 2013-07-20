@@ -116,7 +116,7 @@ namespace FrbaBus.Abm_Viaje
 
         private void ListarRecorridos()
         {
-            var recorridos = _recorridoManager.Listar();
+            var recorridos = _recorridoManager.Listar().OrderBy(r => r.Informacion).ToList() ;
             recorridos.Insert(0, new Recorrido());
             this.cbRecorrido.DataSource = recorridos;
             this.cbRecorrido.DisplayMember = "Informacion";
@@ -131,7 +131,7 @@ namespace FrbaBus.Abm_Viaje
 
         private void ListarMicros()
         {
-            var micros = _microManager.Listar();
+            var micros = _microManager.Listar().OrderBy(m => m.Informacion).ToList();
             micros.Insert(0, new Micro() { });
             this.cbMicro.DataSource = micros;
             this.cbMicro.DisplayMember = "Informacion";

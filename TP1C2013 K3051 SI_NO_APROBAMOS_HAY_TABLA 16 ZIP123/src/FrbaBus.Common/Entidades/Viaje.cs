@@ -25,7 +25,7 @@ namespace FrbaBus.Common.Entidades
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendFormat("Salida {0} - Llegada {1}", FechaSalida.ToShortDateString() ,FechaArriboEstimada.ToShortDateString());
-            return Informacion;
+            return sb.ToString();
         }
 
         public Viaje()
