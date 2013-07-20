@@ -1,4 +1,4 @@
-CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_precio_real_pasaje
+CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_precio_final_pasaje
 (
 	@dni numeric(18,0),
 	@id_recorrido numeric(18,0)

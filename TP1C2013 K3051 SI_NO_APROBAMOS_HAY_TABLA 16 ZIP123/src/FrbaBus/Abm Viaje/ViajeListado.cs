@@ -132,7 +132,7 @@ namespace FrbaBus.Abm_Viaje
         private void ListarMicros()
         {
             var micros = _microManager.Listar();
-            micros.Insert(0, new Micro());
+            micros.Insert(0, new Micro() { });
             this.cbMicro.DataSource = micros;
             this.cbMicro.DisplayMember = "Informacion";
             this.cbMicro.ValueMember = "Id";

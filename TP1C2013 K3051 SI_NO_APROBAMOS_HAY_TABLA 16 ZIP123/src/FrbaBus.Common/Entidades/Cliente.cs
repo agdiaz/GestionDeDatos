@@ -38,7 +38,9 @@ namespace FrbaBus.Common.Entidades
 
         public override string ToString()
         {
-            return (Nombre + " " + Apellido).Trim();
+            StringBuilder sb = new StringBuilder();
+            sb.AppendFormat("DNI: {0} - {1} {2}", NroDni.ToString(), Nombre, Apellido);
+            return sb.ToString();
         }
 
         public Cliente()

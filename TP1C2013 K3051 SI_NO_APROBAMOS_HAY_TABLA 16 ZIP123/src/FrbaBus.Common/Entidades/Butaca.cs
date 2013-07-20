@@ -12,12 +12,16 @@ namespace FrbaBus.Common.Entidades
         public int IdMicro { get; set; }
         public string TipoButaca { get; set; }
         public decimal Piso { get; set; }
-        public string Informacion { get { return "Piso " + Piso.ToString() + " - Nro " + NroButaca.ToString() + " - " + TipoButaca; } }
+        public string Informacion { get { return this.ToString(); } }
 
         public override string ToString()
         {
             if (NroButaca > 0 && Piso > 0 && !string.IsNullOrEmpty(TipoButaca))
-                return Informacion;
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.AppendFormat("Piso: {0} - Nro: {1} {2}", Piso.ToString(), NroButaca.ToString(), TipoButaca);
+                return sb.ToString();
+            }
             else
                 return string.Empty;
         }

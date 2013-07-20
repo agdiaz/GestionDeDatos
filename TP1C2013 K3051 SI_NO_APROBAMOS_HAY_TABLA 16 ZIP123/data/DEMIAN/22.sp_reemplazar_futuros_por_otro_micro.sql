@@ -24,7 +24,8 @@ GO
 
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_reemplazar_futuros_por_otro_micro
 (
-	@id_micro int
+	@id_micro int,
+	@id_micro_nuevo int output
 )
 AS
 BEGIN
@@ -48,4 +49,5 @@ BEGIN
 	WHERE id_micro = @id_micro
 	AND fecha_salida >= GETDATE()
 	
+	SET @id_micro_nuevo = @microElegido
 END

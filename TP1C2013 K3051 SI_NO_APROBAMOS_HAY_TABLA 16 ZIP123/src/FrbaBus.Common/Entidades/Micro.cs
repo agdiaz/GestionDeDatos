@@ -30,13 +30,15 @@ namespace FrbaBus.Common.Entidades
 
 
 
-        public string Informacion { get { return Empresa.Descripcion + " - Pat: " + Patente + " - Serv: " + Servicio.TipoServicio; } }
+        public string Informacion { get { return this.ToString(); } }
 
         public override string ToString()
         {
             if (!string.IsNullOrEmpty(Empresa.Descripcion) && !string.IsNullOrEmpty(Patente) && !string.IsNullOrEmpty(Servicio.TipoServicio))
             {
-                return Informacion;
+                StringBuilder sb = new StringBuilder();
+                sb.AppendFormat("{0} - {1} Servicio {2}", Patente, Empresa.Descripcion, Servicio.TipoServicio);
+                return sb.ToString();
             }
             else
             {
