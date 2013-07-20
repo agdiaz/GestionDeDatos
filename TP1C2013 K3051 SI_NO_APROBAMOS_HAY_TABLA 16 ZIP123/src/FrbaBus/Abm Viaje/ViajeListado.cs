@@ -121,7 +121,7 @@ namespace FrbaBus.Abm_Viaje
             this.cbRecorrido.DataSource = recorridos;
             this.cbRecorrido.DisplayMember = "Informacion";
             this.cbRecorrido.ValueMember = "Id";
-
+          
             if (this._recorrido != null)
             {
                 this.cbRecorrido.SelectedItem = _recorrido;

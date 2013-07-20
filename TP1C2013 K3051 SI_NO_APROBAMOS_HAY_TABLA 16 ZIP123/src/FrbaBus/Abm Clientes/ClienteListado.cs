@@ -44,7 +44,7 @@ namespace FrbaBus.Abm_Clientes
             {
                 btnSeleccionar.Visible = _esParaSeleccionar;
                 LimpiarControles();
-                //CargarListaClientes();
+                CargarListaClientes();
             }
             catch (AccesoBDException ex)
             {
@@ -83,11 +83,15 @@ namespace FrbaBus.Abm_Clientes
 
                 string sexo = string.Empty;
                 if (this.cbFemenino.Checked)
-                    sexo = "M";
+                    sexo = "F";
                 if (cbMasculino.Checked)
-                    sexo = "H";
+                    sexo = "M";
 
                 this.dgvClienteListado.DataSource = _manager.ListarFiltrado(dni, nombre, apellido, discapacitado, sexo);
+                this.dgvClienteListado.Columns["Sexo"].Visible = false;
+                this.dgvClienteListado.Columns["SexoValor"].HeaderText = "Sexo";
+                this.dgvClienteListado.Columns["Puntajes"].Visible = false;
+                this.dgvClienteListado.Columns["Canjes"].Visible = false;
             }
             catch (AccesoBDException ex)
             {
