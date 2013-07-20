@@ -10,7 +10,7 @@ namespace FrbaBus.Common.Entidades
         public int IdRecompensa { get; set; }
         public string Descripcion { get; set; }
         public int Stock { get; set; }
-        public int Costo { get; set; }
+        public int Puntos { get; set; }
 
         public override string ToString()
         {
@@ -22,7 +22,7 @@ namespace FrbaBus.Common.Entidades
             IdRecompensa = 0;
             Descripcion = string.Empty;
             Stock = 0;
-            Costo = 0;
+            Puntos = 0;
         }
     }
 }

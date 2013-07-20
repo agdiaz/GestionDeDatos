@@ -64,9 +64,10 @@ namespace FrbaBus.Abm_Recompensa
                 {
                     stockHasta = Convert.ToInt32(tbStockHasta.Text);
                 }
-
+                
                 IList<Recompensa> recompensas = _manager.ListarFiltrado(descripcion, puntosDesde, puntosHasta, stockDesde, stockHasta);
                 dgvRecomensas.DataSource = recompensas;
+                dgvRecomensas.Columns["IdRecompensa"].Visible = false;
             }
             catch (AccesoBDException ex)
             {

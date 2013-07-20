@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnLimpiar = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbDescripcion = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbPuntosDesde = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tbPuntosHasta = new System.Windows.Forms.TextBox();
-            this.dgvRecomensas = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tbStockDesde = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.tbStockHasta = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbStockDesde = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbPuntosHasta = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbPuntosDesde = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbDescripcion = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.dgvRecomensas = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecomensas)).BeginInit();
             this.SuspendLayout();
@@ -67,15 +67,85 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";
             // 
-            // btnLimpiar
+            // tbStockHasta
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(563, 51);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 0;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            this.tbStockHasta.Location = new System.Drawing.Point(284, 84);
+            this.tbStockHasta.Name = "tbStockHasta";
+            this.tbStockHasta.Size = new System.Drawing.Size(100, 20);
+            this.tbStockHasta.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(214, 87);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Stock hasta";
+            // 
+            // tbStockDesde
+            // 
+            this.tbStockDesde.Location = new System.Drawing.Point(85, 84);
+            this.tbStockDesde.Name = "tbStockDesde";
+            this.tbStockDesde.Size = new System.Drawing.Size(100, 20);
+            this.tbStockDesde.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(7, 87);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(67, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Stock desde";
+            // 
+            // tbPuntosHasta
+            // 
+            this.tbPuntosHasta.Location = new System.Drawing.Point(284, 58);
+            this.tbPuntosHasta.Name = "tbPuntosHasta";
+            this.tbPuntosHasta.Size = new System.Drawing.Size(100, 20);
+            this.tbPuntosHasta.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(209, 61);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(69, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Puntos hasta";
+            // 
+            // tbPuntosDesde
+            // 
+            this.tbPuntosDesde.Location = new System.Drawing.Point(85, 58);
+            this.tbPuntosDesde.Name = "tbPuntosDesde";
+            this.tbPuntosDesde.Size = new System.Drawing.Size(100, 20);
+            this.tbPuntosDesde.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 61);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Puntos desde";
+            // 
+            // tbDescripcion
+            // 
+            this.tbDescripcion.Location = new System.Drawing.Point(85, 32);
+            this.tbDescripcion.Name = "tbDescripcion";
+            this.tbDescripcion.Size = new System.Drawing.Size(299, 20);
+            this.tbDescripcion.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Descripción";
             // 
             // btnBuscar
             // 
@@ -87,96 +157,28 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // label1
+            // btnLimpiar
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Descripción";
-            // 
-            // tbDescripcion
-            // 
-            this.tbDescripcion.Location = new System.Drawing.Point(85, 32);
-            this.tbDescripcion.Name = "tbDescripcion";
-            this.tbDescripcion.Size = new System.Drawing.Size(299, 20);
-            this.tbDescripcion.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 61);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Puntos desde";
-            // 
-            // tbPuntosDesde
-            // 
-            this.tbPuntosDesde.Location = new System.Drawing.Point(85, 58);
-            this.tbPuntosDesde.Name = "tbPuntosDesde";
-            this.tbPuntosDesde.Size = new System.Drawing.Size(100, 20);
-            this.tbPuntosDesde.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(209, 61);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Puntos hasta";
-            // 
-            // tbPuntosHasta
-            // 
-            this.tbPuntosHasta.Location = new System.Drawing.Point(284, 58);
-            this.tbPuntosHasta.Name = "tbPuntosHasta";
-            this.tbPuntosHasta.Size = new System.Drawing.Size(100, 20);
-            this.tbPuntosHasta.TabIndex = 7;
+            this.btnLimpiar.Location = new System.Drawing.Point(563, 51);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpiar.TabIndex = 0;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // dgvRecomensas
             // 
             this.dgvRecomensas.AllowUserToAddRows = false;
             this.dgvRecomensas.AllowUserToDeleteRows = false;
+            this.dgvRecomensas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvRecomensas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvRecomensas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRecomensas.Location = new System.Drawing.Point(13, 131);
             this.dgvRecomensas.Name = "dgvRecomensas";
             this.dgvRecomensas.ReadOnly = true;
             this.dgvRecomensas.Size = new System.Drawing.Size(644, 267);
             this.dgvRecomensas.TabIndex = 1;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 87);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Stock desde";
-            // 
-            // tbStockDesde
-            // 
-            this.tbStockDesde.Location = new System.Drawing.Point(85, 84);
-            this.tbStockDesde.Name = "tbStockDesde";
-            this.tbStockDesde.Size = new System.Drawing.Size(100, 20);
-            this.tbStockDesde.TabIndex = 9;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(214, 87);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 13);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Stock hasta";
-            // 
-            // tbStockHasta
-            // 
-            this.tbStockHasta.Location = new System.Drawing.Point(284, 84);
-            this.tbStockHasta.Name = "tbStockHasta";
-            this.tbStockHasta.Size = new System.Drawing.Size(100, 20);
-            this.tbStockHasta.TabIndex = 11;
             // 
             // RecompensaListado
             // 

@@ -17,7 +17,7 @@ namespace FrbaBus.DAO.Builder
             r.IdRecompensa = Convert.ToInt32(row["id_recompensa"].ToString());
             r.Descripcion = row["descripcion"].ToString();
             r.Stock = Convert.ToInt32(row["stock"].ToString());
-            r.Costo = Convert.ToInt32(row["puntos_costo"].ToString());
+            r.Puntos = Convert.ToInt32(row["puntos_costo"].ToString());
 
             return r;
         }
