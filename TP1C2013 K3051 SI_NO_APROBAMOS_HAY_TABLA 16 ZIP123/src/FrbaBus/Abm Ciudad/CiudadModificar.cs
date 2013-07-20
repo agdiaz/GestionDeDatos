@@ -48,12 +48,10 @@ namespace FrbaBus.Abm_Ciudad
                 catch (AccesoBDException ex)
                 {
                     MensajePorPantalla.MensajeExceptionBD(this, ex);
-                    this.Close();
                 }
                 catch (Exception ex)
                 {
                     MensajePorPantalla.MensajeError(this, "Error al intentar modificar el registro.\n Detalle del error: " + ex.Message);
-                    this.Close();
                 }
 
             }

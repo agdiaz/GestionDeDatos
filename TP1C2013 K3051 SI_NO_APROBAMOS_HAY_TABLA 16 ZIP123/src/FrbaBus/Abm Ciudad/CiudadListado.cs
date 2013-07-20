@@ -74,6 +74,11 @@ namespace FrbaBus.Abm_Ciudad
         }
         private void btnCiudadListadoLimpiar_Click(object sender, EventArgs e)
         {
+            LimpiarCiudades();
+        }
+
+        private void LimpiarCiudades()
+        {
             tbCiudadListadoCiudad.Text = "";
             CargarCiudades();
         }
@@ -87,20 +92,16 @@ namespace FrbaBus.Abm_Ciudad
                 {
                     frm.ShowDialog(this);
                 }
-                CargarCiudades();
+                LimpiarCiudades();
             }
             catch (AccesoBDException ex)
             {
                 MensajePorPantalla.MensajeExceptionBD(this, ex);
-                this.Close();
             }
             catch (Exception ex)
             {
                 MensajePorPantalla.MensajeError(this, "Error al intentar modificar el registro.\n Detalle del error: " + ex.Message);
-                this.Close();
             }
-
-            CargarCiudades();
         }
         private void btnCiudadListadoDarBaja_Click(object sender, EventArgs e)
         {
@@ -108,7 +109,7 @@ namespace FrbaBus.Abm_Ciudad
             {
                 Ciudad ciudad = dgvCiudadListado.SelectedRows[0].DataBoundItem as Ciudad;
                 _manager.Baja(ciudad);
-                CargarCiudades();
+                LimpiarCiudades();
             }
             catch (AccesoBDException ex)
             {
