@@ -221,5 +221,16 @@ namespace FrbaBus.DAO
             micro.KgsDisponibles = Convert.ToDecimal(row["kgs"].ToString());
 
         }
+
+        public bool CheckearPatanteUnica(Micro micro)
+        {
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+            parametros.Add(new SqlParameter("@p_patente", SqlDbType.VarChar, 50, "p_patente"), micro.Patente);
+
+            DataRow row = accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_existe_patente", parametros).Tables[0].Rows[0];
+
+            var cant = Convert.ToInt32(row["cant"].ToString());
+            return cant == 0;            
+        }
     }
 }

@@ -52,6 +52,12 @@ namespace FrbaBus.Manager
             _dao.Modificacion(micro);
         }
 
+        public bool CheckearPatanteUnica(Micro micro)
+        {
+            return _dao.CheckearPatanteUnica(micro);
+        }
+
+
         public IList<Micro> Listar()
         {
             var micros = _dao.Listar();

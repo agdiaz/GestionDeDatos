@@ -86,13 +86,20 @@ namespace FrbaBus.Abm_Micro
                         Empresa = empresa
                     };
 
-                    _manager.Alta(micro);
+                    if (_manager.CheckearPatanteUnica(micro))
+                    {
+                        _manager.Alta(micro);
 
-                    MensajePorPantalla.MensajeInformativo(this, "Se dio de alta el micro con el id: " + micro.Id.ToString());
+                        MensajePorPantalla.MensajeInformativo(this, "Se dio de alta el micro con el id: " + micro.Id.ToString());
 
-                    this.PreguntarCargarButacas(micro);
+                        this.PreguntarCargarButacas(micro);
 
-                    this.Close();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MensajePorPantalla.MensajeError(this, "Ya existe un micro con la patente: " + micro.Patente);
+                    }
                 }
                 catch (AccesoBDException ex)
                 {

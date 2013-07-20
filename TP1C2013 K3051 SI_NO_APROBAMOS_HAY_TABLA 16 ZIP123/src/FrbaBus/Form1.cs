@@ -638,14 +638,24 @@ namespace FrbaBus
             if (cantDiscapacitados > 2)
             {
                 MensajePorPantalla.MensajeError(this, "Solo puede haber un pasajero discapacitado por compra");
+                return;
             }
 
             if (cantDiscapacitados == 1)
             {
-                var pasajeDelDiscapacitado = clientes.Where(c => c.EsDiscapacitado).FirstOrDefault();
+                var pasajesAQuitarMonto = new List<Pasaje>();
+                
+                var discapacitado = clientes.Where(c => c.EsDiscapacitado).FirstOrDefault();
+                pasajesAQuitarMonto.Add(_pasajes.First(p => p.NroDni == discapacitado.NroDni));
+
                 if (_pasajes.Count > 1)
                 {
-                    var otroPasaje = _pasajes.FirstOrDefault(p => p.NroDni != pasajeDelDiscapacitado.NroDni);
+                    pasajesAQuitarMonto.Add(_pasajes.FirstOrDefault(p => p.NroDni != discapacitado.NroDni));
+                }
+
+                foreach (Pasaje p in pasajesAQuitarMonto)
+                {
+                    p.PrecioPasaje = 0;
                 }
             }
 
