@@ -81,6 +81,7 @@ namespace FrbaBus.Abm_Micro
             if (_viaje.Micro != null)
             {
                 tbMicro.Text = _viaje.Micro.Informacion;
+                btnBuscarMicro.Enabled = false;
             }
         }
         #endregion

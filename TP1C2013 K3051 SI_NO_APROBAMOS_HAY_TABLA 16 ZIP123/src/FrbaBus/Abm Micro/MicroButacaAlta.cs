@@ -91,7 +91,7 @@ namespace FrbaBus.Abm_Micro
 
         private void btnNueva_Click(object sender, EventArgs e)
         {
-            if (_desdeAltaMicro && Butacas.Count > _cantButacasMaxima)
+            if (_desdeAltaMicro && Butacas.Count < _cantButacasMaxima)
                 LimpiarNuevaButaca(true);
             else
             {
