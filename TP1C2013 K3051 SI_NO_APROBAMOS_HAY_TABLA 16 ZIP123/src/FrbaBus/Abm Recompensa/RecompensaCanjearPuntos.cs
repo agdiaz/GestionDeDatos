@@ -52,26 +52,35 @@ namespace FrbaBus.Abm_Recompensa
 
         private void btnRecompensaCanjearPuntosCanjear_Click(object sender, EventArgs e)
         {
-            decimal dniCliente = Convert.ToDecimal(tbRecompensaCanjearPuntosDni.Text);
 
-            Recompensa recompensa = dgvRecompensaCanjearPuntosPremiosDisponibles.SelectedRows[0].DataBoundItem as Recompensa;
-
-            int cantidadPedidad = Convert.ToInt32(tbRecompensaCanjearPuntosCantidadPedida.Text);
-
-            _manager.CanjearPuntos(dniCliente,recompensa.IdRecompensa,cantidadPedidad);
+            try
+            {
 
 
-#region Actualizando datagridview's después de un canje
+                decimal dniCliente = Convert.ToDecimal(tbRecompensaCanjearPuntosDni.Text);
 
-            tbRecompensaCanjearPuntosPuntosAcumulados.Text = _manager.ObtenerPuntosCliente(dniCliente);
+                Recompensa recompensa = dgvRecompensaCanjearPuntosPremiosDisponibles.SelectedRows[0].DataBoundItem as Recompensa;
 
-            this.dgvRecompensaCanjearPuntosRegistroPuntos.DataSource = _manager.ObtenerRegistroPuntosCliente(dniCliente).Tables[0];
+                int cantidadPedidad = Convert.ToInt32(tbRecompensaCanjearPuntosCantidadPedida.Text);
 
-            int puntosAcumuladosActualizados = Convert.ToInt32(tbRecompensaCanjearPuntosPuntosAcumulados.Text);
-            IList<Recompensa> recompensas = _manager.ListarFiltrado("", 0, puntosAcumuladosActualizados, 0, 9999);
-            this.dgvRecompensaCanjearPuntosPremiosDisponibles.DataSource = recompensas;
+                _manager.CanjearPuntos(dniCliente, recompensa.IdRecompensa, cantidadPedidad);
 
-#endregion Actualizando datagridview's después de un canje
+
+                #region Actualizando datagridview's después de un canje
+
+                tbRecompensaCanjearPuntosPuntosAcumulados.Text = _manager.ObtenerPuntosCliente(dniCliente);
+
+                this.dgvRecompensaCanjearPuntosRegistroPuntos.DataSource = _manager.ObtenerRegistroPuntosCliente(dniCliente).Tables[0];
+
+                int puntosAcumuladosActualizados = Convert.ToInt32(tbRecompensaCanjearPuntosPuntosAcumulados.Text);
+                IList<Recompensa> recompensas = _manager.ListarFiltrado("", 0, puntosAcumuladosActualizados, 0, 9999);
+                this.dgvRecompensaCanjearPuntosPremiosDisponibles.DataSource = recompensas;
+
+                #endregion Actualizando datagridview's después de un canje
+
+            } catch(Exception x){
+                if (1 == 1) ;
+            }
 
         }
     }
