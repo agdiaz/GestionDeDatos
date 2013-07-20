@@ -9,7 +9,7 @@ CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_listar_detallado_encomienda
 AS
 BEGIN
 	SELECT e.id_encomienda, e.id_viaje, e.id_compra,
-			e.id_cancelacion, e.dni, e.peso, e.pre_encomienda,
+			ISNULL(e.id_cancelacion, 0) as id_cancelacion, e.dni, e.peso, e.pre_encomienda,
 			e.cancel, e.fecha_cancel, e.motivo_cancel, e.baja
 	FROM SI_NO_APROBAMOS_HAY_TABLA.Encomienda e
 	INNER JOIN SI_NO_APROBAMOS_HAY_TABLA.Viaje v
