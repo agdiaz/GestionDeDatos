@@ -106,6 +106,12 @@
     <Compile Include="Abm Micro\MicroButacaListado.Designer.cs">
       <DependentUpon>MicroButacaListado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Micro\MicroDecision.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Micro\MicroDecision.Designer.cs">
+      <DependentUpon>MicroDecision.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Micro\MicroModificar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -333,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Micro\MicroButacaListado.resx">
       <DependentUpon>MicroButacaListado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Micro\MicroDecision.resx">
+      <DependentUpon>MicroDecision.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Micro\MicroModificar.resx">
       <DependentUpon>MicroModificar.cs</DependentUpon>

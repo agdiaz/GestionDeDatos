@@ -98,5 +98,15 @@ namespace FrbaBus.Manager
         {
             _dao.ObtenerDisponibilidades(micro, idViaje);
         }
+
+        public void CancelarTodosLosViajes(Micro _micro)
+        {
+            _dao.CancelarTodosLosViajes(_micro.Id);
+        }
+
+        public int ReAsignarMicros(Micro _micro)
+        {
+            return _dao.ReAsignarMicros(_micro.Id);
+        }
     }
 }

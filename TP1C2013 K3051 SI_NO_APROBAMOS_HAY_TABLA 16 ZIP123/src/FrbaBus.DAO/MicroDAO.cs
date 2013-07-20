@@ -232,5 +232,26 @@ namespace FrbaBus.DAO
             var cant = Convert.ToInt32(row["cant"].ToString());
             return cant == 0;            
         }
+
+        public void CancelarTodosLosViajes(int p)
+        {
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+            parametros.Add(new SqlParameter("@id_micro", SqlDbType.Int, 4, "id_micro"), p);
+
+            accesoBD.EjecutarComando("[SI_NO_APROBAMOS_HAY_TABLA].[sp_baja_logica_micro]", parametros);
+        }
+
+        public int ReAsignarMicros(int p)
+        {
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+            parametros.Add(new SqlParameter("@id_micro", SqlDbType.Int, 4, "id_micro"), p);
+
+            SqlParameter pId = new SqlParameter("@id_micro_nuevo", SqlDbType.Int, 4, "id_micro_nuevo");
+            pId.Direction = ParameterDirection.Output;
+            parametros.Add(pId, 0);
+
+            accesoBD.EjecutarComando("[SI_NO_APROBAMOS_HAY_TABLA].[sp_reemplazar_futuros_por_otrro_micro]", parametros);
+            return Convert.ToInt32(pId.Value);
+        }
     }
 }

@@ -209,8 +209,11 @@ namespace FrbaBus.Abm_Micro
             try
             {
                 Micro micro = dgvMicroListado.SelectedRows[0].DataBoundItem as Micro;
-                _manager.Baja(micro);
-                MensajePorPantalla.MensajeInformativo(this, "Se dio de baja el micro");
+
+                using (MicroDecision frm = new MicroDecision(micro))
+                {
+                    frm.ShowDialog(this);
+                }
                 Limpiar();
                 Filtrar();
 
