@@ -138,6 +138,9 @@
             this.tsmEncomiendasListar = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnFinalizarCompra = new System.Windows.Forms.Button();
+            this.rbEfectivo = new System.Windows.Forms.RadioButton();
+            this.rbTarjeta = new System.Windows.Forms.RadioButton();
             this.mnsMain.SuspendLayout();
             this.ssStatusMain.SuspendLayout();
             this.gbViaje.SuspendLayout();
@@ -145,6 +148,7 @@
             this.gbDetalles.SuspendLayout();
             this.gbEncomiendas.SuspendLayout();
             this.gbPasajeros.SuspendLayout();
+            this.gbMedioDePago.SuspendLayout();
             this.gbRecorrido.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -530,7 +534,7 @@
             // tsmEstadisticasListados
             // 
             this.tsmEstadisticasListados.Name = "tsmEstadisticasListados";
-            this.tsmEstadisticasListados.Size = new System.Drawing.Size(117, 22);
+            this.tsmEstadisticasListados.Size = new System.Drawing.Size(152, 22);
             this.tsmEstadisticasListados.Text = "Listados";
             this.tsmEstadisticasListados.Click += new System.EventHandler(this.tsmEstadisticasListados_Click);
             // 
@@ -800,7 +804,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(19, 86);
+            this.label4.Location = new System.Drawing.Point(15, 58);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 13);
             this.label4.TabIndex = 5;
@@ -810,7 +814,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(19, 52);
+            this.label3.Location = new System.Drawing.Point(15, 24);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 13);
             this.label3.TabIndex = 4;
@@ -999,11 +1003,14 @@
             // 
             // gbMedioDePago
             // 
+            this.gbMedioDePago.Controls.Add(this.rbTarjeta);
+            this.gbMedioDePago.Controls.Add(this.rbEfectivo);
+            this.gbMedioDePago.Controls.Add(this.btnFinalizarCompra);
             this.gbMedioDePago.Enabled = false;
             this.gbMedioDePago.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbMedioDePago.Location = new System.Drawing.Point(778, 89);
             this.gbMedioDePago.Name = "gbMedioDePago";
-            this.gbMedioDePago.Size = new System.Drawing.Size(226, 299);
+            this.gbMedioDePago.Size = new System.Drawing.Size(226, 127);
             this.gbMedioDePago.TabIndex = 8;
             this.gbMedioDePago.TabStop = false;
             this.gbMedioDePago.Text = "4) Medio de pago";
@@ -1018,9 +1025,9 @@
             this.gbRecorrido.Controls.Add(this.label4);
             this.gbRecorrido.Controls.Add(this.label3);
             this.gbRecorrido.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbRecorrido.Location = new System.Drawing.Point(13, 89);
+            this.gbRecorrido.Location = new System.Drawing.Point(13, 137);
             this.gbRecorrido.Name = "gbRecorrido";
-            this.gbRecorrido.Size = new System.Drawing.Size(351, 203);
+            this.gbRecorrido.Size = new System.Drawing.Size(351, 155);
             this.gbRecorrido.TabIndex = 9;
             this.gbRecorrido.TabStop = false;
             this.gbRecorrido.Text = "1) Recorrido";
@@ -1028,7 +1035,7 @@
             // btnCargarViaje
             // 
             this.btnCargarViaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCargarViaje.Location = new System.Drawing.Point(22, 166);
+            this.btnCargarViaje.Location = new System.Drawing.Point(18, 123);
             this.btnCargarViaje.Name = "btnCargarViaje";
             this.btnCargarViaje.Size = new System.Drawing.Size(75, 23);
             this.btnCargarViaje.TabIndex = 10;
@@ -1038,7 +1045,7 @@
             // 
             // tbRecorridoServicio
             // 
-            this.tbRecorridoServicio.Location = new System.Drawing.Point(105, 120);
+            this.tbRecorridoServicio.Location = new System.Drawing.Point(101, 92);
             this.tbRecorridoServicio.Name = "tbRecorridoServicio";
             this.tbRecorridoServicio.ReadOnly = true;
             this.tbRecorridoServicio.Size = new System.Drawing.Size(200, 20);
@@ -1048,7 +1055,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(47, 123);
+            this.label10.Location = new System.Drawing.Point(43, 95);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(45, 13);
             this.label10.TabIndex = 8;
@@ -1056,7 +1063,7 @@
             // 
             // tbRecorridoCiudadDestino
             // 
-            this.tbRecorridoCiudadDestino.Location = new System.Drawing.Point(104, 87);
+            this.tbRecorridoCiudadDestino.Location = new System.Drawing.Point(100, 59);
             this.tbRecorridoCiudadDestino.Name = "tbRecorridoCiudadDestino";
             this.tbRecorridoCiudadDestino.ReadOnly = true;
             this.tbRecorridoCiudadDestino.Size = new System.Drawing.Size(201, 20);
@@ -1064,7 +1071,7 @@
             // 
             // tbRecorridoCiudadOrigen
             // 
-            this.tbRecorridoCiudadOrigen.Location = new System.Drawing.Point(105, 52);
+            this.tbRecorridoCiudadOrigen.Location = new System.Drawing.Point(101, 24);
             this.tbRecorridoCiudadOrigen.Name = "tbRecorridoCiudadOrigen";
             this.tbRecorridoCiudadOrigen.ReadOnly = true;
             this.tbRecorridoCiudadOrigen.Size = new System.Drawing.Size(200, 20);
@@ -1072,11 +1079,12 @@
             // 
             // btnComprar
             // 
-            this.btnComprar.Location = new System.Drawing.Point(493, 41);
+            this.btnComprar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnComprar.Location = new System.Drawing.Point(18, 89);
             this.btnComprar.Name = "btnComprar";
-            this.btnComprar.Size = new System.Drawing.Size(75, 33);
+            this.btnComprar.Size = new System.Drawing.Size(126, 33);
             this.btnComprar.TabIndex = 10;
-            this.btnComprar.Text = "Comprar";
+            this.btnComprar.Text = "Iniciar la compra";
             this.btnComprar.UseVisualStyleBackColor = true;
             this.btnComprar.Click += new System.EventHandler(this.btnComprar_Click);
             // 
@@ -1125,6 +1133,37 @@
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(199, 6);
             // 
+            // btnFinalizarCompra
+            // 
+            this.btnFinalizarCompra.Location = new System.Drawing.Point(75, 90);
+            this.btnFinalizarCompra.Name = "btnFinalizarCompra";
+            this.btnFinalizarCompra.Size = new System.Drawing.Size(75, 23);
+            this.btnFinalizarCompra.TabIndex = 0;
+            this.btnFinalizarCompra.Text = "Finalizar compra";
+            this.btnFinalizarCompra.UseVisualStyleBackColor = true;
+            // 
+            // rbEfectivo
+            // 
+            this.rbEfectivo.AutoSize = true;
+            this.rbEfectivo.Location = new System.Drawing.Point(17, 58);
+            this.rbEfectivo.Name = "rbEfectivo";
+            this.rbEfectivo.Size = new System.Drawing.Size(72, 17);
+            this.rbEfectivo.TabIndex = 1;
+            this.rbEfectivo.TabStop = true;
+            this.rbEfectivo.Text = "Efectivo";
+            this.rbEfectivo.UseVisualStyleBackColor = true;
+            // 
+            // rbTarjeta
+            // 
+            this.rbTarjeta.AutoSize = true;
+            this.rbTarjeta.Location = new System.Drawing.Point(17, 33);
+            this.rbTarjeta.Name = "rbTarjeta";
+            this.rbTarjeta.Size = new System.Drawing.Size(65, 17);
+            this.rbTarjeta.TabIndex = 2;
+            this.rbTarjeta.TabStop = true;
+            this.rbTarjeta.Text = "Tarjeta";
+            this.rbTarjeta.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1157,6 +1196,8 @@
             this.gbEncomiendas.ResumeLayout(false);
             this.gbPasajeros.ResumeLayout(false);
             this.gbPasajeros.PerformLayout();
+            this.gbMedioDePago.ResumeLayout(false);
+            this.gbMedioDePago.PerformLayout();
             this.gbRecorrido.ResumeLayout(false);
             this.gbRecorrido.PerformLayout();
             this.ResumeLayout(false);
@@ -1276,6 +1317,9 @@
         private System.Windows.Forms.ToolStripMenuItem tsmPasajesListar;
         private System.Windows.Forms.ToolStripMenuItem tsmEncomiendasListar;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.Button btnFinalizarCompra;
+        private System.Windows.Forms.RadioButton rbTarjeta;
+        private System.Windows.Forms.RadioButton rbEfectivo;
     }
 }
 

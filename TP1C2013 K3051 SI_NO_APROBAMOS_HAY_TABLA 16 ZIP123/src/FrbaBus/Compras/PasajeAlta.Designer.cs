@@ -45,7 +45,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 27);
+            this.label1.Location = new System.Drawing.Point(20, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 13);
             this.label1.TabIndex = 0;
@@ -53,7 +53,7 @@
             // 
             // tbMicro
             // 
-            this.tbMicro.Location = new System.Drawing.Point(63, 24);
+            this.tbMicro.Location = new System.Drawing.Point(63, 38);
             this.tbMicro.Name = "tbMicro";
             this.tbMicro.Size = new System.Drawing.Size(240, 20);
             this.tbMicro.TabIndex = 1;
@@ -70,7 +70,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 108);
+            this.label3.Location = new System.Drawing.Point(18, 93);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 3;
@@ -78,9 +78,9 @@
             // 
             // btnBuscarCliente
             // 
-            this.btnBuscarCliente.Location = new System.Drawing.Point(320, 61);
+            this.btnBuscarCliente.Location = new System.Drawing.Point(309, 62);
             this.btnBuscarCliente.Name = "btnBuscarCliente";
-            this.btnBuscarCliente.Size = new System.Drawing.Size(105, 23);
+            this.btnBuscarCliente.Size = new System.Drawing.Size(114, 23);
             this.btnBuscarCliente.TabIndex = 4;
             this.btnBuscarCliente.Text = "Seleccionar cliente";
             this.btnBuscarCliente.UseVisualStyleBackColor = true;
@@ -95,14 +95,14 @@
             // 
             // tbButaca
             // 
-            this.tbButaca.Location = new System.Drawing.Point(63, 105);
+            this.tbButaca.Location = new System.Drawing.Point(63, 90);
             this.tbButaca.Name = "tbButaca";
             this.tbButaca.Size = new System.Drawing.Size(238, 20);
             this.tbButaca.TabIndex = 6;
             // 
             // btnSeleccionarButaca
             // 
-            this.btnSeleccionarButaca.Location = new System.Drawing.Point(318, 105);
+            this.btnSeleccionarButaca.Location = new System.Drawing.Point(309, 87);
             this.btnSeleccionarButaca.Name = "btnSeleccionarButaca";
             this.btnSeleccionarButaca.Size = new System.Drawing.Size(114, 23);
             this.btnSeleccionarButaca.TabIndex = 7;
@@ -132,7 +132,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 135);
+            this.label4.Location = new System.Drawing.Point(20, 119);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 10;
@@ -140,7 +140,8 @@
             // 
             // tbPrecio
             // 
-            this.tbPrecio.Location = new System.Drawing.Point(63, 131);
+            this.tbPrecio.Enabled = false;
+            this.tbPrecio.Location = new System.Drawing.Point(63, 116);
             this.tbPrecio.Name = "tbPrecio";
             this.tbPrecio.Size = new System.Drawing.Size(100, 20);
             this.tbPrecio.TabIndex = 11;
@@ -163,7 +164,7 @@
             this.Controls.Add(this.tbMicro);
             this.Controls.Add(this.label1);
             this.Name = "PasajeAlta";
-            this.Text = "PasajeAlta";
+            this.Text = "FrbaBus - Pasajes :: Alta";
             this.Load += new System.EventHandler(this.PasajeAlta_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
