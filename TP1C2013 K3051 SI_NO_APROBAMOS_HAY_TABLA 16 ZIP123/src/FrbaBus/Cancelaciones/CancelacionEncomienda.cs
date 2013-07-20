@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using FrbaBus.Manager;
+using FrbaBus.Common.Entidades;
 
 namespace FrbaBus.Cancelaciones
 {
@@ -20,7 +21,12 @@ namespace FrbaBus.Cancelaciones
 
         private void btnCancelacionEncomiendaBuscarCompra_Click(object sender, EventArgs e)
         {
-
+            Encomienda encomienda = null;
+            using (Compras.EncomiendaListado frm = new FrbaBus.Compras.EncomiendaListado())
+            {
+                frm.ShowDialog();
+                
+            }
         }
     }
 }

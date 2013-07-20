@@ -15,5 +15,14 @@ namespace FrbaBus.Cancelaciones
         {
             InitializeComponent();
         }
+
+        private void btnCancelacionPasajeBuscarCompra_Click(object sender, EventArgs e)
+        {
+            using (Compras.PasajeListado frm = new FrbaBus.Compras.PasajeListado())
+            {
+                frm.ShowDialog();
+            }
+        }
+        
     }
 }

@@ -127,6 +127,7 @@
             this.btnCancelacionPasajeBuscarCompra.TabIndex = 18;
             this.btnCancelacionPasajeBuscarCompra.Text = "Buscar";
             this.btnCancelacionPasajeBuscarCompra.UseVisualStyleBackColor = true;
+            this.btnCancelacionPasajeBuscarCompra.Click += new System.EventHandler(this.btnCancelacionPasajeBuscarCompra_Click);
             // 
             // lblCancelacionPasajeCompra
             // 

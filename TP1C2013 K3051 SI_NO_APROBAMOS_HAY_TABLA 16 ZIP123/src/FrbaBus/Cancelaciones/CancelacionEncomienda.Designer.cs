@@ -121,7 +121,7 @@
             // 
             // btnCancelacionEncomiendaBuscarCompra
             // 
-            this.btnCancelacionEncomiendaBuscarCompra.Location = new System.Drawing.Point(331, 34);
+            this.btnCancelacionEncomiendaBuscarCompra.Location = new System.Drawing.Point(331, 114);
             this.btnCancelacionEncomiendaBuscarCompra.Name = "btnCancelacionEncomiendaBuscarCompra";
             this.btnCancelacionEncomiendaBuscarCompra.Size = new System.Drawing.Size(75, 23);
             this.btnCancelacionEncomiendaBuscarCompra.TabIndex = 9;
