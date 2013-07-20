@@ -79,11 +79,19 @@ namespace FrbaBus.Compras
         }
         private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
-
+            this._cliente = ObtenerCliente();
+            if (_butaca != null && _cliente != null)
+            {
+                MostrarPrecio();
+            }
         }
         private void btnSeleccionarButaca_Click(object sender, EventArgs e)
         {
-
+            this._butaca = ObtenerButaca();
+            if (_butaca != null && _cliente != null)
+            {
+                MostrarPrecio();
+            }
         }
         private Butaca ObtenerButaca()
         {
@@ -120,6 +128,11 @@ namespace FrbaBus.Compras
                 }
             }
             return cliente;
+        }
+        private void MostrarPrecio()
+        {
+            decimal precio = this._manager.BuscarPrecio(_viaje.Recorrido, _cliente.NroDni);
+            this.tbPrecio.Text = precio.ToString();
         }
 
     }
