@@ -45,10 +45,10 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tbCantButacas = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.cbBajaVidaUtil = new System.Windows.Forms.CheckBox();
             this.dtpFechaBajaUtil = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tbCantButacas = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -134,7 +134,8 @@
             this.cbbMicroModificarTipoModelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbMicroModificarTipoModelo.FormattingEnabled = true;
             this.cbbMicroModificarTipoModelo.Items.AddRange(new object[] {
-            "Modelo"});
+            "",
+            "modelo"});
             this.cbbMicroModificarTipoModelo.Location = new System.Drawing.Point(112, 17);
             this.cbbMicroModificarTipoModelo.Name = "cbbMicroModificarTipoModelo";
             this.cbbMicroModificarTipoModelo.Size = new System.Drawing.Size(161, 21);
@@ -225,6 +226,22 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Opciones";
             // 
+            // tbCantButacas
+            // 
+            this.tbCantButacas.Location = new System.Drawing.Point(118, 89);
+            this.tbCantButacas.Name = "tbCantButacas";
+            this.tbCantButacas.Size = new System.Drawing.Size(100, 20);
+            this.tbCantButacas.TabIndex = 22;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(52, 92);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 13);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Butacas";
+            // 
             // cbBajaVidaUtil
             // 
             this.cbBajaVidaUtil.AutoSize = true;
@@ -243,22 +260,6 @@
             this.dtpFechaBajaUtil.Name = "dtpFechaBajaUtil";
             this.dtpFechaBajaUtil.Size = new System.Drawing.Size(146, 20);
             this.dtpFechaBajaUtil.TabIndex = 19;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(52, 92);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 13);
-            this.label3.TabIndex = 21;
-            this.label3.Text = "Butacas";
-            // 
-            // tbCantButacas
-            // 
-            this.tbCantButacas.Location = new System.Drawing.Point(118, 89);
-            this.tbCantButacas.Name = "tbCantButacas";
-            this.tbCantButacas.Size = new System.Drawing.Size(100, 20);
-            this.tbCantButacas.TabIndex = 22;
             // 
             // MicroModificar
             // 

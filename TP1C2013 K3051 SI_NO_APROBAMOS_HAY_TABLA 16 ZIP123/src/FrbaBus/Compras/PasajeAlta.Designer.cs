@@ -53,6 +53,7 @@
             // 
             // tbMicro
             // 
+            this.tbMicro.Enabled = false;
             this.tbMicro.Location = new System.Drawing.Point(63, 38);
             this.tbMicro.Name = "tbMicro";
             this.tbMicro.Size = new System.Drawing.Size(240, 20);
@@ -88,6 +89,7 @@
             // 
             // tbCliente
             // 
+            this.tbCliente.Enabled = false;
             this.tbCliente.Location = new System.Drawing.Point(63, 64);
             this.tbCliente.Name = "tbCliente";
             this.tbCliente.Size = new System.Drawing.Size(240, 20);
@@ -95,6 +97,7 @@
             // 
             // tbButaca
             // 
+            this.tbButaca.Enabled = false;
             this.tbButaca.Location = new System.Drawing.Point(63, 90);
             this.tbButaca.Name = "tbButaca";
             this.tbButaca.Size = new System.Drawing.Size(238, 20);

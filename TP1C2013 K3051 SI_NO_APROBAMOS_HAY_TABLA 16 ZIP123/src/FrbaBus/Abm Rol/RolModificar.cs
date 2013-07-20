@@ -71,33 +71,52 @@ namespace FrbaBus.Rol
 
         private void btnRolModificarGuardar_Click(object sender, EventArgs e)
         {
-            try
+            if (this.ValidarDatos())
             {
-                Rol.Inhabilitado = this.cbHabilitado.Checked;
-                Rol.Nombre = this.tbRolModificarNuevoRol.Text;
-
-                _manager.BajaRolFuncionalidades(Rol);
-
-                foreach (var funcObj in this.clbFuncionalidades.CheckedItems)
+                try
                 {
-                    Funcionalidad f = (Funcionalidad)funcObj;
-                    _funcionalidadManager.AsociarRolFuncionalidad(Rol, f);
-                }
-                _manager.Modificar(Rol);
+                    Rol.Inhabilitado = this.cbHabilitado.Checked;
+                    Rol.Nombre = this.tbRolModificarNuevoRol.Text;
 
-                MensajePorPantalla.MensajeInformativo(this, "Se ha modificado el rol con el id: " + Rol.IdRol.ToString());
-                this.Close();
+                    _manager.BajaRolFuncionalidades(Rol);
+
+                    foreach (var funcObj in this.clbFuncionalidades.CheckedItems)
+                    {
+                        Funcionalidad f = (Funcionalidad)funcObj;
+                        _funcionalidadManager.AsociarRolFuncionalidad(Rol, f);
+                    }
+                    _manager.Modificar(Rol);
+
+                    MensajePorPantalla.MensajeInformativo(this, "Se ha modificado el rol con el id: " + Rol.IdRol.ToString());
+                    this.Close();
+                }
+                catch (AccesoBDException ex)
+                {
+                    MensajePorPantalla.MensajeExceptionBD(this, ex);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MensajePorPantalla.MensajeError(this, "Error al intentar modificar el registro.\n Detalle del error: " + ex.Message);
+                    this.Close();
+                } 
             }
-            catch (AccesoBDException ex)
+        }
+
+        private bool ValidarDatos()
+        {
+            if (string.IsNullOrEmpty(tbRolModificarNuevoRol.Text))
             {
-                MensajePorPantalla.MensajeExceptionBD(this, ex);
-                this.Close();
+                MensajePorPantalla.MensajeError(this, "Debe ingresar un nombre de rol");
+                return false;
             }
-            catch (Exception ex)
+            if (this.clbFuncionalidades.CheckedItems.Count < 1)
             {
-                MensajePorPantalla.MensajeError(this, "Error al intentar modificar el registro.\n Detalle del error: " + ex.Message);
-                this.Close();
+                MensajePorPantalla.MensajeError(this, "Debe ingresar al menos una funcionalidad");
+                return false;
             }
+
+            return true;
         }
     }
 }

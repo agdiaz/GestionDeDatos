@@ -50,7 +50,8 @@ namespace FrbaBus.Abm_Micro
         private void CargarEmpresas()
         {
             IList<Empresa> empresas = _empresaManager.Listar();
-
+            empresas.Insert(0, new Empresa() {});
+            
             this.cbbMicroAltaTipoEmpresa.DataSource = empresas;
             this.cbbMicroAltaTipoEmpresa.DisplayMember = "Descripcion";
             this.cbbMicroAltaTipoEmpresa.ValueMember = "Id";
@@ -58,6 +59,7 @@ namespace FrbaBus.Abm_Micro
         private void CargarServicios()
         {
             IList<Servicio> servicios = _servicioManager.Listar();
+            servicios.Insert(0, new Servicio());
 
             this.cbbMicroAltaTipoServicio.DataSource = servicios;
             this.cbbMicroAltaTipoServicio.DisplayMember = "TipoServicio";
