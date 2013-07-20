@@ -380,8 +380,17 @@
     <EmbeddedResource Include="Ayuda\AyudaUsuarios.resx">
       <DependentUpon>AyudaUsuarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Cancelaciones\CancelacionCompra.resx">
+      <DependentUpon>CancelacionCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\EncomiendaListado.resx">
+      <DependentUpon>EncomiendaListado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Compras\PasajeAlta.resx">
       <DependentUpon>PasajeAlta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\PasajeListado.resx">
+      <DependentUpon>PasajeListado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\PasajeModificar.resx">
       <DependentUpon>PasajeModificar.cs</DependentUpon>
