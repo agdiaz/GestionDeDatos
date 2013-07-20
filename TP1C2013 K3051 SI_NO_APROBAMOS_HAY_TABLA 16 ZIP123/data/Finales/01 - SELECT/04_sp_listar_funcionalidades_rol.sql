@@ -22,5 +22,7 @@ BEGIN
 	INNER JOIN SI_NO_APROBAMOS_HAY_TABLA.Rol r
 		ON rf.id_rol = r.id_rol
 	WHERE r.id_rol = @p_id_rol
+	and r.baja = 0
+	and f.baja = 0
 END
 

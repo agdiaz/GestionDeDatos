@@ -7,4 +7,5 @@ SELECT [id_funcionalidad]
       ,[activa]
       ,[baja]
   FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad]
-END
+  WHERE baja = 0
+ END

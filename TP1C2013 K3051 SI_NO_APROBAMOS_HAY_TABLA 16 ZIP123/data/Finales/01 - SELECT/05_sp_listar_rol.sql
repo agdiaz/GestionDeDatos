@@ -6,4 +6,5 @@ BEGIN
       ,[nombre]
       ,[inhabilitado]
   FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol]
+  WHERE baja = 0
 END
