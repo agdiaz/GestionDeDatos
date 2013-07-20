@@ -383,8 +383,20 @@
     <EmbeddedResource Include="Cancelaciones\CancelacionCompra.resx">
       <DependentUpon>CancelacionCompra.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Cancelaciones\CancelacionEncomienda.resx">
+      <DependentUpon>CancelacionEncomienda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cancelaciones\CancelacionPasaje.resx">
+      <DependentUpon>CancelacionPasaje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\EncomiendaAlta.resx">
+      <DependentUpon>EncomiendaAlta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Compras\EncomiendaListado.resx">
       <DependentUpon>EncomiendaListado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\EncomiendaModificar.resx">
+      <DependentUpon>EncomiendaModificar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\PasajeAlta.resx">
       <DependentUpon>PasajeAlta.cs</DependentUpon>

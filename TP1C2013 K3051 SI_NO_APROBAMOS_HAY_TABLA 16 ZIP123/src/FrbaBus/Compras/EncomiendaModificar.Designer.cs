@@ -138,7 +138,7 @@
             this.Controls.Add(this.lblEncomiendaModificarViaje);
             this.Controls.Add(this.lblEncomiendaModificarDniCliente);
             this.Name = "EncomiendaModificar";
-            this.Text = "EncomiendaModificar";
+            this.Text = "Modificar Encomiendas";
             this.ResumeLayout(false);
             this.PerformLayout();
 
