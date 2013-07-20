@@ -767,9 +767,6 @@ CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Compra](
 	[id_usuario] [int] NOT NULL,
 	[id_cancelacion] [int] NULL,
 	[fecha_compra] [datetime] NOT NULL,
-	[cancel] [bit] NOT NULL,
-	[fecha_cancel] [datetime] NULL,
-	[motivo_cancel] [nvarchar](200) NULL,
 	[baja] [bit] NOT NULL,
  CONSTRAINT [PK_Compra] PRIMARY KEY CLUSTERED 
 (
@@ -791,11 +788,6 @@ REFERENCES [SI_NO_APROBAMOS_HAY_TABLA].[Cancelacion] ([id_cancelacion])
 GO
 
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Compra] CHECK CONSTRAINT [FK_Compra_Cancelacion]
-GO
-
-
-
-ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Compra] ADD  CONSTRAINT [DF_Compra_cancel]  DEFAULT ((0)) FOR [cancel]
 GO
 
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Compra] ADD  CONSTRAINT [DF_Compra_baja]  DEFAULT ((0)) FOR [baja]
@@ -827,9 +819,6 @@ CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Pasaje](
 	[dni] [numeric](18, 0) NOT NULL,
 	[pre_pasaje] [numeric](18, 2) NOT NULL,
 	[disponible] [bit] NOT NULL,
-	[cancel] [bit] NOT NULL,
-	[fecha_cancel] [datetime] NULL,
-	[motivo_cancel] [nvarchar](200) NULL,
 	[baja] [bit] NOT NULL,
 	[id_viaje] [int] NOT NULL,
  CONSTRAINT [PK_Pasaje] PRIMARY KEY CLUSTERED 
@@ -878,8 +867,6 @@ GO
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Pasaje] ADD  CONSTRAINT [DF_Pasaje_disponible]  DEFAULT ((1)) FOR [disponible]
 GO
 
-ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Pasaje] ADD  CONSTRAINT [DF_Pasaje_cancel]  DEFAULT ((0)) FOR [cancel]
-GO
 
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Pasaje] ADD  CONSTRAINT [DF_Pasaje_baja]  DEFAULT ((0)) FOR [baja]
 GO
@@ -1012,9 +999,6 @@ CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Encomienda](
 	[dni] [numeric](18, 0) NOT NULL,
 	[peso] [numeric](18, 0) NOT NULL,
 	[pre_encomienda] [numeric](18, 0) NOT NULL,
-	[cancel] [bit] NOT NULL,
-	[fecha_cancel] [datetime] NULL,
-	[motivo_cancel] [nvarchar](200) NULL,
 	[baja] [bit] NOT NULL,
  CONSTRAINT [PK_Encomienda] PRIMARY KEY CLUSTERED 
 (
@@ -1050,9 +1034,6 @@ REFERENCES [SI_NO_APROBAMOS_HAY_TABLA].[Viaje] ([id_viaje])
 GO
 
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Encomienda] CHECK CONSTRAINT [FK_Encomienda_Viaje]
-GO
-
-ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Encomienda] ADD  CONSTRAINT [DF_Encomienda_cancel]  DEFAULT ((0)) FOR [cancel]
 GO
 
 ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[Encomienda] ADD  CONSTRAINT [DF_Encomienda_baja]  DEFAULT ((0)) FOR [baja]
@@ -2381,27 +2362,16 @@ BEGIN
 	UPDATE SI_NO_APROBAMOS_HAY_TABLA.Compra
 	SET id_cancelacion = @id_cancel
 	WHERE id_compra = @id_compra
-	
-	UPDATE SI_NO_APROBAMOS_HAY_TABLA.Compra
-	SET baja = 1
-	WHERE id_compra = @id_compra
-	
+		
 	UPDATE SI_NO_APROBAMOS_HAY_TABLA.Encomienda
 	SET id_cancelacion = @id_cancel
-	WHERE id_compra = @id_compra
-	
-	UPDATE SI_NO_APROBAMOS_HAY_TABLA.Encomienda
-	SET baja = 1
 	WHERE id_compra = @id_compra
 	
 	UPDATE SI_NO_APROBAMOS_HAY_TABLA.Pasaje
 	SET id_cancelacion = @id_cancel
 	WHERE id_compra = @id_compra
 	
-	UPDATE SI_NO_APROBAMOS_HAY_TABLA.Pasaje
-	SET baja = 1
-	WHERE id_compra = @id_compra
-	
+
 	COMMIT TRANSACTION cancel
 END
 GO
