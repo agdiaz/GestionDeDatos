@@ -74,17 +74,20 @@ namespace FrbaBus.Abm_Recorrido
                     Recorrido rec = new Recorrido();
 
                     rec.CiudadDestino = this.cbCiudadDestino.SelectedItem as Ciudad;
-                    rec.CiudadOrigen = this.cbCiudadOrigen.SelectedItem as Ciudad;
                     rec.IdCiudadDestino = rec.CiudadDestino.Id;
+
                     rec.IdCiudadOrigen = rec.CiudadOrigen.Id;
+                    rec.CiudadOrigen = this.cbCiudadOrigen.SelectedItem as Ciudad;
+                    
                     rec.PrecioBaseKG = Convert.ToDecimal(this.tbRecorridoAltaPrecioBasePorKgs.Text);
                     rec.PrecioBasePasaje = Convert.ToDecimal(this.tbRecorridoAltaPrecioBasePorPasaje.Text);
+                    
                     rec.Servicio = this.cbbRecorridoAltaTipoServicio.SelectedItem as Servicio;
                     rec.IdServicio = rec.Servicio.Id;
 
                     rec = this._manager.Alta(rec);
 
-                    MensajePorPantalla.MensajeInformativo(this, "Se dio de alta el recorrido con el id: " + rec.Id.ToString());
+                    MensajePorPantalla.MensajeInformativo(this, "Se dio de alta el recorrido: " + rec.Informacion);
 
                     this.Close();
                 }

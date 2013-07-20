@@ -155,7 +155,7 @@ namespace FrbaBus.Abm_Recorrido
             {
                 Recorrido rec = (Recorrido)dgvRecorridoListado.SelectedRows[0].DataBoundItem;
                 _manager.Baja(rec);
-                MensajePorPantalla.MensajeInformativo(this, "Se ha dado de baja el recorrido");
+                MensajePorPantalla.MensajeInformativo(this, "Se ha dado de baja el recorrido: " + rec.Informacion);
                 
                 LimpiarDatos();
                 CargarRecorridos();

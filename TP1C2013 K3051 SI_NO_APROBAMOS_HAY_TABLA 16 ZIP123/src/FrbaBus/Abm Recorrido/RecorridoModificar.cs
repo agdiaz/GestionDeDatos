@@ -49,8 +49,7 @@ namespace FrbaBus.Abm_Recorrido
         private void CargarRecorrido()
         {
             this.cbbRecorridoModificarTipoServicio.SelectedItem = _recorrido.Servicio;
-            this.cbCiudadDestino.SelectedItem = _recorrido.CiudadDestino;
-            this.cbCiudadOrigen.SelectedItem = _recorrido.CiudadOrigen;
+                        
             this.tbRecorridoModificarPrecioBasePorKgs.Text = _recorrido.PrecioBaseKG.ToString();
             this.tbRecorridoModificarPrecioBasePorPasaje.Text = _recorrido.PrecioBasePasaje.ToString();
 
@@ -68,6 +67,10 @@ namespace FrbaBus.Abm_Recorrido
             this.cbCiudadDestino.DataSource = ciudadesDestino;
             this.cbCiudadDestino.DisplayMember = "Nombre";
             this.cbCiudadDestino.ValueMember = "Id";
+
+            this.cbCiudadDestino.SelectedItem = ciudadesDestino.First(c => c.Id == _recorrido.CiudadDestino.Id);
+            this.cbCiudadOrigen.SelectedItem = ciudadesOrigen.First(c => c.Id == _recorrido.CiudadOrigen.Id);
+
         }
 
         private void CargarServicios()
@@ -95,7 +98,8 @@ namespace FrbaBus.Abm_Recorrido
                     _recorrido.IdServicio = _recorrido.Servicio.Id;
 
                     this._manager.Modificar(_recorrido);
-                    MensajePorPantalla.MensajeInformativo(this, "Se ha modificado el recorrido con el id: " + _recorrido.Id.ToString());
+
+                    MensajePorPantalla.MensajeInformativo(this, "Se ha modificado el recorrido: " + _recorrido.Informacion);
 
                     this.Close();
                 }
@@ -105,7 +109,7 @@ namespace FrbaBus.Abm_Recorrido
                 }
                 catch (Exception ex)
                 {
-                    this.Close();
+                    MensajePorPantalla.MensajeError(this, ex.Message);
                 }
             }
         }
