@@ -3194,3 +3194,392 @@ BEGIN
 	ORDER BY SUM ([SI_NO_APROBAMOS_HAY_TABLA].cant_butacas_disp_viaje(viaje.[id_viaje])) desc
 END
 GO
+
+CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_precio_real_pasaje
+(
+	@dni numeric(18,0),
+	@id_recorrido numeric(18,0)
+)
+AS
+BEGIN
+	DECLARE @pre_base numeric(18,2)
+	DECLARE @porcent_adic decimal(5,2)
+	DECLARE @pre_final numeric(18,2)
+	DECLARE @edad int
+	DECLARE @sexo varchar(50) 
+	DECLARE @discapacitado char(1)
+	
+	SELECT @pre_base = r.pre_base_pasaje
+	FROM SI_NO_APROBAMOS_HAY_TABLA.Recorrido r
+	WHERE r.id_recorrido = @id_recorrido
+
+	SELECT @porcent_adic = s.pocent_adic
+	FROM SI_NO_APROBAMOS_HAY_TABLA.Recorrido r
+	INNER JOIN SI_NO_APROBAMOS_HAY_TABLA.Servicio s
+		ON r.id_servicio = s.id_servicio
+	WHERE r.id_recorrido = @id_recorrido
+	
+	SET @pre_final = @pre_base + (@pre_base * @porcent_adic) / 100
+	
+	SELECT @edad=(DATEDIFF(YEAR, ISNULL(c.fecha_nacimiento, GETDATE()) , GETDATE())), 
+		@sexo=ISNULL(c.sexo, 'H'),
+		@discapacitado = ISNULL(c.es_discapacitado, 'N')
+	FROM SI_NO_APROBAMOS_HAY_TABLA.Cliente c
+	WHERE c.dni = @dni
+	
+	IF @discapacitado = 'S'
+	BEGIN
+		SELECT 0 as 'precio'
+		RETURN
+	END
+	
+	IF @sexo = 'H' AND @edad > 64
+	BEGIN
+		SELECT @pre_final / 2 as 'precio'
+		RETURN
+	END
+	
+	IF @sexo = 'M' AND @edad > 59
+	BEGIN
+		SELECT @pre_final / 2 as 'precio'
+		RETURN
+	END
+	
+	SELECT @pre_final as 'precio'
+END
+GO
+CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_butacas_ocupadas_viaje
+(
+	@p_id_viaje int
+)
+AS
+BEGIN
+	SELECT b.id_butaca, b.nro_butaca, b.tipo_butaca, b.piso, b.id_micro
+	FROM SI_NO_APROBAMOS_HAY_TABLA.Pasaje p
+	INNER JOIN SI_NO_APROBAMOS_HAY_TABLA.Butaca b
+	ON b.id_butaca = p.id_butaca
+	WHERE p.id_viaje = @p_id_viaje
+END
+GO
+CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_butacas_libres_viaje
+(
+	@p_id_viaje int
+)
+AS
+BEGIN
+	SELECT b.id_butaca, b.nro_butaca, b.tipo_butaca, b.piso
+	FROM SI_NO_APROBAMOS_HAY_TABLA.Butaca b
+	INNER JOIN SI_NO_APROBAMOS_HAY_TABLA.Micros m
+		ON m.id_micros = b.id_micro
+	INNER JOIN SI_NO_APROBAMOS_HAY_TABLA.Viaje v
+		ON v.id_micro = m.id_micros
+	WHERE v.id_viaje = @p_id_viaje
+	AND b.id_butaca NOT IN
+		(
+			SELECT b.id_butaca
+			FROM SI_NO_APROBAMOS_HAY_TABLA.Pasaje p
+			INNER JOIN SI_NO_APROBAMOS_HAY_TABLA.Butaca b
+				ON b.id_butaca = p.id_butaca
+			WHERE p.id_viaje = @p_id_viaje	
+		)
+END
+GO
+
+CREATE FUNCTION [SI_NO_APROBAMOS_HAY_TABLA].cant_butacas_disp_viaje
+(
+	@id_viaje int
+)
+RETURNS int
+AS
+BEGIN
+	DECLARE @cant_total int
+	DECLARE @cant_ocupadas int
+	DECLARE @id_micro int
+	
+	SELECT @id_micro=m.id_micros, @cant_total=COUNT(b.id_butaca)
+	FROM SI_NO_APROBAMOS_HAY_TABLA.Viaje v
+	INNER JOIN SI_NO_APROBAMOS_HAY_TABLA.Micros m
+		ON v.id_micro = m.id_micros
+	INNER JOIN SI_NO_APROBAMOS_HAY_TABLA.Butaca b
+		ON b.id_micro = m.id_micros
+	WHERE v.id_viaje = @id_viaje
+	GROUP BY v.id_viaje, m.id_micros
+	
+	SELECT @cant_ocupadas=COUNT(*)
+	FROM SI_NO_APROBAMOS_HAY_TABLA.Viaje v
+	INNER JOIN SI_NO_APROBAMOS_HAY_TABLA.Pasaje p
+		ON p.id_viaje = v.id_viaje
+	WHERE v.id_viaje = @id_viaje
+	
+	return @cant_total - @cant_ocupadas
+END
+GO
+
+CREATE FUNCTION [SI_NO_APROBAMOS_HAY_TABLA].kg_disponibles_viaje
+(
+	@id_viaje int
+)
+RETURNS numeric(18,2)
+AS
+BEGIN
+	DECLARE @kg_totales numeric(18,0)
+	DECLARE @kg_ocupados numeric(18,0)
+	
+	SELECT @kg_totales=m.capacidad_kg
+	FROM [SI_NO_APROBAMOS_HAY_TABLA].Viaje v
+	INNER JOIN [SI_NO_APROBAMOS_HAY_TABLA].Micros m
+		ON v.id_micro = m.id_micros
+	WHERE v.id_viaje = @id_viaje
+	
+	SELECT @kg_ocupados=SUM(e.peso)
+	FROM [SI_NO_APROBAMOS_HAY_TABLA].Viaje v
+	INNER JOIN [SI_NO_APROBAMOS_HAY_TABLA].Encomienda e
+		ON e.id_viaje = v.id_viaje
+	WHERE v.id_viaje = @id_viaje
+	
+	RETURN @kg_totales - @kg_ocupados
+		
+END
+
+GO
+
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_obtener_micro_disponibilidades
+(
+	@p_id_viaje int
+)
+AS
+BEGIN
+	SELECT [SI_NO_APROBAMOS_HAY_TABLA].kg_disponibles_viaje(@p_id_viaje) as kgs,
+	[SI_NO_APROBAMOS_HAY_TABLA].cant_butacas_disp_viaje(@p_id_viaje) as butacas
+	
+END
+GO
+CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_precio_real_pasaje
+(
+	@dni numeric(18,0),
+	@id_recorrido numeric(18,0)
+)
+AS
+BEGIN
+	DECLARE @pre_base numeric(18,2)
+	DECLARE @porcent_adic decimal(5,2)
+	DECLARE @pre_final numeric(18,2)
+	DECLARE @edad int
+	DECLARE @sexo varchar(50) 
+	DECLARE @discapacitado char(1)
+	
+	SELECT @pre_base = r.pre_base_pasaje
+	FROM SI_NO_APROBAMOS_HAY_TABLA.Recorrido r
+	WHERE r.id_recorrido = @id_recorrido
+
+	SELECT @porcent_adic = s.pocent_adic
+	FROM SI_NO_APROBAMOS_HAY_TABLA.Recorrido r
+	INNER JOIN SI_NO_APROBAMOS_HAY_TABLA.Servicio s
+		ON r.id_servicio = s.id_servicio
+	WHERE r.id_recorrido = @id_recorrido
+	
+	SET @pre_final = @pre_base + (@pre_base * @porcent_adic) / 100
+	
+	SELECT @edad=(DATEDIFF(YEAR, ISNULL(c.fecha_nacimiento, GETDATE()) , GETDATE())), 
+		@sexo=ISNULL(c.sexo, 'H'),
+		@discapacitado = ISNULL(c.es_discapacitado, 'N')
+	FROM SI_NO_APROBAMOS_HAY_TABLA.Cliente c
+	WHERE c.dni = @dni
+	
+	IF @discapacitado = 'S'
+	BEGIN
+		SELECT 0 as 'precio'
+		RETURN
+	END
+	
+	IF @sexo = 'H' AND @edad > 64
+	BEGIN
+		SELECT @pre_final / 2 as 'precio'
+		RETURN
+	END
+	
+	IF @sexo = 'M' AND @edad > 59
+	BEGIN
+		SELECT @pre_final / 2 as 'precio'
+		RETURN
+	END
+	
+	SELECT @pre_final as 'precio'
+END
+GO
+CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_insert_compra
+(	
+	@p_id_compra int output,
+	@p_id_usuario int,
+	@p_fecha_compra datetime
+)
+AS
+BEGIN
+	INSERT INTO SI_NO_APROBAMOS_HAY_TABLA.Compra
+		(id_usuario, fecha_compra)
+	VALUES
+		(@p_id_usuario, @p_fecha_compra)
+
+	SET @p_id_compra = SCOPE_IDENTITY()
+END
+GO
+
+CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_existe_patente
+(
+	@p_patente nvarchar(50)
+)
+AS
+BEGIN
+	SELECT COUNT(*) as 'cant'
+	FROM SI_NO_APROBAMOS_HAY_TABLA.Micros
+	WHERE patente = @p_patente
+END
+GO
+CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_insertar_encomienda
+(
+	@p_id_encomienda int output,
+	@p_id_compra int,
+	@p_dni numeric(18,0),
+	@p_pre_encomienda int,
+	@p_id_viaje int
+)
+AS
+BEGIN
+	INSERT INTO SI_NO_APROBAMOS_HAY_TABLA.Encomienda
+		(id_viaje, id_compra, dni, pre_encomienda)
+	VALUES
+		(@p_id_viaje,@p_id_compra, @p_dni, @p_pre_encomienda)
+
+	SET @p_id_encomienda = SCOPE_IDENTITY()
+END
+GO
+CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_insertar_pasaje
+(
+	@p_id_pasaje int output,
+	@p_id_compra int,
+	@p_id_butaca int,
+	@p_dni numeric(18,0),
+	@p_pre_pasaje int,
+	@p_id_viaje int
+)
+AS
+BEGIN
+	INSERT INTO SI_NO_APROBAMOS_HAY_TABLA.Pasaje
+		(id_compra, id_butaca, dni, pre_pasaje, id_viaje)
+	VALUES
+		(@p_id_compra, @p_id_butaca, @p_dni, @p_pre_pasaje, @p_id_viaje)
+
+	SET @p_id_pasaje = SCOPE_IDENTITY()
+END
+GO
+CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_listar_compras
+AS
+BEGIN
+SELECT [id_compra]
+      ,[id_usuario]
+      ,ISNULL([id_cancelacion], 0) as id_cancelacion
+      ,[fecha_compra]
+      ,[cancel]
+      ,[fecha_cancel]
+      ,ISNULL([motivo_cancel], '') as motivo_cancel
+  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Compra]
+  WHERE [baja] = 0
+END
+
+GO
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_cancelar_compra
+	@id_compra	int,
+	@motivo		nvarchar(200)
+AS
+BEGIN
+	SET xact_abort on
+	BEGIN TRANSACTION cancel 
+	DECLARE @id_cancel int
+	
+	INSERT INTO SI_NO_APROBAMOS_HAY_TABLA.Cancelacion
+	  (motivo_cancel)
+	VALUES (@motivo)
+	
+	SET @id_cancel = SCOPE_IDENTITY()
+	
+	UPDATE SI_NO_APROBAMOS_HAY_TABLA.Compra
+	SET id_cancelacion = @id_cancel
+	WHERE id_compra = @id_compra
+	
+	UPDATE SI_NO_APROBAMOS_HAY_TABLA.Compra
+	SET baja = 1
+	WHERE id_compra = @id_compra
+	
+	UPDATE SI_NO_APROBAMOS_HAY_TABLA.Encomienda
+	SET id_cancelacion = @id_cancel
+	WHERE id_compra = @id_compra
+	
+	UPDATE SI_NO_APROBAMOS_HAY_TABLA.Encomienda
+	SET baja = 1
+	WHERE id_compra = @id_compra
+	
+	UPDATE SI_NO_APROBAMOS_HAY_TABLA.Pasaje
+	SET id_cancelacion = @id_cancel
+	WHERE id_compra = @id_compra
+	
+	UPDATE SI_NO_APROBAMOS_HAY_TABLA.Pasaje
+	SET baja = 1
+	WHERE id_compra = @id_compra
+	
+	COMMIT TRANSACTION cancel
+END
+GO
+
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_cancelar_pasaje
+	@id_pasaje	numeric(18,0),
+	@motivo		nvarchar(200)
+AS
+BEGIN
+	SET xact_abort on
+	BEGIN TRANSACTION cancel 
+	DECLARE @id_cancel int
+	
+	INSERT INTO SI_NO_APROBAMOS_HAY_TABLA.Cancelacion
+	  (motivo_cancel)
+	VALUES (@motivo)
+	
+	SET @id_cancel = SCOPE_IDENTITY()
+	
+	UPDATE SI_NO_APROBAMOS_HAY_TABLA.Pasaje
+	SET id_cancelacion = @id_cancel
+	WHERE id_pasaje = @id_pasaje
+	
+	COMMIT TRANSACTION cancel
+END
+GO
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_cancelar_encomienda
+	@id_encomienda	numeric(18,0),
+	@motivo			nvarchar(200)
+AS
+BEGIN
+	SET xact_abort on
+	BEGIN TRANSACTION cancel 
+	DECLARE @id_cancel int
+	
+	INSERT INTO SI_NO_APROBAMOS_HAY_TABLA.Cancelacion
+	  (motivo_cancel)
+	VALUES (@motivo)
+	
+	SET @id_cancel = SCOPE_IDENTITY()
+	
+	UPDATE SI_NO_APROBAMOS_HAY_TABLA.Encomienda
+	SET id_cancelacion = @id_cancel
+	WHERE id_encomienda= @id_encomienda
+	
+	COMMIT TRANSACTION cancel
+END
+GO
+CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_listar_cancelaciones
+AS
+BEGIN
+SELECT [id_cancelacion]
+      ,[fecha_cancel]
+      ,[motivo_cancel]
+  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Cancelacion]
+END
+GO
