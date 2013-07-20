@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.gbEncomiendaListado = new System.Windows.Forms.GroupBox();
+            this.tbEncomiendaListadoDniCliente = new System.Windows.Forms.TextBox();
+            this.lblEncomiendaListadoDniCliente = new System.Windows.Forms.Label();
+            this.tbEncomiendaListadoPesoKg = new System.Windows.Forms.TextBox();
+            this.lblEncomiendaListadoPesoKg = new System.Windows.Forms.Label();
             this.tbEncomiendaListadoCompra = new System.Windows.Forms.TextBox();
             this.tbEncomiendaListadoViaje = new System.Windows.Forms.TextBox();
             this.tbEncomiendaListadoEncomienda = new System.Windows.Forms.TextBox();
@@ -38,16 +42,14 @@
             this.btnEncomiendaListadoLimpiar = new System.Windows.Forms.Button();
             this.btnEncomiendaListadoBuscar = new System.Windows.Forms.Button();
             this.dgvEncomiendaListado = new System.Windows.Forms.DataGridView();
-            this.lblEncomiendaListadoPesoKg = new System.Windows.Forms.Label();
-            this.tbEncomiendaListadoPesoKg = new System.Windows.Forms.TextBox();
-            this.lblEncomiendaListadoDniCliente = new System.Windows.Forms.Label();
-            this.tbEncomiendaListadoDniCliente = new System.Windows.Forms.TextBox();
+            this.btnEncomiendaListadoBuscarCliente = new System.Windows.Forms.Button();
             this.gbEncomiendaListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEncomiendaListado)).BeginInit();
             this.SuspendLayout();
             // 
             // gbEncomiendaListado
             // 
+            this.gbEncomiendaListado.Controls.Add(this.btnEncomiendaListadoBuscarCliente);
             this.gbEncomiendaListado.Controls.Add(this.tbEncomiendaListadoDniCliente);
             this.gbEncomiendaListado.Controls.Add(this.lblEncomiendaListadoDniCliente);
             this.gbEncomiendaListado.Controls.Add(this.tbEncomiendaListadoPesoKg);
@@ -64,6 +66,38 @@
             this.gbEncomiendaListado.TabIndex = 0;
             this.gbEncomiendaListado.TabStop = false;
             this.gbEncomiendaListado.Text = "Filtros de busqueda";
+            // 
+            // tbEncomiendaListadoDniCliente
+            // 
+            this.tbEncomiendaListadoDniCliente.Location = new System.Drawing.Point(113, 17);
+            this.tbEncomiendaListadoDniCliente.Name = "tbEncomiendaListadoDniCliente";
+            this.tbEncomiendaListadoDniCliente.Size = new System.Drawing.Size(188, 20);
+            this.tbEncomiendaListadoDniCliente.TabIndex = 9;
+            // 
+            // lblEncomiendaListadoDniCliente
+            // 
+            this.lblEncomiendaListadoDniCliente.AutoSize = true;
+            this.lblEncomiendaListadoDniCliente.Location = new System.Drawing.Point(8, 20);
+            this.lblEncomiendaListadoDniCliente.Name = "lblEncomiendaListadoDniCliente";
+            this.lblEncomiendaListadoDniCliente.Size = new System.Drawing.Size(61, 13);
+            this.lblEncomiendaListadoDniCliente.TabIndex = 8;
+            this.lblEncomiendaListadoDniCliente.Text = "DNI Cliente";
+            // 
+            // tbEncomiendaListadoPesoKg
+            // 
+            this.tbEncomiendaListadoPesoKg.Location = new System.Drawing.Point(113, 118);
+            this.tbEncomiendaListadoPesoKg.Name = "tbEncomiendaListadoPesoKg";
+            this.tbEncomiendaListadoPesoKg.Size = new System.Drawing.Size(188, 20);
+            this.tbEncomiendaListadoPesoKg.TabIndex = 7;
+            // 
+            // lblEncomiendaListadoPesoKg
+            // 
+            this.lblEncomiendaListadoPesoKg.AutoSize = true;
+            this.lblEncomiendaListadoPesoKg.Location = new System.Drawing.Point(8, 121);
+            this.lblEncomiendaListadoPesoKg.Name = "lblEncomiendaListadoPesoKg";
+            this.lblEncomiendaListadoPesoKg.Size = new System.Drawing.Size(46, 13);
+            this.lblEncomiendaListadoPesoKg.TabIndex = 6;
+            this.lblEncomiendaListadoPesoKg.Text = "Peso kg";
             // 
             // tbEncomiendaListadoCompra
             // 
@@ -140,37 +174,15 @@
             this.dgvEncomiendaListado.Size = new System.Drawing.Size(414, 277);
             this.dgvEncomiendaListado.TabIndex = 3;
             // 
-            // lblEncomiendaListadoPesoKg
+            // btnEncomiendaListadoBuscarCliente
             // 
-            this.lblEncomiendaListadoPesoKg.AutoSize = true;
-            this.lblEncomiendaListadoPesoKg.Location = new System.Drawing.Point(8, 121);
-            this.lblEncomiendaListadoPesoKg.Name = "lblEncomiendaListadoPesoKg";
-            this.lblEncomiendaListadoPesoKg.Size = new System.Drawing.Size(46, 13);
-            this.lblEncomiendaListadoPesoKg.TabIndex = 6;
-            this.lblEncomiendaListadoPesoKg.Text = "Peso kg";
-            // 
-            // tbEncomiendaListadoPesoKg
-            // 
-            this.tbEncomiendaListadoPesoKg.Location = new System.Drawing.Point(113, 118);
-            this.tbEncomiendaListadoPesoKg.Name = "tbEncomiendaListadoPesoKg";
-            this.tbEncomiendaListadoPesoKg.Size = new System.Drawing.Size(188, 20);
-            this.tbEncomiendaListadoPesoKg.TabIndex = 7;
-            // 
-            // lblEncomiendaListadoDniCliente
-            // 
-            this.lblEncomiendaListadoDniCliente.AutoSize = true;
-            this.lblEncomiendaListadoDniCliente.Location = new System.Drawing.Point(8, 20);
-            this.lblEncomiendaListadoDniCliente.Name = "lblEncomiendaListadoDniCliente";
-            this.lblEncomiendaListadoDniCliente.Size = new System.Drawing.Size(61, 13);
-            this.lblEncomiendaListadoDniCliente.TabIndex = 8;
-            this.lblEncomiendaListadoDniCliente.Text = "DNI Cliente";
-            // 
-            // tbEncomiendaListadoDniCliente
-            // 
-            this.tbEncomiendaListadoDniCliente.Location = new System.Drawing.Point(113, 17);
-            this.tbEncomiendaListadoDniCliente.Name = "tbEncomiendaListadoDniCliente";
-            this.tbEncomiendaListadoDniCliente.Size = new System.Drawing.Size(188, 20);
-            this.tbEncomiendaListadoDniCliente.TabIndex = 9;
+            this.btnEncomiendaListadoBuscarCliente.Location = new System.Drawing.Point(326, 15);
+            this.btnEncomiendaListadoBuscarCliente.Name = "btnEncomiendaListadoBuscarCliente";
+            this.btnEncomiendaListadoBuscarCliente.Size = new System.Drawing.Size(82, 23);
+            this.btnEncomiendaListadoBuscarCliente.TabIndex = 10;
+            this.btnEncomiendaListadoBuscarCliente.Text = "Buscar cliente";
+            this.btnEncomiendaListadoBuscarCliente.UseVisualStyleBackColor = true;
+            this.btnEncomiendaListadoBuscarCliente.Click += new System.EventHandler(this.btnEncomiendaListadoBuscarCliente_Click);
             // 
             // EncomiendaListado
             // 
@@ -206,5 +218,6 @@
         private System.Windows.Forms.Label lblEncomiendaListadoDniCliente;
         private System.Windows.Forms.TextBox tbEncomiendaListadoPesoKg;
         private System.Windows.Forms.Label lblEncomiendaListadoPesoKg;
+        private System.Windows.Forms.Button btnEncomiendaListadoBuscarCliente;
     }
 }

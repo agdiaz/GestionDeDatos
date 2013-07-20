@@ -25,7 +25,7 @@ namespace FrbaBus.DAO
 
         public GestionDeDatos.AccesoDatos.IAccesoBD accesoBD
         {
-            get { throw new NotImplementedException(); }
+            get { return _acceso; }
         }
 
         public Encomienda Obtener(object id)
@@ -71,23 +71,41 @@ namespace FrbaBus.DAO
         {
             Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
 
-            if (IdEncomienda > 0)
-                parametros.Add(new SqlParameter("@p_id_micro", SqlDbType.Int, 4, "p_id_micro"), IdEncomienda);
-
-            if (IdViaje> 0)
-                parametros.Add(new SqlParameter("@p_id_micro", SqlDbType.Int, 4, "p_id_micro"), IdViaje);
-
             if (nroDni > 0)
                 parametros.Add(new SqlParameter("@p_dni", SqlDbType.Decimal, 18, "p_dni"), nroDni);
+            else
+                parametros.Add(new SqlParameter("@p_dni", SqlDbType.Decimal, 18, "p_dni"), DBNull.Value);
+            
+            if (IdEncomienda > 0)
+                parametros.Add(new SqlParameter("@p_id_encomienda", SqlDbType.Int, 4, "p_id_encomienda"), IdEncomienda);
+            else
+                parametros.Add(new SqlParameter("@p_id_encomienda", SqlDbType.Int, 4, "p_id_encomienda"), DBNull.Value);
+
+            if (IdViaje > 0)
+                parametros.Add(new SqlParameter("@p_id_viaje", SqlDbType.Int, 4, "p_id_viaje"), IdViaje);
+            else
+                parametros.Add(new SqlParameter("@p_id_viaje", SqlDbType.Int, 4, "p_id_viaje"), DBNull.Value);
 
             if (IdCompra > 0)
-                parametros.Add(new SqlParameter("@p_id_butaca", SqlDbType.Int, 4, "p_id_butaca"), IdCompra);
+                parametros.Add(new SqlParameter("@p_id_compra", SqlDbType.Int, 4, "p_id_compra"), IdCompra);
+            else
+                parametros.Add(new SqlParameter("@p_id_compra", SqlDbType.Int, 4, "p_id_compra"), DBNull.Value);
 
             if (kgs > 0)
-                parametros.Add(new SqlParameter("@p_precio", SqlDbType.Decimal, 18, "p_precio"), kgs);
+                parametros.Add(new SqlParameter("@p_kgs", SqlDbType.Decimal, 18, "p_kgs"), kgs);
+            else
+                parametros.Add(new SqlParameter("@p_kgs", SqlDbType.Decimal, 18, "p_kgs"), DBNull.Value);
 
-            DataSet ds = accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_listar_detallado_pasaje", parametros);
-            return ds;
+            try
+            {
+                DataSet ds = accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_listar_detallado_encomienda", parametros);
+                return ds;
+            }
+            catch (AccesoBDException ex)
+            {
+                ex.ToString();
+                return new DataSet();
+            }
         }
     }
 }

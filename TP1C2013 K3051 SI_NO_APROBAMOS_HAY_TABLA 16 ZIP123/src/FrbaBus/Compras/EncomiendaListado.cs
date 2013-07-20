@@ -10,6 +10,7 @@ using FrbaBus.Common.Excepciones;
 using FrbaBus.Common.Helpers;
 using FrbaBus.Common.Entidades;
 using FrbaBus.Manager;
+using FrbaBus.Abm_Clientes;
 
 namespace FrbaBus.Compras
 {
@@ -70,6 +71,34 @@ namespace FrbaBus.Compras
             catch (Exception ex)
             {
                 MensajePorPantalla.MensajeError(this, "Error al intentar dar el registro.\n Detalle del error: " + ex.Message);
+            }
+        }
+
+        private void btnEncomiendaListadoBuscarCliente_Click(object sender, EventArgs e)
+        {
+            Cliente cliente = null;
+            using (ClienteListado frm = new ClienteListado(true))
+            {
+                frm.ShowDialog(this);
+                cliente = frm.ClienteSeleccionado();
+            }
+            if (cliente != null)
+            {
+                tbEncomiendaListadoDniCliente.Text = cliente.NroDni.ToString();
+            }
+        }
+
+        private void btnEncomiendaListadoSeleccionarCliente_Click(object sender, EventArgs e)
+        {
+            Cliente cliente = null;
+            using (ClienteListado frm = new ClienteListado(true))
+            {
+                frm.ShowDialog(this);
+                cliente = frm.ClienteSeleccionado();
+            }
+            if (cliente != null)
+            {
+                tbEncomiendaListadoDniCliente.Text = cliente.NroDni.ToString();
             }
         }
     }
