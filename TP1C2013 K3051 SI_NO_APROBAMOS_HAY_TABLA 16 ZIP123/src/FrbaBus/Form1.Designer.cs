@@ -69,7 +69,6 @@
             this.tsmClientePasajeroFrecuenteConsultar = new System.Windows.Forms.ToolStripMenuItem();
             this.canjeDePuntosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmEncomienda = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmComprarPasajes = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmPasajesListar = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmEncomiendasListar = new System.Windows.Forms.ToolStripMenuItem();
@@ -117,6 +116,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.gbDetalles = new System.Windows.Forms.GroupBox();
+            this.btnHabilitarConfirmarCompra = new System.Windows.Forms.Button();
             this.gbEncomiendas = new System.Windows.Forms.GroupBox();
             this.btnQuitarEnco = new System.Windows.Forms.Button();
             this.btnModificarEnco = new System.Windows.Forms.Button();
@@ -141,7 +141,9 @@
             this.tbRecorridoCiudadDestino = new System.Windows.Forms.TextBox();
             this.tbRecorridoCiudadOrigen = new System.Windows.Forms.TextBox();
             this.btnComprar = new System.Windows.Forms.Button();
-            this.btnHabilitarConfirmarCompra = new System.Windows.Forms.Button();
+            this.tsmPasajeEncomiendaListadoCompras = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmCancelacionesListado = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.mnsMain.SuspendLayout();
             this.ssStatusMain.SuspendLayout();
             this.gbViaje.SuspendLayout();
@@ -396,26 +398,26 @@
             // tsmViajeListado
             // 
             this.tsmViajeListado.Name = "tsmViajeListado";
-            this.tsmViajeListado.Size = new System.Drawing.Size(143, 22);
+            this.tsmViajeListado.Size = new System.Drawing.Size(152, 22);
             this.tsmViajeListado.Text = "Listado";
             this.tsmViajeListado.Click += new System.EventHandler(this.tsmViajeListado_Click);
             // 
             // tsmViajeAlta
             // 
             this.tsmViajeAlta.Name = "tsmViajeAlta";
-            this.tsmViajeAlta.Size = new System.Drawing.Size(143, 22);
+            this.tsmViajeAlta.Size = new System.Drawing.Size(152, 22);
             this.tsmViajeAlta.Text = "Alta";
             this.tsmViajeAlta.Click += new System.EventHandler(this.tsmViajeAlta_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(140, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
             // 
             // cargarArribaToolStripMenuItem
             // 
             this.cargarArribaToolStripMenuItem.Name = "cargarArribaToolStripMenuItem";
-            this.cargarArribaToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.cargarArribaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.cargarArribaToolStripMenuItem.Text = "Cargar arribo";
             this.cargarArribaToolStripMenuItem.Click += new System.EventHandler(this.cargarArribaToolStripMenuItem_Click);
             // 
@@ -474,7 +476,7 @@
             // tsmEncomienda
             // 
             this.tsmEncomienda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmComprarPasajes,
+            this.tsmPasajeEncomiendaListadoCompras,
             this.toolStripSeparator5,
             this.tsmPasajesListar,
             this.tsmEncomiendasListar,
@@ -483,13 +485,6 @@
             this.tsmEncomienda.Name = "tsmEncomienda";
             this.tsmEncomienda.Size = new System.Drawing.Size(123, 20);
             this.tsmEncomienda.Text = "&Pasaje/Encomienda";
-            // 
-            // tsmComprarPasajes
-            // 
-            this.tsmComprarPasajes.Name = "tsmComprarPasajes";
-            this.tsmComprarPasajes.Size = new System.Drawing.Size(202, 22);
-            this.tsmComprarPasajes.Text = "Comprar";
-            this.tsmComprarPasajes.Click += new System.EventHandler(this.tsmComprarPasajes_Click);
             // 
             // toolStripSeparator5
             // 
@@ -518,6 +513,8 @@
             // tsmPasajeEncomiendaCancelar
             // 
             this.tsmPasajeEncomiendaCancelar.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmCancelacionesListado,
+            this.toolStripSeparator7,
             this.tsmCancelacionesCompra,
             this.tsmCancelacionesPasaje,
             this.tsmCancelacionesEncomienda});
@@ -903,6 +900,16 @@
             this.gbDetalles.Text = "3) Detalles de la compra";
             this.gbDetalles.Enter += new System.EventHandler(this.gbDetalles_Enter);
             // 
+            // btnHabilitarConfirmarCompra
+            // 
+            this.btnHabilitarConfirmarCompra.Location = new System.Drawing.Point(291, 498);
+            this.btnHabilitarConfirmarCompra.Name = "btnHabilitarConfirmarCompra";
+            this.btnHabilitarConfirmarCompra.Size = new System.Drawing.Size(75, 23);
+            this.btnHabilitarConfirmarCompra.TabIndex = 4;
+            this.btnHabilitarConfirmarCompra.Text = "Continuar";
+            this.btnHabilitarConfirmarCompra.UseVisualStyleBackColor = true;
+            this.btnHabilitarConfirmarCompra.Click += new System.EventHandler(this.btnHabilitarConfirmarCompra_Click);
+            // 
             // gbEncomiendas
             // 
             this.gbEncomiendas.Controls.Add(this.btnQuitarEnco);
@@ -1169,15 +1176,24 @@
             this.btnComprar.UseVisualStyleBackColor = true;
             this.btnComprar.Click += new System.EventHandler(this.btnComprar_Click);
             // 
-            // btnHabilitarConfirmarCompra
+            // tsmPasajeEncomiendaListadoCompras
             // 
-            this.btnHabilitarConfirmarCompra.Location = new System.Drawing.Point(291, 498);
-            this.btnHabilitarConfirmarCompra.Name = "btnHabilitarConfirmarCompra";
-            this.btnHabilitarConfirmarCompra.Size = new System.Drawing.Size(75, 23);
-            this.btnHabilitarConfirmarCompra.TabIndex = 4;
-            this.btnHabilitarConfirmarCompra.Text = "Continuar";
-            this.btnHabilitarConfirmarCompra.UseVisualStyleBackColor = true;
-            this.btnHabilitarConfirmarCompra.Click += new System.EventHandler(this.btnHabilitarConfirmarCompra_Click);
+            this.tsmPasajeEncomiendaListadoCompras.Name = "tsmPasajeEncomiendaListadoCompras";
+            this.tsmPasajeEncomiendaListadoCompras.Size = new System.Drawing.Size(202, 22);
+            this.tsmPasajeEncomiendaListadoCompras.Text = "Listado de compras";
+            this.tsmPasajeEncomiendaListadoCompras.Click += new System.EventHandler(this.tsmPasajeEncomiendaListadoCompras_Click);
+            // 
+            // tsmCancelacionesListado
+            // 
+            this.tsmCancelacionesListado.Name = "tsmCancelacionesListado";
+            this.tsmCancelacionesListado.Size = new System.Drawing.Size(189, 22);
+            this.tsmCancelacionesListado.Text = "Listado";
+            this.tsmCancelacionesListado.Click += new System.EventHandler(this.tsmCancelacionesListado_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(186, 6);
             // 
             // Form1
             // 
@@ -1316,7 +1332,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox tbRecorridoCiudadDestino;
         private System.Windows.Forms.TextBox tbRecorridoCiudadOrigen;
-        private System.Windows.Forms.ToolStripMenuItem tsmComprarPasajes;
         private System.Windows.Forms.DateTimePicker dtpViajeFechaArribo;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox tbMicroMarca;
@@ -1336,6 +1351,9 @@
         private System.Windows.Forms.RadioButton rbTarjeta;
         private System.Windows.Forms.RadioButton rbEfectivo;
         private System.Windows.Forms.Button btnHabilitarConfirmarCompra;
+        private System.Windows.Forms.ToolStripMenuItem tsmPasajeEncomiendaListadoCompras;
+        private System.Windows.Forms.ToolStripMenuItem tsmCancelacionesListado;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
     }
 }
 

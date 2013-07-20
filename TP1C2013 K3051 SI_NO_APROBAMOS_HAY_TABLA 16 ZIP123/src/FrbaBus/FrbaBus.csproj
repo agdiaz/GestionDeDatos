@@ -238,11 +238,23 @@
     <Compile Include="Cancelaciones\CancelacionEncomienda.Designer.cs">
       <DependentUpon>CancelacionEncomienda.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cancelaciones\CancelacionesListado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cancelaciones\CancelacionesListado.Designer.cs">
+      <DependentUpon>CancelacionesListado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cancelaciones\CancelacionPasaje.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Cancelaciones\CancelacionPasaje.Designer.cs">
       <DependentUpon>CancelacionPasaje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\ComprasListado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\ComprasListado.Designer.cs">
+      <DependentUpon>ComprasListado.cs</DependentUpon>
     </Compile>
     <Compile Include="Compras\EncomiendaAlta.cs">
       <SubType>Form</SubType>

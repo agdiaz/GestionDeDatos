@@ -426,15 +426,17 @@ namespace FrbaBus
             tsmViaje.Enabled = tsmViajeAlta.Enabled || tsmViajeListado.Enabled;
 
             //Pasaje/Encomienda:
-            tsmComprarPasajes.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmComprarPasajes");
+            tsmEncomienda.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmComprarPasajes");
             tsmPasajesListar.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmPasajesListar");
-            tsmComprarPasajes.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmEncomiendasListar");
+            tsmEncomiendasListar.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmEncomiendasListar");
 
+            tsmCancelacionesListado.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmCancelacionesListado");
             tsmCancelacionesCompra.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmCancelacionesCompra");
             tsmCancelacionesPasaje.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmCancelacionesPasaje");
             tsmCancelacionesEncomienda.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmCancelacionesEncomienda");
-
-            tsmEncomienda.Enabled = tsmComprarPasajes.Enabled || tsmPasajesListar.Enabled || tsmComprarPasajes.Enabled;
+            
+            tsmPasajeEncomiendaCancelar.Enabled = tsmCancelacionesEncomienda.Enabled || tsmCancelacionesPasaje.Enabled || tsmCancelacionesListado.Enabled;
+            tsmEncomienda.Enabled = tsmPasajesListar.Enabled || tsmEncomiendasListar.Enabled || tsmCancelacionesCompra.Enabled || tsmPasajeEncomiendaCancelar.Enabled;
 
 
             //Recompensas:
@@ -717,6 +719,22 @@ namespace FrbaBus
         private void btnHabilitarConfirmarCompra_Click(object sender, EventArgs e)
         {
             this.LimpiarGrupoMedioPago(true);
+        }
+
+        private void tsmPasajeEncomiendaListadoCompras_Click(object sender, EventArgs e)
+        {
+            using (Compras.ComprasListado frm = new ComprasListado())
+            {
+                frm.Show();
+            }
+        }
+
+        private void tsmCancelacionesListado_Click(object sender, EventArgs e)
+        {
+            using (Cancelaciones.CancelacionesListado frm = new FrbaBus.Cancelaciones.CancelacionesListado())
+            {
+                frm.Show();
+            }
         }
     }
 }
