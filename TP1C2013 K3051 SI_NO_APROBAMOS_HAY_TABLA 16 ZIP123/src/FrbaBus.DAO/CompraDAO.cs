@@ -62,7 +62,17 @@ namespace FrbaBus.DAO
 
         public IList<Compra> Listar()
         {
-            throw new NotImplementedException();
+            IList<Compra> compras = new List<Compra>();
+            foreach (DataRow row in ObtenerRegistros().Tables[0].Rows)
+            {
+                compras.Add(this._builder.Build(row));
+            }
+            return compras;
+        }
+
+        private DataSet ObtenerRegistros()
+        {
+            return null;
         }
 
         #endregion
