@@ -72,7 +72,9 @@ namespace FrbaBus.DAO
 
         private DataSet ObtenerRegistros()
         {
-            return null;
+            DataSet ciudades = this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_listar_compras");
+            return ciudades;
+             
         }
 
         #endregion

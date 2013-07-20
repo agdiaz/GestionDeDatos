@@ -37,9 +37,13 @@
             // 
             // dgvCompras
             // 
+            this.dgvCompras.AllowUserToAddRows = false;
+            this.dgvCompras.AllowUserToDeleteRows = false;
             this.dgvCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCompras.Location = new System.Drawing.Point(12, 118);
             this.dgvCompras.Name = "dgvCompras";
+            this.dgvCompras.ReadOnly = true;
+            this.dgvCompras.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCompras.Size = new System.Drawing.Size(567, 267);
             this.dgvCompras.TabIndex = 0;
             // 

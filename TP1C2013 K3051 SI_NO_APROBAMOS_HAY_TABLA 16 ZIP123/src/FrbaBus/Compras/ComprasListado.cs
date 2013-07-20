@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using FrbaBus.Manager;
 using FrbaBus.Common.Entidades;
+using FrbaBus.Common.Excepciones;
+using FrbaBus.Common.Helpers;
 
 namespace FrbaBus.Compras
 {
@@ -21,6 +23,14 @@ namespace FrbaBus.Compras
             _manager = new CompraManager();
         }
 
+        public Compra CompraSeleccionada()
+        {
+            Compra c = null;
+            if (dgvCompras.SelectedRows.Count > 0)
+                c = dgvCompras.SelectedRows[0].DataBoundItem as Compra;
+            return c;
+        }
+
         private void ComprasListado_Load(object sender, EventArgs e)
         {
 
@@ -28,8 +38,19 @@ namespace FrbaBus.Compras
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            IList<Compra> compras = _manager.Listar();
-            this.dgvCompras.DataSource = compras;
+            try
+            {
+                IList<Compra> compras = _manager.Listar();
+                this.dgvCompras.DataSource = compras;
+            }
+            catch (AccesoBDException ex)
+            {
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
+            }
+            catch (Exception ex)
+            {
+                MensajePorPantalla.MensajeError(this, "Error al realizar la búsqueda correspondiente.\n Detalle del error: " + ex.Message);
+            }
         }
     }
 }

@@ -725,7 +725,7 @@ namespace FrbaBus
         {
             using (Compras.ComprasListado frm = new ComprasListado())
             {
-                frm.Show();
+                frm.ShowDialog();
             }
         }
 
@@ -733,7 +733,7 @@ namespace FrbaBus
         {
             using (Cancelaciones.CancelacionesListado frm = new FrbaBus.Cancelaciones.CancelacionesListado())
             {
-                frm.Show();
+                frm.ShowDialog();
             }
         }
     }
