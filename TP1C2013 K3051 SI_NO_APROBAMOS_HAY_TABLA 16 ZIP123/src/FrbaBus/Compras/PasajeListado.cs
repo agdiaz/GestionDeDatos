@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using FrbaBus.Manager;
 using FrbaBus.Common.Entidades;
+using FrbaBus.Common.Excepciones;
+using FrbaBus.Common.Helpers;
 
 namespace FrbaBus.Compras
 {
@@ -23,35 +25,46 @@ namespace FrbaBus.Compras
 
         private void btnPasajeListadoBuscar_Click(object sender, EventArgs e)
         {
-            int IdMicro = 0;
-            if (!string.IsNullOrEmpty(tbPasajeListadoMicro.Text))
+            try
             {
-                IdMicro = Convert.ToInt32(tbPasajeListadoMicro.Text);
-            }
+                int IdMicro = 0;
+                if (!string.IsNullOrEmpty(tbPasajeListadoMicro.Text))
+                {
+                    IdMicro = Convert.ToInt32(tbPasajeListadoMicro.Text);
+                }
 
-            decimal DniCliente = 0;
-            if (!string.IsNullOrEmpty(tbPasajeListadoCliente.Text))
+                decimal DniCliente = 0;
+                if (!string.IsNullOrEmpty(tbPasajeListadoCliente.Text))
+                {
+                    DniCliente = Convert.ToDecimal(tbPasajeListadoCliente.Text);
+                }
+
+                // DEBERIA SER POR NUMERO DE BUTACA
+                int idButaca = 0;
+                if (!string.IsNullOrEmpty(tbPasajeListadoButaca.Text))
+                {
+                    idButaca = Convert.ToInt32(tbPasajeListadoButaca.Text);
+                }
+
+                decimal precio = 0;
+                if (!string.IsNullOrEmpty(tbPasajeListadoPrecio.Text))
+                {
+                    precio = Convert.ToDecimal(tbPasajeListadoPrecio.Text);
+                }
+
+                IList<Pasaje> pasajes = _manager.ListarFiltrado(IdMicro, DniCliente, idButaca, precio);
+
+                dgvPasajeListado.DataSource = pasajes;
+
+            }
+            catch (AccesoBDException ex)
             {
-                DniCliente = Convert.ToDecimal(tbPasajeListadoCliente.Text);
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
             }
-
-            // DEBERIA SER POR NUMERO DE BUTACA
-            int idButaca = 0;
-            if (!string.IsNullOrEmpty(tbPasajeListadoButaca.Text))
+            catch (Exception ex)
             {
-                idButaca = Convert.ToInt32(tbPasajeListadoButaca.Text);
+                MensajePorPantalla.MensajeError(this, "Error al intentar dar el registro.\n Detalle del error: " + ex.Message);
             }
-
-            decimal precio = 0;
-            if (!string.IsNullOrEmpty(tbPasajeListadoPrecio.Text))
-            {
-                precio = Convert.ToDecimal(tbPasajeListadoPrecio.Text);
-            }
-
-            IList<Pasaje> pasajes = _manager.ListarFiltrado(IdMicro,DniCliente,idButaca,precio);
-
-            dgvPasajeListado.DataSource = pasajes;
-
 
             /*
              // CAMPOS VISIBLES=> dni, pre_pasaje

@@ -70,21 +70,12 @@ namespace FrbaBus.DAO
         {
             IList<Pasaje> lista = new List<Pasaje>();
 
-            try
+            foreach (DataRow row in ObtenerFiltrado(IdMicro, nroDni, IdButaca, precio).Tables[0].Rows)
             {
-                foreach (DataRow row in ObtenerFiltrado(IdMicro, nroDni, IdButaca, precio).Tables[0].Rows)
-                {
-                    lista.Add(this._builder.Build(row));
-                }
-                return lista;
-
-            }
-            catch (Exception x)
-            {
-                x.ToString();
-                return null;
+                lista.Add(this._builder.Build(row));
             }
 
+            return lista;
         }
 
         private DataSet ObtenerFiltrado(int IdMicro, decimal nroDni, int IdButaca, decimal precio)
@@ -93,24 +84,16 @@ namespace FrbaBus.DAO
 
             if (IdMicro > 0)
                 parametros.Add(new SqlParameter("@p_id_micro", SqlDbType.Int, 4, "p_id_micro"), IdMicro);
-            else
-                parametros.Add(new SqlParameter("@p_id_micro", SqlDbType.Int, 4, "p_id_micro"), DBNull.Value);
-
+            
             if(nroDni > 0)
                 parametros.Add(new SqlParameter("@p_dni", SqlDbType.Decimal, 18, "p_dni"), nroDni);
-            else
-                parametros.Add(new SqlParameter("@p_dni", SqlDbType.Decimal, 18, "p_dni"), DBNull.Value);
-
+            
             if(IdButaca > 0)
                 parametros.Add(new SqlParameter("@p_id_butaca", SqlDbType.Int, 4, "p_id_butaca"), IdButaca);
-            else
-                parametros.Add(new SqlParameter("@p_id_butaca", SqlDbType.Int, 4, "p_id_butaca"), DBNull.Value);
-
+            
             if(precio > 0)
                 parametros.Add(new SqlParameter("@p_precio", SqlDbType.Decimal, 18, "p_precio"), precio);
-            else
-                parametros.Add(new SqlParameter("@p_precio", SqlDbType.Decimal, 18, "p_precio"), DBNull.Value);
-
+            
             DataSet ds = accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_listar_detallado_pasaje", parametros);
             return ds;
         }
