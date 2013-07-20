@@ -16,6 +16,7 @@ namespace FrbaBus.DAO.Builder
             Pasaje p = new Pasaje();
 
             p.Id = Convert.ToInt32(row["id_pasaje"].ToString());
+            p.IdCompra = Convert.ToInt32(row["id_compra"].ToString());
             p.IdCancelacion = Convert.ToInt32(row["id_cancelacion"].ToString());
             p.IdViaje = Convert.ToInt32(row["id_viaje"].ToString());
             p.IdCompra = Convert.ToInt32(row["id_compra"].ToString());
@@ -23,6 +24,8 @@ namespace FrbaBus.DAO.Builder
             p.NroDni = Convert.ToDecimal(row["dni"].ToString());
             p.PrecioPasaje = Convert.ToDecimal(row["pre_pasaje"].ToString());
             p.Disponible = Convert.ToBoolean(row["disponible"].ToString());
+            p.Cancel = Convert.ToBoolean(row["cancel"].ToString());
+            p.Cancelacion.FechaCancelacion = Convert.ToDateTime(row["fecha_cancel"].ToString());
 
             return p;
         }
@@ -34,5 +37,6 @@ namespace FrbaBus.DAO.Builder
             decimal precio = Convert.ToDecimal(row["precio"].ToString());
             return precio;
         }
+
     }
 }

@@ -130,6 +130,7 @@
             this.btnEncomiendaListadoBuscar.TabIndex = 2;
             this.btnEncomiendaListadoBuscar.Text = "Buscar";
             this.btnEncomiendaListadoBuscar.UseVisualStyleBackColor = true;
+            this.btnEncomiendaListadoBuscar.Click += new System.EventHandler(this.btnEncomiendaListadoBuscar_Click);
             // 
             // dgvEncomiendaListado
             // 
