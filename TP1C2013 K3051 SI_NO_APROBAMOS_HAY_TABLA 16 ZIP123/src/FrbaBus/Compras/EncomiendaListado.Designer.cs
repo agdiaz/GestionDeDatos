@@ -29,35 +29,35 @@
         private void InitializeComponent()
         {
             this.gbEncomiendaListado = new System.Windows.Forms.GroupBox();
-            this.tbEncomiendaListadoIdCompra = new System.Windows.Forms.TextBox();
-            this.tbEncomiendaListadoIdViaje = new System.Windows.Forms.TextBox();
-            this.tbEncomiendaListadoIdEncomienda = new System.Windows.Forms.TextBox();
-            this.lblEncomiendaListadoIdCompra = new System.Windows.Forms.Label();
-            this.lblEncomiendaListadoIdViaje = new System.Windows.Forms.Label();
-            this.lblEncomiendaListadoIdEncomienda = new System.Windows.Forms.Label();
+            this.tbEncomiendaListadoCompra = new System.Windows.Forms.TextBox();
+            this.tbEncomiendaListadoViaje = new System.Windows.Forms.TextBox();
+            this.tbEncomiendaListadoEncomienda = new System.Windows.Forms.TextBox();
+            this.lblEncomiendaListadoCompra = new System.Windows.Forms.Label();
+            this.lblEncomiendaListadoViaje = new System.Windows.Forms.Label();
+            this.lblEncomiendaListadoEncomienda = new System.Windows.Forms.Label();
             this.btnEncomiendaListadoLimpiar = new System.Windows.Forms.Button();
             this.btnEncomiendaListadoBuscar = new System.Windows.Forms.Button();
             this.dgvEncomiendaListado = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.lblEncomiendaListadoPesoKg = new System.Windows.Forms.Label();
+            this.tbEncomiendaListadoPesoKg = new System.Windows.Forms.TextBox();
+            this.lblEncomiendaListadoDniCliente = new System.Windows.Forms.Label();
+            this.tbEncomiendaListadoDniCliente = new System.Windows.Forms.TextBox();
             this.gbEncomiendaListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEncomiendaListado)).BeginInit();
             this.SuspendLayout();
             // 
             // gbEncomiendaListado
             // 
-            this.gbEncomiendaListado.Controls.Add(this.textBox2);
-            this.gbEncomiendaListado.Controls.Add(this.label2);
-            this.gbEncomiendaListado.Controls.Add(this.textBox1);
-            this.gbEncomiendaListado.Controls.Add(this.label1);
-            this.gbEncomiendaListado.Controls.Add(this.tbEncomiendaListadoIdCompra);
-            this.gbEncomiendaListado.Controls.Add(this.tbEncomiendaListadoIdViaje);
-            this.gbEncomiendaListado.Controls.Add(this.tbEncomiendaListadoIdEncomienda);
-            this.gbEncomiendaListado.Controls.Add(this.lblEncomiendaListadoIdCompra);
-            this.gbEncomiendaListado.Controls.Add(this.lblEncomiendaListadoIdViaje);
-            this.gbEncomiendaListado.Controls.Add(this.lblEncomiendaListadoIdEncomienda);
+            this.gbEncomiendaListado.Controls.Add(this.tbEncomiendaListadoDniCliente);
+            this.gbEncomiendaListado.Controls.Add(this.lblEncomiendaListadoDniCliente);
+            this.gbEncomiendaListado.Controls.Add(this.tbEncomiendaListadoPesoKg);
+            this.gbEncomiendaListado.Controls.Add(this.lblEncomiendaListadoPesoKg);
+            this.gbEncomiendaListado.Controls.Add(this.tbEncomiendaListadoCompra);
+            this.gbEncomiendaListado.Controls.Add(this.tbEncomiendaListadoViaje);
+            this.gbEncomiendaListado.Controls.Add(this.tbEncomiendaListadoEncomienda);
+            this.gbEncomiendaListado.Controls.Add(this.lblEncomiendaListadoCompra);
+            this.gbEncomiendaListado.Controls.Add(this.lblEncomiendaListadoViaje);
+            this.gbEncomiendaListado.Controls.Add(this.lblEncomiendaListadoEncomienda);
             this.gbEncomiendaListado.Location = new System.Drawing.Point(13, 13);
             this.gbEncomiendaListado.Name = "gbEncomiendaListado";
             this.gbEncomiendaListado.Size = new System.Drawing.Size(414, 146);
@@ -65,53 +65,53 @@
             this.gbEncomiendaListado.TabStop = false;
             this.gbEncomiendaListado.Text = "Filtros de busqueda";
             // 
-            // tbEncomiendaListadoIdCompra
+            // tbEncomiendaListadoCompra
             // 
-            this.tbEncomiendaListadoIdCompra.Location = new System.Drawing.Point(113, 92);
-            this.tbEncomiendaListadoIdCompra.Name = "tbEncomiendaListadoIdCompra";
-            this.tbEncomiendaListadoIdCompra.Size = new System.Drawing.Size(188, 20);
-            this.tbEncomiendaListadoIdCompra.TabIndex = 5;
+            this.tbEncomiendaListadoCompra.Location = new System.Drawing.Point(113, 92);
+            this.tbEncomiendaListadoCompra.Name = "tbEncomiendaListadoCompra";
+            this.tbEncomiendaListadoCompra.Size = new System.Drawing.Size(188, 20);
+            this.tbEncomiendaListadoCompra.TabIndex = 5;
             // 
-            // tbEncomiendaListadoIdViaje
+            // tbEncomiendaListadoViaje
             // 
-            this.tbEncomiendaListadoIdViaje.Location = new System.Drawing.Point(113, 66);
-            this.tbEncomiendaListadoIdViaje.Name = "tbEncomiendaListadoIdViaje";
-            this.tbEncomiendaListadoIdViaje.Size = new System.Drawing.Size(188, 20);
-            this.tbEncomiendaListadoIdViaje.TabIndex = 4;
+            this.tbEncomiendaListadoViaje.Location = new System.Drawing.Point(113, 66);
+            this.tbEncomiendaListadoViaje.Name = "tbEncomiendaListadoViaje";
+            this.tbEncomiendaListadoViaje.Size = new System.Drawing.Size(188, 20);
+            this.tbEncomiendaListadoViaje.TabIndex = 4;
             // 
-            // tbEncomiendaListadoIdEncomienda
+            // tbEncomiendaListadoEncomienda
             // 
-            this.tbEncomiendaListadoIdEncomienda.Location = new System.Drawing.Point(113, 43);
-            this.tbEncomiendaListadoIdEncomienda.Name = "tbEncomiendaListadoIdEncomienda";
-            this.tbEncomiendaListadoIdEncomienda.Size = new System.Drawing.Size(188, 20);
-            this.tbEncomiendaListadoIdEncomienda.TabIndex = 3;
+            this.tbEncomiendaListadoEncomienda.Location = new System.Drawing.Point(113, 43);
+            this.tbEncomiendaListadoEncomienda.Name = "tbEncomiendaListadoEncomienda";
+            this.tbEncomiendaListadoEncomienda.Size = new System.Drawing.Size(188, 20);
+            this.tbEncomiendaListadoEncomienda.TabIndex = 3;
             // 
-            // lblEncomiendaListadoIdCompra
+            // lblEncomiendaListadoCompra
             // 
-            this.lblEncomiendaListadoIdCompra.AutoSize = true;
-            this.lblEncomiendaListadoIdCompra.Location = new System.Drawing.Point(8, 95);
-            this.lblEncomiendaListadoIdCompra.Name = "lblEncomiendaListadoIdCompra";
-            this.lblEncomiendaListadoIdCompra.Size = new System.Drawing.Size(57, 13);
-            this.lblEncomiendaListadoIdCompra.TabIndex = 2;
-            this.lblEncomiendaListadoIdCompra.Text = "ID Compra";
+            this.lblEncomiendaListadoCompra.AutoSize = true;
+            this.lblEncomiendaListadoCompra.Location = new System.Drawing.Point(8, 95);
+            this.lblEncomiendaListadoCompra.Name = "lblEncomiendaListadoCompra";
+            this.lblEncomiendaListadoCompra.Size = new System.Drawing.Size(43, 13);
+            this.lblEncomiendaListadoCompra.TabIndex = 2;
+            this.lblEncomiendaListadoCompra.Text = "Compra";
             // 
-            // lblEncomiendaListadoIdViaje
+            // lblEncomiendaListadoViaje
             // 
-            this.lblEncomiendaListadoIdViaje.AutoSize = true;
-            this.lblEncomiendaListadoIdViaje.Location = new System.Drawing.Point(8, 69);
-            this.lblEncomiendaListadoIdViaje.Name = "lblEncomiendaListadoIdViaje";
-            this.lblEncomiendaListadoIdViaje.Size = new System.Drawing.Size(44, 13);
-            this.lblEncomiendaListadoIdViaje.TabIndex = 1;
-            this.lblEncomiendaListadoIdViaje.Text = "ID Viaje";
+            this.lblEncomiendaListadoViaje.AutoSize = true;
+            this.lblEncomiendaListadoViaje.Location = new System.Drawing.Point(8, 69);
+            this.lblEncomiendaListadoViaje.Name = "lblEncomiendaListadoViaje";
+            this.lblEncomiendaListadoViaje.Size = new System.Drawing.Size(30, 13);
+            this.lblEncomiendaListadoViaje.TabIndex = 1;
+            this.lblEncomiendaListadoViaje.Text = "Viaje";
             // 
-            // lblEncomiendaListadoIdEncomienda
+            // lblEncomiendaListadoEncomienda
             // 
-            this.lblEncomiendaListadoIdEncomienda.AutoSize = true;
-            this.lblEncomiendaListadoIdEncomienda.Location = new System.Drawing.Point(8, 46);
-            this.lblEncomiendaListadoIdEncomienda.Name = "lblEncomiendaListadoIdEncomienda";
-            this.lblEncomiendaListadoIdEncomienda.Size = new System.Drawing.Size(80, 13);
-            this.lblEncomiendaListadoIdEncomienda.TabIndex = 0;
-            this.lblEncomiendaListadoIdEncomienda.Text = "ID Encomienda";
+            this.lblEncomiendaListadoEncomienda.AutoSize = true;
+            this.lblEncomiendaListadoEncomienda.Location = new System.Drawing.Point(8, 46);
+            this.lblEncomiendaListadoEncomienda.Name = "lblEncomiendaListadoEncomienda";
+            this.lblEncomiendaListadoEncomienda.Size = new System.Drawing.Size(66, 13);
+            this.lblEncomiendaListadoEncomienda.TabIndex = 0;
+            this.lblEncomiendaListadoEncomienda.Text = "Encomienda";
             // 
             // btnEncomiendaListadoLimpiar
             // 
@@ -139,49 +139,49 @@
             this.dgvEncomiendaListado.Size = new System.Drawing.Size(414, 277);
             this.dgvEncomiendaListado.TabIndex = 3;
             // 
-            // label1
+            // lblEncomiendaListadoPesoKg
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 121);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Peso kg";
+            this.lblEncomiendaListadoPesoKg.AutoSize = true;
+            this.lblEncomiendaListadoPesoKg.Location = new System.Drawing.Point(8, 121);
+            this.lblEncomiendaListadoPesoKg.Name = "lblEncomiendaListadoPesoKg";
+            this.lblEncomiendaListadoPesoKg.Size = new System.Drawing.Size(46, 13);
+            this.lblEncomiendaListadoPesoKg.TabIndex = 6;
+            this.lblEncomiendaListadoPesoKg.Text = "Peso kg";
             // 
-            // textBox1
+            // tbEncomiendaListadoPesoKg
             // 
-            this.textBox1.Location = new System.Drawing.Point(113, 118);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(188, 20);
-            this.textBox1.TabIndex = 7;
+            this.tbEncomiendaListadoPesoKg.Location = new System.Drawing.Point(113, 118);
+            this.tbEncomiendaListadoPesoKg.Name = "tbEncomiendaListadoPesoKg";
+            this.tbEncomiendaListadoPesoKg.Size = new System.Drawing.Size(188, 20);
+            this.tbEncomiendaListadoPesoKg.TabIndex = 7;
             // 
-            // label2
+            // lblEncomiendaListadoDniCliente
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "DNI Cliente";
+            this.lblEncomiendaListadoDniCliente.AutoSize = true;
+            this.lblEncomiendaListadoDniCliente.Location = new System.Drawing.Point(8, 20);
+            this.lblEncomiendaListadoDniCliente.Name = "lblEncomiendaListadoDniCliente";
+            this.lblEncomiendaListadoDniCliente.Size = new System.Drawing.Size(61, 13);
+            this.lblEncomiendaListadoDniCliente.TabIndex = 8;
+            this.lblEncomiendaListadoDniCliente.Text = "DNI Cliente";
             // 
-            // textBox2
+            // tbEncomiendaListadoDniCliente
             // 
-            this.textBox2.Location = new System.Drawing.Point(113, 17);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(188, 20);
-            this.textBox2.TabIndex = 9;
+            this.tbEncomiendaListadoDniCliente.Location = new System.Drawing.Point(113, 17);
+            this.tbEncomiendaListadoDniCliente.Name = "tbEncomiendaListadoDniCliente";
+            this.tbEncomiendaListadoDniCliente.Size = new System.Drawing.Size(188, 20);
+            this.tbEncomiendaListadoDniCliente.TabIndex = 9;
             // 
             // EncomiendaListado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(439, 479);
+            this.ClientSize = new System.Drawing.Size(439, 481);
             this.Controls.Add(this.dgvEncomiendaListado);
             this.Controls.Add(this.btnEncomiendaListadoBuscar);
             this.Controls.Add(this.btnEncomiendaListadoLimpiar);
             this.Controls.Add(this.gbEncomiendaListado);
             this.Name = "EncomiendaListado";
-            this.Text = "EncomiendaListado";
+            this.Text = "Listado Encomiendas";
             this.gbEncomiendaListado.ResumeLayout(false);
             this.gbEncomiendaListado.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEncomiendaListado)).EndInit();
@@ -192,18 +192,18 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gbEncomiendaListado;
-        private System.Windows.Forms.Label lblEncomiendaListadoIdCompra;
-        private System.Windows.Forms.Label lblEncomiendaListadoIdViaje;
-        private System.Windows.Forms.Label lblEncomiendaListadoIdEncomienda;
-        private System.Windows.Forms.TextBox tbEncomiendaListadoIdCompra;
-        private System.Windows.Forms.TextBox tbEncomiendaListadoIdViaje;
-        private System.Windows.Forms.TextBox tbEncomiendaListadoIdEncomienda;
+        private System.Windows.Forms.Label lblEncomiendaListadoCompra;
+        private System.Windows.Forms.Label lblEncomiendaListadoViaje;
+        private System.Windows.Forms.Label lblEncomiendaListadoEncomienda;
+        private System.Windows.Forms.TextBox tbEncomiendaListadoCompra;
+        private System.Windows.Forms.TextBox tbEncomiendaListadoViaje;
+        private System.Windows.Forms.TextBox tbEncomiendaListadoEncomienda;
         private System.Windows.Forms.Button btnEncomiendaListadoLimpiar;
         private System.Windows.Forms.Button btnEncomiendaListadoBuscar;
         private System.Windows.Forms.DataGridView dgvEncomiendaListado;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbEncomiendaListadoDniCliente;
+        private System.Windows.Forms.Label lblEncomiendaListadoDniCliente;
+        private System.Windows.Forms.TextBox tbEncomiendaListadoPesoKg;
+        private System.Windows.Forms.Label lblEncomiendaListadoPesoKg;
     }
 }
