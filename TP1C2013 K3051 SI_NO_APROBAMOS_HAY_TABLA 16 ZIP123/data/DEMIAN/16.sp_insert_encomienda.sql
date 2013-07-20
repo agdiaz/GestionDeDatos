@@ -13,5 +13,5 @@ BEGIN
 	VALUES
 		(@p_id_viaje,@p_id_compra, @p_dni, @p_pre_encomienda)
 
-	SET @p_pre_encomienda = SCOPE_IDENTITY()
+	SET @p_id_encomienda = SCOPE_IDENTITY()
 END
