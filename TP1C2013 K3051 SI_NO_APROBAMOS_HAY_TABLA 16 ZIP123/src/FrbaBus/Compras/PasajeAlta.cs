@@ -132,6 +132,7 @@ namespace FrbaBus.Compras
                     p.PrecioPasaje = Convert.ToDecimal(tbPrecio.Text);
 
                     MensajePorPantalla.MensajeInformativo(this, "Se dio de alta la solicitud de pasaje");
+                    PasajeNuevo = p;
 
                     this.Close();
                 }

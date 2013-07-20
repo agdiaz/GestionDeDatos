@@ -42,7 +42,7 @@ namespace FrbaBus.DAO
             SqlParameter p1 = new SqlParameter("@p_fecha_compra", SqlDbType.DateTime, 8, "p_fecha_compra");
             parametros.Add(p1, entidad.FechaCompra);
 
-            SqlParameter pId = new SqlParameter("@p_id_compra", SqlDbType.DateTime, 8, "p_id_compra");
+            SqlParameter pId = new SqlParameter("@p_id_compra", SqlDbType.Int, 4, "p_id_compra");
             pId.Direction = ParameterDirection.Output;
             parametros.Add(pId, 0);
 
@@ -66,5 +66,15 @@ namespace FrbaBus.DAO
         }
 
         #endregion
+
+        public void CompraPasaje(Compra compra, Pasaje pasaje)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CompraEncomienda(Compra compra, Encomienda encomienda)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

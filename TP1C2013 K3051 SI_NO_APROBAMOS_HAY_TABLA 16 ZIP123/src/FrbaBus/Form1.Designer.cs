@@ -70,7 +70,14 @@
             this.canjeDePuntosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmEncomienda = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmComprarPasajes = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmPasajesListar = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmEncomiendasListar = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmPasajeEncomiendaCancelar = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmCancelacionesCompra = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmCancelacionesPasaje = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmCancelacionesEncomienda = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPremios = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmPremiosListado = new System.Windows.Forms.ToolStripMenuItem();
             this.canjearPuntosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -124,6 +131,9 @@
             this.cbEncomiendas = new System.Windows.Forms.CheckBox();
             this.cbPasajes = new System.Windows.Forms.CheckBox();
             this.gbMedioDePago = new System.Windows.Forms.GroupBox();
+            this.rbTarjeta = new System.Windows.Forms.RadioButton();
+            this.rbEfectivo = new System.Windows.Forms.RadioButton();
+            this.btnFinalizarCompra = new System.Windows.Forms.Button();
             this.gbRecorrido = new System.Windows.Forms.GroupBox();
             this.btnCargarViaje = new System.Windows.Forms.Button();
             this.tbRecorridoServicio = new System.Windows.Forms.TextBox();
@@ -131,16 +141,7 @@
             this.tbRecorridoCiudadDestino = new System.Windows.Forms.TextBox();
             this.tbRecorridoCiudadOrigen = new System.Windows.Forms.TextBox();
             this.btnComprar = new System.Windows.Forms.Button();
-            this.tsmCancelacionesCompra = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmCancelacionesPasaje = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmCancelacionesEncomienda = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmPasajesListar = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmEncomiendasListar = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnFinalizarCompra = new System.Windows.Forms.Button();
-            this.rbEfectivo = new System.Windows.Forms.RadioButton();
-            this.rbTarjeta = new System.Windows.Forms.RadioButton();
+            this.btnHabilitarConfirmarCompra = new System.Windows.Forms.Button();
             this.mnsMain.SuspendLayout();
             this.ssStatusMain.SuspendLayout();
             this.gbViaje.SuspendLayout();
@@ -490,6 +491,30 @@
             this.tsmComprarPasajes.Text = "Comprar";
             this.tsmComprarPasajes.Click += new System.EventHandler(this.tsmComprarPasajes_Click);
             // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(199, 6);
+            // 
+            // tsmPasajesListar
+            // 
+            this.tsmPasajesListar.Name = "tsmPasajesListar";
+            this.tsmPasajesListar.Size = new System.Drawing.Size(202, 22);
+            this.tsmPasajesListar.Text = "Listado de Pasajes";
+            this.tsmPasajesListar.Click += new System.EventHandler(this.tsmPasajesListar_Click);
+            // 
+            // tsmEncomiendasListar
+            // 
+            this.tsmEncomiendasListar.Name = "tsmEncomiendasListar";
+            this.tsmEncomiendasListar.Size = new System.Drawing.Size(202, 22);
+            this.tsmEncomiendasListar.Text = "Listado de Encomiendas";
+            this.tsmEncomiendasListar.Click += new System.EventHandler(this.tsmEncomiendasListar_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(199, 6);
+            // 
             // tsmPasajeEncomiendaCancelar
             // 
             this.tsmPasajeEncomiendaCancelar.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -499,6 +524,27 @@
             this.tsmPasajeEncomiendaCancelar.Name = "tsmPasajeEncomiendaCancelar";
             this.tsmPasajeEncomiendaCancelar.Size = new System.Drawing.Size(202, 22);
             this.tsmPasajeEncomiendaCancelar.Text = "Cancelaciones";
+            // 
+            // tsmCancelacionesCompra
+            // 
+            this.tsmCancelacionesCompra.Name = "tsmCancelacionesCompra";
+            this.tsmCancelacionesCompra.Size = new System.Drawing.Size(189, 22);
+            this.tsmCancelacionesCompra.Text = "Cancelar Compra";
+            this.tsmCancelacionesCompra.Click += new System.EventHandler(this.cancelarCompraToolStripMenuItem_Click);
+            // 
+            // tsmCancelacionesPasaje
+            // 
+            this.tsmCancelacionesPasaje.Name = "tsmCancelacionesPasaje";
+            this.tsmCancelacionesPasaje.Size = new System.Drawing.Size(189, 22);
+            this.tsmCancelacionesPasaje.Text = "Cancelar Pasaje";
+            this.tsmCancelacionesPasaje.Click += new System.EventHandler(this.cancelarPasajeToolStripMenuItem_Click);
+            // 
+            // tsmCancelacionesEncomienda
+            // 
+            this.tsmCancelacionesEncomienda.Name = "tsmCancelacionesEncomienda";
+            this.tsmCancelacionesEncomienda.Size = new System.Drawing.Size(189, 22);
+            this.tsmCancelacionesEncomienda.Text = "Cancelar Encomienda";
+            this.tsmCancelacionesEncomienda.Click += new System.EventHandler(this.cancelarEncomiendaToolStripMenuItem_Click);
             // 
             // tsmPremios
             // 
@@ -534,7 +580,7 @@
             // tsmEstadisticasListados
             // 
             this.tsmEstadisticasListados.Name = "tsmEstadisticasListados";
-            this.tsmEstadisticasListados.Size = new System.Drawing.Size(152, 22);
+            this.tsmEstadisticasListados.Size = new System.Drawing.Size(117, 22);
             this.tsmEstadisticasListados.Text = "Listados";
             this.tsmEstadisticasListados.Click += new System.EventHandler(this.tsmEstadisticasListados_Click);
             // 
@@ -842,6 +888,7 @@
             // 
             // gbDetalles
             // 
+            this.gbDetalles.Controls.Add(this.btnHabilitarConfirmarCompra);
             this.gbDetalles.Controls.Add(this.gbEncomiendas);
             this.gbDetalles.Controls.Add(this.gbPasajeros);
             this.gbDetalles.Controls.Add(this.cbEncomiendas);
@@ -864,7 +911,7 @@
             this.gbEncomiendas.Controls.Add(this.lbEncomiendas);
             this.gbEncomiendas.Location = new System.Drawing.Point(7, 290);
             this.gbEncomiendas.Name = "gbEncomiendas";
-            this.gbEncomiendas.Size = new System.Drawing.Size(348, 241);
+            this.gbEncomiendas.Size = new System.Drawing.Size(348, 202);
             this.gbEncomiendas.TabIndex = 15;
             this.gbEncomiendas.TabStop = false;
             this.gbEncomiendas.Text = "Encomiendas";
@@ -1015,6 +1062,40 @@
             this.gbMedioDePago.TabStop = false;
             this.gbMedioDePago.Text = "4) Medio de pago";
             // 
+            // rbTarjeta
+            // 
+            this.rbTarjeta.AutoSize = true;
+            this.rbTarjeta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbTarjeta.Location = new System.Drawing.Point(17, 33);
+            this.rbTarjeta.Name = "rbTarjeta";
+            this.rbTarjeta.Size = new System.Drawing.Size(58, 17);
+            this.rbTarjeta.TabIndex = 2;
+            this.rbTarjeta.TabStop = true;
+            this.rbTarjeta.Text = "Tarjeta";
+            this.rbTarjeta.UseVisualStyleBackColor = true;
+            // 
+            // rbEfectivo
+            // 
+            this.rbEfectivo.AutoSize = true;
+            this.rbEfectivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbEfectivo.Location = new System.Drawing.Point(17, 58);
+            this.rbEfectivo.Name = "rbEfectivo";
+            this.rbEfectivo.Size = new System.Drawing.Size(64, 17);
+            this.rbEfectivo.TabIndex = 1;
+            this.rbEfectivo.TabStop = true;
+            this.rbEfectivo.Text = "Efectivo";
+            this.rbEfectivo.UseVisualStyleBackColor = true;
+            // 
+            // btnFinalizarCompra
+            // 
+            this.btnFinalizarCompra.Location = new System.Drawing.Point(75, 90);
+            this.btnFinalizarCompra.Name = "btnFinalizarCompra";
+            this.btnFinalizarCompra.Size = new System.Drawing.Size(75, 23);
+            this.btnFinalizarCompra.TabIndex = 0;
+            this.btnFinalizarCompra.Text = "Finalizar compra";
+            this.btnFinalizarCompra.UseVisualStyleBackColor = true;
+            this.btnFinalizarCompra.Click += new System.EventHandler(this.btnFinalizarCompra_Click);
+            // 
             // gbRecorrido
             // 
             this.gbRecorrido.Controls.Add(this.btnCargarViaje);
@@ -1088,84 +1169,15 @@
             this.btnComprar.UseVisualStyleBackColor = true;
             this.btnComprar.Click += new System.EventHandler(this.btnComprar_Click);
             // 
-            // tsmCancelacionesCompra
+            // btnHabilitarConfirmarCompra
             // 
-            this.tsmCancelacionesCompra.Name = "tsmCancelacionesCompra";
-            this.tsmCancelacionesCompra.Size = new System.Drawing.Size(189, 22);
-            this.tsmCancelacionesCompra.Text = "Cancelar Compra";
-            this.tsmCancelacionesCompra.Click += new System.EventHandler(this.cancelarCompraToolStripMenuItem_Click);
-            // 
-            // tsmCancelacionesPasaje
-            // 
-            this.tsmCancelacionesPasaje.Name = "tsmCancelacionesPasaje";
-            this.tsmCancelacionesPasaje.Size = new System.Drawing.Size(189, 22);
-            this.tsmCancelacionesPasaje.Text = "Cancelar Pasaje";
-            this.tsmCancelacionesPasaje.Click += new System.EventHandler(this.cancelarPasajeToolStripMenuItem_Click);
-            // 
-            // tsmCancelacionesEncomienda
-            // 
-            this.tsmCancelacionesEncomienda.Name = "tsmCancelacionesEncomienda";
-            this.tsmCancelacionesEncomienda.Size = new System.Drawing.Size(189, 22);
-            this.tsmCancelacionesEncomienda.Text = "Cancelar Encomienda";
-            this.tsmCancelacionesEncomienda.Click += new System.EventHandler(this.cancelarEncomiendaToolStripMenuItem_Click);
-            // 
-            // tsmPasajesListar
-            // 
-            this.tsmPasajesListar.Name = "tsmPasajesListar";
-            this.tsmPasajesListar.Size = new System.Drawing.Size(202, 22);
-            this.tsmPasajesListar.Text = "Listado de Pasajes";
-            this.tsmPasajesListar.Click += new System.EventHandler(this.tsmPasajesListar_Click);
-            // 
-            // tsmEncomiendasListar
-            // 
-            this.tsmEncomiendasListar.Name = "tsmEncomiendasListar";
-            this.tsmEncomiendasListar.Size = new System.Drawing.Size(202, 22);
-            this.tsmEncomiendasListar.Text = "Listado de Encomiendas";
-            this.tsmEncomiendasListar.Click += new System.EventHandler(this.tsmEncomiendasListar_Click);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(199, 6);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(199, 6);
-            // 
-            // btnFinalizarCompra
-            // 
-            this.btnFinalizarCompra.Location = new System.Drawing.Point(75, 90);
-            this.btnFinalizarCompra.Name = "btnFinalizarCompra";
-            this.btnFinalizarCompra.Size = new System.Drawing.Size(75, 23);
-            this.btnFinalizarCompra.TabIndex = 0;
-            this.btnFinalizarCompra.Text = "Finalizar compra";
-            this.btnFinalizarCompra.UseVisualStyleBackColor = true;
-            this.btnFinalizarCompra.Click += new System.EventHandler(this.btnFinalizarCompra_Click);
-            // 
-            // rbEfectivo
-            // 
-            this.rbEfectivo.AutoSize = true;
-            this.rbEfectivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbEfectivo.Location = new System.Drawing.Point(17, 58);
-            this.rbEfectivo.Name = "rbEfectivo";
-            this.rbEfectivo.Size = new System.Drawing.Size(64, 17);
-            this.rbEfectivo.TabIndex = 1;
-            this.rbEfectivo.TabStop = true;
-            this.rbEfectivo.Text = "Efectivo";
-            this.rbEfectivo.UseVisualStyleBackColor = true;
-            // 
-            // rbTarjeta
-            // 
-            this.rbTarjeta.AutoSize = true;
-            this.rbTarjeta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbTarjeta.Location = new System.Drawing.Point(17, 33);
-            this.rbTarjeta.Name = "rbTarjeta";
-            this.rbTarjeta.Size = new System.Drawing.Size(58, 17);
-            this.rbTarjeta.TabIndex = 2;
-            this.rbTarjeta.TabStop = true;
-            this.rbTarjeta.Text = "Tarjeta";
-            this.rbTarjeta.UseVisualStyleBackColor = true;
+            this.btnHabilitarConfirmarCompra.Location = new System.Drawing.Point(291, 498);
+            this.btnHabilitarConfirmarCompra.Name = "btnHabilitarConfirmarCompra";
+            this.btnHabilitarConfirmarCompra.Size = new System.Drawing.Size(75, 23);
+            this.btnHabilitarConfirmarCompra.TabIndex = 4;
+            this.btnHabilitarConfirmarCompra.Text = "Continuar";
+            this.btnHabilitarConfirmarCompra.UseVisualStyleBackColor = true;
+            this.btnHabilitarConfirmarCompra.Click += new System.EventHandler(this.btnHabilitarConfirmarCompra_Click);
             // 
             // Form1
             // 
@@ -1323,6 +1335,7 @@
         private System.Windows.Forms.Button btnFinalizarCompra;
         private System.Windows.Forms.RadioButton rbTarjeta;
         private System.Windows.Forms.RadioButton rbEfectivo;
+        private System.Windows.Forms.Button btnHabilitarConfirmarCompra;
     }
 }
 

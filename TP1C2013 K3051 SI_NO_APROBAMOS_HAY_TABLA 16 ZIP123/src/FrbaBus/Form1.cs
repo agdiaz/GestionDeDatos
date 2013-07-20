@@ -650,38 +650,43 @@ namespace FrbaBus
                 try
                 {
                     //Impacto los pasajes a la compra en la base de datos
-                    int retornoPasajes = AltaPasajesDeCompra();
+                    int retornoPasajes = AltaPasajesDeCompra(compra);
 
                     //Impacto las encomiendas a la compra en la base de datos
-                    int retornoEncomiendas = AltaEncomiendasDeCompra();
+                    int retornoEncomiendas = AltaEncomiendasDeCompra(compra);
 
                     MensajePorPantalla.MensajeInformativo(this, "Se ha dado de alta la compra con id: " + compra.IdCompra);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     //Cancelar la compra
-                    throw;
+                    MensajePorPantalla.MensajeError(this, ex.Message);
                 }
             }
             
         }
 
-        private int AltaEncomiendasDeCompra()
+        private int AltaEncomiendasDeCompra(Compra compra)
         {
             foreach (Encomienda encomienda in _encomiendas)
             {
-
+                _compraManager.CompraEncomienda(compra, encomienda);
             }
             return _encomiendas.Count;
         }
 
-        private int AltaPasajesDeCompra()
+        private int AltaPasajesDeCompra(Compra compra)
         {
             foreach (Pasaje pasaje in _pasajes)
             {
-
+                _compraManager.CompraPasaje(compra, pasaje);
             }
             return _pasajes.Count();
+        }
+
+        private void btnHabilitarConfirmarCompra_Click(object sender, EventArgs e)
+        {
+            this.LimpiarGrupoMedioPago(true);
         }
     }
 }
