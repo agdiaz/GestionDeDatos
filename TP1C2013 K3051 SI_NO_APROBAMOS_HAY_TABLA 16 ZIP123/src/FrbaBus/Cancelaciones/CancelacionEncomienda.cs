@@ -24,8 +24,7 @@ namespace FrbaBus.Cancelaciones
             Encomienda encomienda = null;
             using (Compras.EncomiendaListado frm = new FrbaBus.Compras.EncomiendaListado())
             {
-                frm.ShowDialog();
-                
+                frm.ShowDialog();                
             }
         }
     }
