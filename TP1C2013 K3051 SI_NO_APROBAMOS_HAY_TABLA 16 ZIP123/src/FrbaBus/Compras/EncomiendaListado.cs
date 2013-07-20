@@ -70,6 +70,7 @@ namespace FrbaBus.Compras
                 IList<Encomienda> encomiendas = _manager.ListarFiltradoEncomiendas(DniCliente, idEncomienda, IdViaje, idCompra, peso);
 
                 dgvEncomiendaListado.DataSource = encomiendas;
+                dgvEncomiendaListado.Columns["idCancelacion"].Visible = false;
 
             }
             catch (AccesoBDException ex)

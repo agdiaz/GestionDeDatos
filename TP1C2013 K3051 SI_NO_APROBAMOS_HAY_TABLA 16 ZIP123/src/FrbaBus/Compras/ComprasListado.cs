@@ -40,6 +40,7 @@ namespace FrbaBus.Compras
                 this.dgvCompras.DataSource = compras;
                 dgvCompras.Columns["IdUsuario"].Visible = false;
                 dgvCompras.Columns["IdCancelacion"].Visible = false;
+                dgvCompras.Columns["Puntajes"].Visible = false;
             }
             catch (AccesoBDException ex)
             {

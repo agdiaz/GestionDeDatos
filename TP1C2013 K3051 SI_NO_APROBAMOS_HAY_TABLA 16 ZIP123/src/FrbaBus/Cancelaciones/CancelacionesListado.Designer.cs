@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dgvCancelaciones = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
+            this.dgvCancelaciones = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCancelaciones)).BeginInit();
             this.SuspendLayout();
@@ -45,18 +45,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";
             // 
-            // dgvCancelaciones
-            // 
-            this.dgvCancelaciones.AllowUserToAddRows = false;
-            this.dgvCancelaciones.AllowUserToDeleteRows = false;
-            this.dgvCancelaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCancelaciones.Location = new System.Drawing.Point(13, 128);
-            this.dgvCancelaciones.Name = "dgvCancelaciones";
-            this.dgvCancelaciones.ReadOnly = true;
-            this.dgvCancelaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCancelaciones.Size = new System.Drawing.Size(647, 261);
-            this.dgvCancelaciones.TabIndex = 1;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(566, 79);
@@ -66,6 +54,20 @@
             this.button1.Text = "Buscar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // dgvCancelaciones
+            // 
+            this.dgvCancelaciones.AllowUserToAddRows = false;
+            this.dgvCancelaciones.AllowUserToDeleteRows = false;
+            this.dgvCancelaciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvCancelaciones.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvCancelaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCancelaciones.Location = new System.Drawing.Point(13, 128);
+            this.dgvCancelaciones.Name = "dgvCancelaciones";
+            this.dgvCancelaciones.ReadOnly = true;
+            this.dgvCancelaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCancelaciones.Size = new System.Drawing.Size(647, 261);
+            this.dgvCancelaciones.TabIndex = 1;
             // 
             // CancelacionesListado
             // 

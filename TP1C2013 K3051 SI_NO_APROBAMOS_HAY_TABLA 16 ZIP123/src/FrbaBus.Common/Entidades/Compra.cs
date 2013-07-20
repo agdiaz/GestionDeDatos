@@ -16,7 +16,7 @@ namespace FrbaBus.Common.Entidades
         public IList<Encomienda> Encomiendas { get; set; }
         public IList<Puntaje> Puntajes { get; set; }
         public Cancelacion CancelacionCompra { get; set; }
-
+    
         public override string ToString()
         {
             return IdCompra.ToString();

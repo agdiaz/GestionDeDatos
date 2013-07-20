@@ -171,6 +171,7 @@
             // 
             // dgvPasajeListado
             // 
+            this.dgvPasajeListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvPasajeListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPasajeListado.Location = new System.Drawing.Point(12, 180);
             this.dgvPasajeListado.Name = "dgvPasajeListado";

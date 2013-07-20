@@ -18,7 +18,7 @@ namespace FrbaBus.Manager
         
         public IList<Compra> Listar()
         {
-            return this._dao.Listar();
+            return _dao.Listar();
         }
 
         public Compra Alta(Compra compra)
