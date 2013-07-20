@@ -26,6 +26,7 @@ BEGIN
 	BEGIN
 		ROLLBACK TRANSACTION canje_recompensa
 		RAISERROR('No hay stock suficiente', 12, 2)
+		RETURN
 	END
 	
 	UPDATE [SI_NO_APROBAMOS_HAY_TABLA].Recompensa
