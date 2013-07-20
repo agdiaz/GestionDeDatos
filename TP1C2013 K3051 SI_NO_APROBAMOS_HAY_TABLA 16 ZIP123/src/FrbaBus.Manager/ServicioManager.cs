@@ -26,9 +26,11 @@ namespace FrbaBus.Manager
             return _dao.Listar();
         }
 
-        public void Alta(Servicio c)
+        public Servicio Alta(Servicio c)
         {
-            _dao.Alta(c);
+            int id = _dao.Alta(c);
+            c.Id = id;
+            return c;
         }
     }
 }

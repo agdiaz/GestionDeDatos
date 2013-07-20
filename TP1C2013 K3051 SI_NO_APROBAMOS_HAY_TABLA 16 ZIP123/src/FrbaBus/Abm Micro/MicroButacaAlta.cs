@@ -153,12 +153,10 @@ namespace FrbaBus.Abm_Micro
             catch (AccesoBDException ex)
             {
                 MensajePorPantalla.MensajeExceptionBD(this, ex);
-                this.Close();
             }
             catch (Exception ex)
             {
                 MensajePorPantalla.MensajeError(this, "Error al intentar crear el registro.\n Detalle del error: " + ex.Message);
-                this.Close();
             }
         }
 
