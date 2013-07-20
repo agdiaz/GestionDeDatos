@@ -20,5 +20,4 @@ BEGIN
       ,[username]
   FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Usuario]
 	where username = @p_username
-	and baja = 0
 END

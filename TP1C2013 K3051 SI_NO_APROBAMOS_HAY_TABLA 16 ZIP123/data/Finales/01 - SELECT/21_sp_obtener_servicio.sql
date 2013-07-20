@@ -5,6 +5,5 @@ BEGIN
 	SELECT s.id_servicio, s.tipo_servicio, s.pocent_adic
 	from SI_NO_APROBAMOS_HAY_TABLA.Servicio s
 	where s.id_servicio = @p_id
-	AND baja = 0
 END
 GO

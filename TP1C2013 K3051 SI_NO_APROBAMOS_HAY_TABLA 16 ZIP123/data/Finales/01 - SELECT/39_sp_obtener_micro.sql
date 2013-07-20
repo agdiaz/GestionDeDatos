@@ -14,6 +14,5 @@ BEGIN
       ,[capacidad_kg]
   FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Micros]
   WHERE id_micros = @p_id
-  AND baja = 0
 END
 GO

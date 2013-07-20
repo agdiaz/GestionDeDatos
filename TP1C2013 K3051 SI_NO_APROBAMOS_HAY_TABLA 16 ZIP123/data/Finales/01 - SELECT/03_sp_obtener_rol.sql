@@ -9,5 +9,4 @@ BEGIN
       ,[baja]
   FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol]
 	where Rol.id_rol = @p_id
-	and baja = 0
 END

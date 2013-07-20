@@ -15,6 +15,5 @@ BEGIN
       ,[baja]
   FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Cliente]
 	WHERE Cliente.dni = @p_dni
-	AND [baja] = 0
 END
 
