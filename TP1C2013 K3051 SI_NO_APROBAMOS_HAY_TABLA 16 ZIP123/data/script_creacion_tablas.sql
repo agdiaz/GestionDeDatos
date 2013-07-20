@@ -1225,40 +1225,81 @@ insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad
 values ('tsmClienteAlta')
 
 insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
-values ('tsmClientePasajeroFrecuenteConsultar')
-
-insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
 values ('tsmViajeAlta')
 
 insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
 values ('tsmViajeListado')
 
 insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
-values ('tsmPasajeEncomiendaAlta')
-
-insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
-values ('tsmPasajeEncomiendaCancelar')
-
-insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
-values ('tsmEstadisticasT5ClientesMasPuntos')
-
-insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
-values ('tsmEstadisticasT5DestMasCancelados')
-
-insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
-values ('tsmEstadisticasT5DestMasMicrosVacios')
-
-insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
-values ('tsmEstadisticasT5DestMasVendidos')
-
-insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
-values ('tsmEstadisticasT5MicrosMasDiasFueraDeServicio')
-
-insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
 values ('tsmPremiosAlta')
 
 insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
 values ('tsmPremiosListado')
+
+--    FUNCIONALIDADES AGREGADAS
+
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
+VALUES ('tsmEstadisticasListados')
+
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
+VALUES ('tsmAyudaUsuarios')
+
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
+VALUES ('tsmClientePasajeroFrecuente')
+
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
+VALUES ('tsmClientePasajeroFrecuenteConsultar')
+
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
+VALUES ('tsmMicroServicio')
+
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
+VALUES ('tsmMicroServicioListado')
+
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
+VALUES ('tsmMicroServicioAlta')
+
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
+VALUES ('tsmMicroMarca')
+
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
+VALUES ('tsmMicroMarcaListado')
+
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
+VALUES ('tsmMicroMarcaAlta')
+
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
+VALUES ('tsmMicroButaca')
+
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
+VALUES ('tsmMicroButacaAlta')
+
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
+VALUES ('cargarArribaToolStripMenuItem')
+
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
+VALUES ('canjeDePuntosToolStripMenuItem')
+
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
+VALUES ('tsmComprarPasajes')
+
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
+VALUES ('tsmPasajesListar')
+
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
+VALUES ('tsmEncomiendasListar')
+
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
+VALUES ('tsmCancelacionesCompra')
+
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
+VALUES ('tsmCancelacionesPasaje')
+
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
+VALUES ('tsmCancelacionesEncomienda')
+
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
+VALUES ('canjearPuntosToolStripMenuItem')
 
 /*===========================INSERT ROL FUNCIONALIDAD==============================*/
 
@@ -1339,11 +1380,6 @@ where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='tsmClienteAlt
 insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
 select id_Rol, id_funcionalidad
 from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
-where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='tsmClientePasajeroFrecuenteConsultar'
-
-insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
-select id_Rol, id_funcionalidad
-from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
 where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='tsmViajeAlta'
 
 insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
@@ -1364,37 +1400,119 @@ where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='tsmEncomienda
 insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
 select id_Rol, id_funcionalidad
 from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
-where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='tsmEstadisticasT5ClientesMasPuntos'
-
-insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
-select id_Rol, id_funcionalidad
-from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
-where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='tsmEstadisticasT5DestMasCancelados'
-
-insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
-select id_Rol, id_funcionalidad
-from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
-where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='tsmEstadisticasT5DestMasMicrosVacios'
-
-insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
-select id_Rol, id_funcionalidad
-from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
-where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='tsmEstadisticasT5DestMasVendidos'
-
-insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
-select id_Rol, id_funcionalidad
-from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
-where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='tsmEstadisticasT5MicrosMasDiasFueraDeServicio'
-
-insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
-select id_Rol, id_funcionalidad
-from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
 where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='tsmPremiosAlta'
 
 insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
 select id_Rol, id_funcionalidad
 from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
 where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='tsmPremiosListado'
+
+/*=============NUEVAS FUNCIONALIDADES PARA ADMINISTRATIVO=================================*/
+
+insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
+select id_Rol, id_funcionalidad
+from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
+where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='tsmEstadisticasListados'
+
+insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
+select id_Rol, id_funcionalidad
+from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
+where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='tsmAyudaUsuarios'
+
+insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
+select id_Rol, id_funcionalidad
+from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
+where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='tsmClientePasajeroFrecuente'
+
+insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
+select id_Rol, id_funcionalidad
+from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
+where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='tsmClientePasajeroFrecuenteConsultar'
+
+insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
+select id_Rol, id_funcionalidad
+from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
+where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='tsmMicroServicio'
+
+insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
+select id_Rol, id_funcionalidad
+from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
+where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='tsmMicroServicioListado'
+
+insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
+select id_Rol, id_funcionalidad
+from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
+where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='tsmMicroServicioAlta'
+
+insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
+select id_Rol, id_funcionalidad
+from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
+where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='tsmMicroMarca'
+
+insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
+select id_Rol, id_funcionalidad
+from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
+where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='tsmMicroMarcaListado'
+
+insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
+select id_Rol, id_funcionalidad
+from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
+where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='tsmMicroMarcaAlta'
+
+insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
+select id_Rol, id_funcionalidad
+from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
+where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='tsmMicroButaca'
+
+insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
+select id_Rol, id_funcionalidad
+from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
+where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='tsmMicroButacaAlta'
+
+insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
+select id_Rol, id_funcionalidad
+from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
+where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='cargarArribaToolStripMenuItem'
+
+insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
+select id_Rol, id_funcionalidad
+from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
+where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='canjeDePuntosToolStripMenuItem'
+
+insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
+select id_Rol, id_funcionalidad
+from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
+where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='tsmComprarPasajes'
+
+insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
+select id_Rol, id_funcionalidad
+from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
+where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='tsmPasajesListar'
+
+insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
+select id_Rol, id_funcionalidad
+from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
+where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='tsmEncomiendasListar'
+
+insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
+select id_Rol, id_funcionalidad
+from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
+where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='tsmCancelacionesCompra'
+
+insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
+select id_Rol, id_funcionalidad
+from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
+where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='tsmCancelacionesPasaje'
+
+insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
+select id_Rol, id_funcionalidad
+from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
+where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='tsmCancelacionesEncomienda'
+
+insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
+select id_Rol, id_funcionalidad
+from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
+where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='canjearPuntosToolStripMenuItem'
 
 /*===========================INSERT CLIENTES ADMINISTRATIVOS==============================*/
 
