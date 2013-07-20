@@ -68,6 +68,12 @@ namespace FrbaBus.Abm_Recorrido
 
         private void btnRecorridoListadoLimpiar_Click(object sender, EventArgs e)
         {
+            LimpiarDatos();
+            CargarRecorridos();
+        }
+
+        private void LimpiarDatos()
+        {
             this.cbbRecorridoListadoTipoServicio.SelectedIndex = 0;
             this.cbCiudadOrigen.SelectedIndex = 0;
             this.cbCiudadDestino.SelectedIndex = 0;
@@ -137,6 +143,8 @@ namespace FrbaBus.Abm_Recorrido
             {
                 frm.ShowDialog(this);
             }
+
+            LimpiarDatos();
             CargarRecorridos();
             
         }
@@ -147,20 +155,19 @@ namespace FrbaBus.Abm_Recorrido
             {
                 Recorrido rec = (Recorrido)dgvRecorridoListado.SelectedRows[0].DataBoundItem;
                 _manager.Baja(rec);
-
-                //Cargo la grilla de roles
+                MensajePorPantalla.MensajeInformativo(this, "Se ha dado de baja el recorrido");
+                
+                LimpiarDatos();
                 CargarRecorridos();
 
             }
             catch (AccesoBDException ex)
             {
                 MensajePorPantalla.MensajeExceptionBD(this, ex);
-                this.Close();
             }
             catch (Exception ex)
             {
                 MensajePorPantalla.MensajeError(this, "Error al intentar borrar el registro.\n Detalle del error: " + ex.Message);
-                this.Close();
             }
             
         }
