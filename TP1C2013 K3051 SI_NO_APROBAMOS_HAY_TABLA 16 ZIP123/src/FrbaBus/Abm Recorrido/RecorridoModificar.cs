@@ -118,22 +118,32 @@ namespace FrbaBus.Abm_Recorrido
         {
             if ((int)cbCiudadOrigen.SelectedValue < 1)
             {
+                MensajePorPantalla.MensajeError(this, "Debe seleccionar una ciudad de origen");
                 return false;
             }
             if ((int)cbCiudadDestino.SelectedValue < 1)
             {
+                MensajePorPantalla.MensajeError(this, "Debe seleccionar una ciudad de destino");
+                return false;
+            }
+            if ((int)cbCiudadOrigen.SelectedValue == (int)cbCiudadDestino.SelectedValue)
+            {
+                MensajePorPantalla.MensajeError(this, "Debe seleccionar una ciudad de destino distinta a la de origen");
                 return false;
             }
             if ((int)cbbRecorridoModificarTipoServicio.SelectedValue < 1)
             {
+                MensajePorPantalla.MensajeError(this, "Debe seleccionar un servicio");
                 return false;
             }
             if (string.IsNullOrEmpty(tbRecorridoModificarPrecioBasePorKgs.Text))
             {
+                MensajePorPantalla.MensajeError(this, "Debe indiicar un precio base por kilogramos");
                 return false;
             }
             if (string.IsNullOrEmpty(tbRecorridoModificarPrecioBasePorPasaje.Text))
             {
+                MensajePorPantalla.MensajeError(this, "Debe indiicar un precio base por pasaje");
                 return false;
             }
             return true;
