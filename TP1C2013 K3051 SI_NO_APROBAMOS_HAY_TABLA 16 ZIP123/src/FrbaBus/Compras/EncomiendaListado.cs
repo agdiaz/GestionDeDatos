@@ -24,6 +24,14 @@ namespace FrbaBus.Compras
             InitializeComponent();
         }
 
+        public Encomienda EncomiendaSeleccionado()
+        {
+            Encomienda c = null;
+            if (dgvEncomiendaListado.SelectedRows.Count > 0)
+                c = dgvEncomiendaListado.SelectedRows[0].DataBoundItem as Encomienda;
+            return c;
+        }
+
         private void btnEncomiendaListadoBuscar_Click(object sender, EventArgs e)
         {
             try
@@ -88,7 +96,7 @@ namespace FrbaBus.Compras
             }
         }
 
-        private void btnEncomiendaListadoSeleccionarCliente_Click(object sender, EventArgs e)
+        private void btnEncomiendaListadoSeleccionarEncomienda_Click(object sender, EventArgs e)
         {
             Cliente cliente = null;
             using (ClienteListado frm = new ClienteListado(true))
