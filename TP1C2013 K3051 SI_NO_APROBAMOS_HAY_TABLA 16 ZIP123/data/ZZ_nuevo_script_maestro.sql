@@ -2730,3 +2730,536 @@ SET @p_id = SCOPE_IDENTITY()
 END
 GO
 
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_filtrado_viaje(
+@p_fecha_salida datetime = NULL,
+@p_fecha_llegada datetime = NULL,
+@p_fecha_llegada_estimada datetime = NULL,
+@p_micro int = NULL,
+@p_recorrido numeric(18,2) = NULL 
+)
+	AS
+BEGIN
+	SELECT v.[id_viaje]
+      ,v.[id_recorrido]
+      ,v.[id_micro]
+      ,v.[fecha_salida]
+      ,v.[fecha_arribo_estimada]
+      ,v.[fecha_arribo]
+	 FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Viaje] v
+	where ((@p_fecha_salida IS NULL) OR (v.fecha_salida = @p_fecha_salida))
+	and ((@p_fecha_llegada IS NULL) OR  (v.fecha_arribo = @p_fecha_llegada))
+	and ((@p_fecha_llegada_estimada IS NULL) OR (v.fecha_arribo_estimada = @p_fecha_llegada_estimada ))
+	and ((@p_micro IS NULL) OR (v.id_micro = @p_micro))
+	and ((@p_recorrido IS NULL) OR (v.id_recorrido = @p_recorrido))
+END
+
+GO
+CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_obtener_recorrido(
+	@p_id numeric(18,0)
+	)
+AS
+BEGIN
+	SELECT [id_recorrido]
+      ,[id_ciudad_origen]
+      ,[id_ciudad_destino]
+      ,[pre_base_kg]
+      ,[pre_base_pasaje]
+      ,[id_servicio]
+      ,[baja]
+  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Recorrido]
+WHERE id_recorrido = @p_id
+END
+GO
+CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_obtener_micro
+	@p_id int
+AS
+BEGIN
+	SELECT TOP 1 [id_micros]
+      ,[fecha_alta]
+      ,[nro_micro]
+      ,[modelo]
+      ,[patente]
+      ,[id_marca]
+      ,[id_servicio]
+      ,[baja_vida_util]
+      ,[fec_baja_vida_util]
+      ,[capacidad_kg]
+  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Micros]
+  WHERE id_micros = @p_id
+  AND baja = 0
+END
+GO
+USE [GD1C2013]
+GO
+/****** Object:  StoredProcedure [SI_NO_APROBAMOS_HAY_TABLA].[sp_listar_cliente]    Script Date: 07/18/2013 02:28:13 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].[sp_listar_cliente]
+AS
+BEGIN
+	SELECT c.[dni]
+      ,c.[nombre]
+      ,c.[apellido]
+      ,c.[direccion]
+      ,c.[telefono]
+      ,c.[mail]
+      ,c.[fecha_nacimiento]
+      ,c.[es_discapacitado]
+      ,c.[sexo]
+  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Cliente] c
+  WHERE c.baja = 0
+END
+GO
+USE [GD1C2013]
+GO
+/****** Object:  StoredProcedure [SI_NO_APROBAMOS_HAY_TABLA].[sp_listar_filtrado_cliente]    Script Date: 07/18/2013 00:39:33 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].[sp_listar_filtrado_cliente]
+	@p_dni numeric(18,0) = NULL,
+	@p_nombre nvarchar(255) = NULL,
+	@p_apellido nvarchar(255) = NULL,
+	@p_discapacitado CHAR(1) = NULL,
+	@p_sexo varchar(50) = NULL
+AS
+BEGIN
+	SELECT [dni]
+      ,[nombre]
+      ,[apellido]
+      ,[direccion]
+      ,[telefono]
+      ,[mail]
+      ,[fecha_nacimiento]
+      ,[es_discapacitado]
+      ,[sexo]
+	FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Cliente]
+	where ((@p_dni IS NULL) OR (dni = @p_dni))
+	and ((@p_nombre IS NULL) OR (UPPER(nombre) like '%' + UPPER(@p_nombre) +'%'))
+	and ((@p_apellido IS NULL) OR (apellido like '%' + @p_apellido + '%'))
+	and ((@p_discapacitado IS NULL) OR (ISNULL(es_discapacitado, 'N') = @p_discapacitado))
+	and ((@p_sexo IS NULL) OR (sexo like '%' + @p_sexo + '%'))
+	and baja=0
+END
+GO
+CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_insert_cliente
+(
+	@p_dni numeric(18,0),
+	@p_nombre nvarchar(255),
+	@p_apellido nvarchar(255),
+	@p_direccion nvarchar(255),
+	@p_telefono numeric(18,0),
+	@p_mail nvarchar(255),
+	@p_fecha_nacimiento datetime,
+	@p_es_discapacitado char(1),
+	@p_sexo varchar(50)
+)
+AS
+BEGIN
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Cliente]
+           ([dni]
+           ,[nombre]
+           ,[apellido]
+           ,[direccion]
+           ,[telefono]
+           ,[mail]
+           ,[fecha_nacimiento]
+           ,[es_discapacitado]
+           ,[sexo])
+     VALUES
+           (@p_dni
+           ,@p_nombre
+           ,@p_apellido
+           ,@p_direccion
+           ,@p_telefono
+           ,@p_mail
+           ,@p_fecha_nacimiento
+           ,@p_es_discapacitado
+           ,@p_sexo)
+END
+GO
+CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_update_cliente
+(
+	@p_dni numeric(18,0),
+	@p_nombre nvarchar(255),
+	@p_apellido nvarchar(255),
+	@p_direccion nvarchar(255),
+	@p_telefono numeric(18,0),
+	@p_mail nvarchar(255),
+	@p_fecha_nacimiento datetime,
+	@p_es_discapacitado char(1),
+	@p_sexo varchar(50)
+)
+AS
+BEGIN
+UPDATE [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Cliente]
+SET [nombre]=@p_nombre
+           ,[apellido]=@p_apellido
+           ,[direccion]=@p_direccion
+           ,[telefono]=@p_telefono
+           ,[mail]=@p_mail
+           ,[fecha_nacimiento]=@p_fecha_nacimiento
+           ,[es_discapacitado]=@p_es_discapacitado
+           ,[sexo]=@p_sexo
+WHERE [dni]=@p_dni
+END
+
+GO
+USE [GD1C2013]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].[sp_listar_filtrado_recompensa]
+	@p_descrip nvarchar(200),
+	@p_puntos_desde int,
+	@p_puntos_hasta int,
+	@p_stock_desde int,
+	@p_stock_hasta int
+AS
+BEGIN
+	SELECT
+		id_recompensa,
+		descripcion,
+		stock,
+		puntos_costo
+	FROM SI_NO_APROBAMOS_HAY_TABLA.Recompensa
+	WHERE((@p_descrip IS NULL) OR (UPPER(descripcion) LIKE '%'  + UPPER(@p_descrip) + '%'))
+	AND ((@p_puntos_desde IS NULL) OR (puntos_costo >= @p_puntos_desde))
+	AND ((@p_puntos_hasta IS NULL) OR (puntos_costo <= @p_puntos_hasta))
+	AND ((@p_stock_desde IS NULL) OR (stock >= @p_stock_desde))
+	AND ((@p_stock_hasta IS NULL) OR (stock <= @p_stock_hasta))
+END
+GO
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].[sp_puntos_por_cliente]
+(
+	@p_dni numeric(18,0)
+)
+AS
+BEGIN
+	SELECT SUM(p.puntos - p.puntos_usados) as 'puntosTotales'
+	FROM SI_NO_APROBAMOS_HAY_TABLA.Puntaje p
+	WHERE DATEDIFF(year,p.fecha_otorgado, GETDATE() ) < 1
+	AND p.dni = @p_dni
+	GROUP BY p.dni
+	ORDER BY puntosTotales DESC
+END
+GO
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_puntos_por_cliente_detallado
+(
+	@p_dni numeric(18,0)
+)
+AS
+BEGIN
+	SELECT p.dni,
+	(p.puntos) as 'puntosOtorgados',
+	(p.puntos_usados) as 'puntosUtilizados', 
+	(p.puntos - p.puntos_usados) as 'puntosRestantes',
+	(p.fecha_otorgado)
+	FROM SI_NO_APROBAMOS_HAY_TABLA.Puntaje p
+	WHERE DATEDIFF(year,p.fecha_otorgado, GETDATE() ) < 1
+	AND p.dni = @p_dni
+	ORDER BY p.fecha_otorgado ASC
+END
+GO
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_canjear_recompensa
+(
+	@p_dni numeric(18,0),
+	@p_id_recompensa int,
+	@p_cantidad	int
+)
+AS
+BEGIN
+	SET xact_abort on
+	BEGIN TRANSACTION canje_recompensa
+	
+	DECLARE @puntos_costo int
+	DECLARE @puntos_act int
+	DECLARE @puntos_usados_act int
+	DECLARE @stock_check int
+	
+	SELECT @puntos_costo = (r.puntos_costo * @p_cantidad)
+	FROM [SI_NO_APROBAMOS_HAY_TABLA].Recompensa r
+	WHERE id_recompensa = @p_id_recompensa
+	
+	SELECT @stock_check=r.stock
+	FROM [SI_NO_APROBAMOS_HAY_TABLA].Recompensa r
+	WHERE id_recompensa = @p_id_recompensa
+	
+	IF ( @stock_check - @p_cantidad ) < 0
+	BEGIN
+		ROLLBACK TRANSACTION canje_recompensa
+		RAISERROR('No hay stock suficiente', 12, 2)
+		RETURN
+	END
+	
+	UPDATE [SI_NO_APROBAMOS_HAY_TABLA].Recompensa
+	SET stock = stock - @p_cantidad
+	WHERE id_recompensa = @p_id_recompensa
+
+	DECLARE CUR_PUNTAJE CURSOR FOR
+		SELECT p.puntos, p.puntos_usados
+		FROM [SI_NO_APROBAMOS_HAY_TABLA].Puntaje p
+		WHERE p.dni = @p_dni
+		AND DATEDIFF(year, p.fecha_otorgado, GETDATE()) < 1
+		AND (p.puntos -  p.puntos_usados) >0 
+		AND baja = 0
+		ORDER BY p.fecha_otorgado ASC
+		FOR UPDATE OF p.puntos_usados
+	
+	SET NOCOUNT ON	
+	OPEN CUR_PUNTAJE
+	FETCH NEXT FROM CUR_PUNTAJE 
+	INTO @puntos_act, @puntos_usados_act
+	
+	WHILE @@FETCH_STATUS = 0
+	BEGIN
+		IF (@puntos_act - @puntos_usados_act) > @puntos_costo
+		BEGIN
+			--Hay puntos suficientes aca
+			UPDATE [SI_NO_APROBAMOS_HAY_TABLA].Puntaje 
+			SET puntos_usados = puntos_usados + @puntos_costo
+			WHERE CURRENT OF CUR_PUNTAJE
+			SET @puntos_costo = 0
+			BREAK 
+		END
+		ELSE
+		BEGIN
+			--todavia no hay puntos suficientes en esta linea
+			SET @puntos_costo = @puntos_costo - (@puntos_act - @puntos_usados_act)
+			UPDATE [SI_NO_APROBAMOS_HAY_TABLA].Puntaje 
+			SET puntos_usados = puntos
+			WHERE CURRENT OF CUR_PUNTAJE
+		END
+		
+		FETCH NEXT FROM CUR_PUNTAJE 
+		INTO @puntos_act, @puntos_usados_act
+	END	
+	
+	IF @puntos_costo = 0
+	BEGIN
+		COMMIT TRANSACTION canje_recompensa
+	END
+	ELSE
+	BEGIN
+		ROLLBACK TRANSACTION canje_recompensa
+		RAISERROR('No hay suficientes puntos', 12, 2)
+	END
+	
+	CLOSE CUR_PUNTAJE
+	DEALLOCATE CUR_PUNTAJE
+END
+GO
+
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].[sp_clientes_mas_puntos]
+(
+	@fecha_inicio datetime,
+	@fecha_fin datetime
+)
+AS
+BEGIN
+	SELECT TOP 5 p.dni, SUM(p.puntos - p.puntos_usados) as 'puntosTotales'
+	FROM SI_NO_APROBAMOS_HAY_TABLA.Puntaje p
+	WHERE p.fecha_otorgado BETWEEN @fecha_inicio AND @fecha_fin
+	GROUP BY p.dni
+	ORDER BY puntosTotales DESC
+END
+GO
+GO
+CREATE FUNCTION [SI_NO_APROBAMOS_HAY_TABLA].butacas_vendidas_por_viaje
+(
+	@id_viaje int
+)
+RETURNS int
+BEGIN
+	DECLARE @butacas_vendidas_x_viaje int
+	SELECT @butacas_vendidas_x_viaje=COUNT(*)
+	FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Viaje] AS viaje
+		INNER JOIN [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[pasaje] AS pasaje
+			ON viaje.id_viaje=pasaje.id_viaje
+	WHERE viaje.id_viaje=@id_viaje AND pasaje.id_cancelacion IS NULL
+	RETURN @butacas_vendidas_x_viaje
+END
+
+GO
+
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].[sp_top5_destino_mas_vendido_por_semestre]
+(
+	@fecha_inicio datetime,
+	@fecha_fin datetime
+)
+AS
+BEGIN
+	SELECT DISTINCT TOP 5 ciudad.[nombre],
+			SUM ([SI_NO_APROBAMOS_HAY_TABLA].butacas_vendidas_por_viaje(viaje.[id_viaje])) AS butacas_vendidas
+	FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Ciudad] as ciudad
+		 inner join [SI_NO_APROBAMOS_HAY_TABLA].[Recorrido] as recorrido
+			on ciudad.[id_ciudad]=recorrido.[id_ciudad_destino]
+		 inner join [SI_NO_APROBAMOS_HAY_TABLA].[Viaje] as viaje
+			on viaje.[id_recorrido]=recorrido.id_recorrido
+	WHERE recorrido.baja=0 
+			AND viaje.baja=0 
+			AND viaje.fecha_salida BETWEEN @fecha_inicio AND @fecha_fin
+	GROUP BY ciudad.[id_ciudad], ciudad.[nombre]
+	ORDER BY SUM ([SI_NO_APROBAMOS_HAY_TABLA].butacas_vendidas_por_viaje(viaje.[id_viaje])) desc
+END
+GO
+
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].[sp_micros_mas_baja_serv]
+(
+	@fecha_inicio datetime,
+	@fecha_fin datetime
+)
+AS
+BEGIN
+	
+	DECLARE @id_micro int
+	DECLARE @patente nvarchar(50)
+	DECLARE @fec_fuera datetime
+	DECLARE @fec_reinic datetime
+
+	DECLARE CUR CURSOR FOR
+		SELECT	bsm.id_micros,
+				m.patente,
+				bsm.fec_fuera_servicio,
+				ISNULL(bsm.fec_reinicio_servicio, GETDATE()) as 'fec_reinicio_servicio'
+		FROM SI_NO_APROBAMOS_HAY_TABLA.baja_servicio_micro bsm
+		INNER JOIN SI_NO_APROBAMOS_HAY_TABLA.Micros m
+			ON m.id_micros = bsm.id_micros
+
+	
+	CREATE TABLE #tmpDias (
+		id_micro		int,
+		patente			nvarchar(50),
+		dias			int
+	)
+	
+	
+	SET NOCOUNT ON
+	OPEN CUR
+	FETCH NEXT FROM CUR
+	INTO @id_micro, @patente, @fec_fuera, @fec_reinic
+	
+	WHILE @@FETCH_STATUS = 0
+	BEGIN
+		--Todos estos if son mutuamente exclusivos
+		
+		IF @fec_fuera >= @fecha_inicio AND
+			@fec_fuera < @fecha_fin	AND
+			@fec_reinic <= @fecha_fin AND
+			@fec_reinic > @fecha_fin
+		BEGIN
+			--Arranca y termina dentro del periodo
+			INSERT INTO #tmpDias (id_micro, patente, dias)
+			VALUES (@id_micro, @patente, ABS(DATEDIFF(DAY, @fec_fuera, @fec_reinic)))
+		END
+		 
+		IF @fec_fuera < @fecha_inicio AND
+			@fec_fuera < @fecha_fin	AND
+			@fec_reinic <= @fecha_fin AND
+			@fec_reinic > @fecha_inicio
+		BEGIN
+			--Arranca antes del periodo pero termina dentro
+			INSERT INTO #tmpDias (id_micro, patente, dias)
+			VALUES (@id_micro, @patente, ABS(DATEDIFF(DAY, @fecha_inicio, @fec_reinic)))				
+		END
+		
+		IF @fec_fuera < @fecha_inicio AND 
+			@fec_fuera < @fecha_fin AND
+			@fec_reinic > @fecha_fin AND
+			@fec_reinic > @fecha_inicio
+		BEGIN
+			--Arranca antes del periodo y termina despues del periodo
+			INSERT INTO #tmpDias (id_micro, patente, dias)
+			VALUES (@id_micro, @patente, ABS(DATEDIFF(DAY, @fecha_inicio, @fecha_fin)))			
+		END
+		
+		IF @fec_fuera >= @fecha_inicio AND
+			@fec_fuera < @fecha_fin AND
+			@fec_reinic > @fecha_fin AND
+			@fec_reinic > @fecha_inicio
+		BEGIN
+			--Arranca dentro del periodo pero termina despues
+			INSERT INTO #tmpDias (id_micro, patente, dias)
+			VALUES (@id_micro, @patente, ABS(DATEDIFF(DAY, @fec_fuera, @fecha_fin)))
+		END
+		
+		FETCH NEXT FROM CUR
+		INTO @id_micro, @patente, @fec_fuera, @fec_reinic
+	END
+	
+	CLOSE CUR
+	DEALLOCATE CUR
+	
+	SELECT TOP 5 tmp.id_micro, tmp.patente, SUM(tmp.dias) as 'diastot'
+	FROM #tmpDias tmp 
+	GROUP BY tmp.id_micro, tmp.patente
+	ORDER BY diastot DESC
+	
+	DROP TABLE #tmpDias
+END
+GO
+CREATE FUNCTION [SI_NO_APROBAMOS_HAY_TABLA].cant_pasajes_cancelados_viaje
+(
+	@id_viaje int
+)
+RETURNS int
+AS
+BEGIN
+	DECLARE @cant_pasajes_cancelados_x_viaje int
+	
+	SELECT @cant_pasajes_cancelados_x_viaje=COUNT(*)
+	FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Pasaje] AS pasaje
+	WHERE pasaje.id_viaje=@id_viaje
+			AND pasaje.id_cancelacion IS NOT NULL
+	
+	RETURN @cant_pasajes_cancelados_x_viaje
+END
+
+GO
+
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].[sp_top5_destinos_mas_cancelados_por_semestre]
+(
+	@fecha_inicio datetime,
+	@fecha_fin datetime
+)
+AS
+BEGIN
+	SELECT DISTINCT TOP 5 ciudad.[nombre],
+			SUM ([SI_NO_APROBAMOS_HAY_TABLA].cant_pasajes_cancelados_viaje(viaje.[id_viaje])) AS pasajes_cancelados
+	FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Ciudad] AS ciudad
+		 INNER JOIN [SI_NO_APROBAMOS_HAY_TABLA].[Recorrido] AS recorrido
+			ON ciudad.[id_ciudad]=recorrido.[id_ciudad_destino]
+		 INNER JOIN [SI_NO_APROBAMOS_HAY_TABLA].[Viaje] AS viaje
+			ON viaje.[id_recorrido]=recorrido.id_recorrido
+	WHERE recorrido.baja=0 
+			AND viaje.baja=0 
+			AND viaje.fecha_salida BETWEEN @fecha_inicio AND @fecha_fin
+	GROUP BY ciudad.[id_ciudad], ciudad.[nombre]
+	ORDER BY SUM ([SI_NO_APROBAMOS_HAY_TABLA].cant_pasajes_cancelados_viaje(viaje.[id_viaje])) DESC
+END
+GO
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].[sp_top5_destino_micros_mas_vacios_por_semestre]
+(
+	@fecha_inicio datetime,
+	@fecha_fin datetime
+)
+AS
+BEGIN
+	SELECT DISTINCT TOP 5 ciudad.[nombre],
+			SUM ([SI_NO_APROBAMOS_HAY_TABLA].cant_butacas_disp_viaje(viaje.[id_viaje])) AS butacas_libres_x_viaje
+	FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Ciudad] as ciudad
+		 inner join [SI_NO_APROBAMOS_HAY_TABLA].[Recorrido] as recorrido
+			on ciudad.[id_ciudad]=recorrido.[id_ciudad_destino]
+		 inner join [SI_NO_APROBAMOS_HAY_TABLA].[Viaje] as viaje
+			on viaje.[id_recorrido]=recorrido.id_recorrido
+	WHERE recorrido.baja=0 
+			AND viaje.baja=0 
+	GROUP BY ciudad.[id_ciudad], ciudad.[nombre]
+	ORDER BY SUM ([SI_NO_APROBAMOS_HAY_TABLA].cant_butacas_disp_viaje(viaje.[id_viaje])) desc
+END
+GO
