@@ -85,6 +85,8 @@
             // gbPasajeListadoFiltros
             // 
             this.gbPasajeListadoFiltros.Controls.Add(this.btnPasajeListadoSeleccionarButaca);
+            this.gbPasajeListadoFiltros.Controls.Add(this.btnPasajeListadoLimpiar);
+            this.gbPasajeListadoFiltros.Controls.Add(this.btnPasajeListadoBuscar);
             this.gbPasajeListadoFiltros.Controls.Add(this.btnPasajeListadoSeleccionarCliente);
             this.gbPasajeListadoFiltros.Controls.Add(this.tbPasajeListadoPrecio);
             this.gbPasajeListadoFiltros.Controls.Add(this.tbPasajeListadoButaca);
@@ -96,7 +98,7 @@
             this.gbPasajeListadoFiltros.Controls.Add(this.lblPasajeListadoButaca);
             this.gbPasajeListadoFiltros.Location = new System.Drawing.Point(13, 13);
             this.gbPasajeListadoFiltros.Name = "gbPasajeListadoFiltros";
-            this.gbPasajeListadoFiltros.Size = new System.Drawing.Size(451, 121);
+            this.gbPasajeListadoFiltros.Size = new System.Drawing.Size(450, 151);
             this.gbPasajeListadoFiltros.TabIndex = 4;
             this.gbPasajeListadoFiltros.TabStop = false;
             this.gbPasajeListadoFiltros.Text = "Filtros de busqueda";
@@ -118,6 +120,7 @@
             this.btnPasajeListadoSeleccionarCliente.TabIndex = 8;
             this.btnPasajeListadoSeleccionarCliente.Text = "Seleccionar Cliente";
             this.btnPasajeListadoSeleccionarCliente.UseVisualStyleBackColor = true;
+            this.btnPasajeListadoSeleccionarCliente.Click += new System.EventHandler(this.btnPasajeListadoSeleccionarCliente_Click);
             // 
             // tbPasajeListadoPrecio
             // 
@@ -149,7 +152,7 @@
             // 
             // btnPasajeListadoBuscar
             // 
-            this.btnPasajeListadoBuscar.Location = new System.Drawing.Point(389, 140);
+            this.btnPasajeListadoBuscar.Location = new System.Drawing.Point(369, 122);
             this.btnPasajeListadoBuscar.Name = "btnPasajeListadoBuscar";
             this.btnPasajeListadoBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnPasajeListadoBuscar.TabIndex = 5;
@@ -159,7 +162,7 @@
             // 
             // btnPasajeListadoLimpiar
             // 
-            this.btnPasajeListadoLimpiar.Location = new System.Drawing.Point(308, 140);
+            this.btnPasajeListadoLimpiar.Location = new System.Drawing.Point(288, 122);
             this.btnPasajeListadoLimpiar.Name = "btnPasajeListadoLimpiar";
             this.btnPasajeListadoLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnPasajeListadoLimpiar.TabIndex = 6;
@@ -171,17 +174,15 @@
             this.dgvPasajeListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPasajeListado.Location = new System.Drawing.Point(12, 180);
             this.dgvPasajeListado.Name = "dgvPasajeListado";
-            this.dgvPasajeListado.Size = new System.Drawing.Size(452, 171);
+            this.dgvPasajeListado.Size = new System.Drawing.Size(806, 294);
             this.dgvPasajeListado.TabIndex = 7;
             // 
             // PasajeListado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(476, 365);
+            this.ClientSize = new System.Drawing.Size(830, 486);
             this.Controls.Add(this.dgvPasajeListado);
-            this.Controls.Add(this.btnPasajeListadoLimpiar);
-            this.Controls.Add(this.btnPasajeListadoBuscar);
             this.Controls.Add(this.gbPasajeListadoFiltros);
             this.Name = "PasajeListado";
             this.Text = "Listado de pasajes";
