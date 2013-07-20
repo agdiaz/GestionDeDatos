@@ -10,6 +10,7 @@ using FrbaBus.Common.Entidades;
 using FrbaBus.Manager;
 using FrbaBus.Common.Helpers;
 using FrbaBus.Helpers;
+using FrbaBus.Common.Excepciones;
 
 namespace FrbaBus.Abm_Micro
 {
@@ -24,16 +25,29 @@ namespace FrbaBus.Abm_Micro
         {
             if (this.ValidarDatos())
             {
-                Servicio c = new Servicio()
+                try
                 {
-                    TipoServicio = this.tbMicroServicioAltaTipoServicio.Text
-                };
+                    Servicio c = new Servicio()
+                            {
+                                TipoServicio = this.tbMicroServicioAltaTipoServicio.Text,
+                                Adicional = Convert.ToDecimal(this.tbAdicional.Text)
+                            };
 
-                new ServicioManager().Alta(c);
+                    c = new ServicioManager().Alta(c);
 
-                MensajePorPantalla.MensajeInformativo(this, "Se dio de alta el servicio con el id: " + c.Id.ToString());
+                    MensajePorPantalla.MensajeInformativo(this, "Se dio de alta el servicio con el id: " + c.Id.ToString());
 
-                this.Close();
+                    this.Close();
+                }
+                catch (AccesoBDException ex)
+                {
+                    MensajePorPantalla.MensajeExceptionBD(this, ex);
+                }
+                catch (Exception ex)
+                {
+                    MensajePorPantalla.MensajeError(this, "Error al intentar crear el registro.\n Detalle del error: " + ex.Message);
+                    this.Close();
+                }
             }
         }
         
@@ -45,6 +59,11 @@ namespace FrbaBus.Abm_Micro
                 return false;
             }
             return true;
+        }
+
+        private void btnMicroServicioAltaLimpiar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -10,6 +10,7 @@ using FrbaBus.Common.Entidades;
 using FrbaBus.Manager;
 using FrbaBus.Common.Helpers;
 using FrbaBus.Helpers;
+using FrbaBus.Common.Excepciones;
 
 namespace FrbaBus.Abm_Micro
 {
@@ -24,16 +25,27 @@ namespace FrbaBus.Abm_Micro
         {
             if (this.ValidarDatos())
             {
-                Empresa c = new Empresa()
+                try
                 {
-                    Descripcion = this.tbMicroMarcaAltaMarca.Text
-                };
+                    Empresa c = new Empresa()
+                            {
+                                Descripcion = this.tbMicroMarcaAltaMarca.Text
+                            };
 
-                new EmpresaManager().Alta(c);
+                    new EmpresaManager().Alta(c);
 
-                MensajePorPantalla.MensajeInformativo(this, "Se dio de alta la empresa/marca con el id: " + c.Id.ToString());
+                    MensajePorPantalla.MensajeInformativo(this, "Se dio de alta la empresa/marca con el id: " + c.Id.ToString());
 
-                this.Close();
+                    this.Close();
+                }
+                catch (AccesoBDException ex)
+                {
+                    MensajePorPantalla.MensajeExceptionBD(this, ex);
+                }
+                catch (Exception ex)
+                {
+                    MensajePorPantalla.MensajeError(this, "Error al intentar crear el registro.\n Detalle del error: " + ex.Message);
+                }
             }
         }
 

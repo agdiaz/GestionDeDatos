@@ -38,7 +38,20 @@ namespace FrbaBus.DAO
 
         public int Alta(Servicio entidad)
         {
-            throw new NotImplementedException();
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+
+            SqlParameter pId = new SqlParameter("@p_id", SqlDbType.Int, 4, "p_id");
+            pId.Direction = ParameterDirection.Output;
+            parametros.Add(pId, 0);
+
+            SqlParameter pNombre = new SqlParameter("@p_tipo_servicio", SqlDbType.NVarChar, 255, "p_tipo_servicio");
+            parametros.Add(pNombre, entidad.TipoServicio);
+
+            SqlParameter pAdicional = new SqlParameter("@p_adicional", SqlDbType.Decimal, 5, "p_adicional");
+            parametros.Add(pAdicional, entidad.Adicional);
+
+            this.accesoBD.EjecutarComando("[SI_NO_APROBAMOS_HAY_TABLA].sp_insert_servicio", parametros);
+            return Convert.ToInt32(pId.Value);
         }
 
         public void Baja(Servicio entidad)
