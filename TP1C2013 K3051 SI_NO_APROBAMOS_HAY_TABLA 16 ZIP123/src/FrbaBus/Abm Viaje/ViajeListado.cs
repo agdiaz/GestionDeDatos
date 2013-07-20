@@ -56,7 +56,7 @@ namespace FrbaBus.Abm_Viaje
                 CargarFechas();
                 ListarMicros();
                 ListarRecorridos();
-                //ListarViajes();
+                ListarViajes();
             }
             catch (AccesoBDException ex)
             {

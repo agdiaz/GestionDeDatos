@@ -64,6 +64,10 @@ namespace FrbaBus.Compras
                 IList<Pasaje> pasajes = _manager.ListarFiltrado(IdMicro, DniCliente, idButaca, precio);
 
                 dgvPasajeListado.DataSource = pasajes;
+                this.dgvPasajeListado.Columns["Disponible"].Visible = false;
+                this.dgvPasajeListado.Columns["IdCancelacion"].Visible = false;
+                this.dgvPasajeListado.Columns["Cancelacion"].Visible = false;
+                this.dgvPasajeListado.Columns["Butaca"].Visible = false;
 
             }
             catch (AccesoBDException ex)
@@ -74,20 +78,6 @@ namespace FrbaBus.Compras
             {
                 MensajePorPantalla.MensajeError(this, "Error al intentar dar el registro.\n Detalle del error: " + ex.Message);
             }
-
-            /*
-             // CAMPOS VISIBLES=> dni, pre_pasaje
-            this.dgvPasajeListado.DataSource = pasajes;
-            this.dgvPasajeListado.Columns["id_pasaje"].Visible = false;
-            this.dgvPasajeListado.Columns["id_compra"].Visible = false;
-            this.dgvPasajeListado.Columns["id_butaca"].Visible = false;
-            this.dgvPasajeListado.Columns["id_cancelacion"].Visible = false;
-            this.dgvPasajeListado.Columns["disponible"].Visible = false;
-            this.dgvPasajeListado.Columns["cancel"].Visible = false;
-            this.dgvPasajeListado.Columns["fecha_cancel"].Visible = false;
-            this.dgvPasajeListado.Columns["motivo_cancel"].Visible = false;
-            this.dgvPasajeListado.Columns["id_viaje"].Visible = false;
-            */
         }
 
         private void btnPasajeListadoSeleccionarCliente_Click(object sender, EventArgs e)

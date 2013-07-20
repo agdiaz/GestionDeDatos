@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.lblCancelacionEncomiendaEncomienda = new System.Windows.Forms.Label();
-            this.tbCancelacionEncomiendaEncomienda = new System.Windows.Forms.TextBox();
+            this.tbCancelacionEncomienda = new System.Windows.Forms.TextBox();
             this.btnCancelacionEncomiendaCancelarEncomienda = new System.Windows.Forms.Button();
             this.btnCancelacionEncomiendaBuscarCompra = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbMotivoCancelEncomienda = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblCancelacionEncomiendaEncomienda
@@ -45,21 +45,22 @@
             this.lblCancelacionEncomiendaEncomienda.TabIndex = 1;
             this.lblCancelacionEncomiendaEncomienda.Text = "Encomienda";
             // 
-            // tbCancelacionEncomiendaEncomienda
+            // tbCancelacionEncomienda
             // 
-            this.tbCancelacionEncomiendaEncomienda.Location = new System.Drawing.Point(168, 18);
-            this.tbCancelacionEncomiendaEncomienda.Name = "tbCancelacionEncomiendaEncomienda";
-            this.tbCancelacionEncomiendaEncomienda.Size = new System.Drawing.Size(113, 20);
-            this.tbCancelacionEncomiendaEncomienda.TabIndex = 4;
+            this.tbCancelacionEncomienda.Location = new System.Drawing.Point(168, 18);
+            this.tbCancelacionEncomienda.Name = "tbCancelacionEncomienda";
+            this.tbCancelacionEncomienda.Size = new System.Drawing.Size(113, 20);
+            this.tbCancelacionEncomienda.TabIndex = 4;
             // 
             // btnCancelacionEncomiendaCancelarEncomienda
             // 
-            this.btnCancelacionEncomiendaCancelarEncomienda.Location = new System.Drawing.Point(287, 81);
+            this.btnCancelacionEncomiendaCancelarEncomienda.Location = new System.Drawing.Point(239, 75);
             this.btnCancelacionEncomiendaCancelarEncomienda.Name = "btnCancelacionEncomiendaCancelarEncomienda";
             this.btnCancelacionEncomiendaCancelarEncomienda.Size = new System.Drawing.Size(119, 23);
             this.btnCancelacionEncomiendaCancelarEncomienda.TabIndex = 6;
             this.btnCancelacionEncomiendaCancelarEncomienda.Text = "Cancelar Encomienda";
             this.btnCancelacionEncomiendaCancelarEncomienda.UseVisualStyleBackColor = true;
+            this.btnCancelacionEncomiendaCancelarEncomienda.Click += new System.EventHandler(this.btnCancelacionEncomiendaCancelarEncomienda_Click);
             // 
             // btnCancelacionEncomiendaBuscarCompra
             // 
@@ -80,23 +81,23 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Motivo";
             // 
-            // textBox1
+            // tbMotivoCancelEncomienda
             // 
-            this.textBox1.Location = new System.Drawing.Point(64, 49);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(294, 20);
-            this.textBox1.TabIndex = 14;
+            this.tbMotivoCancelEncomienda.Location = new System.Drawing.Point(64, 49);
+            this.tbMotivoCancelEncomienda.Name = "tbMotivoCancelEncomienda";
+            this.tbMotivoCancelEncomienda.Size = new System.Drawing.Size(294, 20);
+            this.tbMotivoCancelEncomienda.TabIndex = 14;
             // 
             // CancelacionEncomienda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 118);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(368, 110);
+            this.Controls.Add(this.tbMotivoCancelEncomienda);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancelacionEncomiendaBuscarCompra);
             this.Controls.Add(this.btnCancelacionEncomiendaCancelarEncomienda);
-            this.Controls.Add(this.tbCancelacionEncomiendaEncomienda);
+            this.Controls.Add(this.tbCancelacionEncomienda);
             this.Controls.Add(this.lblCancelacionEncomiendaEncomienda);
             this.Name = "CancelacionEncomienda";
             this.Text = "Cancelar Encomienda";
@@ -108,10 +109,10 @@
         #endregion
 
         private System.Windows.Forms.Label lblCancelacionEncomiendaEncomienda;
-        private System.Windows.Forms.TextBox tbCancelacionEncomiendaEncomienda;
+        private System.Windows.Forms.TextBox tbCancelacionEncomienda;
         private System.Windows.Forms.Button btnCancelacionEncomiendaCancelarEncomienda;
         private System.Windows.Forms.Button btnCancelacionEncomiendaBuscarCompra;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbMotivoCancelEncomienda;
     }
 }

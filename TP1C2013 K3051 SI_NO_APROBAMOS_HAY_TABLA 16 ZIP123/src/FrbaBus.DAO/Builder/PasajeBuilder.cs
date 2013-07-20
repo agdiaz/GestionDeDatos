@@ -19,7 +19,7 @@ namespace FrbaBus.DAO.Builder
             p.IdCompra = Convert.ToInt32(row["id_compra"].ToString());
             p.IdButaca = Convert.ToInt32(row["id_butaca"].ToString());
             p.IdViaje = Convert.ToInt32(row["id_viaje"].ToString());
-            p.IdCompra = Convert.ToInt32(row["id_compra"].ToString());
+            //p.IdCompra = Convert.ToInt32(row["id_compra"].ToString());
             p.NroDni = Convert.ToDecimal(row["dni"].ToString());
             p.PrecioPasaje = Convert.ToDecimal(row["pre_pasaje"].ToString());
             p.Disponible = Convert.ToBoolean(row["disponible"].ToString());
