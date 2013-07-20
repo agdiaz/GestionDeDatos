@@ -31,10 +31,6 @@ namespace FrbaBus.Compras
             return c;
         }
 
-        private void ComprasListado_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -42,6 +38,8 @@ namespace FrbaBus.Compras
             {
                 IList<Compra> compras = _manager.Listar();
                 this.dgvCompras.DataSource = compras;
+                dgvCompras.Columns["IdUsuario"].Visible = false;
+                dgvCompras.Columns["IdCancelacion"].Visible = false;
             }
             catch (AccesoBDException ex)
             {
@@ -51,6 +49,11 @@ namespace FrbaBus.Compras
             {
                 MensajePorPantalla.MensajeError(this, "Error al realizar la búsqueda correspondiente.\n Detalle del error: " + ex.Message);
             }
+        }
+
+        private void ComprasListado_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
