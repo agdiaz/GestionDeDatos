@@ -67,14 +67,37 @@ namespace FrbaBus.DAO
 
         #endregion
 
-        public void CompraPasaje(Compra compra, Pasaje pasaje)
+        public int CompraPasaje(Compra compra, Pasaje pasaje)
         {
-            throw new NotImplementedException();
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+            var pId = new SqlParameter("@p_id_pasaje", SqlDbType.Int, 4, "p_id_pasaje");
+            pId.Direction = ParameterDirection.Output;
+            parametros.Add(pId, 0);
+
+            parametros.Add(new SqlParameter("@p_id_compra", SqlDbType.Int, 4, "p_id_compra"), compra.IdCompra);
+            parametros.Add(new SqlParameter("@p_id_butaca", SqlDbType.Int, 4, "p_id_butaca"), pasaje.IdButaca);
+            parametros.Add(new SqlParameter("@p_dni", SqlDbType.Decimal, 18, "p_dni"), pasaje.NroDni);
+            parametros.Add(new SqlParameter("@p_pre_pasaje", SqlDbType.Int, 4, "p_pre_pasaje"), pasaje.PrecioPasaje);
+            parametros.Add(new SqlParameter("@p_id_viaje", SqlDbType.Int, 4, "p_id_viaje"), pasaje.IdViaje);
+
+            this.accesoBD.EjecutarComando("[SI_NO_APROBAMOS_HAY_TABLA].sp_insertar_pasaje", parametros);
+            return Convert.ToInt32(pId.Value);
         }
 
-        public void CompraEncomienda(Compra compra, Encomienda encomienda)
+        public int CompraEncomienda(Compra compra, Encomienda encomienda)
         {
-            throw new NotImplementedException();
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+            var pId = new SqlParameter("@p_id_encomienda", SqlDbType.Int, 4, "p_id_encomienda");
+            pId.Direction = ParameterDirection.Output;
+            parametros.Add(pId, 0);
+
+            parametros.Add(new SqlParameter("@p_id_compra", SqlDbType.Int, 4, "p_id_compra"), compra.IdCompra);
+            parametros.Add(new SqlParameter("@p_dni", SqlDbType.Decimal, 18, "p_dni"), encomienda.NroDni);
+            parametros.Add(new SqlParameter("@p_pre_encomienda", SqlDbType.Int, 4, "p_pre_encomienda"), encomienda.PrecioEncomienda);
+            parametros.Add(new SqlParameter("@p_id_viaje", SqlDbType.Int, 4, "p_id_viaje"), encomienda.IdViaje);
+
+            this.accesoBD.EjecutarComando("[SI_NO_APROBAMOS_HAY_TABLA].sp_insertar_encomienda", parametros);
+            return Convert.ToInt32(pId.Value);
         }
     }
 }

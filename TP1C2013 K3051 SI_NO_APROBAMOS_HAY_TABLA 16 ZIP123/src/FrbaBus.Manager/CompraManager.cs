@@ -25,12 +25,14 @@ namespace FrbaBus.Manager
 
         public void CompraPasaje(Compra compra, Pasaje pasaje)
         {
-            this._dao.CompraPasaje(compra, pasaje);
+            int id = this._dao.CompraPasaje(compra, pasaje);
+            pasaje.Id = id;
         }
         
         public void CompraEncomienda(Compra compra, Encomienda encomienda)
         {
-            this._dao.CompraEncomienda(compra, encomienda);
+            int id = this._dao.CompraEncomienda(compra, encomienda);
+            encomienda.IdEncomienda = id;
         }
     }
 }
