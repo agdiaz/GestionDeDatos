@@ -122,21 +122,18 @@ namespace FrbaBus.Abm_Clientes
                     Cliente cliente = dgvClienteListado.SelectedRows[0].DataBoundItem as Cliente;
                     new ClienteManager().Baja(cliente);
                     MensajePorPantalla.MensajeInformativo(this,"El cliente se ha dado de baja correctamente");
+                    LimpiarControles();
                     CargarListaClientes();
+
                 }
                 catch (AccesoBDException ex)
                 {
                     MensajePorPantalla.MensajeExceptionBD(this, ex);
-                    this.Close();
                 }
                 catch (Exception ex)
                 {
                     MensajePorPantalla.MensajeError(this, "Error al intentar borrar el registro.\n Detalle del error: " + ex.Message);
-                    this.Close();
                 }
-
-                CargarListaClientes();
-
             }
 
         }
@@ -151,20 +148,17 @@ namespace FrbaBus.Abm_Clientes
                 {
                     frm.ShowDialog(this);
                 }
+                LimpiarControles();
                 CargarListaClientes();
             }
             catch (AccesoBDException ex)
             {
                 MensajePorPantalla.MensajeExceptionBD(this, ex);
-                this.Close();
             }
             catch (Exception ex)
             {
                 MensajePorPantalla.MensajeError(this, "Error al intentar modificar el registro.\n Detalle del error: " + ex.Message);
-                this.Close();
             }
-
-            CargarListaClientes();
         }
 
         private void btnSeleccionar_Click(object sender, EventArgs e)

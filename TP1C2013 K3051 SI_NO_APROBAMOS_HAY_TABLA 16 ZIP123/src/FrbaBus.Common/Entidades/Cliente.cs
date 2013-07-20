@@ -24,7 +24,7 @@ namespace FrbaBus.Common.Entidades
             {
                 return "-";
             }
-            else if(Sexo == "M")
+            else if(Sexo.Trim() == "M")
             {
                 return "Mujer";
             }

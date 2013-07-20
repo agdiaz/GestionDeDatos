@@ -113,9 +113,12 @@
             // 
             // dgvRecompensaCanjearPuntosPremiosDisponibles
             // 
+            this.dgvRecompensaCanjearPuntosPremiosDisponibles.AllowUserToAddRows = false;
+            this.dgvRecompensaCanjearPuntosPremiosDisponibles.AllowUserToDeleteRows = false;
             this.dgvRecompensaCanjearPuntosPremiosDisponibles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRecompensaCanjearPuntosPremiosDisponibles.Location = new System.Drawing.Point(12, 19);
             this.dgvRecompensaCanjearPuntosPremiosDisponibles.Name = "dgvRecompensaCanjearPuntosPremiosDisponibles";
+            this.dgvRecompensaCanjearPuntosPremiosDisponibles.ReadOnly = true;
             this.dgvRecompensaCanjearPuntosPremiosDisponibles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRecompensaCanjearPuntosPremiosDisponibles.Size = new System.Drawing.Size(452, 409);
             this.dgvRecompensaCanjearPuntosPremiosDisponibles.TabIndex = 0;
@@ -167,9 +170,13 @@
             // 
             // dgvRecompensaCanjearPuntosRegistroPuntos
             // 
+            this.dgvRecompensaCanjearPuntosRegistroPuntos.AllowUserToAddRows = false;
+            this.dgvRecompensaCanjearPuntosRegistroPuntos.AllowUserToDeleteRows = false;
             this.dgvRecompensaCanjearPuntosRegistroPuntos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRecompensaCanjearPuntosRegistroPuntos.Location = new System.Drawing.Point(6, 19);
             this.dgvRecompensaCanjearPuntosRegistroPuntos.Name = "dgvRecompensaCanjearPuntosRegistroPuntos";
+            this.dgvRecompensaCanjearPuntosRegistroPuntos.ReadOnly = true;
+            this.dgvRecompensaCanjearPuntosRegistroPuntos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRecompensaCanjearPuntosRegistroPuntos.Size = new System.Drawing.Size(471, 365);
             this.dgvRecompensaCanjearPuntosRegistroPuntos.TabIndex = 0;
             // 

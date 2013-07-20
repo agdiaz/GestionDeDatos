@@ -30,7 +30,7 @@ namespace FrbaBus.Manager
             
             m.Empresa = _empresaManager.Obtener(m.IdEmpresa);
             m.Servicio = _servicioManager.Obtener(m.IdServicio);
-            m.Butacas = _butacaManager.ObtenerButacasMicro(m);
+            //m.Butacas = _butacaManager.ObtenerButacasMicro(m);
 
             return m;
         }
@@ -59,7 +59,7 @@ namespace FrbaBus.Manager
             {
                 m.Empresa = _empresaManager.Obtener(m.IdEmpresa);
                 m.Servicio = _servicioManager.Obtener(m.IdServicio);
-                m.Butacas = _butacaManager.ObtenerButacasMicro(m);
+                //m.Butacas = _butacaManager.ObtenerButacasMicro(m);
             }
             return micros;
         }
@@ -70,7 +70,7 @@ namespace FrbaBus.Manager
             {
                 m.Empresa = _empresaManager.Obtener(m.IdEmpresa);
                 m.Servicio = _servicioManager.Obtener(m.IdServicio);
-                m.Butacas = _butacaManager.ObtenerButacasMicro(m);
+                //m.Butacas = _butacaManager.ObtenerButacasMicro(m);
             }
 
             return micros;
@@ -82,7 +82,7 @@ namespace FrbaBus.Manager
             {
                 m.Empresa = _empresaManager.Obtener(m.IdEmpresa);
                 m.Servicio = _servicioManager.Obtener(m.IdServicio);
-                m.Butacas = _butacaManager.ObtenerButacasMicro(m);
+                //m.Butacas = _butacaManager.ObtenerButacasMicro(m);
             
             }
             return micros;

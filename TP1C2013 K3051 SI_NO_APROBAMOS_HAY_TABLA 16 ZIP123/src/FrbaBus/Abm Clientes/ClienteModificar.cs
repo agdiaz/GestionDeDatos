@@ -119,7 +119,7 @@ namespace FrbaBus.Abm_Clientes
             tbClienteNombre.Text = _cliente.Nombre;
             tbClienteApellido.Text = _cliente.Apellido;
 
-            switch (_cliente.SexoValor)
+            switch (_cliente.Sexo)
             {
                 case "M":
                     rbClienteHombre.Checked = false;

@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using FrbaBus.Manager;
 using FrbaBus.Common.Entidades;
 using FrbaBus.Abm_Clientes;
+using FrbaBus.Common.Excepciones;
+using FrbaBus.Common.Helpers;
 
 namespace FrbaBus.Abm_Recompensa
 {
@@ -25,7 +27,7 @@ namespace FrbaBus.Abm_Recompensa
         private void btnRecompensaCanjearPuntosBuscar_Click(object sender, EventArgs e)
         {
             Cliente cliente = null;
-            using (ClienteListado frm = new ClienteListado())
+            using (ClienteListado frm = new ClienteListado(true))
             {
                 frm.ShowDialog(this);
                 cliente = frm.ClienteSeleccionado();
@@ -35,18 +37,30 @@ namespace FrbaBus.Abm_Recompensa
             int puntosCliente;
             if (cliente != null)
             {
-                this.tbRecompensaCanjearPuntosDni.Text = cliente.NroDni.ToString();
-                puntosCliente = Convert.ToInt32(_manager.ObtenerPuntosCliente(cliente.NroDni));
-                this.tbRecompensaCanjearPuntosPuntosAcumulados.Text = puntosCliente.ToString();
 
-                this.dgvRecompensaCanjearPuntosRegistroPuntos.DataSource = _manager.ObtenerRegistroPuntosCliente(cliente.NroDni).Tables[0];
+                try
+                {
+                    this.tbRecompensaCanjearPuntosDni.Text = cliente.NroDni.ToString();
+                    puntosCliente = Convert.ToInt32(_manager.ObtenerPuntosCliente(cliente.NroDni));
+                    this.tbRecompensaCanjearPuntosPuntosAcumulados.Text = puntosCliente.ToString();
 
-#region Ver premios disponibles para el cliente
+                    this.dgvRecompensaCanjearPuntosRegistroPuntos.DataSource = _manager.ObtenerRegistroPuntosCliente(cliente.NroDni).Tables[0];
 
-                IList<Recompensa> recompensas = _manager.ListarFiltrado("", 0, puntosCliente, 0, 9999);
-                this.dgvRecompensaCanjearPuntosPremiosDisponibles.DataSource = recompensas;
+                    #region Ver premios disponibles para el cliente
 
-#endregion Ver premios disponibles para el cliente
+                    IList<Recompensa> recompensas = _manager.ListarFiltrado("", 0, puntosCliente, 0, 9999);
+                    this.dgvRecompensaCanjearPuntosPremiosDisponibles.DataSource = recompensas;
+
+                    #endregion Ver premios disponibles para el cliente
+                }
+                catch (AccesoBDException ex)
+                {
+                    MensajePorPantalla.MensajeExceptionBD(this, ex);
+                }
+                catch (Exception ex)
+                {
+                    MensajePorPantalla.MensajeError(this, "Error.\n Detalle del error: " + ex.Message);
+                }
             }
         }
 
@@ -77,9 +91,25 @@ namespace FrbaBus.Abm_Recompensa
                 this.dgvRecompensaCanjearPuntosPremiosDisponibles.DataSource = recompensas;
 
                 #endregion Actualizando datagridview's después de un canje
-
-            } catch(Exception x){
-                if (1 == 1) ;
+            }
+            catch (AccesoBDException ex)
+            {
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
+            }
+            catch (Exception ex)
+            {
+                if (ex.InnerException.Message == "No hay suficientes puntos")
+                {
+                    MensajePorPantalla.MensajeError(this, ex.InnerException.Message);
+                }
+                else if (ex.InnerException.Message.Contains("No hay stock suficiente"))
+                {
+                    MensajePorPantalla.MensajeError(this, "No hay stock suficiente");
+                }
+                else
+                {
+                    MensajePorPantalla.MensajeError(this, "Error al intentar borrar el registro.\n Detalle del error: " + ex.Message);
+                }
             }
 
         }
