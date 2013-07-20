@@ -2524,3 +2524,203 @@ SELECT [id_marca]
 END
 
 GO
+
+CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_obtener_marca
+	@p_id int
+AS
+BEGIN
+SELECT [id_marca]
+      ,[nombre]
+      ,[baja]
+  FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Marca]
+	WHERE id_marca = @p_id
+END
+GO
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_filtrado_micros
+	@p_marca varchar(50) = NULL, 
+	@p_modelo nvarchar(50) = NULL,
+	@p_tipo_servicio nvarchar(255) = NULL,
+	@p_patente nvarchar(50) = NULL,
+	@p_nro_micro int = NULL,
+	@p_kgs_encomienda numeric(18,2)= NULL 
+AS
+BEGIN
+	SELECT m.[id_micros]
+      ,m.[fecha_alta]
+      ,m.[nro_micro]
+      ,m.[modelo]
+      ,m.[patente]
+      ,m.[id_marca]
+      ,m.[id_servicio]
+      ,m.[baja_vida_util]
+      ,m.[fec_baja_vida_util]
+      ,m.[capacidad_kg]
+	FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Micros] m
+	left join SI_NO_APROBAMOS_HAY_TABLA.Servicio s
+		on s.id_servicio = m.id_servicio
+	left join SI_NO_APROBAMOS_HAY_TABLA.Marca ma
+		on ma.id_marca = m.id_marca 
+	where ((@p_modelo IS NULL) OR (m.modelo like '%' + @p_modelo + '%' ))
+	and ((@p_patente IS NULL) OR (m.patente like '%' + @p_patente + '%' ))
+	and ((@p_nro_micro IS NULL) OR (m.nro_micro = @p_nro_micro ))
+	and ((@p_kgs_encomienda IS NULL) OR (m.capacidad_kg = @p_kgs_encomienda ))
+	and ((@p_marca IS NULL) OR (ma.nombre = @p_marca))
+	and ((@p_tipo_servicio IS NULL) OR (s.tipo_servicio = @p_tipo_servicio ))
+	and m.baja = 0
+END
+GO
+USE [GD1C2013]
+GO
+/****** Object:  StoredProcedure [SI_NO_APROBAMOS_HAY_TABLA].[sp_insert_micro]    Script Date: 07/20/2013 01:39:10 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].[sp_insert_micro]
+(
+	@p_fecha_alta datetime2(7),
+	@p_nro_micro int,
+	@p_modelo nvarchar(50),
+	@p_patente nvarchar(50),
+	@p_id_marca int,
+	@p_id_servicio int,
+	@p_baja_vida_util bit,
+	@p_fec_baja_vida_util datetime = NULL,
+	@p_capacidad_kg numeric(18,2),
+	@p_id int output
+)
+AS
+BEGIN
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Micros]
+           ([fecha_alta]
+           ,[nro_micro]
+           ,[modelo]
+           ,[patente]
+           ,[id_marca]
+           ,[id_servicio]
+           ,[baja_vida_util]
+           ,[fec_baja_vida_util]
+           ,[capacidad_kg]
+           ,[baja])
+     VALUES
+           (@p_fecha_alta
+           ,@p_nro_micro
+           ,@p_modelo
+           ,@p_patente
+           ,@p_id_marca
+           ,@p_id_servicio
+           ,@p_baja_vida_util
+           ,@p_fec_baja_vida_util
+           ,@p_capacidad_kg
+           ,0)
+	SET @p_id = SCOPE_IDENTITY()
+END
+GO
+CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_insert_butaca
+(
+
+	@p_nro_butaca numeric(18,0),
+	@p_id_micro int,
+	@p_tipo_butaca nvarchar(50),
+	@p_piso numeric(18,0),
+	@p_id int output
+)
+
+AS
+BEGIN
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Butaca]
+           ([nro_butaca]
+           ,[id_micro]
+           ,[tipo_butaca]
+           ,[piso])
+     VALUES
+           (@p_nro_butaca
+           ,@p_id_micro
+           ,@p_tipo_butaca
+           ,@p_piso)
+
+SET @p_id = SCOPE_IDENTITY()
+
+END
+
+GO
+
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].[sp_update_micro]
+	@p_marca varchar(50) = NULL, 
+	@p_modelo nvarchar(50) = NULL,
+	@p_tipo_servicio nvarchar(255) = NULL,
+	@p_patente nvarchar(50) = NULL,
+	@p_kgs_encomienda numeric(18,2)= NULL,
+	@p_fecha_alta datetime,
+	@p_baja_vida_util bit,
+	@p_fec_baja_vida_util datetime,
+	@p_id int
+AS
+BEGIN
+UPDATE [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Micros]
+   SET [fecha_alta] = @p_fecha_alta
+      ,[modelo] = @p_modelo
+      ,[patente] = @p_patente
+      ,[id_marca] = @p_marca
+      ,[id_servicio] = @p_tipo_servicio
+      ,[baja_vida_util] = @p_baja_vida_util
+      ,[fec_baja_vida_util] = @p_fec_baja_vida_util
+      ,[capacidad_kg] = @p_kgs_encomienda
+      
+ WHERE id_micros = @p_id
+END
+
+GO
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_baja_logica_micro
+(
+	@id_micro int
+)
+AS
+BEGIN
+	SET xact_abort on
+	BEGIN TRANSACTION baja_logica_micro
+		UPDATE [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Micros]
+		SET Micros.baja = 1
+		WHERE Micros.id_micros = @id_micro
+		
+		UPDATE [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Butaca]
+		SET Butaca.baja = 1
+		WHERE Butaca.id_micro = @id_micro
+		
+	COMMIT TRANSACTION baja_logica_micro
+END
+
+GO
+CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_insert_marca
+(
+	@p_nombre varchar(50),
+	@p_id int output
+)
+AS
+BEGIN
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Marca]
+           ([nombre])
+     VALUES
+           (@p_nombre)
+           
+           SET @p_id = SCOPE_IDENTITY()
+END
+GO
+CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_insert_servicio
+(	@p_tipo_servicio nvarchar(255),
+    @p_adicional decimal(5,2),
+    @p_id int output
+)
+AS
+BEGIN
+INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Servicio]
+           ([tipo_servicio]
+           ,[pocent_adic]
+           ,[baja])
+     VALUES (@p_tipo_servicio, @p_adicional, 0)
+
+SET @p_id = SCOPE_IDENTITY()
+     
+END
+GO
+
