@@ -6,14 +6,17 @@ using FrbaBus.Common.Entidades;
 using GestionDeDatos.AccesoDatos;
 using System.Data.SqlClient;
 using System.Data;
+using FrbaBus.DAO.Builder;
 
 namespace FrbaBus.DAO
 {
     public class CancelacionDAO : IEntidadDAO<Cancelacion>
     {
         private IAccesoBD _acceso;
+        private IBuilder<Cancelacion> _builder;
         public CancelacionDAO()
         {
+            _builder = new CancelacionBuilder();
             _acceso = new AccesoBD();
         }
         #region Miembros de IEntidadDAO<Cancelacion>
@@ -45,7 +48,19 @@ namespace FrbaBus.DAO
 
         public IList<Cancelacion> Listar()
         {
-            throw new NotImplementedException();
+            IList<Cancelacion> cancelaciones = new List<Cancelacion>();
+
+            foreach (DataRow row in this.ObtenerRegistros().Tables[0].Rows)
+            {
+                cancelaciones.Add(this._builder.Build(row));
+            }
+
+            return cancelaciones;
+        }
+
+        private DataSet ObtenerRegistros()
+        {
+            return this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_listar_cancelaciones");
         }
 
         #endregion

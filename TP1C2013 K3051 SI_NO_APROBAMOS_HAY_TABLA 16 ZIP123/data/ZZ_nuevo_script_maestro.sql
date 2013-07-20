@@ -1195,6 +1195,9 @@ GO
 /*===========================INSERT FUNCIONALIDAD==============================*/
 
 insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
+values ('tsmCancelacionesListado')
+
+insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
 values ('tsmRolAlta')
 
 insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
@@ -1326,6 +1329,12 @@ from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APRO
 where Rol.nombre='Cliente' AND Funcionalidad.funcionalidad='tsmEncomiendaCancelar'
 
 /*======================ADMINISTRATIVO===================*/
+
+insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
+select id_Rol, id_funcionalidad
+from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
+where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='tsmCancelacionesListado'
+
 
 insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
 select id_Rol, id_funcionalidad

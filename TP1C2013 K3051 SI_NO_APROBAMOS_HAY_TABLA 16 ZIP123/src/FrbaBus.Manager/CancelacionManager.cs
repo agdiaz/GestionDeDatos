@@ -29,5 +29,10 @@ namespace FrbaBus.Manager
         {
             _dao.CancelarEncomienda(encomienda, motivo);
         }
+
+        public IList<Cancelacion> Listar()
+        {
+            return _dao.Listar();
+        }
     }
 }

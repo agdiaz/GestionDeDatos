@@ -398,6 +398,9 @@
     <EmbeddedResource Include="Cancelaciones\CancelacionEncomienda.resx">
       <DependentUpon>CancelacionEncomienda.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Cancelaciones\CancelacionesListado.resx">
+      <DependentUpon>CancelacionesListado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Cancelaciones\CancelacionPasaje.resx">
       <DependentUpon>CancelacionPasaje.cs</DependentUpon>
     </EmbeddedResource>
