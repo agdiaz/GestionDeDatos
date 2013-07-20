@@ -16,7 +16,6 @@ namespace FrbaBus.Common.Entidades
         public Empresa Empresa { get; set; }
         public string Marca { get { return Empresa.Descripcion; } }
         public int IdServicio { get; set; }
-        public DateTime? FechaBajaVidaUtil { get; set; }
         public int ButacasTotal { get; set; }
         public int ButacasVendidas { get; set; }
         public int ButacasDisponibles { get; set; }
@@ -24,9 +23,11 @@ namespace FrbaBus.Common.Entidades
         public decimal KgsVendidos { get; set; }
         public decimal KgsDisponibles { get; set; }
         
+        
         public Servicio Servicio { get; set; }
         public IList<Butaca> Butacas { get; set; }
         public bool BajaVidaUtil { get; set; }
+        public DateTime? FechaBajaVidaUtil { get; set; }
 
 
 

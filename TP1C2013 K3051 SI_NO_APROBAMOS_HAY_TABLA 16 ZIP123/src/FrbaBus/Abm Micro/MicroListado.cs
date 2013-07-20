@@ -118,6 +118,7 @@ namespace FrbaBus.Abm_Micro
             this.dgvMicroListado.Columns["KgsDisponibles"].Visible = false;
             this.dgvMicroListado.Columns["KgsVendidos"].Visible = false;
             this.dgvMicroListado.Columns["Butacas"].Visible = false;
+            this.dgvMicroListado.Columns["informacion"].Visible = false;
         }
         private void CargarEmpresas()
         {

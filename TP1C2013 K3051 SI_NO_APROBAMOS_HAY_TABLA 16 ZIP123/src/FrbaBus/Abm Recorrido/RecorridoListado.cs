@@ -108,6 +108,7 @@ namespace FrbaBus.Abm_Recorrido
             this.dgvRecorridoListado.Columns["IdCiudadDestino"].Visible = false;
             this.dgvRecorridoListado.Columns["IdCiudadOrigen"].Visible = false;
             this.dgvRecorridoListado.Columns["IdServicio"].Visible = false;
+            this.dgvRecorridoListado.Columns["informacion"].Visible = false;
         }
         private void CargarCiudades()
         {
