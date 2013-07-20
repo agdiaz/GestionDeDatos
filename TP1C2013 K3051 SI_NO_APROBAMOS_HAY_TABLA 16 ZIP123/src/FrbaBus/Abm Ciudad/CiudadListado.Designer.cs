@@ -49,7 +49,7 @@
             this.gbCiudadListado.Controls.Add(this.btnCiudadListadoLimpiar);
             this.gbCiudadListado.Location = new System.Drawing.Point(12, 12);
             this.gbCiudadListado.Name = "gbCiudadListado";
-            this.gbCiudadListado.Size = new System.Drawing.Size(472, 83);
+            this.gbCiudadListado.Size = new System.Drawing.Size(339, 83);
             this.gbCiudadListado.TabIndex = 0;
             this.gbCiudadListado.TabStop = false;
             this.gbCiudadListado.Text = "Filtros de busqueda";
@@ -58,12 +58,12 @@
             // 
             this.tbCiudadListadoCiudad.Location = new System.Drawing.Point(82, 25);
             this.tbCiudadListadoCiudad.Name = "tbCiudadListadoCiudad";
-            this.tbCiudadListadoCiudad.Size = new System.Drawing.Size(278, 20);
+            this.tbCiudadListadoCiudad.Size = new System.Drawing.Size(249, 20);
             this.tbCiudadListadoCiudad.TabIndex = 1;
             // 
             // btnCiudadListadoBuscar
             // 
-            this.btnCiudadListadoBuscar.Location = new System.Drawing.Point(391, 18);
+            this.btnCiudadListadoBuscar.Location = new System.Drawing.Point(58, 51);
             this.btnCiudadListadoBuscar.Name = "btnCiudadListadoBuscar";
             this.btnCiudadListadoBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnCiudadListadoBuscar.TabIndex = 3;
@@ -82,7 +82,7 @@
             // 
             // btnCiudadListadoLimpiar
             // 
-            this.btnCiudadListadoLimpiar.Location = new System.Drawing.Point(391, 47);
+            this.btnCiudadListadoLimpiar.Location = new System.Drawing.Point(139, 51);
             this.btnCiudadListadoLimpiar.Name = "btnCiudadListadoLimpiar";
             this.btnCiudadListadoLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnCiudadListadoLimpiar.TabIndex = 2;
@@ -101,7 +101,7 @@
             this.dgvCiudadListado.Name = "dgvCiudadListado";
             this.dgvCiudadListado.ReadOnly = true;
             this.dgvCiudadListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCiudadListado.Size = new System.Drawing.Size(472, 290);
+            this.dgvCiudadListado.Size = new System.Drawing.Size(331, 290);
             this.dgvCiudadListado.TabIndex = 1;
             this.dgvCiudadListado.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCiudadListado_CellDoubleClick);
             // 
@@ -127,7 +127,7 @@
             // 
             // btnSeleccionar
             // 
-            this.btnSeleccionar.Location = new System.Drawing.Point(402, 397);
+            this.btnSeleccionar.Location = new System.Drawing.Point(268, 397);
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.Size = new System.Drawing.Size(75, 23);
             this.btnSeleccionar.TabIndex = 6;
@@ -140,7 +140,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(499, 432);
+            this.ClientSize = new System.Drawing.Size(363, 432);
             this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnCiudadListadoDarBaja);

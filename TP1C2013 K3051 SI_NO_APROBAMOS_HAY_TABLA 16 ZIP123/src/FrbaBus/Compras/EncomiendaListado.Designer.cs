@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gbEncomiendaListado = new System.Windows.Forms.GroupBox();
+            this.btnEncomiendaListadoBuscarCliente = new System.Windows.Forms.Button();
             this.tbEncomiendaListadoDniCliente = new System.Windows.Forms.TextBox();
             this.lblEncomiendaListadoDniCliente = new System.Windows.Forms.Label();
             this.tbEncomiendaListadoPesoKg = new System.Windows.Forms.TextBox();
@@ -42,7 +43,6 @@
             this.btnEncomiendaListadoLimpiar = new System.Windows.Forms.Button();
             this.btnEncomiendaListadoBuscar = new System.Windows.Forms.Button();
             this.dgvEncomiendaListado = new System.Windows.Forms.DataGridView();
-            this.btnEncomiendaListadoBuscarCliente = new System.Windows.Forms.Button();
             this.gbEncomiendaListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEncomiendaListado)).BeginInit();
             this.SuspendLayout();
@@ -66,6 +66,16 @@
             this.gbEncomiendaListado.TabIndex = 0;
             this.gbEncomiendaListado.TabStop = false;
             this.gbEncomiendaListado.Text = "Filtros de busqueda";
+            // 
+            // btnEncomiendaListadoBuscarCliente
+            // 
+            this.btnEncomiendaListadoBuscarCliente.Location = new System.Drawing.Point(326, 15);
+            this.btnEncomiendaListadoBuscarCliente.Name = "btnEncomiendaListadoBuscarCliente";
+            this.btnEncomiendaListadoBuscarCliente.Size = new System.Drawing.Size(82, 23);
+            this.btnEncomiendaListadoBuscarCliente.TabIndex = 10;
+            this.btnEncomiendaListadoBuscarCliente.Text = "Buscar cliente";
+            this.btnEncomiendaListadoBuscarCliente.UseVisualStyleBackColor = true;
+            this.btnEncomiendaListadoBuscarCliente.Click += new System.EventHandler(this.btnEncomiendaListadoBuscarCliente_Click);
             // 
             // tbEncomiendaListadoDniCliente
             // 
@@ -168,21 +178,13 @@
             // 
             // dgvEncomiendaListado
             // 
+            this.dgvEncomiendaListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvEncomiendaListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvEncomiendaListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEncomiendaListado.Location = new System.Drawing.Point(12, 194);
             this.dgvEncomiendaListado.Name = "dgvEncomiendaListado";
             this.dgvEncomiendaListado.Size = new System.Drawing.Size(414, 277);
             this.dgvEncomiendaListado.TabIndex = 3;
-            // 
-            // btnEncomiendaListadoBuscarCliente
-            // 
-            this.btnEncomiendaListadoBuscarCliente.Location = new System.Drawing.Point(326, 15);
-            this.btnEncomiendaListadoBuscarCliente.Name = "btnEncomiendaListadoBuscarCliente";
-            this.btnEncomiendaListadoBuscarCliente.Size = new System.Drawing.Size(82, 23);
-            this.btnEncomiendaListadoBuscarCliente.TabIndex = 10;
-            this.btnEncomiendaListadoBuscarCliente.Text = "Buscar cliente";
-            this.btnEncomiendaListadoBuscarCliente.UseVisualStyleBackColor = true;
-            this.btnEncomiendaListadoBuscarCliente.Click += new System.EventHandler(this.btnEncomiendaListadoBuscarCliente_Click);
             // 
             // EncomiendaListado
             // 
