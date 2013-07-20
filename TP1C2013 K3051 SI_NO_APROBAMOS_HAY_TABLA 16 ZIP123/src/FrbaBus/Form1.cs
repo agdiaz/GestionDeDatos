@@ -629,6 +629,26 @@ namespace FrbaBus
 
         private void btnFinalizarCompra_Click(object sender, EventArgs e)
         {
+            //Valido si puedo comprar:
+            ClienteManager _clienteManager = new ClienteManager();
+
+            var clientes = _pasajes.Select(p => _clienteManager.Obtener(p.NroDni)).ToList();
+            int cantDiscapacitados = clientes.Count(p => p.EsDiscapacitado);
+
+            if (cantDiscapacitados > 2)
+            {
+                MensajePorPantalla.MensajeError(this, "Solo puede haber un pasajero discapacitado por compra");
+            }
+
+            if (cantDiscapacitados == 1)
+            {
+                var pasajeDelDiscapacitado = clientes.Where(c => c.EsDiscapacitado).FirstOrDefault();
+                if (_pasajes.Count > 1)
+                {
+                    var otroPasaje = _pasajes.FirstOrDefault(p => p.NroDni != pasajeDelDiscapacitado.NroDni);
+                }
+            }
+
             // Primero tengo que generar la compra;
             Compra compra = new Compra();
             compra.FechaCompra = Helpers.FechaHelper.Ahora();
