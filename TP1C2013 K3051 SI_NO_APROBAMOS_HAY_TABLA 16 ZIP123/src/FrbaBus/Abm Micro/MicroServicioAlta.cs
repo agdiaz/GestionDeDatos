@@ -55,7 +55,12 @@ namespace FrbaBus.Abm_Micro
         {
             if (String.IsNullOrEmpty(this.tbMicroServicioAltaTipoServicio.Text))
             {
-                MensajeDeError.MostrarError(lblMicroServicioAltaTipoServicio);
+                MensajePorPantalla.MensajeError(this, "Debe ingresar un tipo de servicio");
+                return false;
+            }
+            if (String.IsNullOrEmpty(this.tbAdicional.Text))
+            {
+                MensajePorPantalla.MensajeError(this, "Debe ingresar un adicional");
                 return false;
             }
             return true;

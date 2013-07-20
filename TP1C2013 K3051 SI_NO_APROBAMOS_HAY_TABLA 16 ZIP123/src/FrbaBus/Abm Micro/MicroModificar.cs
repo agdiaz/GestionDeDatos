@@ -65,6 +65,7 @@ namespace FrbaBus.Abm_Micro
         private void CargarEmpresas()
         {
             IList<Empresa> empresas = _empresaManager.Listar();
+            empresas.Insert(0, new Empresa() { });
 
             this.cbbMicroModificarTipoEmpresa.DataSource = empresas;
             this.cbbMicroModificarTipoEmpresa.DisplayMember = "Descripcion";
@@ -73,6 +74,7 @@ namespace FrbaBus.Abm_Micro
         private void CargarServicios()
         {
             IList<Servicio> servicios = _servicioManager.Listar();
+            servicios.Insert(0, new Servicio());
 
             this.cbbMicroModificarTipoServicio.DataSource = servicios;
             this.cbbMicroModificarTipoServicio.DisplayMember = "TipoServicio";
@@ -143,6 +145,36 @@ namespace FrbaBus.Abm_Micro
 
         private bool ValidarDatos()
         {
+            if (cbbMicroModificarTipoModelo.SelectedIndex < 1)
+            {
+                MensajePorPantalla.MensajeError(this, "Debe seleccionar un modelo");
+                return false;
+            }
+            if (cbbMicroModificarTipoEmpresa.SelectedIndex < 1)
+            {
+                MensajePorPantalla.MensajeError(this, "Debe seleccionar una marca");
+                return false;
+            }
+            if (string.IsNullOrEmpty(txtPatente.Text))
+            {
+                MensajePorPantalla.MensajeError(this, "Debe ingresar una patente");
+                return false;
+            }
+            if (cbbMicroModificarTipoServicio.SelectedIndex < 1)
+            {
+                MensajePorPantalla.MensajeError(this, "Debe seleccionar un servicio");
+                return false;
+            }
+            if (string.IsNullOrEmpty(mtbMicroModificarKgsEncomiendas.Text))
+            {
+                MensajePorPantalla.MensajeError(this, "Debe ingresar una cantidad de kgs disponibles para encomienda");
+                return false;
+            }
+            if (string.IsNullOrEmpty(tbCantButacas.Text))
+            {
+                MensajePorPantalla.MensajeError(this, "Debe ingresar una cantidad de butacas");
+                return false;
+            }
             return true;
         }
 

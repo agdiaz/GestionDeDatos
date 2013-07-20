@@ -305,7 +305,6 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\FechaHelper.cs" />
-    <Compile Include="Helpers\MensajeDeError.cs" />
     <Compile Include="Login\Login.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -44,28 +44,47 @@ namespace FrbaBus.Rol
 
         private void btnRolAltaGuardar_Click(object sender, EventArgs e)
         {
-            try
+            if (this.ValidarDatos())
             {
-                RolUsuario rol = new RolUsuario(this.tbRolAltaNuevoRol.Text);
-                rol = _manager.Alta(rol);
-
-                foreach (var funcObj in this.clbFuncionalidades.CheckedItems)
+                try
                 {
-                    Funcionalidad f = (Funcionalidad)funcObj;
-                    _funcionalidadManager.AsociarRolFuncionalidad(rol, f);
-                }
+                    RolUsuario rol = new RolUsuario(this.tbRolAltaNuevoRol.Text);
+                    rol = _manager.Alta(rol);
 
-                MensajePorPantalla.MensajeInformativo(this, "Se dio de alta el rol con el id: " + rol.IdRol.ToString());
-                this.Close();
+                    foreach (var funcObj in this.clbFuncionalidades.CheckedItems)
+                    {
+                        Funcionalidad f = (Funcionalidad)funcObj;
+                        _funcionalidadManager.AsociarRolFuncionalidad(rol, f);
+                    }
+
+                    MensajePorPantalla.MensajeInformativo(this, "Se dio de alta el rol con el id: " + rol.IdRol.ToString());
+                    this.Close();
+                }
+                catch (AccesoBDException ex)
+                {
+                    MensajePorPantalla.MensajeExceptionBD(this, ex);
+                }
+                catch (Exception ex)
+                {
+                    MensajePorPantalla.MensajeError(this, "Error al intentar dar el registro.\n Detalle del error: " + ex.Message);
+                }
             }
-            catch (AccesoBDException ex)
+        }
+
+        private bool ValidarDatos()
+        {
+            if (string.IsNullOrEmpty(tbRolAltaNuevoRol.Text))
             {
-                MensajePorPantalla.MensajeExceptionBD(this, ex);
+                MensajePorPantalla.MensajeError(this, "Debe ingresar un nombre de rol");
+                return false;
             }
-            catch (Exception ex)
+            if (this.clbFuncionalidades.CheckedItems.Count < 1)
             {
-                MensajePorPantalla.MensajeError(this, "Error al intentar dar el registro.\n Detalle del error: " + ex.Message);
+                MensajePorPantalla.MensajeError(this, "Debe ingresar al menos una funcionalidad");
+                return false;
             }
+            
+            return true;
         }
     }
 }

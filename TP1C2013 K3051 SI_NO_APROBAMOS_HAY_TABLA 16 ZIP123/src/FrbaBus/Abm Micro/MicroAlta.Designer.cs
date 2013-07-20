@@ -45,8 +45,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.tbCantButacas = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -132,7 +132,8 @@
             this.cbbMicroAltaTipoModelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbMicroAltaTipoModelo.FormattingEnabled = true;
             this.cbbMicroAltaTipoModelo.Items.AddRange(new object[] {
-            "Modelo"});
+            "",
+            "modelo"});
             this.cbbMicroAltaTipoModelo.Location = new System.Drawing.Point(112, 17);
             this.cbbMicroAltaTipoModelo.Name = "cbbMicroAltaTipoModelo";
             this.cbbMicroAltaTipoModelo.Size = new System.Drawing.Size(161, 21);
@@ -221,6 +222,13 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Opciones";
             // 
+            // tbCantButacas
+            // 
+            this.tbCantButacas.Location = new System.Drawing.Point(72, 45);
+            this.tbCantButacas.Name = "tbCantButacas";
+            this.tbCantButacas.Size = new System.Drawing.Size(100, 20);
+            this.tbCantButacas.TabIndex = 19;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -229,13 +237,6 @@
             this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 18;
             this.label3.Text = "Butacas: ";
-            // 
-            // tbCantButacas
-            // 
-            this.tbCantButacas.Location = new System.Drawing.Point(72, 45);
-            this.tbCantButacas.Name = "tbCantButacas";
-            this.tbCantButacas.Size = new System.Drawing.Size(100, 20);
-            this.tbCantButacas.TabIndex = 19;
             // 
             // MicroAlta
             // 

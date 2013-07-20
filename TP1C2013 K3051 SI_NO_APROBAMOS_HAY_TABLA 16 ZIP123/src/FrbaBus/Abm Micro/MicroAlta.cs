@@ -50,7 +50,8 @@ namespace FrbaBus.Abm_Micro
         private void CargarEmpresas()
         {
             IList<Empresa> empresas = _empresaManager.Listar();
-
+            empresas.Insert(0, new Empresa() {});
+            
             this.cbbMicroAltaTipoEmpresa.DataSource = empresas;
             this.cbbMicroAltaTipoEmpresa.DisplayMember = "Descripcion";
             this.cbbMicroAltaTipoEmpresa.ValueMember = "Id";
@@ -58,6 +59,7 @@ namespace FrbaBus.Abm_Micro
         private void CargarServicios()
         {
             IList<Servicio> servicios = _servicioManager.Listar();
+            servicios.Insert(0, new Servicio());
 
             this.cbbMicroAltaTipoServicio.DataSource = servicios;
             this.cbbMicroAltaTipoServicio.DisplayMember = "TipoServicio";
@@ -133,6 +135,37 @@ namespace FrbaBus.Abm_Micro
 
         private bool ValidarDatos()
         {
+            if(cbbMicroAltaTipoModelo.SelectedIndex < 1)
+            {
+                MensajePorPantalla.MensajeError(this, "Debe seleccionar un modelo");
+                return false;
+            }
+            if (cbbMicroAltaTipoEmpresa.SelectedIndex < 1)
+            {
+                MensajePorPantalla.MensajeError(this, "Debe seleccionar una marca");
+                return false;
+            }
+            if (string.IsNullOrEmpty(txtPatente.Text))
+            {
+                MensajePorPantalla.MensajeError(this, "Debe ingresar una patente");
+                return false;
+            }
+            if (cbbMicroAltaTipoServicio.SelectedIndex < 1)
+            {
+                MensajePorPantalla.MensajeError(this, "Debe seleccionar un servicio");
+                return false;
+            }
+            if (string.IsNullOrEmpty(mtbMicroAltaKgsEncomiendas.Text))
+            {
+                MensajePorPantalla.MensajeError(this, "Debe ingresar una cantidad de kgs disponibles para encomienda");
+                return false;
+            }
+            if (string.IsNullOrEmpty(tbCantButacas.Text))
+            {
+                MensajePorPantalla.MensajeError(this, "Debe ingresar una cantidad de butacas");
+                return false;
+            }
+
             return true;
         }
     }
