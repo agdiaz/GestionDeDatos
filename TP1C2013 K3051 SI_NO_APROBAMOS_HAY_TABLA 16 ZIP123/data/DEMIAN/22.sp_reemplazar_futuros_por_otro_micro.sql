@@ -44,10 +44,16 @@ BEGIN
 	AND [SI_NO_APROBAMOS_HAY_TABLA].func_puede_reemplazar_desde(m.id_micros, GETDATE()) = 1
 	AND m.baja = 0
 	
-	UPDATE SI_NO_APROBAMOS_HAY_TABLA.Viaje
-	SET id_micro = @microElegido
-	WHERE id_micro = @id_micro
-	AND fecha_salida >= GETDATE()
-	
-	SET @id_micro_nuevo = @microElegido
+	IF @microElegido is not null
+	BEGIN
+		UPDATE SI_NO_APROBAMOS_HAY_TABLA.Viaje
+		SET id_micro = @microElegido
+		WHERE id_micro = @id_micro
+		AND fecha_salida >= GETDATE()
+		SET @id_micro_nuevo = @microElegido
+	END
+	ELSE
+	BEGIN
+		SET @id_micro_nuevo = 0
+	END
 END
