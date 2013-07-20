@@ -37,5 +37,15 @@ namespace FrbaBus.Manager
         {
             return new List<Butaca>();
         }
+
+        public IList<Butaca> ListarLibres(Viaje viaje)
+        {
+            return _dao.ListarLibres(viaje);
+        }
+
+        public IList<Butaca> ListarOcupadas(Viaje viaje)
+        {
+            return _dao.ListarOcupadas(viaje);
+        }
     }
 }

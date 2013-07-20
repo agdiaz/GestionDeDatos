@@ -76,6 +76,7 @@
             this.btnLimpiar.TabIndex = 10;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnBuscar
             // 
@@ -144,6 +145,7 @@
             this.btnBuscarMicro.TabIndex = 2;
             this.btnBuscarMicro.Text = "Buscar micro";
             this.btnBuscarMicro.UseVisualStyleBackColor = true;
+            this.btnBuscarMicro.Click += new System.EventHandler(this.btnBuscarMicro_Click);
             // 
             // tbMicro
             // 
@@ -182,6 +184,7 @@
             this.btnSeleccionar.TabIndex = 2;
             this.btnSeleccionar.Text = "Seleccionar";
             this.btnSeleccionar.UseVisualStyleBackColor = true;
+            this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
             // 
             // dgvLibres
             // 

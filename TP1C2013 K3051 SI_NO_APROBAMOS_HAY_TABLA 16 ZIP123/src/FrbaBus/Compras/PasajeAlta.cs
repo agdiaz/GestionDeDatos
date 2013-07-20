@@ -86,7 +86,7 @@ namespace FrbaBus.Compras
         private Butaca ObtenerButaca()
         {
             Butaca b = null;
-            using (MicroButacaListado frm = new MicroButacaListado(_viaje.Micro))
+            using (MicroButacaListado frm = new MicroButacaListado(_viaje))
             {
                 frm.ShowDialog();
                 b = frm.ButacaSeleccionada();
