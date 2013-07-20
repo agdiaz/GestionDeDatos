@@ -45,9 +45,10 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dtpFechaBajaUtil = new System.Windows.Forms.DateTimePicker();
             this.cbBajaVidaUtil = new System.Windows.Forms.CheckBox();
+            this.dtpFechaBajaUtil = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbCantButacas = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -101,7 +102,7 @@
             // 
             // btnMicroModificarGuardar
             // 
-            this.btnMicroModificarGuardar.Location = new System.Drawing.Point(21, 371);
+            this.btnMicroModificarGuardar.Location = new System.Drawing.Point(21, 402);
             this.btnMicroModificarGuardar.Name = "btnMicroModificarGuardar";
             this.btnMicroModificarGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnMicroModificarGuardar.TabIndex = 8;
@@ -111,7 +112,7 @@
             // 
             // btnMicroModificarLimpiar
             // 
-            this.btnMicroModificarLimpiar.Location = new System.Drawing.Point(102, 371);
+            this.btnMicroModificarLimpiar.Location = new System.Drawing.Point(102, 402);
             this.btnMicroModificarLimpiar.Name = "btnMicroModificarLimpiar";
             this.btnMicroModificarLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnMicroModificarLimpiar.TabIndex = 9;
@@ -167,7 +168,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 23);
+            this.label2.Location = new System.Drawing.Point(38, 19);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 16;
@@ -176,9 +177,9 @@
             // dtpFechaAlta
             // 
             this.dtpFechaAlta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFechaAlta.Location = new System.Drawing.Point(72, 19);
+            this.dtpFechaAlta.Location = new System.Drawing.Point(118, 19);
             this.dtpFechaAlta.Name = "dtpFechaAlta";
-            this.dtpFechaAlta.Size = new System.Drawing.Size(192, 20);
+            this.dtpFechaAlta.Size = new System.Drawing.Size(146, 20);
             this.dtpFechaAlta.TabIndex = 17;
             // 
             // groupBox1
@@ -211,44 +212,53 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.tbCantButacas);
+            this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.cbBajaVidaUtil);
             this.groupBox3.Controls.Add(this.dtpFechaBajaUtil);
-            this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.dtpFechaAlta);
             this.groupBox3.Location = new System.Drawing.Point(12, 224);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(290, 141);
+            this.groupBox3.Size = new System.Drawing.Size(290, 172);
             this.groupBox3.TabIndex = 20;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Opciones";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 103);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 13);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Fecha baja vida útil:";
-            // 
-            // dtpFechaBajaUtil
-            // 
-            this.dtpFechaBajaUtil.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaBajaUtil.Location = new System.Drawing.Point(114, 103);
-            this.dtpFechaBajaUtil.Name = "dtpFechaBajaUtil";
-            this.dtpFechaBajaUtil.Size = new System.Drawing.Size(146, 20);
-            this.dtpFechaBajaUtil.TabIndex = 19;
-            // 
             // cbBajaVidaUtil
             // 
             this.cbBajaVidaUtil.AutoSize = true;
-            this.cbBajaVidaUtil.Location = new System.Drawing.Point(9, 69);
+            this.cbBajaVidaUtil.Location = new System.Drawing.Point(9, 59);
             this.cbBajaVidaUtil.Name = "cbBajaVidaUtil";
             this.cbBajaVidaUtil.Size = new System.Drawing.Size(89, 17);
             this.cbBajaVidaUtil.TabIndex = 20;
             this.cbBajaVidaUtil.Text = "Baja Vida Util";
             this.cbBajaVidaUtil.UseVisualStyleBackColor = true;
+            this.cbBajaVidaUtil.CheckedChanged += new System.EventHandler(this.cbBajaVidaUtil_CheckedChanged);
+            // 
+            // dtpFechaBajaUtil
+            // 
+            this.dtpFechaBajaUtil.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaBajaUtil.Location = new System.Drawing.Point(118, 56);
+            this.dtpFechaBajaUtil.Name = "dtpFechaBajaUtil";
+            this.dtpFechaBajaUtil.Size = new System.Drawing.Size(146, 20);
+            this.dtpFechaBajaUtil.TabIndex = 19;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(52, 92);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 13);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Butacas";
+            // 
+            // tbCantButacas
+            // 
+            this.tbCantButacas.Location = new System.Drawing.Point(118, 89);
+            this.tbCantButacas.Name = "tbCantButacas";
+            this.tbCantButacas.Size = new System.Drawing.Size(100, 20);
+            this.tbCantButacas.TabIndex = 22;
             // 
             // MicroModificar
             // 
@@ -293,7 +303,8 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DateTimePicker dtpFechaBajaUtil;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox cbBajaVidaUtil;
+        private System.Windows.Forms.TextBox tbCantButacas;
+        private System.Windows.Forms.Label label3;
     }
 }

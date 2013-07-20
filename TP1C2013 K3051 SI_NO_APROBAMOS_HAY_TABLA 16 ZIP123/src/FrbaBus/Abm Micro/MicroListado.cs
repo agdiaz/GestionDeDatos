@@ -58,6 +58,12 @@ namespace FrbaBus.Abm_Micro
 
         private void btnMicroListadoLimpiar_Click(object sender, EventArgs e)
         {
+            Limpiar();
+            Filtrar();
+        }
+
+        private void Limpiar()
+        {
             this.tbMicroListadoKgsEncomiendas.Text = string.Empty;
             this.tbMicroListadoNumeroMicro.Text = string.Empty;
             this.tbMicroListadoPatente.Text = string.Empty;
@@ -91,7 +97,6 @@ namespace FrbaBus.Abm_Micro
         {
             this.cbbMicroListadoTipoModelo.SelectedIndex = 0;
         }
-
         private void CargarMicros()
         {
             if (_viaje == null)
@@ -134,18 +139,23 @@ namespace FrbaBus.Abm_Micro
 
         private void btnMicroListadoBuscar_Click(object sender, EventArgs e)
         {
+            Filtrar();
+        }
+
+        private void Filtrar()
+        {
             try
             {
                 decimal kgsEncomiendas = 0;
                 if (!string.IsNullOrEmpty(this.tbMicroListadoKgsEncomiendas.Text))
-                 kgsEncomiendas = Convert.ToDecimal(this.tbMicroListadoKgsEncomiendas.Text);
+                    kgsEncomiendas = Convert.ToDecimal(this.tbMicroListadoKgsEncomiendas.Text);
 
                 int numeroMicro = 0;
                 if (!string.IsNullOrEmpty(this.tbMicroListadoNumeroMicro.Text))
                     Convert.ToInt32(this.tbMicroListadoNumeroMicro.Text);
-                
+
                 string numeroPatente = this.tbMicroListadoPatente.Text;
-                
+
                 string tipoEmpresa = null;
                 if (cbbMicroListadoTipoEmpresa.SelectedIndex > 0)
                     tipoEmpresa = this.cbbMicroListadoTipoEmpresa.Text;
@@ -180,20 +190,18 @@ namespace FrbaBus.Abm_Micro
                 {
                     frm.ShowDialog(this);
                 }
-                CargarMicros();
+                Limpiar();
+                Filtrar();
             }
             catch (AccesoBDException ex)
             {
                 MensajePorPantalla.MensajeExceptionBD(this, ex);
-                this.Close();
             }
             catch (Exception ex)
             {
                 MensajePorPantalla.MensajeError(this, "Error al intentar modificar el registro.\n Detalle del error: " + ex.Message);
-                this.Close();
             }   
         }
-        
 
         private void btnMicroListadoDarBaja_Click(object sender, EventArgs e)
         {
@@ -202,18 +210,17 @@ namespace FrbaBus.Abm_Micro
                 Micro micro = dgvMicroListado.SelectedRows[0].DataBoundItem as Micro;
                 _manager.Baja(micro);
                 MensajePorPantalla.MensajeInformativo(this, "Se dio de baja el micro");
-                CargarMicros();
+                Limpiar();
+                Filtrar();
 
             }
             catch (AccesoBDException ex)
             {
                 MensajePorPantalla.MensajeExceptionBD(this, ex);
-                this.Close();
             }
             catch (Exception ex)
             {
                 MensajePorPantalla.MensajeError(this, "Error al intentar cargar borrar el registro.\n Detalle del error: " + ex.Message);
-                this.Close();
             }
         }
 

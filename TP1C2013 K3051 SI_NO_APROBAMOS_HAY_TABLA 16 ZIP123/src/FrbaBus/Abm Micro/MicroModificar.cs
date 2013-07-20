@@ -129,7 +129,12 @@ namespace FrbaBus.Abm_Micro
 
             if (confirma == DialogResult.Yes)
             {
-                using (MicroButacaAlta frm = new MicroButacaAlta(micro))
+                int cant = 999;
+
+                if (!string.IsNullOrEmpty(tbCantButacas.Text))
+                    cant = Convert.ToInt32(tbCantButacas.Text);
+
+                using (MicroButacaAlta frm = new MicroButacaAlta(micro, cant))
                 {
                     frm.ShowDialog(this);
                 }
@@ -139,6 +144,11 @@ namespace FrbaBus.Abm_Micro
         private bool ValidarDatos()
         {
             return true;
+        }
+
+        private void cbBajaVidaUtil_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

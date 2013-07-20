@@ -45,6 +45,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbCantButacas = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -98,7 +100,7 @@
             // 
             // btnMicroAltaGuardar
             // 
-            this.btnMicroAltaGuardar.Location = new System.Drawing.Point(21, 296);
+            this.btnMicroAltaGuardar.Location = new System.Drawing.Point(21, 303);
             this.btnMicroAltaGuardar.Name = "btnMicroAltaGuardar";
             this.btnMicroAltaGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnMicroAltaGuardar.TabIndex = 8;
@@ -108,7 +110,7 @@
             // 
             // btnMicroAltaLimpiar
             // 
-            this.btnMicroAltaLimpiar.Location = new System.Drawing.Point(102, 296);
+            this.btnMicroAltaLimpiar.Location = new System.Drawing.Point(102, 303);
             this.btnMicroAltaLimpiar.Name = "btnMicroAltaLimpiar";
             this.btnMicroAltaLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnMicroAltaLimpiar.TabIndex = 9;
@@ -208,14 +210,32 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.tbCantButacas);
+            this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.dtpFechaAlta);
             this.groupBox3.Location = new System.Drawing.Point(12, 224);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(279, 66);
+            this.groupBox3.Size = new System.Drawing.Size(279, 73);
             this.groupBox3.TabIndex = 20;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Opciones";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 48);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Butacas: ";
+            // 
+            // tbCantButacas
+            // 
+            this.tbCantButacas.Location = new System.Drawing.Point(72, 45);
+            this.tbCantButacas.Name = "tbCantButacas";
+            this.tbCantButacas.Size = new System.Drawing.Size(100, 20);
+            this.tbCantButacas.TabIndex = 19;
             // 
             // MicroAlta
             // 
@@ -259,5 +279,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox tbCantButacas;
+        private System.Windows.Forms.Label label3;
     }
 }

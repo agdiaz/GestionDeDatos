@@ -53,6 +53,8 @@
             this.lbButacas = new System.Windows.Forms.ListBox();
             this.tbCantidadButacas = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbButacasTotales = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.gbNuevaButaca.SuspendLayout();
@@ -156,6 +158,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.tbButacasTotales);
+            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.btnQuitar);
             this.groupBox2.Controls.Add(this.btnNueva);
             this.groupBox2.Controls.Add(this.btnLimpiar);
@@ -303,6 +307,24 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Cantidad de butacas";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(242, 16);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(19, 13);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "de";
+            // 
+            // tbButacasTotales
+            // 
+            this.tbButacasTotales.Enabled = false;
+            this.tbButacasTotales.Location = new System.Drawing.Point(268, 13);
+            this.tbButacasTotales.Name = "tbButacasTotales";
+            this.tbButacasTotales.ReadOnly = true;
+            this.tbButacasTotales.Size = new System.Drawing.Size(100, 20);
+            this.tbButacasTotales.TabIndex = 21;
+            // 
             // MicroButacaAlta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -350,5 +372,7 @@
         private System.Windows.Forms.Button btnQuitar;
         private System.Windows.Forms.Button btnNueva;
         private System.Windows.Forms.Button btnBuscarMicro;
+        private System.Windows.Forms.TextBox tbButacasTotales;
+        private System.Windows.Forms.Label label7;
     }
 }

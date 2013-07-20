@@ -1,4 +1,5 @@
 Usuarios -> OK
 Roles -> OK
 Ciudades -> OK
-
+Recorridos -> OK
+Micros -> OK

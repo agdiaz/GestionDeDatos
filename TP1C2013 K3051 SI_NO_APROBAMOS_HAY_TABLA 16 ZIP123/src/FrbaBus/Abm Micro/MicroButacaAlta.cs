@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using FrbaBus.Manager;
 using FrbaBus.Common.Entidades;
+using FrbaBus.Common.Helpers;
+using FrbaBus.Common.Excepciones;
 
 namespace FrbaBus.Abm_Micro
 {
@@ -18,16 +20,19 @@ namespace FrbaBus.Abm_Micro
         private Micro MicroSeleccionado { get; set; }
         private IList<Butaca> Butacas { get; set; }
         private bool _desdeAltaMicro;
+        private int _cantButacasMaxima;
 
         public MicroButacaAlta()
         {
             InitializeComponent();
             _desdeAltaMicro = false;
+            _cantButacasMaxima = 999;
+
             _microManager = new MicroManager();
             _butacaManager = new ButacaManager();
             Butacas = new List<Butaca>();
         }
-        public MicroButacaAlta(Micro micro)
+        public MicroButacaAlta(Micro micro, int maxima)
         {
             InitializeComponent();
             _desdeAltaMicro = true;
@@ -35,6 +40,7 @@ namespace FrbaBus.Abm_Micro
             _butacaManager = new ButacaManager();
             MicroSeleccionado = micro;
             Butacas = new List<Butaca>();
+            _cantButacasMaxima = maxima;
         }
 
         private void MicroButacaAlta_Load(object sender, EventArgs e)
@@ -45,7 +51,7 @@ namespace FrbaBus.Abm_Micro
                 CargarDatosMicro();
             else
                 ObtenerMicro();
-            
+            tbButacasTotales.Text = _cantButacasMaxima.ToString();
             CargarListaTipo();
             CargarButacas();
         }
@@ -85,8 +91,12 @@ namespace FrbaBus.Abm_Micro
 
         private void btnNueva_Click(object sender, EventArgs e)
         {
-            
-            LimpiarNuevaButaca(true);
+            if (_desdeAltaMicro && Butacas.Count > _cantButacasMaxima)
+                LimpiarNuevaButaca(true);
+            else
+            {
+                MensajePorPantalla.MensajeError(this, "Ha alcanzado el límite de butacas");
+            }
         }
 
         private void LimpiarNuevaButaca(bool mostrar)
@@ -100,11 +110,14 @@ namespace FrbaBus.Abm_Micro
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             Butaca nueva = new Butaca();
+            
             nueva.IdMicro = MicroSeleccionado.Id;
             nueva.NroButaca = Convert.ToDecimal(tbNroButaca.Text);
             nueva.Piso = Convert.ToDecimal(tbPiso.Text);
+            nueva.TipoButaca = cbTipoButaca.SelectedItem as string;
 
             Butacas.Add(nueva);
+            
             CargarButacas();
             LimpiarNuevaButaca(false);
         }
@@ -127,12 +140,26 @@ namespace FrbaBus.Abm_Micro
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            foreach (Butaca butaca in Butacas)
-            {
-                _butacaManager.Alta(butaca);
-            }
 
-            this.Close();
+            try
+            {
+                foreach (Butaca butaca in Butacas)
+                {
+                    _butacaManager.Alta(butaca);
+                }
+
+                this.Close();
+            }
+            catch (AccesoBDException ex)
+            {
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MensajePorPantalla.MensajeError(this, "Error al intentar crear el registro.\n Detalle del error: " + ex.Message);
+                this.Close();
+            }
         }
 
         private void btnBuscarMicro_Click(object sender, EventArgs e)
