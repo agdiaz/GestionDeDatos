@@ -97,7 +97,6 @@ namespace FrbaBus.Compras
             {
                 frm.ShowDialog(this);
                 cliente = frm.ClienteSeleccionado();
-
             }
             if (cliente != null)
             {

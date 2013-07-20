@@ -18,7 +18,7 @@ namespace FrbaBus.DAO.Builder
             e.IdCancelacion = Convert.ToInt32(row["id_cancelacion"].ToString());
             e.IdViaje = Convert.ToInt32(row["id_viaje"].ToString());
             e.IdCompra = Convert.ToInt32(row["id_compra"].ToString());
-            e.NroDni = Convert.ToInt32(row["dni"].ToString());
+            e.NroDni = Convert.ToDecimal(row["dni"].ToString());
             e.Peso = Convert.ToDecimal(row["peso"].ToString());
             e.PrecioEncomienda = Convert.ToDecimal(row["pre_encomienda"].ToString());
 
