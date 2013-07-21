@@ -76,7 +76,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(485, 35);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 0;
+            this.btnBuscar.TabIndex = 4;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -84,7 +84,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 23);
+            this.label1.Location = new System.Drawing.Point(37, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(26, 13);
             this.label1.TabIndex = 1;
@@ -104,14 +104,14 @@
             this.txtDni.Location = new System.Drawing.Point(70, 11);
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(100, 20);
-            this.txtDni.TabIndex = 4;
+            this.txtDni.TabIndex = 0;
             // 
             // txtIDCompra
             // 
             this.txtIDCompra.Location = new System.Drawing.Point(70, 40);
             this.txtIDCompra.Name = "txtIDCompra";
             this.txtIDCompra.Size = new System.Drawing.Size(100, 20);
-            this.txtIDCompra.TabIndex = 5;
+            this.txtIDCompra.TabIndex = 1;
             this.txtIDCompra.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // dtpFechaCompra
@@ -119,15 +119,15 @@
             this.dtpFechaCompra.Location = new System.Drawing.Point(284, 13);
             this.dtpFechaCompra.Name = "dtpFechaCompra";
             this.dtpFechaCompra.Size = new System.Drawing.Size(200, 20);
-            this.dtpFechaCompra.TabIndex = 6;
+            this.dtpFechaCompra.TabIndex = 3;
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(222, 14);
+            this.checkBox1.Location = new System.Drawing.Point(222, 15);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(56, 17);
-            this.checkBox1.TabIndex = 7;
+            this.checkBox1.TabIndex = 2;
             this.checkBox1.Text = "Fecha";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 

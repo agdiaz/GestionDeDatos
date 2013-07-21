@@ -74,7 +74,7 @@
             this.tbEncomiendaAltaDniCliente.Location = new System.Drawing.Point(91, 6);
             this.tbEncomiendaAltaDniCliente.Name = "tbEncomiendaAltaDniCliente";
             this.tbEncomiendaAltaDniCliente.Size = new System.Drawing.Size(242, 20);
-            this.tbEncomiendaAltaDniCliente.TabIndex = 3;
+            this.tbEncomiendaAltaDniCliente.TabIndex = 0;
             // 
             // tbEncomiendaAltaViaje
             // 
@@ -82,14 +82,14 @@
             this.tbEncomiendaAltaViaje.Location = new System.Drawing.Point(91, 31);
             this.tbEncomiendaAltaViaje.Name = "tbEncomiendaAltaViaje";
             this.tbEncomiendaAltaViaje.Size = new System.Drawing.Size(242, 20);
-            this.tbEncomiendaAltaViaje.TabIndex = 4;
+            this.tbEncomiendaAltaViaje.TabIndex = 2;
             // 
             // tbEncomiendaAltaPesoKg
             // 
             this.tbEncomiendaAltaPesoKg.Location = new System.Drawing.Point(91, 84);
             this.tbEncomiendaAltaPesoKg.Name = "tbEncomiendaAltaPesoKg";
             this.tbEncomiendaAltaPesoKg.Size = new System.Drawing.Size(242, 20);
-            this.tbEncomiendaAltaPesoKg.TabIndex = 5;
+            this.tbEncomiendaAltaPesoKg.TabIndex = 4;
             // 
             // lblEncomiendaAltaMicro
             // 
@@ -106,14 +106,14 @@
             this.tbEncomiendaAltaMicro.Location = new System.Drawing.Point(91, 58);
             this.tbEncomiendaAltaMicro.Name = "tbEncomiendaAltaMicro";
             this.tbEncomiendaAltaMicro.Size = new System.Drawing.Size(242, 20);
-            this.tbEncomiendaAltaMicro.TabIndex = 7;
+            this.tbEncomiendaAltaMicro.TabIndex = 3;
             // 
             // btnEncomiendaAltaGuardar
             // 
             this.btnEncomiendaAltaGuardar.Location = new System.Drawing.Point(345, 120);
             this.btnEncomiendaAltaGuardar.Name = "btnEncomiendaAltaGuardar";
             this.btnEncomiendaAltaGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnEncomiendaAltaGuardar.TabIndex = 8;
+            this.btnEncomiendaAltaGuardar.TabIndex = 6;
             this.btnEncomiendaAltaGuardar.Text = "Guardar";
             this.btnEncomiendaAltaGuardar.UseVisualStyleBackColor = true;
             this.btnEncomiendaAltaGuardar.Click += new System.EventHandler(this.btnEncomiendaAltaGuardar_Click);
@@ -123,7 +123,7 @@
             this.btnEncomiendaAltaLimpiar.Location = new System.Drawing.Point(264, 120);
             this.btnEncomiendaAltaLimpiar.Name = "btnEncomiendaAltaLimpiar";
             this.btnEncomiendaAltaLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnEncomiendaAltaLimpiar.TabIndex = 9;
+            this.btnEncomiendaAltaLimpiar.TabIndex = 5;
             this.btnEncomiendaAltaLimpiar.Text = "Limpiar";
             this.btnEncomiendaAltaLimpiar.UseVisualStyleBackColor = true;
             // 
@@ -132,7 +132,7 @@
             this.btnEncomiendaAltaDniCliente.Location = new System.Drawing.Point(339, 4);
             this.btnEncomiendaAltaDniCliente.Name = "btnEncomiendaAltaDniCliente";
             this.btnEncomiendaAltaDniCliente.Size = new System.Drawing.Size(75, 23);
-            this.btnEncomiendaAltaDniCliente.TabIndex = 10;
+            this.btnEncomiendaAltaDniCliente.TabIndex = 1;
             this.btnEncomiendaAltaDniCliente.Text = "Buscar";
             this.btnEncomiendaAltaDniCliente.UseVisualStyleBackColor = true;
             this.btnEncomiendaAltaDniCliente.Click += new System.EventHandler(this.btnEncomiendaAltaDniCliente_Click);

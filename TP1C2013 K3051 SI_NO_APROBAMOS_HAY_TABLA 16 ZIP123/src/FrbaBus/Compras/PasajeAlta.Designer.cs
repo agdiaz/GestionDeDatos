@@ -57,7 +57,7 @@
             this.tbMicro.Location = new System.Drawing.Point(63, 38);
             this.tbMicro.Name = "tbMicro";
             this.tbMicro.Size = new System.Drawing.Size(240, 20);
-            this.tbMicro.TabIndex = 1;
+            this.tbMicro.TabIndex = 0;
             // 
             // label2
             // 
@@ -82,7 +82,7 @@
             this.btnBuscarCliente.Location = new System.Drawing.Point(309, 62);
             this.btnBuscarCliente.Name = "btnBuscarCliente";
             this.btnBuscarCliente.Size = new System.Drawing.Size(114, 23);
-            this.btnBuscarCliente.TabIndex = 4;
+            this.btnBuscarCliente.TabIndex = 2;
             this.btnBuscarCliente.Text = "Seleccionar cliente";
             this.btnBuscarCliente.UseVisualStyleBackColor = true;
             this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
@@ -93,7 +93,7 @@
             this.tbCliente.Location = new System.Drawing.Point(63, 64);
             this.tbCliente.Name = "tbCliente";
             this.tbCliente.Size = new System.Drawing.Size(240, 20);
-            this.tbCliente.TabIndex = 5;
+            this.tbCliente.TabIndex = 1;
             // 
             // tbButaca
             // 
@@ -101,14 +101,14 @@
             this.tbButaca.Location = new System.Drawing.Point(63, 90);
             this.tbButaca.Name = "tbButaca";
             this.tbButaca.Size = new System.Drawing.Size(238, 20);
-            this.tbButaca.TabIndex = 6;
+            this.tbButaca.TabIndex = 3;
             // 
             // btnSeleccionarButaca
             // 
             this.btnSeleccionarButaca.Location = new System.Drawing.Point(309, 87);
             this.btnSeleccionarButaca.Name = "btnSeleccionarButaca";
             this.btnSeleccionarButaca.Size = new System.Drawing.Size(114, 23);
-            this.btnSeleccionarButaca.TabIndex = 7;
+            this.btnSeleccionarButaca.TabIndex = 4;
             this.btnSeleccionarButaca.Text = "Seleccionar butaca";
             this.btnSeleccionarButaca.UseVisualStyleBackColor = true;
             this.btnSeleccionarButaca.Click += new System.EventHandler(this.btnSeleccionarButaca_Click);
@@ -118,7 +118,7 @@
             this.btnLimpiar.Location = new System.Drawing.Point(369, 165);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 8;
+            this.btnLimpiar.TabIndex = 7;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             // 
@@ -127,7 +127,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(288, 165);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 9;
+            this.btnGuardar.TabIndex = 6;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -147,7 +147,7 @@
             this.tbPrecio.Location = new System.Drawing.Point(63, 116);
             this.tbPrecio.Name = "tbPrecio";
             this.tbPrecio.Size = new System.Drawing.Size(100, 20);
-            this.tbPrecio.TabIndex = 11;
+            this.tbPrecio.TabIndex = 5;
             // 
             // PasajeAlta
             // 

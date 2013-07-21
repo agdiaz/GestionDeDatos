@@ -108,7 +108,7 @@
             this.btnPasajeListadoSeleccionarButaca.Location = new System.Drawing.Point(338, 69);
             this.btnPasajeListadoSeleccionarButaca.Name = "btnPasajeListadoSeleccionarButaca";
             this.btnPasajeListadoSeleccionarButaca.Size = new System.Drawing.Size(110, 23);
-            this.btnPasajeListadoSeleccionarButaca.TabIndex = 9;
+            this.btnPasajeListadoSeleccionarButaca.TabIndex = 4;
             this.btnPasajeListadoSeleccionarButaca.Text = "Seleccionar Butaca";
             this.btnPasajeListadoSeleccionarButaca.UseVisualStyleBackColor = true;
             // 
@@ -126,7 +126,7 @@
             this.btnPasajeListadoBuscar.Location = new System.Drawing.Point(369, 122);
             this.btnPasajeListadoBuscar.Name = "btnPasajeListadoBuscar";
             this.btnPasajeListadoBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnPasajeListadoBuscar.TabIndex = 5;
+            this.btnPasajeListadoBuscar.TabIndex = 7;
             this.btnPasajeListadoBuscar.Text = "Buscar";
             this.btnPasajeListadoBuscar.UseVisualStyleBackColor = true;
             this.btnPasajeListadoBuscar.Click += new System.EventHandler(this.btnPasajeListadoBuscar_Click);
@@ -136,7 +136,7 @@
             this.btnPasajeListadoSeleccionarCliente.Location = new System.Drawing.Point(338, 43);
             this.btnPasajeListadoSeleccionarCliente.Name = "btnPasajeListadoSeleccionarCliente";
             this.btnPasajeListadoSeleccionarCliente.Size = new System.Drawing.Size(110, 23);
-            this.btnPasajeListadoSeleccionarCliente.TabIndex = 8;
+            this.btnPasajeListadoSeleccionarCliente.TabIndex = 2;
             this.btnPasajeListadoSeleccionarCliente.Text = "Seleccionar Cliente";
             this.btnPasajeListadoSeleccionarCliente.UseVisualStyleBackColor = true;
             this.btnPasajeListadoSeleccionarCliente.Click += new System.EventHandler(this.btnPasajeListadoSeleccionarCliente_Click);
@@ -146,28 +146,28 @@
             this.tbPasajeListadoPrecio.Location = new System.Drawing.Point(71, 97);
             this.tbPasajeListadoPrecio.Name = "tbPasajeListadoPrecio";
             this.tbPasajeListadoPrecio.Size = new System.Drawing.Size(100, 20);
-            this.tbPasajeListadoPrecio.TabIndex = 7;
+            this.tbPasajeListadoPrecio.TabIndex = 5;
             // 
             // tbPasajeListadoButaca
             // 
             this.tbPasajeListadoButaca.Location = new System.Drawing.Point(71, 71);
             this.tbPasajeListadoButaca.Name = "tbPasajeListadoButaca";
             this.tbPasajeListadoButaca.Size = new System.Drawing.Size(261, 20);
-            this.tbPasajeListadoButaca.TabIndex = 6;
+            this.tbPasajeListadoButaca.TabIndex = 3;
             // 
             // tbPasajeListadoCliente
             // 
             this.tbPasajeListadoCliente.Location = new System.Drawing.Point(71, 45);
             this.tbPasajeListadoCliente.Name = "tbPasajeListadoCliente";
             this.tbPasajeListadoCliente.Size = new System.Drawing.Size(261, 20);
-            this.tbPasajeListadoCliente.TabIndex = 5;
+            this.tbPasajeListadoCliente.TabIndex = 1;
             // 
             // tbPasajeListadoMicro
             // 
             this.tbPasajeListadoMicro.Location = new System.Drawing.Point(71, 19);
             this.tbPasajeListadoMicro.Name = "tbPasajeListadoMicro";
             this.tbPasajeListadoMicro.Size = new System.Drawing.Size(261, 20);
-            this.tbPasajeListadoMicro.TabIndex = 4;
+            this.tbPasajeListadoMicro.TabIndex = 0;
             // 
             // dgvPasajeListado
             // 
@@ -176,7 +176,7 @@
             this.dgvPasajeListado.Location = new System.Drawing.Point(12, 180);
             this.dgvPasajeListado.Name = "dgvPasajeListado";
             this.dgvPasajeListado.Size = new System.Drawing.Size(806, 294);
-            this.dgvPasajeListado.TabIndex = 7;
+            this.dgvPasajeListado.TabIndex = 8;
             // 
             // PasajeListado
             // 

@@ -55,6 +55,7 @@
             // 
             // cbListado
             // 
+            this.cbListado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbListado.FormattingEnabled = true;
             this.cbListado.Items.AddRange(new object[] {
             "Top 5 de los destinos con más pasajes comprados",
@@ -65,8 +66,7 @@
             this.cbListado.Location = new System.Drawing.Point(77, 23);
             this.cbListado.Name = "cbListado";
             this.cbListado.Size = new System.Drawing.Size(318, 21);
-            this.cbListado.TabIndex = 4;
-            this.cbListado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbListado.TabIndex = 0;
             // 
             // label2
             // 
@@ -89,12 +89,12 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(77, 61);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(318, 21);
             this.comboBox1.TabIndex = 1;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             // 
             // label1
             // 
@@ -111,7 +111,7 @@
             this.dgvEstadistica.Location = new System.Drawing.Point(12, 123);
             this.dgvEstadistica.Name = "dgvEstadistica";
             this.dgvEstadistica.Size = new System.Drawing.Size(624, 185);
-            this.dgvEstadistica.TabIndex = 2;
+            this.dgvEstadistica.TabIndex = 3;
             // 
             // Estadisticas
             // 

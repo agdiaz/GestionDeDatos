@@ -69,10 +69,10 @@
             // 
             // btnEncomiendaListadoBuscarCliente
             // 
-            this.btnEncomiendaListadoBuscarCliente.Location = new System.Drawing.Point(326, 15);
+            this.btnEncomiendaListadoBuscarCliente.Location = new System.Drawing.Point(307, 14);
             this.btnEncomiendaListadoBuscarCliente.Name = "btnEncomiendaListadoBuscarCliente";
             this.btnEncomiendaListadoBuscarCliente.Size = new System.Drawing.Size(82, 23);
-            this.btnEncomiendaListadoBuscarCliente.TabIndex = 10;
+            this.btnEncomiendaListadoBuscarCliente.TabIndex = 2;
             this.btnEncomiendaListadoBuscarCliente.Text = "Buscar cliente";
             this.btnEncomiendaListadoBuscarCliente.UseVisualStyleBackColor = true;
             this.btnEncomiendaListadoBuscarCliente.Click += new System.EventHandler(this.btnEncomiendaListadoBuscarCliente_Click);
@@ -82,7 +82,7 @@
             this.tbEncomiendaListadoDniCliente.Location = new System.Drawing.Point(113, 17);
             this.tbEncomiendaListadoDniCliente.Name = "tbEncomiendaListadoDniCliente";
             this.tbEncomiendaListadoDniCliente.Size = new System.Drawing.Size(188, 20);
-            this.tbEncomiendaListadoDniCliente.TabIndex = 9;
+            this.tbEncomiendaListadoDniCliente.TabIndex = 1;
             // 
             // lblEncomiendaListadoDniCliente
             // 
@@ -98,7 +98,7 @@
             this.tbEncomiendaListadoPesoKg.Location = new System.Drawing.Point(113, 118);
             this.tbEncomiendaListadoPesoKg.Name = "tbEncomiendaListadoPesoKg";
             this.tbEncomiendaListadoPesoKg.Size = new System.Drawing.Size(188, 20);
-            this.tbEncomiendaListadoPesoKg.TabIndex = 7;
+            this.tbEncomiendaListadoPesoKg.TabIndex = 6;
             // 
             // lblEncomiendaListadoPesoKg
             // 
@@ -162,7 +162,7 @@
             this.btnEncomiendaListadoLimpiar.Location = new System.Drawing.Point(271, 165);
             this.btnEncomiendaListadoLimpiar.Name = "btnEncomiendaListadoLimpiar";
             this.btnEncomiendaListadoLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnEncomiendaListadoLimpiar.TabIndex = 1;
+            this.btnEncomiendaListadoLimpiar.TabIndex = 7;
             this.btnEncomiendaListadoLimpiar.Text = "Limpiar";
             this.btnEncomiendaListadoLimpiar.UseVisualStyleBackColor = true;
             // 
@@ -171,7 +171,7 @@
             this.btnEncomiendaListadoBuscar.Location = new System.Drawing.Point(352, 165);
             this.btnEncomiendaListadoBuscar.Name = "btnEncomiendaListadoBuscar";
             this.btnEncomiendaListadoBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnEncomiendaListadoBuscar.TabIndex = 2;
+            this.btnEncomiendaListadoBuscar.TabIndex = 8;
             this.btnEncomiendaListadoBuscar.Text = "Buscar";
             this.btnEncomiendaListadoBuscar.UseVisualStyleBackColor = true;
             this.btnEncomiendaListadoBuscar.Click += new System.EventHandler(this.btnEncomiendaListadoBuscar_Click);
@@ -184,7 +184,7 @@
             this.dgvEncomiendaListado.Location = new System.Drawing.Point(12, 194);
             this.dgvEncomiendaListado.Name = "dgvEncomiendaListado";
             this.dgvEncomiendaListado.Size = new System.Drawing.Size(414, 277);
-            this.dgvEncomiendaListado.TabIndex = 3;
+            this.dgvEncomiendaListado.TabIndex = 9;
             // 
             // EncomiendaListado
             // 
