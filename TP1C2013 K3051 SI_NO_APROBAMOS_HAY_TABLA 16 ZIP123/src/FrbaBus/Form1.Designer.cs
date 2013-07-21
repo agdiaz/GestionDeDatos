@@ -162,6 +162,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.tsmViajeProcesarArribos = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsMain.SuspendLayout();
             this.ssStatusMain.SuspendLayout();
             this.gbViaje.SuspendLayout();
@@ -213,7 +214,7 @@
             this.tsmSesionIniciar,
             this.tsmSesionCerrar});
             this.tsmSesion.Name = "tsmSesion";
-            this.tsmSesion.Size = new System.Drawing.Size(152, 22);
+            this.tsmSesion.Size = new System.Drawing.Size(108, 22);
             this.tsmSesion.Text = "&Sesión";
             // 
             // tsmSesionIniciar
@@ -233,12 +234,12 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(105, 6);
             // 
             // tsmArchivoSalir
             // 
             this.tsmArchivoSalir.Name = "tsmArchivoSalir";
-            this.tsmArchivoSalir.Size = new System.Drawing.Size(152, 22);
+            this.tsmArchivoSalir.Size = new System.Drawing.Size(108, 22);
             this.tsmArchivoSalir.Text = "Sali&r";
             this.tsmArchivoSalir.Click += new System.EventHandler(this.tsmArchivoSalir_Click);
             // 
@@ -300,14 +301,14 @@
             // tsmRecorridoListado
             // 
             this.tsmRecorridoListado.Name = "tsmRecorridoListado";
-            this.tsmRecorridoListado.Size = new System.Drawing.Size(112, 22);
+            this.tsmRecorridoListado.Size = new System.Drawing.Size(152, 22);
             this.tsmRecorridoListado.Text = "Listado";
             this.tsmRecorridoListado.Click += new System.EventHandler(this.tsmRecorridoListado_Click);
             // 
             // tsmRecorridoAlta
             // 
             this.tsmRecorridoAlta.Name = "tsmRecorridoAlta";
-            this.tsmRecorridoAlta.Size = new System.Drawing.Size(112, 22);
+            this.tsmRecorridoAlta.Size = new System.Drawing.Size(152, 22);
             this.tsmRecorridoAlta.Text = "Alta";
             this.tsmRecorridoAlta.Click += new System.EventHandler(this.tsmRecorridoAlta_Click);
             // 
@@ -328,21 +329,21 @@
             // tsmMicroListado
             // 
             this.tsmMicroListado.Name = "tsmMicroListado";
-            this.tsmMicroListado.Size = new System.Drawing.Size(115, 22);
+            this.tsmMicroListado.Size = new System.Drawing.Size(152, 22);
             this.tsmMicroListado.Text = "Listado";
             this.tsmMicroListado.Click += new System.EventHandler(this.tsmMicroListado_Click);
             // 
             // tsmMicroAlta
             // 
             this.tsmMicroAlta.Name = "tsmMicroAlta";
-            this.tsmMicroAlta.Size = new System.Drawing.Size(115, 22);
+            this.tsmMicroAlta.Size = new System.Drawing.Size(152, 22);
             this.tsmMicroAlta.Text = "Alta";
             this.tsmMicroAlta.Click += new System.EventHandler(this.tsmMicroAlta_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(112, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
             // 
             // tsmMicroServicio
             // 
@@ -350,7 +351,7 @@
             this.tsmMicroServicioListado,
             this.tsmMicroServicioAlta});
             this.tsmMicroServicio.Name = "tsmMicroServicio";
-            this.tsmMicroServicio.Size = new System.Drawing.Size(115, 22);
+            this.tsmMicroServicio.Size = new System.Drawing.Size(152, 22);
             this.tsmMicroServicio.Text = "Servicio";
             // 
             // tsmMicroServicioListado
@@ -373,7 +374,7 @@
             this.tsmMicroMarcaListado,
             this.tsmMicroMarcaAlta});
             this.tsmMicroMarca.Name = "tsmMicroMarca";
-            this.tsmMicroMarca.Size = new System.Drawing.Size(115, 22);
+            this.tsmMicroMarca.Size = new System.Drawing.Size(152, 22);
             this.tsmMicroMarca.Text = "Marca";
             // 
             // tsmMicroMarcaListado
@@ -395,7 +396,7 @@
             this.tsmMicroButaca.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmMicroButacaAlta});
             this.tsmMicroButaca.Name = "tsmMicroButaca";
-            this.tsmMicroButaca.Size = new System.Drawing.Size(115, 22);
+            this.tsmMicroButaca.Size = new System.Drawing.Size(152, 22);
             this.tsmMicroButaca.Text = "Butaca";
             // 
             // tsmMicroButacaAlta
@@ -411,6 +412,7 @@
             this.tsmViajeListado,
             this.tsmViajeAlta,
             this.toolStripSeparator3,
+            this.tsmViajeProcesarArribos,
             this.cargarArribaToolStripMenuItem});
             this.tsmViaje.Name = "tsmViaje";
             this.tsmViaje.Size = new System.Drawing.Size(44, 20);
@@ -419,26 +421,26 @@
             // tsmViajeListado
             // 
             this.tsmViajeListado.Name = "tsmViajeListado";
-            this.tsmViajeListado.Size = new System.Drawing.Size(152, 22);
+            this.tsmViajeListado.Size = new System.Drawing.Size(158, 22);
             this.tsmViajeListado.Text = "Listado";
             this.tsmViajeListado.Click += new System.EventHandler(this.tsmViajeListado_Click);
             // 
             // tsmViajeAlta
             // 
             this.tsmViajeAlta.Name = "tsmViajeAlta";
-            this.tsmViajeAlta.Size = new System.Drawing.Size(152, 22);
+            this.tsmViajeAlta.Size = new System.Drawing.Size(158, 22);
             this.tsmViajeAlta.Text = "Alta";
             this.tsmViajeAlta.Click += new System.EventHandler(this.tsmViajeAlta_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(155, 6);
             // 
             // cargarArribaToolStripMenuItem
             // 
             this.cargarArribaToolStripMenuItem.Name = "cargarArribaToolStripMenuItem";
-            this.cargarArribaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cargarArribaToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.cargarArribaToolStripMenuItem.Text = "Cargar arribo";
             this.cargarArribaToolStripMenuItem.Click += new System.EventHandler(this.cargarArribaToolStripMenuItem_Click);
             // 
@@ -1390,6 +1392,13 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // tsmViajeProcesarArribos
+            // 
+            this.tsmViajeProcesarArribos.Name = "tsmViajeProcesarArribos";
+            this.tsmViajeProcesarArribos.Size = new System.Drawing.Size(158, 22);
+            this.tsmViajeProcesarArribos.Text = "Procesar arribos";
+            this.tsmViajeProcesarArribos.Click += new System.EventHandler(this.arribosToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1570,6 +1579,7 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button btnConfirmarCliente;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.ToolStripMenuItem tsmViajeProcesarArribos;
     }
 }
 

@@ -17,6 +17,7 @@ using FrbaBus.Manager;
 using FrbaBus.Abm_Recompensa;
 using FrbaBus.Common.Helpers;
 using FrbaBus.Compras;
+using FrbaBus.Common.Excepciones;
 
 namespace FrbaBus
 {
@@ -449,7 +450,8 @@ namespace FrbaBus
             tsmViajeAlta.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmViajeAlta");
             tsmViajeListado.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmViajeListado");
             cargarArribaToolStripMenuItem.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("cargarArribaToolStripMenuItem");
-            tsmViaje.Enabled = tsmViajeAlta.Enabled || tsmViajeListado.Enabled;
+            tsmViajeProcesarArribos.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmViajeProcesarArribos");
+            tsmViaje.Enabled = tsmViajeAlta.Enabled || tsmViajeListado.Enabled || tsmViajeProcesarArribos.Enabled;
 
             //Menú Cliente:
             tsmClienteListado.Enabled = Program.ContextoActual.UsuarioActual.RolAsignado.PermiteFuncionalidad("tsmClienteListado");
@@ -908,6 +910,32 @@ namespace FrbaBus
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             IniciarFormulario();
+        }
+
+        private void arribosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult confirma = MensajePorPantalla.MensajeInformativo(this, "¿Desea procesar todos los arribos?", MessageBoxButtons.YesNo);
+
+            if (confirma == DialogResult.Yes)
+            {
+
+                try
+                {
+                    ViajeManager _viajeManager = new ViajeManager();
+                    _viajeManager.ProcesarArribos();
+                    MensajePorPantalla.MensajeInformativo(this, "Arribos procesados correctamente");
+                }
+                catch (AccesoBDException ex)
+                {
+                    MensajePorPantalla.MensajeExceptionBD(this, ex);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MensajePorPantalla.MensajeError(this, "Error al intentar procesar los registros.\n Detalle del error: " + ex.Message);
+                    this.Close();
+                }
+            }
         }
     }
 }

@@ -168,5 +168,10 @@ namespace FrbaBus.DAO
 
             accesoBD.EjecutarComando("[SI_NO_APROBAMOS_HAY_TABLA].sp_registro_llegada", parametros);
         }
+
+        public void ProcesarArribos()
+        {
+            accesoBD.EjecutarComando("[SI_NO_APROBAMOS_HAY_TABLA].sp_procesar_arribos");
+        }
     }
 }
