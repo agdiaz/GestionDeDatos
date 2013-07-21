@@ -17,7 +17,9 @@ namespace FrbaBus.Common.Entidades
         public string Informacion { get { return this.ToString(); } }
         public override string ToString()
         {
-            return IdEncomienda.ToString();
+            StringBuilder sb = new StringBuilder();
+            sb.AppendFormat("Peso: {0} - Cliente: {1}", Peso, NroDni);
+            return sb.ToString();
         }
 
         public Encomienda()

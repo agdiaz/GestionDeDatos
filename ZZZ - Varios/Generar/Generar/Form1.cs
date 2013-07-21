@@ -20,7 +20,7 @@ namespace Generar
         private void button1_Click(object sender, EventArgs e)
         {
             string[] txtFiles;
-            txtFiles = Directory.GetFiles(textBox1.Text, "*.sql");
+            txtFiles = Directory.GetFiles(textBox1.Text, "*.sql").OrderBy(t=> t.ToString()).ToArray();
             using (StreamWriter writer = new StreamWriter(textBox1.Text + @"\ZZ_PROCEDURES.sql", false))
             {
                 for (int i = 0; i < txtFiles.Length; i++)

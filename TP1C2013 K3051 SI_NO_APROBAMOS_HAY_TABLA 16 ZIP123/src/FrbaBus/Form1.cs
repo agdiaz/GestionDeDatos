@@ -325,6 +325,7 @@ namespace FrbaBus
                     MessageBoxIcon.Hand)
                 == DialogResult.OK)
             {
+                _cliente = null;
                 Program.ContextoActual.Limpiar().RegistrarUsuario(_managerUsuario.ObtenerUsuarioGenerico(), true);
                 this.RegistrarPermisos();
             }
