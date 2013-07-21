@@ -21,6 +21,11 @@ namespace FrbaBus.Manager
             return _dao.Listar();
         }
 
+        public IList<Compra> ListarFiltrado(decimal nroDni, int idCompra, DateTime fecha)
+        {
+            return _dao.ListarFiltrado(nroDni, idCompra, fecha);
+        }
+
         public Compra Alta(Compra compra)
         {
             int id = this._dao.Alta(compra);
