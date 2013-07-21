@@ -70,6 +70,7 @@ namespace FrbaBus
         private void IniciarFormulario()
         {
             InicializarDatosCompra();
+            btnComprar.Enabled = true;
             LimpiarGrupoRecorrido(false);
             LimpiarGrupoViaje(false);
             LimpiarGrupoMicros(false);
@@ -95,10 +96,16 @@ namespace FrbaBus
         private void LimpiarGrupoViaje(bool habilitado)
         {
             gbViaje.Enabled = habilitado;
+            dtpViajeFechaArribo.Value = Helpers.FechaHelper.Ahora();
+            dtpViajeFechaSalida.Value = Helpers.FechaHelper.Ahora(); 
         }
 
         private void LimpiarGrupoRecorrido(bool habilitar)
         {
+            tbRecorridoCiudadDestino.Text = "";
+            tbRecorridoCiudadOrigen.Text = "";
+            tbRecorridoServicio.Text = "";
+
             this.gbRecorrido.Enabled = habilitar;
         }
 
@@ -110,10 +117,18 @@ namespace FrbaBus
         private void LimpiarGrupoDetalles(bool habilitar)
         {
             gbDetalles.Enabled = habilitar;
+            lbEncomiendas.DataSource = null;
+            lbPasajeros.DataSource = null;
+
         }
 
         private void LimpiarGrupoMicros(bool habilitar)
         {
+            tbMicroButacasLibres.Text = "";
+            tbMicroKgDisponibles.Text = "";
+            tbMicroMarca.Text = "";
+            tbMicroPatente.Text = "";
+            tbMicroServicio.Text = "";
             gbMicro.Enabled = habilitar;
         }
 
@@ -631,6 +646,8 @@ namespace FrbaBus
 
         private void MostrarOpcionesCliente()
         {
+            btnComprar.Enabled = false;
+
             txtUsuarioApellido.Text = _cliente.Apellido;
             txtUsuarioNombre.Text = _cliente.Nombre;
             txtUsuarioDNI.Text = _cliente.NroDni.ToString();
