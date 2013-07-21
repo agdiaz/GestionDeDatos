@@ -115,6 +115,8 @@
             // 
             this.dgvRecompensaCanjearPuntosPremiosDisponibles.AllowUserToAddRows = false;
             this.dgvRecompensaCanjearPuntosPremiosDisponibles.AllowUserToDeleteRows = false;
+            this.dgvRecompensaCanjearPuntosPremiosDisponibles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvRecompensaCanjearPuntosPremiosDisponibles.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvRecompensaCanjearPuntosPremiosDisponibles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRecompensaCanjearPuntosPremiosDisponibles.Location = new System.Drawing.Point(12, 19);
             this.dgvRecompensaCanjearPuntosPremiosDisponibles.Name = "dgvRecompensaCanjearPuntosPremiosDisponibles";
@@ -172,6 +174,8 @@
             // 
             this.dgvRecompensaCanjearPuntosRegistroPuntos.AllowUserToAddRows = false;
             this.dgvRecompensaCanjearPuntosRegistroPuntos.AllowUserToDeleteRows = false;
+            this.dgvRecompensaCanjearPuntosRegistroPuntos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvRecompensaCanjearPuntosRegistroPuntos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvRecompensaCanjearPuntosRegistroPuntos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRecompensaCanjearPuntosRegistroPuntos.Location = new System.Drawing.Point(6, 19);
             this.dgvRecompensaCanjearPuntosRegistroPuntos.Name = "dgvRecompensaCanjearPuntosRegistroPuntos";

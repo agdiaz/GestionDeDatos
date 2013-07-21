@@ -32,6 +32,8 @@ namespace FrbaBus.Rol
                 //Cargo la grilla de roles
                 this.dgvRolListado.DataSource = _manager.Listar();
                 this.dgvRolListado.Columns["IdRol"].Visible = false;
+                this.dgvRolListado.Columns["Activado"].Visible = false;
+                this.dgvRolListado.Columns["Funcionalidades"].Visible = false;
 
                 //Cargo las funcionalidades
                 CargarFuncionalidades();
@@ -53,6 +55,7 @@ namespace FrbaBus.Rol
             this.cbbRolListadoFuncionalidades.DataSource = funcionalidades;
             this.cbbRolListadoFuncionalidades.DisplayMember = "Nombre";
             this.cbbRolListadoFuncionalidades.ValueMember = "Id";
+
         }
 
         private void btnFiltrar_Click(object sender, EventArgs e)
