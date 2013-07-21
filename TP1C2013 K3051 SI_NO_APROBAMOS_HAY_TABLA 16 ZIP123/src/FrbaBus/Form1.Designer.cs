@@ -723,7 +723,7 @@
             this.gbViaje.Location = new System.Drawing.Point(13, 394);
             this.gbViaje.Name = "gbViaje";
             this.gbViaje.Size = new System.Drawing.Size(502, 232);
-            this.gbViaje.TabIndex = 2;
+            this.gbViaje.TabIndex = 16;
             this.gbViaje.TabStop = false;
             this.gbViaje.Text = "3) Viaje";
             // 
@@ -734,7 +734,7 @@
             this.dtpViajeFechaArribo.Location = new System.Drawing.Point(97, 54);
             this.dtpViajeFechaArribo.Name = "dtpViajeFechaArribo";
             this.dtpViajeFechaArribo.Size = new System.Drawing.Size(200, 21);
-            this.dtpViajeFechaArribo.TabIndex = 8;
+            this.dtpViajeFechaArribo.TabIndex = 18;
             // 
             // label11
             // 
@@ -752,7 +752,7 @@
             this.btnCargarDetalles.Location = new System.Drawing.Point(6, 194);
             this.btnCargarDetalles.Name = "btnCargarDetalles";
             this.btnCargarDetalles.Size = new System.Drawing.Size(75, 22);
-            this.btnCargarDetalles.TabIndex = 9;
+            this.btnCargarDetalles.TabIndex = 25;
             this.btnCargarDetalles.Text = "Continuar";
             this.btnCargarDetalles.UseVisualStyleBackColor = true;
             this.btnCargarDetalles.Click += new System.EventHandler(this.btnCargarDetalles_Click);
@@ -784,7 +784,7 @@
             this.gbMicro.Location = new System.Drawing.Point(6, 81);
             this.gbMicro.Name = "gbMicro";
             this.gbMicro.Size = new System.Drawing.Size(477, 107);
-            this.gbMicro.TabIndex = 4;
+            this.gbMicro.TabIndex = 19;
             this.gbMicro.TabStop = false;
             this.gbMicro.Text = "Micro";
             // 
@@ -793,7 +793,7 @@
             this.tbMicroPatente.Location = new System.Drawing.Point(307, 23);
             this.tbMicroPatente.Name = "tbMicroPatente";
             this.tbMicroPatente.Size = new System.Drawing.Size(100, 21);
-            this.tbMicroPatente.TabIndex = 12;
+            this.tbMicroPatente.TabIndex = 21;
             // 
             // label12
             // 
@@ -810,7 +810,7 @@
             this.tbMicroMarca.Location = new System.Drawing.Point(105, 23);
             this.tbMicroMarca.Name = "tbMicroMarca";
             this.tbMicroMarca.Size = new System.Drawing.Size(100, 21);
-            this.tbMicroMarca.TabIndex = 10;
+            this.tbMicroMarca.TabIndex = 20;
             // 
             // tbMicroServicio
             // 
@@ -818,7 +818,7 @@
             this.tbMicroServicio.Location = new System.Drawing.Point(104, 50);
             this.tbMicroServicio.Name = "tbMicroServicio";
             this.tbMicroServicio.Size = new System.Drawing.Size(100, 21);
-            this.tbMicroServicio.TabIndex = 8;
+            this.tbMicroServicio.TabIndex = 22;
             // 
             // tbMicroKgDisponibles
             // 
@@ -826,7 +826,7 @@
             this.tbMicroKgDisponibles.Location = new System.Drawing.Point(104, 77);
             this.tbMicroKgDisponibles.Name = "tbMicroKgDisponibles";
             this.tbMicroKgDisponibles.Size = new System.Drawing.Size(100, 21);
-            this.tbMicroKgDisponibles.TabIndex = 7;
+            this.tbMicroKgDisponibles.TabIndex = 24;
             // 
             // tbMicroButacasLibres
             // 
@@ -834,7 +834,7 @@
             this.tbMicroButacasLibres.Location = new System.Drawing.Point(307, 50);
             this.tbMicroButacasLibres.Name = "tbMicroButacasLibres";
             this.tbMicroButacasLibres.Size = new System.Drawing.Size(101, 21);
-            this.tbMicroButacasLibres.TabIndex = 6;
+            this.tbMicroButacasLibres.TabIndex = 23;
             // 
             // label8
             // 
@@ -883,7 +883,7 @@
             this.dtpViajeFechaSalida.Location = new System.Drawing.Point(97, 27);
             this.dtpViajeFechaSalida.Name = "dtpViajeFechaSalida";
             this.dtpViajeFechaSalida.Size = new System.Drawing.Size(200, 21);
-            this.dtpViajeFechaSalida.TabIndex = 0;
+            this.dtpViajeFechaSalida.TabIndex = 17;
             this.dtpViajeFechaSalida.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label4
@@ -936,7 +936,7 @@
             this.gbDetalles.Location = new System.Drawing.Point(520, 60);
             this.gbDetalles.Name = "gbDetalles";
             this.gbDetalles.Size = new System.Drawing.Size(498, 566);
-            this.gbDetalles.TabIndex = 7;
+            this.gbDetalles.TabIndex = 26;
             this.gbDetalles.TabStop = false;
             this.gbDetalles.Text = "3) Detalles de la compra";
             this.gbDetalles.Enter += new System.EventHandler(this.gbDetalles_Enter);
@@ -946,7 +946,7 @@
             this.btnHabilitarConfirmarCompra.Location = new System.Drawing.Point(10, 498);
             this.btnHabilitarConfirmarCompra.Name = "btnHabilitarConfirmarCompra";
             this.btnHabilitarConfirmarCompra.Size = new System.Drawing.Size(75, 23);
-            this.btnHabilitarConfirmarCompra.TabIndex = 4;
+            this.btnHabilitarConfirmarCompra.TabIndex = 38;
             this.btnHabilitarConfirmarCompra.Text = "Continuar";
             this.btnHabilitarConfirmarCompra.UseVisualStyleBackColor = true;
             this.btnHabilitarConfirmarCompra.Click += new System.EventHandler(this.btnHabilitarConfirmarCompra_Click);
@@ -960,7 +960,7 @@
             this.gbEncomiendas.Location = new System.Drawing.Point(7, 290);
             this.gbEncomiendas.Name = "gbEncomiendas";
             this.gbEncomiendas.Size = new System.Drawing.Size(485, 202);
-            this.gbEncomiendas.TabIndex = 15;
+            this.gbEncomiendas.TabIndex = 33;
             this.gbEncomiendas.TabStop = false;
             this.gbEncomiendas.Text = "Encomiendas";
             // 
@@ -970,7 +970,7 @@
             this.btnQuitarEnco.Location = new System.Drawing.Point(405, 86);
             this.btnQuitarEnco.Name = "btnQuitarEnco";
             this.btnQuitarEnco.Size = new System.Drawing.Size(74, 21);
-            this.btnQuitarEnco.TabIndex = 3;
+            this.btnQuitarEnco.TabIndex = 37;
             this.btnQuitarEnco.Text = "Quitar";
             this.btnQuitarEnco.UseVisualStyleBackColor = true;
             this.btnQuitarEnco.Click += new System.EventHandler(this.btnQuitarEnco_Click);
@@ -981,7 +981,7 @@
             this.btnModificarEnco.Location = new System.Drawing.Point(405, 59);
             this.btnModificarEnco.Name = "btnModificarEnco";
             this.btnModificarEnco.Size = new System.Drawing.Size(74, 21);
-            this.btnModificarEnco.TabIndex = 2;
+            this.btnModificarEnco.TabIndex = 36;
             this.btnModificarEnco.Text = "Modificar";
             this.btnModificarEnco.UseVisualStyleBackColor = true;
             this.btnModificarEnco.Click += new System.EventHandler(this.btnModificarEnco_Click);
@@ -992,7 +992,7 @@
             this.btnAgregarEnco.Location = new System.Drawing.Point(405, 32);
             this.btnAgregarEnco.Name = "btnAgregarEnco";
             this.btnAgregarEnco.Size = new System.Drawing.Size(74, 21);
-            this.btnAgregarEnco.TabIndex = 1;
+            this.btnAgregarEnco.TabIndex = 35;
             this.btnAgregarEnco.Text = "Agregar";
             this.btnAgregarEnco.UseVisualStyleBackColor = true;
             this.btnAgregarEnco.Click += new System.EventHandler(this.btnAgregarEnco_Click);
@@ -1004,7 +1004,7 @@
             this.lbEncomiendas.Location = new System.Drawing.Point(8, 20);
             this.lbEncomiendas.Name = "lbEncomiendas";
             this.lbEncomiendas.Size = new System.Drawing.Size(391, 173);
-            this.lbEncomiendas.TabIndex = 0;
+            this.lbEncomiendas.TabIndex = 34;
             this.lbEncomiendas.SelectedIndexChanged += new System.EventHandler(this.lbEncomiendas_SelectedIndexChanged);
             // 
             // gbPasajeros
@@ -1018,7 +1018,7 @@
             this.gbPasajeros.Location = new System.Drawing.Point(6, 33);
             this.gbPasajeros.Name = "gbPasajeros";
             this.gbPasajeros.Size = new System.Drawing.Size(486, 250);
-            this.gbPasajeros.TabIndex = 14;
+            this.gbPasajeros.TabIndex = 27;
             this.gbPasajeros.TabStop = false;
             this.gbPasajeros.Text = "Pasajeros";
             this.gbPasajeros.Enter += new System.EventHandler(this.gbPasajeros_Enter);
@@ -1029,7 +1029,7 @@
             this.btnQuitarPasajero.Location = new System.Drawing.Point(407, 110);
             this.btnQuitarPasajero.Name = "btnQuitarPasajero";
             this.btnQuitarPasajero.Size = new System.Drawing.Size(74, 21);
-            this.btnQuitarPasajero.TabIndex = 15;
+            this.btnQuitarPasajero.TabIndex = 32;
             this.btnQuitarPasajero.Text = "Quitar";
             this.btnQuitarPasajero.UseVisualStyleBackColor = true;
             this.btnQuitarPasajero.Click += new System.EventHandler(this.btnQuitarPasajero_Click);
@@ -1041,7 +1041,7 @@
             this.txtCantPasajes.Name = "txtCantPasajes";
             this.txtCantPasajes.ReadOnly = true;
             this.txtCantPasajes.Size = new System.Drawing.Size(100, 21);
-            this.txtCantPasajes.TabIndex = 11;
+            this.txtCantPasajes.TabIndex = 28;
             this.txtCantPasajes.Leave += new System.EventHandler(this.txtCantPasajes_Leave);
             // 
             // btnModificarPasajero
@@ -1050,7 +1050,7 @@
             this.btnModificarPasajero.Location = new System.Drawing.Point(407, 83);
             this.btnModificarPasajero.Name = "btnModificarPasajero";
             this.btnModificarPasajero.Size = new System.Drawing.Size(74, 21);
-            this.btnModificarPasajero.TabIndex = 14;
+            this.btnModificarPasajero.TabIndex = 31;
             this.btnModificarPasajero.Text = "Modificar";
             this.btnModificarPasajero.UseVisualStyleBackColor = true;
             this.btnModificarPasajero.Click += new System.EventHandler(this.btnModificarPasajero_Click);
@@ -1062,7 +1062,7 @@
             this.lbPasajeros.Location = new System.Drawing.Point(6, 56);
             this.lbPasajeros.Name = "lbPasajeros";
             this.lbPasajeros.Size = new System.Drawing.Size(395, 186);
-            this.lbPasajeros.TabIndex = 12;
+            this.lbPasajeros.TabIndex = 29;
             // 
             // btnAgregarPasajero
             // 
@@ -1070,7 +1070,7 @@
             this.btnAgregarPasajero.Location = new System.Drawing.Point(406, 56);
             this.btnAgregarPasajero.Name = "btnAgregarPasajero";
             this.btnAgregarPasajero.Size = new System.Drawing.Size(74, 21);
-            this.btnAgregarPasajero.TabIndex = 13;
+            this.btnAgregarPasajero.TabIndex = 30;
             this.btnAgregarPasajero.Text = "Agregar";
             this.btnAgregarPasajero.UseVisualStyleBackColor = true;
             this.btnAgregarPasajero.Click += new System.EventHandler(this.btnAgregarPasajero_Click);
@@ -1084,8 +1084,8 @@
             this.gbMedioDePago.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbMedioDePago.Location = new System.Drawing.Point(1024, 63);
             this.gbMedioDePago.Name = "gbMedioDePago";
-            this.gbMedioDePago.Size = new System.Drawing.Size(226, 309);
-            this.gbMedioDePago.TabIndex = 8;
+            this.gbMedioDePago.Size = new System.Drawing.Size(226, 134);
+            this.gbMedioDePago.TabIndex = 39;
             this.gbMedioDePago.TabStop = false;
             this.gbMedioDePago.Text = "4) Medio de pago";
             // 
@@ -1105,7 +1105,7 @@
             // 
             this.rbEfectivo.AutoSize = true;
             this.rbEfectivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbEfectivo.Location = new System.Drawing.Point(17, 123);
+            this.rbEfectivo.Location = new System.Drawing.Point(17, 56);
             this.rbEfectivo.Name = "rbEfectivo";
             this.rbEfectivo.Size = new System.Drawing.Size(64, 17);
             this.rbEfectivo.TabIndex = 1;
@@ -1115,10 +1115,10 @@
             // 
             // btnFinalizarCompra
             // 
-            this.btnFinalizarCompra.Location = new System.Drawing.Point(17, 254);
+            this.btnFinalizarCompra.Location = new System.Drawing.Point(6, 86);
             this.btnFinalizarCompra.Name = "btnFinalizarCompra";
             this.btnFinalizarCompra.Size = new System.Drawing.Size(75, 23);
-            this.btnFinalizarCompra.TabIndex = 0;
+            this.btnFinalizarCompra.TabIndex = 40;
             this.btnFinalizarCompra.Text = "Finalizar compra";
             this.btnFinalizarCompra.UseVisualStyleBackColor = true;
             this.btnFinalizarCompra.Click += new System.EventHandler(this.btnFinalizarCompra_Click);
@@ -1136,7 +1136,7 @@
             this.gbRecorrido.Location = new System.Drawing.Point(13, 265);
             this.gbRecorrido.Name = "gbRecorrido";
             this.gbRecorrido.Size = new System.Drawing.Size(502, 123);
-            this.gbRecorrido.TabIndex = 9;
+            this.gbRecorrido.TabIndex = 12;
             this.gbRecorrido.TabStop = false;
             this.gbRecorrido.Text = "2) Recorrido";
             // 
@@ -1146,7 +1146,7 @@
             this.btnCargarViaje.Location = new System.Drawing.Point(13, 95);
             this.btnCargarViaje.Name = "btnCargarViaje";
             this.btnCargarViaje.Size = new System.Drawing.Size(75, 23);
-            this.btnCargarViaje.TabIndex = 10;
+            this.btnCargarViaje.TabIndex = 16;
             this.btnCargarViaje.Text = "Continuar";
             this.btnCargarViaje.UseVisualStyleBackColor = true;
             this.btnCargarViaje.Click += new System.EventHandler(this.btnBuscarViaje_Click);
@@ -1157,7 +1157,7 @@
             this.tbRecorridoServicio.Name = "tbRecorridoServicio";
             this.tbRecorridoServicio.ReadOnly = true;
             this.tbRecorridoServicio.Size = new System.Drawing.Size(200, 20);
-            this.tbRecorridoServicio.TabIndex = 9;
+            this.tbRecorridoServicio.TabIndex = 15;
             // 
             // label10
             // 
@@ -1175,7 +1175,7 @@
             this.tbRecorridoCiudadDestino.Name = "tbRecorridoCiudadDestino";
             this.tbRecorridoCiudadDestino.ReadOnly = true;
             this.tbRecorridoCiudadDestino.Size = new System.Drawing.Size(201, 20);
-            this.tbRecorridoCiudadDestino.TabIndex = 7;
+            this.tbRecorridoCiudadDestino.TabIndex = 14;
             // 
             // tbRecorridoCiudadOrigen
             // 
@@ -1183,7 +1183,7 @@
             this.tbRecorridoCiudadOrigen.Name = "tbRecorridoCiudadOrigen";
             this.tbRecorridoCiudadOrigen.ReadOnly = true;
             this.tbRecorridoCiudadOrigen.Size = new System.Drawing.Size(200, 20);
-            this.tbRecorridoCiudadOrigen.TabIndex = 6;
+            this.tbRecorridoCiudadOrigen.TabIndex = 13;
             // 
             // btnComprar
             // 
@@ -1191,7 +1191,7 @@
             this.btnComprar.Location = new System.Drawing.Point(1024, 27);
             this.btnComprar.Name = "btnComprar";
             this.btnComprar.Size = new System.Drawing.Size(126, 33);
-            this.btnComprar.TabIndex = 10;
+            this.btnComprar.TabIndex = 41;
             this.btnComprar.Text = "Iniciar la compra";
             this.btnComprar.UseVisualStyleBackColor = true;
             this.btnComprar.Click += new System.EventHandler(this.btnComprar_Click);
@@ -1219,7 +1219,7 @@
             this.gbUsuario.Location = new System.Drawing.Point(13, 60);
             this.gbUsuario.Name = "gbUsuario";
             this.gbUsuario.Size = new System.Drawing.Size(501, 199);
-            this.gbUsuario.TabIndex = 13;
+            this.gbUsuario.TabIndex = 0;
             this.gbUsuario.TabStop = false;
             this.gbUsuario.Text = "1) Usuario";
             // 
@@ -1228,7 +1228,7 @@
             this.btnConfirmarCliente.Location = new System.Drawing.Point(13, 170);
             this.btnConfirmarCliente.Name = "btnConfirmarCliente";
             this.btnConfirmarCliente.Size = new System.Drawing.Size(75, 23);
-            this.btnConfirmarCliente.TabIndex = 17;
+            this.btnConfirmarCliente.TabIndex = 11;
             this.btnConfirmarCliente.Text = "Continuar";
             this.btnConfirmarCliente.UseVisualStyleBackColor = true;
             this.btnConfirmarCliente.Click += new System.EventHandler(this.btnConfirmarCliente_Click);
@@ -1239,7 +1239,7 @@
             this.btnModificarUsuario.Location = new System.Drawing.Point(420, 133);
             this.btnModificarUsuario.Name = "btnModificarUsuario";
             this.btnModificarUsuario.Size = new System.Drawing.Size(75, 23);
-            this.btnModificarUsuario.TabIndex = 16;
+            this.btnModificarUsuario.TabIndex = 10;
             this.btnModificarUsuario.Text = "Modificar";
             this.btnModificarUsuario.UseVisualStyleBackColor = true;
             this.btnModificarUsuario.Click += new System.EventHandler(this.btnModificarUsuario_Click);
@@ -1250,7 +1250,7 @@
             this.txtUsuarioSexo.Location = new System.Drawing.Point(165, 131);
             this.txtUsuarioSexo.Name = "txtUsuarioSexo";
             this.txtUsuarioSexo.Size = new System.Drawing.Size(100, 20);
-            this.txtUsuarioSexo.TabIndex = 15;
+            this.txtUsuarioSexo.TabIndex = 9;
             // 
             // label20
             // 
@@ -1268,7 +1268,7 @@
             this.cbUsuarioDiscapacitado.Location = new System.Drawing.Point(11, 133);
             this.cbUsuarioDiscapacitado.Name = "cbUsuarioDiscapacitado";
             this.cbUsuarioDiscapacitado.Size = new System.Drawing.Size(107, 17);
-            this.cbUsuarioDiscapacitado.TabIndex = 13;
+            this.cbUsuarioDiscapacitado.TabIndex = 8;
             this.cbUsuarioDiscapacitado.Text = "Es discapacitado";
             this.cbUsuarioDiscapacitado.UseVisualStyleBackColor = true;
             // 
@@ -1278,7 +1278,7 @@
             this.txtUsuarioMail.Location = new System.Drawing.Point(66, 107);
             this.txtUsuarioMail.Name = "txtUsuarioMail";
             this.txtUsuarioMail.Size = new System.Drawing.Size(429, 20);
-            this.txtUsuarioMail.TabIndex = 12;
+            this.txtUsuarioMail.TabIndex = 7;
             // 
             // label19
             // 
@@ -1304,7 +1304,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(295, 28);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 9;
+            this.dateTimePicker1.TabIndex = 2;
             // 
             // txtUsuarioTelefono
             // 
@@ -1312,7 +1312,7 @@
             this.txtUsuarioTelefono.Location = new System.Drawing.Point(339, 80);
             this.txtUsuarioTelefono.Name = "txtUsuarioTelefono";
             this.txtUsuarioTelefono.Size = new System.Drawing.Size(156, 20);
-            this.txtUsuarioTelefono.TabIndex = 8;
+            this.txtUsuarioTelefono.TabIndex = 6;
             // 
             // label17
             // 
@@ -1329,7 +1329,7 @@
             this.txtUsuarioDireccion.Location = new System.Drawing.Point(66, 80);
             this.txtUsuarioDireccion.Name = "txtUsuarioDireccion";
             this.txtUsuarioDireccion.Size = new System.Drawing.Size(207, 20);
-            this.txtUsuarioDireccion.TabIndex = 6;
+            this.txtUsuarioDireccion.TabIndex = 5;
             // 
             // label16
             // 
@@ -1362,7 +1362,7 @@
             this.txtUsuarioDNI.Location = new System.Drawing.Point(66, 28);
             this.txtUsuarioDNI.Name = "txtUsuarioDNI";
             this.txtUsuarioDNI.Size = new System.Drawing.Size(123, 20);
-            this.txtUsuarioDNI.TabIndex = 2;
+            this.txtUsuarioDNI.TabIndex = 1;
             // 
             // label15
             // 
@@ -1387,7 +1387,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(1156, 27);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(94, 32);
-            this.btnCancelar.TabIndex = 14;
+            this.btnCancelar.TabIndex = 42;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
