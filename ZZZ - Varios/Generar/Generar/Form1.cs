@@ -27,12 +27,12 @@ namespace Generar
                 {
                     using (StreamReader reader = File.OpenText(txtFiles[i]))
                     {
-                        writer.WriteLine("");
+                        
+                        writer.WriteLine("PRINT 'Inicio de sp: " + txtFiles[i] + "'");
                         writer.WriteLine("GO ");
-                        writer.WriteLine("");
                         writer.WriteLine(reader.ReadToEnd());
                         writer.WriteLine("");
-                        writer.WriteLine("GO ");
+                        writer.WriteLine("PRINT 'Fin de sp: " + txtFiles[i]+ "'");
                         writer.WriteLine("");
                     }
                 }
