@@ -20,8 +20,8 @@ namespace Generar
         private void button1_Click(object sender, EventArgs e)
         {
             string[] txtFiles;
-            txtFiles = Directory.GetFiles(textBox1.Text, "*.txt");
-            using (StreamWriter writer = new StreamWriter(textBox1.Text + @"\allfiles.txt"))
+            txtFiles = Directory.GetFiles(textBox1.Text, "*.sql");
+            using (StreamWriter writer = new StreamWriter(textBox1.Text + @"\demo_puto.sql"))
             {
                 for (int i = 0; i < txtFiles.Length; i++)
                 {
@@ -33,6 +33,7 @@ namespace Generar
                     }
                 }
             }
+            MessageBox.Show("LISTO GATIENZO");
         }
     }
 }
