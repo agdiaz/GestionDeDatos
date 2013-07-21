@@ -362,11 +362,17 @@ namespace FrbaBus
         
         private void btnAgregarPasajero_Click(object sender, EventArgs e)
         {
-            Pasaje p = ObtenerPasaje();
-            _pasajes.Add(p);
+            if (_pasajes.Count < _viaje.Micro.ButacasDisponibles)
+            {
+                Pasaje p = ObtenerPasaje();
+                _pasajes.Add(p);
 
-            this.lbPasajeros.Refresh();
-
+                MostrarPasajes();
+            }
+            else
+            {
+                MensajePorPantalla.MensajeError(this, "Ya no quedan butacas disponibles");
+            }
         }
 
         private Pasaje ObtenerPasaje()
@@ -490,11 +496,23 @@ namespace FrbaBus
             _viaje = new Viaje();
             _recorrido = new Recorrido();
 
-            lbPasajeros.DataSource = _pasajes;
+            MostrarPasajes();
+
+            MostrarEncomiendas();
+        }
+
+        private void MostrarEncomiendas()
+        {
+            lbEncomiendas.DataSource = null;
+            lbEncomiendas.DataSource = _encomiendas;
             lbPasajeros.DisplayMember = "Informacion";
             lbPasajeros.ValueMember = "Id";
+        }
 
-            lbEncomiendas.DataSource = _encomiendas;
+        private void MostrarPasajes()
+        {
+            lbPasajeros.DataSource = null;
+            lbPasajeros.DataSource = _pasajes;
             lbPasajeros.DisplayMember = "Informacion";
             lbPasajeros.ValueMember = "Id";
         }
@@ -637,8 +655,9 @@ namespace FrbaBus
             Pasaje p = this.lbPasajeros.SelectedItem as Pasaje;
             if (p != null)
             {
-                this.lbPasajeros.Items.Remove(p);
+                _pasajes.Remove(p);
             }
+            MostrarPasajes();
         }
 
         private void btnModificarPasajero_Click(object sender, EventArgs e)
@@ -652,7 +671,8 @@ namespace FrbaBus
                     p = frm.PasajeModificado;
                 }
             }
-
+            _pasajes.Remove(p);
+            _pasajes.Add(p);
         }
 
         private void cancelarCompraToolStripMenuItem_Click(object sender, EventArgs e)
@@ -819,7 +839,7 @@ namespace FrbaBus
             Encomienda encomienda = ObtenerEncomienda();
             _encomiendas.Add(encomienda);
 
-            this.lbEncomiendas.Refresh();
+            MostrarEncomiendas();
         }
 
         private Encomienda ObtenerEncomienda()
@@ -854,6 +874,7 @@ namespace FrbaBus
                     frm.ShowDialog(this);
                 }
             }
+            MostrarEncomiendas();
         }
 
         private void btnQuitarEnco_Click(object sender, EventArgs e)
@@ -861,8 +882,9 @@ namespace FrbaBus
             Encomienda p = this.lbEncomiendas.SelectedItem as Encomienda;
             if (p != null)
             {
-                this.lbEncomiendas.Items.Remove(p);
+                _encomiendas.Remove(p);
             }
+            MostrarEncomiendas();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
