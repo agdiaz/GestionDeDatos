@@ -120,8 +120,6 @@ namespace FrbaBus
         private void LimpiarGrupoDetalles(bool habilitar)
         {
             gbDetalles.Enabled = habilitar;
-            lbEncomiendas.DataSource = null;
-            lbPasajeros.DataSource = null;
 
         }
 
@@ -518,10 +516,6 @@ namespace FrbaBus
             _viaje = new Viaje();
             _recorrido = new Recorrido();
             _usuarioCompra = null;
-
-            MostrarPasajes();
-
-            MostrarEncomiendas();
         }
 
         private void MostrarEncomiendas()
@@ -598,6 +592,8 @@ namespace FrbaBus
         private void btnCargarDetalles_Click(object sender, EventArgs e)
         {
             LimpiarGrupoDetalles(true);
+            MostrarPasajes();
+            MostrarEncomiendas();
         }
 
         private void tsmPremiosListado_Click(object sender, EventArgs e)
@@ -740,7 +736,7 @@ namespace FrbaBus
             var clientes = _pasajes.Select(p => _clienteManager.Obtener(p.NroDni)).ToList();
             int cantDiscapacitados = clientes.Count(p => p.EsDiscapacitado);
 
-            if (cantDiscapacitados > 2)
+            if (cantDiscapacitados > 1)
             {
                 MensajePorPantalla.MensajeError(this, "Solo puede haber un pasajero discapacitado por compra");
                 return;

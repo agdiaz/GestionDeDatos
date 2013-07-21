@@ -1128,7 +1128,6 @@
             // 
             // btnFinalizarCompra
             // 
-            this.btnFinalizarCompra.Enabled = false;
             this.btnFinalizarCompra.Location = new System.Drawing.Point(6, 86);
             this.btnFinalizarCompra.Name = "btnFinalizarCompra";
             this.btnFinalizarCompra.Size = new System.Drawing.Size(75, 23);
