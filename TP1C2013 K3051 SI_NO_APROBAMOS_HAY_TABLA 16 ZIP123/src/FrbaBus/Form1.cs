@@ -714,7 +714,7 @@ namespace FrbaBus
 
         private void tsmPasajesListar_Click(object sender, EventArgs e)
         {
-            using (Compras.PasajeListado frm = new PasajeListado())
+            using (Compras.PasajeListado frm = new PasajeListado(false))
             {
                 frm.ShowDialog(this);
             }
