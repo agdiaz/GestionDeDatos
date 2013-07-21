@@ -73,8 +73,11 @@ namespace FrbaBus.Abm_Clientes
                     };
 
                     _cliente = _manager.Alta(_cliente);
-
+                    
                     MensajePorPantalla.MensajeInformativo(this, "Se dio de alta el cliente con DNI: " + _cliente.NroDni.ToString());
+                    _manager.GenerarUsuario(_cliente);
+                    MensajePorPantalla.MensajeInformativo(this, "Se dio de alta el usuario para el cliente");
+                    
                     this.Close();
 
                 }
