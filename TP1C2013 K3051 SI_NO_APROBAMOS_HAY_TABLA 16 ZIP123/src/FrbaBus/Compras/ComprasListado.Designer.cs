@@ -42,11 +42,11 @@
             this.dgvCompras.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvCompras.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCompras.Location = new System.Drawing.Point(12, 118);
+            this.dgvCompras.Location = new System.Drawing.Point(12, 83);
             this.dgvCompras.Name = "dgvCompras";
             this.dgvCompras.ReadOnly = true;
             this.dgvCompras.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCompras.Size = new System.Drawing.Size(567, 267);
+            this.dgvCompras.Size = new System.Drawing.Size(567, 343);
             this.dgvCompras.TabIndex = 0;
             // 
             // groupBox1
@@ -54,7 +54,7 @@
             this.groupBox1.Controls.Add(this.btnBuscar);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(566, 100);
+            this.groupBox1.Size = new System.Drawing.Size(566, 64);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";

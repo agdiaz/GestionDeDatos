@@ -213,7 +213,7 @@
             this.tsmSesionIniciar,
             this.tsmSesionCerrar});
             this.tsmSesion.Name = "tsmSesion";
-            this.tsmSesion.Size = new System.Drawing.Size(108, 22);
+            this.tsmSesion.Size = new System.Drawing.Size(152, 22);
             this.tsmSesion.Text = "&Sesión";
             // 
             // tsmSesionIniciar
@@ -233,12 +233,12 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(105, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // tsmArchivoSalir
             // 
             this.tsmArchivoSalir.Name = "tsmArchivoSalir";
-            this.tsmArchivoSalir.Size = new System.Drawing.Size(108, 22);
+            this.tsmArchivoSalir.Size = new System.Drawing.Size(152, 22);
             this.tsmArchivoSalir.Text = "Sali&r";
             this.tsmArchivoSalir.Click += new System.EventHandler(this.tsmArchivoSalir_Click);
             // 
@@ -328,21 +328,21 @@
             // tsmMicroListado
             // 
             this.tsmMicroListado.Name = "tsmMicroListado";
-            this.tsmMicroListado.Size = new System.Drawing.Size(152, 22);
+            this.tsmMicroListado.Size = new System.Drawing.Size(115, 22);
             this.tsmMicroListado.Text = "Listado";
             this.tsmMicroListado.Click += new System.EventHandler(this.tsmMicroListado_Click);
             // 
             // tsmMicroAlta
             // 
             this.tsmMicroAlta.Name = "tsmMicroAlta";
-            this.tsmMicroAlta.Size = new System.Drawing.Size(152, 22);
+            this.tsmMicroAlta.Size = new System.Drawing.Size(115, 22);
             this.tsmMicroAlta.Text = "Alta";
             this.tsmMicroAlta.Click += new System.EventHandler(this.tsmMicroAlta_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(112, 6);
             // 
             // tsmMicroServicio
             // 
@@ -350,20 +350,20 @@
             this.tsmMicroServicioListado,
             this.tsmMicroServicioAlta});
             this.tsmMicroServicio.Name = "tsmMicroServicio";
-            this.tsmMicroServicio.Size = new System.Drawing.Size(152, 22);
+            this.tsmMicroServicio.Size = new System.Drawing.Size(115, 22);
             this.tsmMicroServicio.Text = "Servicio";
             // 
             // tsmMicroServicioListado
             // 
             this.tsmMicroServicioListado.Name = "tsmMicroServicioListado";
-            this.tsmMicroServicioListado.Size = new System.Drawing.Size(152, 22);
+            this.tsmMicroServicioListado.Size = new System.Drawing.Size(112, 22);
             this.tsmMicroServicioListado.Text = "Listado";
             this.tsmMicroServicioListado.Visible = false;
             // 
             // tsmMicroServicioAlta
             // 
             this.tsmMicroServicioAlta.Name = "tsmMicroServicioAlta";
-            this.tsmMicroServicioAlta.Size = new System.Drawing.Size(152, 22);
+            this.tsmMicroServicioAlta.Size = new System.Drawing.Size(112, 22);
             this.tsmMicroServicioAlta.Text = "Alta";
             this.tsmMicroServicioAlta.Click += new System.EventHandler(this.tsmMicroServicioAlta_Click);
             // 
@@ -373,20 +373,20 @@
             this.tsmMicroMarcaListado,
             this.tsmMicroMarcaAlta});
             this.tsmMicroMarca.Name = "tsmMicroMarca";
-            this.tsmMicroMarca.Size = new System.Drawing.Size(152, 22);
+            this.tsmMicroMarca.Size = new System.Drawing.Size(115, 22);
             this.tsmMicroMarca.Text = "Marca";
             // 
             // tsmMicroMarcaListado
             // 
             this.tsmMicroMarcaListado.Name = "tsmMicroMarcaListado";
-            this.tsmMicroMarcaListado.Size = new System.Drawing.Size(152, 22);
+            this.tsmMicroMarcaListado.Size = new System.Drawing.Size(112, 22);
             this.tsmMicroMarcaListado.Text = "Listado";
             this.tsmMicroMarcaListado.Visible = false;
             // 
             // tsmMicroMarcaAlta
             // 
             this.tsmMicroMarcaAlta.Name = "tsmMicroMarcaAlta";
-            this.tsmMicroMarcaAlta.Size = new System.Drawing.Size(152, 22);
+            this.tsmMicroMarcaAlta.Size = new System.Drawing.Size(112, 22);
             this.tsmMicroMarcaAlta.Text = "Alta";
             this.tsmMicroMarcaAlta.Click += new System.EventHandler(this.tsmMicroMarcaAlta_Click);
             // 
@@ -395,7 +395,7 @@
             this.tsmMicroButaca.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmMicroButacaAlta});
             this.tsmMicroButaca.Name = "tsmMicroButaca";
-            this.tsmMicroButaca.Size = new System.Drawing.Size(152, 22);
+            this.tsmMicroButaca.Size = new System.Drawing.Size(115, 22);
             this.tsmMicroButaca.Text = "Butaca";
             // 
             // tsmMicroButacaAlta
@@ -419,26 +419,26 @@
             // tsmViajeListado
             // 
             this.tsmViajeListado.Name = "tsmViajeListado";
-            this.tsmViajeListado.Size = new System.Drawing.Size(143, 22);
+            this.tsmViajeListado.Size = new System.Drawing.Size(152, 22);
             this.tsmViajeListado.Text = "Listado";
             this.tsmViajeListado.Click += new System.EventHandler(this.tsmViajeListado_Click);
             // 
             // tsmViajeAlta
             // 
             this.tsmViajeAlta.Name = "tsmViajeAlta";
-            this.tsmViajeAlta.Size = new System.Drawing.Size(143, 22);
+            this.tsmViajeAlta.Size = new System.Drawing.Size(152, 22);
             this.tsmViajeAlta.Text = "Alta";
             this.tsmViajeAlta.Click += new System.EventHandler(this.tsmViajeAlta_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(140, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
             // 
             // cargarArribaToolStripMenuItem
             // 
             this.cargarArribaToolStripMenuItem.Name = "cargarArribaToolStripMenuItem";
-            this.cargarArribaToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.cargarArribaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.cargarArribaToolStripMenuItem.Text = "Cargar arribo";
             this.cargarArribaToolStripMenuItem.Click += new System.EventHandler(this.cargarArribaToolStripMenuItem_Click);
             // 
@@ -481,6 +481,7 @@
             this.tsmClientePasajeroFrecuente.Name = "tsmClientePasajeroFrecuente";
             this.tsmClientePasajeroFrecuente.Size = new System.Drawing.Size(171, 22);
             this.tsmClientePasajeroFrecuente.Text = "Pasajero frecuente";
+            this.tsmClientePasajeroFrecuente.Visible = false;
             // 
             // tsmClientePasajeroFrecuenteConsultar
             // 
