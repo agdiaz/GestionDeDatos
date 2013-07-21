@@ -256,6 +256,12 @@
     <Compile Include="Cancelaciones\CancelacionPasaje.Designer.cs">
       <DependentUpon>CancelacionPasaje.cs</DependentUpon>
     </Compile>
+    <Compile Include="Compras\CompraFinal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\CompraFinal.Designer.cs">
+      <DependentUpon>CompraFinal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Compras\ComprasListado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -411,6 +417,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Cancelaciones\CancelacionPasaje.resx">
       <DependentUpon>CancelacionPasaje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\CompraFinal.resx">
+      <DependentUpon>CompraFinal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\ComprasListado.resx">
       <DependentUpon>ComprasListado.cs</DependentUpon>
