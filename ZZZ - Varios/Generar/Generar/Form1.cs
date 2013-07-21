@@ -30,7 +30,7 @@ namespace Generar
                         writer.WriteLine("");
                         writer.WriteLine("GO ");
                         writer.WriteLine("");
-                        writer.Write(reader.ReadToEnd());
+                        writer.WriteLine(reader.ReadToEnd());
                         writer.WriteLine("");
                         writer.WriteLine("GO ");
                         writer.WriteLine("");
