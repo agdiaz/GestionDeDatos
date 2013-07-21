@@ -15,7 +15,8 @@ namespace FrbaBus.DAO.Builder
             return new RolUsuario()
             {
                 IdRol = Convert.ToInt32(row["id_rol"].ToString()),
-                Nombre = row["nombre"].ToString()
+                Nombre = row["nombre"].ToString(),
+                Inhabilitado = row["inhabilitado"].ToString().ToUpper() == "FALSE" ? false : true
             };
         }
 
