@@ -1,4 +1,6 @@
+
 GO 
+
 -- ================================================
 -- Template generated from Template Explorer using:
 -- Create Procedure (New Menu).SQL
@@ -74,7 +76,12 @@ BEGIN
 		
 END
 GO
+
 GO 
+
+
+GO 
+
 USE [GD1C2013]
 GO
 /****** Object:  StoredProcedure [SI_NO_APROBAMOS_HAY_TABLA].[sp_obtener_usuario]    Script Date: 07/16/2013 03:15:52 ******/
@@ -98,8 +105,12 @@ BEGIN
   FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Usuario]
 	where username = @p_username
 END
+
 GO 
+
+
 GO 
+
 CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_obtener_rol
 	@p_id int
 AS
@@ -112,8 +123,12 @@ BEGIN
   FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol]
 	where Rol.id_rol = @p_id
 END
+
 GO 
+
+
 GO 
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -142,7 +157,10 @@ BEGIN
 	and f.baja = 0
 END
 
+
 GO 
+
+
 GO 
 
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_rol
@@ -154,8 +172,12 @@ BEGIN
   FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol]
   WHERE baja = 0
 END
+
 GO 
+
+
 GO 
+
 
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_funcionalidad
 AS
@@ -167,8 +189,12 @@ SELECT [id_funcionalidad]
   FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad]
   WHERE baja = 0
  END
+
 GO 
+
+
 GO 
+
 USE [GD1C2013]
 GO
 /****** Object:  StoredProcedure [SI_NO_APROBAMOS_HAY_TABLA].[sp_listar_filtrado_rol]    Script Date: 07/16/2013 01:12:40 ******/
@@ -192,8 +218,12 @@ BEGIN
 	and rf.baja = 0
 	and f.baja = 0
 END
+
 GO 
+
+
 GO 
+
 USE [GD1C2013]
 GO
 /****** Object:  StoredProcedure [SI_NO_APROBAMOS_HAY_TABLA].[sp_insert_rol]    Script Date: 07/16/2013 00:51:01 ******/
@@ -222,8 +252,12 @@ SET @p_id = SCOPE_IDENTITY()
 END
 
 /*===========================SP INSERT ROL FUNCIONALIDAD==============================*/
+
 GO 
+
+
 GO 
+
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].[sp_insert_rol_funcionalidad]
 (
 	@p_id_rol int,
@@ -236,8 +270,12 @@ INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_funcionalidad]
            ,[id_funcionalidad])
      VALUES (@p_id_rol, @p_id_funcionalidad)
 END
+
 GO 
+
+
 GO 
+
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].[sp_baja_funcionalidades]
 (
 	@p_id_rol int 
@@ -249,8 +287,12 @@ DELETE FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad]
 	WHERE Rol_funcionalidad.id_rol = @p_id_rol
 END
 
+
 GO 
+
+
 GO 
+
 USE [GD1C2013]
 GO
 /****** Object:  StoredProcedure [SI_NO_APROBAMOS_HAY_TABLA].[sp_delete_rol]    Script Date: 07/16/2013 00:50:19 ******/
@@ -268,8 +310,12 @@ BEGIN
 	SET baja=1
 	WHERE Rol.id_rol = @p_id_rol
 END
+
 GO 
+
+
 GO 
+
 
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_ciudad 
 AS
@@ -278,8 +324,12 @@ BEGIN
 	FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Ciudad]
 	WHERE baja = 0
 END
+
 GO 
+
+
 GO 
+
 USE [GD1C2013]
 GO
 /****** Object:  StoredProcedure [SI_NO_APROBAMOS_HAY_TABLA].[sp_listar_filtrado_ciudad]    Script Date: 07/16/2013 01:22:07 ******/
@@ -297,8 +347,12 @@ BEGIN
 	where ((@p_nombre IS NULL) OR (c.nombre like '%' + @p_nombre + '%'))	
 	and baja = 0
 END
+
 GO 
+
+
 GO 
+
 USE [GD1C2013]
 GO
 /****** Object:  StoredProcedure [SI_NO_APROBAMOS_HAY_TABLA].[sp_insert_ciudad]    Script Date: 07/16/2013 01:18:21 ******/
@@ -326,8 +380,12 @@ SET @p_id = SCOPE_IDENTITY()
 END
 
 /*===========================SP INSERT CLIENTE==============================*/
+
 GO 
+
+
 GO 
+
 CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_update_ciudad(
 	@p_nombre varchar(50),
 	@p_id int
@@ -338,8 +396,12 @@ BEGIN
 	SET nombre = @p_nombre
 	WHERE id_ciudad = @p_id
 END
+
 GO 
+
+
 GO 
+
 CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_delete_ciudad
 (
 @p_id_ciudad INT
@@ -351,7 +413,10 @@ BEGIN
 	WHERE id_ciudad=@p_id_ciudad
 END
 GO 
+
+
 GO 
+
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_servicio
 AS
 BEGIN
@@ -362,8 +427,12 @@ BEGIN
   WHERE [baja] = 0
 END
 
+
 GO 
+
+
 GO 
+
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_recorrido
 	AS
 BEGIN
@@ -383,8 +452,12 @@ BEGIN
 	ON r.id_ciudad_destino = cd.id_ciudad
   WHERE r.[baja] = 0
 END
+
 GO 
+
+
 GO 
+
 CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_obtener_cliente
 	@p_dni numeric(18,0)
 AS
@@ -404,8 +477,12 @@ BEGIN
 	WHERE Cliente.dni = @p_dni
 END
 
+
 GO 
+
+
 GO 
+
 CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_obtener_ciudad(
 	@p_id int
 )
@@ -418,8 +495,12 @@ BEGIN
 	WHERE Ciudad.id_ciudad = @p_id
 END
 GO
+
 GO 
+
+
 GO 
+
 CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_obtener_servicio
 	@p_id int
 AS
@@ -429,8 +510,12 @@ BEGIN
 	where s.id_servicio = @p_id
 END
 GO
+
 GO 
+
+
 GO 
+
 USE [GD1C2013]
 GO
 /****** Object:  StoredProcedure [SI_NO_APROBAMOS_HAY_TABLA].[sp_listar_filtrado_recorrido]    Script Date: 07/16/2013 02:09:12 ******/
@@ -456,8 +541,12 @@ BEGIN
 	and ((@p_id_servicio IS NULL) OR ( r.id_servicio = @p_id_servicio))
 	and r.baja = 0
 END
+
 GO 
+
+
 GO 
+
 CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_insert_recorrido
 (
 	@p_id int output,
@@ -485,7 +574,10 @@ BEGIN
 	  SET @p_id = SCOPE_IDENTITY()
 END
 GO 
+
+
 GO 
+
 USE [GD1C2013]
 GO
 
@@ -517,9 +609,9 @@ SET id_ciudad_origen = @p_id_ciudad_origen,
 WHERE id_recorrido =@p_id
 END
 
-GO
-
 GO 
+
+
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_cancelar_compra
 	@id_compra	int,
 	@motivo		nvarchar(200)
@@ -549,7 +641,7 @@ BEGIN
 	
 	COMMIT TRANSACTION cancel
 END
-GO 
+GO
 
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_baja_recorrido
 	@id_recorrido numeric(18,0) 
@@ -595,8 +687,8 @@ BEGIN
 	deallocate cur
 
 	COMMIT TRANSACTION baja_recorrido	
-END
-GO 
+END 
+
 GO 
 
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_marca
@@ -608,7 +700,10 @@ SELECT [id_marca],[nombre]
   baja = 0
 END
 GO 
+
+
 GO 
+
 USE [GD1C2013]
 GO
 /****** Object:  StoredProcedure [SI_NO_APROBAMOS_HAY_TABLA].[sp_listar_micros]    Script Date: 07/16/2013 20:07:39 ******/
@@ -635,8 +730,12 @@ SELECT Mi.[id_micros]
 	on Mi.id_marca = Ma.id_marca
   WHERE Mi.baja = 0
 END
+
 GO 
+
+
 GO 
+
 CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_obtener_marca
 	@p_id int
 AS
@@ -647,8 +746,12 @@ SELECT [id_marca]
   FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Marca]
 	WHERE id_marca = @p_id
 END
+
 GO 
+
+
 GO 
+
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_filtrado_micros
 	@p_marca varchar(50) = NULL, 
 	@p_modelo nvarchar(50) = NULL,
@@ -682,7 +785,10 @@ BEGIN
 	and m.baja = 0
 END
 GO 
+
+
 GO 
+
 USE [GD1C2013]
 GO
 /****** Object:  StoredProcedure [SI_NO_APROBAMOS_HAY_TABLA].[sp_insert_micro]    Script Date: 07/20/2013 01:39:10 ******/
@@ -730,7 +836,10 @@ INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Micros]
 	SET @p_id = SCOPE_IDENTITY()
 END
 GO 
+
+
 GO 
+
 CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_insert_butaca
 (
 
@@ -757,8 +866,12 @@ INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Butaca]
 SET @p_id = SCOPE_IDENTITY()
 
 END
+
 GO 
+
+
 GO 
+
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].[sp_update_micro]
 	@p_marca varchar(50) = NULL, 
 	@p_modelo nvarchar(50) = NULL,
@@ -784,8 +897,12 @@ UPDATE [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Micros]
  WHERE id_micros = @p_id
 END
 
+
 GO 
+
+
 GO 
+
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_baja_logica_micro
 (
 	@id_micro int
@@ -833,8 +950,12 @@ BEGIN
 	COMMIT TRANSACTION baja_logica_micro
 END
 
+
 GO 
+
+
 GO 
+
 CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_insert_marca
 (
 	@p_nombre varchar(50),
@@ -849,8 +970,12 @@ INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Marca]
            
            SET @p_id = SCOPE_IDENTITY()
 END
+
 GO 
+
+
 GO 
+
 CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_insert_servicio
 (	@p_tipo_servicio nvarchar(255),
     @p_adicional decimal(5,2),
@@ -867,8 +992,12 @@ INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Servicio]
 SET @p_id = SCOPE_IDENTITY()
      
 END
+
 GO 
+
+
 GO 
+
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_listar_filtrado_viaje(
 @p_fecha_salida datetime = NULL,
 @p_fecha_llegada datetime = NULL,
@@ -892,8 +1021,12 @@ BEGIN
 	and ((@p_recorrido IS NULL) OR (v.id_recorrido = @p_recorrido))
 END
 
+
 GO 
+
+
 GO 
+
 CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_obtener_recorrido(
 	@p_id numeric(18,0)
 	)
@@ -909,8 +1042,12 @@ BEGIN
   FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Recorrido]
 WHERE id_recorrido = @p_id
 END
+
 GO 
+
+
 GO 
+
 CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_obtener_micro
 	@p_id int
 AS
@@ -929,8 +1066,12 @@ BEGIN
   WHERE id_micros = @p_id
 END
 GO
+
 GO 
+
+
 GO 
+
 USE [GD1C2013]
 GO
 /****** Object:  StoredProcedure [SI_NO_APROBAMOS_HAY_TABLA].[sp_listar_cliente]    Script Date: 07/18/2013 02:28:13 ******/
@@ -953,8 +1094,12 @@ BEGIN
   FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Cliente] c
   WHERE c.baja = 0
 END
+
 GO 
+
+
 GO 
+
 USE [GD1C2013]
 GO
 /****** Object:  StoredProcedure [SI_NO_APROBAMOS_HAY_TABLA].[sp_listar_filtrado_cliente]    Script Date: 07/18/2013 00:39:33 ******/
@@ -987,8 +1132,12 @@ BEGIN
 	and ((@p_sexo IS NULL) OR (sexo like '%' + @p_sexo + '%'))
 	and baja=0
 END
+
 GO 
+
+
 GO 
+
 CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_insert_cliente
 (
 	@p_dni numeric(18,0),
@@ -1024,8 +1173,12 @@ INSERT INTO [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Cliente]
            ,@p_es_discapacitado
            ,@p_sexo)
 END
+
 GO 
+
+
 GO 
+
 CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_update_cliente
 (
 	@p_dni numeric(18,0),
@@ -1052,8 +1205,12 @@ SET [nombre]=@p_nombre
 WHERE [dni]=@p_dni
 END
 
+
 GO 
+
+
 GO 
+
 USE [GD1C2013]
 GO
 SET ANSI_NULLS ON
@@ -1080,8 +1237,12 @@ BEGIN
 	AND ((@p_stock_desde IS NULL) OR (stock >= @p_stock_desde))
 	AND ((@p_stock_hasta IS NULL) OR (stock <= @p_stock_hasta))
 END
+
 GO 
+
+
 GO 
+
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].[sp_puntos_por_cliente]
 (
 	@p_dni numeric(18,0)
@@ -1096,7 +1257,10 @@ BEGIN
 	ORDER BY puntosTotales DESC
 END
 GO 
+
+
 GO 
+
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_puntos_por_cliente_detallado
 (
 	@p_dni numeric(18,0)
@@ -1112,8 +1276,12 @@ BEGIN
 	WHERE DATEDIFF(year,p.fecha_otorgado, GETDATE() ) < 1
 	AND p.dni = @p_dni
 	ORDER BY p.fecha_otorgado ASC
-END 
+END
 GO 
+
+
+GO 
+
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_canjear_recompensa
 (
 	@p_dni numeric(18,0),
@@ -1202,8 +1370,12 @@ BEGIN
 END
 GO
 
+
 GO 
+
+
 GO 
+
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].[sp_clientes_mas_puntos]
 (
 	@fecha_inicio datetime,
@@ -1217,6 +1389,11 @@ BEGIN
 	GROUP BY p.dni
 	ORDER BY puntosTotales DESC
 END
+GO 
+
+
+GO 
+
 GO
 CREATE FUNCTION [SI_NO_APROBAMOS_HAY_TABLA].butacas_vendidas_por_viaje
 (
@@ -1255,8 +1432,12 @@ BEGIN
 	GROUP BY ciudad.[id_ciudad], ciudad.[nombre]
 	ORDER BY SUM ([SI_NO_APROBAMOS_HAY_TABLA].butacas_vendidas_por_viaje(viaje.[id_viaje])) desc
 END
+
 GO 
+
+
 GO 
+
 
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].[sp_micros_mas_baja_serv]
 (
@@ -1363,8 +1544,12 @@ END
 
 
 
+
 GO 
+
+
 GO 
+
 CREATE FUNCTION [SI_NO_APROBAMOS_HAY_TABLA].cant_pasajes_cancelados_viaje
 (
 	@id_viaje int
@@ -1404,8 +1589,12 @@ BEGIN
 	GROUP BY ciudad.[id_ciudad], ciudad.[nombre]
 	ORDER BY SUM ([SI_NO_APROBAMOS_HAY_TABLA].cant_pasajes_cancelados_viaje(viaje.[id_viaje])) DESC
 END
+
 GO 
+
+
 GO 
+
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].[sp_top5_destino_micros_mas_vacios_por_semestre]
 (
 	@fecha_inicio datetime,
@@ -1425,8 +1614,12 @@ BEGIN
 	GROUP BY ciudad.[id_ciudad], ciudad.[nombre]
 	ORDER BY SUM ([SI_NO_APROBAMOS_HAY_TABLA].cant_butacas_disp_viaje(viaje.[id_viaje])) desc
 END
+
 GO 
+
+
 GO 
+
 CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_precio_final_pasaje
 (
 	@dni numeric(18,0),
@@ -1480,7 +1673,10 @@ BEGIN
 	SELECT @pre_final as 'precio'
 END
 GO 
+
+
 GO 
+
 CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_butacas_ocupadas_viaje
 (
 	@p_id_viaje int
@@ -1494,6 +1690,10 @@ BEGIN
 	WHERE p.id_viaje = @p_id_viaje
 END
 GO 
+
+
+GO 
+
 CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_butacas_libres_viaje
 (
 	@p_id_viaje int
@@ -1517,6 +1717,10 @@ BEGIN
 		)
 END
 GO 
+
+
+GO 
+
 
 CREATE FUNCTION [SI_NO_APROBAMOS_HAY_TABLA].cant_butacas_disp_viaje
 (
@@ -1546,8 +1750,12 @@ BEGIN
 	
 	return @cant_total - @cant_ocupadas
 END
+
 GO 
+
+
 GO 
+
 CREATE FUNCTION [SI_NO_APROBAMOS_HAY_TABLA].kg_disponibles_viaje
 (
 	@id_viaje int
@@ -1573,8 +1781,12 @@ BEGIN
 	RETURN @kg_totales - @kg_ocupados
 		
 END
+
 GO 
+
+
 GO 
+
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_obtener_micro_disponibilidades
 (
 	@p_id_viaje int
@@ -1586,6 +1798,10 @@ BEGIN
 	
 END
 GO 
+
+
+GO 
+
 CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_precio_real_pasaje
 (
 	@dni numeric(18,0),
@@ -1639,6 +1855,10 @@ BEGIN
 	SELECT @pre_final as 'precio'
 END
 GO 
+
+
+GO 
+
 CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_insert_compra
 (	
 	@p_id_compra int output,
@@ -1654,8 +1874,12 @@ BEGIN
 
 	SET @p_id_compra = SCOPE_IDENTITY()
 END
+
 GO 
+
+
 GO 
+
 
 CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_existe_patente
 (
@@ -1666,8 +1890,12 @@ BEGIN
 	SELECT COUNT(*) as 'cant'
 	FROM SI_NO_APROBAMOS_HAY_TABLA.Micros
 	WHERE patente = @p_patente
-END 
+END
 GO 
+
+
+GO 
+
 CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_insertar_encomienda
 (
 	@p_id_encomienda int output,
@@ -1685,8 +1913,12 @@ BEGIN
 
 	SET @p_id_encomienda = SCOPE_IDENTITY()
 END
+
 GO 
+
+
 GO 
+
 CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_insertar_pasaje
 (
 	@p_id_pasaje int output,
@@ -1705,8 +1937,12 @@ BEGIN
 
 	SET @p_id_pasaje = SCOPE_IDENTITY()
 END
+
 GO 
+
+
 GO 
+
 CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_listar_compras
 AS
 BEGIN
@@ -1718,8 +1954,8 @@ SELECT [id_compra]
   WHERE [baja] = 0
 END
 
-
 GO 
+
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_cancelar_pasaje
 	@id_pasaje	numeric(18,0),
 	@motivo		nvarchar(200)
@@ -1742,6 +1978,10 @@ BEGIN
 	COMMIT TRANSACTION cancel
 END
 GO 
+
+
+GO 
+
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].sp_cancelar_encomienda
 	@id_encomienda	numeric(18,0),
 	@motivo			nvarchar(200)
@@ -1764,6 +2004,10 @@ BEGIN
 	COMMIT TRANSACTION cancel
 END
 GO 
+
+
+GO 
+
 CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_listar_cancelaciones
 AS
 BEGIN
@@ -1773,6 +2017,10 @@ SELECT [id_cancelacion]
   FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Cancelacion]
 END
 GO 
+
+
+GO 
+
 
 CREATE FUNCTION [SI_NO_APROBAMOS_HAY_TABLA].func_puede_reemplazar_desde
 (
@@ -1834,6 +2082,10 @@ BEGIN
 	END
 END
 GO 
+
+
+GO 
+
 CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_insertar_usuario
 (
 	@dni numeric(18,0),
@@ -1847,6 +2099,11 @@ BEGIN
 	VALUES (2, @dni, @username)
 END
 GO 
+
+
+GO 
+
+GO
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].[sp_obtener_usuario_por_dni](
 
 	@p_dni numeric(18,0)
@@ -1863,7 +2120,12 @@ BEGIN
   FROM [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Usuario]
 	where dni = @p_dni
 END
+GO
 GO 
+
+
+GO 
+
 CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_obtener_compra
 (
 	@p_id int
@@ -1879,8 +2141,12 @@ SELECT [id_compra]
 END
 
 
+
 GO 
+
+
 GO 
+
 USE [GD1C2013]
 GO
 /****** Object:  StoredProcedure [SI_NO_APROBAMOS_HAY_TABLA].[sp_insert_viaje]    Script Date: 07/18/2013 21:37:07 ******/
@@ -1917,8 +2183,12 @@ BEGIN
 	SET @p_id = SCOPE_IDENTITY()
 	END
 END
+
 GO 
+
+
 GO 
+
 CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].[sp_registro_llegada]
 (
 	@p_id_viaje int,
@@ -1930,4 +2200,84 @@ BEGIN
 	SET fecha_arribo = @p_fecha_llegada
 	WHERE id_viaje = @p_id_viaje
 END
+
 GO 
+
+
+GO 
+
+USE [GD1C2013]
+GO
+/****** Object:  StoredProcedure [SI_NO_APROBAMOS_HAY_TABLA].[sp_update_rol]    Script Date: 07/16/2013 00:56:50 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].[sp_update_rol](
+	@p_nombre varchar(50),
+	@p_id int,
+	@p_inhabilitado bit
+)
+AS
+BEGIN
+	UPDATE SI_NO_APROBAMOS_HAY_TABLA.Rol
+	SET nombre = @p_nombre,
+		inhabilitado = @p_inhabilitado
+	WHERE id_rol = @p_id
+END
+GO 
+
+
+GO 
+
+CREATE PROCEDURE [SI_NO_APROBAMOS_HAY_TABLA].[sp_update_viaje]
+	@p_Fecha_Salida datetime,
+	@p_Fecha_Arribo_Estimada datetime,
+	@p_id_micro int,
+	@p_id_recorrido int,
+	@p_id int
+AS
+BEGIN
+UPDATE [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Viaje]
+   SET [id_recorrido] = @p_id_recorrido
+      ,[id_micro] = @p_id_micro
+      ,[fecha_salida] = @p_Fecha_Salida
+      ,[fecha_arribo_estimada] = @p_Fecha_Arribo_Estimada 
+ WHERE id_viaje = @p_id
+END
+
+
+GO 
+
+
+GO 
+
+CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_delete_cliente
+(
+	@p_dni int
+)
+AS
+BEGIN
+UPDATE [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Cliente]
+	SET baja=1			
+	WHERE Cliente.dni=@p_dni
+END
+
+GO 
+
+
+GO 
+
+CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_delete_viaje
+(
+	@p_id int
+)
+AS
+BEGIN
+UPDATE [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Viaje]
+	SET baja=1			
+	WHERE id_viaje=@p_id
+END
+
+GO 
+
