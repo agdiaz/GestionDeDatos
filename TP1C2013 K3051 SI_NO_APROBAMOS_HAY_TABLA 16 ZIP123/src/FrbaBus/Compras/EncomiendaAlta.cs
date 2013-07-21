@@ -70,6 +70,11 @@ namespace FrbaBus.Compras
                 MensajePorPantalla.MensajeError(this, "Debe ingresar un peso");
                 return false;
             }
+            if (Convert.ToDecimal(tbEncomiendaAltaPesoKg.Text) > _viaje.Micro.KgsDisponibles)
+            {
+                MensajePorPantalla.MensajeError(this, "Supero el límite disponible de peso");
+                return false;
+            }
             return true;
         }
 
