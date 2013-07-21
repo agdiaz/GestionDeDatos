@@ -791,6 +791,13 @@ namespace FrbaBus
                     int retornoEncomiendas = AltaEncomiendasDeCompra(compra);
 
                     MensajePorPantalla.MensajeInformativo(this, "Se ha dado de alta la compra con id: " + compra.IdCompra);
+                    string modo = rbEfectivo.Checked ? "Efectivo" : "-";
+                    modo = rbTarjeta.Checked ? "En cuotas" : "-";
+
+                    using (Compras.CompraFinal frm = new Compras.CompraFinal(compra, modo, _pasajes, _encomiendas))
+                    {
+                        frm.ShowDialog(this);
+                    }
                     this.IniciarFormulario();
                 }
                 catch (Exception ex)
