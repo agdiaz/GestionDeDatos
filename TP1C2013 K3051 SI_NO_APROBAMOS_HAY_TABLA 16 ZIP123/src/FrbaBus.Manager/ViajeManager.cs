@@ -76,5 +76,10 @@ namespace FrbaBus.Manager
         {
             _dao.GenerarArribo(viaje);
         }
+
+        public void ProcesarArribos()
+        {
+            this._dao.ProcesarArribos();
+        }
     }
 }

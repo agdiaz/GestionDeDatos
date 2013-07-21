@@ -552,6 +552,26 @@ GO
 
 
 
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [SI_NO_APROBAMOS_HAY_TABLA].[ArribosTemporal](
+	[Id_viaje] [int] NOT NULL,
+	[Fecha_arribo_real] [datetime] NOT NULL
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[ArribosTemporal]  WITH CHECK ADD  CONSTRAINT [FK_ArribosTemporal_Viaje] FOREIGN KEY([Id_viaje])
+REFERENCES [SI_NO_APROBAMOS_HAY_TABLA].[Viaje] ([id_viaje])
+GO
+
+ALTER TABLE [SI_NO_APROBAMOS_HAY_TABLA].[ArribosTemporal] CHECK CONSTRAINT [FK_ArribosTemporal_Viaje]
+GO
+
+
 
 /*===========================ROL==============================*/
 
@@ -1193,6 +1213,9 @@ insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad
 values ('tsmCancelacionesListado')
 
 insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
+values ('tsmViajeProcesarArribos')
+
+insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
 values ('tsmRolAlta')
 
 insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad](funcionalidad)
@@ -1330,6 +1353,11 @@ select id_Rol, id_funcionalidad
 from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
 where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='tsmCancelacionesListado'
 
+
+insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
+select id_Rol, id_funcionalidad
+from [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol] as Rol, [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Funcionalidad] as Funcionalidad
+where Rol.nombre='Administrativo' AND Funcionalidad.funcionalidad='tsmViajeProcesarArribos'
 
 insert into [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Rol_Funcionalidad](id_Rol,id_funcionalidad)
 select id_Rol, id_funcionalidad
