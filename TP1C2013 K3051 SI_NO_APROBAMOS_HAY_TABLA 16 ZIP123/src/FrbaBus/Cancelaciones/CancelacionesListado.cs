@@ -23,7 +23,8 @@ namespace FrbaBus.Cancelaciones
 
         private void CancelacionesListado_Load(object sender, EventArgs e)
         {
-
+            IList<Cancelacion> cancelaciones = _manager.Listar();
+            this.dgvCancelaciones.DataSource = cancelaciones;
         }
 
         private void button1_Click(object sender, EventArgs e)

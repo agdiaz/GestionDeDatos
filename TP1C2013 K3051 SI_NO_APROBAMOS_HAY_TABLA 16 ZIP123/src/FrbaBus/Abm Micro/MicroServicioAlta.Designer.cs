@@ -57,7 +57,7 @@
             this.btnMicroServicioAltaLimpiar.Location = new System.Drawing.Point(283, 93);
             this.btnMicroServicioAltaLimpiar.Name = "btnMicroServicioAltaLimpiar";
             this.btnMicroServicioAltaLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnMicroServicioAltaLimpiar.TabIndex = 2;
+            this.btnMicroServicioAltaLimpiar.TabIndex = 4;
             this.btnMicroServicioAltaLimpiar.Text = "Limpiar";
             this.btnMicroServicioAltaLimpiar.UseVisualStyleBackColor = true;
             this.btnMicroServicioAltaLimpiar.Click += new System.EventHandler(this.btnMicroServicioAltaLimpiar_Click);
@@ -86,7 +86,7 @@
             this.tbAdicional.Location = new System.Drawing.Point(109, 32);
             this.tbAdicional.Name = "tbAdicional";
             this.tbAdicional.Size = new System.Drawing.Size(100, 20);
-            this.tbAdicional.TabIndex = 5;
+            this.tbAdicional.TabIndex = 2;
             // 
             // MicroServicioAlta
             // 

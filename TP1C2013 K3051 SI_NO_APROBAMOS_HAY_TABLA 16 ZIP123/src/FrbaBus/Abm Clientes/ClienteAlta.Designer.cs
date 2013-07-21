@@ -124,7 +124,7 @@
             this.dtpClienteFechaNac.Location = new System.Drawing.Point(250, 30);
             this.dtpClienteFechaNac.Name = "dtpClienteFechaNac";
             this.dtpClienteFechaNac.Size = new System.Drawing.Size(135, 20);
-            this.dtpClienteFechaNac.TabIndex = 6;
+            this.dtpClienteFechaNac.TabIndex = 1;
             this.dtpClienteFechaNac.Value = new System.DateTime(2013, 7, 18, 0, 0, 0, 0);
             // 
             // cbClienteEsDiscapacitado
@@ -133,7 +133,7 @@
             this.cbClienteEsDiscapacitado.Location = new System.Drawing.Point(12, 156);
             this.cbClienteEsDiscapacitado.Name = "cbClienteEsDiscapacitado";
             this.cbClienteEsDiscapacitado.Size = new System.Drawing.Size(118, 17);
-            this.cbClienteEsDiscapacitado.TabIndex = 7;
+            this.cbClienteEsDiscapacitado.TabIndex = 6;
             this.cbClienteEsDiscapacitado.Text = "Es discapacitado/a";
             this.cbClienteEsDiscapacitado.UseVisualStyleBackColor = true;
             // 
@@ -143,7 +143,7 @@
             this.rbClienteHombre.Location = new System.Drawing.Point(6, 19);
             this.rbClienteHombre.Name = "rbClienteHombre";
             this.rbClienteHombre.Size = new System.Drawing.Size(62, 17);
-            this.rbClienteHombre.TabIndex = 8;
+            this.rbClienteHombre.TabIndex = 4;
             this.rbClienteHombre.Text = "Hombre\r\n";
             this.rbClienteHombre.UseVisualStyleBackColor = true;
             // 
@@ -154,7 +154,7 @@
             this.rbClienteMujer.Location = new System.Drawing.Point(74, 19);
             this.rbClienteMujer.Name = "rbClienteMujer";
             this.rbClienteMujer.Size = new System.Drawing.Size(51, 17);
-            this.rbClienteMujer.TabIndex = 9;
+            this.rbClienteMujer.TabIndex = 5;
             this.rbClienteMujer.TabStop = true;
             this.rbClienteMujer.Text = "Mujer";
             this.rbClienteMujer.UseVisualStyleBackColor = true;
@@ -164,7 +164,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(328, 326);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 11;
+            this.btnGuardar.TabIndex = 10;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -174,7 +174,7 @@
             this.btnLimpiar.Location = new System.Drawing.Point(409, 326);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 10;
+            this.btnLimpiar.TabIndex = 11;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
@@ -193,35 +193,35 @@
             this.mtbClienteTelefono.Mask = "000000000000";
             this.mtbClienteTelefono.Name = "mtbClienteTelefono";
             this.mtbClienteTelefono.Size = new System.Drawing.Size(89, 20);
-            this.mtbClienteTelefono.TabIndex = 4;
+            this.mtbClienteTelefono.TabIndex = 8;
             // 
             // tbClienteMail
             // 
             this.tbClienteMail.Location = new System.Drawing.Point(74, 77);
             this.tbClienteMail.Name = "tbClienteMail";
             this.tbClienteMail.Size = new System.Drawing.Size(324, 20);
-            this.tbClienteMail.TabIndex = 5;
+            this.tbClienteMail.TabIndex = 9;
             // 
             // tbClienteNombre
             // 
             this.tbClienteNombre.Location = new System.Drawing.Point(61, 56);
             this.tbClienteNombre.Name = "tbClienteNombre";
             this.tbClienteNombre.Size = new System.Drawing.Size(324, 20);
-            this.tbClienteNombre.TabIndex = 1;
+            this.tbClienteNombre.TabIndex = 2;
             // 
             // tbClienteApellido
             // 
             this.tbClienteApellido.Location = new System.Drawing.Point(61, 82);
             this.tbClienteApellido.Name = "tbClienteApellido";
             this.tbClienteApellido.Size = new System.Drawing.Size(324, 20);
-            this.tbClienteApellido.TabIndex = 2;
+            this.tbClienteApellido.TabIndex = 3;
             // 
             // tbClienteDireccion
             // 
             this.tbClienteDireccion.Location = new System.Drawing.Point(74, 25);
             this.tbClienteDireccion.Name = "tbClienteDireccion";
             this.tbClienteDireccion.Size = new System.Drawing.Size(324, 20);
-            this.tbClienteDireccion.TabIndex = 3;
+            this.tbClienteDireccion.TabIndex = 7;
             // 
             // groupBox1
             // 

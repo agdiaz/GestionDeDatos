@@ -87,21 +87,21 @@
             this.dtpViajeAltaFechaSalida.Location = new System.Drawing.Point(161, 19);
             this.dtpViajeAltaFechaSalida.Name = "dtpViajeAltaFechaSalida";
             this.dtpViajeAltaFechaSalida.Size = new System.Drawing.Size(274, 20);
-            this.dtpViajeAltaFechaSalida.TabIndex = 5;
+            this.dtpViajeAltaFechaSalida.TabIndex = 0;
             // 
             // dtpViajeAltaFechaLlegadaEstimada
             // 
             this.dtpViajeAltaFechaLlegadaEstimada.Location = new System.Drawing.Point(161, 51);
             this.dtpViajeAltaFechaLlegadaEstimada.Name = "dtpViajeAltaFechaLlegadaEstimada";
             this.dtpViajeAltaFechaLlegadaEstimada.Size = new System.Drawing.Size(274, 20);
-            this.dtpViajeAltaFechaLlegadaEstimada.TabIndex = 7;
+            this.dtpViajeAltaFechaLlegadaEstimada.TabIndex = 1;
             // 
             // btnViajeAltaGuardar
             // 
             this.btnViajeAltaGuardar.Location = new System.Drawing.Point(378, 248);
             this.btnViajeAltaGuardar.Name = "btnViajeAltaGuardar";
             this.btnViajeAltaGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnViajeAltaGuardar.TabIndex = 9;
+            this.btnViajeAltaGuardar.TabIndex = 7;
             this.btnViajeAltaGuardar.Text = "Guardar";
             this.btnViajeAltaGuardar.UseVisualStyleBackColor = true;
             this.btnViajeAltaGuardar.Click += new System.EventHandler(this.btnViajeAltaGuardar_Click);
@@ -112,7 +112,7 @@
             this.txtMicro.Name = "txtMicro";
             this.txtMicro.ReadOnly = true;
             this.txtMicro.Size = new System.Drawing.Size(179, 20);
-            this.txtMicro.TabIndex = 10;
+            this.txtMicro.TabIndex = 2;
             this.txtMicro.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // btnViajeAltaBuscarMicro
@@ -120,7 +120,7 @@
             this.btnViajeAltaBuscarMicro.Location = new System.Drawing.Point(259, 27);
             this.btnViajeAltaBuscarMicro.Name = "btnViajeAltaBuscarMicro";
             this.btnViajeAltaBuscarMicro.Size = new System.Drawing.Size(75, 23);
-            this.btnViajeAltaBuscarMicro.TabIndex = 11;
+            this.btnViajeAltaBuscarMicro.TabIndex = 3;
             this.btnViajeAltaBuscarMicro.Text = "Buscar";
             this.btnViajeAltaBuscarMicro.UseVisualStyleBackColor = true;
             this.btnViajeAltaBuscarMicro.Click += new System.EventHandler(this.btnViajeAltaBuscarMicro_Click);
@@ -131,14 +131,14 @@
             this.txtRecorrido.Name = "txtRecorrido";
             this.txtRecorrido.ReadOnly = true;
             this.txtRecorrido.Size = new System.Drawing.Size(179, 20);
-            this.txtRecorrido.TabIndex = 12;
+            this.txtRecorrido.TabIndex = 4;
             // 
             // btnViajeAltaBuscarRecorrido
             // 
             this.btnViajeAltaBuscarRecorrido.Location = new System.Drawing.Point(259, 56);
             this.btnViajeAltaBuscarRecorrido.Name = "btnViajeAltaBuscarRecorrido";
             this.btnViajeAltaBuscarRecorrido.Size = new System.Drawing.Size(75, 23);
-            this.btnViajeAltaBuscarRecorrido.TabIndex = 13;
+            this.btnViajeAltaBuscarRecorrido.TabIndex = 5;
             this.btnViajeAltaBuscarRecorrido.Text = "Buscar";
             this.btnViajeAltaBuscarRecorrido.UseVisualStyleBackColor = true;
             this.btnViajeAltaBuscarRecorrido.Click += new System.EventHandler(this.btnViajeAltaBuscarRecorrido_Click);
@@ -176,7 +176,7 @@
             this.btnLimpiar.Location = new System.Drawing.Point(12, 248);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 16;
+            this.btnLimpiar.TabIndex = 6;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);

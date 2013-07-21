@@ -72,7 +72,7 @@
             this.tbRecompensaCanjearPuntosDni.Location = new System.Drawing.Point(116, 19);
             this.tbRecompensaCanjearPuntosDni.Name = "tbRecompensaCanjearPuntosDni";
             this.tbRecompensaCanjearPuntosDni.Size = new System.Drawing.Size(194, 20);
-            this.tbRecompensaCanjearPuntosDni.TabIndex = 3;
+            this.tbRecompensaCanjearPuntosDni.TabIndex = 0;
             // 
             // tbRecompensaCanjearPuntosPuntosAcumulados
             // 
@@ -80,7 +80,7 @@
             this.tbRecompensaCanjearPuntosPuntosAcumulados.Name = "tbRecompensaCanjearPuntosPuntosAcumulados";
             this.tbRecompensaCanjearPuntosPuntosAcumulados.ReadOnly = true;
             this.tbRecompensaCanjearPuntosPuntosAcumulados.Size = new System.Drawing.Size(194, 20);
-            this.tbRecompensaCanjearPuntosPuntosAcumulados.TabIndex = 4;
+            this.tbRecompensaCanjearPuntosPuntosAcumulados.TabIndex = 2;
             // 
             // gbRecompensaCanjearPuntosPremiosDisponibles
             // 
@@ -100,7 +100,7 @@
             this.tbRecompensaCanjearPuntosCantidadPedida.Location = new System.Drawing.Point(283, 434);
             this.tbRecompensaCanjearPuntosCantidadPedida.Name = "tbRecompensaCanjearPuntosCantidadPedida";
             this.tbRecompensaCanjearPuntosCantidadPedida.Size = new System.Drawing.Size(100, 20);
-            this.tbRecompensaCanjearPuntosCantidadPedida.TabIndex = 8;
+            this.tbRecompensaCanjearPuntosCantidadPedida.TabIndex = 3;
             // 
             // lblRecompensaCanjearPuntosCantidadPedida
             // 
@@ -130,7 +130,7 @@
             this.btnRecompensaCanjearPuntosCanjear.Location = new System.Drawing.Point(389, 434);
             this.btnRecompensaCanjearPuntosCanjear.Name = "btnRecompensaCanjearPuntosCanjear";
             this.btnRecompensaCanjearPuntosCanjear.Size = new System.Drawing.Size(75, 23);
-            this.btnRecompensaCanjearPuntosCanjear.TabIndex = 6;
+            this.btnRecompensaCanjearPuntosCanjear.TabIndex = 4;
             this.btnRecompensaCanjearPuntosCanjear.Text = "Canjear";
             this.btnRecompensaCanjearPuntosCanjear.UseVisualStyleBackColor = true;
             this.btnRecompensaCanjearPuntosCanjear.Click += new System.EventHandler(this.btnRecompensaCanjearPuntosCanjear_Click);
@@ -140,7 +140,7 @@
             this.btnRecompensaCanjearPuntosBuscar.Location = new System.Drawing.Point(317, 17);
             this.btnRecompensaCanjearPuntosBuscar.Name = "btnRecompensaCanjearPuntosBuscar";
             this.btnRecompensaCanjearPuntosBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnRecompensaCanjearPuntosBuscar.TabIndex = 7;
+            this.btnRecompensaCanjearPuntosBuscar.TabIndex = 1;
             this.btnRecompensaCanjearPuntosBuscar.Text = "Buscar";
             this.btnRecompensaCanjearPuntosBuscar.UseVisualStyleBackColor = true;
             this.btnRecompensaCanjearPuntosBuscar.Click += new System.EventHandler(this.btnRecompensaCanjearPuntosBuscar_Click);

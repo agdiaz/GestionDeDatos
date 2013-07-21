@@ -68,7 +68,7 @@
             this.btnRolAltaGuardar.Location = new System.Drawing.Point(141, 449);
             this.btnRolAltaGuardar.Name = "btnRolAltaGuardar";
             this.btnRolAltaGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnRolAltaGuardar.TabIndex = 4;
+            this.btnRolAltaGuardar.TabIndex = 2;
             this.btnRolAltaGuardar.Text = "Guardar";
             this.btnRolAltaGuardar.UseVisualStyleBackColor = true;
             this.btnRolAltaGuardar.Click += new System.EventHandler(this.btnRolAltaGuardar_Click);
@@ -78,7 +78,7 @@
             this.btnRolAltaLimpiar.Location = new System.Drawing.Point(222, 449);
             this.btnRolAltaLimpiar.Name = "btnRolAltaLimpiar";
             this.btnRolAltaLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnRolAltaLimpiar.TabIndex = 5;
+            this.btnRolAltaLimpiar.TabIndex = 3;
             this.btnRolAltaLimpiar.Text = "Limpiar";
             this.btnRolAltaLimpiar.UseVisualStyleBackColor = true;
             this.btnRolAltaLimpiar.Click += new System.EventHandler(this.btnRolAltaLimpiar_Click);
@@ -102,7 +102,7 @@
             this.clbFuncionalidades.Location = new System.Drawing.Point(9, 74);
             this.clbFuncionalidades.Name = "clbFuncionalidades";
             this.clbFuncionalidades.Size = new System.Drawing.Size(270, 334);
-            this.clbFuncionalidades.TabIndex = 3;
+            this.clbFuncionalidades.TabIndex = 4;
             // 
             // RolAlta
             // 

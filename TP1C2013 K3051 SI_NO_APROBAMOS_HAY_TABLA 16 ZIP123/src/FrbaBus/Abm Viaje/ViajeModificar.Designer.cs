@@ -87,21 +87,21 @@
             this.dtpViajeModificarFechaSalida.Location = new System.Drawing.Point(161, 19);
             this.dtpViajeModificarFechaSalida.Name = "dtpViajeModificarFechaSalida";
             this.dtpViajeModificarFechaSalida.Size = new System.Drawing.Size(274, 20);
-            this.dtpViajeModificarFechaSalida.TabIndex = 5;
+            this.dtpViajeModificarFechaSalida.TabIndex = 0;
             // 
             // dtpViajeModificarFechaLlegadaEstimada
             // 
             this.dtpViajeModificarFechaLlegadaEstimada.Location = new System.Drawing.Point(161, 55);
             this.dtpViajeModificarFechaLlegadaEstimada.Name = "dtpViajeModificarFechaLlegadaEstimada";
             this.dtpViajeModificarFechaLlegadaEstimada.Size = new System.Drawing.Size(274, 20);
-            this.dtpViajeModificarFechaLlegadaEstimada.TabIndex = 7;
+            this.dtpViajeModificarFechaLlegadaEstimada.TabIndex = 1;
             // 
             // btnViajeModificarGuardar
             // 
             this.btnViajeModificarGuardar.Location = new System.Drawing.Point(378, 248);
             this.btnViajeModificarGuardar.Name = "btnViajeModificarGuardar";
             this.btnViajeModificarGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnViajeModificarGuardar.TabIndex = 9;
+            this.btnViajeModificarGuardar.TabIndex = 8;
             this.btnViajeModificarGuardar.Text = "Guardar";
             this.btnViajeModificarGuardar.UseVisualStyleBackColor = true;
             this.btnViajeModificarGuardar.Click += new System.EventHandler(this.btnViajeModificarGuardar_Click);
@@ -112,7 +112,7 @@
             this.txtMicro.Name = "txtMicro";
             this.txtMicro.ReadOnly = true;
             this.txtMicro.Size = new System.Drawing.Size(179, 20);
-            this.txtMicro.TabIndex = 10;
+            this.txtMicro.TabIndex = 2;
             this.txtMicro.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // btnViajeModificarBuscarMicro
@@ -120,7 +120,7 @@
             this.btnViajeModificarBuscarMicro.Location = new System.Drawing.Point(259, 27);
             this.btnViajeModificarBuscarMicro.Name = "btnViajeModificarBuscarMicro";
             this.btnViajeModificarBuscarMicro.Size = new System.Drawing.Size(75, 23);
-            this.btnViajeModificarBuscarMicro.TabIndex = 11;
+            this.btnViajeModificarBuscarMicro.TabIndex = 3;
             this.btnViajeModificarBuscarMicro.Text = "Buscar";
             this.btnViajeModificarBuscarMicro.UseVisualStyleBackColor = true;
             this.btnViajeModificarBuscarMicro.Click += new System.EventHandler(this.btnViajeModificarBuscarMicro_Click);
@@ -131,14 +131,14 @@
             this.txtRecorrido.Name = "txtRecorrido";
             this.txtRecorrido.ReadOnly = true;
             this.txtRecorrido.Size = new System.Drawing.Size(179, 20);
-            this.txtRecorrido.TabIndex = 12;
+            this.txtRecorrido.TabIndex = 4;
             // 
             // btnViajeModificarBuscarRecorrido
             // 
             this.btnViajeModificarBuscarRecorrido.Location = new System.Drawing.Point(259, 56);
             this.btnViajeModificarBuscarRecorrido.Name = "btnViajeModificarBuscarRecorrido";
             this.btnViajeModificarBuscarRecorrido.Size = new System.Drawing.Size(75, 23);
-            this.btnViajeModificarBuscarRecorrido.TabIndex = 13;
+            this.btnViajeModificarBuscarRecorrido.TabIndex = 6;
             this.btnViajeModificarBuscarRecorrido.Text = "Buscar";
             this.btnViajeModificarBuscarRecorrido.UseVisualStyleBackColor = true;
             this.btnViajeModificarBuscarRecorrido.Click += new System.EventHandler(this.btnViajeModificarBuscarRecorrido_Click);
@@ -176,7 +176,7 @@
             this.btnLimpiar.Location = new System.Drawing.Point(12, 248);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 16;
+            this.btnLimpiar.TabIndex = 7;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);

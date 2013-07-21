@@ -61,7 +61,7 @@
             this.cbbMicroModificarTipoServicio.Location = new System.Drawing.Point(112, 24);
             this.cbbMicroModificarTipoServicio.Name = "cbbMicroModificarTipoServicio";
             this.cbbMicroModificarTipoServicio.Size = new System.Drawing.Size(152, 21);
-            this.cbbMicroModificarTipoServicio.TabIndex = 0;
+            this.cbbMicroModificarTipoServicio.TabIndex = 3;
             // 
             // lblMicroModificarTipoServicio
             // 
@@ -88,7 +88,7 @@
             this.cbbMicroModificarTipoEmpresa.Location = new System.Drawing.Point(112, 42);
             this.cbbMicroModificarTipoEmpresa.Name = "cbbMicroModificarTipoEmpresa";
             this.cbbMicroModificarTipoEmpresa.Size = new System.Drawing.Size(161, 21);
-            this.cbbMicroModificarTipoEmpresa.TabIndex = 5;
+            this.cbbMicroModificarTipoEmpresa.TabIndex = 1;
             this.cbbMicroModificarTipoEmpresa.SelectedIndexChanged += new System.EventHandler(this.cbbMicroModificarTipoEmpresa_SelectedIndexChanged);
             // 
             // lblMicroModificarKgsEncomiendas
@@ -105,7 +105,7 @@
             this.btnMicroModificarGuardar.Location = new System.Drawing.Point(21, 402);
             this.btnMicroModificarGuardar.Name = "btnMicroModificarGuardar";
             this.btnMicroModificarGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnMicroModificarGuardar.TabIndex = 8;
+            this.btnMicroModificarGuardar.TabIndex = 9;
             this.btnMicroModificarGuardar.Text = "Guardar";
             this.btnMicroModificarGuardar.UseVisualStyleBackColor = true;
             this.btnMicroModificarGuardar.Click += new System.EventHandler(this.btnMicroModificarGuardar_Click);
@@ -115,7 +115,7 @@
             this.btnMicroModificarLimpiar.Location = new System.Drawing.Point(102, 402);
             this.btnMicroModificarLimpiar.Name = "btnMicroModificarLimpiar";
             this.btnMicroModificarLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnMicroModificarLimpiar.TabIndex = 9;
+            this.btnMicroModificarLimpiar.TabIndex = 10;
             this.btnMicroModificarLimpiar.Text = "Limpiar";
             this.btnMicroModificarLimpiar.UseVisualStyleBackColor = true;
             this.btnMicroModificarLimpiar.Click += new System.EventHandler(this.btnMicroModificarLimpiar_Click);
@@ -139,7 +139,7 @@
             this.cbbMicroModificarTipoModelo.Location = new System.Drawing.Point(112, 17);
             this.cbbMicroModificarTipoModelo.Name = "cbbMicroModificarTipoModelo";
             this.cbbMicroModificarTipoModelo.Size = new System.Drawing.Size(161, 21);
-            this.cbbMicroModificarTipoModelo.TabIndex = 11;
+            this.cbbMicroModificarTipoModelo.TabIndex = 0;
             // 
             // mtbMicroModificarKgsEncomiendas
             // 
@@ -147,7 +147,7 @@
             this.mtbMicroModificarKgsEncomiendas.Mask = "99999";
             this.mtbMicroModificarKgsEncomiendas.Name = "mtbMicroModificarKgsEncomiendas";
             this.mtbMicroModificarKgsEncomiendas.Size = new System.Drawing.Size(66, 20);
-            this.mtbMicroModificarKgsEncomiendas.TabIndex = 13;
+            this.mtbMicroModificarKgsEncomiendas.TabIndex = 4;
             this.mtbMicroModificarKgsEncomiendas.ValidatingType = typeof(int);
             // 
             // label1
@@ -164,7 +164,7 @@
             this.txtPatente.Location = new System.Drawing.Point(112, 68);
             this.txtPatente.Name = "txtPatente";
             this.txtPatente.Size = new System.Drawing.Size(100, 20);
-            this.txtPatente.TabIndex = 15;
+            this.txtPatente.TabIndex = 2;
             // 
             // label2
             // 
@@ -181,7 +181,7 @@
             this.dtpFechaAlta.Location = new System.Drawing.Point(118, 19);
             this.dtpFechaAlta.Name = "dtpFechaAlta";
             this.dtpFechaAlta.Size = new System.Drawing.Size(146, 20);
-            this.dtpFechaAlta.TabIndex = 17;
+            this.dtpFechaAlta.TabIndex = 5;
             // 
             // groupBox1
             // 
@@ -231,7 +231,7 @@
             this.tbCantButacas.Location = new System.Drawing.Point(118, 89);
             this.tbCantButacas.Name = "tbCantButacas";
             this.tbCantButacas.Size = new System.Drawing.Size(100, 20);
-            this.tbCantButacas.TabIndex = 22;
+            this.tbCantButacas.TabIndex = 8;
             // 
             // label3
             // 
@@ -248,7 +248,7 @@
             this.cbBajaVidaUtil.Location = new System.Drawing.Point(9, 59);
             this.cbBajaVidaUtil.Name = "cbBajaVidaUtil";
             this.cbBajaVidaUtil.Size = new System.Drawing.Size(89, 17);
-            this.cbBajaVidaUtil.TabIndex = 20;
+            this.cbBajaVidaUtil.TabIndex = 6;
             this.cbBajaVidaUtil.Text = "Baja Vida Util";
             this.cbBajaVidaUtil.UseVisualStyleBackColor = true;
             this.cbBajaVidaUtil.CheckedChanged += new System.EventHandler(this.cbBajaVidaUtil_CheckedChanged);
@@ -259,7 +259,7 @@
             this.dtpFechaBajaUtil.Location = new System.Drawing.Point(118, 56);
             this.dtpFechaBajaUtil.Name = "dtpFechaBajaUtil";
             this.dtpFechaBajaUtil.Size = new System.Drawing.Size(146, 20);
-            this.dtpFechaBajaUtil.TabIndex = 19;
+            this.dtpFechaBajaUtil.TabIndex = 7;
             // 
             // MicroModificar
             // 

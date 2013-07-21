@@ -78,7 +78,7 @@
             this.btnDarBaja.Location = new System.Drawing.Point(93, 406);
             this.btnDarBaja.Name = "btnDarBaja";
             this.btnDarBaja.Size = new System.Drawing.Size(75, 23);
-            this.btnDarBaja.TabIndex = 1;
+            this.btnDarBaja.TabIndex = 12;
             this.btnDarBaja.Text = "Dar de baja";
             this.btnDarBaja.UseVisualStyleBackColor = true;
             this.btnDarBaja.Click += new System.EventHandler(this.btnDarBaja_Click);
@@ -120,7 +120,7 @@
             this.rbDiscNA.Location = new System.Drawing.Point(94, 21);
             this.rbDiscNA.Name = "rbDiscNA";
             this.rbDiscNA.Size = new System.Drawing.Size(76, 17);
-            this.rbDiscNA.TabIndex = 2;
+            this.rbDiscNA.TabIndex = 8;
             this.rbDiscNA.TabStop = true;
             this.rbDiscNA.Text = "No importa";
             this.rbDiscNA.UseVisualStyleBackColor = true;
@@ -131,7 +131,7 @@
             this.rbDiscNo.Location = new System.Drawing.Point(48, 21);
             this.rbDiscNo.Name = "rbDiscNo";
             this.rbDiscNo.Size = new System.Drawing.Size(39, 17);
-            this.rbDiscNo.TabIndex = 1;
+            this.rbDiscNo.TabIndex = 7;
             this.rbDiscNo.TabStop = true;
             this.rbDiscNo.Text = "No";
             this.rbDiscNo.UseVisualStyleBackColor = true;
@@ -142,7 +142,7 @@
             this.rbDiscSi.Location = new System.Drawing.Point(7, 20);
             this.rbDiscSi.Name = "rbDiscSi";
             this.rbDiscSi.Size = new System.Drawing.Size(34, 17);
-            this.rbDiscSi.TabIndex = 0;
+            this.rbDiscSi.TabIndex = 6;
             this.rbDiscSi.TabStop = true;
             this.rbDiscSi.Text = "Si";
             this.rbDiscSi.UseVisualStyleBackColor = true;
@@ -164,7 +164,7 @@
             this.cbFemenino.Location = new System.Drawing.Point(6, 45);
             this.cbFemenino.Name = "cbFemenino";
             this.cbFemenino.Size = new System.Drawing.Size(52, 17);
-            this.cbFemenino.TabIndex = 1;
+            this.cbFemenino.TabIndex = 5;
             this.cbFemenino.Text = "Mujer";
             this.cbFemenino.UseVisualStyleBackColor = true;
             // 
@@ -174,7 +174,7 @@
             this.cbMasculino.Location = new System.Drawing.Point(6, 22);
             this.cbMasculino.Name = "cbMasculino";
             this.cbMasculino.Size = new System.Drawing.Size(63, 17);
-            this.cbMasculino.TabIndex = 0;
+            this.cbMasculino.TabIndex = 4;
             this.cbMasculino.Text = "Hombre";
             this.cbMasculino.UseVisualStyleBackColor = true;
             // 
@@ -183,21 +183,21 @@
             this.txtApellido.Location = new System.Drawing.Point(63, 71);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(251, 20);
-            this.txtApellido.TabIndex = 7;
+            this.txtApellido.TabIndex = 3;
             // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(63, 45);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(251, 20);
-            this.txtNombre.TabIndex = 6;
+            this.txtNombre.TabIndex = 2;
             // 
             // txtDni
             // 
             this.txtDni.Location = new System.Drawing.Point(63, 19);
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(109, 20);
-            this.txtDni.TabIndex = 5;
+            this.txtDni.TabIndex = 1;
             // 
             // label3
             // 
@@ -231,7 +231,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(876, 15);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 1;
+            this.btnBuscar.TabIndex = 9;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -241,7 +241,7 @@
             this.btnLimpiar.Location = new System.Drawing.Point(876, 44);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 0;
+            this.btnLimpiar.TabIndex = 10;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
@@ -251,7 +251,7 @@
             this.btnModificarCliente.Location = new System.Drawing.Point(12, 406);
             this.btnModificarCliente.Name = "btnModificarCliente";
             this.btnModificarCliente.Size = new System.Drawing.Size(75, 23);
-            this.btnModificarCliente.TabIndex = 3;
+            this.btnModificarCliente.TabIndex = 11;
             this.btnModificarCliente.Text = "Modificar";
             this.btnModificarCliente.UseVisualStyleBackColor = true;
             this.btnModificarCliente.Click += new System.EventHandler(this.btnModificarCliente_Click);
@@ -261,7 +261,7 @@
             this.btnSeleccionar.Location = new System.Drawing.Point(894, 406);
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.Size = new System.Drawing.Size(75, 23);
-            this.btnSeleccionar.TabIndex = 4;
+            this.btnSeleccionar.TabIndex = 13;
             this.btnSeleccionar.Text = "Seleccionar";
             this.btnSeleccionar.UseVisualStyleBackColor = true;
             this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);

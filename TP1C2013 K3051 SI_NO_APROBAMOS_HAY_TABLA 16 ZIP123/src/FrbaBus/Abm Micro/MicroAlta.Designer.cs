@@ -59,7 +59,7 @@
             this.cbbMicroAltaTipoServicio.Location = new System.Drawing.Point(112, 24);
             this.cbbMicroAltaTipoServicio.Name = "cbbMicroAltaTipoServicio";
             this.cbbMicroAltaTipoServicio.Size = new System.Drawing.Size(152, 21);
-            this.cbbMicroAltaTipoServicio.TabIndex = 0;
+            this.cbbMicroAltaTipoServicio.TabIndex = 3;
             // 
             // lblMicroAltaTipoServicio
             // 
@@ -86,7 +86,7 @@
             this.cbbMicroAltaTipoEmpresa.Location = new System.Drawing.Point(112, 42);
             this.cbbMicroAltaTipoEmpresa.Name = "cbbMicroAltaTipoEmpresa";
             this.cbbMicroAltaTipoEmpresa.Size = new System.Drawing.Size(161, 21);
-            this.cbbMicroAltaTipoEmpresa.TabIndex = 5;
+            this.cbbMicroAltaTipoEmpresa.TabIndex = 1;
             this.cbbMicroAltaTipoEmpresa.SelectedIndexChanged += new System.EventHandler(this.cbbMicroAltaTipoEmpresa_SelectedIndexChanged);
             // 
             // lblMicroAltaKgsEncomiendas
@@ -103,7 +103,7 @@
             this.btnMicroAltaGuardar.Location = new System.Drawing.Point(21, 303);
             this.btnMicroAltaGuardar.Name = "btnMicroAltaGuardar";
             this.btnMicroAltaGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnMicroAltaGuardar.TabIndex = 8;
+            this.btnMicroAltaGuardar.TabIndex = 7;
             this.btnMicroAltaGuardar.Text = "Guardar";
             this.btnMicroAltaGuardar.UseVisualStyleBackColor = true;
             this.btnMicroAltaGuardar.Click += new System.EventHandler(this.btnMicroAltaGuardar_Click);
@@ -113,7 +113,7 @@
             this.btnMicroAltaLimpiar.Location = new System.Drawing.Point(102, 303);
             this.btnMicroAltaLimpiar.Name = "btnMicroAltaLimpiar";
             this.btnMicroAltaLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnMicroAltaLimpiar.TabIndex = 9;
+            this.btnMicroAltaLimpiar.TabIndex = 8;
             this.btnMicroAltaLimpiar.Text = "Limpiar";
             this.btnMicroAltaLimpiar.UseVisualStyleBackColor = true;
             this.btnMicroAltaLimpiar.Click += new System.EventHandler(this.btnMicroAltaLimpiar_Click);
@@ -137,7 +137,7 @@
             this.cbbMicroAltaTipoModelo.Location = new System.Drawing.Point(112, 17);
             this.cbbMicroAltaTipoModelo.Name = "cbbMicroAltaTipoModelo";
             this.cbbMicroAltaTipoModelo.Size = new System.Drawing.Size(161, 21);
-            this.cbbMicroAltaTipoModelo.TabIndex = 11;
+            this.cbbMicroAltaTipoModelo.TabIndex = 0;
             // 
             // mtbMicroAltaKgsEncomiendas
             // 
@@ -145,7 +145,7 @@
             this.mtbMicroAltaKgsEncomiendas.Mask = "99999";
             this.mtbMicroAltaKgsEncomiendas.Name = "mtbMicroAltaKgsEncomiendas";
             this.mtbMicroAltaKgsEncomiendas.Size = new System.Drawing.Size(66, 20);
-            this.mtbMicroAltaKgsEncomiendas.TabIndex = 13;
+            this.mtbMicroAltaKgsEncomiendas.TabIndex = 4;
             this.mtbMicroAltaKgsEncomiendas.ValidatingType = typeof(int);
             // 
             // label1
@@ -162,7 +162,7 @@
             this.txtPatente.Location = new System.Drawing.Point(112, 68);
             this.txtPatente.Name = "txtPatente";
             this.txtPatente.Size = new System.Drawing.Size(100, 20);
-            this.txtPatente.TabIndex = 15;
+            this.txtPatente.TabIndex = 2;
             // 
             // label2
             // 
@@ -179,7 +179,7 @@
             this.dtpFechaAlta.Location = new System.Drawing.Point(72, 19);
             this.dtpFechaAlta.Name = "dtpFechaAlta";
             this.dtpFechaAlta.Size = new System.Drawing.Size(192, 20);
-            this.dtpFechaAlta.TabIndex = 17;
+            this.dtpFechaAlta.TabIndex = 5;
             // 
             // groupBox1
             // 
@@ -227,7 +227,7 @@
             this.tbCantButacas.Location = new System.Drawing.Point(72, 45);
             this.tbCantButacas.Name = "tbCantButacas";
             this.tbCantButacas.Size = new System.Drawing.Size(100, 20);
-            this.tbCantButacas.TabIndex = 19;
+            this.tbCantButacas.TabIndex = 6;
             // 
             // label3
             // 

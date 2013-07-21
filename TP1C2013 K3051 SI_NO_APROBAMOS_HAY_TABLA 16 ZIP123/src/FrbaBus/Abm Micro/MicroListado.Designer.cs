@@ -74,7 +74,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(596, 102);
-            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros de búsqueda";
             // 
@@ -83,21 +83,21 @@
             this.tbMicroListadoKgsEncomiendas.Location = new System.Drawing.Point(376, 70);
             this.tbMicroListadoKgsEncomiendas.Name = "tbMicroListadoKgsEncomiendas";
             this.tbMicroListadoKgsEncomiendas.Size = new System.Drawing.Size(100, 20);
-            this.tbMicroListadoKgsEncomiendas.TabIndex = 11;
+            this.tbMicroListadoKgsEncomiendas.TabIndex = 6;
             // 
             // tbMicroListadoNumeroMicro
             // 
             this.tbMicroListadoNumeroMicro.Location = new System.Drawing.Point(376, 44);
             this.tbMicroListadoNumeroMicro.Name = "tbMicroListadoNumeroMicro";
             this.tbMicroListadoNumeroMicro.Size = new System.Drawing.Size(100, 20);
-            this.tbMicroListadoNumeroMicro.TabIndex = 10;
+            this.tbMicroListadoNumeroMicro.TabIndex = 4;
             // 
             // tbMicroListadoPatente
             // 
-            this.tbMicroListadoPatente.Location = new System.Drawing.Point(376, 13);
+            this.tbMicroListadoPatente.Location = new System.Drawing.Point(376, 14);
             this.tbMicroListadoPatente.Name = "tbMicroListadoPatente";
             this.tbMicroListadoPatente.Size = new System.Drawing.Size(100, 20);
-            this.tbMicroListadoPatente.TabIndex = 9;
+            this.tbMicroListadoPatente.TabIndex = 2;
             // 
             // btnMicroListadoLimpiar
             // 
@@ -105,7 +105,7 @@
             this.btnMicroListadoLimpiar.Location = new System.Drawing.Point(515, 42);
             this.btnMicroListadoLimpiar.Name = "btnMicroListadoLimpiar";
             this.btnMicroListadoLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnMicroListadoLimpiar.TabIndex = 1;
+            this.btnMicroListadoLimpiar.TabIndex = 8;
             this.btnMicroListadoLimpiar.Text = "Limpiar";
             this.btnMicroListadoLimpiar.UseVisualStyleBackColor = true;
             this.btnMicroListadoLimpiar.Click += new System.EventHandler(this.btnMicroListadoLimpiar_Click);
@@ -116,7 +116,7 @@
             this.btnMicroListadoBuscar.Location = new System.Drawing.Point(515, 14);
             this.btnMicroListadoBuscar.Name = "btnMicroListadoBuscar";
             this.btnMicroListadoBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnMicroListadoBuscar.TabIndex = 2;
+            this.btnMicroListadoBuscar.TabIndex = 7;
             this.btnMicroListadoBuscar.Text = "Buscar";
             this.btnMicroListadoBuscar.UseVisualStyleBackColor = true;
             this.btnMicroListadoBuscar.Click += new System.EventHandler(this.btnMicroListadoBuscar_Click);
@@ -170,7 +170,7 @@
             this.cbbMicroListadoTipoModelo.Location = new System.Drawing.Point(88, 43);
             this.cbbMicroListadoTipoModelo.Name = "cbbMicroListadoTipoModelo";
             this.cbbMicroListadoTipoModelo.Size = new System.Drawing.Size(189, 21);
-            this.cbbMicroListadoTipoModelo.TabIndex = 4;
+            this.cbbMicroListadoTipoModelo.TabIndex = 3;
             // 
             // lblMicroListadoTipoServicio
             // 
@@ -241,7 +241,7 @@
             this.dgvMicroListado.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvMicroListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMicroListado.Size = new System.Drawing.Size(596, 256);
-            this.dgvMicroListado.TabIndex = 3;
+            this.dgvMicroListado.TabIndex = 12;
             this.dgvMicroListado.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMicroListado_CellContentDoubleClick);
             // 
             // btnMicroListadoDarBaja
@@ -250,7 +250,7 @@
             this.btnMicroListadoDarBaja.Location = new System.Drawing.Point(100, 382);
             this.btnMicroListadoDarBaja.Name = "btnMicroListadoDarBaja";
             this.btnMicroListadoDarBaja.Size = new System.Drawing.Size(75, 23);
-            this.btnMicroListadoDarBaja.TabIndex = 4;
+            this.btnMicroListadoDarBaja.TabIndex = 10;
             this.btnMicroListadoDarBaja.Text = "Dar de baja";
             this.btnMicroListadoDarBaja.UseVisualStyleBackColor = true;
             this.btnMicroListadoDarBaja.Click += new System.EventHandler(this.btnMicroListadoDarBaja_Click);
@@ -261,7 +261,7 @@
             this.btnMicroListadoModificar.Location = new System.Drawing.Point(19, 382);
             this.btnMicroListadoModificar.Name = "btnMicroListadoModificar";
             this.btnMicroListadoModificar.Size = new System.Drawing.Size(75, 23);
-            this.btnMicroListadoModificar.TabIndex = 5;
+            this.btnMicroListadoModificar.TabIndex = 9;
             this.btnMicroListadoModificar.Text = "Modificar";
             this.btnMicroListadoModificar.UseVisualStyleBackColor = true;
             this.btnMicroListadoModificar.Click += new System.EventHandler(this.btnMicroListadoModificar_Click);
@@ -271,7 +271,7 @@
             this.btnSeleccionar.Location = new System.Drawing.Point(532, 381);
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.Size = new System.Drawing.Size(75, 23);
-            this.btnSeleccionar.TabIndex = 6;
+            this.btnSeleccionar.TabIndex = 11;
             this.btnSeleccionar.Text = "Seleccionar";
             this.btnSeleccionar.UseVisualStyleBackColor = true;
             this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);

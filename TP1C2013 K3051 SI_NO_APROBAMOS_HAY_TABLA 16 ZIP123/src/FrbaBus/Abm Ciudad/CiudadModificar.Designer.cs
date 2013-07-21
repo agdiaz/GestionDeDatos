@@ -48,7 +48,7 @@
             this.btnCiudadModificarLimpiar.Location = new System.Drawing.Point(297, 32);
             this.btnCiudadModificarLimpiar.Name = "btnCiudadModificarLimpiar";
             this.btnCiudadModificarLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnCiudadModificarLimpiar.TabIndex = 1;
+            this.btnCiudadModificarLimpiar.TabIndex = 2;
             this.btnCiudadModificarLimpiar.Text = "Limpiar";
             this.btnCiudadModificarLimpiar.UseVisualStyleBackColor = true;
             this.btnCiudadModificarLimpiar.Click += new System.EventHandler(this.btnCiudadModificarLimpiar_Click);
@@ -58,7 +58,7 @@
             this.btnCiudadModificarGuardar.Location = new System.Drawing.Point(216, 32);
             this.btnCiudadModificarGuardar.Name = "btnCiudadModificarGuardar";
             this.btnCiudadModificarGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnCiudadModificarGuardar.TabIndex = 2;
+            this.btnCiudadModificarGuardar.TabIndex = 1;
             this.btnCiudadModificarGuardar.Text = "Guardar";
             this.btnCiudadModificarGuardar.UseVisualStyleBackColor = true;
             this.btnCiudadModificarGuardar.Click += new System.EventHandler(this.btnCiudadModificarGuardar_Click);

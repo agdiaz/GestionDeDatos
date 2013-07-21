@@ -66,7 +66,7 @@
             this.btnCiudadListadoBuscar.Location = new System.Drawing.Point(58, 51);
             this.btnCiudadListadoBuscar.Name = "btnCiudadListadoBuscar";
             this.btnCiudadListadoBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnCiudadListadoBuscar.TabIndex = 3;
+            this.btnCiudadListadoBuscar.TabIndex = 2;
             this.btnCiudadListadoBuscar.Text = "Buscar";
             this.btnCiudadListadoBuscar.UseVisualStyleBackColor = true;
             this.btnCiudadListadoBuscar.Click += new System.EventHandler(this.btnCiudadListadoBuscar_Click);
@@ -85,7 +85,7 @@
             this.btnCiudadListadoLimpiar.Location = new System.Drawing.Point(139, 51);
             this.btnCiudadListadoLimpiar.Name = "btnCiudadListadoLimpiar";
             this.btnCiudadListadoLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnCiudadListadoLimpiar.TabIndex = 2;
+            this.btnCiudadListadoLimpiar.TabIndex = 3;
             this.btnCiudadListadoLimpiar.Text = "Limpiar";
             this.btnCiudadListadoLimpiar.UseVisualStyleBackColor = true;
             this.btnCiudadListadoLimpiar.Click += new System.EventHandler(this.btnCiudadListadoLimpiar_Click);
@@ -110,7 +110,7 @@
             this.btnCiudadListadoDarBaja.Location = new System.Drawing.Point(94, 397);
             this.btnCiudadListadoDarBaja.Name = "btnCiudadListadoDarBaja";
             this.btnCiudadListadoDarBaja.Size = new System.Drawing.Size(75, 23);
-            this.btnCiudadListadoDarBaja.TabIndex = 4;
+            this.btnCiudadListadoDarBaja.TabIndex = 5;
             this.btnCiudadListadoDarBaja.Text = "Dar de baja";
             this.btnCiudadListadoDarBaja.UseVisualStyleBackColor = true;
             this.btnCiudadListadoDarBaja.Click += new System.EventHandler(this.btnCiudadListadoDarBaja_Click);
@@ -120,7 +120,7 @@
             this.btnModificar.Location = new System.Drawing.Point(12, 397);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
-            this.btnModificar.TabIndex = 5;
+            this.btnModificar.TabIndex = 4;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);

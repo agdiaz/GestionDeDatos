@@ -117,7 +117,7 @@ namespace FrbaBus.DAO
             return Convert.ToInt32(pId.Value);
         }
 
-        public IList<Compra> ListarFiltrado(decimal nroDni, int idCompra, DateTime fecha)
+        public IList<Compra> ListarFiltrado(decimal nroDni, int idCompra, DateTime? fecha)
         {
             IList<Compra> compras = new List<Compra>();
 
@@ -129,16 +129,16 @@ namespace FrbaBus.DAO
             return compras;
         }
 
-        private DataSet ObtenerFiltrado(decimal nroDni, int idCompra, DateTime fecha)
+        private DataSet ObtenerFiltrado(decimal nroDni, int idCompra, DateTime? fecha)
         {
             Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
             
             if (idCompra > 0)
-                parametros.Add(new SqlParameter("@id_compra", SqlDbType.Int, 4, "id_compra"), nroDni);
+                parametros.Add(new SqlParameter("@id_compra", SqlDbType.Int, 4, "id_compra"), idCompra);
             if (nroDni > 0)
-            parametros.Add(new SqlParameter("@dni", SqlDbType.Decimal, 18, "dni"), idCompra);
-            if (fecha != null)
-                parametros.Add(new SqlParameter("@fecha_compra", SqlDbType.DateTime, 8, "fecha_compra"), fecha);
+            parametros.Add(new SqlParameter("@dni", SqlDbType.Decimal, 18, "dni"), nroDni);
+            if (fecha.HasValue)
+                parametros.Add(new SqlParameter("@fecha_compra", SqlDbType.DateTime, 8, "fecha_compra"), fecha.Value);
 
             return accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_filtrar_compras", parametros);
             

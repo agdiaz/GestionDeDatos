@@ -75,7 +75,7 @@
             this.btnLimpiar.Location = new System.Drawing.Point(565, 102);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 10;
+            this.btnLimpiar.TabIndex = 7;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
@@ -85,7 +85,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(484, 102);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 9;
+            this.btnBuscar.TabIndex = 6;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -95,7 +95,7 @@
             this.tbPiso.Location = new System.Drawing.Point(92, 107);
             this.tbPiso.Name = "tbPiso";
             this.tbPiso.Size = new System.Drawing.Size(277, 20);
-            this.tbPiso.TabIndex = 8;
+            this.tbPiso.TabIndex = 5;
             // 
             // cbTipoButaca
             // 
@@ -103,7 +103,7 @@
             this.cbTipoButaca.Location = new System.Drawing.Point(92, 79);
             this.cbTipoButaca.Name = "cbTipoButaca";
             this.cbTipoButaca.Size = new System.Drawing.Size(277, 21);
-            this.cbTipoButaca.TabIndex = 7;
+            this.cbTipoButaca.TabIndex = 4;
             // 
             // label4
             // 
@@ -128,7 +128,7 @@
             this.tbNroButaca.Location = new System.Drawing.Point(92, 49);
             this.tbNroButaca.Name = "tbNroButaca";
             this.tbNroButaca.Size = new System.Drawing.Size(277, 20);
-            this.tbNroButaca.TabIndex = 4;
+            this.tbNroButaca.TabIndex = 3;
             // 
             // label2
             // 
@@ -176,14 +176,14 @@
             this.dgvOcupadas.ReadOnly = true;
             this.dgvOcupadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOcupadas.Size = new System.Drawing.Size(328, 202);
-            this.dgvOcupadas.TabIndex = 1;
+            this.dgvOcupadas.TabIndex = 8;
             // 
             // btnSeleccionar
             // 
             this.btnSeleccionar.Location = new System.Drawing.Point(584, 398);
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.Size = new System.Drawing.Size(75, 23);
-            this.btnSeleccionar.TabIndex = 2;
+            this.btnSeleccionar.TabIndex = 10;
             this.btnSeleccionar.Text = "Seleccionar";
             this.btnSeleccionar.UseVisualStyleBackColor = true;
             this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
@@ -199,7 +199,7 @@
             this.dgvLibres.ReadOnly = true;
             this.dgvLibres.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLibres.Size = new System.Drawing.Size(311, 202);
-            this.dgvLibres.TabIndex = 3;
+            this.dgvLibres.TabIndex = 9;
             this.dgvLibres.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLibres_CellContentDoubleClick);
             // 
             // label5

@@ -36,7 +36,19 @@ namespace FrbaBus.Compras
         {
             try
             {
-                IList<Compra> compras = _manager.Listar();
+                decimal nroDni = 0;
+                if(!string.IsNullOrEmpty(txtDni.Text))
+                    nroDni = Convert.ToDecimal(txtDni.Text);
+
+                int idCompra = 0;
+                if (!string.IsNullOrEmpty(txtIDCompra.Text))
+                    idCompra = Convert.ToInt32(txtIDCompra.Text);
+
+                DateTime? a = null;
+                if (checkBox1.Checked)
+                    a = dtpFechaCompra.Value;
+
+                IList<Compra> compras = _manager.ListarFiltrado(nroDni, idCompra, a);
                 this.dgvCompras.DataSource = compras;
                 
                 dgvCompras.Columns["IdUsuario"].Visible = false;
@@ -54,6 +66,11 @@ namespace FrbaBus.Compras
         }
 
         private void ComprasListado_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }

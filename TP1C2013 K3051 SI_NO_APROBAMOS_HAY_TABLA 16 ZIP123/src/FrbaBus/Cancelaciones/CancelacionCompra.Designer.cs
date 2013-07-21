@@ -60,7 +60,7 @@
             this.tbCompra.Location = new System.Drawing.Point(178, 14);
             this.tbCompra.Name = "tbCompra";
             this.tbCompra.Size = new System.Drawing.Size(135, 20);
-            this.tbCompra.TabIndex = 2;
+            this.tbCompra.TabIndex = 1;
             // 
             // label3
             // 
@@ -76,14 +76,14 @@
             this.tbMotivo.Location = new System.Drawing.Point(84, 45);
             this.tbMotivo.Name = "tbMotivo";
             this.tbMotivo.Size = new System.Drawing.Size(135, 20);
-            this.tbMotivo.TabIndex = 7;
+            this.tbMotivo.TabIndex = 2;
             // 
             // btnCancelar
             // 
             this.btnCancelar.Location = new System.Drawing.Point(215, 76);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(98, 23);
-            this.btnCancelar.TabIndex = 8;
+            this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "Cancelar compra";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);

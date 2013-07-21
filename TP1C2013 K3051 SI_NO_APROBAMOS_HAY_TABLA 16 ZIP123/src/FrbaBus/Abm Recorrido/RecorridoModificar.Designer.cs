@@ -76,7 +76,7 @@
             this.cbbRecorridoModificarTipoServicio.Location = new System.Drawing.Point(140, 74);
             this.cbbRecorridoModificarTipoServicio.Name = "cbbRecorridoModificarTipoServicio";
             this.cbbRecorridoModificarTipoServicio.Size = new System.Drawing.Size(187, 21);
-            this.cbbRecorridoModificarTipoServicio.TabIndex = 5;
+            this.cbbRecorridoModificarTipoServicio.TabIndex = 2;
             // 
             // btnRecorridoModificarLimpiar
             // 
@@ -92,7 +92,7 @@
             this.btnRecorridoModificarGuardar.Location = new System.Drawing.Point(14, 175);
             this.btnRecorridoModificarGuardar.Name = "btnRecorridoModificarGuardar";
             this.btnRecorridoModificarGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnRecorridoModificarGuardar.TabIndex = 7;
+            this.btnRecorridoModificarGuardar.TabIndex = 5;
             this.btnRecorridoModificarGuardar.Text = "Guardar";
             this.btnRecorridoModificarGuardar.UseVisualStyleBackColor = true;
             this.btnRecorridoModificarGuardar.Click += new System.EventHandler(this.btnRecorridoModificarGuardar_Click);
@@ -120,14 +120,14 @@
             this.tbRecorridoModificarPrecioBasePorKgs.Location = new System.Drawing.Point(140, 101);
             this.tbRecorridoModificarPrecioBasePorKgs.Name = "tbRecorridoModificarPrecioBasePorKgs";
             this.tbRecorridoModificarPrecioBasePorKgs.Size = new System.Drawing.Size(187, 20);
-            this.tbRecorridoModificarPrecioBasePorKgs.TabIndex = 10;
+            this.tbRecorridoModificarPrecioBasePorKgs.TabIndex = 3;
             // 
             // tbRecorridoModificarPrecioBasePorPasaje
             // 
             this.tbRecorridoModificarPrecioBasePorPasaje.Location = new System.Drawing.Point(140, 127);
             this.tbRecorridoModificarPrecioBasePorPasaje.Name = "tbRecorridoModificarPrecioBasePorPasaje";
             this.tbRecorridoModificarPrecioBasePorPasaje.Size = new System.Drawing.Size(187, 20);
-            this.tbRecorridoModificarPrecioBasePorPasaje.TabIndex = 11;
+            this.tbRecorridoModificarPrecioBasePorPasaje.TabIndex = 4;
             // 
             // cbCiudadOrigen
             // 
@@ -136,7 +136,7 @@
             this.cbCiudadOrigen.Location = new System.Drawing.Point(140, 17);
             this.cbCiudadOrigen.Name = "cbCiudadOrigen";
             this.cbCiudadOrigen.Size = new System.Drawing.Size(323, 21);
-            this.cbCiudadOrigen.TabIndex = 12;
+            this.cbCiudadOrigen.TabIndex = 0;
             // 
             // cbCiudadDestino
             // 
@@ -145,7 +145,7 @@
             this.cbCiudadDestino.Location = new System.Drawing.Point(140, 47);
             this.cbCiudadDestino.Name = "cbCiudadDestino";
             this.cbCiudadDestino.Size = new System.Drawing.Size(323, 21);
-            this.cbCiudadDestino.TabIndex = 13;
+            this.cbCiudadDestino.TabIndex = 1;
             // 
             // RecorridoModificar
             // 

@@ -72,7 +72,7 @@
             this.tbStockHasta.Location = new System.Drawing.Point(284, 84);
             this.tbStockHasta.Name = "tbStockHasta";
             this.tbStockHasta.Size = new System.Drawing.Size(100, 20);
-            this.tbStockHasta.TabIndex = 11;
+            this.tbStockHasta.TabIndex = 4;
             // 
             // label5
             // 
@@ -88,7 +88,7 @@
             this.tbStockDesde.Location = new System.Drawing.Point(85, 84);
             this.tbStockDesde.Name = "tbStockDesde";
             this.tbStockDesde.Size = new System.Drawing.Size(100, 20);
-            this.tbStockDesde.TabIndex = 9;
+            this.tbStockDesde.TabIndex = 3;
             // 
             // label4
             // 
@@ -104,7 +104,7 @@
             this.tbPuntosHasta.Location = new System.Drawing.Point(284, 58);
             this.tbPuntosHasta.Name = "tbPuntosHasta";
             this.tbPuntosHasta.Size = new System.Drawing.Size(100, 20);
-            this.tbPuntosHasta.TabIndex = 7;
+            this.tbPuntosHasta.TabIndex = 2;
             // 
             // label3
             // 
@@ -120,7 +120,7 @@
             this.tbPuntosDesde.Location = new System.Drawing.Point(85, 58);
             this.tbPuntosDesde.Name = "tbPuntosDesde";
             this.tbPuntosDesde.Size = new System.Drawing.Size(100, 20);
-            this.tbPuntosDesde.TabIndex = 5;
+            this.tbPuntosDesde.TabIndex = 1;
             // 
             // label2
             // 
@@ -136,7 +136,7 @@
             this.tbDescripcion.Location = new System.Drawing.Point(85, 32);
             this.tbDescripcion.Name = "tbDescripcion";
             this.tbDescripcion.Size = new System.Drawing.Size(299, 20);
-            this.tbDescripcion.TabIndex = 3;
+            this.tbDescripcion.TabIndex = 0;
             // 
             // label1
             // 
@@ -152,7 +152,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(563, 22);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 1;
+            this.btnBuscar.TabIndex = 5;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -162,7 +162,7 @@
             this.btnLimpiar.Location = new System.Drawing.Point(563, 51);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 0;
+            this.btnLimpiar.TabIndex = 6;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);

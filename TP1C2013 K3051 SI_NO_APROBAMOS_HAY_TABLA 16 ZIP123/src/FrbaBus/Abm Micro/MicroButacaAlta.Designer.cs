@@ -39,6 +39,8 @@
             this.tbMarca = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tbButacasTotales = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.btnQuitar = new System.Windows.Forms.Button();
             this.btnNueva = new System.Windows.Forms.Button();
             this.gbNuevaButaca = new System.Windows.Forms.GroupBox();
@@ -53,8 +55,6 @@
             this.lbButacas = new System.Windows.Forms.ListBox();
             this.tbCantidadButacas = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tbButacasTotales = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.gbNuevaButaca.SuspendLayout();
@@ -75,14 +75,14 @@
             this.tbPatente.Name = "tbPatente";
             this.tbPatente.ReadOnly = true;
             this.tbPatente.Size = new System.Drawing.Size(100, 20);
-            this.tbPatente.TabIndex = 2;
+            this.tbPatente.TabIndex = 0;
             // 
             // btnLimpiar
             // 
             this.btnLimpiar.Location = new System.Drawing.Point(323, 261);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 4;
+            this.btnLimpiar.TabIndex = 12;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             // 
@@ -91,7 +91,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(242, 261);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 5;
+            this.btnGuardar.TabIndex = 11;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -117,7 +117,7 @@
             this.btnBuscarMicro.Location = new System.Drawing.Point(190, 19);
             this.btnBuscarMicro.Name = "btnBuscarMicro";
             this.btnBuscarMicro.Size = new System.Drawing.Size(104, 23);
-            this.btnBuscarMicro.TabIndex = 7;
+            this.btnBuscarMicro.TabIndex = 1;
             this.btnBuscarMicro.Text = "Buscar micro";
             this.btnBuscarMicro.UseVisualStyleBackColor = true;
             this.btnBuscarMicro.Click += new System.EventHandler(this.btnBuscarMicro_Click);
@@ -128,7 +128,7 @@
             this.tbServicio.Name = "tbServicio";
             this.tbServicio.ReadOnly = true;
             this.tbServicio.Size = new System.Drawing.Size(100, 20);
-            this.tbServicio.TabIndex = 6;
+            this.tbServicio.TabIndex = 3;
             // 
             // label2
             // 
@@ -145,7 +145,7 @@
             this.tbMarca.Name = "tbMarca";
             this.tbMarca.ReadOnly = true;
             this.tbMarca.Size = new System.Drawing.Size(100, 20);
-            this.tbMarca.TabIndex = 4;
+            this.tbMarca.TabIndex = 2;
             // 
             // label1
             // 
@@ -175,12 +175,30 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Butacas";
             // 
+            // tbButacasTotales
+            // 
+            this.tbButacasTotales.Enabled = false;
+            this.tbButacasTotales.Location = new System.Drawing.Point(268, 13);
+            this.tbButacasTotales.Name = "tbButacasTotales";
+            this.tbButacasTotales.ReadOnly = true;
+            this.tbButacasTotales.Size = new System.Drawing.Size(100, 20);
+            this.tbButacasTotales.TabIndex = 5;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(242, 16);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(19, 13);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "de";
+            // 
             // btnQuitar
             // 
             this.btnQuitar.Location = new System.Drawing.Point(242, 119);
             this.btnQuitar.Name = "btnQuitar";
             this.btnQuitar.Size = new System.Drawing.Size(32, 25);
-            this.btnQuitar.TabIndex = 19;
+            this.btnQuitar.TabIndex = 14;
             this.btnQuitar.Text = "-";
             this.btnQuitar.UseVisualStyleBackColor = true;
             this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
@@ -190,7 +208,7 @@
             this.btnNueva.Location = new System.Drawing.Point(242, 88);
             this.btnNueva.Name = "btnNueva";
             this.btnNueva.Size = new System.Drawing.Size(32, 24);
-            this.btnNueva.TabIndex = 18;
+            this.btnNueva.TabIndex = 13;
             this.btnNueva.Text = "+";
             this.btnNueva.UseVisualStyleBackColor = true;
             this.btnNueva.Click += new System.EventHandler(this.btnNueva_Click);
@@ -217,7 +235,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(87, 100);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 17;
+            this.btnCancelar.TabIndex = 10;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -236,7 +254,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(9, 100);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 16;
+            this.btnAgregar.TabIndex = 9;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -246,14 +264,14 @@
             this.tbNroButaca.Location = new System.Drawing.Point(87, 13);
             this.tbNroButaca.Name = "tbNroButaca";
             this.tbNroButaca.Size = new System.Drawing.Size(99, 20);
-            this.tbNroButaca.TabIndex = 11;
+            this.tbNroButaca.TabIndex = 6;
             // 
             // tbPiso
             // 
             this.tbPiso.Location = new System.Drawing.Point(87, 66);
             this.tbPiso.Name = "tbPiso";
             this.tbPiso.Size = new System.Drawing.Size(99, 20);
-            this.tbPiso.TabIndex = 15;
+            this.tbPiso.TabIndex = 8;
             // 
             // label5
             // 
@@ -280,7 +298,7 @@
             this.cbTipoButaca.Location = new System.Drawing.Point(87, 39);
             this.cbTipoButaca.Name = "cbTipoButaca";
             this.cbTipoButaca.Size = new System.Drawing.Size(99, 21);
-            this.cbTipoButaca.TabIndex = 13;
+            this.cbTipoButaca.TabIndex = 7;
             // 
             // lbButacas
             // 
@@ -296,7 +314,7 @@
             this.tbCantidadButacas.Name = "tbCantidadButacas";
             this.tbCantidadButacas.ReadOnly = true;
             this.tbCantidadButacas.Size = new System.Drawing.Size(100, 20);
-            this.tbCantidadButacas.TabIndex = 8;
+            this.tbCantidadButacas.TabIndex = 4;
             // 
             // label3
             // 
@@ -306,24 +324,6 @@
             this.label3.Size = new System.Drawing.Size(105, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "Cantidad de butacas";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(242, 16);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(19, 13);
-            this.label7.TabIndex = 20;
-            this.label7.Text = "de";
-            // 
-            // tbButacasTotales
-            // 
-            this.tbButacasTotales.Enabled = false;
-            this.tbButacasTotales.Location = new System.Drawing.Point(268, 13);
-            this.tbButacasTotales.Name = "tbButacasTotales";
-            this.tbButacasTotales.ReadOnly = true;
-            this.tbButacasTotales.Size = new System.Drawing.Size(100, 20);
-            this.tbButacasTotales.TabIndex = 21;
             // 
             // MicroButacaAlta
             // 

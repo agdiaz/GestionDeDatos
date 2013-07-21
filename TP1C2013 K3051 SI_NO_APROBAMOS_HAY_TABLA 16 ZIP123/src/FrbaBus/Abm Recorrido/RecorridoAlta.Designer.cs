@@ -76,7 +76,7 @@
             this.cbbRecorridoAltaTipoServicio.Location = new System.Drawing.Point(140, 74);
             this.cbbRecorridoAltaTipoServicio.Name = "cbbRecorridoAltaTipoServicio";
             this.cbbRecorridoAltaTipoServicio.Size = new System.Drawing.Size(187, 21);
-            this.cbbRecorridoAltaTipoServicio.TabIndex = 5;
+            this.cbbRecorridoAltaTipoServicio.TabIndex = 2;
             // 
             // btnRecorridoAltaLimpiar
             // 
@@ -92,7 +92,7 @@
             this.btnRecorridoAltaGuardar.Location = new System.Drawing.Point(15, 175);
             this.btnRecorridoAltaGuardar.Name = "btnRecorridoAltaGuardar";
             this.btnRecorridoAltaGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnRecorridoAltaGuardar.TabIndex = 7;
+            this.btnRecorridoAltaGuardar.TabIndex = 5;
             this.btnRecorridoAltaGuardar.Text = "Guardar";
             this.btnRecorridoAltaGuardar.UseVisualStyleBackColor = true;
             this.btnRecorridoAltaGuardar.Click += new System.EventHandler(this.btnRecorridoAltaGuardar_Click);
@@ -120,14 +120,14 @@
             this.tbRecorridoAltaPrecioBasePorKgs.Location = new System.Drawing.Point(140, 101);
             this.tbRecorridoAltaPrecioBasePorKgs.Name = "tbRecorridoAltaPrecioBasePorKgs";
             this.tbRecorridoAltaPrecioBasePorKgs.Size = new System.Drawing.Size(187, 20);
-            this.tbRecorridoAltaPrecioBasePorKgs.TabIndex = 10;
+            this.tbRecorridoAltaPrecioBasePorKgs.TabIndex = 3;
             // 
             // tbRecorridoAltaPrecioBasePorPasaje
             // 
             this.tbRecorridoAltaPrecioBasePorPasaje.Location = new System.Drawing.Point(140, 127);
             this.tbRecorridoAltaPrecioBasePorPasaje.Name = "tbRecorridoAltaPrecioBasePorPasaje";
             this.tbRecorridoAltaPrecioBasePorPasaje.Size = new System.Drawing.Size(187, 20);
-            this.tbRecorridoAltaPrecioBasePorPasaje.TabIndex = 11;
+            this.tbRecorridoAltaPrecioBasePorPasaje.TabIndex = 4;
             // 
             // cbCiudadOrigen
             // 
@@ -136,7 +136,7 @@
             this.cbCiudadOrigen.Location = new System.Drawing.Point(140, 17);
             this.cbCiudadOrigen.Name = "cbCiudadOrigen";
             this.cbCiudadOrigen.Size = new System.Drawing.Size(323, 21);
-            this.cbCiudadOrigen.TabIndex = 12;
+            this.cbCiudadOrigen.TabIndex = 0;
             // 
             // cbCiudadDestino
             // 
@@ -145,7 +145,7 @@
             this.cbCiudadDestino.Location = new System.Drawing.Point(140, 47);
             this.cbCiudadDestino.Name = "cbCiudadDestino";
             this.cbCiudadDestino.Size = new System.Drawing.Size(323, 21);
-            this.cbCiudadDestino.TabIndex = 13;
+            this.cbCiudadDestino.TabIndex = 1;
             // 
             // RecorridoAlta
             // 

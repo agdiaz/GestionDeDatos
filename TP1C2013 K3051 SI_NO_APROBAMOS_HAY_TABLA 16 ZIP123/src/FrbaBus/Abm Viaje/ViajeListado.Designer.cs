@@ -44,6 +44,7 @@
             this.dgvViajeListado = new System.Windows.Forms.DataGridView();
             this.btnViajeListadoDarBaja = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
+            this.btnSeleccionarViaje = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvViajeListado)).BeginInit();
             this.SuspendLayout();
@@ -75,7 +76,7 @@
             this.cbFechaEstimada.Location = new System.Drawing.Point(6, 83);
             this.cbFechaEstimada.Name = "cbFechaEstimada";
             this.cbFechaEstimada.Size = new System.Drawing.Size(138, 17);
-            this.cbFechaEstimada.TabIndex = 12;
+            this.cbFechaEstimada.TabIndex = 4;
             this.cbFechaEstimada.Text = "Fecha llegada estimada";
             this.cbFechaEstimada.UseVisualStyleBackColor = true;
             // 
@@ -85,7 +86,7 @@
             this.cbFechaLlegada.Location = new System.Drawing.Point(6, 53);
             this.cbFechaLlegada.Name = "cbFechaLlegada";
             this.cbFechaLlegada.Size = new System.Drawing.Size(93, 17);
-            this.cbFechaLlegada.TabIndex = 11;
+            this.cbFechaLlegada.TabIndex = 2;
             this.cbFechaLlegada.Text = "Fecha llegada";
             this.cbFechaLlegada.UseVisualStyleBackColor = true;
             // 
@@ -95,7 +96,7 @@
             this.cbFechaSalida.Location = new System.Drawing.Point(6, 24);
             this.cbFechaSalida.Name = "cbFechaSalida";
             this.cbFechaSalida.Size = new System.Drawing.Size(86, 17);
-            this.cbFechaSalida.TabIndex = 10;
+            this.cbFechaSalida.TabIndex = 0;
             this.cbFechaSalida.Text = "Fecha salida";
             this.cbFechaSalida.UseVisualStyleBackColor = true;
             // 
@@ -106,7 +107,7 @@
             this.cbRecorrido.Location = new System.Drawing.Point(397, 49);
             this.cbRecorrido.Name = "cbRecorrido";
             this.cbRecorrido.Size = new System.Drawing.Size(438, 21);
-            this.cbRecorrido.TabIndex = 9;
+            this.cbRecorrido.TabIndex = 7;
             // 
             // cbMicro
             // 
@@ -115,7 +116,7 @@
             this.cbMicro.Location = new System.Drawing.Point(397, 22);
             this.cbMicro.Name = "cbMicro";
             this.cbMicro.Size = new System.Drawing.Size(438, 21);
-            this.cbMicro.TabIndex = 8;
+            this.cbMicro.TabIndex = 6;
             // 
             // lblViajeListadoRecorrido
             // 
@@ -131,7 +132,7 @@
             this.btnViajeListadoLimpiar.Location = new System.Drawing.Point(97, 117);
             this.btnViajeListadoLimpiar.Name = "btnViajeListadoLimpiar";
             this.btnViajeListadoLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnViajeListadoLimpiar.TabIndex = 2;
+            this.btnViajeListadoLimpiar.TabIndex = 9;
             this.btnViajeListadoLimpiar.Text = "Limpiar";
             this.btnViajeListadoLimpiar.UseVisualStyleBackColor = true;
             this.btnViajeListadoLimpiar.Click += new System.EventHandler(this.btnViajeListadoLimpiar_Click);
@@ -141,7 +142,7 @@
             this.btnViajeListadoBuscar.Location = new System.Drawing.Point(9, 117);
             this.btnViajeListadoBuscar.Name = "btnViajeListadoBuscar";
             this.btnViajeListadoBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnViajeListadoBuscar.TabIndex = 3;
+            this.btnViajeListadoBuscar.TabIndex = 8;
             this.btnViajeListadoBuscar.Text = "Buscar";
             this.btnViajeListadoBuscar.UseVisualStyleBackColor = true;
             this.btnViajeListadoBuscar.Click += new System.EventHandler(this.btnViajeListadoBuscar_Click);
@@ -174,7 +175,7 @@
             this.dtpViajeListadoFechaSalida.Location = new System.Drawing.Point(105, 19);
             this.dtpViajeListadoFechaSalida.Name = "dtpViajeListadoFechaSalida";
             this.dtpViajeListadoFechaSalida.Size = new System.Drawing.Size(200, 20);
-            this.dtpViajeListadoFechaSalida.TabIndex = 2;
+            this.dtpViajeListadoFechaSalida.TabIndex = 1;
             this.dtpViajeListadoFechaSalida.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // dgvViajeListado
@@ -190,14 +191,14 @@
             this.dgvViajeListado.Name = "dgvViajeListado";
             this.dgvViajeListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvViajeListado.Size = new System.Drawing.Size(859, 239);
-            this.dgvViajeListado.TabIndex = 1;
+            this.dgvViajeListado.TabIndex = 13;
             // 
             // btnViajeListadoDarBaja
             // 
             this.btnViajeListadoDarBaja.Location = new System.Drawing.Point(109, 426);
             this.btnViajeListadoDarBaja.Name = "btnViajeListadoDarBaja";
             this.btnViajeListadoDarBaja.Size = new System.Drawing.Size(75, 23);
-            this.btnViajeListadoDarBaja.TabIndex = 4;
+            this.btnViajeListadoDarBaja.TabIndex = 11;
             this.btnViajeListadoDarBaja.Text = "Dar de baja";
             this.btnViajeListadoDarBaja.UseVisualStyleBackColor = true;
             this.btnViajeListadoDarBaja.Click += new System.EventHandler(this.btnViajeListadoDarBaja_Click);
@@ -207,16 +208,27 @@
             this.btnModificar.Location = new System.Drawing.Point(28, 426);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
-            this.btnModificar.TabIndex = 5;
+            this.btnModificar.TabIndex = 10;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // btnSeleccionarViaje
+            // 
+            this.btnSeleccionarViaje.Location = new System.Drawing.Point(787, 426);
+            this.btnSeleccionarViaje.Name = "btnSeleccionarViaje";
+            this.btnSeleccionarViaje.Size = new System.Drawing.Size(75, 23);
+            this.btnSeleccionarViaje.TabIndex = 14;
+            this.btnSeleccionarViaje.Text = "Seleccionar";
+            this.btnSeleccionarViaje.UseVisualStyleBackColor = true;
+            this.btnSeleccionarViaje.Click += new System.EventHandler(this.btnSeleccionarViaje_Click);
             // 
             // ViajeListado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(883, 461);
+            this.Controls.Add(this.btnSeleccionarViaje);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnViajeListadoDarBaja);
             this.Controls.Add(this.dgvViajeListado);
@@ -253,5 +265,6 @@
         private System.Windows.Forms.CheckBox cbFechaEstimada;
         private System.Windows.Forms.CheckBox cbFechaLlegada;
         private System.Windows.Forms.CheckBox cbFechaSalida;
+        private System.Windows.Forms.Button btnSeleccionarViaje;
     }
 }

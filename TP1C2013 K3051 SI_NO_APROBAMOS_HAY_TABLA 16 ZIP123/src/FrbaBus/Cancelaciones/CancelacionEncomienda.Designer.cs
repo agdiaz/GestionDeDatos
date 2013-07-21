@@ -50,14 +50,14 @@
             this.tbCancelacionEncomienda.Location = new System.Drawing.Point(168, 18);
             this.tbCancelacionEncomienda.Name = "tbCancelacionEncomienda";
             this.tbCancelacionEncomienda.Size = new System.Drawing.Size(113, 20);
-            this.tbCancelacionEncomienda.TabIndex = 4;
+            this.tbCancelacionEncomienda.TabIndex = 1;
             // 
             // btnCancelacionEncomiendaCancelarEncomienda
             // 
             this.btnCancelacionEncomiendaCancelarEncomienda.Location = new System.Drawing.Point(239, 75);
             this.btnCancelacionEncomiendaCancelarEncomienda.Name = "btnCancelacionEncomiendaCancelarEncomienda";
             this.btnCancelacionEncomiendaCancelarEncomienda.Size = new System.Drawing.Size(119, 23);
-            this.btnCancelacionEncomiendaCancelarEncomienda.TabIndex = 6;
+            this.btnCancelacionEncomiendaCancelarEncomienda.TabIndex = 3;
             this.btnCancelacionEncomiendaCancelarEncomienda.Text = "Cancelar Encomienda";
             this.btnCancelacionEncomiendaCancelarEncomienda.UseVisualStyleBackColor = true;
             this.btnCancelacionEncomiendaCancelarEncomienda.Click += new System.EventHandler(this.btnCancelacionEncomiendaCancelarEncomienda_Click);
@@ -67,7 +67,7 @@
             this.btnCancelacionEncomiendaBuscarCompra.Location = new System.Drawing.Point(15, 16);
             this.btnCancelacionEncomiendaBuscarCompra.Name = "btnCancelacionEncomiendaBuscarCompra";
             this.btnCancelacionEncomiendaBuscarCompra.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelacionEncomiendaBuscarCompra.TabIndex = 9;
+            this.btnCancelacionEncomiendaBuscarCompra.TabIndex = 0;
             this.btnCancelacionEncomiendaBuscarCompra.Text = " Buscar";
             this.btnCancelacionEncomiendaBuscarCompra.UseVisualStyleBackColor = true;
             this.btnCancelacionEncomiendaBuscarCompra.Click += new System.EventHandler(this.btnCancelacionEncomiendaBuscarCompra_Click);
@@ -86,7 +86,7 @@
             this.tbMotivoCancelEncomienda.Location = new System.Drawing.Point(64, 49);
             this.tbMotivoCancelEncomienda.Name = "tbMotivoCancelEncomienda";
             this.tbMotivoCancelEncomienda.Size = new System.Drawing.Size(294, 20);
-            this.tbMotivoCancelEncomienda.TabIndex = 14;
+            this.tbMotivoCancelEncomienda.TabIndex = 2;
             // 
             // CancelacionEncomienda
             // 

@@ -221,6 +221,24 @@ namespace FrbaBus.Abm_Viaje
             }
             
         }
+
+        private void btnSeleccionarViaje_Click(object sender, EventArgs e)
+        {
+            Seleccionar();
+        }
+
+        private void Seleccionar()
+        {
+            if (this.dgvViajeListado.SelectedRows.Count > 0)
+            {
+                DialogResult confirma = MensajePorPantalla.MensajeInformativo(this, "¿Desea seleccionar este viaje?", MessageBoxButtons.YesNo);
+
+                if (confirma == DialogResult.Yes)
+                {
+                    this.Close();
+                }
+            }
+        }
         
         
     }

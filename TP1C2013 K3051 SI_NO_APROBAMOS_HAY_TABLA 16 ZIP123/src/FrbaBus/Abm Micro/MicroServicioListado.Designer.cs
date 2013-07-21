@@ -61,10 +61,10 @@
             // 
             // btnMicroServicioListadoLimpiar
             // 
-            this.btnMicroServicioListadoLimpiar.Location = new System.Drawing.Point(502, 76);
+            this.btnMicroServicioListadoLimpiar.Location = new System.Drawing.Point(502, 52);
             this.btnMicroServicioListadoLimpiar.Name = "btnMicroServicioListadoLimpiar";
             this.btnMicroServicioListadoLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnMicroServicioListadoLimpiar.TabIndex = 6;
+            this.btnMicroServicioListadoLimpiar.TabIndex = 4;
             this.btnMicroServicioListadoLimpiar.Text = "Limpiar";
             this.btnMicroServicioListadoLimpiar.UseVisualStyleBackColor = true;
             // 
@@ -73,7 +73,7 @@
             this.btnMicroServicioListadoBuscar.Location = new System.Drawing.Point(502, 23);
             this.btnMicroServicioListadoBuscar.Name = "btnMicroServicioListadoBuscar";
             this.btnMicroServicioListadoBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnMicroServicioListadoBuscar.TabIndex = 5;
+            this.btnMicroServicioListadoBuscar.TabIndex = 3;
             this.btnMicroServicioListadoBuscar.Text = "Buscar";
             this.btnMicroServicioListadoBuscar.UseVisualStyleBackColor = true;
             // 
@@ -83,7 +83,7 @@
             this.cbbMicroServicioListadoModelo.Location = new System.Drawing.Point(129, 52);
             this.cbbMicroServicioListadoModelo.Name = "cbbMicroServicioListadoModelo";
             this.cbbMicroServicioListadoModelo.Size = new System.Drawing.Size(121, 21);
-            this.cbbMicroServicioListadoModelo.TabIndex = 4;
+            this.cbbMicroServicioListadoModelo.TabIndex = 1;
             // 
             // cbbMicroServicioListadoMarca
             // 
@@ -91,7 +91,7 @@
             this.cbbMicroServicioListadoMarca.Location = new System.Drawing.Point(129, 25);
             this.cbbMicroServicioListadoMarca.Name = "cbbMicroServicioListadoMarca";
             this.cbbMicroServicioListadoMarca.Size = new System.Drawing.Size(121, 21);
-            this.cbbMicroServicioListadoMarca.TabIndex = 3;
+            this.cbbMicroServicioListadoMarca.TabIndex = 0;
             // 
             // lblMicroServicioListadoModelo
             // 
@@ -117,7 +117,7 @@
             this.cbbMicroServicioListadoTipoServicio.Location = new System.Drawing.Point(129, 78);
             this.cbbMicroServicioListadoTipoServicio.Name = "cbbMicroServicioListadoTipoServicio";
             this.cbbMicroServicioListadoTipoServicio.Size = new System.Drawing.Size(121, 21);
-            this.cbbMicroServicioListadoTipoServicio.TabIndex = 1;
+            this.cbbMicroServicioListadoTipoServicio.TabIndex = 2;
             // 
             // lblMicroServicioListadoTipoServicio
             // 

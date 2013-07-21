@@ -41,7 +41,7 @@
             this.btnCancelacionPasajeCancelarPasaje.Location = new System.Drawing.Point(281, 78);
             this.btnCancelacionPasajeCancelarPasaje.Name = "btnCancelacionPasajeCancelarPasaje";
             this.btnCancelacionPasajeCancelarPasaje.Size = new System.Drawing.Size(119, 23);
-            this.btnCancelacionPasajeCancelarPasaje.TabIndex = 15;
+            this.btnCancelacionPasajeCancelarPasaje.TabIndex = 3;
             this.btnCancelacionPasajeCancelarPasaje.Text = "Cancelar Pasaje";
             this.btnCancelacionPasajeCancelarPasaje.UseVisualStyleBackColor = true;
             this.btnCancelacionPasajeCancelarPasaje.Click += new System.EventHandler(this.btnCancelacionPasajeCancelarPasaje_Click);
@@ -51,7 +51,7 @@
             this.tbCancelacionPasaje.Location = new System.Drawing.Point(146, 18);
             this.tbCancelacionPasaje.Name = "tbCancelacionPasaje";
             this.tbCancelacionPasaje.Size = new System.Drawing.Size(115, 20);
-            this.tbCancelacionPasaje.TabIndex = 13;
+            this.tbCancelacionPasaje.TabIndex = 1;
             // 
             // lblCancelacionPasajePasaje
             // 
@@ -67,7 +67,7 @@
             this.btnCancelacionPasajeBuscarCompra.Location = new System.Drawing.Point(14, 12);
             this.btnCancelacionPasajeBuscarCompra.Name = "btnCancelacionPasajeBuscarCompra";
             this.btnCancelacionPasajeBuscarCompra.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelacionPasajeBuscarCompra.TabIndex = 18;
+            this.btnCancelacionPasajeBuscarCompra.TabIndex = 0;
             this.btnCancelacionPasajeBuscarCompra.Text = "Buscar";
             this.btnCancelacionPasajeBuscarCompra.UseVisualStyleBackColor = true;
             this.btnCancelacionPasajeBuscarCompra.Click += new System.EventHandler(this.btnCancelacionPasajeBuscarCompra_Click);
@@ -86,7 +86,7 @@
             this.tbMotivoCancelPasaje.Location = new System.Drawing.Point(57, 46);
             this.tbMotivoCancelPasaje.Name = "tbMotivoCancelPasaje";
             this.tbMotivoCancelPasaje.Size = new System.Drawing.Size(343, 20);
-            this.tbMotivoCancelPasaje.TabIndex = 23;
+            this.tbMotivoCancelPasaje.TabIndex = 2;
             // 
             // CancelacionPasaje
             // 

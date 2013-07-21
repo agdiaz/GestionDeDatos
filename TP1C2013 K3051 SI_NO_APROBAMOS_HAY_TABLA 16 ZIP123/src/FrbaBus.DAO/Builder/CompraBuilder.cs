@@ -19,16 +19,16 @@ namespace FrbaBus.DAO.Builder
             c.IdCancelacion = Convert.ToInt32(row["id_cancelacion"].ToString());
             c.FechaCompra = Convert.ToDateTime(row["fecha_compra"].ToString());
             
-            c.CancelacionCompra = new Cancelacion();
-            DateTime aux;
-            DateTime.TryParse(row["fecha_cancel"].ToString(), out aux);
+            //c.CancelacionCompra = new Cancelacion();
+            //DateTime aux;
+            //DateTime.TryParse(row["fecha_cancel"].ToString(), out aux);
 
-            if (aux != null)
-            {
-                c.CancelacionCompra.FechaCancelacion = aux;
-            }
-            c.CancelacionCompra.IdCancelacion = c.IdCancelacion;
-            c.CancelacionCompra.Motivo = row["motivo_cancel"].ToString();
+            //if (aux != null)
+            //{
+            //    c.CancelacionCompra.FechaCancelacion = aux;
+            //}
+            //c.CancelacionCompra.IdCancelacion = c.IdCancelacion;
+            //c.CancelacionCompra.Motivo = row["motivo_cancel"].ToString();
             
             return c;
         }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gbRolListado = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.cbbRolListadoFuncionalidades = new System.Windows.Forms.ComboBox();
             this.tbRolListadoRol = new System.Windows.Forms.TextBox();
@@ -37,7 +38,6 @@
             this.dgvRolListado = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.gbRolListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRolListado)).BeginInit();
             this.SuspendLayout();
@@ -58,12 +58,22 @@
             this.gbRolListado.TabStop = false;
             this.gbRolListado.Text = "Filtros de busqueda";
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(344, 57);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(78, 23);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "Limpiar";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // btnFiltrar
             // 
             this.btnFiltrar.Location = new System.Drawing.Point(344, 28);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(78, 25);
-            this.btnFiltrar.TabIndex = 4;
+            this.btnFiltrar.TabIndex = 2;
             this.btnFiltrar.Text = "Buscar";
             this.btnFiltrar.UseVisualStyleBackColor = true;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
@@ -75,14 +85,14 @@
             this.cbbRolListadoFuncionalidades.Location = new System.Drawing.Point(107, 60);
             this.cbbRolListadoFuncionalidades.Name = "cbbRolListadoFuncionalidades";
             this.cbbRolListadoFuncionalidades.Size = new System.Drawing.Size(231, 21);
-            this.cbbRolListadoFuncionalidades.TabIndex = 3;
+            this.cbbRolListadoFuncionalidades.TabIndex = 1;
             // 
             // tbRolListadoRol
             // 
             this.tbRolListadoRol.Location = new System.Drawing.Point(107, 28);
             this.tbRolListadoRol.Name = "tbRolListadoRol";
             this.tbRolListadoRol.Size = new System.Drawing.Size(231, 20);
-            this.tbRolListadoRol.TabIndex = 2;
+            this.tbRolListadoRol.TabIndex = 0;
             // 
             // lblRolListadoFuncionalidades
             // 
@@ -109,19 +119,19 @@
             this.dgvRolListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvRolListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvRolListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRolListado.Location = new System.Drawing.Point(24, 145);
+            this.dgvRolListado.Location = new System.Drawing.Point(24, 132);
             this.dgvRolListado.Name = "dgvRolListado";
             this.dgvRolListado.ReadOnly = true;
             this.dgvRolListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRolListado.Size = new System.Drawing.Size(435, 150);
-            this.dgvRolListado.TabIndex = 1;
+            this.dgvRolListado.TabIndex = 4;
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(24, 310);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
+            this.button1.TabIndex = 5;
             this.button1.Text = "Modificar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -131,20 +141,10 @@
             this.button2.Location = new System.Drawing.Point(105, 310);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
+            this.button2.TabIndex = 6;
             this.button2.Text = "Dar de baja";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(344, 57);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(78, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Limpiar";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // RolListado
             // 

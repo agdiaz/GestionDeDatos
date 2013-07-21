@@ -96,7 +96,7 @@
             this.cbCiudadDestino.Location = new System.Drawing.Point(110, 43);
             this.cbCiudadDestino.Name = "cbCiudadDestino";
             this.cbCiudadDestino.Size = new System.Drawing.Size(282, 21);
-            this.cbCiudadDestino.TabIndex = 8;
+            this.cbCiudadDestino.TabIndex = 1;
             // 
             // cbCiudadOrigen
             // 
@@ -105,7 +105,7 @@
             this.cbCiudadOrigen.Location = new System.Drawing.Point(110, 16);
             this.cbCiudadOrigen.Name = "cbCiudadOrigen";
             this.cbCiudadOrigen.Size = new System.Drawing.Size(282, 21);
-            this.cbCiudadOrigen.TabIndex = 7;
+            this.cbCiudadOrigen.TabIndex = 0;
             // 
             // cbbRecorridoListadoTipoServicio
             // 
@@ -114,14 +114,14 @@
             this.cbbRecorridoListadoTipoServicio.Location = new System.Drawing.Point(110, 70);
             this.cbbRecorridoListadoTipoServicio.Name = "cbbRecorridoListadoTipoServicio";
             this.cbbRecorridoListadoTipoServicio.Size = new System.Drawing.Size(282, 21);
-            this.cbbRecorridoListadoTipoServicio.TabIndex = 5;
+            this.cbbRecorridoListadoTipoServicio.TabIndex = 2;
             // 
             // btnRecorridoListadoBuscar
             // 
             this.btnRecorridoListadoBuscar.Location = new System.Drawing.Point(400, 19);
             this.btnRecorridoListadoBuscar.Name = "btnRecorridoListadoBuscar";
             this.btnRecorridoListadoBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnRecorridoListadoBuscar.TabIndex = 6;
+            this.btnRecorridoListadoBuscar.TabIndex = 3;
             this.btnRecorridoListadoBuscar.Text = "Buscar";
             this.btnRecorridoListadoBuscar.UseVisualStyleBackColor = true;
             this.btnRecorridoListadoBuscar.Click += new System.EventHandler(this.btnRecorridoListadoBuscar_Click);
@@ -131,7 +131,7 @@
             this.btnRecorridoListadoLimpiar.Location = new System.Drawing.Point(400, 48);
             this.btnRecorridoListadoLimpiar.Name = "btnRecorridoListadoLimpiar";
             this.btnRecorridoListadoLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnRecorridoListadoLimpiar.TabIndex = 5;
+            this.btnRecorridoListadoLimpiar.TabIndex = 4;
             this.btnRecorridoListadoLimpiar.Text = "Limpiar";
             this.btnRecorridoListadoLimpiar.UseVisualStyleBackColor = true;
             this.btnRecorridoListadoLimpiar.Click += new System.EventHandler(this.btnRecorridoListadoLimpiar_Click);
@@ -156,7 +156,7 @@
             this.btnRecorridoListadoDarBaja.Location = new System.Drawing.Point(92, 368);
             this.btnRecorridoListadoDarBaja.Name = "btnRecorridoListadoDarBaja";
             this.btnRecorridoListadoDarBaja.Size = new System.Drawing.Size(75, 23);
-            this.btnRecorridoListadoDarBaja.TabIndex = 9;
+            this.btnRecorridoListadoDarBaja.TabIndex = 6;
             this.btnRecorridoListadoDarBaja.Text = "Dar de baja";
             this.btnRecorridoListadoDarBaja.UseVisualStyleBackColor = true;
             this.btnRecorridoListadoDarBaja.Click += new System.EventHandler(this.btnRecorridoListadoDarBaja_Click);
@@ -166,17 +166,17 @@
             this.btnModificar.Location = new System.Drawing.Point(12, 368);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
-            this.btnModificar.TabIndex = 10;
+            this.btnModificar.TabIndex = 5;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnSeleccionar
             // 
-            this.btnSeleccionar.Location = new System.Drawing.Point(667, 374);
+            this.btnSeleccionar.Location = new System.Drawing.Point(667, 368);
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.Size = new System.Drawing.Size(75, 23);
-            this.btnSeleccionar.TabIndex = 11;
+            this.btnSeleccionar.TabIndex = 7;
             this.btnSeleccionar.Text = "Seleccionar";
             this.btnSeleccionar.UseVisualStyleBackColor = true;
             this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
