@@ -83,9 +83,9 @@ namespace FrbaBus.Abm_Clientes
 
                 string sexo = string.Empty;
                 if (this.cbFemenino.Checked)
-                    sexo = "F";
-                if (cbMasculino.Checked)
                     sexo = "M";
+                if (cbMasculino.Checked)
+                    sexo = "H";
 
                 this.dgvClienteListado.DataSource = _manager.ListarFiltrado(dni, nombre, apellido, discapacitado, sexo);
                 this.dgvClienteListado.Columns["Sexo"].Visible = false;

@@ -3030,7 +3030,7 @@ BEGIN
 	and ((@p_nombre IS NULL) OR (UPPER(nombre) like '%' + UPPER(@p_nombre) +'%'))
 	and ((@p_apellido IS NULL) OR (apellido like '%' + @p_apellido + '%'))
 	and ((@p_discapacitado IS NULL) OR (ISNULL(es_discapacitado, 'N') = @p_discapacitado))
-	and ((@p_sexo IS NULL) OR (sexo like '%' + @p_sexo + '%'))
+	and ((@p_sexo IS NULL) OR (ISNULL(sexo, '') = @p_sexo))
 	and baja=0
 END
 
