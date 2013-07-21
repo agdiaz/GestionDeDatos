@@ -1,0 +1,10 @@
+CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_delete_viaje
+(
+	@p_id int
+)
+AS
+BEGIN
+UPDATE [GD1C2013].[SI_NO_APROBAMOS_HAY_TABLA].[Viaje]
+	SET baja=1			
+	WHERE id_viaje=@p_id
+END
