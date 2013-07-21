@@ -152,6 +152,16 @@ namespace FrbaBus.Compras
 
         private bool ValidarDatos()
         {
+            if (_cliente == null)
+            {
+                MensajePorPantalla.MensajeError(this, "Debe seleccionar un cliente");
+                return false;
+            }
+            if (_butaca == null)
+            {
+                MensajePorPantalla.MensajeError(this, "Debe seleccionar una butaca");
+                return false;
+            }
             return true;
         }
     }

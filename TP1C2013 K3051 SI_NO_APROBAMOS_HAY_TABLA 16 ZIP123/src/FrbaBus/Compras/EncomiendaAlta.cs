@@ -31,24 +31,46 @@ namespace FrbaBus.Compras
 
         private void btnEncomiendaAltaGuardar_Click(object sender, EventArgs e)
         {
-            try
+            if (ValidarDatos())
             {
-                Encomienda encomienda = new Encomienda();
+                try
+                {
+                    Encomienda encomienda = new Encomienda();
 
-                encomienda.NroDni = cliente.NroDni;
-                encomienda.IdViaje = _viaje.Id;
-                encomienda.Peso = Convert.ToDecimal(tbEncomiendaAltaPesoKg.Text);
+                    encomienda.NroDni = cliente.NroDni;
+                    encomienda.IdViaje = _viaje.Id;
+                    encomienda.Peso = Convert.ToDecimal(tbEncomiendaAltaPesoKg.Text);
 
-                MensajePorPantalla.MensajeInformativo(this, "Se dio de alta la solicitud de encomienda");
-                EncomiendaNuevo = encomienda;
+                    MensajePorPantalla.MensajeInformativo(this, "Se dio de alta la solicitud de encomienda");
+                    EncomiendaNuevo = encomienda;
 
-                this.Close();
+                    this.Close();
+                }
+                catch (AccesoBDException ex)
+                {
+                    MensajePorPantalla.MensajeExceptionBD(this, ex);
+                }
+                catch (Exception ex)
+                {
+                    MensajePorPantalla.MensajeError(this, "Error al intentar dar el registro.\n Detalle del error: " + ex.Message);
+                }
+
             }
-            catch (Exception)
+        }
+
+        private bool ValidarDatos()
+        {
+            if (cliente == null)
             {
-                throw;
+                MensajePorPantalla.MensajeError(this, "Debe seleccionar un cliente");
+                return false;
             }
-
+            if (string.IsNullOrEmpty(tbEncomiendaAltaViaje.Text))
+            {
+                MensajePorPantalla.MensajeError(this, "Debe ingresar un peso");
+                return false;
+            }
+            return true;
         }
 
         private void btnEncomiendaAltaDniCliente_Click(object sender, EventArgs e)

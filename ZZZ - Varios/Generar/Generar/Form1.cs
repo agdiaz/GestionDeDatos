@@ -21,19 +21,23 @@ namespace Generar
         {
             string[] txtFiles;
             txtFiles = Directory.GetFiles(textBox1.Text, "*.sql");
-            using (StreamWriter writer = new StreamWriter(textBox1.Text + @"\demo_puto.sql"))
+            using (StreamWriter writer = new StreamWriter(textBox1.Text + @"\ZZ_PROCEDURES.sql", false))
             {
                 for (int i = 0; i < txtFiles.Length; i++)
                 {
                     using (StreamReader reader = File.OpenText(txtFiles[i]))
                     {
+                        writer.WriteLine("");
                         writer.WriteLine("GO ");
+                        writer.WriteLine("");
                         writer.Write(reader.ReadToEnd());
+                        writer.WriteLine("");
                         writer.WriteLine("GO ");
+                        writer.WriteLine("");
                     }
                 }
             }
-            MessageBox.Show("LISTO GATIENZO");
+            MessageBox.Show("Se procesaron " + txtFiles.Length + "archivos correctamente");
         }
     }
 }
