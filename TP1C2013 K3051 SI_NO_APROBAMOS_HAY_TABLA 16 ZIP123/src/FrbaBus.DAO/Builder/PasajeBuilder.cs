@@ -23,7 +23,7 @@ namespace FrbaBus.DAO.Builder
             p.NroDni = Convert.ToDecimal(row["dni"].ToString());
             p.PrecioPasaje = Convert.ToDecimal(row["pre_pasaje"].ToString());
             p.Disponible = Convert.ToBoolean(row["disponible"].ToString());
-            p.Cancel = Convert.ToBoolean(row["cancel"].ToString());
+            //p.Cancel = Convert.ToBoolean(row["cancel"].ToString());
 
             return p;
         }
