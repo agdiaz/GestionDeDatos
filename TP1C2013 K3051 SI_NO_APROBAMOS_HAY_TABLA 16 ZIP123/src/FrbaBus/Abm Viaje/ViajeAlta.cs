@@ -136,6 +136,11 @@ namespace FrbaBus.Abm_Viaje
                 MensajePorPantalla.MensajeError(this, "Complete la fecha de llegada estimada");
                 return false;
             }
+            if (dtpViajeAltaFechaLlegadaEstimada.Value <= dtpViajeAltaFechaSalida.Value)
+            {
+                MensajePorPantalla.MensajeError(this, "La llegada no puede ser antes que la salida");
+                return false;
+            }
             if (micro==null)
             {
                 MensajePorPantalla.MensajeError(this, "Elija un micro");
