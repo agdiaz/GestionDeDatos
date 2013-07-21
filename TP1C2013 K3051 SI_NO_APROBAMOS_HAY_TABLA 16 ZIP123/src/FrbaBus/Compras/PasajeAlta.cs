@@ -162,6 +162,12 @@ namespace FrbaBus.Compras
                 MensajePorPantalla.MensajeError(this, "Debe seleccionar una butaca");
                 return false;
             }
+            if (string.IsNullOrEmpty(tbPrecio.Text))
+            {
+                MensajePorPantalla.MensajeError(this, "Falta calcular precio, pruebe nuevamente");
+                this.MostrarPrecio();
+                return false;
+            }
             return true;
         }
     }
