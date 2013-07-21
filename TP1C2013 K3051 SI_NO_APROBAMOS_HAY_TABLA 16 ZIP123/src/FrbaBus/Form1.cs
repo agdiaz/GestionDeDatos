@@ -27,14 +27,17 @@ namespace FrbaBus
         private UsuarioManager _managerUsuario;
         private CiudadManager _ciudadManager;
         private CompraManager _compraManager;
+        private ClienteManager _clienteManager;
+
         #endregion
         
         #region Atributos para la compra
         
-        IList<Pasaje> _pasajes;
-        IList<Encomienda> _encomiendas;
-        Viaje _viaje;
-        Recorrido _recorrido;
+        private IList<Pasaje> _pasajes;
+        private IList<Encomienda> _encomiendas;
+        private Viaje _viaje;
+        private Recorrido _recorrido;
+        private Cliente _cliente;
 
         #endregion
         
@@ -48,6 +51,8 @@ namespace FrbaBus
             this._managerUsuario = new UsuarioManager();
             this._ciudadManager = new CiudadManager();
             this._compraManager = new CompraManager();
+            this._clienteManager = new ClienteManager();
+
             this._pasajes = new List<Pasaje>();
             this._encomiendas = new List<Encomienda>();
             this.RegistrarPermisos();
@@ -73,6 +78,12 @@ namespace FrbaBus
             
         }
 
+        private void LimpiarGrupoUsuario(bool habilitado)
+        {
+            gbUsuario.Enabled = habilitado;
+            
+        }
+        
         private void LimpiarGrupoViaje(bool habilitado)
         {
             gbViaje.Enabled = habilitado;
@@ -345,7 +356,7 @@ namespace FrbaBus
             Pasaje p = ObtenerPasaje();
             _pasajes.Add(p);
 
-            this.lbPasajeros.DataSource = _pasajes;
+            this.lbPasajeros.Refresh();
 
         }
 
@@ -469,21 +480,20 @@ namespace FrbaBus
             _encomiendas = new List<Encomienda>();
             _viaje = new Viaje();
             _recorrido = new Recorrido();
+
+            lbPasajeros.DataSource = _pasajes;
+            lbPasajeros.DisplayMember = "Informacion";
+            lbPasajeros.ValueMember = "Id";
+
+            lbEncomiendas.DataSource = _encomiendas;
+            lbPasajeros.DisplayMember = "Informacion";
+            lbPasajeros.ValueMember = "Id";
         }
 
-        private void cbPasajes_CheckedChanged(object sender, EventArgs e)
-        {
-            gbPasajeros.Enabled = (cbPasajes.Checked);
-        }
         
         private void lbEncomiendas_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void cbEncomiendas_CheckedChanged(object sender, EventArgs e)
-        {
-            gbEncomiendas.Enabled = (cbEncomiendas.Checked);
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -550,12 +560,57 @@ namespace FrbaBus
 
         private void btnComprar_Click(object sender, EventArgs e)
         {
-            using (RecorridoListado frm = new RecorridoListado(true))
+            Usuario u = null;
+            using (Login.Login login = new FrbaBus.Login.Login(true))
             {
-                frm.ShowDialog(this);
-                _recorrido = frm.RecorridoSeleccionado();
-                MostrarOpcionesRecorrido();
+                login.ShowDialog(this);
+                u = login.UsuarioIniciado;
             }
+
+            if (u != null)
+            {
+                if (Program.ContextoActual.UsuarioActual != u)
+                {
+                    Program.ContextoActual.RegistrarUsuario(u);
+                    this.RegistrarPermisos();
+                }
+            }
+            else
+            {
+                MensajePorPantalla.MensajeError(this, "El usuario es inexistente");
+                while (_cliente == null)
+                {
+                    using (ClienteAlta frm = new ClienteAlta())
+                    {
+                        frm.ShowDialog();
+                        _cliente = frm.ClienteNuevo();
+                    }
+                }
+                _clienteManager.GenerarUsuario(_cliente);
+                u = _clienteManager.ObtenerUsuario(_cliente);
+                
+                Program.ContextoActual.RegistrarUsuario(u);
+                this.RegistrarPermisos();
+                
+            }
+
+            LimpiarGrupoUsuario(true);
+            this._cliente = _clienteManager.Obtener(u.NroDni);
+            this.MostrarOpcionesCliente();
+            
+        }
+
+        private void MostrarOpcionesCliente()
+        {
+            txtUsuarioApellido.Text = _cliente.Apellido;
+            txtUsuarioNombre.Text = _cliente.Nombre;
+            txtUsuarioDNI.Text = _cliente.NroDni.ToString();
+            txtUsuarioMail.Text = _cliente.Mail;
+            txtUsuarioDireccion.Text = _cliente.Direccion;
+            txtUsuarioTelefono.Text = _cliente.Telefono;
+            dateTimePicker1.Value = _cliente.FechaNacimiento;
+            cbUsuarioDiscapacitado.Checked = _cliente.EsDiscapacitado;
+            txtUsuarioSexo.Text = _cliente.SexoValor;
         }
 
         private void cargarArribaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -734,6 +789,16 @@ namespace FrbaBus
             using (Cancelaciones.CancelacionesListado frm = new FrbaBus.Cancelaciones.CancelacionesListado())
             {
                 frm.ShowDialog();
+            }
+        }
+
+        private void btnConfirmarCliente_Click(object sender, EventArgs e)
+        {
+            using (RecorridoListado frm = new RecorridoListado(true))
+            {
+                frm.ShowDialog(this);
+                _recorrido = frm.RecorridoSeleccionado();
+                MostrarOpcionesRecorrido();
             }
         }
     }

@@ -12,9 +12,9 @@ namespace FrbaBus.Common.Entidades
         public int IdCancelacion { get; set; }
         public DateTime FechaCompra { get; set; }
 
-        public IList<Pasaje> Pasajes { get; set; }
-        public IList<Encomienda> Encomiendas { get; set; }
-        public IList<Puntaje> Puntajes { get; set; }
+        //public IList<Pasaje> Pasajes { get; set; }
+        //public IList<Encomienda> Encomiendas { get; set; }
+        //public IList<Puntaje> Puntajes { get; set; }
         public Cancelacion CancelacionCompra { get; set; }
     
         public override string ToString()
@@ -29,9 +29,6 @@ namespace FrbaBus.Common.Entidades
             IdCancelacion = 0;
             FechaCompra = DateTime.MinValue.AddMilliseconds(1);
 
-            Pasajes = new List<Pasaje>();
-            Encomiendas = new List<Encomienda>();
-            Puntajes = new List<Puntaje>();
             CancelacionCompra = new Cancelacion();
         }
     }

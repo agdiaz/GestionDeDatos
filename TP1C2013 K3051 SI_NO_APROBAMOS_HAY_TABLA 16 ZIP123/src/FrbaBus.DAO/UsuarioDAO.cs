@@ -82,5 +82,17 @@ namespace FrbaBus.DAO
         }
 
         #endregion
+
+        public Usuario ObtenerPorDNI(decimal nroDni)
+        {
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+            parametros.Add(new SqlParameter("@p_dni", SqlDbType.NVarChar, 50, "p_dni"), nroDni);
+
+            DataSet ds = this.accesoBD.RealizarConsultaAlmacenada("SI_NO_APROBAMOS_HAY_TABLA.sp_obtener_usuario_por_dni", parametros);
+            DataRow row = ds.Tables[0].Rows[0];
+
+            return this._builder.Build(row);
+            
+        }
     }
 }

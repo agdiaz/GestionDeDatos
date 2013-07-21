@@ -29,7 +29,11 @@ namespace FrbaBus.DAO
 
         public Compra Obtener(object id)
         {
-            throw new NotImplementedException();
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+            parametros.Add(new SqlParameter("@p_id", SqlDbType.Int, 4, "p_id"), id);
+
+            DataRow row = accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_obtener_compra", parametros).Tables[0].Rows[0];
+            return _builder.Build(row);
         }
 
         public int Alta(Compra entidad)
@@ -87,7 +91,7 @@ namespace FrbaBus.DAO
             parametros.Add(pId, 0);
 
             parametros.Add(new SqlParameter("@p_id_compra", SqlDbType.Int, 4, "p_id_compra"), compra.IdCompra);
-            parametros.Add(new SqlParameter("@p_id_butaca", SqlDbType.Int, 4, "p_id_butaca"), pasaje.IdButaca);
+            parametros.Add(new SqlParameter("@p_id_butaca", SqlDbType.Int, 4, "p_id_butaca"), pasaje.Butaca.Id);
             parametros.Add(new SqlParameter("@p_dni", SqlDbType.Decimal, 18, "p_dni"), pasaje.NroDni);
             parametros.Add(new SqlParameter("@p_pre_pasaje", SqlDbType.Int, 4, "p_pre_pasaje"), pasaje.PrecioPasaje);
             parametros.Add(new SqlParameter("@p_id_viaje", SqlDbType.Int, 4, "p_id_viaje"), pasaje.IdViaje);

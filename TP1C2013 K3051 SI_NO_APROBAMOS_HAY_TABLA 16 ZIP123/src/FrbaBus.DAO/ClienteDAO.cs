@@ -180,5 +180,18 @@ namespace FrbaBus.DAO
 
             return this.accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_listar_filtrado_cliente", parametros);
         }
+
+        public void GenerarUsuario(Cliente _cliente)
+        {
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+
+            SqlParameter pDni = new SqlParameter("@dni", SqlDbType.Decimal,18 , "dni");
+            SqlParameter pUsername = new SqlParameter("@username", SqlDbType.NVarChar, 50, "username");
+            
+            parametros.Add(pDni, _cliente.NroDni);
+            parametros.Add(pUsername, _cliente.NroDni.ToString());
+
+            this.accesoBD.EjecutarComando("[SI_NO_APROBAMOS_HAY_TABLA].sp_insertar_usuario", parametros);
+        }
     }
 }

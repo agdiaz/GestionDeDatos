@@ -11,9 +11,12 @@ namespace FrbaBus.Manager
     public class ClienteManager
     {
         private ClienteDAO _dao;
+        private UsuarioManager _usuarioManager;
+
         public ClienteManager()
         {
             _dao = new ClienteDAO();
+            _usuarioManager = new UsuarioManager();
         }
 
         public Cliente Obtener(decimal nroDni)
@@ -47,5 +50,15 @@ namespace FrbaBus.Manager
             return _dao.ListarFiltrados(dni, nombre, apellido, discapacitado, sexo);
         }
 
+
+        public void GenerarUsuario(Cliente _cliente)
+        {
+            this._dao.GenerarUsuario(_cliente);
+        }
+
+        public Usuario ObtenerUsuario(Cliente _cliente)
+        {
+            return _usuarioManager.Obtener(_cliente.NroDni);
+        }
     }
 }

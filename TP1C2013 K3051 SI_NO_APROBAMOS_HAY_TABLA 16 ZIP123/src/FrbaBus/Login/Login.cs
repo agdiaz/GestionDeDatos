@@ -17,17 +17,28 @@ namespace FrbaBus.Login
     {
         private Usuario _usuarioIniciado;
         private UsuarioManager _manager;
+        private bool _esModoKiosco;
 
         public Usuario UsuarioIniciado { get { return _usuarioIniciado; } }
-        
-        public Login()
+
+        public Login(bool esModoKiosco)
         {
             InitializeComponent();
             this._manager = new UsuarioManager();
+            this._esModoKiosco = esModoKiosco;
+        }
+        public Login()
+            :this(false)
+        {
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
+            if (_esModoKiosco)
+            {
+                txtContrasena.Visible = false;
+                label2.Visible = false;
+            }
             this.btnIngresar.Focus();
         }
 
@@ -35,16 +46,38 @@ namespace FrbaBus.Login
         {
             try
             {
-                ResultadoLoginEnum resultado = _manager.RealizarIdentificacion(this.txtUsuario.Text, this.txtContrasena.Text);
-
-                if (ResultadoLogin.IdentificacionExitosa(resultado))
+                if (_esModoKiosco)
                 {
-                    this._usuarioIniciado = _manager.Obtener(this.txtUsuario.Text);
+                    try
+                    {
+                        this._usuarioIniciado = _manager.Obtener(this.txtUsuario.Text);
+                    }
+                    catch (Exception)
+                    {
+                        this._usuarioIniciado = null;
+                    }
                 }
                 else
                 {
-                    MensajePorPantalla.MensajeError(this, ResultadoLogin.Mensaje(resultado));
-                    this._usuarioIniciado = null;
+
+                    ResultadoLoginEnum resultado = _manager.RealizarIdentificacion(this.txtUsuario.Text, this.txtContrasena.Text);
+
+                    if (ResultadoLogin.IdentificacionExitosa(resultado))
+                    {
+                        try
+                        {
+                            this._usuarioIniciado = _manager.Obtener(this.txtUsuario.Text);
+                        }
+                        catch (Exception)
+                        {
+                            this._usuarioIniciado = null;
+                        }
+                    }
+                    else
+                    {
+                        MensajePorPantalla.MensajeError(this, ResultadoLogin.Mensaje(resultado));
+                        this._usuarioIniciado = null;
+                    }
                 }
                 this.Close();
             }

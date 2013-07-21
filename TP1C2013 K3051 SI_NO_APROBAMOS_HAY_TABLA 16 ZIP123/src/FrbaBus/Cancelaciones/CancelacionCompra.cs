@@ -15,12 +15,15 @@ namespace FrbaBus.Cancelaciones
 {
     public partial class CancelacionCompra : Form
     {
-        private CancelacionManager _manager; 
+        private CancelacionManager _manager;
+        private CompraManager _compraManager;
+
         private Compra compra;
 
         public CancelacionCompra()
         {
             _manager = new CancelacionManager();
+            _compraManager = new CompraManager();
             compra = null;
             InitializeComponent();
         }
@@ -28,11 +31,20 @@ namespace FrbaBus.Cancelaciones
         private void btnBuscarCompraCancel_Click(object sender, EventArgs e)
         {
             
-            using (Compras.ComprasListado frm = new FrbaBus.Compras.ComprasListado())
+            //using (Compras.ComprasListado frm = new FrbaBus.Compras.ComprasListado())
+            //{
+            //    frm.ShowDialog();
+            //    compra = frm.CompraSeleccionada();
+            //}
+            try
             {
-                frm.ShowDialog();
-                compra = frm.CompraSeleccionada();
+                compra = _compraManager.Obtener(Convert.ToInt32(tbCompra.Text));
             }
+            catch (Exception)
+            {
+                compra = null;
+            }
+
             MostrarCompra();
         }
 

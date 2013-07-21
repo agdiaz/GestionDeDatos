@@ -78,5 +78,14 @@ namespace FrbaBus.Manager
             RolUsuario ru = new RolUsuario(nombreRol);
             return ru;
         }
+
+        internal Usuario Obtener(decimal nroDni)
+        {
+            Usuario u = this._dao.ObtenerPorDNI(nroDni);
+
+            u.RolAsignado = this._rolUsuarioManager.ObtenerRolAsociado(u);
+
+            return u;
+        }
     }
 }

@@ -56,7 +56,7 @@ namespace FrbaBus.Abm_Viaje
                 CargarFechas();
                 ListarMicros();
                 ListarRecorridos();
-                ListarViajes();
+                //ListarViajes();
             }
             catch (AccesoBDException ex)
             {
@@ -116,17 +116,23 @@ namespace FrbaBus.Abm_Viaje
 
         private void ListarRecorridos()
         {
-            var recorridos = _recorridoManager.Listar().OrderBy(r => r.Informacion).ToList() ;
-            recorridos.Insert(0, new Recorrido());
-            this.cbRecorrido.DataSource = recorridos;
-            this.cbRecorrido.DisplayMember = "Informacion";
-            this.cbRecorrido.ValueMember = "Id";
-          
+            IList<Recorrido> recorridos;
             if (this._recorrido != null)
             {
+                recorridos = new List<Recorrido>();
+                recorridos.Add(_recorrido);
                 this.cbRecorrido.SelectedItem = _recorrido;
                 this.cbRecorrido.Enabled = false;
             }
+            else
+            {
+                recorridos = _recorridoManager.Listar().OrderBy(r => r.Informacion).ToList();
+                recorridos.Insert(0, new Recorrido());
+            }
+            this.cbRecorrido.DataSource = recorridos;
+            this.cbRecorrido.DisplayMember = "Informacion";
+            this.cbRecorrido.ValueMember = "Id";
+            
         }
 
         private void ListarMicros()

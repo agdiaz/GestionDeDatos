@@ -39,5 +39,10 @@ namespace FrbaBus.Manager
             int id = this._dao.CompraEncomienda(compra, encomienda);
             encomienda.IdEncomienda = id;
         }
+
+        public Compra Obtener(int p)
+        {
+            return _dao.Obtener(p);
+        }
     }
 }
