@@ -44,7 +44,7 @@ namespace FrbaBus.Abm_Clientes
             {
                 btnSeleccionar.Visible = _esParaSeleccionar;
                 LimpiarControles();
-                CargarListaClientes();
+                //CargarListaClientes();
             }
             catch (AccesoBDException ex)
             {
