@@ -38,6 +38,7 @@
             this.tbEncomiendaAltaMicro = new System.Windows.Forms.TextBox();
             this.btnEncomiendaAltaGuardar = new System.Windows.Forms.Button();
             this.btnEncomiendaAltaLimpiar = new System.Windows.Forms.Button();
+            this.btnEncomiendaAltaDniCliente = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblEncomiendaAltaDniCliente
@@ -123,11 +124,22 @@
             this.btnEncomiendaAltaLimpiar.Text = "Limpiar";
             this.btnEncomiendaAltaLimpiar.UseVisualStyleBackColor = true;
             // 
+            // btnEncomiendaAltaDniCliente
+            // 
+            this.btnEncomiendaAltaDniCliente.Location = new System.Drawing.Point(339, 4);
+            this.btnEncomiendaAltaDniCliente.Name = "btnEncomiendaAltaDniCliente";
+            this.btnEncomiendaAltaDniCliente.Size = new System.Drawing.Size(75, 23);
+            this.btnEncomiendaAltaDniCliente.TabIndex = 10;
+            this.btnEncomiendaAltaDniCliente.Text = "Buscar";
+            this.btnEncomiendaAltaDniCliente.UseVisualStyleBackColor = true;
+            this.btnEncomiendaAltaDniCliente.Click += new System.EventHandler(this.btnEncomiendaAltaDniCliente_Click);
+            // 
             // EncomiendaAlta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(432, 155);
+            this.Controls.Add(this.btnEncomiendaAltaDniCliente);
             this.Controls.Add(this.btnEncomiendaAltaLimpiar);
             this.Controls.Add(this.btnEncomiendaAltaGuardar);
             this.Controls.Add(this.tbEncomiendaAltaMicro);
@@ -157,5 +169,6 @@
         private System.Windows.Forms.TextBox tbEncomiendaAltaMicro;
         private System.Windows.Forms.Button btnEncomiendaAltaGuardar;
         private System.Windows.Forms.Button btnEncomiendaAltaLimpiar;
+        private System.Windows.Forms.Button btnEncomiendaAltaDniCliente;
     }
 }

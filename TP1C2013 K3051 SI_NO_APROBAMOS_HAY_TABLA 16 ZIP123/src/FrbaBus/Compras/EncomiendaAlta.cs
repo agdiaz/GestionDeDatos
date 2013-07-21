@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using FrbaBus.Common.Entidades;
 using FrbaBus.Manager;
 using FrbaBus.Common.Helpers;
+using FrbaBus.Abm_Clientes;
 
 namespace FrbaBus.Compras
 {
@@ -40,6 +41,17 @@ namespace FrbaBus.Compras
 
             this.Close();
 
+        }
+
+        private void btnEncomiendaAltaDniCliente_Click(object sender, EventArgs e)
+        {
+            Cliente cliente = null;
+            using (ClienteListado frm = new ClienteListado(true))
+            {
+                frm.ShowDialog(this);
+                cliente = frm.ClienteSeleccionado();
+            }
+            tbEncomiendaAltaDniCliente.Text = cliente.NroDni.ToString();
         }
     }
 }
