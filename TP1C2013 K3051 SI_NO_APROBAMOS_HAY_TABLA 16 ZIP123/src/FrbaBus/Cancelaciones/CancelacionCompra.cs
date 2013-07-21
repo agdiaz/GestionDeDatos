@@ -38,7 +38,7 @@ namespace FrbaBus.Cancelaciones
             //}
             try
             {
-                using (Compras.ComprasListado frm = new FrbaBus.Compras.ComprasListado())
+                using (Compras.ComprasListado frm = new FrbaBus.Compras.ComprasListado(true))
                 {
                     frm.ShowDialog(this);
                     compra = frm.CompraSeleccionada();

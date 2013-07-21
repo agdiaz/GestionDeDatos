@@ -834,7 +834,7 @@ namespace FrbaBus
 
         private void tsmPasajeEncomiendaListadoCompras_Click(object sender, EventArgs e)
         {
-            using (Compras.ComprasListado frm = new ComprasListado())
+            using (Compras.ComprasListado frm = new ComprasListado(false))
             {
                 frm.ShowDialog();
             }
