@@ -581,7 +581,7 @@ namespace FrbaBus
 
         private void btnBuscarViaje_Click(object sender, EventArgs e)
         {
-            using (ViajeListado frm = new ViajeListado(_recorrido))
+            using (ViajeListado frm = new ViajeListado(_recorrido, true))
             {
                 frm.ShowDialog(this);
                 _viaje = frm.ViajeSeleccionado();

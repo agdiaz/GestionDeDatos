@@ -4299,6 +4299,7 @@ BEGIN
 				
 				FETCH NEXT FROM Cursor_arribos INTO @id_viaje, @fecha_arribo_real
 			END 
+			DELETE FROM SI_NO_APROBAMOS_HAY_TABLA.ArribosTemporal
 		COMMIT
 	END TRY
 	BEGIN CATCH 
