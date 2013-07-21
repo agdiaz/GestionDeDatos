@@ -161,6 +161,7 @@
             this.txtUsuarioDNI = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.mnsMain.SuspendLayout();
             this.ssStatusMain.SuspendLayout();
             this.gbViaje.SuspendLayout();
@@ -218,14 +219,14 @@
             // tsmSesionIniciar
             // 
             this.tsmSesionIniciar.Name = "tsmSesionIniciar";
-            this.tsmSesionIniciar.Size = new System.Drawing.Size(143, 22);
+            this.tsmSesionIniciar.Size = new System.Drawing.Size(152, 22);
             this.tsmSesionIniciar.Text = "&Iniciar Sesión";
             this.tsmSesionIniciar.Click += new System.EventHandler(this.tsmSesionIniciar_Click);
             // 
             // tsmSesionCerrar
             // 
             this.tsmSesionCerrar.Name = "tsmSesionCerrar";
-            this.tsmSesionCerrar.Size = new System.Drawing.Size(143, 22);
+            this.tsmSesionCerrar.Size = new System.Drawing.Size(152, 22);
             this.tsmSesionCerrar.Text = "&Cerrar Sesión";
             this.tsmSesionCerrar.Click += new System.EventHandler(this.tsmSesionCerrar_Click);
             // 
@@ -967,6 +968,7 @@
             this.btnQuitarEnco.TabIndex = 3;
             this.btnQuitarEnco.Text = "Quitar";
             this.btnQuitarEnco.UseVisualStyleBackColor = true;
+            this.btnQuitarEnco.Click += new System.EventHandler(this.btnQuitarEnco_Click);
             // 
             // btnModificarEnco
             // 
@@ -977,6 +979,7 @@
             this.btnModificarEnco.TabIndex = 2;
             this.btnModificarEnco.Text = "Modificar";
             this.btnModificarEnco.UseVisualStyleBackColor = true;
+            this.btnModificarEnco.Click += new System.EventHandler(this.btnModificarEnco_Click);
             // 
             // btnAgregarEnco
             // 
@@ -987,6 +990,7 @@
             this.btnAgregarEnco.TabIndex = 1;
             this.btnAgregarEnco.Text = "Agregar";
             this.btnAgregarEnco.UseVisualStyleBackColor = true;
+            this.btnAgregarEnco.Click += new System.EventHandler(this.btnAgregarEnco_Click);
             // 
             // lbEncomiendas
             // 
@@ -1179,7 +1183,7 @@
             // btnComprar
             // 
             this.btnComprar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnComprar.Location = new System.Drawing.Point(1124, 24);
+            this.btnComprar.Location = new System.Drawing.Point(1024, 27);
             this.btnComprar.Name = "btnComprar";
             this.btnComprar.Size = new System.Drawing.Size(126, 33);
             this.btnComprar.TabIndex = 10;
@@ -1226,15 +1230,18 @@
             // 
             // btnModificarUsuario
             // 
+            this.btnModificarUsuario.Enabled = false;
             this.btnModificarUsuario.Location = new System.Drawing.Point(420, 133);
             this.btnModificarUsuario.Name = "btnModificarUsuario";
             this.btnModificarUsuario.Size = new System.Drawing.Size(75, 23);
             this.btnModificarUsuario.TabIndex = 16;
             this.btnModificarUsuario.Text = "Modificar";
             this.btnModificarUsuario.UseVisualStyleBackColor = true;
+            this.btnModificarUsuario.Click += new System.EventHandler(this.btnModificarUsuario_Click);
             // 
             // txtUsuarioSexo
             // 
+            this.txtUsuarioSexo.Enabled = false;
             this.txtUsuarioSexo.Location = new System.Drawing.Point(165, 131);
             this.txtUsuarioSexo.Name = "txtUsuarioSexo";
             this.txtUsuarioSexo.Size = new System.Drawing.Size(100, 20);
@@ -1252,6 +1259,7 @@
             // cbUsuarioDiscapacitado
             // 
             this.cbUsuarioDiscapacitado.AutoSize = true;
+            this.cbUsuarioDiscapacitado.Enabled = false;
             this.cbUsuarioDiscapacitado.Location = new System.Drawing.Point(11, 133);
             this.cbUsuarioDiscapacitado.Name = "cbUsuarioDiscapacitado";
             this.cbUsuarioDiscapacitado.Size = new System.Drawing.Size(107, 17);
@@ -1261,6 +1269,7 @@
             // 
             // txtUsuarioMail
             // 
+            this.txtUsuarioMail.Enabled = false;
             this.txtUsuarioMail.Location = new System.Drawing.Point(66, 107);
             this.txtUsuarioMail.Name = "txtUsuarioMail";
             this.txtUsuarioMail.Size = new System.Drawing.Size(429, 20);
@@ -1286,6 +1295,7 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.Enabled = false;
             this.dateTimePicker1.Location = new System.Drawing.Point(295, 28);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
@@ -1293,6 +1303,7 @@
             // 
             // txtUsuarioTelefono
             // 
+            this.txtUsuarioTelefono.Enabled = false;
             this.txtUsuarioTelefono.Location = new System.Drawing.Point(339, 80);
             this.txtUsuarioTelefono.Name = "txtUsuarioTelefono";
             this.txtUsuarioTelefono.Size = new System.Drawing.Size(156, 20);
@@ -1309,6 +1320,7 @@
             // 
             // txtUsuarioDireccion
             // 
+            this.txtUsuarioDireccion.Enabled = false;
             this.txtUsuarioDireccion.Location = new System.Drawing.Point(66, 80);
             this.txtUsuarioDireccion.Name = "txtUsuarioDireccion";
             this.txtUsuarioDireccion.Size = new System.Drawing.Size(207, 20);
@@ -1325,6 +1337,7 @@
             // 
             // txtUsuarioApellido
             // 
+            this.txtUsuarioApellido.Enabled = false;
             this.txtUsuarioApellido.Location = new System.Drawing.Point(279, 54);
             this.txtUsuarioApellido.Name = "txtUsuarioApellido";
             this.txtUsuarioApellido.Size = new System.Drawing.Size(216, 20);
@@ -1332,6 +1345,7 @@
             // 
             // txtUsuarioNombre
             // 
+            this.txtUsuarioNombre.Enabled = false;
             this.txtUsuarioNombre.Location = new System.Drawing.Point(66, 54);
             this.txtUsuarioNombre.Name = "txtUsuarioNombre";
             this.txtUsuarioNombre.Size = new System.Drawing.Size(207, 20);
@@ -1339,6 +1353,7 @@
             // 
             // txtUsuarioDNI
             // 
+            this.txtUsuarioDNI.Enabled = false;
             this.txtUsuarioDNI.Location = new System.Drawing.Point(66, 28);
             this.txtUsuarioDNI.Name = "txtUsuarioDNI";
             this.txtUsuarioDNI.Size = new System.Drawing.Size(123, 20);
@@ -1362,11 +1377,22 @@
             this.label14.TabIndex = 0;
             this.label14.Text = "DNI";
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(1156, 27);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(94, 32);
+            this.btnCancelar.TabIndex = 14;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1262, 661);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.gbUsuario);
             this.Controls.Add(this.btnComprar);
             this.Controls.Add(this.gbRecorrido);
@@ -1381,7 +1407,6 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrbaBus - Pantalla principal";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.mnsMain.ResumeLayout(false);
             this.mnsMain.PerformLayout();
@@ -1541,6 +1566,7 @@
         private System.Windows.Forms.TextBox txtUsuarioSexo;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button btnConfirmarCliente;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }
 

@@ -75,13 +75,20 @@ namespace FrbaBus
             LimpiarGrupoMicros(false);
             LimpiarGrupoDetalles(false);
             LimpiarGrupoMedioPago(false);
-            
+            LimpiarGrupoUsuario(false);
         }
 
         private void LimpiarGrupoUsuario(bool habilitado)
         {
             gbUsuario.Enabled = habilitado;
-            
+            txtUsuarioApellido.Text = string.Empty;
+            txtUsuarioDireccion.Text = string.Empty;
+            txtUsuarioDNI.Text = string.Empty;
+            txtUsuarioMail.Text = string.Empty;
+            txtUsuarioNombre.Text = string.Empty;
+            txtUsuarioSexo.Text = string.Empty;
+            cbUsuarioDiscapacitado.Checked = false;
+            txtUsuarioTelefono.Text = string.Empty;
         }
         
         private void LimpiarGrupoViaje(bool habilitado)
@@ -290,6 +297,7 @@ namespace FrbaBus
             {
                 Program.ContextoActual.RegistrarUsuario(u);
                 this.RegistrarPermisos();
+                _cliente = _clienteManager.Obtener(u.NroDni);
             }
         }
 
@@ -533,7 +541,7 @@ namespace FrbaBus
 
         }
 
-        #endregion
+        #endregion 
 
         private void btnBuscarViaje_Click(object sender, EventArgs e)
         {
@@ -578,14 +586,14 @@ namespace FrbaBus
             else
             {
                 MensajePorPantalla.MensajeError(this, "El usuario es inexistente");
-                while (_cliente == null)
+                using (ClienteAlta frm = new ClienteAlta())
                 {
-                    using (ClienteAlta frm = new ClienteAlta())
-                    {
-                        frm.ShowDialog();
-                        _cliente = frm.ClienteNuevo();
-                    }
+                    frm.ShowDialog();
+                    _cliente = frm.ClienteNuevo();
                 }
+                if (_cliente == null)
+                    return;
+
                 _clienteManager.GenerarUsuario(_cliente);
                 u = _clienteManager.ObtenerUsuario(_cliente);
                 
@@ -743,6 +751,7 @@ namespace FrbaBus
                     int retornoEncomiendas = AltaEncomiendasDeCompra(compra);
 
                     MensajePorPantalla.MensajeInformativo(this, "Se ha dado de alta la compra con id: " + compra.IdCompra);
+                    this.IniciarFormulario();
                 }
                 catch (Exception ex)
                 {
@@ -800,6 +809,62 @@ namespace FrbaBus
                 _recorrido = frm.RecorridoSeleccionado();
                 MostrarOpcionesRecorrido();
             }
+        }
+
+        private void btnAgregarEnco_Click(object sender, EventArgs e)
+        {
+            Encomienda p = ObtenerEncomienda();
+            _encomiendas.Add(p);
+
+            this.lbPasajeros.Refresh();
+        }
+
+        private Encomienda ObtenerEncomienda()
+        {
+            Encomienda encomienda = null;
+            using (EncomiendaAlta frm = new EncomiendaAlta())
+            {
+                frm.ShowDialog(this);
+                //encomienda = frm.EncomiendaNueva;
+            }
+
+            return encomienda;
+        }
+
+        private void btnModificarUsuario_Click(object sender, EventArgs e)
+        {
+            using (ClienteModificar frm = new ClienteModificar(_cliente))
+            {
+                frm.ShowDialog();
+            }
+            _cliente = _clienteManager.Obtener(_cliente.NroDni);
+            this.MostrarOpcionesCliente();
+        }
+
+        private void btnModificarEnco_Click(object sender, EventArgs e)
+        {
+            Encomienda p = this.lbEncomiendas.SelectedItem as Encomienda;
+            if (p != null)
+            {
+                using (EncomiendaModificar frm = new EncomiendaModificar())
+                {
+                    frm.ShowDialog(this);
+                }
+            }
+        }
+
+        private void btnQuitarEnco_Click(object sender, EventArgs e)
+        {
+            Encomienda p = this.lbEncomiendas.SelectedItem as Encomienda;
+            if (p != null)
+            {
+                this.lbEncomiendas.Items.Remove(p);
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            IniciarFormulario();
         }
     }
 }

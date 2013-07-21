@@ -170,11 +170,6 @@ namespace FrbaBus.Abm_Micro
                 MensajePorPantalla.MensajeError(this, "Debe ingresar una cantidad de kgs disponibles para encomienda");
                 return false;
             }
-            if (string.IsNullOrEmpty(tbCantButacas.Text))
-            {
-                MensajePorPantalla.MensajeError(this, "Debe ingresar una cantidad de butacas");
-                return false;
-            }
             return true;
         }
 
