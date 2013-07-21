@@ -176,7 +176,7 @@ namespace FrbaBus.Abm_Micro
             {
                 if (dgvLibres.SelectedRows.Count == 0)
                 {
-                    DialogResult confirma = MensajePorPantalla.MensajeInformativo(this, "Debía seleccionar un micro.\n¿Desea salir de todas maneras?", MessageBoxButtons.YesNo);
+                    DialogResult confirma = MensajePorPantalla.MensajeInformativo(this, "Debía seleccionar una butaca.\n¿Desea salir de todas maneras?", MessageBoxButtons.YesNo);
 
                     if (confirma == DialogResult.No)
                         e.Cancel = true;

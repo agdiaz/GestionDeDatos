@@ -19,13 +19,18 @@ namespace FrbaBus.Abm_Viaje
         private ViajeManager _manager;
         private MicroManager _microManager;
         private RecorridoManager _recorridoManager;
+        private bool _esParaSeleccionar; 
 
         private Recorrido _recorrido;
 
         public ViajeListado()
+            : this(false)
+        {
+        }
+        public ViajeListado(bool esParaSeleccionar)
         {
             InitializeComponent();
-
+            _esParaSeleccionar = esParaSeleccionar;
             _manager = new ViajeManager();
             _microManager = new MicroManager();
             _recorridoManager = new RecorridoManager();
@@ -37,9 +42,14 @@ namespace FrbaBus.Abm_Viaje
             dtpViajeListadoFechaLlegadaEstimada.Format = DateTimePickerFormat.Custom;
             dtpViajeListadoFechaLlegadaEstimada.CustomFormat = "MMMM dd, yyyy - HH:mm:ss";
         }
-
         public ViajeListado(Recorrido rec)
-            :   this()
+            : this(rec, false)
+        {
+
+        }
+
+        public ViajeListado(Recorrido rec, bool esParaSeleccionar)
+            :   this(esParaSeleccionar)
         {
             _recorrido = rec;
         }
@@ -238,6 +248,21 @@ namespace FrbaBus.Abm_Viaje
                     this.Close();
                 }
             }
+        }
+
+        private void ViajeListado_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_esParaSeleccionar && e.CloseReason == CloseReason.UserClosing)
+            {
+                if (dgvViajeListado.SelectedRows.Count == 0)
+                {
+                    DialogResult confirma = MensajePorPantalla.MensajeInformativo(this, "Debía seleccionar un viaje.\n¿Desea salir de todas maneras?", MessageBoxButtons.YesNo);
+
+                    if (confirma == DialogResult.No)
+                        e.Cancel = true;
+                }
+            }
+
         }
         
         

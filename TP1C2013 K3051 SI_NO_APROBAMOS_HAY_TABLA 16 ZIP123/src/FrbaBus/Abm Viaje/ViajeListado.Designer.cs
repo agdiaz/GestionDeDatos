@@ -240,6 +240,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrbaBus - Viajes :: Listado";
             this.Load += new System.EventHandler(this.ViajeListado_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ViajeListado_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvViajeListado)).EndInit();

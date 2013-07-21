@@ -201,10 +201,13 @@ namespace FrbaBus.Abm_Recorrido
         {
             if (_esParaSeleccion && e.CloseReason == CloseReason.UserClosing)
             {
-                DialogResult confirma = MensajePorPantalla.MensajeInformativo(this, "Debía seleccionar un recorrido.\n¿Desea salir de todas maneras?", MessageBoxButtons.YesNo);
-                
-                if (confirma == DialogResult.No) 
-                    e.Cancel = true;
+                if (dgvRecorridoListado.SelectedRows.Count == 0)
+                {
+                    DialogResult confirma = MensajePorPantalla.MensajeInformativo(this, "Debía seleccionar un recorrido.\n¿Desea salir de todas maneras?", MessageBoxButtons.YesNo);
+
+                    if (confirma == DialogResult.No)
+                        e.Cancel = true;
+                }
             }
         }
     }
