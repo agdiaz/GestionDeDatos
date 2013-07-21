@@ -89,6 +89,7 @@ namespace FrbaBus
             txtUsuarioSexo.Text = string.Empty;
             cbUsuarioDiscapacitado.Checked = false;
             txtUsuarioTelefono.Text = string.Empty;
+            btnModificarUsuario.Enabled = habilitado;
         }
         
         private void LimpiarGrupoViaje(bool habilitado)
