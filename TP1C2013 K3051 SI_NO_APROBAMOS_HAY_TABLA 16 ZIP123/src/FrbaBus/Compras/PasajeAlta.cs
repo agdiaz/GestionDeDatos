@@ -157,6 +157,13 @@ namespace FrbaBus.Compras
                 MensajePorPantalla.MensajeError(this, "Debe seleccionar un cliente");
                 return false;
             }
+            IList<decimal> dnis = _viaje.Pasajes.Select( p => p.NroDni).ToList();
+
+            if (dnis.Contains(_cliente.NroDni))
+            {
+                MensajePorPantalla.MensajeError(this, "Ya hay un pasaje para ese dni");
+                return false;
+            }
             if (_butaca == null)
             {
                 MensajePorPantalla.MensajeError(this, "Debe seleccionar una butaca");

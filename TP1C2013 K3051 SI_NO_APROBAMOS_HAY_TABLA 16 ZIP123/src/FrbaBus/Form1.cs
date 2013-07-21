@@ -146,6 +146,8 @@ namespace FrbaBus
         private void MostrarOpcionesViaje()
         {
             LimpiarGrupoViaje(true);
+            _viaje.Pasajes = _pasajes;
+
             dtpViajeFechaArribo.Value = _viaje.FechaArribo;
             dtpViajeFechaSalida.Value = _viaje.FechaSalida;
 

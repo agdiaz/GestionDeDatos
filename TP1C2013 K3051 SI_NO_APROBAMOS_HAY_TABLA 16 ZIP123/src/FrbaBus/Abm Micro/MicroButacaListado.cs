@@ -19,6 +19,7 @@ namespace FrbaBus.Abm_Micro
         private ButacaManager _manager;
         private bool _esParaSeleccionar = false;
         private Viaje _viaje;
+        
         #endregion
 
         #region Constructores
@@ -117,7 +118,13 @@ namespace FrbaBus.Abm_Micro
         {
             try
             {
+                List<Butaca> yaVendidas = _viaje.Pasajes.Select(p=> p.Butaca).ToList();
+                List<int> idsButacasVendidas = yaVendidas.Select(b => b.Id).ToList();
+
                 IList<Butaca> libres = _manager.ListarLibres(_viaje);
+
+                libres = libres.Where(b => !idsButacasVendidas.Contains(b.Id) ).ToList();
+
                 IList<Butaca> ocupadas = _manager.ListarOcupadas(_viaje);
 
                 this.dgvLibres.DataSource = libres;
