@@ -124,11 +124,11 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(198, 14);
+            this.checkBox1.Location = new System.Drawing.Point(222, 14);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(80, 17);
+            this.checkBox1.Size = new System.Drawing.Size(56, 17);
             this.checkBox1.TabIndex = 7;
-            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.Text = "Fecha";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // ComprasListado
