@@ -3601,7 +3601,7 @@ CREATE PROCEDURE SI_NO_APROBAMOS_HAY_TABLA.sp_butacas_libres_viaje
 )
 AS
 BEGIN
-	SELECT b.id_butaca, b.nro_butaca, b.tipo_butaca, b.piso
+	SELECT b.id_butaca, b.nro_butaca, b.tipo_butaca, b.piso, b.id_micro
 	FROM SI_NO_APROBAMOS_HAY_TABLA.Butaca b
 	INNER JOIN SI_NO_APROBAMOS_HAY_TABLA.Micros m
 		ON m.id_micros = b.id_micro

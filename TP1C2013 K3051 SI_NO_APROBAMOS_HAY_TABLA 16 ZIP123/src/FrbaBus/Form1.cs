@@ -39,6 +39,7 @@ namespace FrbaBus
         private Viaje _viaje;
         private Recorrido _recorrido;
         private Cliente _cliente;
+        private Usuario _usuarioCompra;
 
         #endregion
         
@@ -58,6 +59,7 @@ namespace FrbaBus
             this._encomiendas = new List<Encomienda>();
             this.RegistrarPermisos();
             SetearCustomFormatDataTimePicker();
+            _usuarioCompra = null;
         }
 
         #endregion
@@ -316,7 +318,7 @@ namespace FrbaBus
             {
                 Program.ContextoActual.RegistrarUsuario(u);
                 this.RegistrarPermisos();
-                _cliente = _clienteManager.Obtener(u.NroDni);
+                //_cliente = _clienteManager.Obtener(u.NroDni);
             }
         }
 
@@ -515,6 +517,7 @@ namespace FrbaBus
             _encomiendas = new List<Encomienda>();
             _viaje = new Viaje();
             _recorrido = new Recorrido();
+            _usuarioCompra = null;
 
             MostrarPasajes();
 
@@ -616,15 +619,7 @@ namespace FrbaBus
                     u = login.UsuarioIniciado;
                 }
 
-                if (u != null)
-                {
-                    if (Program.ContextoActual.UsuarioActual != u)
-                    {
-                        Program.ContextoActual.RegistrarUsuario(u);
-                        this.RegistrarPermisos();
-                    }
-                }
-                else
+                if (u == null)
                 {
                     MensajePorPantalla.MensajeError(this, "El usuario es inexistente");
                     using (ClienteAlta frm = new ClienteAlta())
@@ -635,13 +630,13 @@ namespace FrbaBus
                     if (_cliente == null)
                         return;
 
-                    _clienteManager.GenerarUsuario(_cliente);
                     u = _clienteManager.ObtenerUsuario(_cliente);
 
                     Program.ContextoActual.RegistrarUsuario(u);
                     this.RegistrarPermisos();
 
                 }
+                _usuarioCompra = u;
                 this._cliente = _clienteManager.Obtener(u.NroDni);
             }
             LimpiarGrupoUsuario(true);
@@ -772,7 +767,7 @@ namespace FrbaBus
             // Primero tengo que generar la compra;
             Compra compra = new Compra();
             compra.FechaCompra = Helpers.FechaHelper.Ahora();
-            compra.IdUsuario = Program.ContextoActual.UsuarioActual.IdUsuario;
+            compra.IdUsuario = _usuarioCompra.IdUsuario;
             
             try
             {    
