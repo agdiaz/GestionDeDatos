@@ -792,7 +792,7 @@ namespace FrbaBus
 
                     MensajePorPantalla.MensajeInformativo(this, "Se ha dado de alta la compra con id: " + compra.IdCompra);
                     string modo = rbEfectivo.Checked ? "Efectivo" : "-";
-                    modo = rbTarjeta.Checked ? "En cuotas" : "-";
+                    modo = rbTarjeta.Checked ? "Tarjeta" : "-";
 
                     using (Compras.CompraFinal frm = new Compras.CompraFinal(compra, modo, _pasajes, _encomiendas))
                     {

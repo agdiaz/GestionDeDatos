@@ -15,11 +15,14 @@ namespace FrbaBus.Compras
 {
     public partial class ComprasListado : Form
     {
+        private bool _esParaSeleccionar;
+
         private CompraManager _manager;
 
-        public ComprasListado()
+        public ComprasListado(bool esParaS)
         {
             InitializeComponent();
+            this._esParaSeleccionar = esParaS;
             _manager = new CompraManager();
         }
 
@@ -67,11 +70,39 @@ namespace FrbaBus.Compras
 
         private void ComprasListado_Load(object sender, EventArgs e)
         {
-
+            btnSeleccionar.Visible = _esParaSeleccionar;
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void ComprasListado_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_esParaSeleccionar && e.CloseReason == CloseReason.UserClosing)
+            {
+                if (dgvCompras.SelectedRows.Count == 0)
+                {
+                    DialogResult confirma = MensajePorPantalla.MensajeInformativo(this, "Debía seleccionar una compra.\n¿Desea salir de todas maneras?", MessageBoxButtons.YesNo);
+
+                    if (confirma == DialogResult.No)
+                        e.Cancel = true;
+                }
+            }
+        }
+
+        private void Seleccionar()
+        {
+            if (this.dgvCompras.SelectedRows.Count > 0)
+            {
+                DialogResult confirma = MensajePorPantalla.MensajeInformativo(this, "¿Desea seleccionar esta compra?", MessageBoxButtons.YesNo);
+
+                if (confirma == DialogResult.Yes)
+                {
+                    this.Close();
+                }
+            }
 
         }
     }

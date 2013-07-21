@@ -798,6 +798,7 @@
             // 
             // tbMicroPatente
             // 
+            this.tbMicroPatente.Enabled = false;
             this.tbMicroPatente.Location = new System.Drawing.Point(307, 23);
             this.tbMicroPatente.Name = "tbMicroPatente";
             this.tbMicroPatente.Size = new System.Drawing.Size(100, 21);
@@ -815,6 +816,7 @@
             // 
             // tbMicroMarca
             // 
+            this.tbMicroMarca.Enabled = false;
             this.tbMicroMarca.Location = new System.Drawing.Point(105, 23);
             this.tbMicroMarca.Name = "tbMicroMarca";
             this.tbMicroMarca.Size = new System.Drawing.Size(100, 21);
@@ -822,6 +824,7 @@
             // 
             // tbMicroServicio
             // 
+            this.tbMicroServicio.Enabled = false;
             this.tbMicroServicio.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbMicroServicio.Location = new System.Drawing.Point(104, 50);
             this.tbMicroServicio.Name = "tbMicroServicio";
@@ -830,6 +833,7 @@
             // 
             // tbMicroKgDisponibles
             // 
+            this.tbMicroKgDisponibles.Enabled = false;
             this.tbMicroKgDisponibles.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbMicroKgDisponibles.Location = new System.Drawing.Point(104, 77);
             this.tbMicroKgDisponibles.Name = "tbMicroKgDisponibles";
@@ -838,6 +842,7 @@
             // 
             // tbMicroButacasLibres
             // 
+            this.tbMicroButacasLibres.Enabled = false;
             this.tbMicroButacasLibres.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbMicroButacasLibres.Location = new System.Drawing.Point(307, 50);
             this.tbMicroButacasLibres.Name = "tbMicroButacasLibres";
@@ -1123,6 +1128,7 @@
             // 
             // btnFinalizarCompra
             // 
+            this.btnFinalizarCompra.Enabled = false;
             this.btnFinalizarCompra.Location = new System.Drawing.Point(6, 86);
             this.btnFinalizarCompra.Name = "btnFinalizarCompra";
             this.btnFinalizarCompra.Size = new System.Drawing.Size(75, 23);
