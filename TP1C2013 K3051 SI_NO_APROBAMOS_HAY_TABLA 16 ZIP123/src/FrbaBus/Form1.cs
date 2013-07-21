@@ -887,7 +887,7 @@ namespace FrbaBus
             Encomienda p = this.lbEncomiendas.SelectedItem as Encomienda;
             if (p != null)
             {
-                using (EncomiendaModificar frm = new EncomiendaModificar())
+                using (EncomiendaModificar frm = new EncomiendaModificar(p))
                 {
                     frm.ShowDialog(this);
                 }

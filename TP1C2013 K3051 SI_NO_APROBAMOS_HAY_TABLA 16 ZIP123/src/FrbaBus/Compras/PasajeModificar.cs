@@ -56,9 +56,14 @@ namespace FrbaBus.Compras
             {
                 try
                 {
+                    if (_butaca != null)
                     _pasaje.Butaca = _butaca;
+                    
                     _pasaje.IdViaje = _viaje.Id;
-                    _pasaje.NroDni = _cliente.NroDni;
+                    
+                    if (_cliente != null)
+                        _pasaje.NroDni = _cliente.NroDni;
+                    
                     _pasaje.PrecioPasaje = Convert.ToDecimal(tbPrecio.Text);
 
                     MensajePorPantalla.MensajeInformativo(this, "Se modificó la solicitud de pasaje");

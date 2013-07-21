@@ -30,14 +30,13 @@
         {
             this.btnEncomiendaModificarLimpiar = new System.Windows.Forms.Button();
             this.btnEncomiendaModificarGuardar = new System.Windows.Forms.Button();
-            this.tbEncomiendaModificarMicro = new System.Windows.Forms.TextBox();
-            this.lblEncomiendaModificarMicro = new System.Windows.Forms.Label();
             this.tbEncomiendaModificarPesoKg = new System.Windows.Forms.TextBox();
             this.tbEncomiendaModificarViaje = new System.Windows.Forms.TextBox();
             this.tbEncomiendaModificarDniCliente = new System.Windows.Forms.TextBox();
             this.lblEncomiendaModificarPesoKg = new System.Windows.Forms.Label();
             this.lblEncomiendaModificarViaje = new System.Windows.Forms.Label();
             this.lblEncomiendaModificarDniCliente = new System.Windows.Forms.Label();
+            this.btnEncomiendaAltaDniCliente = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnEncomiendaModificarLimpiar
@@ -57,22 +56,7 @@
             this.btnEncomiendaModificarGuardar.TabIndex = 18;
             this.btnEncomiendaModificarGuardar.Text = "Guardar";
             this.btnEncomiendaModificarGuardar.UseVisualStyleBackColor = true;
-            // 
-            // tbEncomiendaModificarMicro
-            // 
-            this.tbEncomiendaModificarMicro.Location = new System.Drawing.Point(87, 64);
-            this.tbEncomiendaModificarMicro.Name = "tbEncomiendaModificarMicro";
-            this.tbEncomiendaModificarMicro.Size = new System.Drawing.Size(242, 20);
-            this.tbEncomiendaModificarMicro.TabIndex = 17;
-            // 
-            // lblEncomiendaModificarMicro
-            // 
-            this.lblEncomiendaModificarMicro.AutoSize = true;
-            this.lblEncomiendaModificarMicro.Location = new System.Drawing.Point(8, 67);
-            this.lblEncomiendaModificarMicro.Name = "lblEncomiendaModificarMicro";
-            this.lblEncomiendaModificarMicro.Size = new System.Drawing.Size(33, 13);
-            this.lblEncomiendaModificarMicro.TabIndex = 16;
-            this.lblEncomiendaModificarMicro.Text = "Micro";
+            this.btnEncomiendaModificarGuardar.Click += new System.EventHandler(this.btnEncomiendaModificarGuardar_Click);
             // 
             // tbEncomiendaModificarPesoKg
             // 
@@ -83,6 +67,7 @@
             // 
             // tbEncomiendaModificarViaje
             // 
+            this.tbEncomiendaModificarViaje.Enabled = false;
             this.tbEncomiendaModificarViaje.Location = new System.Drawing.Point(87, 37);
             this.tbEncomiendaModificarViaje.Name = "tbEncomiendaModificarViaje";
             this.tbEncomiendaModificarViaje.Size = new System.Drawing.Size(242, 20);
@@ -90,6 +75,7 @@
             // 
             // tbEncomiendaModificarDniCliente
             // 
+            this.tbEncomiendaModificarDniCliente.Enabled = false;
             this.tbEncomiendaModificarDniCliente.Location = new System.Drawing.Point(87, 12);
             this.tbEncomiendaModificarDniCliente.Name = "tbEncomiendaModificarDniCliente";
             this.tbEncomiendaModificarDniCliente.Size = new System.Drawing.Size(242, 20);
@@ -122,15 +108,24 @@
             this.lblEncomiendaModificarDniCliente.TabIndex = 10;
             this.lblEncomiendaModificarDniCliente.Text = "DNI Cliente";
             // 
+            // btnEncomiendaAltaDniCliente
+            // 
+            this.btnEncomiendaAltaDniCliente.Location = new System.Drawing.Point(335, 10);
+            this.btnEncomiendaAltaDniCliente.Name = "btnEncomiendaAltaDniCliente";
+            this.btnEncomiendaAltaDniCliente.Size = new System.Drawing.Size(75, 23);
+            this.btnEncomiendaAltaDniCliente.TabIndex = 20;
+            this.btnEncomiendaAltaDniCliente.Text = "Buscar";
+            this.btnEncomiendaAltaDniCliente.UseVisualStyleBackColor = true;
+            this.btnEncomiendaAltaDniCliente.Click += new System.EventHandler(this.btnEncomiendaAltaDniCliente_Click);
+            // 
             // EncomiendaModificar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(429, 159);
+            this.Controls.Add(this.btnEncomiendaAltaDniCliente);
             this.Controls.Add(this.btnEncomiendaModificarLimpiar);
             this.Controls.Add(this.btnEncomiendaModificarGuardar);
-            this.Controls.Add(this.tbEncomiendaModificarMicro);
-            this.Controls.Add(this.lblEncomiendaModificarMicro);
             this.Controls.Add(this.tbEncomiendaModificarPesoKg);
             this.Controls.Add(this.tbEncomiendaModificarViaje);
             this.Controls.Add(this.tbEncomiendaModificarDniCliente);
@@ -139,6 +134,7 @@
             this.Controls.Add(this.lblEncomiendaModificarDniCliente);
             this.Name = "EncomiendaModificar";
             this.Text = "Modificar Encomiendas";
+            this.Load += new System.EventHandler(this.EncomiendaModificar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,13 +144,12 @@
 
         private System.Windows.Forms.Button btnEncomiendaModificarLimpiar;
         private System.Windows.Forms.Button btnEncomiendaModificarGuardar;
-        private System.Windows.Forms.TextBox tbEncomiendaModificarMicro;
-        private System.Windows.Forms.Label lblEncomiendaModificarMicro;
         private System.Windows.Forms.TextBox tbEncomiendaModificarPesoKg;
         private System.Windows.Forms.TextBox tbEncomiendaModificarViaje;
         private System.Windows.Forms.TextBox tbEncomiendaModificarDniCliente;
         private System.Windows.Forms.Label lblEncomiendaModificarPesoKg;
         private System.Windows.Forms.Label lblEncomiendaModificarViaje;
         private System.Windows.Forms.Label lblEncomiendaModificarDniCliente;
+        private System.Windows.Forms.Button btnEncomiendaAltaDniCliente;
     }
 }
