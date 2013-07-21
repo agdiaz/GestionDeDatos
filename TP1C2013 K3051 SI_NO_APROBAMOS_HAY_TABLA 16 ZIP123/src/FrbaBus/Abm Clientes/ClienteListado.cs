@@ -193,10 +193,13 @@ namespace FrbaBus.Abm_Clientes
         {
             if (_esParaSeleccionar && e.CloseReason == CloseReason.UserClosing)
             {
-                DialogResult confirma = MensajePorPantalla.MensajeInformativo(this, "Debía seleccionar un cliente.\n¿Desea salir de todas maneras?", MessageBoxButtons.YesNo);
+                if (dgvClienteListado.SelectedRows.Count == 0)
+                {
+                    DialogResult confirma = MensajePorPantalla.MensajeInformativo(this, "Debía seleccionar un cliente.\n¿Desea salir de todas maneras?", MessageBoxButtons.YesNo);
 
-                if (confirma == DialogResult.No)
-                    e.Cancel = true;
+                    if (confirma == DialogResult.No)
+                        e.Cancel = true; 
+                }
             }
         }
     }

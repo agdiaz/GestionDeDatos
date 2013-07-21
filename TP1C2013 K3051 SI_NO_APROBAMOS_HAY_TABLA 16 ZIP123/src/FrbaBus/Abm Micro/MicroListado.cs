@@ -256,10 +256,13 @@ namespace FrbaBus.Abm_Micro
         {
             if (_esParaSeleccionar && e.CloseReason == CloseReason.UserClosing)
             {
+                if (dgvMicroListado.SelectedRows.Count == 0)
+                {
                 DialogResult confirma = MensajePorPantalla.MensajeInformativo(this, "Debía seleccionar un micro.\n¿Desea salir de todas maneras?", MessageBoxButtons.YesNo);
 
                 if (confirma == DialogResult.No)
                     e.Cancel = true;
+                }
             }
         }
     }

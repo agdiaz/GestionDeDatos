@@ -234,6 +234,7 @@
             this.Name = "MicroButacaListado";
             this.Text = "FrbaBus - Micro - Butacas :: Listado";
             this.Load += new System.EventHandler(this.MicroButacaListado_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MicroButacaListado_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOcupadas)).EndInit();
