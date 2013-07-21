@@ -111,7 +111,8 @@ namespace FrbaBus.DAO
             parametros.Add(new SqlParameter("@p_dni", SqlDbType.Decimal, 18, "p_dni"), encomienda.NroDni);
             parametros.Add(new SqlParameter("@p_pre_encomienda", SqlDbType.Int, 4, "p_pre_encomienda"), encomienda.PrecioEncomienda);
             parametros.Add(new SqlParameter("@p_id_viaje", SqlDbType.Int, 4, "p_id_viaje"), encomienda.IdViaje);
-
+            parametros.Add(new SqlParameter("@p_peso", SqlDbType.Decimal, 18, "p_peso"), encomienda.Peso);
+            
             this.accesoBD.EjecutarComando("[SI_NO_APROBAMOS_HAY_TABLA].sp_insertar_encomienda", parametros);
             return Convert.ToInt32(pId.Value);
         }
