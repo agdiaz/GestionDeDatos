@@ -60,6 +60,7 @@
             this.tsmViajeListado = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmViajeAlta = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmViajeProcesarArribos = new System.Windows.Forms.ToolStripMenuItem();
             this.cargarArribaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmClienteListado = new System.Windows.Forms.ToolStripMenuItem();
@@ -162,7 +163,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.tsmViajeProcesarArribos = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsMain.SuspendLayout();
             this.ssStatusMain.SuspendLayout();
             this.gbViaje.SuspendLayout();
@@ -301,14 +301,14 @@
             // tsmRecorridoListado
             // 
             this.tsmRecorridoListado.Name = "tsmRecorridoListado";
-            this.tsmRecorridoListado.Size = new System.Drawing.Size(152, 22);
+            this.tsmRecorridoListado.Size = new System.Drawing.Size(112, 22);
             this.tsmRecorridoListado.Text = "Listado";
             this.tsmRecorridoListado.Click += new System.EventHandler(this.tsmRecorridoListado_Click);
             // 
             // tsmRecorridoAlta
             // 
             this.tsmRecorridoAlta.Name = "tsmRecorridoAlta";
-            this.tsmRecorridoAlta.Size = new System.Drawing.Size(152, 22);
+            this.tsmRecorridoAlta.Size = new System.Drawing.Size(112, 22);
             this.tsmRecorridoAlta.Text = "Alta";
             this.tsmRecorridoAlta.Click += new System.EventHandler(this.tsmRecorridoAlta_Click);
             // 
@@ -398,11 +398,12 @@
             this.tsmMicroButaca.Name = "tsmMicroButaca";
             this.tsmMicroButaca.Size = new System.Drawing.Size(152, 22);
             this.tsmMicroButaca.Text = "Butaca";
+            this.tsmMicroButaca.Visible = false;
             // 
             // tsmMicroButacaAlta
             // 
             this.tsmMicroButacaAlta.Name = "tsmMicroButacaAlta";
-            this.tsmMicroButacaAlta.Size = new System.Drawing.Size(95, 22);
+            this.tsmMicroButacaAlta.Size = new System.Drawing.Size(152, 22);
             this.tsmMicroButacaAlta.Text = "Alta";
             this.tsmMicroButacaAlta.Click += new System.EventHandler(this.tsmMicroButacaAlta_Click);
             // 
@@ -436,6 +437,13 @@
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(155, 6);
+            // 
+            // tsmViajeProcesarArribos
+            // 
+            this.tsmViajeProcesarArribos.Name = "tsmViajeProcesarArribos";
+            this.tsmViajeProcesarArribos.Size = new System.Drawing.Size(158, 22);
+            this.tsmViajeProcesarArribos.Text = "Procesar arribos";
+            this.tsmViajeProcesarArribos.Click += new System.EventHandler(this.arribosToolStripMenuItem_Click);
             // 
             // cargarArribaToolStripMenuItem
             // 
@@ -1391,13 +1399,6 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // tsmViajeProcesarArribos
-            // 
-            this.tsmViajeProcesarArribos.Name = "tsmViajeProcesarArribos";
-            this.tsmViajeProcesarArribos.Size = new System.Drawing.Size(158, 22);
-            this.tsmViajeProcesarArribos.Text = "Procesar arribos";
-            this.tsmViajeProcesarArribos.Click += new System.EventHandler(this.arribosToolStripMenuItem_Click);
             // 
             // Form1
             // 
