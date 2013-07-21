@@ -43,6 +43,9 @@ namespace FrbaBus.Abm_Clientes
             try
             {
                 btnSeleccionar.Visible = _esParaSeleccionar;
+                btnDarBaja.Visible = !_esParaSeleccionar;
+                btnModificarCliente.Visible = !_esParaSeleccionar;
+
                 LimpiarControles();
                 //CargarListaClientes();
             }

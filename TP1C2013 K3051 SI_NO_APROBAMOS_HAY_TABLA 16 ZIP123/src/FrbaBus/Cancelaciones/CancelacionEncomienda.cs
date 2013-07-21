@@ -26,7 +26,7 @@ namespace FrbaBus.Cancelaciones
 
         private void btnCancelacionEncomiendaBuscarCompra_Click(object sender, EventArgs e)
         {
-            using (Compras.EncomiendaListado frm = new FrbaBus.Compras.EncomiendaListado())
+            using (Compras.EncomiendaListado frm = new FrbaBus.Compras.EncomiendaListado(true))
             {
                 frm.ShowDialog();
                 encomienda = frm.EncomiendaSeleccionado();

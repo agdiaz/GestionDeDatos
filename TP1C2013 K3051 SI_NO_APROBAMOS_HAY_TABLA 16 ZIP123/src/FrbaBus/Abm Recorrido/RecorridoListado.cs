@@ -84,6 +84,9 @@ namespace FrbaBus.Abm_Recorrido
             try
             {
                 btnSeleccionar.Visible = _esParaSeleccion;
+                btnModificar.Visible = !_esParaSeleccion;
+                btnRecorridoListadoDarBaja.Visible = !_esParaSeleccion;
+
                 CargarCiudades();
                 CargarServicios();
                 CargarRecorridos();                

@@ -42,6 +42,7 @@
             this.tbPasajeListadoCliente = new System.Windows.Forms.TextBox();
             this.tbPasajeListadoMicro = new System.Windows.Forms.TextBox();
             this.dgvPasajeListado = new System.Windows.Forms.DataGridView();
+            this.btnSeleccionar = new System.Windows.Forms.Button();
             this.gbPasajeListadoFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPasajeListado)).BeginInit();
             this.SuspendLayout();
@@ -175,18 +176,31 @@
             this.dgvPasajeListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPasajeListado.Location = new System.Drawing.Point(12, 180);
             this.dgvPasajeListado.Name = "dgvPasajeListado";
-            this.dgvPasajeListado.Size = new System.Drawing.Size(806, 294);
+            this.dgvPasajeListado.Size = new System.Drawing.Size(806, 251);
             this.dgvPasajeListado.TabIndex = 8;
+            this.dgvPasajeListado.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPasajeListado_CellContentDoubleClick);
+            // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.Location = new System.Drawing.Point(743, 437);
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.Size = new System.Drawing.Size(75, 23);
+            this.btnSeleccionar.TabIndex = 9;
+            this.btnSeleccionar.Text = "Seleccionar";
+            this.btnSeleccionar.UseVisualStyleBackColor = true;
+            this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
             // 
             // PasajeListado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(830, 486);
+            this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.dgvPasajeListado);
             this.Controls.Add(this.gbPasajeListadoFiltros);
             this.Name = "PasajeListado";
             this.Text = "Listado de pasajes";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PasajeListado_FormClosing);
             this.gbPasajeListadoFiltros.ResumeLayout(false);
             this.gbPasajeListadoFiltros.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPasajeListado)).EndInit();
@@ -210,5 +224,6 @@
         private System.Windows.Forms.Button btnPasajeListadoBuscar;
         private System.Windows.Forms.Button btnPasajeListadoLimpiar;
         private System.Windows.Forms.DataGridView dgvPasajeListado;
+        private System.Windows.Forms.Button btnSeleccionar;
     }
 }

@@ -17,10 +17,17 @@ namespace FrbaBus.Compras
     public partial class EncomiendaListado : Form
     {
         private PasajeManager _manager;
+        private bool _esParaSeleccionar;
 
         public EncomiendaListado()
+        :this(false)
+        {
+
+        }
+        public EncomiendaListado(bool esP)
         {
             _manager = new PasajeManager();
+            _esParaSeleccionar = esP;
             InitializeComponent();
         }
 
@@ -108,6 +115,51 @@ namespace FrbaBus.Compras
             if (cliente != null)
             {
                 tbEncomiendaListadoDniCliente.Text = cliente.NroDni.ToString();
+            }
+        }
+
+        private void EncomiendaListado_Load(object sender, EventArgs e)
+        {
+            btnEncomiendaListadoBuscar.Visible = _esParaSeleccionar;
+        }
+
+        private void btnSeleccionar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EncomiendaListado_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_esParaSeleccionar && e.CloseReason == CloseReason.UserClosing)
+            {
+                if (dgvEncomiendaListado.SelectedRows.Count == 0)
+                {
+                    DialogResult confirma = MensajePorPantalla.MensajeInformativo(this, "Debía seleccionar una encomienda.\n¿Desea salir de todas maneras?", MessageBoxButtons.YesNo);
+
+                    if (confirma == DialogResult.No)
+                        e.Cancel = true;
+                }
+            }
+        }
+
+        private void Seleccionar()
+        {
+            if (this.dgvEncomiendaListado.SelectedRows.Count > 0)
+            {
+                DialogResult confirma = MensajePorPantalla.MensajeInformativo(this, "¿Desea seleccionar esta encomienda?", MessageBoxButtons.YesNo);
+
+                if (confirma == DialogResult.Yes)
+                {
+                    this.Close();
+                }
+            }
+        }
+
+        private void dgvEncomiendaListado_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvEncomiendaListado.SelectedRows.Count > 0)
+            {
+                Seleccionar();
             }
         }
     }

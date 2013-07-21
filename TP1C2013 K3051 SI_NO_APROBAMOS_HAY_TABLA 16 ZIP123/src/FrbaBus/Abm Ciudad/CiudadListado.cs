@@ -53,6 +53,9 @@ namespace FrbaBus.Abm_Ciudad
         private void CiudadListado_Load(object sender, EventArgs e)
         {
             btnSeleccionar.Visible = _esParaSeleccionar;
+            btnCiudadListadoDarBaja.Visible = !_esParaSeleccionar;
+            btnModificar.Visible = !_esParaSeleccionar;
+
             CargarCiudades();
         }
         private void btnCiudadListadoBuscar_Click(object sender, EventArgs e)

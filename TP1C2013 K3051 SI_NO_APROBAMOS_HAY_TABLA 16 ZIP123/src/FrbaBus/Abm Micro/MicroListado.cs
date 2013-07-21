@@ -74,6 +74,10 @@ namespace FrbaBus.Abm_Micro
 
         private void MicroListado_Load(object sender, EventArgs e)
         {
+            btnSeleccionar.Visible = _esParaSeleccionar;
+            btnMicroListadoDarBaja.Visible = !_esParaSeleccionar;
+            btnMicroListadoModificar.Visible = !_esParaSeleccionar;
+
             try
             {
                 CargarServicios();

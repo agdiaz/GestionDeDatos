@@ -16,10 +16,11 @@ namespace FrbaBus.Compras
 {
     public partial class PasajeListado : Form
     {
-
+        private bool _esSeleccionar;
         private PasajeManager _manager;
-        public PasajeListado()
+        public PasajeListado(bool es)
         {
+            _esSeleccionar = es;
             InitializeComponent();
             _manager = new PasajeManager();
         }
@@ -91,6 +92,47 @@ namespace FrbaBus.Compras
             if (cliente != null)
             {
                 tbPasajeListadoCliente.Text = cliente.NroDni.ToString();
+            }
+        }
+
+        private void btnSeleccionar_Click(object sender, EventArgs e)
+        {
+            this.Seleccionar();
+        }
+        private void Seleccionar()
+        {
+            if (this.dgvPasajeListado.SelectedRows.Count > 0)
+            {
+                DialogResult confirma = MensajePorPantalla.MensajeInformativo(this, "¿Desea seleccionar este pasaje?", MessageBoxButtons.YesNo);
+
+                if (confirma == DialogResult.Yes)
+                {
+                    this.Close();
+                }
+            }
+
+        }
+
+        private void PasajeListado_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_esSeleccionar && e.CloseReason == CloseReason.UserClosing)
+            {
+                if (dgvPasajeListado.SelectedRows.Count == 0)
+                {
+                    DialogResult confirma = MensajePorPantalla.MensajeInformativo(this, "Debía seleccionar un pasaje.\n¿Desea salir de todas maneras?", MessageBoxButtons.YesNo);
+
+                    if (confirma == DialogResult.No)
+                        e.Cancel = true;
+                }
+            }
+
+        }
+
+        private void dgvPasajeListado_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvPasajeListado.SelectedRows.Count > 0)
+            {
+                Seleccionar();
             }
         }
     }

@@ -43,6 +43,7 @@
             this.btnEncomiendaListadoLimpiar = new System.Windows.Forms.Button();
             this.btnEncomiendaListadoBuscar = new System.Windows.Forms.Button();
             this.dgvEncomiendaListado = new System.Windows.Forms.DataGridView();
+            this.btnSeleccionar = new System.Windows.Forms.Button();
             this.gbEncomiendaListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEncomiendaListado)).BeginInit();
             this.SuspendLayout();
@@ -183,20 +184,35 @@
             this.dgvEncomiendaListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEncomiendaListado.Location = new System.Drawing.Point(12, 194);
             this.dgvEncomiendaListado.Name = "dgvEncomiendaListado";
-            this.dgvEncomiendaListado.Size = new System.Drawing.Size(414, 277);
+            this.dgvEncomiendaListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvEncomiendaListado.Size = new System.Drawing.Size(414, 220);
             this.dgvEncomiendaListado.TabIndex = 9;
+            this.dgvEncomiendaListado.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEncomiendaListado_CellContentDoubleClick);
+            // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.Location = new System.Drawing.Point(351, 420);
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.Size = new System.Drawing.Size(75, 23);
+            this.btnSeleccionar.TabIndex = 10;
+            this.btnSeleccionar.Text = "Seleccionar";
+            this.btnSeleccionar.UseVisualStyleBackColor = true;
+            this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
             // 
             // EncomiendaListado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(439, 481);
+            this.ClientSize = new System.Drawing.Size(439, 454);
+            this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.dgvEncomiendaListado);
             this.Controls.Add(this.btnEncomiendaListadoBuscar);
             this.Controls.Add(this.btnEncomiendaListadoLimpiar);
             this.Controls.Add(this.gbEncomiendaListado);
             this.Name = "EncomiendaListado";
             this.Text = "Listado Encomiendas";
+            this.Load += new System.EventHandler(this.EncomiendaListado_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EncomiendaListado_FormClosing);
             this.gbEncomiendaListado.ResumeLayout(false);
             this.gbEncomiendaListado.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEncomiendaListado)).EndInit();
@@ -221,5 +237,6 @@
         private System.Windows.Forms.TextBox tbEncomiendaListadoPesoKg;
         private System.Windows.Forms.Label lblEncomiendaListadoPesoKg;
         private System.Windows.Forms.Button btnEncomiendaListadoBuscarCliente;
+        private System.Windows.Forms.Button btnSeleccionar;
     }
 }

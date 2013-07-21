@@ -63,6 +63,9 @@ namespace FrbaBus.Abm_Viaje
         {
             try
             {
+                btnSeleccionarViaje.Visible = !_esParaSeleccionar;
+                btnViajeListadoDarBaja.Visible = !_esParaSeleccionar;
+                btnModificar.Visible = !_esParaSeleccionar;
                 CargarFechas();
                 ListarMicros();
                 ListarRecorridos();
