@@ -112,6 +112,7 @@
             this.btnEncomiendaAltaGuardar.TabIndex = 8;
             this.btnEncomiendaAltaGuardar.Text = "Guardar";
             this.btnEncomiendaAltaGuardar.UseVisualStyleBackColor = true;
+            this.btnEncomiendaAltaGuardar.Click += new System.EventHandler(this.btnEncomiendaAltaGuardar_Click);
             // 
             // btnEncomiendaAltaLimpiar
             // 

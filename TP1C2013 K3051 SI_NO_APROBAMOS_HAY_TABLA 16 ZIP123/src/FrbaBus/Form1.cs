@@ -813,19 +813,19 @@ namespace FrbaBus
 
         private void btnAgregarEnco_Click(object sender, EventArgs e)
         {
-            Encomienda p = ObtenerEncomienda();
-            _encomiendas.Add(p);
+            Encomienda encomienda = ObtenerEncomienda();
+            _encomiendas.Add(encomienda);
 
-            this.lbPasajeros.Refresh();
+            this.lbEncomiendas.Refresh();
         }
 
         private Encomienda ObtenerEncomienda()
         {
             Encomienda encomienda = null;
-            using (EncomiendaAlta frm = new EncomiendaAlta())
+            using (EncomiendaAlta frm = new EncomiendaAlta(_viaje))
             {
                 frm.ShowDialog(this);
-                //encomienda = frm.EncomiendaNueva;
+                encomienda = frm.EncomiendaNuevo;
             }
 
             return encomienda;

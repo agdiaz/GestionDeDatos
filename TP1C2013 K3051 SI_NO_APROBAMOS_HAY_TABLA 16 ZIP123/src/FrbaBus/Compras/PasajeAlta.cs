@@ -22,6 +22,8 @@ namespace FrbaBus.Compras
         private Butaca _butaca;
 
         public Pasaje PasajeNuevo { get; set; }
+
+        public Encomienda Encomienda { get; set; }
         
         private PasajeManager _manager;
 
@@ -130,7 +132,7 @@ namespace FrbaBus.Compras
                     p.IdViaje = _viaje.Id;
                     p.NroDni = _cliente.NroDni;
                     p.PrecioPasaje = Convert.ToDecimal(tbPrecio.Text);
-
+                    
                     MensajePorPantalla.MensajeInformativo(this, "Se dio de alta la solicitud de pasaje");
                     PasajeNuevo = p;
 
