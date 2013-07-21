@@ -116,5 +116,32 @@ namespace FrbaBus.DAO
             this.accesoBD.EjecutarComando("[SI_NO_APROBAMOS_HAY_TABLA].sp_insertar_encomienda", parametros);
             return Convert.ToInt32(pId.Value);
         }
+
+        public IList<Compra> ListarFiltrado(decimal nroDni, int idCompra, DateTime fecha)
+        {
+            IList<Compra> compras = new List<Compra>();
+
+            foreach (DataRow row in ObtenerFiltrado(nroDni, idCompra, fecha).Tables[0].Rows)
+            {
+                compras.Add(this._builder.Build(row));
+            }
+
+            return compras;
+        }
+
+        private DataSet ObtenerFiltrado(decimal nroDni, int idCompra, DateTime fecha)
+        {
+            Dictionary<SqlParameter, object> parametros = new Dictionary<SqlParameter, object>();
+            
+            if (idCompra > 0)
+                parametros.Add(new SqlParameter("@id_compra", SqlDbType.Int, 4, "id_compra"), nroDni);
+            if (nroDni > 0)
+            parametros.Add(new SqlParameter("@dni", SqlDbType.Decimal, 18, "dni"), idCompra);
+            if (fecha != null)
+                parametros.Add(new SqlParameter("@fecha_compra", SqlDbType.DateTime, 8, "fecha_compra"), fecha);
+
+            return accesoBD.RealizarConsultaAlmacenada("[SI_NO_APROBAMOS_HAY_TABLA].sp_filtrar_compras", parametros);
+            
+        }
     }
 }
