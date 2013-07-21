@@ -45,8 +45,10 @@ namespace FrbaBus.Abm_Recorrido
         private void CargarCiudades()
         {
             IList<Ciudad> ciudadesOrigen = _ciudadManager.Listar();
+            ciudadesOrigen.Insert(0, new Ciudad());
             IList<Ciudad> ciudadesDestino = _ciudadManager.Listar();
-
+            ciudadesDestino.Insert(0, new Ciudad());
+            
             this.cbCiudadOrigen.DataSource = ciudadesOrigen;
             this.cbCiudadOrigen.DisplayMember = "Nombre";
             this.cbCiudadOrigen.ValueMember = "Id";
@@ -59,7 +61,7 @@ namespace FrbaBus.Abm_Recorrido
         private void CargarServicios()
         {
             IList<Servicio> servicios = _servicioManager.Listar();
-
+            servicios.Insert(0, new Servicio());
             this.cbbRecorridoAltaTipoServicio.DataSource = servicios;
             this.cbbRecorridoAltaTipoServicio.DisplayMember = "TipoServicio";
             this.cbbRecorridoAltaTipoServicio.ValueMember = "Id";
@@ -76,9 +78,9 @@ namespace FrbaBus.Abm_Recorrido
                     rec.CiudadDestino = this.cbCiudadDestino.SelectedItem as Ciudad;
                     rec.IdCiudadDestino = rec.CiudadDestino.Id;
 
-                    rec.IdCiudadOrigen = rec.CiudadOrigen.Id;
                     rec.CiudadOrigen = this.cbCiudadOrigen.SelectedItem as Ciudad;
-                    
+                    rec.IdCiudadOrigen = rec.CiudadOrigen.Id;
+
                     rec.PrecioBaseKG = Convert.ToDecimal(this.tbRecorridoAltaPrecioBasePorKgs.Text);
                     rec.PrecioBasePasaje = Convert.ToDecimal(this.tbRecorridoAltaPrecioBasePorPasaje.Text);
                     
