@@ -568,42 +568,44 @@ namespace FrbaBus
 
         private void btnComprar_Click(object sender, EventArgs e)
         {
-            Usuario u = null;
-            using (Login.Login login = new FrbaBus.Login.Login(true))
+            if (_cliente == null)
             {
-                login.ShowDialog(this);
-                u = login.UsuarioIniciado;
-            }
-
-            if (u != null)
-            {
-                if (Program.ContextoActual.UsuarioActual != u)
+                Usuario u = null;
+                using (Login.Login login = new FrbaBus.Login.Login(true))
                 {
+                    login.ShowDialog(this);
+                    u = login.UsuarioIniciado;
+                }
+
+                if (u != null)
+                {
+                    if (Program.ContextoActual.UsuarioActual != u)
+                    {
+                        Program.ContextoActual.RegistrarUsuario(u);
+                        this.RegistrarPermisos();
+                    }
+                }
+                else
+                {
+                    MensajePorPantalla.MensajeError(this, "El usuario es inexistente");
+                    using (ClienteAlta frm = new ClienteAlta())
+                    {
+                        frm.ShowDialog();
+                        _cliente = frm.ClienteNuevo();
+                    }
+                    if (_cliente == null)
+                        return;
+
+                    _clienteManager.GenerarUsuario(_cliente);
+                    u = _clienteManager.ObtenerUsuario(_cliente);
+
                     Program.ContextoActual.RegistrarUsuario(u);
                     this.RegistrarPermisos();
-                }
-            }
-            else
-            {
-                MensajePorPantalla.MensajeError(this, "El usuario es inexistente");
-                using (ClienteAlta frm = new ClienteAlta())
-                {
-                    frm.ShowDialog();
-                    _cliente = frm.ClienteNuevo();
-                }
-                if (_cliente == null)
-                    return;
 
-                _clienteManager.GenerarUsuario(_cliente);
-                u = _clienteManager.ObtenerUsuario(_cliente);
-                
-                Program.ContextoActual.RegistrarUsuario(u);
-                this.RegistrarPermisos();
-                
+                }
+                this._cliente = _clienteManager.Obtener(u.NroDni);
             }
-
             LimpiarGrupoUsuario(true);
-            this._cliente = _clienteManager.Obtener(u.NroDni);
             this.MostrarOpcionesCliente();
             
         }

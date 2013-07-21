@@ -90,7 +90,6 @@ namespace FrbaBus.Abm_Viaje
 
         private void btnViajeAltaGuardar_Click(object sender, EventArgs e)
         {
-            {
             if (this.ValidarDatos())
             {
                 try
@@ -121,8 +120,7 @@ namespace FrbaBus.Abm_Viaje
                 }
             }
         }
- }
-
+ 
         private bool ValidarDatos()
         {
             if (dtpViajeAltaFechaSalida.Value < Helpers.FechaHelper.Ahora())

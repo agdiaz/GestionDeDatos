@@ -70,6 +70,7 @@
             // 
             // tbEncomiendaAltaDniCliente
             // 
+            this.tbEncomiendaAltaDniCliente.Enabled = false;
             this.tbEncomiendaAltaDniCliente.Location = new System.Drawing.Point(91, 6);
             this.tbEncomiendaAltaDniCliente.Name = "tbEncomiendaAltaDniCliente";
             this.tbEncomiendaAltaDniCliente.Size = new System.Drawing.Size(242, 20);
@@ -77,6 +78,7 @@
             // 
             // tbEncomiendaAltaViaje
             // 
+            this.tbEncomiendaAltaViaje.Enabled = false;
             this.tbEncomiendaAltaViaje.Location = new System.Drawing.Point(91, 31);
             this.tbEncomiendaAltaViaje.Name = "tbEncomiendaAltaViaje";
             this.tbEncomiendaAltaViaje.Size = new System.Drawing.Size(242, 20);
@@ -100,6 +102,7 @@
             // 
             // tbEncomiendaAltaMicro
             // 
+            this.tbEncomiendaAltaMicro.Enabled = false;
             this.tbEncomiendaAltaMicro.Location = new System.Drawing.Point(91, 58);
             this.tbEncomiendaAltaMicro.Name = "tbEncomiendaAltaMicro";
             this.tbEncomiendaAltaMicro.Size = new System.Drawing.Size(242, 20);
@@ -152,6 +155,7 @@
             this.Controls.Add(this.lblEncomiendaAltaDniCliente);
             this.Name = "EncomiendaAlta";
             this.Text = "Alta Encomiendas";
+            this.Load += new System.EventHandler(this.EncomiendaAlta_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

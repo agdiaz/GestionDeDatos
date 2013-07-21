@@ -10,6 +10,7 @@ using FrbaBus.Common.Entidades;
 using FrbaBus.Manager;
 using FrbaBus.Common.Helpers;
 using FrbaBus.Abm_Clientes;
+using FrbaBus.Common.Excepciones;
 
 namespace FrbaBus.Compras
 {
@@ -18,6 +19,7 @@ namespace FrbaBus.Compras
 
         private PasajeManager _manager;
         private Viaje _viaje;
+        private Cliente cliente = null;
         public Encomienda EncomiendaNuevo { get; set; }
 
         public EncomiendaAlta(Viaje v)
@@ -29,29 +31,53 @@ namespace FrbaBus.Compras
 
         private void btnEncomiendaAltaGuardar_Click(object sender, EventArgs e)
         {
-            Encomienda encomienda = new Encomienda();
+            try
+            {
+                Encomienda encomienda = new Encomienda();
 
-            encomienda.NroDni = Convert.ToInt32(tbEncomiendaAltaDniCliente.Text);
-            encomienda.IdViaje = Convert.ToInt32(tbEncomiendaAltaViaje.Text);
-            encomienda.Peso = Convert.ToDecimal(tbEncomiendaAltaPesoKg.Text);
-//            encomienda.PrecioEncomienda = Convert.ToDecimal(tbPrecio.text);
+                encomienda.NroDni = cliente.NroDni;
+                encomienda.IdViaje = _viaje.Id;
+                encomienda.Peso = Convert.ToDecimal(tbEncomiendaAltaPesoKg.Text);
 
-            MensajePorPantalla.MensajeInformativo(this, "Se dio de alta la solicitud de encomienda");
-            EncomiendaNuevo = encomienda;
+                MensajePorPantalla.MensajeInformativo(this, "Se dio de alta la solicitud de encomienda");
+                EncomiendaNuevo = encomienda;
 
-            this.Close();
+                this.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
 
         }
 
         private void btnEncomiendaAltaDniCliente_Click(object sender, EventArgs e)
         {
-            Cliente cliente = null;
-            using (ClienteListado frm = new ClienteListado(true))
+            try
             {
-                frm.ShowDialog(this);
-                cliente = frm.ClienteSeleccionado();
+                using (ClienteListado frm = new ClienteListado(true))
+                {
+                    frm.ShowDialog(this);
+                    cliente = frm.ClienteSeleccionado();
+                }
+                if (cliente != null)
+                    tbEncomiendaAltaDniCliente.Text = cliente.NroDni.ToString();
             }
-            tbEncomiendaAltaDniCliente.Text = cliente.NroDni.ToString();
+            catch (AccesoBDException ex)
+            {
+                MensajePorPantalla.MensajeExceptionBD(this, ex);
+            }
+            catch (Exception ex)
+            {
+                MensajePorPantalla.MensajeError(this, "Error al intentar modificar el registro.\n Detalle del error: " + ex.Message);
+            }
+        }
+
+        private void EncomiendaAlta_Load(object sender, EventArgs e)
+        {
+            this.tbEncomiendaAltaMicro.Text = _viaje.Micro.Informacion;
+            tbEncomiendaAltaViaje.Text = _viaje.Informacion;
+
         }
     }
 }
